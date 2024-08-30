@@ -19,7 +19,7 @@ PREVIEW_SORUCE_CERT_NAME="certificate-${PREVIEW_NAME}"
 
 NXPOD_AGENT_SMITH_TOKEN="$(openssl rand -hex 30)"
 NXPOD_AGENT_SMITH_TOKEN_HASH="$(echo -n "$NXPOD_AGENT_SMITH_TOKEN" | sha256sum - | tr -d '  -')"
-NXPOD_CONTAINER_REGISTRY_URL="eu.gcr.io/nxpod-dev-artifact/image-build/";
+NXPOD_CONTAINER_REGISTRY_URL="ghcr.io/nxpod-dev-artifact/image-build/";
 NXPOD_IMAGE_PULL_SECRET_NAME="image-pull-secret";
 NXPOD_PROXY_SECRET_NAME="proxy-config-certificates";
 NXPOD_ANALYTICS="${NXPOD_ANALYTICS:-}"
@@ -46,7 +46,7 @@ INSTALLER_RENDER_PATH="k8s.yaml" # k8s.yaml is hardcoded in post-prcess.sh - we 
 # Or just build it and get it from there
 if ! test -f "/tmp/versions.yaml"; then
   ec=0
-  docker run --rm "eu.gcr.io/nxpod-dev-artifact/build/versions:$VERSION" cat /versions.yaml > /tmp/versions.yaml || ec=$?
+  docker run --rm "ghcr.io/nxpod-dev-artifact/build/versions:$VERSION" cat /versions.yaml > /tmp/versions.yaml || ec=$?
   if [[ ec -ne 0 ]];then
       VERSIONS_TMP_ZIP=$(mktemp "/tmp/XXXXXX.installer.tar.gz")
       leeway build components:all-docker \

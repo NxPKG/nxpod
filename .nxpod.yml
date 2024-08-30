@@ -1,4 +1,4 @@
-image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+image: ghcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
 workspaceLocation: nxpod/nxpod-ws.code-workspace
 checkoutLocation: nxpod
 ports:

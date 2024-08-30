@@ -26,7 +26,7 @@ observability:
   logLevel: info
 openVSX:
   url: https://open-vsx.org
-repository: eu.gcr.io/nxpod-core-dev/build
+repository: ghcr.io/nxpod-core-dev/build
 workspace:
   maxLifetime: 36h0m0s
   resources:

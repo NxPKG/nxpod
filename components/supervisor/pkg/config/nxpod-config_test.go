@@ -26,7 +26,7 @@ func TestNxpodConfig(t *testing.T) {
 		{
 			Desc: "parsing",
 			Content: `
-image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:clu-yq4.1
+image: ghcr.io/nxpkg/dev/dev-environment:clu-yq4.1
 workspaceLocation: nxpod/nxpod-ws.code-workspace
 checkoutLocation: nxpod
 ports:
@@ -45,7 +45,7 @@ vscode:
     - hangxingliu.vscode-nginx-conf-hint@0.1.0:UATTe2sTFfCYWQ3jw4IRsw==
     - zxh404.vscode-proto3@0.4.2:ZnPmyF/Pb8AIWeCqc83gPw==`,
 			Expectation: &nxpod.NxpodConfig{
-				Image:             "eu.gcr.io/nxpod-core-dev/dev/dev-environment:clu-yq4.1",
+				Image:             "ghcr.io/nxpkg/dev/dev-environment:clu-yq4.1",
 				WorkspaceLocation: "nxpod/nxpod-ws.code-workspace",
 				CheckoutLocation:  "nxpod",
 				Ports: []*nxpod.PortsItems{

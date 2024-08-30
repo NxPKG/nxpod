@@ -58,7 +58,7 @@ var runCmd = &cobra.Command{
 			ServicePrefix: "will-be-overriden",
 			Spec: &api.StartWorkspaceSpec{
 				IdeImage: &api.IDEImage{
-					WebRef: "eu.gcr.io/nxpod-core-dev/build/ide/code:commit-8c1466008dedabe79d82cbb91931a16f7ce7994c",
+					WebRef: "ghcr.io/nxpkg/build/ide/code:commit-8c1466008dedabe79d82cbb91931a16f7ce7994c",
 				},
 				Admission: api.AdmissionLevel_ADMIT_OWNER_ONLY,
 				Git: &api.GitSpec{
@@ -80,7 +80,7 @@ var runCmd = &cobra.Command{
 					},
 				},
 				Timeout:           "5m",
-				WorkspaceImage:    "eu.gcr.io/nxpod-dev/workspace-images:3fcaad7ba5a5a4695782cb4c366b82f927f1e6c1cf0c88fd4f14d985f7eb21f6",
+				WorkspaceImage:    "ghcr.io/nxpod-dev/workspace-images:3fcaad7ba5a5a4695782cb4c366b82f927f1e6c1cf0c88fd4f14d985f7eb21f6",
 				WorkspaceLocation: "nxpod",
 				Envvars: []*api.EnvironmentVariable{
 					{

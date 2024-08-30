@@ -1,7 +1,7 @@
 # this file makes this a leeway workspace
 defaultTarget: components:all
 defaultArgs:
-  imageRepoBase: "eu.gcr.io/nxpod-dev-artifact/build"
+  imageRepoBase: "ghcr.io/nxpod-dev-artifact/build"
   coreYarnLockBase: ../..
   npmPublishTrigger: "false"
   publishToNPM: true

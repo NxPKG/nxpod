@@ -34,10 +34,10 @@ func main() {
 			},
 			Type: workspacev1.WorkspaceTypeRegular,
 			Image: workspacev1.WorkspaceImages{
-				Workspace: workspacev1.WorkspaceImage{Ref: pointer.String("eu.gcr.io/nxpod-dev/workspace-images:c80f600433dad18e4dc852b26367da732536f5dcf69dc813af8fe58f5eb73b16")},
+				Workspace: workspacev1.WorkspaceImage{Ref: pointer.String("ghcr.io/nxpod-dev/workspace-images:c80f600433dad18e4dc852b26367da732536f5dcf69dc813af8fe58f5eb73b16")},
 				IDE: workspacev1.IDEImages{
-					Web:        "eu.gcr.io/nxpod-core-dev/build/ide/code:nightly@sha256:5ad86443d01645a1c7011938ccac4b5ebbaffb0cf4b55ee51ee45296bfd5804b",
-					Supervisor: "eu.gcr.io/nxpod-core-dev/build/supervisor:commit-5d5781983089056e37d34c762f1f291b9a796357",
+					Web:        "ghcr.io/nxpkg/build/ide/code:nightly@sha256:5ad86443d01645a1c7011938ccac4b5ebbaffb0cf4b55ee51ee45296bfd5804b",
+					Supervisor: "ghcr.io/nxpkg/build/supervisor:commit-5d5781983089056e37d34c762f1f291b9a796357",
 				},
 			},
 			Initializer:       initializer,

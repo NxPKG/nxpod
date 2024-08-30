@@ -2,7 +2,7 @@
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
-FROM eu.gcr.io/nxpod-core-dev/build/buildkit:v0.12.5-nxpod.0
+FROM ghcr.io/nxpkg/build/buildkit:v0.12.5-nxpod.0
 
 USER root
 RUN apk --no-cache add sudo bash \

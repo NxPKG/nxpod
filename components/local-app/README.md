@@ -53,7 +53,7 @@ To create a new version that existing clients will consume increment the number 
 ### How to install
 
 ```
-docker run --rm -it -v /tmp/dest:/out eu.gcr.io/nxpod-core-dev/build/local-app:<version>
+docker run --rm -it -v /tmp/dest:/out ghcr.io/nxpkg/build/local-app:<version>
 ```
 
 ### How to run

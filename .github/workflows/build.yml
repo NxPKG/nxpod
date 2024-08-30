@@ -90,7 +90,7 @@ jobs:
             echo "with_integration_tests=$(echo "$PR_DESC" | grep -oiP '(?<=\[x\] with-integration-tests=).*?(?=\s*$)')"
             echo "analytics=$(echo "$PR_DESC" | grep -oiP '(?<=\[x\] analytics=).*?(?=\s*$)')"
             echo "leeway_cache_bucket=$([[ "$MAIN_BRANCH"  = "true" ]] && echo "leeway-cache-main-c514a01" || echo "leeway-cache-dev-3ac8ef5")"
-            echo "image_repo_base=$([[ "$MAIN_BRANCH"  = "true" ]] && echo "eu.gcr.io/nxpod-core-dev" || echo "eu.gcr.io/nxpod-dev-artifact")"
+            echo "image_repo_base=$([[ "$MAIN_BRANCH"  = "true" ]] && echo "ghcr.io/nxpkg" || echo "ghcr.io/nxpod-dev-artifact")"
           } >> $GITHUB_OUTPUT
 
   build-previewctl:
@@ -104,7 +104,7 @@ jobs:
       cancel-in-progress: ${{ needs.configuration.outputs.is_main_branch == 'false' }}
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
     steps:
       - uses: actions/checkout@v4
       - name: Setup Environment
@@ -171,7 +171,7 @@ jobs:
         ports:
           - 6379:6379
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
       env:
         DB_HOST: "mysql"
         DB_PORT: "23306"
@@ -416,7 +416,7 @@ jobs:
       - create-runner
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
     if: needs.configuration.outputs.with_integration_tests != ''
     concurrency:
       group: ${{ needs.configuration.outputs.preview_name }}-integration-test

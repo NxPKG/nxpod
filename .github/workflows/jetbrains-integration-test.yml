@@ -39,7 +39,7 @@ jobs:
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
   jetbrains-smoke-test-linux:
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
     runs-on: ${{ needs.create-runner.outputs.label }}
     needs: [create-runner]
     steps:

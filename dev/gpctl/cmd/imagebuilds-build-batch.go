@@ -87,7 +87,7 @@ func buildWorkspaceImage(wg *sync.WaitGroup, ctx context.Context, client builder
 			},
 		},
 		// TODO: this shouldn't be hard coded
-		SupervisorRef: "eu.gcr.io/nxpod-core-dev/build/supervisor:commit-4cb5b6b9c0e993f3964e978e387fb0e7c1c04276",
+		SupervisorRef: "ghcr.io/nxpkg/build/supervisor:commit-4cb5b6b9c0e993f3964e978e387fb0e7c1c04276",
 		TriggeredBy:   "c0f5dbf1-8d50-4d2a-8cd9-fe563fa53c71",
 	})
 	if err != nil {

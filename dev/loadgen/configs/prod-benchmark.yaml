@@ -2,7 +2,7 @@
 ##    loadgen benchmark prod-benchmark.yaml
 
 workspaces: 100
-ideImage: eu.gcr.io/nxpod-core-dev/build/ide/code:commit-ff263e14024f00d0ed78386b4417dfa6bcd4ae2f
+ideImage: ghcr.io/nxpkg/build/ide/code:commit-ff263e14024f00d0ed78386b4417dfa6bcd4ae2f
 # wait 30s longer than the CPU and memory timeouts
 waitForRunning: "630s"
 # wait 30s longer than the CPU and memory timeouts

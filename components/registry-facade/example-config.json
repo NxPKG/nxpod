@@ -23,7 +23,7 @@
     "port": 8081,
     "timeout": "5s",
     "repos": {
-      "eu.gcr.io/nxpod-core-dev/build/theia-ide": {
+      "ghcr.io/nxpkg/build/theia-ide": {
         "prePull": ["master.28"],
         "workdir": "/theia/node_modules/@nxpod/nxpod-ide/lib"
       }

@@ -5,5 +5,5 @@
 package config
 
 var (
-	NxpodContainerRegistry = "eu.gcr.io/nxpod-dev-artifact/build"
+	NxpodContainerRegistry = "ghcr.io/nxpod-dev-artifact/build"
 )

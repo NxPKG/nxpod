@@ -18,9 +18,9 @@ on:
         required: false
         description: "The base repo of image"
         options:
-          - "eu.gcr.io/nxpod-core-dev/build"
-          - "eu.gcr.io/nxpod-dev-artifact/build"
-        default: "eu.gcr.io/nxpod-core-dev/build"
+          - "ghcr.io/nxpkg/build"
+          - "ghcr.io/nxpod-dev-artifact/build"
+        default: "ghcr.io/nxpkg/build"
       skip_deploy:
         required: false
         type: boolean
@@ -43,7 +43,7 @@ on:
         type: string
         required: false
         description: "The base repo of image"
-        default: "eu.gcr.io/nxpod-core-dev/build"
+        default: "ghcr.io/nxpkg/build"
   schedule:
     - cron: "0 3,12 * * *"
 
@@ -61,7 +61,7 @@ jobs:
     runs-on: ${{ needs.create-runner.outputs.label }}
     needs: [create-runner]
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
     outputs:
       name: ${{ steps.configuration.outputs.name }}
       version: ${{ steps.configuration.outputs.version }}
@@ -112,7 +112,7 @@ jobs:
               } >> $GITHUB_OUTPUT
           else
               {
-                  echo "image_repo_base=eu.gcr.io/nxpod-core-dev/build"
+                  echo "image_repo_base=ghcr.io/nxpkg/build"
               } >> $GITHUB_OUTPUT
           fi
       - name: Slack Notification
@@ -162,7 +162,7 @@ jobs:
     needs: [configuration, infrastructure, create-runner]
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
     steps:
       - uses: actions/checkout@v4
       - name: Integration Test

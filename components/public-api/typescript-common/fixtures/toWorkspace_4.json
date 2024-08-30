@@ -37,12 +37,12 @@
     "phasePersisted": "running",
     "deleted": false,
     "configuration": {
-      "ideImage": "eu.gcr.io/nxpod-core-dev/build/ide/code:commit-e77f3a07ea76bbb404d3f6bf4af36269afc45df1",
+      "ideImage": "ghcr.io/nxpkg/build/ide/code:commit-e77f3a07ea76bbb404d3f6bf4af36269afc45df1",
       "ideImageLayers": [
-        "eu.gcr.io/nxpod-core-dev/build/ide/nxpod-code-web:commit-49bb715b599dce2356dd02a6ede7ae8cf10d8d12",
-        "eu.gcr.io/nxpod-core-dev/build/ide/code-codehelper:commit-18a48e2ccb779a268355d2b58a167c73de023547"
+        "ghcr.io/nxpkg/build/ide/nxpod-code-web:commit-49bb715b599dce2356dd02a6ede7ae8cf10d8d12",
+        "ghcr.io/nxpkg/build/ide/code-codehelper:commit-18a48e2ccb779a268355d2b58a167c73de023547"
       ],
-      "supervisorImage": "eu.gcr.io/nxpod-core-dev/build/supervisor:commit-cda78d5706672b9a41e15d84a128cdb24357ad87",
+      "supervisorImage": "ghcr.io/nxpkg/build/supervisor:commit-cda78d5706672b9a41e15d84a128cdb24357ad87",
       "ideConfig": {
         "useLatest": false,
         "ide": "code"

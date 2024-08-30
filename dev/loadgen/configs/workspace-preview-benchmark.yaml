@@ -1,5 +1,5 @@
 workspaces: 12
-ideImage: eu.gcr.io/nxpod-core-dev/build/ide/code:commit-ff263e14024f00d0ed78386b4417dfa6bcd4ae2f
+ideImage: ghcr.io/nxpkg/build/ide/code:commit-ff263e14024f00d0ed78386b4417dfa6bcd4ae2f
 waitForRunning: "630s"
 waitForStopping: "630s"
 successRate: 1

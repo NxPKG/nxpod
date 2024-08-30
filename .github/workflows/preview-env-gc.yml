@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ needs.create-runner.outputs.label }}
     needs: [create-runner]
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
     outputs:
       names: ${{ steps.set-matrix.outputs.names }}
       count: ${{ steps.set-matrix.outputs.count }}

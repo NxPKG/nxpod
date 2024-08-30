@@ -32,7 +32,7 @@ fi
 
 echo "=== Gathering list of _all_ images for $VERSION"
 INSTALLER="$TMP/installer"
-"$OCI_TOOL" fetch file -o "$INSTALLER" --platform=linux-amd64 "eu.gcr.io/nxpod-core-dev/build/installer:${VERSION}" app/installer
+"$OCI_TOOL" fetch file -o "$INSTALLER" --platform=linux-amd64 "ghcr.io/nxpkg/build/installer:${VERSION}" app/installer
 echo ""
 chmod +x "$INSTALLER"
 # Extract list of images

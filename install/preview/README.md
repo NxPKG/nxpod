@@ -7,7 +7,7 @@ simple as possible.
 ## Installation
 
 ```bash
-docker run --privileged --name nxpod --rm -it -v /tmp/nxpod:/var/nxpod eu.gcr.io/nxpod-core-dev/build/preview-install
+docker run --privileged --name nxpod --rm -it -v /tmp/nxpod:/var/nxpod ghcr.io/nxpod-core-dev/build/preview-install
 ```
 
 Once the above command starts running and the pods are ready (can be checked by running `docker exec nxpod kubectl get pods`),

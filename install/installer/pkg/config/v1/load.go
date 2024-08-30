@@ -33,7 +33,7 @@ func LoadMock() *Config {
 		Metadata: Metadata{
 			Region: "eu-west1",
 		},
-		Repository: "eu.gcr.io/nxpod-core-dev/build",
+		Repository: "ghcr.io/nxpod-core-dev/build",
 		Observability: Observability{
 			LogLevel: "debug",
 		},

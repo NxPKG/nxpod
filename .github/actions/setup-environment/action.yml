@@ -29,7 +29,7 @@ runs:
       name: configure env variables
       shell: bash
       run: |
-        gcloud auth configure-docker eu.gcr.io --quiet
+        gcloud auth configure-docker ghcr.io --quiet
 
         {
             echo "LEEWAY_SEGMENT_KEY=${{ inputs.leeway_segment_key }}"

@@ -20,9 +20,9 @@ on:
         required: false
         description: "The base repo of image"
         options:
-          - "eu.gcr.io/nxpod-core-dev/build"
-          - "eu.gcr.io/nxpod-dev-artifact/build"
-        default: "eu.gcr.io/nxpod-core-dev/build"
+          - "ghcr.io/nxpkg/build"
+          - "ghcr.io/nxpod-dev-artifact/build"
+        default: "ghcr.io/nxpkg/build"
 
 jobs:
   create-runner:
@@ -57,7 +57,7 @@ jobs:
               {
                   echo "version=main-gha.${{ github.event.workflow_run.run_number }}"
                   echo "name=preview-regression-check-main-${{ github.run_id }}-${{ github.run_attempt }}"
-                  echo "image_repo_base=eu.gcr.io/nxpod-core-dev/build"
+                  echo "image_repo_base=ghcr.io/nxpkg/build"
                   echo "skip=${{ github.event.workflow_run.conclusion == 'failure' }}"
               } >> $GITHUB_OUTPUT
           fi
@@ -99,7 +99,7 @@ jobs:
     if: ${{ needs.configuration.outputs.skip == 'false' }}
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: ghcr.io/nxpkg/dev/dev-environment:pd-test-new-preview-gha.24525
       volumes:
         - /var/tmp:/var/tmp
         - /tmp:/tmp
