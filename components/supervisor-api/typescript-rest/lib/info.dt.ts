@@ -36,11 +36,11 @@ declare namespace Definitions {
         /**
          * GitpodAPI provides information to reach the Gitpod server API.
          */
-        gitpodApi?: WorkspaceInfoResponseGitpodAPI;
+        nxpodApi?: WorkspaceInfoResponseGitpodAPI;
         /**
-         * gitpod_host provides Gitpod host URL.
+         * nxpod_host provides Gitpod host URL.
          */
-        gitpodHost?: string;
+        nxpodHost?: string;
         /**
          * workspace_context_url is an URL for which the workspace was created.
          */

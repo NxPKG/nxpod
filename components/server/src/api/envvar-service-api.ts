@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { EnvironmentVariableService as EnvironmentVariableServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/envvar_connect";
+import { EnvironmentVariableService as EnvironmentVariableServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/envvar_connect";
 import {
     ListUserEnvironmentVariablesRequest,
     ListUserEnvironmentVariablesResponse,
@@ -27,15 +27,15 @@ import {
     ResolveWorkspaceEnvironmentVariablesResponse,
     ResolveWorkspaceEnvironmentVariablesRequest,
     EnvironmentVariable,
-} from "@gitpod/public-api/lib/gitpod/v1/envvar_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/envvar_pb";
 import { inject, injectable } from "inversify";
 import { EnvVarService } from "../user/env-var-service";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
-import { ProjectEnvVarWithValue, UserEnvVarValue } from "@gitpod/gitpod-protocol";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
+import { ProjectEnvVarWithValue, UserEnvVarValue } from "@nxpod/nxpod-protocol";
 import { WorkspaceService } from "../workspace/workspace-service";
 import { ctxUserId } from "../util/request-context";
 import { validate as uuidValidate } from "uuid";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 @injectable()
 export class EnvironmentVariableServiceAPI implements ServiceImpl<typeof EnvironmentVariableServiceInterface> {

@@ -1,8 +1,8 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-//go:generate mockgen -package mock github.com/gitpod-io/gitpod/registry-facade/pkg/registry LayerSource > pkg/registry/mock/layersource_mock.go
+//go:generate mockgen -package mock github.com/nxpkg/nxpod/registry-facade/pkg/registry LayerSource > pkg/registry/mock/layersource_mock.go
 
 package registry_test
 
@@ -13,8 +13,8 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/opencontainers/go-digest"
 
-	"github.com/gitpod-io/gitpod/registry-facade/pkg/registry"
-	"github.com/gitpod-io/gitpod/registry-facade/pkg/registry/mock"
+	"github.com/nxpkg/nxpod/registry-facade/pkg/registry"
+	"github.com/nxpkg/nxpod/registry-facade/pkg/registry/mock"
 )
 
 func TestRevisioingLayerSource(t *testing.T) {

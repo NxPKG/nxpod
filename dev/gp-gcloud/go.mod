@@ -1,9 +1,9 @@
-module github.com/gitpod-io/gitpod/gp-gcloud
+module github.com/nxpkg/nxpod/gp-gcloud
 
 go 1.22
 
 require (
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
 	github.com/spf13/cobra v1.5.0
 	golang.org/x/net v0.19.0
 	golang.org/x/oauth2 v0.5.0
@@ -15,7 +15,7 @@ require (
 	cloud.google.com/go/compute/metadata v0.2.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/uuid v1.3.0 // indirect
@@ -41,9 +41,9 @@ require (
 	google.golang.org/protobuf v1.33.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../components/common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../components/common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../components/scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../components/scrubber // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

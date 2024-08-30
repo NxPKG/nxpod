@@ -2,14 +2,14 @@
     "result": {
         "id": "007a807f-f2a7-436b-a77f-66ed11ee7828",
         "organizationId": "6f5b2707-c83f-4e04-a37c-23d1b1d385ae",
-        "name": "Gitpod Tester",
+        "name": "Nxpod Tester",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37021919?v=4",
         "createdAt": "2023-12-04T08:54:31.686Z",
         "identities": [
             {
                 "authProviderId": "Public-GitHub",
                 "authId": "37021919",
-                "authName": "GitpodTester",
+                "authName": "NxpodTester",
                 "primaryEmail": "tester@gitpod.io"
             }
         ],
@@ -54,7 +54,7 @@
         },
         "workspaceAutostartOptions": [
             {
-                "cloneUrl": "https://github.com/gitpod-io/gitpod",
+                "cloneUrl": "https://github.com/nxpkg/nxpod",
                 "organizationId": "6f5b2707-c83f-4e04-a37c-23d1b1d385ae",
                 "workspaceClass": "XXXL",
                 "editorSettings": {

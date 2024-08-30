@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/components/spicedb/codegen
+module github.com/nxpkg/nxpod/components/spicedb/codegen
 
 go 1.22
 

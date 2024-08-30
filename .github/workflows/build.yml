@@ -18,7 +18,7 @@ on:
 
 jobs:
   create-runner:
-    uses: gitpod-io/gce-github-runner/.github/workflows/create-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/create-vm.yml@main
     secrets:
       runner_token: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_TOKEN }}
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
@@ -90,7 +90,7 @@ jobs:
             echo "with_integration_tests=$(echo "$PR_DESC" | grep -oiP '(?<=\[x\] with-integration-tests=).*?(?=\s*$)')"
             echo "analytics=$(echo "$PR_DESC" | grep -oiP '(?<=\[x\] analytics=).*?(?=\s*$)')"
             echo "leeway_cache_bucket=$([[ "$MAIN_BRANCH"  = "true" ]] && echo "leeway-cache-main-c514a01" || echo "leeway-cache-dev-3ac8ef5")"
-            echo "image_repo_base=$([[ "$MAIN_BRANCH"  = "true" ]] && echo "eu.gcr.io/gitpod-core-dev" || echo "eu.gcr.io/gitpod-dev-artifact")"
+            echo "image_repo_base=$([[ "$MAIN_BRANCH"  = "true" ]] && echo "eu.gcr.io/nxpod-core-dev" || echo "eu.gcr.io/nxpod-dev-artifact")"
           } >> $GITHUB_OUTPUT
 
   build-previewctl:
@@ -104,7 +104,7 @@ jobs:
       cancel-in-progress: ${{ needs.configuration.outputs.is_main_branch == 'false' }}
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
     steps:
       - uses: actions/checkout@v4
       - name: Setup Environment
@@ -149,12 +149,12 @@ jobs:
           recreate_vm: ${{ inputs.recreate_vm }}
           image_repo_base: ${{needs.configuration.outputs.image_repo_base}}/build
 
-  build-gitpod:
-    name: Build Gitpod
+  build-nxpod:
+    name: Build Nxpod
     needs: [ configuration, create-runner ]
     runs-on: ${{ needs.create-runner.outputs.label }}
     concurrency:
-      group: ${{ github.ref == 'refs/heads/main' && github.run_id || github.sha }}-build-gitpod
+      group: ${{ github.ref == 'refs/heads/main' && github.run_id || github.sha }}-build-nxpod
       cancel-in-progress: ${{ needs.configuration.outputs.is_main_branch == 'false' }}
     services:
       mysql:
@@ -171,7 +171,7 @@ jobs:
         ports:
           - 6379:6379
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
       env:
         DB_HOST: "mysql"
         DB_PORT: "23306"
@@ -201,7 +201,7 @@ jobs:
       - name: Dev Build
         id: dev-build
         env:
-          JAVA_HOME: /home/gitpod/.sdkman/candidates/java/current
+          JAVA_HOME: /home/nxpod/.sdkman/candidates/java/current
           VERSION: ${{needs.configuration.outputs.version}}
           LEEWAY_REMOTE_CACHE_BUCKET: ${{needs.configuration.outputs.leeway_cache_bucket}}
           IMAGE_REPO_BASE: ${{needs.configuration.outputs.image_repo_base}}/dev
@@ -234,7 +234,7 @@ jobs:
         shell: bash
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
-          JAVA_HOME: /home/gitpod/.sdkman/candidates/java/current
+          JAVA_HOME: /home/nxpod/.sdkman/candidates/java/current
           VERSION: ${{needs.configuration.outputs.version}}
           PR_NO_CACHE: ${{needs.configuration.outputs.build_no_cache}}
           PR_NO_TEST: ${{needs.configuration.outputs.build_no_test}}
@@ -291,19 +291,19 @@ jobs:
           git push origin ${VERSION}
         env:
           GITHUB_USER: roboquat
-          GITHUB_EMAIL: roboquat@gitpod.io
+          GITHUB_EMAIL: roboquat@nxpod.io
           VERSION: ${{ needs.configuration.outputs.version }}
 
   install-app:
     runs-on: ${{ needs.create-runner.outputs.label }}
-    needs: [ configuration, build-gitpod, create-runner ]
+    needs: [ configuration, build-nxpod, create-runner ]
     if: ${{ needs.configuration.outputs.is_main_branch == 'true' }}
     strategy:
       fail-fast: false
       matrix:
         env: [ staging, production ]
     steps:
-      - uses: gitpod-io/gh-app-auth@v0.1
+      - uses: nxpkg/gh-app-auth@v0.1
         id: auth
         with:
           private-key: ${{ secrets.ACTIONS_APP_PKEY }}
@@ -316,12 +316,12 @@ jobs:
           script: |
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
-              repo: 'gitpod-dedicated',
+              repo: 'nxpod-dedicated',
               workflow_id: 'install-app.yaml',
               ref: 'main',
               inputs: {
                 "version": '${{ needs.configuration.outputs.version }}',
-                "repo": "https://github.com/gitpod-io/gitpod",
+                "repo": "https://github.com/nxpkg/nxpod",
                 "commit": "${{github.sha}}",
                 "release": "${{ matrix.env }}",
                 "env": "${{ matrix.env }}"
@@ -329,11 +329,11 @@ jobs:
             })
 
   install:
-    name: "Install Gitpod"
+    name: "Install Nxpod"
     needs:
       - configuration
       - build-previewctl
-      - build-gitpod
+      - build-nxpod
       - infrastructure
       - create-runner
     runs-on: ${{ needs.create-runner.outputs.label }}
@@ -348,9 +348,9 @@ jobs:
           identity_provider: ${{ secrets.DEV_PREVIEW_PROVIDER }}
           service_account: ${{ secrets.DEV_PREVIEW_SA }}
           leeway_segment_key: ${{ secrets.LEEWAY_SEGMENT_KEY }}
-      - name: Deploy Gitpod to the preview environment
-        id: deploy-gitpod
-        uses: ./.github/actions/deploy-gitpod
+      - name: Deploy Nxpod to the preview environment
+        id: deploy-nxpod
+        uses: ./.github/actions/deploy-nxpod
         with:
           name: ${{ needs.configuration.outputs.preview_name }}
           version: ${{needs.configuration.outputs.version}}
@@ -359,12 +359,12 @@ jobs:
           workspace_feature_flags: ${{needs.configuration.outputs.workspace_feature_flags}}
           image_repo_base: ${{needs.configuration.outputs.image_repo_base}}/build
       - uses: actions/github-script@v6
-        if: needs.configuration.outputs.pr_number != '' && contains(needs.configuration.outputs.pr_body, 'gitpod:summary')
+        if: needs.configuration.outputs.pr_number != '' && contains(needs.configuration.outputs.pr_body, 'nxpod:summary')
         with:
           script: |
             const prNumber = ${{ needs.configuration.outputs.pr_number }};
 
-            const summaryEncoded = `${{ steps.deploy-gitpod.outputs.report }}`;
+            const summaryEncoded = `${{ steps.deploy-nxpod.outputs.report }}`;
             const summary = Buffer.from(summaryEncoded, 'base64').toString('utf8');
 
             const { data: pr } = await github.rest.pulls.get({
@@ -374,7 +374,7 @@ jobs:
 
             const prBody = pr.body;
 
-            const newBody = prBody.replace('gitpod:summary', summary);
+            const newBody = prBody.replace('nxpod:summary', summary);
 
             await github.rest.pulls.update({
               ...context.repo,
@@ -410,13 +410,13 @@ jobs:
     needs:
       - configuration
       - build-previewctl
-      - build-gitpod
+      - build-nxpod
       - infrastructure
       - install
       - create-runner
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
     if: needs.configuration.outputs.with_integration_tests != ''
     concurrency:
       group: ${{ needs.configuration.outputs.preview_name }}-integration-test
@@ -445,7 +445,7 @@ jobs:
     name: "Run workspace integration tests on main branch"
     needs:
       - configuration
-      - build-gitpod
+      - build-nxpod
       - create-runner
     if: needs.configuration.outputs.is_main_branch == 'true'
     uses: ./.github/workflows/workspace-integration-tests.yml
@@ -457,7 +457,7 @@ jobs:
     name: "Run VS Code update jobs on main branch"
     needs:
       - configuration
-      - build-gitpod
+      - build-nxpod
       - create-runner
     if: needs.configuration.outputs.is_main_branch == 'true'
     uses: ./.github/workflows/code-updates.yml
@@ -467,7 +467,7 @@ jobs:
     name: "Run JetBrains update jobs on main branch"
     needs:
       - configuration
-      - build-gitpod
+      - build-nxpod
       - create-runner
     if: needs.configuration.outputs.is_main_branch == 'true'
     uses: ./.github/workflows/jetbrains-updates.yml
@@ -480,12 +480,12 @@ jobs:
       - configuration
       - build-previewctl
       - infrastructure
-      - build-gitpod
+      - build-nxpod
       - install-app
       - install
       - monitoring
       - integration-test
-    uses: gitpod-io/gce-github-runner/.github/workflows/delete-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/delete-vm.yml@main
     secrets:
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
     with:

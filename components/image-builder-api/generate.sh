@@ -26,7 +26,7 @@ pushd go
 
 mockgen \
     -package mock \
-    github.com/gitpod-io/gitpod/image-builder/api ImageBuilderClient,ImageBuilder_BuildClient,ImageBuilder_LogsClient,ImageBuilderServer,ImageBuilder_BuildServer,ImageBuilder_LogsServer > mock/mock.go
+    github.com/nxpkg/nxpod/image-builder/api ImageBuilderClient,ImageBuilder_BuildClient,ImageBuilder_LogsClient,ImageBuilderServer,ImageBuilder_BuildServer,ImageBuilder_LogsServer > mock/mock.go
 
 # return to previous directory
 popd

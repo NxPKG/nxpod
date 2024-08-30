@@ -1,5 +1,5 @@
 {
-  "name": "@gitpod/ide-metrics-api-grpcweb",
+  "name": "@nxpod/ide-metrics-api-grpcweb",
   "version": "0.0.1",
   "license": "UNLICENSED",
   "main": "lib/index.js",

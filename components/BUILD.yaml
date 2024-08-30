@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -13,7 +13,7 @@ packages:
       - :publish-api
       - dev:all-app
       - install/installer:docker
-      - components/gitpod-protocol:all
+      - components/nxpod-protocol:all
   - name: docker-versions
     type: docker
     config:
@@ -33,12 +33,12 @@ packages:
       - components/dashboard:docker
       - components/docker-up:docker
       - components/ee/agent-smith:docker
-      - components/gitpod-db:docker
+      - components/nxpod-db:docker
       - components/ide/code-desktop:docker
       - components/ide/code-desktop:docker-insiders
       - components/ide/code:docker
       - components/ide/code/codehelper:docker
-      - components/ide/code/gitpod-web-extension:docker
+      - components/ide/code/nxpod-web-extension:docker
       - components/ide/xterm:docker
       - components/ide/jetbrains/launcher:docker
       - components/ide/jetbrains/backend-plugin:stable
@@ -99,7 +99,7 @@ packages:
     deps:
       - components/ide-metrics-api/typescript-grpc:publish
       - components/ide-metrics-api/typescript-grpcweb:publish
-      - components/gitpod-protocol:publish
+      - components/nxpod-protocol:publish
       - components/local-app-api/typescript-grpcweb:publish
       - components/supervisor-api/typescript-grpc:publish
       - components/supervisor-api/typescript-grpcweb:publish
@@ -218,7 +218,7 @@ scripts:
         exit 1
       fi
       query="select name, blocked from d_b_user limit 10;"
-      result=$(mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod)
+      result=$(mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod)
 
       printf "\nCurrent context:           $(kubectx -c)"
       printf "\nCurrent namespace:         $(kubens -c)\n"
@@ -231,12 +231,12 @@ scripts:
       else
         echo "User: $user"
         query="update d_b_user set blocked=0 where name=\"$user\";"
-        mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod
+        mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod
       fi
 
       printf "\nFGA: Reset fgaRelationshipsVersion for $user...\n"
       query="update d_b_user set additionalData = JSON_REMOVE(additionalData, '$.fgaRelationshipsVersion') where name=\"$user\";"
-      mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod
+      mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod
       if [ $? -ne 0 ]; then
         echo "error resetting fgaRelationshipsVersion"
         kill $PID || true
@@ -262,7 +262,7 @@ scripts:
         exit 1
       fi
       query="select name, rolesOrPermissions from d_b_user limit 10;"
-      result=$(mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod)
+      result=$(mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod)
 
       printf "\nCurrent context:           $(kubectx -c)"
       printf "\nCurrent namespace:         $(kubens -c)\n"
@@ -275,7 +275,7 @@ scripts:
       else
         echo "User: $user"
         query="update d_b_user set rolesOrPermissions = '[\"admin\", \"admin-permissions\"]', fgaRelationshipsVersion=0 where name=\"$user\";"
-        mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod
+        mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod
       fi
       kill $PID || true
 
@@ -317,9 +317,9 @@ scripts:
       fi
 
       query="insert into d_b_user(id,name,creationDate,rolesOrPermissions,additionalData) values('builtin-user-agent-smith-0000000', 'agent-smith', DATE_FORMAT(NOW(3), '%Y-%m-%dT%T.%fZ'),'[\"admin\"]','{\"emailNotificationSettings\": {\"allowsChangelogMail\": false, \"allowsOnboardingMail\": true}}') on duplicate key update id=id;"
-      mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod
+      mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod
 
-      query="insert into d_b_gitpod_token(tokenHash,name,type,userId,scopes,created,deleted) VALUES('${TOKEN}','agent-smith',0,'builtin-user-agent-smith-0000000','function:adminBlockUser', '2021-03-16T10:28:57.608Z', false) on duplicate key update tokenHash=tokenHash;"
-      mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 gitpod
+      query="insert into d_b_nxpod_token(tokenHash,name,type,userId,scopes,created,deleted) VALUES('${TOKEN}','agent-smith',0,'builtin-user-agent-smith-0000000','function:adminBlockUser', '2021-03-16T10:28:57.608Z', false) on duplicate key update tokenHash=tokenHash;"
+      mysql -e "$query" -u$DB_USERNAME -p$DB_PASSWORD -h 127.0.0.1 nxpod
 
       kill $PID || true

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,7 +7,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useCurrentOrg } from "../organizations/orgs-query";
 import { workspaceClient } from "../../service/public-api";
-import { Workspace } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { Workspace } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 
 export type ListWorkspacesQueryResult = Workspace[];
 
@@ -30,7 +30,7 @@ export const useListWorkspacesQuery = ({ limit }: UseListWorkspacesQueryArgs) =>
                     organizationId: currentOrg.data?.id,
                 }),
                 // Additional fetch for pinned workspaces
-                // see also: https://github.com/gitpod-io/gitpod/issues/4488
+                // see also: https://github.com/nxpkg/nxpod/issues/4488
                 workspaceClient.listWorkspaces({
                     pagination: {
                         pageSize: limit,

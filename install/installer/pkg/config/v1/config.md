@@ -11,7 +11,7 @@ Config defines the v1 version structure of the gitpod config file
 |`metadata.region`|string|Y|  |  Location for your objectStorage provider|
 |`metadata.shortname`|string|N|  |  InstallationShortname establishes the "identity" of the (application) cluster.|
 |`repository`|string|Y|  ||
-|`observability.logLevel`|string|N| `trace`, `debug`, `info`, `warning`, `error`, `fatal`, `panic` |Taken from github.com/gitpod-io/gitpod/components/gitpod-protocol/src/util/logging.ts|
+|`observability.logLevel`|string|N| `trace`, `debug`, `info`, `warning`, `error`, `fatal`, `panic` |Taken from github.com/nxpkg/nxpod/components/gitpod-protocol/src/util/logging.ts|
 |`observability.tracing.endpoint`|string|N|  ||
 |`observability.tracing.agentHost`|string|N|  ||
 |`observability.tracing.secretName`|string|N|  |  Name of the kubernetes secret to use for Jaeger authentication  The secret should contains two definitions: JAEGER_USER and JAEGER_PASSWORD|
@@ -78,7 +78,7 @@ Config defines the v1 version structure of the gitpod config file
 |`dropImageRepo`|bool|N|  ||
 |`customization`||N|  ||
 |`components.proxy.service.serviceType`||N|  ||
-|`apiVersion`|string|Y|  |API version of the Gitpod config defintion. `v1` in this version of Config|
+|`apiVersion`|string|Y|  |API version of the Nxpod config defintion. `v1` in this version of Config|
 
 
 # Experimental config parameters v1

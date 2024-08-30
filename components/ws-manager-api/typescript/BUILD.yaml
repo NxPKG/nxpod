@@ -3,7 +3,7 @@ packages:
     type: yarn
     deps:
       - components/content-service-api/typescript:lib
-      - components/gitpod-protocol:lib
+      - components/nxpod-protocol:lib
     srcs:
       - "src/*.ts"
       - "src/*.js"

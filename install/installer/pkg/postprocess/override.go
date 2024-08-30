@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,9 +10,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
-	"github.com/gitpod-io/gitpod/installer/pkg/yq"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/installer/pkg/yq"
 	"sigs.k8s.io/yaml"
 )
 
@@ -45,7 +45,7 @@ func Merge(original string, data string) (*string, error) {
 }
 
 // Override the generated data from the overrides in the config
-// This is an experimental feature until Gitpod Dedicated is in GA
+// This is an experimental feature until Nxpod Dedicated is in GA
 func Override(overrideCfg *[]experimental.Overrides, objects []common.RuntimeObject) ([]common.RuntimeObject, error) {
 	if overrideCfg != nil && len(*overrideCfg) > 0 {
 		overrides := make(map[string]experimental.Overrides)

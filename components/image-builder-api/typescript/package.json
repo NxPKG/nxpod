@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@gitpod/image-builder",
+  "name": "@nxpod/image-builder",
   "version": "0.1.5",
   "license": "UNLICENSED",
   "scripts": {
@@ -11,8 +11,8 @@
     "lib"
   ],
   "dependencies": {
-    "@gitpod/content-service": "0.1.5",
-    "@gitpod/gitpod-protocol": "0.1.5",
+    "@nxpod/content-service": "0.1.5",
+    "@nxpod/nxpod-protocol": "0.1.5",
     "@grpc/grpc-js": "1.10.8",
     "google-protobuf": "^3.19.1",
     "inversify": "^6.0.1",

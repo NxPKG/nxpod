@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -86,10 +86,10 @@
         @apply h-full;
     }
     body {
-        @apply bg-white dark:bg-gitpod-black text-black dark:text-white;
+        @apply bg-white dark:bg-nxpod-black text-black dark:text-white;
     }
     body[style] {
-        /* https://github.com/gitpod-io/gitpod/pull/18979#discussion_r1380773740 */
+        /* https://github.com/nxpkg/nxpod/pull/18979#discussion_r1380773740 */
         margin: 0 auto !important;
     }
     p {
@@ -147,7 +147,7 @@
     input[type="email"].error,
     input[type="url"].error,
     select.error {
-        @apply border-gitpod-red dark:border-gitpod-red focus:border-gitpod-red dark:focus:border-gitpod-red;
+        @apply border-nxpod-red dark:border-nxpod-red focus:border-nxpod-red dark:focus:border-nxpod-red;
     }
     select[disabled],
     textarea[disabled],

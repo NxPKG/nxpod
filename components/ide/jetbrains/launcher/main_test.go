@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/stretchr/testify/assert"
@@ -19,7 +19,7 @@ import (
 
 func TestGetProductConfig(t *testing.T) {
 	expectation := &protocol.JetbrainsProduct{}
-	actual := getProductConfig(&protocol.GitpodConfig{
+	actual := getProductConfig(&protocol.NxpodConfig{
 		Jetbrains: &protocol.Jetbrains{
 			Intellij: expectation,
 		},
@@ -30,8 +30,8 @@ func TestGetProductConfig(t *testing.T) {
 	}
 }
 
-func TestParseGitpodConfig(t *testing.T) {
-	gitpodConfig, _ := parseGitpodConfig("testdata")
+func TestParseNxpodConfig(t *testing.T) {
+	gitpodConfig, _ := parseNxpodConfig("testdata")
 	assert.Equal(t, 1, len(gitpodConfig.Jetbrains.Intellij.Plugins))
 	assert.Equal(t, "both", gitpodConfig.Jetbrains.Intellij.Prebuilds.Version)
 	assert.Equal(t, "-Xmx3g", gitpodConfig.Jetbrains.Intellij.Vmoptions)
@@ -46,8 +46,8 @@ func TestUpdateVMOptions(t *testing.T) {
 		Src         string
 		Expectation string
 	}{
-		{"idea64.vmoptions (GITPOD_CPU_COUNT)", "intellij", map[string]string{"INTELLIJ_VMOPTIONS": "-Xmx4096m", "GITPOD_CPU_COUNT": "1"}, "-Xms128m\n-Xmx2g\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx4096m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-XX:ActiveProcessorCount=1\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true\n-Djdk.configure.existing=true"},
-		{"idea64.vmoptions (GITPOD_CPU_COUNT 2)", "intellij", map[string]string{"INTELLIJ_VMOPTIONS": "-Xmx4096m", "GITPOD_CPU_COUNT": "12"}, "-Xms128m\n-Xmx2g\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx4096m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-XX:ActiveProcessorCount=12\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true\n-Djdk.configure.existing=true"},
+		{"idea64.vmoptions (NXPOD_CPU_COUNT)", "intellij", map[string]string{"INTELLIJ_VMOPTIONS": "-Xmx4096m", "NXPOD_CPU_COUNT": "1"}, "-Xms128m\n-Xmx2g\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx4096m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-XX:ActiveProcessorCount=1\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true\n-Djdk.configure.existing=true"},
+		{"idea64.vmoptions (NXPOD_CPU_COUNT 2)", "intellij", map[string]string{"INTELLIJ_VMOPTIONS": "-Xmx4096m", "NXPOD_CPU_COUNT": "12"}, "-Xms128m\n-Xmx2g\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx4096m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-XX:ActiveProcessorCount=12\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true\n-Djdk.configure.existing=true"},
 		{"goland64.vmoptions", "goland", nil, "-Xms128m\n-Xmx750m\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx750m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true"},
 		{"idea64.vmoptions", "intellij", nil, "-Xms128m\n-Xmx750m\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx750m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true\n-Djdk.configure.existing=true"},
 		{"idea64.vmoptions (INTELLIJ_VMOPTIONS env set)", "intellij", map[string]string{"INTELLIJ_VMOPTIONS": "-Xmx2048m"}, "-Xms128m\n-Xmx750m\n-Dsun.tools.attach.tmp.only=true", "-Xms128m\n-Xmx2048m\n-Dsun.tools.attach.tmp.only=true\n-XX:+UseContainerSupport\n-Dfreeze.reporter.profiling=false\n-Dgtw.disable.exit.dialog=true\n-Djdk.configure.existing=true"},

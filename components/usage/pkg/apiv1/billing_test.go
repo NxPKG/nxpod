@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,12 +11,12 @@ import (
 	"testing"
 
 	"github.com/bufbuild/connect-go"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/components/gitpod-db/go/dbtest"
-	experimental_v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	v1 "github.com/gitpod-io/gitpod/usage-api/v1"
-	"github.com/gitpod-io/gitpod/usage/pkg/stripe"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
+	experimental_v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	v1 "github.com/nxpkg/nxpod/usage-api/v1"
+	"github.com/nxpkg/nxpod/usage/pkg/stripe"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/require"
 	stripe_api "github.com/stripe/stripe-go/v72"
@@ -200,7 +200,7 @@ var IndiInvoiceTestData = `{
 	"id": "in_1MA0RBAyBDPbWrhabNdJIuhl",
 	"object": "invoice",
 	"account_country": "DE",
-	"account_name": "Gitpod GmbH",
+	"account_name": "Nxpod GmbH",
 	"account_tax_ids": null,
 	"amount_due": 1012,
 	"amount_paid": 1012,
@@ -296,7 +296,7 @@ var IndiInvoiceTestData = `{
 		  "amount": 0,
 		  "amount_excluding_tax": 0,
 		  "currency": "usd",
-		  "description": "1000 credit × Gitpod Usage (Tier 1 at $0.00 / month)",
+		  "description": "1000 credit × Nxpod Usage (Tier 1 at $0.00 / month)",
 		  "discount_amounts": [],
 		  "discountable": true,
 		  "discounts": [],
@@ -372,7 +372,7 @@ var IndiInvoiceTestData = `{
 		  "amount": 900,
 		  "amount_excluding_tax": 900,
 		  "currency": "usd",
-		  "description": "Gitpod Usage (Tier 1 at $9.00 / month)",
+		  "description": "Nxpod Usage (Tier 1 at $9.00 / month)",
 		  "discount_amounts": [],
 		  "discountable": true,
 		  "discounts": [],
@@ -448,7 +448,7 @@ var IndiInvoiceTestData = `{
 		  "amount": 112,
 		  "amount_excluding_tax": 112,
 		  "currency": "usd",
-		  "description": "31 credit × Gitpod Usage (Tier 2 at $0.036 / month)",
+		  "description": "31 credit × Nxpod Usage (Tier 2 at $0.036 / month)",
 		  "discount_amounts": [],
 		  "discountable": true,
 		  "discounts": [],
@@ -524,7 +524,7 @@ var IndiInvoiceTestData = `{
 		  "amount": 0,
 		  "amount_excluding_tax": 0,
 		  "currency": "usd",
-		  "description": "Gitpod Usage (Tier 2 at $0.00 / month)",
+		  "description": "Nxpod Usage (Tier 2 at $0.00 / month)",
 		  "discount_amounts": [],
 		  "discountable": true,
 		  "discounts": [],

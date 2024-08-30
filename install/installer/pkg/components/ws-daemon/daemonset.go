@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,8 +7,8 @@ package wsdaemon
 import (
 	"fmt"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/cluster"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/cluster"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"

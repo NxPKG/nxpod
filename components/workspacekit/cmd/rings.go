@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -37,12 +37,12 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
 
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/workspacekit/pkg/lift"
-	"github.com/gitpod-io/gitpod/workspacekit/pkg/seccomp"
-	"github.com/gitpod-io/gitpod/ws-daemon/api"
-	daemonapi "github.com/gitpod-io/gitpod/ws-daemon/api"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/workspacekit/pkg/lift"
+	"github.com/nxpkg/nxpod/workspacekit/pkg/seccomp"
+	"github.com/nxpkg/nxpod/ws-daemon/api"
+	daemonapi "github.com/nxpkg/nxpod/ws-daemon/api"
 )
 
 const (
@@ -65,9 +65,9 @@ var ring0Cmd = &cobra.Command{
 	Run: func(_ *cobra.Command, args []string) {
 		log.Init(ServiceName, Version, true, false)
 
-		wsid := os.Getenv("GITPOD_WORKSPACE_ID")
+		wsid := os.Getenv("NXPOD_WORKSPACE_ID")
 		if wsid == "" {
-			log.Error("cannot find GITPOD_WORKSPACE_ID")
+			log.Error("cannot find NXPOD_WORKSPACE_ID")
 			return
 		}
 
@@ -197,9 +197,9 @@ var ring1Cmd = &cobra.Command{
 	Run: func(_cmd *cobra.Command, args []string) {
 		log.Init(ServiceName, Version, true, false)
 
-		wsid := os.Getenv("GITPOD_WORKSPACE_ID")
+		wsid := os.Getenv("NXPOD_WORKSPACE_ID")
 		if wsid == "" {
-			log.Error("cannot find GITPOD_WORKSPACE_ID")
+			log.Error("cannot find NXPOD_WORKSPACE_ID")
 			return
 		}
 		log := log.WithField("ring", 1).WithField("workspaceId", wsid)
@@ -303,11 +303,11 @@ var ring1Cmd = &cobra.Command{
 			mnts = append(mnts, mnte{Target: "/sys/fs/cgroup", Source: "cgroup", FSType: "cgroup2"})
 		}
 
-		if adds := os.Getenv("GITPOD_WORKSPACEKIT_BIND_MOUNTS"); adds != "" {
+		if adds := os.Getenv("NXPOD_WORKSPACEKIT_BIND_MOUNTS"); adds != "" {
 			var additionalMounts []string
 			err = json.Unmarshal([]byte(adds), &additionalMounts)
 			if err != nil {
-				log.WithError(err).Fatal("cannot unmarshal GITPOD_WORKSPACEKIT_BIND_MOUNTS")
+				log.WithError(err).Fatal("cannot unmarshal NXPOD_WORKSPACEKIT_BIND_MOUNTS")
 			}
 			for _, c := range additionalMounts {
 				mnts = append(mnts, mnte{Target: c, Flags: unix.MS_BIND | unix.MS_REC})
@@ -586,7 +586,7 @@ var (
 		"/sys",
 		"/dev",
 		"/etc/hostname",
-		"/etc/ssl/certs/gitpod-ca.crt",
+		"/etc/ssl/certs/nxpod-ca.crt",
 	}
 	rejectMountPaths = map[string]struct{}{
 		"/etc/resolv.conf": {},
@@ -601,7 +601,7 @@ var (
 //
 // Note/Caveat: configMap or secret volumes with a subPath do not behave as described above and will not be recognised by this function.
 //
-//	in those cases you'll want to use GITPOD_WORKSPACEKIT_BIND_MOUNTS to explicitely list those paths.
+//	in those cases you'll want to use NXPOD_WORKSPACEKIT_BIND_MOUNTS to explicitely list those paths.
 func findBindMountCandidates(procMounts io.Reader, readlink func(path string) (dest string, err error)) (mounts []string, err error) {
 	scanner := bufio.NewScanner(procMounts)
 	for scanner.Scan() {
@@ -762,9 +762,9 @@ var ring2Cmd = &cobra.Command{
 	Run: func(_cmd *cobra.Command, args []string) {
 		log.Init(ServiceName, Version, true, false)
 
-		wsid := os.Getenv("GITPOD_WORKSPACE_ID")
+		wsid := os.Getenv("NXPOD_WORKSPACE_ID")
 		if wsid == "" {
-			log.Error("cannot find GITPOD_WORKSPACE_ID")
+			log.Error("cannot find NXPOD_WORKSPACE_ID")
 			return
 		}
 		log := log.WithField("ring", 2).WithField("workspaceId", wsid)
@@ -812,11 +812,11 @@ var ring2Cmd = &cobra.Command{
 
 		var rLimitCore fakeRlimit
 
-		rLimitValue := os.Getenv("GITPOD_RLIMIT_CORE")
+		rLimitValue := os.Getenv("NXPOD_RLIMIT_CORE")
 		if len(rLimitValue) != 0 {
 			err = json.Unmarshal([]byte(rLimitValue), &rLimitCore)
 			if err != nil {
-				log.WithError(err).WithField("data", rLimitValue).Error("cannot deserialize GITPOD_RLIMIT_CORE")
+				log.WithError(err).WithField("data", rLimitValue).Error("cannot deserialize NXPOD_RLIMIT_CORE")
 			}
 		}
 
@@ -933,7 +933,7 @@ func handleExit(ec *int) {
 }
 
 func sleepForDebugging() {
-	if os.Getenv("GITPOD_WORKSPACEKIT_SLEEP_FOR_DEBUGGING") != "true" {
+	if os.Getenv("NXPOD_WORKSPACEKIT_SLEEP_FOR_DEBUGGING") != "true" {
 		return
 	}
 
@@ -1077,7 +1077,7 @@ func init() {
 	rootCmd.AddCommand(ring1Cmd)
 	rootCmd.AddCommand(ring2Cmd)
 
-	supervisorPath := os.Getenv("GITPOD_WORKSPACEKIT_SUPERVISOR_PATH")
+	supervisorPath := os.Getenv("NXPOD_WORKSPACEKIT_SUPERVISOR_PATH")
 	if supervisorPath == "" {
 		wd, err := os.Executable()
 		if err == nil {
@@ -1089,7 +1089,7 @@ func init() {
 	}
 
 	ring1Cmd.Flags().BoolVar(&ring1Opts.MappingEstablished, "mapping-established", false, "true if the UID/GID mapping has already been established")
-	ring2Cmd.Flags().StringVar(&ring2Opts.SupervisorPath, "supervisor-path", supervisorPath, "path to the supervisor binary (taken from $GITPOD_WORKSPACEKIT_SUPERVISOR_PATH, defaults to '$PWD/supervisor')")
+	ring2Cmd.Flags().StringVar(&ring2Opts.SupervisorPath, "supervisor-path", supervisorPath, "path to the supervisor binary (taken from $NXPOD_WORKSPACEKIT_SUPERVISOR_PATH, defaults to '$PWD/supervisor')")
 }
 
 func isProcessAlreadyFinished(err error) bool {

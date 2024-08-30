@@ -1,11 +1,11 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package integration
 
 import (
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
 )
 
 func IsCgroupV2(rsa *RpcClient) (bool, error) {

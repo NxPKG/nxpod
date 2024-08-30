@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"testing"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/archive"
-	"github.com/gitpod-io/gitpod/content-service/pkg/initializer"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/archive"
+	"github.com/nxpkg/nxpod/content-service/pkg/initializer"
 )
 
 type InitializerFunc func(ctx context.Context, mappings []archive.IDMapping) (csapi.WorkspaceInitSource, csapi.InitializerMetrics, error)

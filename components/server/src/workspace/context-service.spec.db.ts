@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TypeORM } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { TypeORM } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import {
     CommitContext,
     Organization,
@@ -17,7 +17,7 @@ import {
     StartPrebuildResult,
     SnapshotContext,
     PrebuiltWorkspaceContext,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
@@ -29,17 +29,17 @@ import { UserService } from "../user/user-service";
 import { SnapshotService } from "./snapshot-service";
 import { ContextService } from "./context-service";
 import { ContextParser } from "./context-parser-service";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { ConfigProvider } from "./config-provider";
 import { PrebuildManager } from "../prebuilds/prebuild-manager";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { AuthProvider } from "../auth/auth-provider";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import { SYSTEM_USER } from "../authorization/authorizer";
 
 const expect = chai.expect;
 
-const gitpodEmptyContext = {
+const nxpodEmptyContext = {
     ref: "main",
     refType: "branch",
     path: "",
@@ -47,18 +47,18 @@ const gitpodEmptyContext = {
     repo: "",
     repository: {
         host: "github.com",
-        owner: "gitpod-io",
+        owner: "nxpkg",
         name: "empty",
-        cloneUrl: "https://github.com/gitpod-io/empty.git",
+        cloneUrl: "https://github.com/nxpkg/empty.git",
         defaultBranch: "main",
         private: false,
     },
-    normalizedContextURL: "https://github.com/gitpod-io/empty",
+    normalizedContextURL: "https://github.com/nxpkg/empty",
     revision: "asdf",
-    title: "gitpod-io/empty - main",
+    title: "nxpkg/empty - main",
 };
 
-const SNAPSHOT_BUCKET = "https://gitpod.io/none-bucket";
+const SNAPSHOT_BUCKET = "https://nxpod.io/none-bucket";
 
 describe("ContextService", async () => {
     let container: Container;
@@ -80,7 +80,7 @@ describe("ContextService", async () => {
             fetchConfig: () => {
                 return {
                     config: {
-                        image: "gitpod/workspace-base",
+                        image: "nxpod/workspace-base",
                     },
                 };
             },
@@ -94,23 +94,23 @@ describe("ContextService", async () => {
                 handle: function (ctx: TraceContext, user: User, contextURL: string): Promise<WorkspaceContext> {
                     const url = contextURL.replace("normalizeContextURL", "");
                     switch (url) {
-                        case "https://github.com/gitpod-io/empty":
-                            return gitpodEmptyContext as any;
-                        case `open-prebuild/${prebuild.prebuildId}/https://github.com/gitpod-io/empty/tree/main`:
+                        case "https://github.com/nxpkg/empty":
+                            return nxpodEmptyContext as any;
+                        case `open-prebuild/${prebuild.prebuildId}/https://github.com/nxpkg/empty/tree/main`:
                             return {
-                                ...gitpodEmptyContext,
+                                ...nxpodEmptyContext,
                                 openPrebuildID: prebuild.prebuildId,
                             } as any;
                         case `snapshot/${snapshot.id}`: {
                             return {
-                                ...gitpodEmptyContext,
+                                ...nxpodEmptyContext,
                                 snapshotId: snapshot.id,
                                 snapshotBucketId: SNAPSHOT_BUCKET,
                             } as any;
                         }
                         case `snapshot/${snapshot_stranger.id}`: {
                             return {
-                                ...gitpodEmptyContext,
+                                ...nxpodEmptyContext,
                                 snapshotId: snapshot_stranger.id,
                                 snapshotBucketId: SNAPSHOT_BUCKET,
                             } as any;
@@ -144,9 +144,9 @@ describe("ContextService", async () => {
                             },
                             getBranch: () => {
                                 return {
-                                    url: "https://github.com/gitpod-io/empty.git",
+                                    url: "https://github.com/nxpkg/empty.git",
                                     name: "main",
-                                    htmlUrl: "https://github.com/gitpod-io/empty",
+                                    htmlUrl: "https://github.com/nxpkg/empty",
                                     commit: {},
                                 };
                             },
@@ -200,7 +200,7 @@ describe("ContextService", async () => {
                     name: "my-project",
                     slug: "my-project",
                     teamId: org.id,
-                    cloneUrl: "https://github.com/gitpod-io/empty",
+                    cloneUrl: "https://github.com/nxpkg/empty",
                     appInstallationId: "noid",
                 },
                 owner,
@@ -257,7 +257,7 @@ describe("ContextService", async () => {
     it("should parse normal context", async () => {
         const svc = container.get(ContextService);
 
-        const ctx = await svc.parseContext(owner, "https://github.com/gitpod-io/empty", {
+        const ctx = await svc.parseContext(owner, "https://github.com/nxpkg/empty", {
             projectId: project.id,
             organizationId: org.id,
             forceDefaultConfig: false,
@@ -265,15 +265,15 @@ describe("ContextService", async () => {
         expect(ctx.project?.id).to.equal(project.id);
         expect(CommitContext.is(ctx.context)).to.equal(true);
 
-        expect(ctx.context.ref).to.equal(gitpodEmptyContext.ref);
-        expect((ctx.context as CommitContext).revision).to.equal(gitpodEmptyContext.revision);
+        expect(ctx.context.ref).to.equal(nxpodEmptyContext.ref);
+        expect((ctx.context as CommitContext).revision).to.equal(nxpodEmptyContext.revision);
     });
 
     it("should parse prebuild context", async () => {
         const svc = container.get(ContextService);
         const ctx = await svc.parseContext(
             owner,
-            `open-prebuild/${prebuild.prebuildId}/https://github.com/gitpod-io/empty/tree/main`,
+            `open-prebuild/${prebuild.prebuildId}/https://github.com/nxpkg/empty/tree/main`,
             {
                 projectId: project.id,
                 organizationId: org.id,
@@ -313,8 +313,8 @@ async function createTestWorkspace(svc: WorkspaceService, org: Organization, own
         owner,
         org.id,
         project,
-        gitpodEmptyContext as any as CommitContext,
-        "github.com/gitpod-io/empty",
+        nxpodEmptyContext as any as CommitContext,
+        "github.com/nxpkg/empty",
         undefined,
     );
     return ws;

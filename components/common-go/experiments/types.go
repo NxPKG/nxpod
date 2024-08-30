@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,7 +11,7 @@ import (
 	"time"
 
 	configcat "github.com/configcat/go-sdk/v7"
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 type Client interface {
@@ -31,7 +31,7 @@ type Attributes struct {
 	// this is vscode header `x-market-client-id`
 	VSCodeClientID string
 
-	GitpodHost string
+	NxpodHost string
 
 	// Component is using in components/service-waiter
 	// Feature Flag key is `service_waiter_skip_component`
@@ -40,10 +40,10 @@ type Attributes struct {
 
 type ClientOpt func(o *options)
 
-func WithGitpodProxy(gitpodHost string) ClientOpt {
+func WithNxpodProxy(nxpodHost string) ClientOpt {
 	return func(o *options) {
-		o.sdkKey = "gitpod"
-		o.baseURL = fmt.Sprintf("https://%s/configcat", gitpodHost)
+		o.sdkKey = "nxpod"
+		o.baseURL = fmt.Sprintf("https://%s/configcat", nxpodHost)
 		o.pollInterval = 1 * time.Minute
 	}
 }

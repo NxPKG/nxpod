@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -10,10 +10,10 @@ import { AuthProviderParams } from "./auth-provider";
 import { Config } from "../config";
 import { AuthProviderService } from "./auth-provider-service";
 import { HostContextProvider, HostContextProviderFactory } from "./host-context-provider";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { HostContainerMapping } from "./host-container-mapping";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { repeat } from "@gitpod/gitpod-protocol/lib/util/repeat";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { repeat } from "@nxpod/nxpod-protocol/lib/util/repeat";
 
 @injectable()
 export class HostContextProviderImpl implements HostContextProvider {

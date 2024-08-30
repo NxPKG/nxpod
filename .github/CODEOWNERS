@@ -1,107 +1,107 @@
 #
 # Changes to the CODEONWERS file have to get reviewed by Engineering Leadership.
 #
-/.github/CODEOWNERS @gitpod-io/engineering-leadership
+/.github/CODEOWNERS @nxpkg/engineering-leadership
 
-/components/blobserve @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/common-go @gitpod-io/engineering-staff-engineers @gitpod-io/team-enterprise
-/components/components/scrubber @gitpod-io/engineering-staff-engineers @gitpod-io/team-enterprise
-/components/content-service-api @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/content-service @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/dashboard @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/docker-up @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/ee/agent-smith @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/gitpod-cli @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/gitpod-db @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/gitpod-protocol @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/gitpod-protocol/java @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/gitpod-protocol/src/typings/globals.ts @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ide @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ide-metrics @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ide-metrics-api @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ide-service @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ide-service-api @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ide-proxy @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/image-builder-api @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/image-builder-bob @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/image-builder-mk3 @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install @gitpod-io/team-engine @gitpod-io/team-enterprise
+/components/blobserve @nxpkg/team-experience @nxpkg/team-enterprise
+/components/common-go @nxpkg/engineering-staff-engineers @nxpkg/team-enterprise
+/components/components/scrubber @nxpkg/engineering-staff-engineers @nxpkg/team-enterprise
+/components/content-service-api @nxpkg/team-engine @nxpkg/team-enterprise
+/components/content-service @nxpkg/team-engine @nxpkg/team-enterprise
+/components/dashboard @nxpkg/team-experience @nxpkg/team-enterprise
+/components/docker-up @nxpkg/team-engine @nxpkg/team-enterprise
+/components/ee/agent-smith @nxpkg/team-engine @nxpkg/team-enterprise
+/components/nxpod-cli @nxpkg/team-experience @nxpkg/team-enterprise
+/components/nxpod-db @nxpkg/team-experience @nxpkg/team-enterprise
+/components/nxpod-protocol @nxpkg/team-experience @nxpkg/team-enterprise
+/components/nxpod-protocol/java @nxpkg/team-experience @nxpkg/team-enterprise
+/components/nxpod-protocol/src/typings/globals.ts @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ide @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ide-metrics @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ide-metrics-api @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ide-service @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ide-service-api @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ide-proxy @nxpkg/team-experience @nxpkg/team-enterprise
+/components/image-builder-api @nxpkg/team-engine @nxpkg/team-enterprise
+/components/image-builder-bob @nxpkg/team-engine @nxpkg/team-enterprise
+/components/image-builder-mk3 @nxpkg/team-engine @nxpkg/team-enterprise
+/install @nxpkg/team-engine @nxpkg/team-enterprise
 # By default anything in in /install/installer is shared.
 /install/installer
-/install/installer/pkg/components/agent-smith @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/blobserve @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/components-ide @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/components-webapp @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/components-workspace @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/content-service @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/dashboard @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/ide-metrics @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/ide-service @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/ide-proxy @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/image-builder-mk3 @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/image-builder-mk3-wsman @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/openvsx-proxy @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/proxy @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/registry-facade @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/spicedb @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/public-api-server @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/server @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/server/ide @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/usage @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/usage-api @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/workspace @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/workspace/ide @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/ws-daemon @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/ws-manager-mk2 @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/ws-manager-bridge @gitpod-io/team-experience @gitpod-io/team-enterprise
-/install/installer/pkg/components/ws-proxy @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/config/versions @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/local-app-api @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/local-app @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/openvsx-proxy @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/proxy @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/public-api @gitpod-io/team-experience @gitpod-io/team-enterprise
+/install/installer/pkg/components/agent-smith @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/blobserve @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/components-ide @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/components-webapp @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/components-workspace @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/content-service @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/dashboard @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/ide-metrics @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/ide-service @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/ide-proxy @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/image-builder-mk3 @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/image-builder-mk3-wsman @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/openvsx-proxy @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/proxy @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/registry-facade @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/spicedb @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/public-api-server @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/server @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/server/ide @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/usage @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/usage-api @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/workspace @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/workspace/ide @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/ws-daemon @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/ws-manager-mk2 @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/ws-manager-bridge @nxpkg/team-experience @nxpkg/team-enterprise
+/install/installer/pkg/components/ws-proxy @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/config/versions @nxpkg/team-experience @nxpkg/team-enterprise
+/components/local-app-api @nxpkg/team-experience @nxpkg/team-enterprise
+/components/local-app @nxpkg/team-experience @nxpkg/team-enterprise
+/components/openvsx-proxy @nxpkg/team-experience @nxpkg/team-enterprise
+/components/proxy @nxpkg/team-experience @nxpkg/team-enterprise
+/components/public-api @nxpkg/team-experience @nxpkg/team-enterprise
 # Any team can make changes to the experimental package
-/components/public-api/gitpod/experimental @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/public-api-server @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/registry-facade-api @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/registry-facade @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/server @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/server/src/ide-service.* @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/service-waiter @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/supervisor-api/*.proto @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/supervisor @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/usage @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/usage-api @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/workspacekit @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/ws-daemon-api @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/ws-daemon @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/ws-manager-api @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/ws-manager-bridge-api @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ws-manager-bridge @gitpod-io/team-experience @gitpod-io/team-enterprise
-/components/ws-manager-mk2 @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/ws-proxy @gitpod-io/team-engine @gitpod-io/team-enterprise
-/components/node-labeler @gitpod-io/team-engine @gitpod-io/team-enterprise
-/install/installer/pkg/components/node-labeler @gitpod-io/team-engine @gitpod-io/team-enterprise
-/dev/gpctl @gitpod-io/team-engine @gitpod-io/team-enterprise
-/dev/gpctl/api/ @gitpod-io/team-experience @gitpod-io/team-enterprise
-/dev/loadgen @gitpod-io/team-engine @gitpod-io/team-enterprise
+/components/public-api/nxpod/experimental @nxpkg/team-experience @nxpkg/team-enterprise
+/components/public-api-server @nxpkg/team-experience @nxpkg/team-enterprise
+/components/registry-facade-api @nxpkg/team-engine @nxpkg/team-enterprise
+/components/registry-facade @nxpkg/team-engine @nxpkg/team-enterprise
+/components/server @nxpkg/team-experience @nxpkg/team-enterprise
+/components/server/src/ide-service.* @nxpkg/team-experience @nxpkg/team-enterprise
+/components/service-waiter @nxpkg/team-experience @nxpkg/team-enterprise
+/components/supervisor-api/*.proto @nxpkg/team-experience @nxpkg/team-enterprise
+/components/supervisor @nxpkg/team-experience @nxpkg/team-enterprise
+/components/usage @nxpkg/team-experience @nxpkg/team-enterprise
+/components/usage-api @nxpkg/team-experience @nxpkg/team-enterprise
+/components/workspacekit @nxpkg/team-engine @nxpkg/team-enterprise
+/components/ws-daemon-api @nxpkg/team-engine @nxpkg/team-enterprise
+/components/ws-daemon @nxpkg/team-engine @nxpkg/team-enterprise
+/components/ws-manager-api @nxpkg/team-engine @nxpkg/team-enterprise
+/components/ws-manager-bridge-api @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ws-manager-bridge @nxpkg/team-experience @nxpkg/team-enterprise
+/components/ws-manager-mk2 @nxpkg/team-engine @nxpkg/team-enterprise
+/components/ws-proxy @nxpkg/team-engine @nxpkg/team-enterprise
+/components/node-labeler @nxpkg/team-engine @nxpkg/team-enterprise
+/install/installer/pkg/components/node-labeler @nxpkg/team-engine @nxpkg/team-enterprise
+/dev/gpctl @nxpkg/team-engine @nxpkg/team-enterprise
+/dev/gpctl/api/ @nxpkg/team-experience @nxpkg/team-enterprise
+/dev/loadgen @nxpkg/team-engine @nxpkg/team-enterprise
 
 # Preview is shared between all teams.
 /dev/preview
 
 # Operations is shared between all teams
 /operations
-/operations/observability/mixins/IDE @gitpod-io/team-experience @gitpod-io/team-enterprise
-/operations/observability/mixins/meta @gitpod-io/team-experience @gitpod-io/team-enterprise
-/operations/observability/mixins/workspace @gitpod-io/team-engine @gitpod-io/team-enterprise
+/operations/observability/mixins/IDE @nxpkg/team-experience @nxpkg/team-enterprise
+/operations/observability/mixins/meta @nxpkg/team-experience @nxpkg/team-enterprise
+/operations/observability/mixins/workspace @nxpkg/team-engine @nxpkg/team-enterprise
 # a single review should be enough
 /operations/observability/mixins/cross-teams
 
-.github/workflows/ide-*.yml @gitpod-io/team-experience @gitpod-io/team-enterprise
-.github/workflows/jetbrains-*.yml @gitpod-io/team-experience @gitpod-io/team-enterprise
-.github/workflows/code-nightly.yml @gitpod-io/team-experience @gitpod-io/team-enterprise
-.github/workflows/workspace-*.yml @gitpod-io/team-engine @gitpod-io/team-enterprise
+.github/workflows/ide-*.yml @nxpkg/team-experience @nxpkg/team-enterprise
+.github/workflows/jetbrains-*.yml @nxpkg/team-experience @nxpkg/team-enterprise
+.github/workflows/code-nightly.yml @nxpkg/team-experience @nxpkg/team-enterprise
+.github/workflows/workspace-*.yml @nxpkg/team-engine @nxpkg/team-enterprise
 
 #
 # Automation
@@ -115,14 +115,14 @@
 
 #
 # Add so that teams assert we're not breaking each other's integration tests
-/test/pkg/agent @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/pkg/integration @gitpod-io/team-experience @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/pkg/report @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/tests/workspace @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/tests/smoke-test @gitpod-io/team-experience @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/tests/ide @gitpod-io/team-experience @gitpod-io/team-enterprise
-/test/tests/components/content-service @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/tests/components/database @gitpod-io/team-experience @gitpod-io/team-enterprise
-/test/tests/components/image-builder @gitpod-io/team-engine @gitpod-io/team-enterprise
-/test/tests/components/server @gitpod-io/team-experience @gitpod-io/team-enterprise
-/test/tests/components/ws-daemon @gitpod-io/team-engine @gitpod-io/team-enterprise
+/test/pkg/agent @nxpkg/team-engine @nxpkg/team-enterprise
+/test/pkg/integration @nxpkg/team-experience @nxpkg/team-engine @nxpkg/team-enterprise
+/test/pkg/report @nxpkg/team-engine @nxpkg/team-enterprise
+/test/tests/workspace @nxpkg/team-engine @nxpkg/team-enterprise
+/test/tests/smoke-test @nxpkg/team-experience @nxpkg/team-engine @nxpkg/team-enterprise
+/test/tests/ide @nxpkg/team-experience @nxpkg/team-enterprise
+/test/tests/components/content-service @nxpkg/team-engine @nxpkg/team-enterprise
+/test/tests/components/database @nxpkg/team-experience @nxpkg/team-enterprise
+/test/tests/components/image-builder @nxpkg/team-engine @nxpkg/team-enterprise
+/test/tests/components/server @nxpkg/team-experience @nxpkg/team-enterprise
+/test/tests/components/ws-daemon @nxpkg/team-engine @nxpkg/team-enterprise

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,11 +17,11 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 func TestPrebuildWorkspaceTaskSuccess(t *testing.T) {
@@ -38,7 +38,7 @@ func TestPrebuildWorkspaceTaskSuccess(t *testing.T) {
 			}{
 				{
 					Name:             "classic",
-					ContextURL:       "https://github.com/gitpod-io/empty",
+					ContextURL:       "https://github.com/nxpkg/empty",
 					CheckoutLocation: "empty",
 					WorkspaceRoot:    "/workspace/empty",
 					Task: []gitpod.TasksItems{
@@ -69,7 +69,7 @@ func TestPrebuildWorkspaceTaskSuccess(t *testing.T) {
 							return err
 						}
 						req.Spec.Envvars = append(req.Spec.Envvars, &wsmanapi.EnvironmentVariable{
-							Name:  "GITPOD_TASKS",
+							Name:  "NXPOD_TASKS",
 							Value: string(tasks),
 						})
 
@@ -132,7 +132,7 @@ func TestPrebuildWorkspaceTaskFail(t *testing.T) {
 			ws, stopWs, err := integration.LaunchWorkspaceDirectly(t, ctx, api, integration.WithRequestModifier(func(req *wsmanapi.StartWorkspaceRequest) error {
 				req.Type = wsmanapi.WorkspaceType_PREBUILD
 				req.Spec.Envvars = append(req.Spec.Envvars, &wsmanapi.EnvironmentVariable{
-					Name:  "GITPOD_TASKS",
+					Name:  "NXPOD_TASKS",
 					Value: `[{ "init": "echo \"some output\" > someFile; exit 1;" }]`,
 				})
 				return nil
@@ -200,7 +200,7 @@ func TestOpenWorkspaceFromPrebuild(t *testing.T) {
 			}{
 				{
 					Name:             "classic",
-					ContextURL:       "https://github.com/gitpod-io/empty",
+					ContextURL:       "https://github.com/nxpkg/empty",
 					CheckoutLocation: "empty",
 					WorkspaceRoot:    "/workspace/empty",
 				},
@@ -228,7 +228,7 @@ func TestOpenWorkspaceFromPrebuild(t *testing.T) {
 							integration.WithRequestModifier(func(req *wsmanapi.StartWorkspaceRequest) error {
 								req.Type = wsmanapi.WorkspaceType_PREBUILD
 								req.Spec.Envvars = append(req.Spec.Envvars, &wsmanapi.EnvironmentVariable{
-									Name:  "GITPOD_TASKS",
+									Name:  "NXPOD_TASKS",
 									Value: fmt.Sprintf(`[{ "init": %q }]`, initTask),
 								})
 								req.Spec.FeatureFlags = test.FF
@@ -416,7 +416,7 @@ func TestOpenWorkspaceFromPrebuild(t *testing.T) {
 // TestOpenWorkspaceFromOutdatedPrebuild
 // - create a prebuild on older commit
 // - open a workspace from a later commit with a prebuild initializer
-// - make sure the workspace's init task ran (the init task will create a file `incremental.txt` see https://github.com/gitpod-io/test-incremental-workspace/blob/main/.gitpod.yml)
+// - make sure the workspace's init task ran (the init task will create a file `incremental.txt` see https://github.com/nxpkg/test-incremental-workspace/blob/main/.gitpod.yml)
 func TestOpenWorkspaceFromOutdatedPrebuild(t *testing.T) {
 
 	f := features.New("prebuild").
@@ -433,7 +433,7 @@ func TestOpenWorkspaceFromOutdatedPrebuild(t *testing.T) {
 			}{
 				{
 					Name:                    "classic",
-					RemoteUri:               "https://github.com/gitpod-io/test-incremental-workspace",
+					RemoteUri:               "https://github.com/nxpkg/test-incremental-workspace",
 					CloneTargetForPrebuild:  "prebuild",
 					CloneTargetForWorkspace: "main",
 					CheckoutLocation:        "test-incremental-workspace",
@@ -459,7 +459,7 @@ func TestOpenWorkspaceFromOutdatedPrebuild(t *testing.T) {
 						integration.WithRequestModifier(func(req *wsmanapi.StartWorkspaceRequest) error {
 							req.Type = wsmanapi.WorkspaceType_PREBUILD
 							req.Spec.Envvars = append(req.Spec.Envvars, &wsmanapi.EnvironmentVariable{
-								Name:  "GITPOD_TASKS",
+								Name:  "NXPOD_TASKS",
 								Value: `[{ "init": "./init.sh" }]`,
 							})
 							req.Spec.FeatureFlags = test.FF
@@ -502,7 +502,7 @@ func TestOpenWorkspaceFromOutdatedPrebuild(t *testing.T) {
 					// launch the workspace on a later commit using this prebuild
 					ws, stopWs, err := integration.LaunchWorkspaceDirectly(t, ctx, api, integration.WithRequestModifier(func(req *wsmanapi.StartWorkspaceRequest) error {
 						req.Spec.Envvars = append(req.Spec.Envvars, &wsmanapi.EnvironmentVariable{
-							Name:  "GITPOD_TASKS",
+							Name:  "NXPOD_TASKS",
 							Value: `[{ "init": "./init.sh" }]`,
 						})
 						req.Spec.FeatureFlags = test.FF

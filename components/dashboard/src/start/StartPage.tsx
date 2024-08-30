@@ -1,18 +1,18 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import Alert from "../components/Alert";
 import { UsageLimitReachedModal } from "../components/UsageLimitReachedModal";
 import { Heading2 } from "../components/typography/headings";
 import { useDocumentTitle } from "../hooks/use-document-title";
-import { gitpodHostUrl } from "../service/service";
+import { nxpodHostUrl } from "../service/service";
 import { VerifyModal } from "./VerifyModal";
 import { useWorkspaceDefaultImageQuery } from "../data/workspaces/default-workspace-image-query";
-import { GetWorkspaceDefaultImageResponse_Source } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { GetWorkspaceDefaultImageResponse_Source } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { ProductLogo } from "../components/ProductLogo";
 
 export enum StartPhase {
@@ -128,7 +128,7 @@ function StartError(props: { error: StartWorkspaceError }) {
     if (!error) {
         return null;
     }
-    return <p className="text-base text-gitpod-red w-96">{error.message}</p>;
+    return <p className="text-base text-nxpod-red w-96">{error.message}</p>;
 }
 
 function WarningView(props: { workspaceId?: string; showLatestIdeWarning?: boolean; error?: StartWorkspaceError }) {
@@ -151,7 +151,7 @@ function WarningView(props: { workspaceId?: string; showLatestIdeWarning?: boole
                         className="gp-link"
                         target="_blank"
                         rel="noreferrer"
-                        href={gitpodHostUrl.asPreferences().toString()}
+                        href={nxpodHostUrl.asPreferences().toString()}
                     >
                         Change Preferences
                     </a>

@@ -23,18 +23,18 @@ variable "vm_type" {
 variable "vm_image" {
   type        = string
   description = "The VM image"
-  default     = "gitpod-k3s-202407022134"
+  default     = "nxpod-k3s-202407022134"
 }
 
 variable "cert_issuer" {
   type        = string
-  default     = "letsencrypt-issuer-gitpod-core-dev"
+  default     = "letsencrypt-issuer-nxpod-core-dev"
   description = "Certificate issuer"
 }
 
 variable "gcp_project_dns" {
   type        = string
-  default     = "gitpod-core-dev"
+  default     = "nxpod-core-dev"
   description = "The GCP project in which to create DNS records"
 }
 

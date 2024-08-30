@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -13,10 +13,10 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/utils/pointer"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/cluster"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	wsdaemon "github.com/gitpod-io/gitpod/installer/pkg/components/ws-daemon"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/cluster"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	wsdaemon "github.com/nxpkg/nxpod/installer/pkg/components/ws-daemon"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1"
 )
 
 func deployment(ctx *common.RenderContext) ([]runtime.Object, error) {
@@ -33,7 +33,7 @@ func deployment(ctx *common.RenderContext) ([]runtime.Object, error) {
 	if ctx.Config.Kind == config.InstallationWorkspace {
 		// Image builder TLS is only enabled in workspace clusters. This check
 		// can be removed once image-builder-mk3 has been removed from application clusters
-		// (https://github.com/gitpod-io/gitpod/issues/7845).
+		// (https://github.com/nxpkg/nxpod/issues/7845).
 		volumes = append(volumes, corev1.Volume{
 			Name: common.ImageBuilderVolumeTLSCerts,
 			VolumeSource: corev1.VolumeSource{

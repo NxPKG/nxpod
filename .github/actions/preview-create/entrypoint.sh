@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-export HOME=/home/gitpod
+export HOME=/home/nxpod
 # shellcheck disable=SC2155
 export LEEWAY_WORKSPACE_ROOT="$(pwd)"
 export PATH="$PATH:$HOME/bin"

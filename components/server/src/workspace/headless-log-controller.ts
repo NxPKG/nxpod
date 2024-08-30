@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -13,8 +13,8 @@ import {
     User,
     Workspace,
     WorkspaceInstance,
-} from "@gitpod/gitpod-protocol";
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     CompositeResourceAccessGuard,
     OwnerResourceGuard,
@@ -23,9 +23,9 @@ import {
     FGAResourceAccessGuard,
     ResourceAccessGuard,
 } from "../auth/resource-access";
-import { DBWithTracing, TracedWorkspaceDB } from "@gitpod/gitpod-db/lib/traced-db";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
-import { TeamDB } from "@gitpod/gitpod-db/lib/team-db";
+import { DBWithTracing, TracedWorkspaceDB } from "@nxpod/nxpod-db/lib/traced-db";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
+import { TeamDB } from "@nxpod/nxpod-db/lib/team-db";
 import {
     HEADLESS_LOGS_PATH_PREFIX,
     HEADLESS_LOG_DOWNLOAD_PATH_PREFIX,
@@ -38,15 +38,15 @@ import { accessHeadlessLogs } from "../auth/rate-limiter";
 import { BearerAuth } from "../auth/bearer-authenticator";
 import { ProjectsService } from "../projects/projects-service";
 import { HostContextProvider } from "../auth/host-context-provider";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { WorkspaceService } from "./workspace-service";
 import { ctxIsAborted, ctxOnAbort, ctxTrySubjectId, runWithSubSignal, runWithSubjectId } from "../util/request-context";
 import { SubjectId } from "../auth/subject-id";
 import { PrebuildManager } from "../prebuilds/prebuild-manager";
 import { validate as uuidValidate } from "uuid";
-import { getPrebuildErrorMessage } from "@gitpod/public-api-common/lib/prebuild-utils";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
+import { getPrebuildErrorMessage } from "@nxpod/public-api-common/lib/prebuild-utils";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
 
 @injectable()
 export class HeadlessLogController {

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,9 +11,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/gitpod-io/gitpod/content-service/api/config"
-	"github.com/gitpod-io/gitpod/content-service/pkg/archive"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/content-service/pkg/archive"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
 	"github.com/spf13/cobra"
 )
 
@@ -132,7 +132,7 @@ var presignedUploadCmd = &cobra.Command{
 	Use:     "upload <key>",
 	Short:   "upload",
 	Args:    cobra.ExactArgs(1),
-	Example: "upload gitpod-signed",
+	Example: "upload nxpod-signed",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		presigned, err := createPresignedAccess()
 		if err != nil {
@@ -153,7 +153,7 @@ var presignedDownloadCmd = &cobra.Command{
 	Use:     "download <key>",
 	Short:   "download",
 	Args:    cobra.ExactArgs(1),
-	Example: "download test-owner/workspaces/test-workspace/gitpod-upload",
+	Example: "download test-owner/workspaces/test-workspace/nxpod-upload",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		presigned, err := createPresignedAccess()
 		if err != nil {
@@ -196,7 +196,7 @@ var presignedExistsCmd = &cobra.Command{
 	Use:     "exists <key>",
 	Short:   "exists",
 	Args:    cobra.ExactArgs(1),
-	Example: "exists test-owner/workspaces/test-workspace/gitpod-upload",
+	Example: "exists test-owner/workspaces/test-workspace/nxpod-upload",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		presigned, err := createPresignedAccess()
 		if err != nil {
@@ -223,7 +223,7 @@ var presignedDeleteBucketCmd = &cobra.Command{
 	Use:     "bucket <bucket>",
 	Short:   "bucket",
 	Args:    cobra.ExactArgs(1),
-	Example: "delete bucket gitpod-s3",
+	Example: "delete bucket nxpod-s3",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		presigned, err := createPresignedAccess()
 		if err != nil {
@@ -269,7 +269,7 @@ func createDirectAccess() (direct storage.DirectAccess, err error) {
 		cfg = &config.StorageConfig{
 			Kind: config.S3Storage,
 			S3Config: &config.S3Config{
-				Bucket:          "gitpod-s3",
+				Bucket:          "nxpod-s3",
 				Region:          "eu-central-1",
 				CredentialsFile: "./credentials",
 			},
@@ -307,7 +307,7 @@ func createPresignedAccess() (presigned storage.PresignedAccess, err error) {
 		cfg = &config.StorageConfig{
 			Kind: config.S3Storage,
 			S3Config: &config.S3Config{
-				Bucket:          "gitpod-s3",
+				Bucket:          "nxpod-s3",
 				Region:          "eu-central-1",
 				CredentialsFile: "./credentials",
 			},

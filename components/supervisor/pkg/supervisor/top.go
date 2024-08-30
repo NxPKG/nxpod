@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,10 +18,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	cgroups "github.com/gitpod-io/gitpod/common-go/cgroups/v2"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	daemonapi "github.com/gitpod-io/gitpod/ws-daemon/api"
+	cgroups "github.com/nxpkg/nxpod/common-go/cgroups/v2"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	daemonapi "github.com/nxpkg/nxpod/ws-daemon/api"
 )
 
 type TopService struct {
@@ -32,7 +32,7 @@ type TopService struct {
 }
 
 func NewTopService() *TopService {
-	log.Debug("gitpod top service: initialized")
+	log.Debug("nxpod top service: initialized")
 	return &TopService{
 		top: Top,
 	}

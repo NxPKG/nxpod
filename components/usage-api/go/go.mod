@@ -1,8 +1,8 @@
-module github.com/gitpod-io/gitpod/usage-api
+module github.com/nxpkg/nxpod/usage-api
 
 go 1.22
 
-replace github.com/gitpod-io/gitpod/common-go => ../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../common-go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

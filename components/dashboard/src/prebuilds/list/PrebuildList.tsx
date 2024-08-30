@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -12,13 +12,13 @@ import { PrebuildListErrorState } from "./PrebuildListErrorState";
 import { PrebuildsTable } from "./PrebuildTable";
 import { LoadingState } from "@podkit/loading/LoadingState";
 import { useListOrganizationPrebuildsQuery } from "../../data/prebuilds/organization-prebuilds-query";
-import { ListOrganizationPrebuildsRequest_Filter_State, Prebuild } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
+import { ListOrganizationPrebuildsRequest_Filter_State, Prebuild } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
 import { validate } from "uuid";
 import type { TableSortOrder } from "@podkit/tables/SortableTable";
-import { SortOrder } from "@gitpod/public-api/lib/gitpod/v1/sorting_pb";
+import { SortOrder } from "@nxpod/public-api/lib/nxpod/v1/sorting_pb";
 import { RunPrebuildModal } from "./RunPrebuildModal";
 import { isPrebuildDone, watchPrebuild } from "../../data/prebuilds/prebuild-queries";
-import { Disposable } from "@gitpod/gitpod-protocol";
+import { Disposable } from "@nxpod/nxpod-protocol";
 
 const STATUS_FILTER_VALUES = ["succeeded", "failed", "unfinished", undefined] as const; // undefined means any status
 export type StatusOption = typeof STATUS_FILTER_VALUES[number];

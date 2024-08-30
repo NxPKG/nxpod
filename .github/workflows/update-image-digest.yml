@@ -22,7 +22,7 @@ jobs:
           git config --global user.email $GITHUB_EMAIL
         env:
           GITHUB_USER: roboquat
-          GITHUB_EMAIL: roboquat@gitpod.io
+          GITHUB_EMAIL: roboquat@nxpod.io
 
       - uses: imjasonh/setup-crane@v0.1
 
@@ -93,7 +93,7 @@ jobs:
             - [ ] Start a workspace in the preview environment and verify that it functions properly.
 
             ### Preview status
-            gitpod:summary
+            nxpod:summary
 
             <details>
             <summary>Preview Environment / Integration Tests</summary>

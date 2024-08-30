@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,8 +17,8 @@ import (
 
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/dropwriter"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/supervisor/pkg/dropwriter"
 	"github.com/sirupsen/logrus"
 )
 
@@ -108,7 +108,7 @@ func (s *sshServer) handleConn(ctx context.Context, conn net.Conn) {
 	args = append(args,
 		"-ieD", "-f/dev/null",
 		"-oProtocol 2",
-		"-oAllowUsers gitpod",
+		"-oAllowUsers nxpod",
 		"-oPasswordAuthentication no",
 		"-oChallengeResponseAuthentication no",
 		"-oPermitRootLogin yes",
@@ -166,7 +166,7 @@ func (s *sshServer) handleConn(ctx context.Context, conn net.Conn) {
 
 	log.WithField("args", args).Debug("sshd flags")
 	cmd := exec.CommandContext(ctx, openssh, args...)
-	cmd = runAsGitpodUser(cmd)
+	cmd = runAsNxpodUser(cmd)
 	cmd.Env = s.envvars
 	cmd.ExtraFiles = []*os.File{socketFD}
 	cmd.Stderr = os.Stderr
@@ -221,7 +221,7 @@ func prepareSSHKey(ctx context.Context, sshkey string) error {
 	}
 
 	keycmd := exec.Command(sshkeygen, "-t", "ecdsa", "-q", "-N", "", "-f", sshkey)
-	// We need to force HOME because the Gitpod user might not have existed at the start of the container
+	// We need to force HOME because the Nxpod user might not have existed at the start of the container
 	// which makes the container runtime set an invalid HOME value.
 	keycmd.Env = func() []string {
 		env := os.Environ()
@@ -240,7 +240,7 @@ func prepareSSHKey(ctx context.Context, sshkey string) error {
 		return xerrors.Errorf("cannot create SSH hostkey file: %w", err)
 	}
 
-	err = os.Chown(sshkey, gitpodUID, gitpodGID)
+	err = os.Chown(sshkey, nxpodUID, nxpodGID)
 	if err != nil {
 		return xerrors.Errorf("cannot chown SSH hostkey file: %w", err)
 	}
@@ -249,14 +249,14 @@ func prepareSSHKey(ctx context.Context, sshkey string) error {
 }
 
 func ensureSSHDir(cfg *Config) error {
-	home := "/home/gitpod"
+	home := "/home/nxpod"
 
 	d := filepath.Join(home, ".ssh")
 	err := os.MkdirAll(d, 0o700)
 	if err != nil {
 		return xerrors.Errorf("cannot create $HOME/.ssh: %w", err)
 	}
-	_ = exec.Command("chown", "-R", fmt.Sprintf("%d:%d", gitpodUID, gitpodGID), d).Run()
+	_ = exec.Command("chown", "-R", fmt.Sprintf("%d:%d", nxpodUID, nxpodGID), d).Run()
 
 	return nil
 }
@@ -290,7 +290,7 @@ func configureSSHDefaultDir(cfg *Config) {
 		log.Error("cannot configure ssh default dir with empty repo root")
 		return
 	}
-	file, err := os.OpenFile("/home/gitpod/.bash_profile", os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0o644)
+	file, err := os.OpenFile("/home/nxpod/.bash_profile", os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0o644)
 	if err != nil {
 		log.WithError(err).Error("cannot write .bash_profile")
 	}
@@ -301,16 +301,16 @@ func configureSSHDefaultDir(cfg *Config) {
 }
 
 func configureSSHMessageOfTheDay() {
-	msg := []byte(`Welcome to Gitpod: Always ready to code. Try the following commands to get started:
+	msg := []byte(`Welcome to Nxpod: Always ready to code. Try the following commands to get started:
 
-	gp tasks list         List all your defined tasks in .gitpod.yml
+	gp tasks list         List all your defined tasks in .nxpod.yml
 	gp tasks attach       Attach your terminal to a workspace task
 
 	gp ports list         Lists workspace ports and their states
 	gp stop               Stop current workspace
 	gp help               To learn about the gp CLI commands
 
-For more information, see the Gitpod documentation: https://gitpod.io/docs
+For more information, see the Nxpod documentation: https://nxpod.io/docs
 `)
 
 	if err := ioutil.WriteFile("/etc/motd", msg, 0o644); err != nil {

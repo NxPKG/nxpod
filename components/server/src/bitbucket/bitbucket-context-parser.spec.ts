@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import * as chai from "chai";
 import { Container, ContainerModule } from "inversify";
 import { suite, test, timeout, skip } from "@testdeck/mocha";
@@ -16,9 +16,9 @@ import { BitbucketApiFactory, BasicAuthBitbucketApiFactory } from "./bitbucket-a
 import { BitbucketContextParser } from "./bitbucket-context-parser";
 import { BitbucketTokenHelper } from "./bitbucket-token-handler";
 const expect = chai.expect;
-import { ifEnvVarNotSet } from "@gitpod/gitpod-protocol/lib/util/skip-if";
+import { ifEnvVarNotSet } from "@nxpod/nxpod-protocol/lib/util/skip-if";
 
-@suite(timeout(10000), skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET")))
+@suite(timeout(10000), skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET")))
 class TestBitbucketContextParser {
     protected parser: BitbucketContextParser;
     protected user: User;
@@ -65,7 +65,7 @@ class TestBitbucketContextParser {
     }
 
     @test public testCanHandleBitbucketRepo() {
-        expect(this.parser.canHandle(this.user, "https://bitbucket.org/gitpod/integration-tests/src/master/")).to.be
+        expect(this.parser.canHandle(this.user, "https://bitbucket.org/nxpod/integration-tests/src/master/")).to.be
             .true;
     }
 
@@ -74,7 +74,7 @@ class TestBitbucketContextParser {
     }
 
     @test public async testShortContext_01() {
-        const result = await this.parser.handle({}, this.user, "https://bitbucket.org/gitpod/integration-tests");
+        const result = await this.parser.handle({}, this.user, "https://bitbucket.org/nxpod/integration-tests");
         expect(result).to.deep.include({
             ref: "master",
             refType: "branch",
@@ -83,13 +83,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - master",
+            title: "nxpod/integration-tests - master",
         });
     }
 
@@ -97,7 +97,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/master/",
+            "https://bitbucket.org/nxpod/integration-tests/src/master/",
         );
         expect(result).to.deep.include({
             ref: "master",
@@ -107,13 +107,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - master",
+            title: "nxpod/integration-tests - master",
         });
     }
 
@@ -121,23 +121,23 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/8fcf6c869d0cdb570bb6f2f9aa5f8ed72c9d953a/?at=Gitpod%2Ftesttxt-created-online-with-bitbucket-1589277871983",
+            "https://bitbucket.org/nxpod/integration-tests/src/8fcf6c869d0cdb570bb6f2f9aa5f8ed72c9d953a/?at=Nxpod%2Ftesttxt-created-online-with-bitbucket-1589277871983",
         );
         expect(result).to.deep.include({
-            ref: "Gitpod/testtxt-created-online-with-bitbucket-1589277871983",
+            ref: "Nxpod/testtxt-created-online-with-bitbucket-1589277871983",
             refType: "branch",
             path: "",
             revision: "8fcf6c869d0cdb570bb6f2f9aa5f8ed72c9d953a",
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - Gitpod/testtxt-created-online-with-bitbucket-1589277871983",
+            title: "nxpod/integration-tests - Nxpod/testtxt-created-online-with-bitbucket-1589277871983",
         });
     }
 
@@ -145,7 +145,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/second-branch/",
+            "https://bitbucket.org/nxpod/integration-tests/src/second-branch/",
         );
         expect(result).to.deep.include({
             ref: "second-branch",
@@ -155,13 +155,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - second-branch",
+            title: "nxpod/integration-tests - second-branch",
         });
     }
 
@@ -169,7 +169,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/commits/branch/second-branch",
+            "https://bitbucket.org/nxpod/integration-tests/commits/branch/second-branch",
         );
         expect(result).to.deep.include({
             ref: "second-branch",
@@ -179,13 +179,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - second-branch",
+            title: "nxpod/integration-tests - second-branch",
         });
     }
 
@@ -193,7 +193,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/branch/master/",
+            "https://bitbucket.org/nxpod/integration-tests/branch/master/",
         );
         expect(result).to.deep.include({
             ref: "master",
@@ -203,13 +203,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - master",
+            title: "nxpod/integration-tests - master",
         });
     }
 
@@ -217,7 +217,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/branch/second-branch",
+            "https://bitbucket.org/nxpod/integration-tests/branch/second-branch",
         );
         expect(result).to.deep.include({
             ref: "second-branch",
@@ -227,13 +227,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - second-branch",
+            title: "nxpod/integration-tests - second-branch",
         });
     }
 
@@ -241,7 +241,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/branch/feature/JIRA-123-summary",
+            "https://bitbucket.org/nxpod/integration-tests/branch/feature/JIRA-123-summary",
         );
         expect(result).to.deep.include({
             ref: "feature/JIRA-123-summary",
@@ -251,13 +251,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - feature/JIRA-123-summary",
+            title: "nxpod/integration-tests - feature/JIRA-123-summary",
         });
     }
 
@@ -265,7 +265,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/commits/tag/first-tag",
+            "https://bitbucket.org/nxpod/integration-tests/commits/tag/first-tag",
         );
         expect(result).to.deep.include({
             ref: "first-tag",
@@ -275,13 +275,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - first-tag",
+            title: "nxpod/integration-tests - first-tag",
         });
     }
 
@@ -289,7 +289,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/first-tag/",
+            "https://bitbucket.org/nxpod/integration-tests/src/first-tag/",
         );
         expect(result).to.deep.include({
             ref: "first-tag",
@@ -299,13 +299,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - first-tag",
+            title: "nxpod/integration-tests - first-tag",
         });
     }
 
@@ -313,7 +313,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/commits/5a24a0c8a7b42c2e6418593d788e17cb987bda25",
+            "https://bitbucket.org/nxpod/integration-tests/commits/5a24a0c8a7b42c2e6418593d788e17cb987bda25",
         );
         expect(result).to.deep.include({
             ref: "",
@@ -323,13 +323,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - 5a24a0c8a7b42c2e6418593d788e17cb987bda25",
+            title: "nxpod/integration-tests - 5a24a0c8a7b42c2e6418593d788e17cb987bda25",
         });
     }
 
@@ -337,7 +337,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/master/README.md",
+            "https://bitbucket.org/nxpod/integration-tests/src/master/README.md",
         );
         expect(result).to.deep.include({
             ref: "master",
@@ -347,13 +347,13 @@ class TestBitbucketContextParser {
             isFile: true,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - master:README.md",
+            title: "nxpod/integration-tests - master:README.md",
         });
     }
 
@@ -361,7 +361,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/branch-with-dir/my-dir/test.txt",
+            "https://bitbucket.org/nxpod/integration-tests/src/branch-with-dir/my-dir/test.txt",
         );
         expect(result).to.deep.include({
             ref: "branch-with-dir",
@@ -371,13 +371,13 @@ class TestBitbucketContextParser {
             isFile: true,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - branch-with-dir:my-dir/test.txt",
+            title: "nxpod/integration-tests - branch-with-dir:my-dir/test.txt",
         });
     }
 
@@ -385,7 +385,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/src/branch-with-dir/my-dir/",
+            "https://bitbucket.org/nxpod/integration-tests/src/branch-with-dir/my-dir/",
         );
         expect(result).to.deep.include({
             ref: "branch-with-dir",
@@ -395,13 +395,13 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            title: "gitpod/integration-tests - branch-with-dir:my-dir",
+            title: "nxpod/integration-tests - branch-with-dir:my-dir",
         });
     }
 
@@ -409,15 +409,15 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/pull-requests/1/readme-updated/diff",
+            "https://bitbucket.org/nxpod/integration-tests/pull-requests/1/readme-updated/diff",
         );
         expect(result).to.deep.include({
             title: "Readme updated",
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
@@ -428,9 +428,9 @@ class TestBitbucketContextParser {
             base: {
                 repository: {
                     host: "bitbucket.org",
-                    owner: "gitpod",
+                    owner: "nxpod",
                     name: "integration-tests",
-                    cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                    cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                     defaultBranch: "master",
                     private: false,
                 },
@@ -444,10 +444,10 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/pull-requests/3/say-hello-to-gitpod/diff",
+            "https://bitbucket.org/nxpod/integration-tests/pull-requests/3/say-hello-to-nxpod/diff",
         );
         expect(result).to.deep.include({
-            title: "Say Hello to Gitpod",
+            title: "Say Hello to Nxpod",
             repository: {
                 host: "bitbucket.org",
                 owner: "corneliusltf",
@@ -457,11 +457,11 @@ class TestBitbucketContextParser {
                 private: false,
                 fork: {
                     parent: {
-                        cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                        cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                         defaultBranch: "master",
                         host: "bitbucket.org",
                         name: "integration-tests",
-                        owner: "gitpod",
+                        owner: "nxpod",
                         private: false,
                     },
                 },
@@ -473,9 +473,9 @@ class TestBitbucketContextParser {
             base: {
                 repository: {
                     host: "bitbucket.org",
-                    owner: "gitpod",
+                    owner: "nxpod",
                     name: "integration-tests",
-                    cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                    cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                     defaultBranch: "master",
                     private: false,
                 },
@@ -489,19 +489,19 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests/issues/1/first-issue",
+            "https://bitbucket.org/nxpod/integration-tests/issues/1/first-issue",
         );
         expect(result).to.deep.include({
             title: "First issue",
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests.git",
                 defaultBranch: "master",
                 private: false,
             },
-            owner: "gitpod",
+            owner: "nxpod",
             nr: 1,
             ref: "master",
             refType: "branch",
@@ -513,7 +513,7 @@ class TestBitbucketContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://bitbucket.org/gitpod/integration-tests-forked-repository/src/master/",
+            "https://bitbucket.org/nxpod/integration-tests-forked-repository/src/master/",
         );
         expect(result).to.deep.include({
             ref: "master",
@@ -523,9 +523,9 @@ class TestBitbucketContextParser {
             isFile: false,
             repository: {
                 host: "bitbucket.org",
-                owner: "gitpod",
+                owner: "nxpod",
                 name: "integration-tests-forked-repository",
-                cloneUrl: "https://bitbucket.org/gitpod/integration-tests-forked-repository.git",
+                cloneUrl: "https://bitbucket.org/nxpod/integration-tests-forked-repository.git",
                 defaultBranch: "master",
                 private: false,
                 fork: {
@@ -539,7 +539,7 @@ class TestBitbucketContextParser {
                     },
                 },
             },
-            title: "gitpod/integration-tests-forked-repository - master",
+            title: "nxpod/integration-tests-forked-repository - master",
         });
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 const migrationTableName = "migrations"
@@ -33,9 +33,9 @@ var latestMigrationName string
 var databaseCmd = &cobra.Command{
 	Use:   "database",
 	Short: "waits for a MySQL database to become available",
-	Long: `Uses the default db env config of a Gitpod deployment to try and
+	Long: `Uses the default db env config of a Nxpod deployment to try and
 connect to a MySQL database, specifically DB_HOST, DB_PORT, DB_PASSWORD,
-DB_CA_CERT and DB_USER(=gitpod)`,
+DB_CA_CERT and DB_USER(=nxpod)`,
 	PreRun: func(cmd *cobra.Command, args []string) {
 		err := viper.BindPFlags(cmd.Flags())
 		if err != nil {
@@ -53,9 +53,9 @@ DB_CA_CERT and DB_USER(=gitpod)`,
 		cfg.User = viper.GetString("username")
 		cfg.Passwd = viper.GetString("password")
 
-		// Must be "gitpod"
-		// Align to https://github.com/gitpod-io/gitpod/blob/884d922e8e33d8b936ec18d7fe3c8dcffde42b5a/components/gitpod-db/go/conn.go#L37
-		cfg.DBName = "gitpod"
+		// Must be "nxpod"
+		// Align to https://github.com/nxpkg/nxpod/blob/884d922e8e33d8b936ec18d7fe3c8dcffde42b5a/components/nxpod-db/go/conn.go#L37
+		cfg.DBName = "nxpod"
 		cfg.Timeout = 1 * time.Second
 
 		dsn := cfg.FormatDSN()
@@ -154,7 +154,7 @@ func init() {
 	databaseCmd.Flags().StringP("host", "H", os.Getenv("DB_HOST"), "Host to try and connect to")
 	databaseCmd.Flags().StringP("port", "p", envOrDefault("DB_PORT", "3306"), "Port to connect on")
 	databaseCmd.Flags().StringP("password", "P", os.Getenv("DB_PASSWORD"), "Password to use when connecting")
-	databaseCmd.Flags().StringP("username", "u", envOrDefault("DB_USERNAME", "gitpod"), "Username to use when connected")
+	databaseCmd.Flags().StringP("username", "u", envOrDefault("DB_USERNAME", "nxpod"), "Username to use when connected")
 	databaseCmd.Flags().StringP("caCert", "", os.Getenv("DB_CA_CERT"), "Custom CA cert (chain) to use when connected")
 
 	databaseCmd.Flags().BoolP("migration-check", "", false, "Enable to check if the latest migration has been applied")

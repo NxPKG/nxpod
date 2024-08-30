@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -11,7 +11,7 @@ export default function FromReferrer() {
     const contextUrl = document.referrer;
 
     if (contextUrl && contextUrl !== "" && new URL(contextUrl).pathname !== "/") {
-        // Redirect to gitpod.io/#<contextUrl> to get the same experience as with direct call
+        // Redirect to nxpod.io/#<contextUrl> to get the same experience as with direct call
         const url = new URL(window.location.toString());
         url.pathname = "/";
         url.hash = contextUrl;
@@ -29,7 +29,7 @@ export default function FromReferrer() {
                         incomplete path. This happens when the Git hoster or browser doesn't send the referrer header.
                         <br /> Please prefix the repository URL with <pre>https://{window.location.host}/#</pre> in
                         order to start a workspace.{" "}
-                        <a className="gp-link" href="https://www.gitpod.io/docs/getting-started/">
+                        <a className="gp-link" href="https://www.nxpod.io/docs/getting-started/">
                             Learn more
                         </a>
                     </Subheading>

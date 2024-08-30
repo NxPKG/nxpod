@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-group 'io.gitpod.api'
+group 'io.nxpod.api'
 
 dependencies {
     implementation 'com.google.protobuf:protobuf-java:3.19.1'
@@ -24,7 +24,7 @@ dependencies {
 }
 
 application {
-    mainClass = 'io.gitpod.ide-metrics.testclient.TestClient'
+    mainClass = 'io.nxpod.ide-metrics.testclient.TestClient'
 }
 
 java {

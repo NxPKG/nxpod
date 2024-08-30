@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,7 +8,7 @@ import { FC, useCallback } from "react";
 import { InputWithCopy } from "../../components/InputWithCopy";
 import { InputField } from "../../components/forms/InputField";
 import { TextInputField } from "../../components/forms/TextInputField";
-import { gitpodHostUrl } from "../../service/service";
+import { nxpodHostUrl } from "../../service/service";
 import { useOnBlurError } from "../../hooks/use-onblur-error";
 import isURL from "validator/lib/isURL";
 import { useCurrentOrg } from "../../data/organizations/orgs-query";
@@ -23,7 +23,7 @@ type Props = {
 };
 
 export const SSOConfigForm: FC<Props> = ({ config, readOnly = false, onChange }) => {
-    const redirectUrl = gitpodHostUrl.with({ pathname: `/iam/oidc/callback` }).toString();
+    const redirectUrl = nxpodHostUrl.with({ pathname: `/iam/oidc/callback` }).toString();
 
     const issuerError = useOnBlurError(`Please enter a valid URL.`, isValidIssuer(config.issuer));
     const clientIdError = useOnBlurError("Client ID is missing.", isValidClientID(config.clientId));
@@ -83,7 +83,7 @@ export const SSOConfigForm: FC<Props> = ({ config, readOnly = false, onChange })
             <Subheading className="mt-8">
                 <strong>3.</strong> Restrict available accounts in your Identity Providers.
                 <a
-                    href="https://www.gitpod.io/docs/enterprise/setup-gitpod/configure-sso#restrict-available-accounts-in-your-identity-providers"
+                    href="https://www.nxpod.io/docs/enterprise/setup-nxpod/configure-sso#restrict-available-accounts-in-your-identity-providers"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="gp-link"

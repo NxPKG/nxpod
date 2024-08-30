@@ -38,10 +38,10 @@
 	import static
 	import notstatic
 
-	redir /.well-known/security.txt https://www.gitpod.io/.well-known/security.txt permanent
+	redir /.well-known/security.txt https://www.nxpod.io/.well-known/security.txt permanent
 	redir /environment-variables /settings/ permanent
 
-	rewrite /schemas/gitpod-schema.json /static/schemas/gitpod-schema.json
+	rewrite /schemas/nxpod-schema.json /static/schemas/nxpod-schema.json
 
 	# avoid multiple redirects to return a static html file to not loose
 	# window.opener and brake the automatic closing of the auth redirect

@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TypeORM, resetDB } from "@gitpod/gitpod-db/lib";
-import { User } from "@gitpod/gitpod-protocol";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
+import { TypeORM, resetDB } from "@nxpod/nxpod-db/lib";
+import { User } from "@nxpod/nxpod-protocol";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
 import { expect } from "chai";
 import * as express from "express";
 import { Container } from "inversify";
@@ -165,7 +165,7 @@ describe("SessionHandler", () => {
             expect(opts.maxAge).to.equal(maxAge * 1000);
             expect(opts.sameSite).to.equal("lax");
 
-            expect(name, "Check cookie name").to.equal("__Host-_gitpod_dev_jwt_");
+            expect(name, "Check cookie name").to.equal("__Host-_nxpod_dev_jwt_");
         });
     });
     describe("jwtSessionConvertor", () => {
@@ -207,7 +207,7 @@ describe("SessionHandler", () => {
             expect(res.cookie).to.be.undefined;
         });
         it("JWT cookie is present but invalid", async () => {
-            const res = await handle(undefined, "__Host-_gitpod_dev_jwt_=invalid");
+            const res = await handle(undefined, "__Host-_nxpod_dev_jwt_=invalid");
             expect(res.status).to.equal(401);
             expect(res.value).to.equal("User has no valid session.");
             expect(res.cookie).to.be.undefined;
@@ -217,7 +217,7 @@ describe("SessionHandler", () => {
             const oldExpiredCookie = await sessionHandler.createJWTSessionCookie(existingUser.id, {
                 issuedAtMs: Date.now() - SessionHandler.JWT_REFRESH_THRESHOLD - 1,
             });
-            oldExpiredCookie.name = "_gitpod_dev_jwt_";
+            oldExpiredCookie.name = "_nxpod_dev_jwt_";
             const newCookie = await sessionHandler.createJWTSessionCookie(existingUser.id, {
                 issuedAtMs: Date.now() - SessionHandler.JWT_REFRESH_THRESHOLD - 1,
             });
@@ -236,7 +236,7 @@ describe("SessionHandler", () => {
             const oldExpiredCookie = await sessionHandler.createJWTSessionCookie(existingUser.id, {
                 issuedAtMs: Date.now() - SessionHandler.JWT_REFRESH_THRESHOLD - 1,
             });
-            oldExpiredCookie.name = "_gitpod_dev_jwt_";
+            oldExpiredCookie.name = "_nxpod_dev_jwt_";
             const newCookie = await sessionHandler.createJWTSessionCookie(existingUser.id);
 
             const res = await handle(

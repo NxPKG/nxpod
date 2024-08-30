@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 )

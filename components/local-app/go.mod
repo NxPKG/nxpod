@@ -1,13 +1,13 @@
-module github.com/gitpod-io/local-app
+module github.com/nxpkg/local-app
 
 go 1.22
 
 require (
 	github.com/desertbit/timer v0.0.0-20180107155436-c41aec40b27f // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/local-app/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/local-app/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	github.com/golang/mock v1.6.0
 	github.com/google/go-cmp v0.5.9
 	github.com/google/uuid v1.3.0
@@ -28,7 +28,7 @@ require (
 
 require (
 	github.com/bufbuild/connect-go v1.10.0
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
 	github.com/gookit/color v1.5.4
 	github.com/inconshreveable/go-update v0.0.0-20160112193335-8152e7eb6ccf
 	github.com/lmittmann/tint v1.0.3
@@ -102,10 +102,10 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230920204549-e6e6cdab5c13 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/gitpod-protocol => ../gitpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/local-app/api => ../local-app-api/go // leeway
+replace github.com/nxpkg/nxpod/local-app/api => ../local-app-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../supervisor-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../public-api/go // leeway

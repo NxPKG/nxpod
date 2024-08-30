@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,7 +8,7 @@ import {
     BranchMatchingStrategy,
     Configuration,
     PrebuildTriggerStrategy,
-} from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
 import { FC, FormEvent, useCallback, useMemo, useState } from "react";
 import { ConfigurationSettingsField } from "../ConfigurationSettingsField";
 import { Heading3, Subheading } from "@podkit/typography/Headings";
@@ -148,7 +148,7 @@ export const PrebuildSettingsForm: FC<Props> = ({ configuration }) => {
                     <a
                         className="gp-link"
                         target="_blank"
-                        href="https://www.gitpod.io/changelog/activity-based-prebuilds"
+                        href="https://www.nxpod.io/changelog/activity-based-prebuilds"
                         rel="noreferrer"
                     >
                         Learn more

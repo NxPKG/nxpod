@@ -1,18 +1,18 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { VerificationService as VerificationServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/verification_connect";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { VerificationService as VerificationServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/verification_connect";
 import {
     SendPhoneNumberVerificationTokenRequest,
     SendPhoneNumberVerificationTokenResponse,
     VerifyPhoneNumberVerificationTokenRequest,
     VerifyPhoneNumberVerificationTokenResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/verification_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/verification_pb";
 import { inject, injectable } from "inversify";
 import { VerificationService } from "../auth/verification-service";
 import { ctxUserId } from "../util/request-context";

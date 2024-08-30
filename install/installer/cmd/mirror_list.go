@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/distribution/reference"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	configv1 "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	configv1 "github.com/nxpkg/nxpod/installer/pkg/config/v1"
 	"github.com/spf13/cobra"
 	"k8s.io/utils/pointer"
 )
@@ -92,8 +92,8 @@ image to the "target" repo`,
 func init() {
 	mirrorCmd.AddCommand(mirrorListCmd)
 
-	mirrorListCmd.Flags().BoolVar(&mirrorListOpts.ExcludeThirdParty, "exclude-third-party", false, "exclude non-Gitpod images")
-	mirrorListCmd.Flags().StringVarP(&mirrorListOpts.ConfigFN, "config", "c", os.Getenv("GITPOD_INSTALLER_CONFIG"), "path to the config file")
+	mirrorListCmd.Flags().BoolVar(&mirrorListOpts.ExcludeThirdParty, "exclude-third-party", false, "exclude non-Nxpod images")
+	mirrorListCmd.Flags().StringVarP(&mirrorListOpts.ConfigFN, "config", "c", os.Getenv("NXPOD_INSTALLER_CONFIG"), "path to the config file")
 	mirrorListCmd.Flags().StringVar(&mirrorListOpts.Repository, "repository", "", "overwrite the registry in the config")
 	mirrorListCmd.Flags().StringVar(&mirrorListOpts.Domain, "domain", "", "overwrite the domain in the config")
 }
@@ -194,16 +194,16 @@ func renderAllKubernetesObject(cfgVersion string, cfg *configv1.Config) ([]strin
 }
 
 func generateMirrorList(cfgVersion string, cfg *configv1.Config) ([]mirrorListRepo, error) {
-	// Throw error if set to the default Gitpod repository
-	if cfg.Repository == common.GitpodContainerRegistry {
-		return nil, fmt.Errorf("cannot mirror images to repository %s", common.GitpodContainerRegistry)
+	// Throw error if set to the default Nxpod repository
+	if cfg.Repository == common.NxpodContainerRegistry {
+		return nil, fmt.Errorf("cannot mirror images to repository %s", common.NxpodContainerRegistry)
 	}
 
 	// Get the target repository from the config
 	targetRepo := strings.TrimRight(cfg.Repository, "/")
 
-	// Use the default Gitpod registry to pull from
-	cfg.Repository = common.GitpodContainerRegistry
+	// Use the default Nxpod registry to pull from
+	cfg.Repository = common.NxpodContainerRegistry
 
 	k8s, err := renderAllKubernetesObject(cfgVersion, cfg)
 	if err != nil {
@@ -222,7 +222,7 @@ func generateMirrorList(cfgVersion string, cfg *configv1.Config) ([]mirrorListRe
 	images := make([]mirrorListRepo, 0)
 	for _, img := range rawImages {
 		// Ignore if the image equals the container registry
-		if img == common.GitpodContainerRegistry {
+		if img == common.NxpodContainerRegistry {
 			continue
 		}
 		// Ignore empty image
@@ -238,7 +238,7 @@ func generateMirrorList(cfgVersion string, cfg *configv1.Config) ([]mirrorListRe
 		// Convert target
 		target := img
 		if strings.Contains(img, cfg.Repository) {
-			// This is the Gitpod registry
+			// This is the Nxpod registry
 			target = strings.Replace(target, cfg.Repository, targetRepo, 1)
 		} else if !mirrorListOpts.ExcludeThirdParty {
 			// Amend third-party images - remove the first part
@@ -266,13 +266,13 @@ func generateMirrorList(cfgVersion string, cfg *configv1.Config) ([]mirrorListRe
 	return images, nil
 }
 
-// getGenericImages this is a bit brute force - anything starting "docker.io" or with Gitpod repo is found
+// getGenericImages this is a bit brute force - anything starting "docker.io" or with Nxpod repo is found
 // this will be in ConfigMaps and could be anything, so will need cleaning up
 func getGenericImages(k8sObj string) []string {
 	var images []string
 
-	// Search for anything that matches docker.io or the Gitpod repo - docker.io needed for gitpod/workspace-full
-	re := regexp.MustCompile(fmt.Sprintf("%s(.*)|%s(.*)", "docker.io", common.GitpodContainerRegistry))
+	// Search for anything that matches docker.io or the Nxpod repo - docker.io needed for gitpod/workspace-full
+	re := regexp.MustCompile(fmt.Sprintf("%s(.*)|%s(.*)", "docker.io", common.NxpodContainerRegistry))
 	img := re.FindAllString(k8sObj, -1)
 
 	if len(img) > 0 {

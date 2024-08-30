@@ -4,7 +4,7 @@ package main
 
 import (
 	"github.com/32leaves/bel"
-	"github.com/gitpod-io/gitpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/api"
 )
 
 func main() {

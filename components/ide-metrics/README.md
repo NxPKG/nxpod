@@ -4,7 +4,7 @@ Handy, cheaper and easier way to help collect `error report` and `metrics` for i
 
 ## How to Debug
 
-### From source in Gitpod Browser Code
+### From source in Nxpod Browser Code
 
 **start simple server**
 
@@ -18,7 +18,7 @@ go run main.go run --config config-example.json --verbose
 ```sh
 dlv debug --listen=127.0.0.1:32991 --headless --api-version=2 -- run main.go run --config config-example.json --verbose
 ```
-- Run `Attack to Delve (gitpod)` in `Run and Debug` panel
+- Run `Attack to Delve (nxpod)` in `Run and Debug` panel
 
 ### Hot deploy to preview env
 

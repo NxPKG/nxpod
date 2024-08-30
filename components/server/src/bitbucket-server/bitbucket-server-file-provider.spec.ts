@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Repository, User } from "@gitpod/gitpod-protocol";
-import { ifEnvVarNotSet } from "@gitpod/gitpod-protocol/lib/util/skip-if";
+import { Repository, User } from "@nxpod/nxpod-protocol";
+import { ifEnvVarNotSet } from "@nxpod/nxpod-protocol/lib/util/skip-if";
 import { Container, ContainerModule } from "inversify";
 import { retries, skip, suite, test, timeout } from "@testdeck/mocha";
 import { expect } from "chai";
-import { GitpodHostUrl } from "@gitpod/gitpod-protocol/lib/util/gitpod-host-url";
+import { NxpodHostUrl } from "@nxpod/nxpod-protocol/lib/util/nxpod-host-url";
 import { BitbucketServerFileProvider } from "./bitbucket-server-file-provider";
 import { AuthProviderParams } from "../auth/auth-provider";
 import { BitbucketServerContextParser } from "./bitbucket-server-context-parser";
@@ -20,7 +20,7 @@ import { TokenProvider } from "../user/token-provider";
 import { BitbucketServerApi } from "./bitbucket-server-api";
 import { HostContextProvider } from "../auth/host-context-provider";
 
-@suite(timeout(10000), retries(1), skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER")))
+@suite(timeout(10000), retries(1), skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER")))
 class TestBitbucketServerFileProvider {
     protected service: BitbucketServerFileProvider;
     protected user: User;
@@ -31,7 +31,7 @@ class TestBitbucketServerFileProvider {
         verified: true,
         description: "",
         icon: "",
-        host: "bitbucket.gitpod-self-hosted.com",
+        host: "bitbucket.nxpod-self-hosted.com",
         oauth: {
             callBackUrl: "",
             clientId: "not-used",
@@ -52,15 +52,15 @@ class TestBitbucketServerFileProvider {
                 bind(BitbucketServerTokenHelper).toSelf().inSingletonScope();
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                 bind(TokenService).toConstantValue({
-                    createGitpodToken: async () => ({ token: { value: "foobar123-token" } }),
+                    createNxpodToken: async () => ({ token: { value: "foobar123-token" } }),
                 } as any);
                 bind(Config).toConstantValue({
-                    hostUrl: new GitpodHostUrl("https://gitpod.io"),
+                    hostUrl: new NxpodHostUrl("https://nxpod.io"),
                 });
                 bind(TokenProvider).toConstantValue(<TokenProvider>{
                     getTokenForHost: async () => {
                         return {
-                            value: process.env["GITPOD_TEST_TOKEN_BITBUCKET_SERVER"] || "undefined",
+                            value: process.env["NXPOD_TEST_TOKEN_BITBUCKET_SERVER"] || "undefined",
                             scopes: [],
                         };
                     },
@@ -89,14 +89,14 @@ class TestBitbucketServerFileProvider {
         };
     }
 
-    @test async test_getGitpodFileContent_ok() {
-        const result = await this.service.getGitpodFileContent(
+    @test async test_getNxpodFileContent_ok() {
+        const result = await this.service.getNxpodFileContent(
             // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             {
                 revision: "master",
                 repository: <Repository>{
-                    cloneUrl: "https://bitbucket.gitpod-self-hosted.com/projects/FOO/repos/repo123",
-                    webUrl: "https://bitbucket.gitpod-self-hosted.com/projects/FOO/repos/repo123",
+                    cloneUrl: "https://bitbucket.nxpod-self-hosted.com/projects/FOO/repos/repo123",
+                    webUrl: "https://bitbucket.nxpod-self-hosted.com/projects/FOO/repos/repo123",
                     name: "repo123",
                     repoKind: "projects",
                     owner: "FOO",
@@ -115,9 +115,9 @@ class TestBitbucketServerFileProvider {
                 name: "repo123",
                 repoKind: "projects",
                 revision: "foo",
-                host: "bitbucket.gitpod-self-hosted.com",
-                cloneUrl: "https://bitbucket.gitpod-self-hosted.com/projects/FOO/repos/repo123",
-                webUrl: "https://bitbucket.gitpod-self-hosted.com/projects/FOO/repos/repo123",
+                host: "bitbucket.nxpod-self-hosted.com",
+                cloneUrl: "https://bitbucket.nxpod-self-hosted.com/projects/FOO/repos/repo123",
+                webUrl: "https://bitbucket.nxpod-self-hosted.com/projects/FOO/repos/repo123",
             } as Repository,
             "foo",
             this.user,

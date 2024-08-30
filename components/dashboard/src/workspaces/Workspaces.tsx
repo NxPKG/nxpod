@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -13,16 +13,16 @@ import ConfirmationModal from "../components/ConfirmationModal";
 import { useListWorkspacesQuery } from "../data/workspaces/list-workspaces-query";
 import { EmptyWorkspacesContent } from "./EmptyWorkspacesContent";
 import { WorkspacesSearchBar } from "./WorkspacesSearchBar";
-import { hoursBefore, isDateSmallerOrEqual } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { hoursBefore, isDateSmallerOrEqual } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 import { useDeleteInactiveWorkspacesMutation } from "../data/workspaces/delete-inactive-workspaces-mutation";
 import { useToast } from "../components/toasts/Toasts";
-import { Workspace, WorkspacePhase_Phase } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { Workspace, WorkspacePhase_Phase } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { Button } from "@podkit/buttons/Button";
 import { VideoCarousel } from "./VideoCarousel";
 import { BlogBanners } from "./BlogBanners";
 import { BookOpen, Code } from "lucide-react";
-import { ReactComponent as GitpodStrokedSVG } from "../icons/gitpod-stroked.svg";
-import { isGitpodIo } from "../utils";
+import { ReactComponent as NxpodStrokedSVG } from "../icons/nxpod-stroked.svg";
+import { isNxpodIo } from "../utils";
 import PersonalizedContent from "./PersonalizedContent";
 
 const WorkspacesPage: FunctionComponent = () => {
@@ -104,7 +104,7 @@ const WorkspacesPage: FunctionComponent = () => {
             {!isLoading &&
                 (activeWorkspaces.length > 0 || inactiveWorkspaces.length > 0 || searchTerm ? (
                     <>
-                        <div className={isGitpodIo() ? "!pl-0 app-container flex flex-1 flex-row" : "app-container"}>
+                        <div className={isNxpodIo() ? "!pl-0 app-container flex flex-1 flex-row" : "app-container"}>
                             <div>
                                 <WorkspacesSearchBar
                                     limit={limit}
@@ -112,7 +112,7 @@ const WorkspacesPage: FunctionComponent = () => {
                                     onLimitUpdated={setLimit}
                                     onSearchTermUpdated={setSearchTerm}
                                 />
-                                <ItemsList className={isGitpodIo() ? "app-container xl:!pr-4 pb-40" : ""}>
+                                <ItemsList className={isNxpodIo() ? "app-container xl:!pr-4 pb-40" : ""}>
                                     <div className="border-t border-gray-200 dark:border-gray-800"></div>
                                     {filteredActiveWorkspaces.map((info) => {
                                         return <WorkspaceEntry key={info.id} info={info} />;
@@ -141,7 +141,7 @@ const WorkspacesPage: FunctionComponent = () => {
                                                             target="_blank"
                                                             rel="noreferrer"
                                                             className="gp-link"
-                                                            href="https://www.gitpod.io/docs/configure/workspaces/workspace-lifecycle#workspace-deletion"
+                                                            href="https://www.nxpod.io/docs/configure/workspaces/workspace-lifecycle#workspace-deletion"
                                                             onClick={(evt) => evt.stopPropagation()}
                                                         >
                                                             Learn more
@@ -176,15 +176,15 @@ const WorkspacesPage: FunctionComponent = () => {
                                     )}
                                 </ItemsList>
                             </div>
-                            {/* Show Educational if user is in gitpodIo */}
-                            {isGitpodIo() && (
+                            {/* Show Educational if user is in nxpodIo */}
+                            {isNxpodIo() && (
                                 <div className="max-xl:hidden border-l border-gray-200 dark:border-gray-800 pl-6 pt-5 pb-4 space-y-8">
                                     <VideoCarousel />
                                     <div className="flex flex-col gap-2">
                                         <h3 className="text-lg font-semibold text-pk-content-primary">Documentation</h3>
                                         <div className="flex flex-col gap-1 w-fit">
                                             <a
-                                                href="https://www.gitpod.io/docs"
+                                                href="https://www.nxpod.io/docs"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-sm text-pk-content-primary items-center gap-x-2 flex flex-row"
@@ -195,25 +195,25 @@ const WorkspacesPage: FunctionComponent = () => {
                                                 </span>
                                             </a>
                                             <a
-                                                href="https://www.gitpod.io/docs/configure/workspaces"
+                                                href="https://www.nxpod.io/docs/configure/workspaces"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-sm text-pk-content-primary items-center gap-x-2 flex flex-row"
                                             >
-                                                <GitpodStrokedSVG />
+                                                <NxpodStrokedSVG />
                                                 <span className="hover:text-blue-600 dark:hover:text-blue-400">
                                                     Configuring a workspace
                                                 </span>
                                             </a>
                                             <a
-                                                href="https://www.gitpod.io/docs/references/gitpod-yml"
+                                                href="https://www.nxpod.io/docs/references/nxpod-yml"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-sm text-pk-content-primary items-center gap-x-2 flex flex-row"
                                             >
                                                 <Code width={20} />{" "}
                                                 <span className="hover:text-blue-600 dark:hover:text-blue-400">
-                                                    .gitpod.yml reference
+                                                    .nxpod.yml reference
                                                 </span>
                                             </a>
                                         </div>

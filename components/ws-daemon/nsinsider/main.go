@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,8 +17,8 @@ import (
 	"golang.org/x/sys/unix"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	_ "github.com/gitpod-io/gitpod/common-go/nsenter"
+	"github.com/nxpkg/nxpod/common-go/log"
+	_ "github.com/nxpkg/nxpod/common-go/nsenter"
 	"github.com/google/nftables"
 	"github.com/google/nftables/binaryutil"
 	"github.com/google/nftables/expr"
@@ -474,30 +474,30 @@ func main() {
 					}
 					enforce := c.Bool("enforce")
 
-					// nft add table ip gitpod
-					gitpodTable := nftcon.AddTable(&nftables.Table{
+					// nft add table ip nxpod
+					nxpodTable := nftcon.AddTable(&nftables.Table{
 						Family: nftables.TableFamilyIPv4,
-						Name:   "gitpod",
+						Name:   "nxpod",
 					})
 
-					// nft add chain ip gitpod ratelimit { type filter hook postrouting priority 0 \; }
+					// nft add chain ip nxpod ratelimit { type filter hook postrouting priority 0 \; }
 					ratelimit := nftcon.AddChain(&nftables.Chain{
-						Table:    gitpodTable,
+						Table:    nxpodTable,
 						Name:     "ratelimit",
 						Type:     nftables.ChainTypeFilter,
 						Hooknum:  nftables.ChainHookPostrouting,
 						Priority: nftables.ChainPriorityFilter,
 					})
 
-					// nft add counter gitpod connection_drop_stats
+					// nft add counter nxpod connection_drop_stats
 					nftcon.AddObject(&nftables.CounterObj{
-						Table: gitpodTable,
+						Table: nxpodTable,
 						Name:  drop_stats,
 					})
 
-					// nft add set gitpod ws-connections { type ipv4_addr; flags timeout, dynamic; }
+					// nft add set nxpod ws-connections { type ipv4_addr; flags timeout, dynamic; }
 					set := &nftables.Set{
-						Table:      gitpodTable,
+						Table:      nxpodTable,
 						Name:       "ws-connections",
 						KeyType:    nftables.TypeIPAddr,
 						Dynamic:    true,
@@ -512,11 +512,11 @@ func main() {
 						verdict = expr.VerdictDrop
 					}
 
-					// nft add rule ip gitpod ratelimit ip protocol tcp ct state new meter ws-connections
+					// nft add rule ip nxpod ratelimit ip protocol tcp ct state new meter ws-connections
 					// '{ ip daddr & 0.0.0.0 timeout 1m limit rate over 3000/minute burst 1000 packets }' counter name ws-connection-drop-stats drop
 					nftcon.AddRule(&nftables.Rule{
-						// ip gitpod ratelimit
-						Table: gitpodTable,
+						// ip nxpod ratelimit
+						Table: nxpodTable,
 						Chain: ratelimit,
 
 						Exprs: []expr.Any{
@@ -609,7 +609,7 @@ func main() {
 	log.Init("nsinsider", "", true, false)
 	err := app.Run(os.Args)
 	if err != nil {
-		log.WithField("instanceId", os.Getenv("GITPOD_INSTANCE_ID")).WithField("args", os.Args).Fatal(err)
+		log.WithField("instanceId", os.Getenv("NXPOD_INSTANCE_ID")).WithField("args", os.Args).Fatal(err)
 	}
 }
 

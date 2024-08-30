@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,13 +7,13 @@ package daemon
 import (
 	"context"
 
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cgroup"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/container"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/content"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cpulimit"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/diskguard"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/iws"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/netlimit"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cgroup"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/container"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/content"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/diskguard"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/iws"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/netlimit"
 	"k8s.io/apimachinery/pkg/api/resource"
 )
 

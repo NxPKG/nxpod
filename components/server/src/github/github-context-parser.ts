@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -14,17 +14,17 @@ import {
     User,
     CommitContext,
     RefType,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { GitHubGraphQlEndpoint, QueryResult } from "./api";
 import { NotFoundError, UnauthorizedError } from "../errors";
-import { log, LogContext, LogPayload } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log, LogContext, LogPayload } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { IContextParser, IssueContexts, AbstractContextParser } from "../workspace/context-parser";
 import { GitHubScope } from "./scopes";
 import { GitHubTokenHelper } from "./github-token-helper";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { RepoURL } from "../repohost";
 import { containsScopes } from "../prebuilds/token-scopes-inclusion";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 
 @injectable()
 export class GithubContextParser extends AbstractContextParser implements IContextParser {

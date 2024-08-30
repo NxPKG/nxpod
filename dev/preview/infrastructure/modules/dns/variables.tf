@@ -15,12 +15,12 @@ variable "workspace_ip" {
 
 variable "cert_issuer" {
   type        = string
-  default     = "letsencrypt-issuer-gitpod-core-dev"
+  default     = "letsencrypt-issuer-nxpod-core-dev"
   description = "Certificate issuer"
 }
 
 variable "gcp_project_dns" {
   type        = string
-  default     = "gitpod-core-dev"
+  default     = "nxpod-core-dev"
   description = "The GCP project in which to create DNS records"
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -23,10 +23,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/constants"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/constants"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 )
 
 var _ = Describe("WorkspaceController", func() {
@@ -41,7 +41,7 @@ var _ = Describe("WorkspaceController", func() {
 			m := collectMetricCounts(wsMetrics, ws)
 			pod := createWorkspaceExpectPod(ws)
 
-			Expect(controllerutil.ContainsFinalizer(pod, workspacev1.GitpodFinalizerName)).To(BeTrue())
+			Expect(controllerutil.ContainsFinalizer(pod, workspacev1.NxpodFinalizerName)).To(BeTrue())
 
 			By("controller updating the pod starts value")
 			Eventually(func() (int, error) {
@@ -309,7 +309,7 @@ var _ = Describe("WorkspaceController", func() {
 				ObjectMeta: metav1.ObjectMeta{
 					Name:       fmt.Sprintf("ws-%s", ws.Name),
 					Namespace:  ws.Namespace,
-					Finalizers: []string{workspacev1.GitpodFinalizerName},
+					Finalizers: []string{workspacev1.NxpodFinalizerName},
 					Labels: map[string]string{
 						wsk8s.WorkspaceManagedByLabel: constants.ManagedBy,
 					},
@@ -515,7 +515,7 @@ func createHeadlessWorkspace(typ workspacev1.WorkspaceType) (ws *workspacev1.Wor
 
 	// Expect headless
 	Expect(ws.IsHeadless()).To(BeTrue())
-	Expect(controllerutil.ContainsFinalizer(pod, workspacev1.GitpodFinalizerName)).To(BeTrue())
+	Expect(controllerutil.ContainsFinalizer(pod, workspacev1.NxpodFinalizerName)).To(BeTrue())
 
 	// Expect runtime status also gets reported for headless workspaces.
 	expectRuntimeStatus(ws, pod)
@@ -652,8 +652,8 @@ func expectFinalizerAndMarkBackupCompleted(ws *workspacev1.Workspace, pod *corev
 		if err := k8sClient.Get(ctx, types.NamespacedName{Name: pod.GetName(), Namespace: pod.GetNamespace()}, pod); err != nil {
 			return false, err
 		}
-		return controllerutil.ContainsFinalizer(pod, workspacev1.GitpodFinalizerName), nil
-	}, duration, interval).Should(BeTrue(), "missing gitpod finalizer on pod, expected one to wait for backup to succeed")
+		return controllerutil.ContainsFinalizer(pod, workspacev1.NxpodFinalizerName), nil
+	}, duration, interval).Should(BeTrue(), "missing nxpod finalizer on pod, expected one to wait for backup to succeed")
 
 	By("signalling backup completed")
 	updateObjWithRetries(k8sClient, ws, true, func(ws *workspacev1.Workspace) {
@@ -670,8 +670,8 @@ func expectFinalizerAndMarkBackupFailed(ws *workspacev1.Workspace, pod *corev1.P
 		if err := k8sClient.Get(ctx, types.NamespacedName{Name: pod.GetName(), Namespace: pod.GetNamespace()}, pod); err != nil {
 			return false, err
 		}
-		return controllerutil.ContainsFinalizer(pod, workspacev1.GitpodFinalizerName), nil
-	}, duration, interval).Should(BeTrue(), "missing gitpod finalizer on pod, expected one to wait for backup to succeed")
+		return controllerutil.ContainsFinalizer(pod, workspacev1.NxpodFinalizerName), nil
+	}, duration, interval).Should(BeTrue(), "missing nxpod finalizer on pod, expected one to wait for backup to succeed")
 
 	By("signalling backup failed")
 	updateObjWithRetries(k8sClient, ws, true, func(ws *workspacev1.Workspace) {
@@ -766,13 +766,13 @@ func newWorkspace(name, namespace string) *workspacev1.Workspace {
 
 	return &workspacev1.Workspace{
 		TypeMeta: metav1.TypeMeta{
-			APIVersion: "workspace.gitpod.io/v1",
+			APIVersion: "workspace.nxpod.io/v1",
 			Kind:       "Workspace",
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       name,
 			Namespace:  namespace,
-			Finalizers: []string{workspacev1.GitpodFinalizerName},
+			Finalizers: []string{workspacev1.NxpodFinalizerName},
 			Labels: map[string]string{
 				wsk8s.WorkspaceManagedByLabel: constants.ManagedBy,
 			},

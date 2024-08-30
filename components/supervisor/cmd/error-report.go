@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,11 +14,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/api"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	ide_metrics "github.com/gitpod-io/gitpod/ide-metrics-api"
+	ide_metrics "github.com/nxpkg/nxpod/ide-metrics-api"
 )
 
 var errorReportCmdOpts struct {
@@ -60,9 +60,9 @@ var errorReportCmd = &cobra.Command{
 		data.InstanceId = wsInfo.InstanceId
 		data.UserId = wsInfo.OwnerId
 
-		parsedUrl, err := url.Parse(wsInfo.GitpodHost)
+		parsedUrl, err := url.Parse(wsInfo.NxpodHost)
 		if err != nil {
-			log.Fatal("cannot parse GitpodHost")
+			log.Fatal("cannot parse NxpodHost")
 			return
 		}
 

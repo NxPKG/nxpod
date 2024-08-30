@@ -21,7 +21,7 @@ Available Commands:
 
 Flags:
   -h, --help                help for blowtorch
-      --kubeconfig string   path to the kubeconfig file (defaults to $HOME/.kube/config) (default "/home/gitpod/.kube/config")
+      --kubeconfig string   path to the kubeconfig file (defaults to $HOME/.kube/config) (default "/home/nxpod/.kube/config")
   -t, --toggle              Help message for toggle
 
 Use "blowtorch [command] --help" for more information about a command.

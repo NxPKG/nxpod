@@ -1,14 +1,14 @@
-module github.com/gitpod-io/gitpod/usage
+module github.com/nxpkg/nxpod/usage
 
 go 1.22
 
 require (
 	github.com/alicebob/miniredis/v2 v2.30.2
 	github.com/bufbuild/connect-go v1.10.0
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/usage-api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/nxpod-db/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/usage-api v0.0.0-00010101000000-000000000000
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-redsync/redsync/v4 v4.8.1
 	github.com/google/go-cmp v0.6.0
@@ -34,7 +34,7 @@ require (
 	github.com/configcat/go-sdk/v7 v7.6.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
@@ -79,17 +79,17 @@ require (
 	gorm.io/plugin/opentelemetry v0.1.3 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/gitpod-db/go => ../gitpod-db/go // leeway
+replace github.com/nxpkg/nxpod/components/nxpod-db/go => ../nxpod-db/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../public-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/usage-api => ../usage-api/go // leeway
+replace github.com/nxpkg/nxpod/usage-api => ../usage-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

@@ -10,7 +10,7 @@ while [[ -z $(kubectl get certificate trust-manager -n cert-manager --ignore-not
 do
     logger -t install-trustmanager "Sleeping..."
     sleep 5
-    kubectl apply -f /var/lib/gitpod/manifests/trust-manager.yaml --wait=false || true
+    kubectl apply -f /var/lib/nxpod/manifests/trust-manager.yaml --wait=false || true
     logger -t install-trustmanager "Trust manager applied"
 done
 '

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -25,12 +25,12 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/logs"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/ports"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/serverapi"
+	"github.com/nxpkg/nxpod/common-go/log"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/logs"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/pkg/ports"
+	"github.com/nxpkg/nxpod/supervisor/pkg/serverapi"
 )
 
 // RegisterableService can register a service.
@@ -652,13 +652,13 @@ func (rt *remoteTokenProvider) GetToken(ctx context.Context, req *api.GetTokenRe
 type InfoService struct {
 	cfg           *Config
 	ContentState  ContentState
-	GitpodService serverapi.APIInterface
+	NxpodService serverapi.APIInterface
 
 	api.UnimplementedInfoServiceServer
 }
 
-func NewInfoService(cfg *Config, cstate ContentState, gitpodService serverapi.APIInterface) *InfoService {
-	return &InfoService{cfg: cfg, ContentState: cstate, GitpodService: gitpodService}
+func NewInfoService(cfg *Config, cstate ContentState, nxpodService serverapi.APIInterface) *InfoService {
+	return &InfoService{cfg: cfg, ContentState: cstate, NxpodService: nxpodService}
 }
 
 // RegisterGRPC registers the gRPC info service.
@@ -678,7 +678,7 @@ func (is *InfoService) WorkspaceInfo(ctx context.Context, req *api.WorkspaceInfo
 		CheckoutLocation:     is.cfg.RepoRoot,
 		InstanceId:           is.cfg.WorkspaceInstanceID,
 		WorkspaceId:          is.cfg.WorkspaceID,
-		GitpodHost:           is.cfg.GitpodHost,
+		NxpodHost:           is.cfg.NxpodHost,
 		WorkspaceContextUrl:  is.cfg.WorkspaceContextURL,
 		WorkspaceClusterHost: is.cfg.WorkspaceClusterHost,
 		WorkspaceUrl:         is.cfg.WorkspaceUrl,
@@ -716,13 +716,13 @@ func (is *InfoService) WorkspaceInfo(ctx context.Context, req *api.WorkspaceInfo
 		}
 	}
 
-	resp.UserHome = "/home/gitpod"
+	resp.UserHome = "/home/nxpod"
 
-	endpoint, host, err := is.cfg.GitpodAPIEndpoint()
+	endpoint, host, err := is.cfg.NxpodAPIEndpoint()
 	if err != nil {
 		return nil, status.Error(codes.Internal, err.Error())
 	}
-	resp.GitpodApi = &api.WorkspaceInfoResponse_GitpodAPI{
+	resp.NxpodApi = &api.WorkspaceInfoResponse_NxpodAPI{
 		Endpoint: endpoint,
 		Host:     host,
 	}
@@ -759,8 +759,8 @@ func (c *ControlService) ExposePort(ctx context.Context, req *api.ExposePortRequ
 
 // CreateSSHKeyPair create a ssh key pair for the workspace.
 func (ss *ControlService) CreateSSHKeyPair(ctx context.Context, req *api.CreateSSHKeyPairRequest) (response *api.CreateSSHKeyPairResponse, err error) {
-	home := "/home/gitpod/"
-	userName := "gitpod"
+	home := "/home/nxpod/"
+	userName := "nxpod"
 	if ss.privateKey != "" && ss.publicKey != "" {
 		checkKey := func() error {
 			data, err := os.ReadFile(filepath.Join(home, ".ssh/authorized_keys"))
@@ -812,7 +812,7 @@ func (ss *ControlService) CreateSSHKeyPair(ctx context.Context, req *api.CreateS
 		if err != nil {
 			return nil, xerrors.Errorf("cannot write file ~.ssh/authorized_keys: %w", err)
 		}
-		err = os.Chown(filepath.Join(home, ".ssh/authorized_keys"), gitpodUID, gitpodGID)
+		err = os.Chown(filepath.Join(home, ".ssh/authorized_keys"), nxpodUID, nxpodGID)
 		if err != nil {
 			return nil, xerrors.Errorf("cannot chown SSH authorized_keys file: %w", err)
 		}
@@ -854,21 +854,21 @@ func (c *ControlService) CreateDebugEnv(ctx context.Context, req *api.CreateDebu
 		}
 		parts := strings.SplitN(env, "=", 2)
 		key := parts[0]
-		// TODO all system envs should start with GITPOD_
-		// gp env shoud not allow to set env vars with GITPOD_ prefix
-		if strings.HasPrefix(key, "GITPOD_") || strings.HasPrefix(key, "THEIA_") || key == "VSX_REGISTRY_URL" {
+		// TODO all system envs should start with NXPOD_
+		// gp env shoud not allow to set env vars with NXPOD_ prefix
+		if strings.HasPrefix(key, "NXPOD_") || strings.HasPrefix(key, "THEIA_") || key == "VSX_REGISTRY_URL" {
 			envs = append(envs, env)
 		}
 	}
 	envs = append(envs, fmt.Sprintf("SUPERVISOR_DEBUG_WORKSPACE_TYPE=%d", req.GetWorkspaceType()))
 	envs = append(envs, fmt.Sprintf("SUPERVISOR_DEBUG_WORKSPACE_CONTENT_SOURCE=%d", req.GetContentSource()))
 	envs = append(envs, fmt.Sprintf("LOG_LEVEL=%s", req.GetLogLevel()))
-	envs = append(envs, fmt.Sprintf("GITPOD_TASKS=%s", req.GetTasks()))
-	envs = append(envs, fmt.Sprintf("GITPOD_WORKSPACE_URL=%s", req.GetWorkspaceUrl()))
-	envs = append(envs, fmt.Sprintf("GITPOD_REPO_ROOT=%s", req.GetCheckoutLocation()))
-	envs = append(envs, fmt.Sprintf("GITPOD_REPO_ROOTS=%s", req.GetCheckoutLocation()))
+	envs = append(envs, fmt.Sprintf("NXPOD_TASKS=%s", req.GetTasks()))
+	envs = append(envs, fmt.Sprintf("NXPOD_WORKSPACE_URL=%s", req.GetWorkspaceUrl()))
+	envs = append(envs, fmt.Sprintf("NXPOD_REPO_ROOT=%s", req.GetCheckoutLocation()))
+	envs = append(envs, fmt.Sprintf("NXPOD_REPO_ROOTS=%s", req.GetCheckoutLocation()))
 	envs = append(envs, fmt.Sprintf("THEIA_WORKSPACE_ROOT=%s", req.GetWorkspaceLocation()))
-	envs = append(envs, fmt.Sprintf("GITPOD_PREVENT_METADATA_ACCESS=%s", "false"))
+	envs = append(envs, fmt.Sprintf("NXPOD_PREVENT_METADATA_ACCESS=%s", "false"))
 	return &api.CreateDebugEnvResponse{
 		Envs: envs,
 	}, nil

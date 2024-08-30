@@ -1,37 +1,37 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { ContainerModule } from "inversify";
 
-import { RedisPublisher, newRedisClient } from "@gitpod/gitpod-db/lib";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { GitpodFileParser } from "@gitpod/gitpod-protocol/lib/gitpod-file-parser";
-import { PrometheusClientCallMetrics } from "@gitpod/gitpod-protocol/lib/messaging/client-call-metrics";
-import { newAnalyticsWriterFromEnv } from "@gitpod/gitpod-protocol/lib/util/analytics";
-import { DebugApp } from "@gitpod/gitpod-protocol/lib/util/debug-app";
+import { RedisPublisher, newRedisClient } from "@nxpod/nxpod-db/lib";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { NxpodFileParser } from "@nxpod/nxpod-protocol/lib/nxpod-file-parser";
+import { PrometheusClientCallMetrics } from "@nxpod/nxpod-protocol/lib/messaging/client-call-metrics";
+import { newAnalyticsWriterFromEnv } from "@nxpod/nxpod-protocol/lib/util/analytics";
+import { DebugApp } from "@nxpod/nxpod-protocol/lib/util/debug-app";
 import {
     IClientCallMetrics,
     createClientCallMetricsInterceptor,
     defaultGRPCOptions,
-} from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { prometheusClientMiddleware } from "@gitpod/gitpod-protocol/lib/util/nice-grpc";
-import { IDEServiceClient, IDEServiceDefinition } from "@gitpod/ide-service-api/lib/ide.pb";
-import { ImageBuilderClientCallMetrics, ImageBuilderClientProvider } from "@gitpod/image-builder/lib";
-import { BillingServiceClient, BillingServiceDefinition } from "@gitpod/usage-api/lib/usage/v1/billing.pb";
-import { UsageServiceClient, UsageServiceDefinition } from "@gitpod/usage-api/lib/usage/v1/usage.pb";
+} from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { prometheusClientMiddleware } from "@nxpod/nxpod-protocol/lib/util/nice-grpc";
+import { IDEServiceClient, IDEServiceDefinition } from "@nxpod/ide-service-api/lib/ide.pb";
+import { ImageBuilderClientCallMetrics, ImageBuilderClientProvider } from "@nxpod/image-builder/lib";
+import { BillingServiceClient, BillingServiceDefinition } from "@nxpod/usage-api/lib/usage/v1/billing.pb";
+import { UsageServiceClient, UsageServiceDefinition } from "@nxpod/usage-api/lib/usage/v1/usage.pb";
 import {
     IWorkspaceManagerClientCallMetrics,
     WorkspaceManagerClientProvider,
-} from "@gitpod/ws-manager/lib/client-provider";
+} from "@nxpod/ws-manager/lib/client-provider";
 import {
     WorkspaceManagerClientProviderCompositeSource,
     WorkspaceManagerClientProviderDBSource,
     WorkspaceManagerClientProviderEnvSource,
     WorkspaceManagerClientProviderSource,
-} from "@gitpod/ws-manager/lib/client-provider-source";
+} from "@nxpod/ws-manager/lib/client-provider-source";
 import * as grpc from "@grpc/grpc-js";
 import { Redis } from "ioredis";
 import { createChannel, createClient, createClientFactory } from "nice-grpc";
@@ -94,7 +94,7 @@ import { ContentServiceStorageClient } from "./storage/content-service-client";
 import { StorageClient } from "./storage/storage-client";
 import { AuthorizationService, AuthorizationServiceImpl } from "./user/authorization-service";
 import { EnvVarService } from "./user/env-var-service";
-import { GitpodTokenService } from "./user/gitpod-token-service";
+import { NxpodTokenService } from "./user/nxpod-token-service";
 import { NewsletterSubscriptionController } from "./user/newsletter-subscription-controller";
 import { SSHKeyService } from "./user/sshkey-service";
 import { TokenProvider } from "./user/token-provider";
@@ -111,7 +111,7 @@ import { ContextParser } from "./workspace/context-parser-service";
 import { EnvvarPrefixParser } from "./workspace/envvar-prefix-context-parser";
 import { GitTokenScopeGuesser } from "./workspace/git-token-scope-guesser";
 import { GitTokenValidator } from "./workspace/git-token-validator";
-import { GitpodServerImpl } from "./workspace/gitpod-server-impl";
+import { NxpodServerImpl } from "./workspace/nxpod-server-impl";
 import { HeadlessLogController } from "./workspace/headless-log-controller";
 import { HeadlessLogService } from "./workspace/headless-log-service";
 import { ImageSourceProvider } from "./workspace/image-source-provider";
@@ -150,7 +150,7 @@ export const productionContainerModule = new ContainerModule(
         bind(AuthorizationService).to(AuthorizationServiceImpl).inSingletonScope();
 
         bind(SSHKeyService).toSelf().inSingletonScope();
-        bind(GitpodTokenService).toSelf().inSingletonScope();
+        bind(NxpodTokenService).toSelf().inSingletonScope();
         bind(EnvVarService).toSelf().inSingletonScope();
 
         bind(TokenService).toSelf().inSingletonScope();
@@ -163,7 +163,7 @@ export const productionContainerModule = new ContainerModule(
         bind(Server).toSelf().inSingletonScope();
         bind(DebugApp).toSelf().inSingletonScope();
 
-        bind(GitpodFileParser).toSelf().inSingletonScope();
+        bind(NxpodFileParser).toSelf().inSingletonScope();
 
         bind(ConfigProvider).toSelf().inSingletonScope();
         bind(ConfigurationService).toSelf().inSingletonScope();
@@ -175,17 +175,17 @@ export const productionContainerModule = new ContainerModule(
         bind(WorkspaceStartController).toSelf().inSingletonScope();
         bind(ImageSourceProvider).toSelf().inSingletonScope();
 
-        bind(ServerFactory).toAutoFactory(GitpodServerImpl);
+        bind(ServerFactory).toAutoFactory(NxpodServerImpl);
         bind(UserController).toSelf().inSingletonScope();
 
         bind(ContextService).toSelf().inSingletonScope();
 
         bind(AuditLogService).toSelf().inSingletonScope();
 
-        bind(GitpodServerImpl).toSelf();
+        bind(NxpodServerImpl).toSelf();
         bind(WebsocketConnectionManager)
             .toDynamicValue((ctx) => {
-                const serverFactory = () => ctx.container.get<GitpodServerImpl>(GitpodServerImpl);
+                const serverFactory = () => ctx.container.get<NxpodServerImpl>(NxpodServerImpl);
                 const hostContextProvider = ctx.container.get<HostContextProvider>(HostContextProvider);
                 const config = ctx.container.get<Config>(Config);
                 const auditLogService = ctx.container.get<AuditLogService>(AuditLogService);

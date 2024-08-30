@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,8 +20,8 @@ import (
 	"time"
 
 	"github.com/cespare/xxhash/v2"
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/common"
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/common"
+	"github.com/nxpkg/nxpod/common-go/log"
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/procfs"
@@ -167,13 +167,13 @@ func (p realProcfs) Environ(pid int) ([]string, error) {
 	}
 	defer f.Close()
 
-	return parseGitpodEnviron(f)
+	return parseNxpodEnviron(f)
 }
 
-func parseGitpodEnviron(r io.Reader) ([]string, error) {
-	// Note: this function is benchmarked in BenchmarkParseGitpodEnviron.
+func parseNxpodEnviron(r io.Reader) ([]string, error) {
+	// Note: this function is benchmarked in BenchmarkParseNxpodEnviron.
 	//       At the time of this wriging it consumed 3+N allocs where N is the number of
-	//       env vars starting with GITPOD_.
+	//       env vars starting with NXPOD_.
 	//
 	// When making changes to this function, ensure you're not causing more allocs
 	// which could have a too drastic resource usage effect in prod.
@@ -187,9 +187,9 @@ func parseGitpodEnviron(r io.Reader) ([]string, error) {
 	// we expect at least 10 relevant env vars
 	res := make([]string, 0, 10)
 	for scan.Scan() {
-		// we only keep GITPOD_ variables for optimisation
+		// we only keep NXPOD_ variables for optimisation
 		text := scan.Bytes()
-		if !bytes.HasPrefix(text, []byte("GITPOD_")) {
+		if !bytes.HasPrefix(text, []byte("NXPOD_")) {
 			continue
 		}
 
@@ -272,19 +272,19 @@ func NewProcfsDetector() (*ProcfsDetector, error) {
 
 	return &ProcfsDetector{
 		indexSizeGuage: prometheus.NewGauge(prometheus.GaugeOpts{
-			Namespace: "gitpod",
+			Namespace: "nxpod",
 			Subsystem: "agent_smith_procfs_detector",
 			Name:      "index_size",
 			Help:      "number of entries in the last procfs scan index",
 		}),
 		cacheUseCounterVec: prometheus.NewCounterVec(prometheus.CounterOpts{
-			Namespace: "gitpod",
+			Namespace: "nxpod",
 			Subsystem: "agent_smith_procfs_detector",
 			Name:      "cache_use_total",
 			Help:      "process cache statistics",
 		}, []string{"use"}),
 		workspaceGauge: prometheus.NewGauge(prometheus.GaugeOpts{
-			Namespace: "gitpod",
+			Namespace: "nxpod",
 			Subsystem: "agent_smith_procfs_detector",
 			Name:      "workspace_count",
 			Help:      "number of detected workspaces",
@@ -439,20 +439,20 @@ func extractWorkspaceFromWorkspacekit(proc discoverableProcFS, pid int) *common.
 		gitURL                           string
 	)
 	for _, e := range env {
-		if strings.HasPrefix(e, "GITPOD_OWNER_ID=") {
-			ownerID = strings.TrimPrefix(e, "GITPOD_OWNER_ID=")
+		if strings.HasPrefix(e, "NXPOD_OWNER_ID=") {
+			ownerID = strings.TrimPrefix(e, "NXPOD_OWNER_ID=")
 			continue
 		}
-		if strings.HasPrefix(e, "GITPOD_WORKSPACE_ID=") {
-			workspaceID = strings.TrimPrefix(e, "GITPOD_WORKSPACE_ID=")
+		if strings.HasPrefix(e, "NXPOD_WORKSPACE_ID=") {
+			workspaceID = strings.TrimPrefix(e, "NXPOD_WORKSPACE_ID=")
 			continue
 		}
-		if strings.HasPrefix(e, "GITPOD_INSTANCE_ID=") {
-			instanceID = strings.TrimPrefix(e, "GITPOD_INSTANCE_ID=")
+		if strings.HasPrefix(e, "NXPOD_INSTANCE_ID=") {
+			instanceID = strings.TrimPrefix(e, "NXPOD_INSTANCE_ID=")
 			continue
 		}
-		if strings.HasPrefix(e, "GITPOD_WORKSPACE_CONTEXT_URL=") {
-			gitURL = strings.TrimPrefix(e, "GITPOD_WORKSPACE_CONTEXT_URL=")
+		if strings.HasPrefix(e, "NXPOD_WORKSPACE_CONTEXT_URL=") {
+			gitURL = strings.TrimPrefix(e, "NXPOD_WORKSPACE_CONTEXT_URL=")
 			continue
 		}
 	}

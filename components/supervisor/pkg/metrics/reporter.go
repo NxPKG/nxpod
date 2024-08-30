@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	api "github.com/gitpod-io/gitpod/ide-metrics-api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	api "github.com/nxpkg/nxpod/ide-metrics-api"
 	"github.com/prometheus/client_golang/prometheus"
 	dto "github.com/prometheus/client_model/go"
 )
@@ -30,7 +30,7 @@ type GrpcMetricsReporter struct {
 	onUnexpected func(family *dto.MetricFamily)
 }
 
-func NewGrpcMetricsReporter(gitpodHost string) *GrpcMetricsReporter {
+func NewGrpcMetricsReporter(nxpodHost string) *GrpcMetricsReporter {
 	return &GrpcMetricsReporter{
 		Registry: prometheus.NewRegistry(),
 		supportedMetrics: map[string]bool{
@@ -48,10 +48,10 @@ func NewGrpcMetricsReporter(gitpodHost string) *GrpcMetricsReporter {
 		},
 		values: make(map[string]float64),
 		addCounter: func(name string, labels map[string]string, value uint64) {
-			doAddCounter(gitpodHost, name, labels, value)
+			doAddCounter(nxpodHost, name, labels, value)
 		},
 		addHistogram: func(name string, labels map[string]string, count uint64, sum float64, buckets []uint64) {
-			doAddHistogram(gitpodHost, name, labels, count, sum, buckets)
+			doAddHistogram(nxpodHost, name, labels, count, sum, buckets)
 		},
 		onUnexpected: logUnexpectedMetric,
 	}
@@ -161,7 +161,7 @@ func logUnexpectedMetric(family *dto.MetricFamily) {
 }
 
 // TODO(ak) refactor to use grpc when ide-proxy supports it
-func doAddCounter(gitpodHost string, name string, labels map[string]string, value uint64) {
+func doAddCounter(nxpodHost string, name string, labels map[string]string, value uint64) {
 	req := &api.AddCounterRequest{
 		Name:   name,
 		Labels: labels,
@@ -174,7 +174,7 @@ func doAddCounter(gitpodHost string, name string, labels map[string]string, valu
 		log.WithField("req", req).WithError(err).Error("supervisor: grpc metric: failed to marshal request")
 		return
 	}
-	url := fmt.Sprintf("https://ide.%s/metrics-api/metrics/counter/add/%s", gitpodHost, name)
+	url := fmt.Sprintf("https://ide.%s/metrics-api/metrics/counter/add/%s", nxpodHost, name)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	request, err := http.NewRequestWithContext(ctx, http.MethodPost, url, bytes.NewReader(body))
@@ -211,7 +211,7 @@ func doAddCounter(gitpodHost string, name string, labels map[string]string, valu
 }
 
 // TODO(ak) refactor to use grpc when ide-proxy supports it
-func doAddHistogram(gitpodHost string, name string, labels map[string]string, count uint64, sum float64, buckets []uint64) {
+func doAddHistogram(nxpodHost string, name string, labels map[string]string, count uint64, sum float64, buckets []uint64) {
 	req := &api.AddHistogramRequest{
 		Name:    name,
 		Labels:  labels,
@@ -226,7 +226,7 @@ func doAddHistogram(gitpodHost string, name string, labels map[string]string, co
 		log.WithField("req", req).WithError(err).Error("supervisor: grpc metric: failed to marshal request")
 		return
 	}
-	url := fmt.Sprintf("https://ide.%s/metrics-api/metrics/histogram/add/%s", gitpodHost, name)
+	url := fmt.Sprintf("https://ide.%s/metrics-api/metrics/histogram/add/%s", nxpodHost, name)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	request, err := http.NewRequestWithContext(ctx, http.MethodPost, url, bytes.NewReader(body))

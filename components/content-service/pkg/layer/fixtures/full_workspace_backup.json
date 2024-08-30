@@ -18,7 +18,7 @@
     }
   ],
   "contentManifest": {
-    "type": "application/vnd.gitpod.wsfull.v1",
+    "type": "application/vnd.nxpod.wsfull.v1",
     "layers": [
       {
         "mediaType": "application/vnd.oci.image.layer.v1.tar",

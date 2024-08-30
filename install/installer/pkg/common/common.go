@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,9 +14,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	config "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	config "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -111,9 +111,9 @@ func DefaultEnv(cfg *config.Config) []corev1.EnvVar {
 
 	return MergeEnv(
 		[]corev1.EnvVar{
-			{Name: "GITPOD_DOMAIN", Value: cfg.Domain},
-			{Name: "GITPOD_INSTALLATION_SHORTNAME", Value: cfg.Metadata.InstallationShortname},
-			{Name: "GITPOD_REGION", Value: cfg.Metadata.Region},
+			{Name: "NXPOD_DOMAIN", Value: cfg.Domain},
+			{Name: "NXPOD_INSTALLATION_SHORTNAME", Value: cfg.Metadata.InstallationShortname},
+			{Name: "NXPOD_REGION", Value: cfg.Metadata.Region},
 			{Name: "HOST_URL", Value: "https://" + cfg.Domain},
 			{Name: "KUBE_NAMESPACE", ValueFrom: &corev1.EnvVarSource{
 				FieldRef: &corev1.ObjectFieldSelector{
@@ -240,13 +240,13 @@ func AnalyticsEnv(cfg *config.Config) (res []corev1.EnvVar) {
 	}
 
 	return []corev1.EnvVar{{
-		Name:  "GITPOD_ANALYTICS_WRITER",
+		Name:  "NXPOD_ANALYTICS_WRITER",
 		Value: cfg.Analytics.Writer,
 	}, {
-		Name:  "GITPOD_ANALYTICS_SEGMENT_KEY",
+		Name:  "NXPOD_ANALYTICS_SEGMENT_KEY",
 		Value: cfg.Analytics.SegmentKey,
 	}, {
-		Name:  "GITPOD_ANALYTICS_SEGMENT_ENDPOINT",
+		Name:  "NXPOD_ANALYTICS_SEGMENT_ENDPOINT",
 		Value: cfg.Analytics.SegmentEndpoint,
 	}}
 }
@@ -797,13 +797,13 @@ func RandomString(length int) (string, error) {
 }
 
 // ThirdPartyContainerRepo returns the container registry to use for third-party containers.
-// If config registry is set to the Gitpod registry, the third-party registry is returned. If
+// If config registry is set to the Nxpod registry, the third-party registry is returned. If
 // config registry is different, that repository is returned and deployment expected to mirror
 // the images to their registry
 func ThirdPartyContainerRepo(configRegistry string, thirdPartyRegistry string) string {
 	configRegistry = strings.TrimSuffix(configRegistry, "/")
 
-	if configRegistry == GitpodContainerRegistry {
+	if configRegistry == NxpodContainerRegistry {
 		return thirdPartyRegistry
 	}
 

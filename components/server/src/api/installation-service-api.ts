@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { InstallationService as InstallationServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/installation_connect";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { InstallationService as InstallationServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/installation_connect";
 import {
     CreateBlockedEmailDomainRequest,
     CreateBlockedEmailDomainResponse,
@@ -22,14 +22,14 @@ import {
     ListBlockedEmailDomainsResponse,
     ListBlockedRepositoriesRequest,
     ListBlockedRepositoriesResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/installation_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/installation_pb";
 import { inject, injectable } from "inversify";
 import { InstallationService } from "../auth/installation-service";
 import { ctxUserId } from "../util/request-context";
 import { PaginationToken, generatePaginationToken, parsePaginationToken } from "./pagination";
 import { parseSorting } from "./sorting";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
 import { Unauthenticated } from "./unauthenticated";
 
 @injectable()

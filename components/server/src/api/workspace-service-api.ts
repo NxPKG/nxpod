@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { WorkspaceService as WorkspaceServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/workspace_connect";
+import { WorkspaceService as WorkspaceServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/workspace_connect";
 import {
     CreateAndStartWorkspaceRequest,
     CreateAndStartWorkspaceResponse,
@@ -46,15 +46,15 @@ import {
     WorkspacePort_Protocol,
     ListWorkspaceSessionsRequest,
     ListWorkspaceSessionsResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { inject, injectable } from "inversify";
 import { WorkspaceService } from "../workspace/workspace-service";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
 import { ctxClientRegion, ctxSignal, ctxUserId } from "../util/request-context";
-import { parsePagination } from "@gitpod/public-api-common/lib/public-api-pagination";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
+import { parsePagination } from "@nxpod/public-api-common/lib/public-api-pagination";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
 import { validate as uuidValidate } from "uuid";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { ContextService } from "../workspace/context-service";
 import { UserService } from "../user/user-service";
 import { ContextParser } from "../workspace/context-parser-service";

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -27,9 +27,9 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	"github.com/gitpod-io/gitpod/registry-facade/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/registry-facade/api"
 )
 
 func (reg *Registry) handleManifest(ctx context.Context, r *http.Request) http.Handler {
@@ -47,7 +47,7 @@ func (reg *Registry) handleManifest(ctx context.Context, r *http.Request) http.H
 	spec, err := sp.GetSpec(ctx, name)
 	if err != nil {
 		// treat invalid names from node-labeler as debug, not errors
-		// ref: https://github.com/gitpod-io/gitpod/blob/1a3c4b0bb6f13fe38481d21ddd146747c1a1935f/components/node-labeler/cmd/run.go#L291
+		// ref: https://github.com/nxpkg/nxpod/blob/1a3c4b0bb6f13fe38481d21ddd146747c1a1935f/components/node-labeler/cmd/run.go#L291
 		var isNodeLabeler bool
 		if name == "not-a-valid-image" {
 			isNodeLabeler = true
@@ -226,7 +226,7 @@ func (mh *manifestHandler) getManifest(w http.ResponseWriter, r *http.Request) {
 			// Although somewhat compatible with the OCI manifest spec (see https://github.com/opencontainers/image-spec/blob/master/manifest.md),
 			// this field is not part of the OCI Go structs. In this particular case, we'll go ahead and add it ourselves.
 			//
-			// fixes https://github.com/gitpod-io/gitpod/pull/3397
+			// fixes https://github.com/nxpkg/nxpod/pull/3397
 			if desc.MediaType == images.MediaTypeDockerSchema2Manifest {
 				type ManifestWithMediaType struct {
 					ociv1.Manifest

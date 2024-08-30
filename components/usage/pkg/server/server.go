@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,20 +11,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gitpod-io/gitpod/usage/pkg/scheduler"
+	"github.com/nxpkg/nxpod/usage/pkg/scheduler"
 
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	v1 "github.com/gitpod-io/gitpod/usage-api/v1"
-	"github.com/gitpod-io/gitpod/usage/pkg/apiv1"
-	"github.com/gitpod-io/gitpod/usage/pkg/stripe"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/common-go/log"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	v1 "github.com/nxpkg/nxpod/usage-api/v1"
+	"github.com/nxpkg/nxpod/usage/pkg/apiv1"
+	"github.com/nxpkg/nxpod/usage/pkg/stripe"
 	"gorm.io/gorm"
 
 	"github.com/go-redsync/redsync/v4"
@@ -58,7 +58,7 @@ type Config struct {
 	// Where to find the gRPC/Connect APIs on the server component
 	ServerAddress string `json:"serverAddress"`
 
-	GitpodHost string `json:"gitpodHost"`
+	NxpodHost string `json:"nxpodHost"`
 }
 
 type RedisConfiguration struct {

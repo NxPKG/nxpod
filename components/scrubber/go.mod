@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/components/scrubber
+module github.com/nxpkg/nxpod/components/scrubber
 
 go 1.22
 

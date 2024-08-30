@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,8 +10,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/versions"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/config/versions"
 	"sigs.k8s.io/yaml"
 
 	"github.com/spf13/cobra"

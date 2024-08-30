@@ -53,7 +53,7 @@ runs:
         {
             echo "LEEWAY_SEGMENT_KEY=${{ inputs.leeway_segment_key }}"
             echo "LEEWAY_WORKSPACE_ROOT=$GITHUB_WORKSPACE"
-            echo "HOME=/home/gitpod"
+            echo "HOME=/home/nxpod"
         }  >> "$GITHUB_ENV"
     - id: auth
       name: Authenticate to Google Cloud

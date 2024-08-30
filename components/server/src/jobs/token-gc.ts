@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject } from "inversify";
 import * as opentracing from "opentracing";
-import { UserDB, DBWithTracing, TracedWorkspaceDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { UserDB, DBWithTracing, TracedWorkspaceDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { Job } from "./runner";
 
 @injectable()

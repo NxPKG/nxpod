@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { SelectAccountPayload } from "@gitpod/gitpod-protocol/lib/auth";
+import { SelectAccountPayload } from "@nxpod/nxpod-protocol/lib/auth";
 import { useEffect, useState } from "react";
-import { gitpodHostUrl } from "../service/service";
+import { nxpodHostUrl } from "../service/service";
 import InfoBox from "../components/InfoBox";
 import Modal, { ModalBody, ModalFooter, ModalHeader } from "../components/Modal";
 import SelectableCard from "../components/SelectableCard";
@@ -26,16 +26,16 @@ export function SelectAccountModal(
     };
 
     const continueWithOtherAccount = () => {
-        const accessControlUrl = gitpodHostUrl.asAccessControl().toString();
+        const accessControlUrl = nxpodHostUrl.asAccessControl().toString();
 
-        const loginUrl = gitpodHostUrl
+        const loginUrl = nxpodHostUrl
             .withApi({
                 pathname: "/login",
                 search: `host=${props.otherUser.authHost}&returnTo=${encodeURIComponent(accessControlUrl)}`,
             })
             .toString();
 
-        const logoutUrl = gitpodHostUrl
+        const logoutUrl = nxpodHostUrl
             .withApi({
                 pathname: "/logout",
                 search: `returnTo=${encodeURIComponent(loginUrl)}`,
@@ -51,7 +51,7 @@ export function SelectAccountModal(
             <ModalHeader>Select Account</ModalHeader>
             <ModalBody>
                 <p className="pb-2 text-gray-500 text-base">
-                    You are trying to authorize a provider that is already connected with another account on Gitpod.
+                    You are trying to authorize a provider that is already connected with another account on Nxpod.
                 </p>
 
                 <InfoBox className="mt-4 w-full mx-auto">

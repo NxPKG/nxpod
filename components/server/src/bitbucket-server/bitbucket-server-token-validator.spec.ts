@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ifEnvVarNotSet } from "@gitpod/gitpod-protocol/lib/util/skip-if";
+import { ifEnvVarNotSet } from "@nxpod/nxpod-protocol/lib/util/skip-if";
 import { Container, ContainerModule } from "inversify";
 import { retries, skip, suite, test, timeout } from "@testdeck/mocha";
 import { expect } from "chai";
@@ -16,9 +16,9 @@ import { TokenProvider } from "../user/token-provider";
 import { IGitTokenValidatorParams } from "../workspace/git-token-validator";
 
 const shouldSkip =
-    ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER_READ") &&
-    ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER_WRITE") &&
-    ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER_ADMIN");
+    ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER_READ") &&
+    ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER_WRITE") &&
+    ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER_ADMIN");
 
 @suite(timeout(10000), retries(0), skip(shouldSkip))
 class TestBitbucketServerTokenValidator {
@@ -28,7 +28,7 @@ class TestBitbucketServerTokenValidator {
         verified: true,
         description: "",
         icon: "",
-        host: "bitbucket.gitpod-dev.com",
+        host: "bitbucket.nxpod-dev.com",
         oauth: {
             callBackUrl: "",
             clientId: "not-used",
@@ -39,7 +39,7 @@ class TestBitbucketServerTokenValidator {
         },
     };
 
-    // https://bitbucket.gitpod-dev.com/projects/TES/repos/read-write-permission/permissions
+    // https://bitbucket.nxpod-dev.com/projects/TES/repos/read-write-permission/permissions
     readonly checkParams: IGitTokenValidatorParams = {
         host: TestBitbucketServerTokenValidator.AUTH_HOST_CONFIG.host!,
         owner: "TES",
@@ -69,8 +69,8 @@ class TestBitbucketServerTokenValidator {
         return container.get(BitbucketServerTokenValidator);
     }
 
-    @test(skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER_READ"))) async test_checkWriteAccess_read_only() {
-        const token = process.env["GITPOD_TEST_TOKEN_BITBUCKET_SERVER_READ"]!;
+    @test(skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER_READ"))) async test_checkWriteAccess_read_only() {
+        const token = process.env["NXPOD_TEST_TOKEN_BITBUCKET_SERVER_READ"]!;
         const result = await this.getValidator(token).checkWriteAccess(Object.assign({}, this.checkParams, { token }));
         expect(result).to.deep.equal({
             found: true,
@@ -79,9 +79,9 @@ class TestBitbucketServerTokenValidator {
         });
     }
 
-    @test(skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER_WRITE")))
+    @test(skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER_WRITE")))
     async test_checkWriteAccess_write_permissions() {
-        const token = process.env["GITPOD_TEST_TOKEN_BITBUCKET_SERVER_WRITE"]!;
+        const token = process.env["NXPOD_TEST_TOKEN_BITBUCKET_SERVER_WRITE"]!;
         const result = await this.getValidator(token).checkWriteAccess(Object.assign({}, this.checkParams, { token }));
         expect(result).to.deep.equal({
             found: true,
@@ -90,9 +90,9 @@ class TestBitbucketServerTokenValidator {
         });
     }
 
-    @test(skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET_SERVER_ADMIN")))
+    @test(skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET_SERVER_ADMIN")))
     async test_checkWriteAccess_admin_permissions() {
-        const token = process.env["GITPOD_TEST_TOKEN_BITBUCKET_SERVER_ADMIN"]!;
+        const token = process.env["NXPOD_TEST_TOKEN_BITBUCKET_SERVER_ADMIN"]!;
         const result = await this.getValidator(token).checkWriteAccess(Object.assign({}, this.checkParams, { token }));
         expect(result).to.deep.equal({
             found: true,

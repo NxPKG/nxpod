@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 /// Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,14 +8,14 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/usage/pkg/server"
-	"github.com/gitpod-io/gitpod/usage/pkg/stripe"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/usage/pkg/server"
+	"github.com/nxpkg/nxpod/usage/pkg/stripe"
 
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/redis"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
+	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/redis"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -42,7 +42,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			Address: common.ClusterAddress(redis.Component, ctx.Namespace, redis.Port),
 		},
 		ServerAddress: common.ClusterAddress(common.ServerComponent, ctx.Namespace, common.ServerGRPCAPIPort),
-		GitpodHost:    "https://" + ctx.Config.Domain,
+		NxpodHost:    "https://" + ctx.Config.Domain,
 	}
 
 	expWebAppConfig := common.ExperimentalWebappConfig(ctx)

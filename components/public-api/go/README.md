@@ -1,9 +1,9 @@
-# Golang bindings for Gitpod API
-This package contains API definitions and client bindings for interacting with Gitpod API.
+# Golang bindings for Nxpod API
+This package contains API definitions and client bindings for interacting with Nxpod API.
 
 ## Usage
 ```bash
-go get -u github.com/gitpod-io/gitpod/components/public-api/go
+go get -u github.com/nxpkg/nxpod/components/public-api/go
 ```
 
 ```golang
@@ -14,8 +14,8 @@ import (
     "time"
 
     "github.com/bufbuild/connect-go"
-    "github.com/gitpod-io/gitpod/components/public-api/go/client"
-    v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
+    "github.com/nxpkg/nxpod/components/public-api/go/client"
+    v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 )
 
 func ExampleListTeams() {

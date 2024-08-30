@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,7 +17,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 var (
@@ -129,7 +129,7 @@ type WsmanExecutor struct {
 // StartWorkspace starts a new workspace
 func (w *WsmanExecutor) StartWorkspace(spec *StartWorkspaceSpec) (callDuration time.Duration, err error) {
 	// Make the start workspace timeout same as the ws-manager start workspace timeout
-	// https://github.com/gitpod-io/gitpod/blob/f0d464788dbf1ec9495b0802849c95ff86500c98/components/ws-manager/pkg/manager/manager.go#L182
+	// https://github.com/nxpkg/nxpod/blob/f0d464788dbf1ec9495b0802849c95ff86500c98/components/ws-manager/pkg/manager/manager.go#L182
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Minute)
 	defer cancel()
 

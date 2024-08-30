@@ -52,7 +52,7 @@ packages:
       - ["sh", "-c", "cat _deps/components-ws-manager-mk2--crd/workspace.gitpod.io_snapshots.yaml >> pkg/components/ws-manager-mk2/crd.yaml"]
     config:
       packaging: app
-      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/gitpod-io/gitpod/installer/cmd.Version=commit-${__git_commit}' -X 'github.com/gitpod-io/gitpod/installer/pkg/config.GitpodContainerRegistry=${imageRepoBase}'"]
+      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/nxpkg/nxpod/installer/cmd.Version=commit-${__git_commit}' -X 'github.com/nxpkg/nxpod/installer/pkg/config.NxpodContainerRegistry=${imageRepoBase}'"]
   - name: app
     type: generic
     deps:

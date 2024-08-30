@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,7 +13,7 @@ import (
 )
 
 func TestHasUser(t *testing.T) {
-	gitpodUser := user.User{Username: gitpodUserName, Uid: strconv.Itoa(gitpodUID), HomeDir: "/home/gitpod", Gid: strconv.Itoa(gitpodGID)}
+	nxpodUser := user.User{Username: nxpodUserName, Uid: strconv.Itoa(nxpodUID), HomeDir: "/home/nxpod", Gid: strconv.Itoa(nxpodGID)}
 	mod := func(u user.User, m func(u *user.User)) *user.User {
 		m(&u)
 		return &u
@@ -31,34 +31,34 @@ func TestHasUser(t *testing.T) {
 		{
 			Name: "does exist",
 			Ops: ops{
-				RLookup:   opsResult{User: &gitpodUser},
-				RLookupId: opsResult{User: &gitpodUser},
+				RLookup:   opsResult{User: &nxpodUser},
+				RLookupId: opsResult{User: &nxpodUser},
 			},
 			Expectation: Expectation{Exists: true},
 		},
 		{
 			Name: "does not exist",
 			Ops: ops{
-				RLookup:   opsResult{Err: user.UnknownUserError(gitpodUserName)},
-				RLookupId: opsResult{Err: user.UnknownUserIdError(gitpodUID)},
+				RLookup:   opsResult{Err: user.UnknownUserError(nxpodUserName)},
+				RLookupId: opsResult{Err: user.UnknownUserIdError(nxpodUID)},
 			},
 		},
 		{
 			Name: "different UID",
 			Ops: ops{
-				RLookup:   opsResult{User: mod(gitpodUser, func(u *user.User) { u.Uid = "1000" })},
-				RLookupId: opsResult{Err: user.UnknownUserIdError(gitpodUID)},
+				RLookup:   opsResult{User: mod(nxpodUser, func(u *user.User) { u.Uid = "1000" })},
+				RLookupId: opsResult{Err: user.UnknownUserIdError(nxpodUID)},
 			},
 			Expectation: Expectation{
 				Exists: true,
-				Error:  "user named gitpod exists but uses different UID 1000, should be: 33333",
+				Error:  "user named nxpod exists but uses different UID 1000, should be: 33333",
 			},
 		},
 		{
 			Name: "different name",
 			Ops: ops{
-				RLookup:   opsResult{Err: user.UnknownUserError(gitpodUserName)},
-				RLookupId: opsResult{User: mod(gitpodUser, func(u *user.User) { u.Username = "foobar" })},
+				RLookup:   opsResult{Err: user.UnknownUserError(nxpodUserName)},
+				RLookupId: opsResult{User: mod(nxpodUser, func(u *user.User) { u.Username = "foobar" })},
 			},
 			Expectation: Expectation{
 				Exists: true,
@@ -68,23 +68,23 @@ func TestHasUser(t *testing.T) {
 		{
 			Name: "different GID",
 			Ops: ops{
-				RLookup:   opsResult{User: mod(gitpodUser, func(u *user.User) { u.Gid = "1000" })},
-				RLookupId: opsResult{User: mod(gitpodUser, func(u *user.User) { u.Gid = "1000" })},
+				RLookup:   opsResult{User: mod(nxpodUser, func(u *user.User) { u.Gid = "1000" })},
+				RLookupId: opsResult{User: mod(nxpodUser, func(u *user.User) { u.Gid = "1000" })},
 			},
 			Expectation: Expectation{
 				Exists: true,
-				Error:  "existing user gitpod has different GID 1000 (instead of 33333)",
+				Error:  "existing user nxpod has different GID 1000 (instead of 33333)",
 			},
 		},
 		{
 			Name: "different home dir",
 			Ops: ops{
-				RLookup:   opsResult{User: mod(gitpodUser, func(u *user.User) { u.HomeDir = "1000" })},
-				RLookupId: opsResult{User: mod(gitpodUser, func(u *user.User) { u.HomeDir = "1000" })},
+				RLookup:   opsResult{User: mod(nxpodUser, func(u *user.User) { u.HomeDir = "1000" })},
+				RLookupId: opsResult{User: mod(nxpodUser, func(u *user.User) { u.HomeDir = "1000" })},
 			},
 			Expectation: Expectation{
 				Exists: true,
-				Error:  "existing user gitpod has different home directory 1000 (instead of /home/gitpod)",
+				Error:  "existing user nxpod has different home directory 1000 (instead of /home/nxpod)",
 			},
 		},
 	}
@@ -92,7 +92,7 @@ func TestHasUser(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			defaultLookup = test.Ops
-			exists, err := hasUser(&gitpodUser)
+			exists, err := hasUser(&nxpodUser)
 			var act Expectation
 			act.Exists = exists
 			if err != nil {
@@ -107,7 +107,7 @@ func TestHasUser(t *testing.T) {
 }
 
 func TestHasGroup(t *testing.T) {
-	gitpodGroup := user.Group{Name: gitpodGroupName, Gid: strconv.Itoa(gitpodGID)}
+	nxpodGroup := user.Group{Name: nxpodGroupName, Gid: strconv.Itoa(nxpodGID)}
 	mod := func(u user.Group, m func(u *user.Group)) *user.Group {
 		m(&u)
 		return &u
@@ -125,34 +125,34 @@ func TestHasGroup(t *testing.T) {
 		{
 			Name: "does exist",
 			Ops: ops{
-				RLookupGroup:   opsResult{Group: &gitpodGroup},
-				RLookupGroupId: opsResult{Group: &gitpodGroup},
+				RLookupGroup:   opsResult{Group: &nxpodGroup},
+				RLookupGroupId: opsResult{Group: &nxpodGroup},
 			},
 			Expectation: Expectation{Exists: true},
 		},
 		{
 			Name: "does not exist",
 			Ops: ops{
-				RLookupGroup:   opsResult{Err: user.UnknownGroupError(gitpodGroupName)},
-				RLookupGroupId: opsResult{Err: user.UnknownGroupIdError(gitpodGroup.Gid)},
+				RLookupGroup:   opsResult{Err: user.UnknownGroupError(nxpodGroupName)},
+				RLookupGroupId: opsResult{Err: user.UnknownGroupIdError(nxpodGroup.Gid)},
 			},
 		},
 		{
 			Name: "different GID",
 			Ops: ops{
-				RLookupGroup:   opsResult{Group: mod(gitpodGroup, func(u *user.Group) { u.Gid = "1000" })},
-				RLookupGroupId: opsResult{Err: user.UnknownGroupIdError(gitpodGroup.Gid)},
+				RLookupGroup:   opsResult{Group: mod(nxpodGroup, func(u *user.Group) { u.Gid = "1000" })},
+				RLookupGroupId: opsResult{Err: user.UnknownGroupIdError(nxpodGroup.Gid)},
 			},
 			Expectation: Expectation{
 				Exists: true,
-				Error:  "group named gitpod exists but uses different GID 1000, should be: 33333",
+				Error:  "group named nxpod exists but uses different GID 1000, should be: 33333",
 			},
 		},
 		{
 			Name: "different name",
 			Ops: ops{
-				RLookupGroup:   opsResult{Err: user.UnknownGroupError(gitpodGroupName)},
-				RLookupGroupId: opsResult{Group: mod(gitpodGroup, func(u *user.Group) { u.Name = "foobar" })},
+				RLookupGroup:   opsResult{Err: user.UnknownGroupError(nxpodGroupName)},
+				RLookupGroupId: opsResult{Group: mod(nxpodGroup, func(u *user.Group) { u.Name = "foobar" })},
 			},
 			Expectation: Expectation{
 				Exists: true,
@@ -164,7 +164,7 @@ func TestHasGroup(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			defaultLookup = test.Ops
-			exists, err := hasGroup(gitpodGroupName, gitpodGID)
+			exists, err := hasGroup(nxpodGroupName, nxpodGID)
 			var act Expectation
 			act.Exists = exists
 			if err != nil {

@@ -1,12 +1,12 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package ide_metrics
 
 import (
-	"github.com/gitpod-io/gitpod/installer/pkg/cluster"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/cluster"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -50,7 +50,7 @@ func deployment(ctx *common.RenderContext) ([]runtime.Object, error) {
 
 	if ctx.Config.Components != nil && ctx.Config.Components.IDE != nil && ctx.Config.Components.IDE.Metrics != nil && ctx.Config.Components.IDE.Metrics.ErrorReportingEnabled {
 		env = append(env, corev1.EnvVar{
-			Name:  "GITPOD_ENABLED_ERROR_REPORTING",
+			Name:  "NXPOD_ENABLED_ERROR_REPORTING",
 			Value: "true",
 		})
 	}

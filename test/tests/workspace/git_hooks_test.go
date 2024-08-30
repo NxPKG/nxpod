@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
 const (
@@ -35,7 +35,7 @@ func TestGitHooks(t *testing.T) {
 	tests := []GitHooksTestCase{
 		{
 			Name:          "husky",
-			ContextURL:    "https://github.com/gitpod-io/gitpod-test-repo/tree/husky",
+			ContextURL:    "https://github.com/nxpkg/nxpod-test-repo/tree/husky",
 			WorkspaceRoot: "/workspace/gitpod-test-repo",
 		},
 	}

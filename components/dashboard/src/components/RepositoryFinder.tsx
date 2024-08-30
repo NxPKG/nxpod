@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,8 +8,8 @@ import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { Combobox, ComboboxElement, ComboboxSelectedItem } from "./podkit/combobox/Combobox";
 import RepositorySVG from "../icons/Repository.svg";
 import { ReactComponent as RepositoryIcon } from "../icons/RepositoryWithColor.svg";
-import { ReactComponent as GitpodRepositoryTemplate } from "../icons/GitpodRepositoryTemplate.svg";
-import GitpodRepositoryTemplateSVG from "../icons/GitpodRepositoryTemplate.svg";
+import { ReactComponent as NxpodRepositoryTemplate } from "../icons/NxpodRepositoryTemplate.svg";
+import NxpodRepositoryTemplateSVG from "../icons/NxpodRepositoryTemplate.svg";
 import { MiddleDot } from "./typography/MiddleDot";
 import {
     deduplicateAndFilterRepositories,
@@ -18,8 +18,8 @@ import {
 } from "../data/git-providers/unified-repositories-search-query";
 import { useAuthProviderDescriptions } from "../data/auth-providers/auth-provider-descriptions-query";
 import { ReactComponent as Exclamation2 } from "../images/exclamation2.svg";
-import { AuthProviderType } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
-import { SuggestedRepository } from "@gitpod/public-api/lib/gitpod/v1/scm_pb";
+import { AuthProviderType } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
+import { SuggestedRepository } from "@nxpod/public-api/lib/nxpod/v1/scm_pb";
 import { PREDEFINED_REPOS } from "../data/git-providers/predefined-repos";
 import { useConfiguration, useListConfigurations } from "../data/configurations/configuration-queries";
 
@@ -162,7 +162,7 @@ export default function RepositoryFinder({
         return (
             <div className="flex flex-col overflow-hidden" aria-label={`Demo: ${repo.url}`}>
                 <div className="flex items-center">
-                    <GitpodRepositoryTemplate className="w-5 h-5 text-pk-content-tertiary mr-2" />
+                    <NxpodRepositoryTemplate className="w-5 h-5 text-pk-content-tertiary mr-2" />
                     <span className="text-sm font-semibold">{repo.repoName}</span>
                     <MiddleDot className="px-0.5 text-pk-content-tertiary" />
                     <span
@@ -334,7 +334,7 @@ export default function RepositoryFinder({
 
     const resolveIcon = useCallback((contextUrl?: string) => {
         if (!contextUrl) return RepositorySVG;
-        return PREDEFINED_REPOS.some((repo) => repo.url === contextUrl) ? GitpodRepositoryTemplateSVG : RepositorySVG;
+        return PREDEFINED_REPOS.some((repo) => repo.url === contextUrl) ? NxpodRepositoryTemplateSVG : RepositorySVG;
     }, []);
 
     return (

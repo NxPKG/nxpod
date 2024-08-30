@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -14,14 +14,14 @@ import {
     PullRequestContext,
     IssueContext,
     RefType,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { GitLabApi, GitLab } from "./api";
 import { UnauthorizedError, NotFoundError } from "../errors";
 import { GitLabScope } from "./scopes";
 import { IContextParser, IssueContexts, AbstractContextParser, URLParts } from "../workspace/context-parser";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { GitLabTokenHelper } from "./gitlab-token-helper";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 const path = require("path");
 import { URL } from "url";
 import { RepoURL } from "../repohost";

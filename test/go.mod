@@ -1,18 +1,18 @@
-module github.com/gitpod-io/gitpod/test
+module github.com/nxpkg/nxpod/test
 
 go 1.22
 
 require (
 	github.com/bufbuild/connect-go v1.10.0
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ide-service-api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/image-builder/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-manager/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ide-service-api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/image-builder/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-manager/api v0.0.0-00010101000000-000000000000
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/google/go-github/v42 v42.0.0
 	github.com/google/nftables v0.1.0
@@ -87,7 +87,7 @@ require (
 	github.com/fatih/camelcase v1.0.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fvbommel/sortorder v1.1.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/go-delve/delve v1.22.1 // indirect
 	github.com/go-delve/liner v1.2.3-0.20231231155935-4726ab1d7f62 // indirect
 	github.com/go-errors/errors v1.4.2 // indirect
@@ -204,23 +204,23 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../components/common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../components/common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../components/scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../components/scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service => ../components/content-service // leeway
+replace github.com/nxpkg/nxpod/content-service => ../components/content-service // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../components/content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../components/content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../components/gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/gitpod-protocol => ../components/gitpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/ide-service-api => ../components/ide-service-api/go // leeway
+replace github.com/nxpkg/nxpod/ide-service-api => ../components/ide-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/image-builder/api => ../components/image-builder-api/go // leeway
+replace github.com/nxpkg/nxpod/image-builder/api => ../components/image-builder-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../components/supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../components/supervisor-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-manager/api => ../components/ws-manager-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-manager/api => ../components/ws-manager-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 
@@ -272,4 +272,4 @@ replace k8s.io/mount-utils => k8s.io/mount-utils v0.29.3 // leeway indirect from
 
 replace k8s.io/pod-security-admission => k8s.io/pod-security-admission v0.29.3 // leeway indirect from components/common-go:lib
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../components/public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../components/public-api/go // leeway

@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { inject, injectable, interfaces, optional } from "inversify";
 import * as grpc from "@grpc/grpc-js";
-import { createClientCallMetricsInterceptor, IClientCallMetrics } from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { IDEPluginServiceClient } from "@gitpod/content-service/lib/ideplugin_grpc_pb";
-import { ContentServiceClient } from "@gitpod/content-service/lib/content_grpc_pb";
-import { BlobServiceClient } from "@gitpod/content-service/lib/blobs_grpc_pb";
-import { WorkspaceServiceClient } from "@gitpod/content-service/lib/workspace_grpc_pb";
-import { HeadlessLogServiceClient } from "@gitpod/content-service/lib/headless-log_grpc_pb";
+import { createClientCallMetricsInterceptor, IClientCallMetrics } from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { IDEPluginServiceClient } from "@nxpod/content-service/lib/ideplugin_grpc_pb";
+import { ContentServiceClient } from "@nxpod/content-service/lib/content_grpc_pb";
+import { BlobServiceClient } from "@nxpod/content-service/lib/blobs_grpc_pb";
+import { WorkspaceServiceClient } from "@nxpod/content-service/lib/workspace_grpc_pb";
+import { HeadlessLogServiceClient } from "@nxpod/content-service/lib/headless-log_grpc_pb";
 
 export const ContentServiceClientConfig = Symbol("ContentServiceClientConfig");
 export const ContentServiceClientCallMetrics = Symbol("ContentServiceClientCallMetrics");

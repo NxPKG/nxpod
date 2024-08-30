@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/components/spicedb
+module github.com/nxpkg/nxpod/components/spicedb
 
 go 1.22
 

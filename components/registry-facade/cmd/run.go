@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -26,13 +26,13 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/net/context"
 
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/pprof"
-	"github.com/gitpod-io/gitpod/common-go/watch"
-	"github.com/gitpod-io/gitpod/registry-facade/api/config"
-	"github.com/gitpod-io/gitpod/registry-facade/pkg/registry"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/pprof"
+	"github.com/nxpkg/nxpod/common-go/watch"
+	"github.com/nxpkg/nxpod/registry-facade/api/config"
+	"github.com/nxpkg/nxpod/registry-facade/pkg/registry"
 )
 
 var jsonLog bool
@@ -51,7 +51,7 @@ var runCmd = &cobra.Command{
 		}
 
 		promreg := prometheus.NewRegistry()
-		gpreg := prometheus.WrapRegistererWithPrefix("gitpod_registry_facade_", promreg)
+		gpreg := prometheus.WrapRegistererWithPrefix("nxpod_registry_facade_", promreg)
 		rtt, err := registry.NewMeasuringRegistryRoundTripper(newDefaultTransport(), prometheus.WrapRegistererWithPrefix("downstream_", gpreg))
 		if err != nil {
 			log.WithError(err).Fatal("cannot register metrics")

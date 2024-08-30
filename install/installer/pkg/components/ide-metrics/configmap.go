@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/gitpod-io/gitpod/ide-metrics-api/config"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/ide-metrics-api/config"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
 	"github.com/prometheus/client_golang/prometheus"
 
 	corev1 "k8s.io/api/core/v1"

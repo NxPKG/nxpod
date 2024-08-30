@@ -2,8 +2,8 @@
   "id": "007a807f-f2a7-436b-a77f-66ed11ee7828",
   "creationDate": "2023-12-04T08:54:31.686Z",
   "avatarUrl": "https://avatars.githubusercontent.com/u/37021919?v=4",
-  "name": "GitpodTester",
-  "fullName": "Gitpod Tester",
+  "name": "NxpodTester",
+  "fullName": "Nxpod Tester",
   "organizationId": "6f5b2707-c83f-4e04-a37c-23d1b1d385ae",
   "verificationPhoneNumber": "+49150-111111111",
   "blocked": false,
@@ -41,7 +41,7 @@
       "signupGoalsOther": "",
       "companySize": "",
       "onboardedTimestamp": "2023-12-04T08:54:41.326Z",
-      "name": "Gitpod Tester",
+      "name": "Nxpod Tester",
       "email": "tester@gitpod.io",
       "company": "",
       "avatarURL": "https://avatars.githubusercontent.com/u/37021919?v=4"
@@ -55,7 +55,7 @@
     },
     "workspaceAutostartOptions": [
       {
-          "cloneURL": "https://github.com/gitpod-io/gitpod",
+          "cloneURL": "https://github.com/nxpkg/nxpod",
           "organizationId": "6f5b2707-c83f-4e04-a37c-23d1b1d385ae",
           "ideSettings": {
               "defaultIde": "code"
@@ -76,7 +76,7 @@
     {
       "authProviderId": "Public-GitHub",
       "authId": "37021919",
-      "authName": "GitpodTester",
+      "authName": "NxpodTester",
       "primaryEmail": "tester@gitpod.io",
       "deleted": false,
       "readonly": false

@@ -2,7 +2,7 @@
 
 # This script will patch the servers config map, install the app cert and restart the server components
 # It is best to add the envs to your environment variables using `gp env GH_APP_ID=....` and `gp env GH_APP_KEY="..."`.
-# See https://www.notion.so/gitpod/How-to-deploy-a-PR-with-a-working-GitHub-App-integration-d297a1ef2f7b4b3aa8483b2ae9b47da2 (internal) for more details.
+# See https://www.notion.so/nxpod/How-to-deploy-a-PR-with-a-working-GitHub-App-integration-d297a1ef2f7b4b3aa8483b2ae9b47da2 (internal) for more details.
 # GH_APP_ID=<app-id>
 # GH_APP_KEY="-----BEGIN RSA PRIVATE KEY-----
 # ...
@@ -26,7 +26,7 @@ GH_APP_KEY=${TMP2//RSA_PRIVATE/ RSA PRIVATE }
 
 
 echo 'patching configmap server-config'
-LINE="\"githubApp\": \{\"appId\":${GH_APP_ID},\"authProviderId\":\"Public-GitHub\",\"certPath\":\"\/github-app-cert\/cert\",\"certSecretName\":\"server-github-app-cert\",\"enabled\":true,\"marketplaceName\":\"gitpod-io\",\"webhookSecret\":\"omgsecret\"}"
+LINE="\"githubApp\": \{\"appId\":${GH_APP_ID},\"authProviderId\":\"Public-GitHub\",\"certPath\":\"\/github-app-cert\/cert\",\"certSecretName\":\"server-github-app-cert\",\"enabled\":true,\"marketplaceName\":\"nxpkg\",\"webhookSecret\":\"omgsecret\"}"
 kubectl get cm server-config -o yaml > server-config.yml
 perl -0777 -i.original -pe "s/\"githubApp\":.+?\}/$LINE/igs" server-config.yml
 kubectl apply -f server-config.yml

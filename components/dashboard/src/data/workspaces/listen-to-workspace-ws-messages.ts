@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Disposable } from "@gitpod/gitpod-protocol";
+import { Disposable } from "@nxpod/nxpod-protocol";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { getListWorkspacesQueryKey, ListWorkspacesQueryResult } from "./list-workspaces-query";
 import { useCurrentOrg } from "../organizations/orgs-query";
 import { stream, workspaceClient } from "../../service/public-api";
-import { WatchWorkspaceStatusResponse, Workspace } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { WatchWorkspaceStatusResponse, Workspace } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 
 export const useListenToWorkspacesWSMessages = () => {
     const queryClient = useQueryClient();

@@ -1,22 +1,22 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 // experimental bundles all internal bits of configuration for which we do not offer
 // support. We use those flags internally to operate SaaS, but do not expect anyone
-// outside of Gitpod to use.
+// outside of Nxpod to use.
 //
 // Changes in this section will NOT be backwards compatible change at will without prior notice.
-// If you use any setting herein, you forfeit support from Gitpod.
+// If you use any setting herein, you forfeit support from Nxpod.
 package experimental
 
 import (
 	"time"
 
-	agentSmith "github.com/gitpod-io/gitpod/agent-smith/pkg/config"
-	"github.com/gitpod-io/gitpod/common-go/grpc"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cpulimit"
+	agentSmith "github.com/nxpkg/nxpod/agent-smith/pkg/config"
+	"github.com/nxpkg/nxpod/common-go/grpc"
+	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -113,9 +113,9 @@ type WorkspaceConfig struct {
 	WSProxy struct {
 		IngressHeader                              string `json:"ingressHeader"`
 		BlobServeHost                              string `json:"blobServeHost"`
-		GitpodInstallationHostName                 string `json:"gitpodInstallationHostName"`
-		GitpodInstallationWorkspaceHostSuffix      string `json:"gitpodInstallationWorkspaceHostSuffix"`
-		GitpodInstallationWorkspaceHostSuffixRegex string `json:"gitpodInstallationWorkspaceHostSuffixRegex"`
+		NxpodInstallationHostName                 string `json:"gitpodInstallationHostName"`
+		NxpodInstallationWorkspaceHostSuffix      string `json:"gitpodInstallationWorkspaceHostSuffix"`
+		NxpodInstallationWorkspaceHostSuffixRegex string `json:"gitpodInstallationWorkspaceHostSuffixRegex"`
 	} `json:"wsProxy"`
 
 	ContentService struct {

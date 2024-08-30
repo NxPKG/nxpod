@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject } from "inversify";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 
 import { Gitlab } from "@gitbeaker/rest";
 import {
@@ -25,7 +25,7 @@ import {
     ProjectSchema,
     SimpleProjectSchema,
 } from "@gitbeaker/core";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { GitLabScope } from "./scopes";
 import { AuthProviderParams } from "../auth/auth-provider";
 import { GitLabTokenHelper } from "./gitlab-token-helper";

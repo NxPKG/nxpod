@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -16,13 +16,13 @@ import (
 	"sync"
 	"time"
 
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 	"github.com/hashicorp/go-retryablehttp"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	"github.com/gitpod-io/gitpod/image-builder/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/image-builder/api"
 )
 
 const (
@@ -211,7 +211,7 @@ func extractBuildStatus(status *wsmanapi.WorkspaceStatus) *api.BuildInfo {
 		LogInfo: &api.LogInfo{
 			Url: status.Spec.Url,
 			Headers: map[string]string{
-				"x-gitpod-owner-token": status.Auth.OwnerToken,
+				"x-nxpod-owner-token": status.Auth.OwnerToken,
 			},
 		},
 	}
@@ -318,7 +318,7 @@ func listenToHeadlessLogs(ctx context.Context, url, authToken string, callback l
 	if err != nil {
 		return
 	}
-	req.Header.Set("x-gitpod-owner-token", authToken)
+	req.Header.Set("x-nxpod-owner-token", authToken)
 	req.Header.Set("Cache", "no-cache")
 
 	client := retryablehttp.NewClient()
@@ -369,7 +369,7 @@ func findTaskLogURL(ctx context.Context, ideURL, authToken string) (taskLogURL s
 	if err != nil {
 		return "", err
 	}
-	req.Header.Set("x-gitpod-owner-token", authToken)
+	req.Header.Set("x-nxpod-owner-token", authToken)
 	req.Header.Set("Cache", "no-cache")
 
 	client := retryablehttp.NewClient()

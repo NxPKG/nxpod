@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { useMutation } from "@tanstack/react-query";
-import { getGitpodService } from "../../service/service";
+import { getNxpodService } from "../../service/service";
 import { useCurrentOrg } from "../organizations/orgs-query";
-import { CreateProjectParams, Project } from "@gitpod/gitpod-protocol";
+import { CreateProjectParams, Project } from "@nxpod/nxpod-protocol";
 
 export type CreateProjectArgs = Omit<CreateProjectParams, "teamId">;
 
@@ -22,7 +22,7 @@ export const useCreateProject = () => {
         // ensure a .git suffix
         const normalizedCloneURL = cloneUrl.endsWith(".git") ? cloneUrl : `${cloneUrl}.git`;
 
-        const newProject = await getGitpodService().server.createProject({
+        const newProject = await getNxpodService().server.createProject({
             name,
             slug,
             cloneUrl: normalizedCloneURL,

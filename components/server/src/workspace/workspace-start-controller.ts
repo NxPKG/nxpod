@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { inject, injectable } from "inversify";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { Job } from "../jobs/runner";
-import { DBWithTracing, TracedWorkspaceDB, UserDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { durationLongerThanSeconds } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { DBWithTracing, TracedWorkspaceDB, UserDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { durationLongerThanSeconds } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 import { WorkspaceStarter } from "./workspace-starter";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 @injectable()
 export class WorkspaceStartController implements Job {

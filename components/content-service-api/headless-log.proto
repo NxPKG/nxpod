@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -6,7 +6,7 @@ syntax = "proto3";
 
 package contentservice;
 
-option go_package = "github.com/gitpod-io/gitpod/content-service/api";
+option go_package = "github.com/nxpkg/nxpod/content-service/api";
 
 service HeadlessLogService {
     // LogDownloadURL provides a URL from where the content of a workspace can be downloaded from

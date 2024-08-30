@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,21 +8,21 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	config "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
-	wsdapi "github.com/gitpod-io/gitpod/ws-daemon/api"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cgroup"
-	wsdconfig "github.com/gitpod-io/gitpod/ws-daemon/pkg/config"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/container"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/content"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cpulimit"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/daemon"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/diskguard"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/iws"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/netlimit"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/common-go/util"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	config "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
+	wsdapi "github.com/nxpkg/nxpod/ws-daemon/api"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cgroup"
+	wsdconfig "github.com/nxpkg/nxpod/ws-daemon/pkg/config"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/container"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/content"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/daemon"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/diskguard"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/iws"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/netlimit"
 
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

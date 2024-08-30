@@ -9,7 +9,7 @@ packages:
       - components/common-go:lib
       - components/content-service-api/go:lib
       - components/content-service:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/supervisor-api/go:lib
       - components/ws-daemon-api/go:lib
       - components/ide-metrics-api/go:lib
@@ -18,7 +18,7 @@ packages:
       - CGO_ENABLED=0
       - GOOS=linux
     config:
-      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/gitpod-io/gitpod/supervisor/cmd.Version=commit-${__git_commit}'"]
+      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/nxpkg/nxpod/supervisor/cmd.Version=commit-${__git_commit}'"]
   - name: docker
     type: docker
     srcs:
@@ -28,7 +28,7 @@ packages:
       - :app
       - components/supervisor/frontend:app
       - components/supervisor/openssh:app
-      - components/gitpod-cli:app
+      - components/nxpod-cli:app
     argdeps:
       - imageRepoBase
       - dockerVersion

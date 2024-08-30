@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -116,7 +116,7 @@ intellijPlatform {
 
     publishing {
         token = providers.environmentVariable("JB_MARKETPLACE_PUBLISH_TOKEN").getOrElse("")
-        var pluginChannels = providers.environmentVariable("JB_GATEWAY_GITPOD_PLUGIN_CHANNEL").getOrElse("")
+        var pluginChannels = providers.environmentVariable("JB_GATEWAY_NXPOD_PLUGIN_CHANNEL").getOrElse("")
         if (pluginChannels.isBlank()) {
             pluginChannels = if (pluginVersion.contains("-main-gha.")) {
                 "Stable"

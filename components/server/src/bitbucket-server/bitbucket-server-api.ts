@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import fetch from "node-fetch";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
 import { AuthProviderParams } from "../auth/auth-provider";
 import { BitbucketServerTokenHelper } from "./bitbucket-server-token-handler";
@@ -196,7 +196,7 @@ export class BitbucketServerApi {
         },
     ): Promise<BitbucketServer.Branch | undefined> {
         // @see https://developer.atlassian.com/server/bitbucket/rest/v811/api-group-repository/#api-api-latest-projects-projectkey-repos-repositoryslug-branches-get
-        // @see https://bitbucket.gitpod-dev.com/rest/api/1.0/users/huiwen/repos/mustard/branches?filterText=develop
+        // @see https://bitbucket.nxpod-dev.com/rest/api/1.0/users/huiwen/repos/mustard/branches?filterText=develop
         const queryParam = qs.stringify({
             filterText: params.branch,
             boostMatches: true,
@@ -219,7 +219,7 @@ export class BitbucketServerApi {
         },
     ): Promise<BitbucketServer.Tag | undefined> {
         // @see https://developer.atlassian.com/server/bitbucket/rest/v811/api-group-repository/#api-api-latest-projects-projectkey-repos-repositoryslug-tags-get
-        // @see https://bitbucket.gitpod-dev.com/rest/api/1.0/users/huiwen/repos/mustard/tags?filterText=11
+        // @see https://bitbucket.nxpod-dev.com/rest/api/1.0/users/huiwen/repos/mustard/tags?filterText=11
         const queryParam = qs.stringify({
             filterText: params.tag,
         });
@@ -558,7 +558,7 @@ export namespace BitbucketServer {
         links: {
             self: [
                 {
-                    //"https://bitbucket.gitpod-self-hosted.com/projects/FOO/repos/repo123/pull-requests/1"
+                    //"https://bitbucket.nxpod-self-hosted.com/projects/FOO/repos/repo123/pull-requests/1"
                     href: string;
                 },
             ];

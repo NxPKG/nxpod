@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -18,7 +18,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 )
 
 // SnapshotReconciler reconciles a Snapshot object
@@ -69,9 +69,9 @@ func snapshotEventFilter(nodeName string) predicate.Predicate {
 	}
 }
 
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=snapshots,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=snapshots/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=snapshots/finalizers,verbs=update
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=snapshots,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=snapshots/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=snapshots/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.

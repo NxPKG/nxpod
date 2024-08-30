@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -24,7 +24,7 @@ import {
     switchToPAYGPathMain,
     usagePathMain,
 } from "../user-settings/settings.routes";
-import { getURLHash, isGitpodIo } from "../utils";
+import { getURLHash, isNxpodIo } from "../utils";
 import { workspacesPathMain } from "../workspaces/workspaces.routes";
 import { AdminRoute } from "./AdminRoute";
 import { Blocked } from "./Blocked";
@@ -185,7 +185,7 @@ export const AppRoutes = () => {
                             <Route path="/sorry" exact>
                                 <div className="mt-48 text-center">
                                     <Heading1>Oh, no! Something went wrong!</Heading1>
-                                    <Subheading className="mt-4 text-gitpod-red">
+                                    <Subheading className="mt-4 text-nxpod-red">
                                         {decodeURIComponent(getURLHash())}
                                     </Subheading>
                                 </div>
@@ -249,8 +249,8 @@ export const AppRoutes = () => {
                                 path="*"
                                 render={(_match) => {
                                     // delegate to our website to handle the request
-                                    if (isGitpodIo()) {
-                                        window.location.host = "www.gitpod.io";
+                                    if (isNxpodIo()) {
+                                        window.location.host = "www.nxpod.io";
                                     }
 
                                     return (

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -11,10 +11,10 @@ import (
 	"fmt"
 	"strings"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	config "github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	config "github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	"github.com/go-logr/logr"
 	"golang.org/x/xerrors"
 	corev1 "k8s.io/api/core/v1"
@@ -103,7 +103,7 @@ func (r *WorkspaceReconciler) updateWorkspaceStatus(ctx context.Context, workspa
 	}
 
 	if workspace.Status.URL == "" {
-		url, err := config.RenderWorkspaceURL(cfg.WorkspaceURLTemplate, workspace.Name, workspace.Spec.Ownership.WorkspaceID, cfg.GitpodHostURL)
+		url, err := config.RenderWorkspaceURL(cfg.WorkspaceURLTemplate, workspace.Name, workspace.Spec.Ownership.WorkspaceID, cfg.NxpodHostURL)
 		if err != nil {
 			return xerrors.Errorf("cannot get workspace URL: %w", err)
 		}
@@ -355,7 +355,7 @@ func (r *WorkspaceReconciler) extractFailure(ctx context.Context, ws *workspacev
 				if terminationState.ExitCode == containerKilledExitCode && terminationState.Reason == "ContainerStatusUnknown" {
 					// For some reason, the pod is killed with unknown container status and no taints on the underlying node.
 					// Therefore, we skip extracting the failure from the terminated message.
-					// ref: https://github.com/gitpod-io/gitpod/issues/12021
+					// ref: https://github.com/nxpkg/nxpod/issues/12021
 					var node corev1.Node
 					if ws.Status.Runtime != nil && ws.Status.Runtime.NodeName != "" {
 						if err := r.Get(ctx, types.NamespacedName{Namespace: "", Name: ws.Status.Runtime.NodeName}, &node); err == nil && len(node.Spec.Taints) == 0 {

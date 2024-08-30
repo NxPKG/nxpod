@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -21,9 +21,9 @@ import (
 	"golang.org/x/sys/unix"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/workspacekit/pkg/readarg"
-	daemonapi "github.com/gitpod-io/gitpod/ws-daemon/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/workspacekit/pkg/readarg"
+	daemonapi "github.com/nxpkg/nxpod/ws-daemon/api"
 	libseccomp "github.com/seccomp/libseccomp-golang"
 )
 
@@ -201,7 +201,7 @@ type InWorkspaceServiceClient interface {
 	io.Closer
 }
 
-// InWorkspaceHandler is the seccomp notification handler that serves a Gitpod workspace
+// InWorkspaceHandler is the seccomp notification handler that serves a Nxpod workspace
 type InWorkspaceHandler struct {
 	FD          libseccomp.ScmpFd
 	Daemon      IWSClientProvider

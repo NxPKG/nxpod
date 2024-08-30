@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,10 +12,10 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 
-	"github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/api/config"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
-	storagemock "github.com/gitpod-io/gitpod/content-service/pkg/storage/mock"
+	"github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
+	storagemock "github.com/nxpkg/nxpod/content-service/pkg/storage/mock"
 )
 
 func TestListLogs(t *testing.T) {

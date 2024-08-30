@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,9 +13,9 @@ import (
 	"github.com/spf13/cobra"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	builder "github.com/gitpod-io/gitpod/image-builder/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	builder "github.com/nxpkg/nxpod/image-builder/api"
 )
 
 // imagebuildsBuildCmd represents the build command

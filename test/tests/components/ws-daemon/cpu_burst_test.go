@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,11 +14,11 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	daemon "github.com/gitpod-io/gitpod/test/pkg/agent/daemon/api"
-	wsapi "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	daemon "github.com/nxpkg/nxpod/test/pkg/agent/daemon/api"
+	wsapi "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 )
@@ -67,7 +67,7 @@ func TestCpuBurst(t *testing.T) {
 			req.Spec.Initializer = &csapi.WorkspaceInitializer{
 				Spec: &csapi.WorkspaceInitializer_Git{
 					Git: &csapi.GitInitializer{
-						RemoteUri:        "https://github.com/gitpod-io/empty",
+						RemoteUri:        "https://github.com/nxpkg/empty",
 						CheckoutLocation: "empty",
 						Config:           &csapi.GitConfig{},
 					},

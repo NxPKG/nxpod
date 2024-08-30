@@ -1,24 +1,24 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import {
     Disposable,
-    GitpodClient as GitpodApiClient,
-    GitpodServerPath,
+    NxpodClient as NxpodApiClient,
+    NxpodServerPath,
     RateLimiterError,
     User,
-} from "@gitpod/gitpod-protocol";
-import { ApplicationError, ErrorCode, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { ConnectionHandler } from "@gitpod/gitpod-protocol/lib/messaging/handler";
+} from "@nxpod/nxpod-protocol";
+import { ApplicationError, ErrorCode, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { ConnectionHandler } from "@nxpod/nxpod-protocol/lib/messaging/handler";
 import {
     JsonRpcConnectionHandler,
     JsonRpcProxy,
     JsonRpcProxyFactory,
-} from "@gitpod/gitpod-protocol/lib/messaging/proxy-factory";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol/lib/messaging/proxy-factory";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { EventEmitter } from "events";
 import express from "express";
 import { ErrorCodes as RPCErrorCodes, MessageConnection, ResponseError, CancellationToken } from "vscode-jsonrpc";
@@ -43,16 +43,16 @@ import {
     observeAPICallsDuration,
     apiCallDurationHistogram,
 } from "../prometheus-metrics";
-import { GitpodServerImpl } from "../workspace/gitpod-server-impl";
+import { NxpodServerImpl } from "../workspace/nxpod-server-impl";
 import * as opentracing from "opentracing";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { GitpodHostUrl } from "@gitpod/gitpod-protocol/lib/util/gitpod-host-url";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { NxpodHostUrl } from "@nxpod/nxpod-protocol/lib/util/nxpod-host-url";
 import { maskIp } from "../analytics";
 import { runWithRequestContext } from "../util/request-context";
 import { SubjectId } from "../auth/subject-id";
 import { AuditLogService } from "../audit/AuditLogService";
 
-export type GitpodServiceFactory = () => GitpodServerImpl;
+export type NxpodServiceFactory = () => NxpodServerImpl;
 
 const EVENT_CONNECTION_CREATED = "EVENT_CONNECTION_CREATED";
 const EVENT_CONNECTION_CLOSED = "EVENT_CONNECTION_CLOSED";
@@ -63,11 +63,11 @@ const EVENT_CLIENT_CONTEXT_CLOSED = "EVENT_CLIENT_CONTEXT_CLOSED";
 export type WebsocketClientType =
     | "browser"
     | "go-client"
-    | "gitpod-code"
+    | "nxpod-code"
     | "supervisor"
     | "local-companion"
-    | "io.gitpod.jetbrains.remote"
-    | "io.gitpod.jetbrains.gateway";
+    | "io.nxpod.jetbrains.remote"
+    | "io.nxpod.jetbrains.gateway";
 namespace WebsocketClientType {
     export function getClientType(req: express.Request): WebsocketClientType | undefined {
         const userAgent = req.headers["user-agent"];
@@ -78,13 +78,13 @@ namespace WebsocketClientType {
                 result = "go-client";
             } else if (userAgent.startsWith("Mozilla")) {
                 result = "browser";
-            } else if (userAgent.startsWith("Gitpod Code")) {
-                result = "gitpod-code";
-            } else if (userAgent.startsWith("gitpod/supervisor")) {
+            } else if (userAgent.startsWith("Nxpod Code")) {
+                result = "nxpod-code";
+            } else if (userAgent.startsWith("nxpod/supervisor")) {
                 result = "supervisor";
-            } else if (userAgent.startsWith("gitpod/local-companion")) {
+            } else if (userAgent.startsWith("nxpod/local-companion")) {
                 result = "local-companion";
-            } else if (userAgent === "io.gitpod.jetbrains.remote" || userAgent === "io.gitpod.jetbrains.gateway") {
+            } else if (userAgent === "io.nxpod.jetbrains.remote" || userAgent === "io.nxpod.jetbrains.gateway") {
                 result = userAgent;
             }
         }
@@ -152,7 +152,7 @@ export namespace ClientMetadata {
         }
 
         try {
-            const u = new GitpodHostUrl(origin);
+            const u = new NxpodHostUrl(origin);
             return u.workspaceId;
         } catch (err) {
             // ignore
@@ -165,17 +165,17 @@ export class WebsocketClientContext {
     constructor(public readonly clientMetadata: ClientMetadata) {}
 
     /** This list of endpoints serving client connections 1-1 */
-    protected servers: GitpodServerImpl[] = [];
+    protected servers: NxpodServerImpl[] = [];
 
     get clientId(): string {
         return this.clientMetadata.id;
     }
 
-    addEndpoint(server: GitpodServerImpl) {
+    addEndpoint(server: NxpodServerImpl) {
         this.servers.push(server);
     }
 
-    removeEndpoint(server: GitpodServerImpl) {
+    removeEndpoint(server: NxpodServerImpl) {
         const index = this.servers.findIndex((s) => s.uuid === server.uuid);
         if (index !== -1) {
             this.servers.splice(index, 1);
@@ -188,22 +188,22 @@ export class WebsocketClientContext {
 }
 
 /**
- * Establishes and manages JsonRpc-over-websocket connections from frontends to GitpodServerImpl instances
+ * Establishes and manages JsonRpc-over-websocket connections from frontends to NxpodServerImpl instances
  */
 export class WebsocketConnectionManager implements ConnectionHandler {
-    public readonly path = GitpodServerPath;
+    public readonly path = NxpodServerPath;
 
-    protected readonly jsonRpcConnectionHandler: JsonRpcConnectionHandler<GitpodApiClient>;
+    protected readonly jsonRpcConnectionHandler: JsonRpcConnectionHandler<NxpodApiClient>;
     protected readonly events = new EventEmitter();
     protected readonly contexts: Map<string, WebsocketClientContext> = new Map();
 
     constructor(
-        protected readonly serverFactory: GitpodServiceFactory,
+        protected readonly serverFactory: NxpodServiceFactory,
         protected readonly hostContextProvider: HostContextProvider,
         protected readonly rateLimiterConfig: RateLimiterConfig,
         protected readonly auditLogService: AuditLogService,
     ) {
-        this.jsonRpcConnectionHandler = new GitpodJsonRpcConnectionHandler<GitpodApiClient>(
+        this.jsonRpcConnectionHandler = new NxpodJsonRpcConnectionHandler<NxpodApiClient>(
             this.path,
             this.createProxyTarget.bind(this),
             this.rateLimiterConfig,
@@ -217,15 +217,15 @@ export class WebsocketConnectionManager implements ConnectionHandler {
     }
 
     protected createProxyTarget(
-        client: JsonRpcProxy<GitpodApiClient>,
+        client: JsonRpcProxy<NxpodApiClient>,
         request?: object,
         connectionCtx?: TraceContext,
-    ): GitpodServerImpl {
+    ): NxpodServerImpl {
         const expressReq = request as express.Request;
         const user: User | undefined = expressReq.user;
 
         const clientContext = this.getOrCreateClientContext(expressReq);
-        const gitpodServer = this.serverFactory();
+        const nxpodServer = this.serverFactory();
 
         let resourceGuard: ResourceAccessGuard;
         const explicitGuard = (expressReq as WithResourceAccessGuard).resourceGuard;
@@ -249,7 +249,7 @@ export class WebsocketConnectionManager implements ConnectionHandler {
             maskedClientIp: maskIp(clientHeaderFields.ip),
         });
 
-        gitpodServer.initialize(
+        nxpodServer.initialize(
             client,
             user?.id,
             resourceGuard,
@@ -259,11 +259,11 @@ export class WebsocketConnectionManager implements ConnectionHandler {
         );
         client.onDidCloseConnection(() => {
             try {
-                gitpodServer.dispose();
+                nxpodServer.dispose();
                 increaseApiConnectionClosedCounter();
-                this.events.emit(EVENT_CONNECTION_CLOSED, gitpodServer, expressReq);
+                this.events.emit(EVENT_CONNECTION_CLOSED, nxpodServer, expressReq);
 
-                clientContext.removeEndpoint(gitpodServer);
+                clientContext.removeEndpoint(nxpodServer);
                 if (clientContext.hasNoEndpointsLeft()) {
                     this.contexts.delete(clientContext.clientId);
                     this.events.emit(EVENT_CLIENT_CONTEXT_CLOSED, clientContext);
@@ -273,12 +273,12 @@ export class WebsocketConnectionManager implements ConnectionHandler {
                 log.error("onDidCloseConnection", err);
             }
         });
-        clientContext.addEndpoint(gitpodServer);
+        clientContext.addEndpoint(nxpodServer);
 
-        this.events.emit(EVENT_CONNECTION_CREATED, gitpodServer, expressReq);
+        this.events.emit(EVENT_CONNECTION_CREATED, nxpodServer, expressReq);
 
-        return new Proxy<GitpodServerImpl>(gitpodServer, {
-            get: (target, property: keyof GitpodServerImpl) => {
+        return new Proxy<NxpodServerImpl>(nxpodServer, {
+            get: (target, property: keyof NxpodServerImpl) => {
                 return target[property];
             },
         });
@@ -295,14 +295,14 @@ export class WebsocketConnectionManager implements ConnectionHandler {
         return ctx;
     }
 
-    public onConnectionCreated(l: (server: GitpodServerImpl, req: express.Request) => void): Disposable {
+    public onConnectionCreated(l: (server: NxpodServerImpl, req: express.Request) => void): Disposable {
         this.events.on(EVENT_CONNECTION_CREATED, l);
         return {
             dispose: () => this.events.off(EVENT_CONNECTION_CREATED, l),
         };
     }
 
-    public onConnectionClosed(l: (server: GitpodServerImpl, req: express.Request) => void): Disposable {
+    public onConnectionClosed(l: (server: NxpodServerImpl, req: express.Request) => void): Disposable {
         this.events.on(EVENT_CONNECTION_CLOSED, l);
         return {
             dispose: () => this.events.off(EVENT_CONNECTION_CLOSED, l),
@@ -324,7 +324,7 @@ export class WebsocketConnectionManager implements ConnectionHandler {
     }
 }
 
-class GitpodJsonRpcConnectionHandler<T extends object> extends JsonRpcConnectionHandler<T> {
+class NxpodJsonRpcConnectionHandler<T extends object> extends JsonRpcConnectionHandler<T> {
     constructor(
         readonly path: string,
         readonly targetFactory: (proxy: JsonRpcProxy<T>, request?: object, connectionCtx?: TraceContext) => any,
@@ -346,7 +346,7 @@ class GitpodJsonRpcConnectionHandler<T extends object> extends JsonRpcConnection
         });
         connection.onClose(() => span.finish());
 
-        const factory = new GitpodJsonRpcProxyFactory<T>(
+        const factory = new NxpodJsonRpcProxyFactory<T>(
             this.createAccessGuard(request),
             this.createRateLimiter(clientMetadata.id, request),
             clientMetadata,
@@ -370,7 +370,7 @@ class GitpodJsonRpcConnectionHandler<T extends object> extends JsonRpcConnection
     }
 }
 
-class GitpodJsonRpcProxyFactory<T extends object> extends JsonRpcProxyFactory<T> {
+class NxpodJsonRpcProxyFactory<T extends object> extends JsonRpcProxyFactory<T> {
     constructor(
         protected readonly accessGuard: FunctionAccessGuard,
         protected readonly rateLimiter: RateLimiter,
@@ -455,7 +455,7 @@ class GitpodJsonRpcProxyFactory<T extends object> extends JsonRpcProxyFactory<T>
             }
 
             // actual call
-            const result = await this.target[method](ctx, ...args); // we can inject TraceContext here because of GitpodServerWithTracing
+            const result = await this.target[method](ctx, ...args); // we can inject TraceContext here because of NxpodServerWithTracing
             increaseApiCallCounter(method, 200);
             observeAPICallsDuration(method, 200, timer());
             return result;

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -22,9 +22,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 	"sigs.k8s.io/controller-runtime/pkg/metrics"
 
-	"github.com/gitpod-io/gitpod/common-go/util"
-	"github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	"github.com/nxpkg/nxpod/common-go/util"
+	"github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -128,7 +128,7 @@ var _ = BeforeSuite(func() {
 
 func newTestConfig() config.Configuration {
 	return config.Configuration{
-		GitpodHostURL:     "gitpod.io",
+		NxpodHostURL:     "nxpod.io",
 		HeartbeatInterval: util.Duration(30 * time.Second),
 		Namespace:         "default",
 		SecretsNamespace:  secretsNamespace,

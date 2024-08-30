@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,9 +17,9 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/container"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/container"
 )
 
 const (
@@ -199,7 +199,7 @@ func (d *Dispatch) handlePodUpdate(oldPod, newPod *corev1.Pod) {
 			},
 		}
 
-		// Important!!!!: ideally this timeout must be equal to ws-manager https://github.com/gitpod-io/gitpod/blob/main/components/ws-manager/pkg/manager/manager.go#L171
+		// Important!!!!: ideally this timeout must be equal to ws-manager https://github.com/nxpkg/nxpod/blob/main/components/ws-manager/pkg/manager/manager.go#L171
 		waitForPodCtx, cancel := context.WithTimeout(context.Background(), 10*time.Minute)
 		containerCtx, containerCtxCancel := context.WithCancel(context.Background())
 		containerCtx = context.WithValue(containerCtx, contextDispatch, d)

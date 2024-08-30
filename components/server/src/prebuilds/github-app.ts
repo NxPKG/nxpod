@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -18,9 +18,9 @@ import {
     ProjectDB,
     TeamDB,
     WebhookEventDB,
-} from "@gitpod/gitpod-db/lib";
+} from "@nxpod/nxpod-db/lib";
 import express from "express";
-import { log, LogContext, LogrusLogLevel } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log, LogContext, LogrusLogLevel } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     WorkspaceConfig,
     User,
@@ -28,9 +28,9 @@ import {
     StartPrebuildResult,
     CommitContext,
     CommitInfo,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { GithubAppRules } from "./github-app-rules";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { PrebuildManager } from "./prebuild-manager";
 import { PrebuildStatusMaintainer } from "./prebuilt-status-maintainer";
 import { Options, ApplicationFunctionOptions } from "probot/lib/types";
@@ -38,7 +38,7 @@ import { asyncHandler } from "../express-util";
 import { ContextParser } from "../workspace/context-parser-service";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { RepoURL } from "../repohost";
-import { ApplicationError, ErrorCode } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCode } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { UserService } from "../user/user-service";
 import { ProjectsService } from "../projects/projects-service";
 import { SYSTEM_USER, SYSTEM_USER_ID } from "../authorization/authorizer";
@@ -47,12 +47,12 @@ import { SubjectId } from "../auth/subject-id";
 
 /**
  * GitHub app urls:
- *    User authorization callback URL: https://gitpod.io/install-github-app
- *    Setup URL:                       https://gitpod.io/install-github-app
- *    Webhook URL:                     https://gitpod.io/apps/github
+ *    User authorization callback URL: https://nxpod.io/install-github-app
+ *    Setup URL:                       https://nxpod.io/install-github-app
+ *    Webhook URL:                     https://nxpod.io/apps/github
  *
  * Make sure that the webhook secret you set in GitHub matches what's in your
- * values.yaml file (GITPOD_GITHUB_APP_WEBHOOK_SECRET) - it's not a bad idea to
+ * values.yaml file (NXPOD_GITHUB_APP_WEBHOOK_SECRET) - it's not a bad idea to
  * look at those values to begin with.
  */
 @injectable()
@@ -106,7 +106,7 @@ export class GithubApp {
             }
         });
 
-        // Backward-compatibility: Redirect old badge URLs (e.g. "/api/apps/github/pbs/github.com/gitpod-io/gitpod/5431d5735c32ab7d5d840a4d1a7d7c688d1f0ce9.svg")
+        // Backward-compatibility: Redirect old badge URLs (e.g. "/api/apps/github/pbs/github.com/nxpkg/nxpod/5431d5735c32ab7d5d840a4d1a7d7c688d1f0ce9.svg")
         options.getRouter &&
             options
                 .getRouter("/pbs")
@@ -240,7 +240,7 @@ export class GithubApp {
         span.setTag("request", ctx.id);
 
         // trim commits to avoid DB pollution
-        // https://github.com/gitpod-io/gitpod/issues/11578
+        // https://github.com/nxpkg/nxpod/issues/11578
         ctx.payload.head_commit = null;
 
         const event = await this.webhookEvents.createEvent({
@@ -601,7 +601,7 @@ export class GithubApp {
     }
 
     private getBadgeImageURL(): string {
-        return this.config.hostUrl.with({ pathname: "/button/open-in-gitpod.svg" }).toString();
+        return this.config.hostUrl.with({ pathname: "/button/open-in-nxpod.svg" }).toString();
     }
 
     /**

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,7 +8,7 @@ import "reflect-metadata";
 
 import { Duration, PartialMessage, Timestamp, toPlainMessage } from "@bufbuild/protobuf";
 import { Code, ConnectError } from "@connectrpc/connect";
-import { GitpodServer } from "@gitpod/gitpod-protocol";
+import { NxpodServer } from "@gitpod/gitpod-protocol";
 import { BlockedRepository as ProtocolBlockedRepository } from "@gitpod/gitpod-protocol/lib/blocked-repositories-protocol";
 import { ContextURL } from "@gitpod/gitpod-protocol/lib/context-url";
 import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
@@ -89,7 +89,7 @@ import {
     FailedPreconditionDetails,
     ImageBuildLogsNotYetAvailableError,
     InvalidCostCenterError as InvalidCostCenterErrorData,
-    InvalidGitpodYMLError as InvalidGitpodYMLErrorData,
+    InvalidNxpodYMLError as InvalidNxpodYMLErrorData,
     NeedsVerificationError,
     PaymentSpendingLimitReachedError,
     PermissionDeniedDetails,
@@ -161,7 +161,7 @@ import {
 } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
 import { BigIntToJson } from "@gitpod/gitpod-protocol/lib/util/stringify";
 import { getPrebuildLogPath } from "./prebuild-utils";
-import { InvalidGitpodYMLError, RepositoryNotFoundError, UnauthorizedRepositoryAccessError } from "./public-api-errors";
+import { InvalidNxpodYMLError, RepositoryNotFoundError, UnauthorizedRepositoryAccessError } from "./public-api-errors";
 const URL = require("url").URL || window.URL;
 
 export type PartialConfiguration = DeepPartial<Configuration> & Pick<Configuration, "id">;
@@ -501,7 +501,7 @@ export class PublicAPIConverter {
                     reason,
                 );
             }
-            if (reason instanceof InvalidGitpodYMLError) {
+            if (reason instanceof InvalidNxpodYMLError) {
                 return new ConnectError(
                     reason.message,
                     Code.FailedPrecondition,
@@ -509,8 +509,8 @@ export class PublicAPIConverter {
                     [
                         new FailedPreconditionDetails({
                             reason: {
-                                case: "invalidGitpodYml",
-                                value: new InvalidGitpodYMLErrorData(reason.info),
+                                case: "invalidNxpodYml",
+                                value: new InvalidNxpodYMLErrorData(reason.info),
                             },
                         }),
                     ],
@@ -679,10 +679,10 @@ export class PublicAPIConverter {
         if (reason.code === Code.FailedPrecondition) {
             const details = reason.findDetails(FailedPreconditionDetails)[0];
             switch (details?.reason?.case) {
-                case "invalidGitpodYml":
-                    const invalidGitpodYmlInfo = toPlainMessage(details.reason.value);
+                case "invalidNxpodYml":
+                    const invalidNxpodYmlInfo = toPlainMessage(details.reason.value);
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-                    return new InvalidGitpodYMLError(invalidGitpodYmlInfo);
+                    return new InvalidNxpodYMLError(invalidNxpodYmlInfo);
                 case "repositoryNotFound":
                     const repositoryNotFoundInfo = toPlainMessage(details.reason.value);
                     return new RepositoryNotFoundError(repositoryNotFoundInfo);
@@ -1244,7 +1244,7 @@ export class PublicAPIConverter {
             return input.charAt(0).toUpperCase() + input.slice(1);
         };
 
-        // This is a hack mimicking the supervisor behavior of adding dynamic IDE tasks https://github.com/gitpod-io/gitpod/blob/e7d79c355e2cd6ac34056ea52d7bdcda45975839/components/ide-service/pkg/server/server.go#L508-L540
+        // This is a hack mimicking the supervisor behavior of adding dynamic IDE tasks https://github.com/nxpkg/nxpod/blob/e7d79c355e2cd6ac34056ea52d7bdcda45975839/components/ide-service/pkg/server/server.go#L508-L540
         if (prebuild.workspace.config.jetbrains) {
             const jetbrainsIdes = Object.entries(prebuild.workspace.config.jetbrains).sort(([a], [b]) =>
                 a.localeCompare(b),
@@ -1598,7 +1598,7 @@ export class PublicAPIConverter {
         });
     }
 
-    toOnboardingState(state: GitpodServer.OnboardingState): OnboardingState {
+    toOnboardingState(state: NxpodServer.OnboardingState): OnboardingState {
         return new OnboardingState({
             completed: state.isCompleted,
         });

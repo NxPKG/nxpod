@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,13 +11,13 @@ import (
 	"testing"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/components/public-api/go/config"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/auth"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws/jwstest"
+	"github.com/nxpkg/nxpod/components/public-api/go/config"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/uuid"
@@ -328,7 +328,7 @@ func TestTeamToAPIResponse(t *testing.T) {
 			{
 				UserId:       members[0].UserId,
 				Role:         teamRoleToAPIResponse(members[0].Role),
-				MemberSince:  parseGitpodTimeStampOrDefault(members[0].MemberSince),
+				MemberSince:  parseNxpodTimeStampOrDefault(members[0].MemberSince),
 				AvatarUrl:    members[0].AvatarUrl,
 				FullName:     members[0].FullName,
 				PrimaryEmail: members[0].PrimaryEmail,
@@ -336,7 +336,7 @@ func TestTeamToAPIResponse(t *testing.T) {
 			{
 				UserId:       members[1].UserId,
 				Role:         teamRoleToAPIResponse(members[1].Role),
-				MemberSince:  parseGitpodTimeStampOrDefault(members[1].MemberSince),
+				MemberSince:  parseNxpodTimeStampOrDefault(members[1].MemberSince),
 				AvatarUrl:    members[1].AvatarUrl,
 				FullName:     members[1].FullName,
 				PrimaryEmail: members[1].PrimaryEmail,

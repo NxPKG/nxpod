@@ -1,22 +1,22 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import express from "express";
 import { postConstruct, injectable, inject } from "inversify";
-import { TeamDB, WebhookEventDB } from "@gitpod/gitpod-db/lib";
+import { TeamDB, WebhookEventDB } from "@nxpod/nxpod-db/lib";
 import { PrebuildManager } from "./prebuild-manager";
 import { TokenService } from "../user/token-service";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { CommitContext, CommitInfo, Project, User, WebhookEvent } from "@gitpod/gitpod-protocol";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { CommitContext, CommitInfo, Project, User, WebhookEvent } from "@nxpod/nxpod-protocol";
 import { RepoURL } from "../repohost";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { ContextParser } from "../workspace/context-parser-service";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { UserService } from "../user/user-service";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { URL } from "url";
 import { ProjectsService } from "../projects/projects-service";
 import { SubjectId } from "../auth/subject-id";
@@ -56,7 +56,7 @@ export class BitbucketServerApp {
                     }
                     const user = await this.findUser({ span }, queryToken);
                     if (!user) {
-                        // If the webhook installer is no longer found in Gitpod's DB
+                        // If the webhook installer is no longer found in Nxpod's DB
                         // we should send a UNAUTHORIZED signal.
                         res.statusCode = 401;
                         res.send();
@@ -96,9 +96,9 @@ export class BitbucketServerApp {
             } else if (!!user.blocked) {
                 throw new Error(`Blocked user ${user.id} tried to start prebuild.`);
             }
-            const identity = user.identities.find((i) => i.authProviderId === TokenService.GITPOD_AUTH_PROVIDER_ID);
+            const identity = user.identities.find((i) => i.authProviderId === TokenService.NXPOD_AUTH_PROVIDER_ID);
             if (!identity) {
-                throw new Error(`User ${user.id} has no identity for '${TokenService.GITPOD_AUTH_PROVIDER_ID}'.`);
+                throw new Error(`User ${user.id} has no identity for '${TokenService.NXPOD_AUTH_PROVIDER_ID}'.`);
             }
             const tokens = await this.userService.findTokensForIdentity(userid, identity);
             const token = tokens.find((t) => t.token.value === tokenValue);
@@ -245,11 +245,11 @@ export class BitbucketServerApp {
         // "links": {
         //     "clone": [
         //         {
-        //             "href": "ssh://git@bitbucket.gitpod-dev.com:7999/tes/hello-world-zz-1.git",
+        //             "href": "ssh://git@bitbucket.nxpod-dev.com:7999/tes/hello-world-zz-1.git",
         //             "name": "ssh"
         //         },
         //         {
-        //             "href": "https://bitbucket.gitpod-dev.com/scm/tes/hello-world-zz-1.git",
+        //             "href": "https://bitbucket.nxpod-dev.com/scm/tes/hello-world-zz-1.git",
         //             "name": "http"
         //         }
         //     ],

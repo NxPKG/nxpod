@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/blowtorch
+module github.com/nxpkg/nxpod/blowtorch
 
 go 1.22
 

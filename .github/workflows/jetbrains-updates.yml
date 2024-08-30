@@ -52,7 +52,7 @@ jobs:
                       1. For each IDE changed on this PR, follow these steps:
                       2. Open the preview environment generated for this branch
                       3. Choose the stable version of the IDE that you're testing as your default editor
-                      4. Start a workspace using any repository (e.g: `https://github.com/gitpod-io/empty`)
+                      4. Start a workspace using any repository (e.g: `https://github.com/nxpkg/empty`)
                       5. Verify that the workspace starts successfully
                       6. Verify that the IDE opens successfully
                       7. Verify that the version of the IDE corresponds to the one being updated in this PR
@@ -60,7 +60,7 @@ jobs:
 
                       The following resources should help, in case something goes wrong (e.g. workspaces don't start):
 
-                      - https://www.gitpod.io/docs/troubleshooting#gitpod-logs-in-jetbrains-gateway
+                      - https://www.nxpod.io/docs/troubleshooting#nxpod-logs-in-jetbrains-gateway
                       - https://docs.google.com/document/d/1K9PSB0G6NwX2Ns_SX_HEgMYTKYsgMJMY2wbh0p6t3lQ
                       </details>
 
@@ -80,13 +80,13 @@ jobs:
                       - [x] with-integration-tests=jetbrains
                       - [x] latest-ide-version=false
 
-                      _This PR was created automatically with GitHub Actions using [this](https://github.com/gitpod-io/gitpod/blob/main/.github/workflows/jetbrains-updates.yml) GHA_
+                      _This PR was created automatically with GitHub Actions using [this](https://github.com/nxpkg/nxpod/blob/main/.github/workflows/jetbrains-updates.yml) GHA_
                   commit-message: "[JetBrains] Update IDE images to new build version"
                   branch: "jetbrains/update-stable-ides"
                   labels: "team: IDE,editor: jetbrains"
                   token: ${{ secrets.ROBOQUAT_REPO_PAT }}
-                  committer: Robo Quat <roboquat@gitpod.io>
-                  author: Robo Quat <roboquat@gitpod.io>
+                  committer: Robo Quat <roboquat@nxpod.io>
+                  author: Robo Quat <roboquat@nxpod.io>
                   team-reviewers: |
                     team-experience
             - name: Get previous job's status

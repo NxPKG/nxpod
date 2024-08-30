@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Branch, CommitInfo, Repository, RepositoryInfo, User } from "@gitpod/gitpod-protocol";
+import { Branch, CommitInfo, Repository, RepositoryInfo, User } from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
 import { RepoURL } from "../repohost";
 import { RepositoryProvider } from "../repohost/repository-provider";
 import { BitbucketServer, BitbucketServerApi } from "./bitbucket-server-api";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 
 @injectable()
 export class BitbucketServerRepositoryProvider implements RepositoryProvider {

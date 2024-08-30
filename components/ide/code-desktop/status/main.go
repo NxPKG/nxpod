@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,8 +17,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/gitpod-io/gitpod/common-go/util"
-	supervisor "github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/util"
+	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
 
 func main() {
@@ -50,7 +50,7 @@ func main() {
 		type Query struct {
 			InstanceId     string `json:"instanceId"`
 			WorkspaceId    string `json:"workspaceId"`
-			GitpodHost     string `json:"gitpodHost"`
+			NxpodHost     string `json:"gitpodHost"`
 			DebugWorkspace bool   `json:"debugWorkspace"`
 		}
 		debugWorkspace := false
@@ -60,7 +60,7 @@ func main() {
 		query := &Query{
 			InstanceId:     wsInfo.InstanceId,
 			WorkspaceId:    wsInfo.WorkspaceId,
-			GitpodHost:     wsInfo.GitpodHost,
+			NxpodHost:     wsInfo.NxpodHost,
 			DebugWorkspace: debugWorkspace,
 		}
 		b, err := json.Marshal(query)

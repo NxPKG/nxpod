@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,11 +19,11 @@ import (
 	"github.com/spf13/cobra"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/watch"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/config"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/daemon"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/watch"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/config"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/daemon"
 )
 
 const grpcServerName = "wsdaemon"

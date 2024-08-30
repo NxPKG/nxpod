@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { User, Workspace, WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { WorkspaceClusterWoTLS, WorkspaceManagerConnectionInfo } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { PromisifiedWorkspaceManagerClient } from "@gitpod/ws-manager/lib";
-import { IWorkspaceClusterStartSet, WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
+import { User, Workspace, WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { WorkspaceClusterWoTLS, WorkspaceManagerConnectionInfo } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { PromisifiedWorkspaceManagerClient } from "@nxpod/ws-manager/lib";
+import { IWorkspaceClusterStartSet, WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
 import { ChannelCredentials, Client, ClientOptions } from "@grpc/grpc-js";
 
 export class WorkspaceManagerClientProviderMock extends WorkspaceManagerClientProvider {

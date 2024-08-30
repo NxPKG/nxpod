@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-GATEWAY_PLUGIN_PATH=$(pwd)/jetbrains-gateway-gitpod-plugin.zip
+GATEWAY_PLUGIN_PATH=$(pwd)/jetbrains-gateway-nxpod-plugin.zip
 export GATEWAY_PLUGIN_PATH
-HOME=/home/gitpod
+HOME=/home/nxpod
 
 if [ ! -f "$GATEWAY_PLUGIN_PATH" ]; then
   echo "Gateway plugin zip not found at $GATEWAY_PLUGIN_PATH"

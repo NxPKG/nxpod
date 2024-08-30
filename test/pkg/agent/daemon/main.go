@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,11 +15,11 @@ import (
 	"strings"
 	"time"
 
-	cgroups_v2 "github.com/gitpod-io/gitpod/common-go/cgroups/v2"
-	ctntcfg "github.com/gitpod-io/gitpod/content-service/api/config"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
-	"github.com/gitpod-io/gitpod/test/pkg/agent/daemon/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	cgroups_v2 "github.com/nxpkg/nxpod/common-go/cgroups/v2"
+	ctntcfg "github.com/nxpkg/nxpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/test/pkg/agent/daemon/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 	"github.com/google/nftables"
 	"github.com/mitchellh/go-ps"
 	"github.com/prometheus/procfs"

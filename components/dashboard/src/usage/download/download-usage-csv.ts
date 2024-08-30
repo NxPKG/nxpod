@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,7 +7,7 @@
 import { useCallback } from "react";
 import dayjs from "dayjs";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ListUsageRequest } from "@gitpod/gitpod-protocol/lib/usage";
+import { ListUsageRequest } from "@nxpod/nxpod-protocol/lib/usage";
 import { getAllUsageRecords } from "./get-usage-records";
 import { UsageCSVRow, transformUsageRecord } from "./transform-usage-record";
 import { noPersistence } from "../../data/setup";
@@ -34,7 +34,7 @@ const downloadUsageCSV = async ({
 }: Args): Promise<DownloadUsageCSVResponse> => {
     const start = dayjs(from).format("YYYYMMDD");
     const end = dayjs(to).format("YYYYMMDD");
-    const filename = `gitpod-usage-${orgName}-${start}-${end}.csv`;
+    const filename = `nxpod-usage-${orgName}-${start}-${end}.csv`;
 
     const records = await getAllUsageRecords({
         attributionId,

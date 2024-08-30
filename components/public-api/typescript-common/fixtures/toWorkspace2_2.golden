@@ -6,9 +6,9 @@
             "organizationId": "ce36c2f8-5d43-4b1d-92f2-08cb6f0e0869",
             "configurationId": "1fffcdbd-f716-4185-a14f-a689bd52cd2d",
             "annotations": {},
-            "name": "gitpod-io/gitpod - main",
+            "name": "nxpkg/gitpod - main",
             "pinned": true,
-            "originalContextUrl": "https://github.com/gitpod-io/gitpod"
+            "originalContextUrl": "https://github.com/nxpkg/nxpod"
         },
         "spec": {
             "initializer": {
@@ -68,7 +68,7 @@
                 "timeout": ""
             },
             "gitStatus": {
-                "cloneUrl": "https://github.com/gitpod-io/gitpod.git",
+                "cloneUrl": "https://github.com/nxpkg/nxpod.git",
                 "branch": "hw/papi-refine-ws",
                 "latestCommit": "3da336cde4a9a29e9e4dd6424bd4b791d616c735",
                 "uncommitedFiles": [

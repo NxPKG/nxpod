@@ -12,16 +12,16 @@ on:
         default: "latest"
       version:
         required: true
-        description: "The version of Gitpod to install"
+        description: "The version of Nxpod to install"
         default: "latest"
       image_repo_base:
         type: choice
         required: false
         description: "The base repo of image"
         options:
-          - "eu.gcr.io/gitpod-core-dev/build"
-          - "eu.gcr.io/gitpod-dev-artifact/build"
-        default: "eu.gcr.io/gitpod-core-dev/build"
+          - "eu.gcr.io/nxpod-core-dev/build"
+          - "eu.gcr.io/nxpod-dev-artifact/build"
+        default: "eu.gcr.io/nxpod-core-dev/build"
       skip_deploy:
         required: false
         description: "Skip deploy preview environment (debug only)"
@@ -33,7 +33,7 @@ on:
 
 jobs:
   create-runner:
-    uses: gitpod-io/gce-github-runner/.github/workflows/create-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/create-vm.yml@main
     secrets:
       runner_token: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_TOKEN }}
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
@@ -43,7 +43,7 @@ jobs:
     runs-on: ${{ needs.create-runner.outputs.label }}
     needs: [create-runner]
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
     outputs:
       name: ${{ steps.configuration.outputs.name }}
       version: ${{ steps.configuration.outputs.version }}
@@ -63,16 +63,16 @@ jobs:
               } >> $GITHUB_OUTPUT
           else
               # others
-              RUNID=$(gh run list -R gitpod-io/gitpod -b main -w build.yml --limit 1 --json databaseId --jq .[0].databaseId)
-              gh run watch "$RUNID" -R gitpod-io/gitpod
-              CONCLUSION=$(gh run view "$RUNID" -R gitpod-io/gitpod --json jobs --jq '.jobs[] | select(.name == "Build Gitpod") | {name, status, conclusion} | .conclusion')
+              RUNID=$(gh run list -R nxpkg/nxpod -b main -w build.yml --limit 1 --json databaseId --jq .[0].databaseId)
+              gh run watch "$RUNID" -R nxpkg/nxpod
+              CONCLUSION=$(gh run view "$RUNID" -R nxpkg/nxpod --json jobs --jq '.jobs[] | select(.name == "Build Nxpod") | {name, status, conclusion} | .conclusion')
               if [ "$CONCLUSION" != "success" ]; then
-                echo main branch build is failed, see https://github.com/gitpod-io/gitpod/actions/runs/"$RUNID" for detail | tee -a $GITHUB_STEP_SUMMARY
+                echo main branch build is failed, see https://github.com/nxpkg/nxpod/actions/runs/"$RUNID" for detail | tee -a $GITHUB_STEP_SUMMARY
                 exit 1
               fi
 
               {
-                  echo "version=$(gh run view "$RUNID" --log -R gitpod-io/gitpod | grep 'main-gha.[0-9]*' -o | head -n 1)"
+                  echo "version=$(gh run view "$RUNID" --log -R nxpkg/nxpod | grep 'main-gha.[0-9]*' -o | head -n 1)"
                   echo "name=ide-integration-test-${{ github.run_id }}-${{ github.run_attempt }}"
               } >> $GITHUB_OUTPUT
           fi
@@ -82,7 +82,7 @@ jobs:
               } >> $GITHUB_OUTPUT
           else
               {
-                  echo "image_repo_base=eu.gcr.io/gitpod-core-dev/build"
+                  echo "image_repo_base=eu.gcr.io/nxpod-core-dev/build"
               } >> $GITHUB_OUTPUT
           fi
       - name: Slack Notification
@@ -117,10 +117,10 @@ jobs:
           large_vm: true
           preemptible: true
           image_repo_base: ${{ needs.configuration.outputs.image_repo_base }}
-      - name: Deploy Gitpod to the preview environment
-        id: deploy-gitpod
+      - name: Deploy Nxpod to the preview environment
+        id: deploy-nxpod
         if: github.event.inputs.skip_deploy != 'true'
-        uses: ./.github/actions/deploy-gitpod
+        uses: ./.github/actions/deploy-nxpod
         with:
           name: ${{ needs.configuration.outputs.name }}
           version: ${{ needs.configuration.outputs.version}}
@@ -131,7 +131,7 @@ jobs:
     needs: [configuration, infrastructure, create-runner]
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
       volumes:
         - /var/tmp:/var/tmp
         - /tmp:/tmp
@@ -139,7 +139,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup Environment
         env:
-          HOME: /home/gitpod
+          HOME: /home/nxpod
         uses: ./.github/actions/setup-environment
         with:
           identity_provider: ${{ secrets.DEV_PREVIEW_PROVIDER }}
@@ -155,7 +155,7 @@ jobs:
           TEST_BUILD_ID: ${{ github.run_id }}
           TEST_BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           TEST_BUILD_REF: ${{ github.head_ref || github.ref }}
-          HOME: /home/gitpod
+          HOME: /home/nxpod
         run: |
           set -euo pipefail
 
@@ -240,7 +240,7 @@ jobs:
       - infrastructure
       - check
       - delete
-    uses: gitpod-io/gce-github-runner/.github/workflows/delete-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/delete-vm.yml@main
     secrets:
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
     with:

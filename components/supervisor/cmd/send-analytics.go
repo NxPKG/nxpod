@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,8 +10,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/analytics"
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/analytics"
+	"github.com/nxpkg/nxpod/supervisor/api"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

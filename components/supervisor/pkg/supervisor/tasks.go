@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,11 +18,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/logs"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/terminal"
+	"github.com/nxpkg/nxpod/common-go/log"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/logs"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/pkg/terminal"
 )
 
 type tasksSubscription struct {
@@ -188,7 +188,7 @@ func (tm *tasksManager) setTaskState(t *task, newState api.TaskState) {
 func (tm *tasksManager) init(ctx context.Context) {
 	defer close(tm.ready)
 
-	tasks, err := tm.config.getGitpodTasks()
+	tasks, err := tm.config.getNxpodTasks()
 	if err != nil {
 		log.WithError(err).Error()
 		return
@@ -215,7 +215,7 @@ func (tm *tasksManager) init(ctx context.Context) {
 		if config.Name != nil {
 			presentation.Name = *config.Name
 		} else {
-			presentation.Name = "Gitpod Task " + strconv.Itoa(i+1)
+			presentation.Name = "Nxpod Task " + strconv.Itoa(i+1)
 		}
 		if config.OpenIn != nil {
 			presentation.OpenIn = *config.OpenIn
@@ -282,7 +282,7 @@ func (tm *tasksManager) Run(ctx context.Context, wg *sync.WaitGroup, successChan
 			for key, value := range *t.config.Env {
 				// Required check because a string is considered valid JSON (e.g. "hello")
 				// We don't want to marshall basic strings otherwise we get a double quoted environment variable
-				// See: https://github.com/gitpod-io/gitpod/issues/5887
+				// See: https://github.com/nxpkg/nxpod/issues/5887
 				if val, ok := value.(string); ok {
 					openRequest.Env[key] = val
 				} else {

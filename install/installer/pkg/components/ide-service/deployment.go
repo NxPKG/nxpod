@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,10 +7,10 @@ package ide_service
 import (
 	"fmt"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/installer/pkg/cluster"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	dockerregistry "github.com/gitpod-io/gitpod/installer/pkg/components/docker-registry"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/installer/pkg/cluster"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	dockerregistry "github.com/nxpkg/nxpod/installer/pkg/components/docker-registry"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"

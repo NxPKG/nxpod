@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -104,7 +104,7 @@ const getInstallerVersion = async (version: string | undefined) => {
     let tagInfo: string;
     try {
         tagInfo =
-            await $`git ls-remote --tags --sort=-v:refname https://github.com/gitpod-io/gitpod | grep ${v} | head -n1`.text();
+            await $`git ls-remote --tags --sort=-v:refname https://github.com/nxpkg/nxpod | grep ${v} | head -n1`.text();
     } catch (e) {
         if (e && e.exitCode === 141 && e.stdout) {
             tagInfo = String(e.stdout);

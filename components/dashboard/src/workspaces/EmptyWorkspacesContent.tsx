@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -37,7 +37,7 @@ export const EmptyWorkspacesContent = () => {
                         backgroundImage: "url('https://i.ytimg.com/vi_webp/1ZBN-b2cIB8/maxresdefault.webp')",
                     }}
                     class="rounded-xl"
-                    playlabel="Gitpod in under 120 seconds"
+                    playlabel="Nxpod in under 120 seconds"
                 ></lite-youtube>
                 <div className="flex flex-col items-center xl:items-start justify-center">
                     <Heading2 className="mb-4 !font-semibold !text-lg">Create your first workspace</Heading2>

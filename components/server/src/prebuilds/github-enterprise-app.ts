@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,18 +8,18 @@ import express from "express";
 import { createHmac, timingSafeEqual } from "crypto";
 import { Buffer } from "buffer";
 import { postConstruct, injectable, inject } from "inversify";
-import { TeamDB, WebhookEventDB } from "@gitpod/gitpod-db/lib";
+import { TeamDB, WebhookEventDB } from "@nxpod/nxpod-db/lib";
 import { PrebuildManager } from "./prebuild-manager";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { TokenService } from "../user/token-service";
 import { HostContextProvider } from "../auth/host-context-provider";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { CommitContext, CommitInfo, Project, User, WebhookEvent } from "@gitpod/gitpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { CommitContext, CommitInfo, Project, User, WebhookEvent } from "@nxpod/nxpod-protocol";
 import { URL } from "url";
 import { ContextParser } from "../workspace/context-parser-service";
 import { RepoURL } from "../repohost";
 import { UserService } from "../user/user-service";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { ProjectsService } from "../projects/projects-service";
 import { SYSTEM_USER, SYSTEM_USER_ID } from "../authorization/authorizer";
 import { runWithSubjectId } from "../util/request-context";
@@ -108,16 +108,16 @@ export class GitHubEnterpriseApp {
                 throw new Error("No project found.");
             }
             for (const user of projectOwners.users) {
-                const gitpodIdentity = user.identities.find(
-                    (i) => i.authProviderId === TokenService.GITPOD_AUTH_PROVIDER_ID,
+                const nxpodIdentity = user.identities.find(
+                    (i) => i.authProviderId === TokenService.NXPOD_AUTH_PROVIDER_ID,
                 );
-                if (!gitpodIdentity) {
+                if (!nxpodIdentity) {
                     continue;
                 }
                 // Verify the webhook signature
                 const signature = req.header("X-Hub-Signature-256");
                 const body = (req as any).rawBody;
-                const tokenEntries = (await this.userService.findTokensForIdentity(user.id, gitpodIdentity)).filter(
+                const tokenEntries = (await this.userService.findTokensForIdentity(user.id, nxpodIdentity)).filter(
                     (tokenEntry) => {
                         return tokenEntry.token.scopes.includes(PREBUILD_TOKEN_SCOPE);
                     },

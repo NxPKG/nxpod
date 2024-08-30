@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package builder;
-option go_package = "github.com/gitpod-io/gitpod/image-builder/api";
+option go_package = "github.com/nxpkg/nxpod/image-builder/api";
 
 import "content-service-api/initializer.proto";
 

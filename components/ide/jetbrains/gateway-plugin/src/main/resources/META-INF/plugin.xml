@@ -1,5 +1,5 @@
 <!--
- Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  Licensed under the GNU Affero General Public License (AGPL).
  See License.AGPL.txt in the project root for license information.
 -->
@@ -8,8 +8,8 @@
     <xi:include href="/META-INF/extensions.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
     <id>io.gitpod.jetbrains.gateway</id>
-    <name>Gitpod Gateway</name>
-    <vendor>Gitpod</vendor>
+    <name>Nxpod Gateway</name>
+    <vendor>Nxpod</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -21,16 +21,16 @@
     <depends optional="true">com.jetbrains.gateway</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <httpRequestHandler implementation="io.gitpod.jetbrains.auth.GitpodAuthCallbackHandler"/>
-        <applicationService serviceImplementation="io.gitpod.jetbrains.gateway.GitpodSettingsState"/>
-        <applicationConfigurable parentId="tools" instance="io.gitpod.jetbrains.gateway.GitpodSettingsConfigurable"
-                                 id="io.gitpod.jetbrains.gateway.GitpodSettingsConfigurable"
-                                 displayName="Gitpod"/>
+        <httpRequestHandler implementation="io.gitpod.jetbrains.auth.NxpodAuthCallbackHandler"/>
+        <applicationService serviceImplementation="io.gitpod.jetbrains.gateway.NxpodSettingsState"/>
+        <applicationConfigurable parentId="tools" instance="io.gitpod.jetbrains.gateway.NxpodSettingsConfigurable"
+                                 id="io.gitpod.jetbrains.gateway.NxpodSettingsConfigurable"
+                                 displayName="Nxpod"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.jetbrains">
-        <gatewayConnector implementation="io.gitpod.jetbrains.gateway.GitpodConnector"/>
-        <gatewayConnectionProvider implementation="io.gitpod.jetbrains.gateway.GitpodConnectionProvider"/>
+        <gatewayConnector implementation="io.gitpod.jetbrains.gateway.NxpodConnector"/>
+        <gatewayConnectionProvider implementation="io.gitpod.jetbrains.gateway.NxpodConnectionProvider"/>
     </extensions>
 
     <applicationListeners>

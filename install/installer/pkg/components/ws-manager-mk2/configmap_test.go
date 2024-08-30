@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -13,10 +13,10 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/utils/pointer"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	config "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/versions"
-	wsmancfg "github.com/gitpod-io/gitpod/ws-manager/api/config"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	config "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/versions"
+	wsmancfg "github.com/nxpkg/nxpod/ws-manager/api/config"
 )
 
 func TestBuildWorkspaceTemplates(t *testing.T) {

@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -6,10 +6,10 @@ FROM cgr.dev/chainguard/wolfi-base:latest@sha256:72c8bfed3266b2780243b144dc51511
 
 RUN apk add brotli gzip curl
 
-# Gitpod CLI and Local App
+# Nxpod CLI and Local App
 COPY components-local-app--app-with-manifest/bin/* /bin/
 
-RUN for FILE in `ls /bin/gitpod-local-companion*`;do \
+RUN for FILE in `ls /bin/nxpod-local-companion*`;do \
   gzip -v -f -9 -k "$FILE"; \
 done
 

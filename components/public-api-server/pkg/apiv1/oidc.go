@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -16,14 +16,14 @@ import (
 
 	connect "github.com/bufbuild/connect-go"
 	goidc "github.com/coreos/go-oidc/v3/oidc"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/auth"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/proxy"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/log"
+	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/proxy"
 	"github.com/google/uuid"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -362,7 +362,7 @@ func (s *OIDCService) getConnection(ctx context.Context) (protocol.APIInterface,
 	conn, err := s.connectionPool.Get(ctx, token)
 	if err != nil {
 		log.Extract(ctx).WithError(err).Error("Failed to get connection to server.")
-		return nil, connect.NewError(connect.CodeInternal, errors.New("Failed to establish connection to downstream services. If this issue persists, please contact Gitpod Support."))
+		return nil, connect.NewError(connect.CodeInternal, errors.New("Failed to establish connection to downstream services. If this issue persists, please contact Nxpod Support."))
 	}
 
 	return conn, nil

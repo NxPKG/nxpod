@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -10,13 +10,13 @@ import { SessionHandler } from "../session-handler";
 import { Authenticator } from "../auth/authenticator";
 import { UserAuthentication } from "../user/user-authentication";
 import { OIDCCreateSessionPayload } from "./iam-oidc-create-session-payload";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { Identity, User } from "@gitpod/gitpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { Identity, User } from "@nxpod/nxpod-protocol";
 import { reportJWTCookieIssued } from "../prometheus-metrics";
-import { ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { OrganizationService } from "../orgs/organization-service";
 import { UserService } from "../user/user-service";
-import { UserDB } from "@gitpod/gitpod-db/lib";
+import { UserDB } from "@nxpod/nxpod-db/lib";
 import { SYSTEM_USER, SYSTEM_USER_ID } from "../authorization/authorizer";
 import { runWithSubjectId, runWithRequestContext } from "../util/request-context";
 

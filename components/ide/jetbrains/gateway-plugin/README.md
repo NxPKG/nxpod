@@ -1,9 +1,9 @@
 <img align="right" height="400" src="./screenshot.png">
 
-## Gitpod Gateway
+## Nxpod Gateway
 
 <!-- Plugin description -->
-Provides a way to connect to Gitpod workspaces.
+Provides a way to connect to Nxpod workspaces.
 
 <!-- Plugin description end -->
 
@@ -11,7 +11,7 @@ This plugin is based on the [IntelliJ Platform Plugin Template](https://github.c
 
 ## Development
 
-This project is not Gitpodified yet because it requires running the JetBrains Gateway locally. For now, for development, contributors can use [IntelliJ IDEA](https://www.jetbrains.com/idea/) installed on their machines.
+This project is not Nxpodified yet because it requires running the JetBrains Gateway locally. For now, for development, contributors can use [IntelliJ IDEA](https://www.jetbrains.com/idea/) installed on their machines.
 
 ## Testing
 
@@ -50,7 +50,7 @@ For executing the tests and the static analysis validations, run:
 ## How to test from a Pull Request
 
 - Ensure you have the latest JetBrains Gateway installed: https://www.jetbrains.com/remote-development/gateway/
-- Download this Gateway Plugin build, from Gitpod's Plugin Dev Channel: https://plugins.jetbrains.com/plugin/18438-gitpod-gateway/versions/dev
+- Download this Gateway Plugin build, from Nxpod's Plugin Dev Channel: https://plugins.jetbrains.com/plugin/18438-gitpod-gateway/versions/dev
 - Install it on the Gateway following these instructions: https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk
 - Do the checks requested by the pull request creator or do a full manual test as instructed below.
 
@@ -59,5 +59,5 @@ For executing the tests and the static analysis validations, run:
 - Check if you can create a new workspace
 - Check if you can connect to a running workspace
 - Check if you can connect to a stopped workspace
-- Check if changing the "Gitpod Host" in Preferences >> Tools >> Gitpod takes effect
+- Check if changing the "Nxpod Host" in Preferences >> Tools >> Nxpod takes effect
 - Check if the info displayed in the workspaces list is matching what you see on the Web App Dashboard

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,7 +7,7 @@ package spicedb
 import (
 	"fmt"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
 
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"

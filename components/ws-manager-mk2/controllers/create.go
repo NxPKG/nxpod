@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -23,13 +23,13 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/utils/pointer"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	regapi "github.com/gitpod-io/gitpod/registry-facade/api"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/constants"
-	config "github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	regapi "github.com/nxpkg/nxpod/registry-facade/api"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/constants"
+	config "github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 )
 
 const (
@@ -39,11 +39,11 @@ const (
 	workspaceDir = "/workspace"
 
 	// headlessLabel marks a workspace as headless
-	headlessLabel = "gitpod.io/headless"
+	headlessLabel = "nxpod.io/headless"
 
 	// instanceIDLabel is added for the container dispatch mechanism in ws-daemon to work
 	// TODO(furisto): remove this label once we have moved ws-daemon to a controller setup
-	instanceIDLabel = "gitpod.io/instanceID"
+	instanceIDLabel = "nxpod.io/instanceID"
 
 	// Grace time until the process in the workspace is properly completed
 	// e.g. dockerd in the workspace may take some time to clean up the overlay directory.
@@ -259,7 +259,7 @@ func createDefiniteWorkspacePod(sctx *startWorkspaceContext) (*corev1.Pod, error
 	}
 
 	labels := make(map[string]string)
-	labels["gitpod.io/networkpolicy"] = "default"
+	labels["nxpod.io/networkpolicy"] = "default"
 	for k, v := range sctx.Labels {
 		labels[k] = v
 	}
@@ -317,10 +317,10 @@ func createDefiniteWorkspacePod(sctx *startWorkspaceContext) (*corev1.Pod, error
 
 	if sctx.Config.EnableCustomSSLCertificate {
 		volumes = append(volumes, corev1.Volume{
-			Name: "gitpod-ca-crt",
+			Name: "nxpod-ca-crt",
 			VolumeSource: corev1.VolumeSource{
 				ConfigMap: &corev1.ConfigMapVolumeSource{
-					LocalObjectReference: corev1.LocalObjectReference{Name: "gitpod-customer-certificate-bundle"},
+					LocalObjectReference: corev1.LocalObjectReference{Name: "nxpod-customer-certificate-bundle"},
 				},
 			},
 		})
@@ -333,15 +333,15 @@ func createDefiniteWorkspacePod(sctx *startWorkspaceContext) (*corev1.Pod, error
 
 	matchExpressions := []corev1.NodeSelectorRequirement{
 		{
-			Key:      "gitpod.io/workload_workspace_" + workloadType,
+			Key:      "nxpod.io/workload_workspace_" + workloadType,
 			Operator: corev1.NodeSelectorOpExists,
 		},
 		{
-			Key:      "gitpod.io/ws-daemon_ready_ns_" + sctx.Config.Namespace,
+			Key:      "nxpod.io/ws-daemon_ready_ns_" + sctx.Config.Namespace,
 			Operator: corev1.NodeSelectorOpExists,
 		},
 		{
-			Key:      "gitpod.io/registry-facade_ready_ns_" + sctx.Config.Namespace,
+			Key:      "nxpod.io/registry-facade_ready_ns_" + sctx.Config.Namespace,
 			Operator: corev1.NodeSelectorOpExists,
 		},
 	}
@@ -365,7 +365,7 @@ func createDefiniteWorkspacePod(sctx *startWorkspaceContext) (*corev1.Pod, error
 			Namespace:   sctx.Config.Namespace,
 			Labels:      labels,
 			Annotations: annotations,
-			Finalizers:  []string{workspacev1.GitpodFinalizerName},
+			Finalizers:  []string{workspacev1.NxpodFinalizerName},
 		},
 		Spec: corev1.PodSpec{
 			Hostname:                     sctx.Workspace.Spec.Ownership.WorkspaceID,
@@ -476,8 +476,8 @@ func createWorkspaceContainer(sctx *startWorkspaceContext) (*corev1.Container, e
 
 	if sctx.Config.EnableCustomSSLCertificate {
 		volumeMounts = append(volumeMounts, corev1.VolumeMount{
-			Name:      "gitpod-ca-crt",
-			MountPath: "/etc/ssl/certs/gitpod-ca.crt",
+			Name:      "nxpod-ca-crt",
+			MountPath: "/etc/ssl/certs/nxpod-ca.crt",
 			SubPath:   "ca-certificates.crt",
 			ReadOnly:  true,
 		})
@@ -532,40 +532,40 @@ func createWorkspaceEnvironment(sctx *startWorkspaceContext) ([]corev1.EnvVar, e
 	// Can't read the workspace URL from status yet, as the status likely hasn't
 	// been set by the controller yet at this point. Therefore, manually construct
 	// the URL to pass to the container env.
-	wsUrl, err := config.RenderWorkspaceURL(sctx.Config.WorkspaceURLTemplate, sctx.Workspace.Name, sctx.Workspace.Spec.Ownership.WorkspaceID, sctx.Config.GitpodHostURL)
+	wsUrl, err := config.RenderWorkspaceURL(sctx.Config.WorkspaceURLTemplate, sctx.Workspace.Name, sctx.Workspace.Spec.Ownership.WorkspaceID, sctx.Config.NxpodHostURL)
 	if err != nil {
 		return nil, fmt.Errorf("cannot render workspace URL: %w", err)
 	}
 
-	// Envs that start with GITPOD_ are appended to the Terminal environments
+	// Envs that start with NXPOD_ are appended to the Terminal environments
 	result := []corev1.EnvVar{}
-	result = append(result, corev1.EnvVar{Name: "GITPOD_REPO_ROOT", Value: allRepoRoots[0]})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_REPO_ROOTS", Value: strings.Join(allRepoRoots, ",")})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_OWNER_ID", Value: sctx.Workspace.Spec.Ownership.Owner})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_WORKSPACE_ID", Value: sctx.Workspace.Spec.Ownership.WorkspaceID})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_INSTANCE_ID", Value: sctx.Workspace.Name})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_THEIA_PORT", Value: strconv.Itoa(int(sctx.IDEPort))})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_REPO_ROOT", Value: allRepoRoots[0]})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_REPO_ROOTS", Value: strings.Join(allRepoRoots, ",")})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_OWNER_ID", Value: sctx.Workspace.Spec.Ownership.Owner})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_WORKSPACE_ID", Value: sctx.Workspace.Spec.Ownership.WorkspaceID})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_INSTANCE_ID", Value: sctx.Workspace.Name})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_THEIA_PORT", Value: strconv.Itoa(int(sctx.IDEPort))})
 	result = append(result, corev1.EnvVar{Name: "THEIA_WORKSPACE_ROOT", Value: getWorkspaceRelativePath(sctx.Workspace.Spec.WorkspaceLocation)})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_HOST", Value: sctx.Config.GitpodHostURL})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_WORKSPACE_URL", Value: wsUrl})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_WORKSPACE_CLUSTER_HOST", Value: sctx.Config.WorkspaceClusterHost})
-	result = append(result, corev1.EnvVar{Name: "GITPOD_WORKSPACE_CLASS", Value: sctx.Workspace.Spec.Class})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_HOST", Value: sctx.Config.NxpodHostURL})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_WORKSPACE_URL", Value: wsUrl})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_WORKSPACE_CLUSTER_HOST", Value: sctx.Config.WorkspaceClusterHost})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_WORKSPACE_CLASS", Value: sctx.Workspace.Spec.Class})
 	result = append(result, corev1.EnvVar{Name: "THEIA_SUPERVISOR_ENDPOINT", Value: fmt.Sprintf(":%d", sctx.SupervisorPort)})
 	// TODO(ak) remove THEIA_WEBVIEW_EXTERNAL_ENDPOINT and THEIA_MINI_BROWSER_HOST_PATTERN when Theia is removed
 	result = append(result, corev1.EnvVar{Name: "THEIA_WEBVIEW_EXTERNAL_ENDPOINT", Value: "webview-{{hostname}}"})
 	result = append(result, corev1.EnvVar{Name: "THEIA_MINI_BROWSER_HOST_PATTERN", Value: "browser-{{hostname}}"})
 
-	result = append(result, corev1.EnvVar{Name: "GITPOD_SSH_CA_PUBLIC_KEY", Value: sctx.Workspace.Spec.SSHGatewayCAPublicKey})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_SSH_CA_PUBLIC_KEY", Value: sctx.Workspace.Spec.SSHGatewayCAPublicKey})
 
 	// We don't require that Git be configured for workspaces
 	if sctx.Workspace.Spec.Git != nil {
-		result = append(result, corev1.EnvVar{Name: "GITPOD_GIT_USER_NAME", Value: sctx.Workspace.Spec.Git.Username})
-		result = append(result, corev1.EnvVar{Name: "GITPOD_GIT_USER_EMAIL", Value: sctx.Workspace.Spec.Git.Email})
+		result = append(result, corev1.EnvVar{Name: "NXPOD_GIT_USER_NAME", Value: sctx.Workspace.Spec.Git.Username})
+		result = append(result, corev1.EnvVar{Name: "NXPOD_GIT_USER_EMAIL", Value: sctx.Workspace.Spec.Git.Email})
 	}
 
 	if sctx.Config.EnableCustomSSLCertificate {
 		const (
-			customCAMountPath = "/etc/ssl/certs/gitpod-ca.crt"
+			customCAMountPath = "/etc/ssl/certs/nxpod-ca.crt"
 			certsMountPath    = "/etc/ssl/certs/"
 		)
 
@@ -586,18 +586,18 @@ func createWorkspaceEnvironment(sctx *startWorkspaceContext) ([]corev1.EnvVar, e
 	// User-defined env vars (i.e. those coming from the request)
 	for _, e := range sctx.Workspace.Spec.UserEnvVars {
 		switch e.Name {
-		case "GITPOD_WORKSPACE_CONTEXT",
-			"GITPOD_WORKSPACE_CONTEXT_URL",
-			"GITPOD_TASKS",
-			"GITPOD_RESOLVED_EXTENSIONS",
-			"GITPOD_EXTERNAL_EXTENSIONS",
-			"GITPOD_WORKSPACE_CLASS_INFO",
-			"GITPOD_IDE_ALIAS",
-			"GITPOD_RLIMIT_CORE":
+		case "NXPOD_WORKSPACE_CONTEXT",
+			"NXPOD_WORKSPACE_CONTEXT_URL",
+			"NXPOD_TASKS",
+			"NXPOD_RESOLVED_EXTENSIONS",
+			"NXPOD_EXTERNAL_EXTENSIONS",
+			"NXPOD_WORKSPACE_CLASS_INFO",
+			"NXPOD_IDE_ALIAS",
+			"NXPOD_RLIMIT_CORE":
 			// these variables are allowed - don't skip them
 		default:
-			if strings.HasPrefix(e.Name, "GITPOD_") {
-				// we don't allow env vars starting with GITPOD_ and those that we do allow we've listed above
+			if strings.HasPrefix(e.Name, "NXPOD_") {
+				// we don't allow env vars starting with NXPOD_ and those that we do allow we've listed above
 				continue
 			}
 		}
@@ -606,20 +606,20 @@ func createWorkspaceEnvironment(sctx *startWorkspaceContext) ([]corev1.EnvVar, e
 	}
 
 	heartbeatInterval := time.Duration(sctx.Config.HeartbeatInterval)
-	result = append(result, corev1.EnvVar{Name: "GITPOD_INTERVAL", Value: fmt.Sprintf("%d", int64(heartbeatInterval/time.Millisecond))})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_INTERVAL", Value: fmt.Sprintf("%d", int64(heartbeatInterval/time.Millisecond))})
 
 	res, err := class.Container.Requests.ResourceList()
 	if err != nil {
 		return nil, xerrors.Errorf("cannot create environment: %w", err)
 	}
 	memoryInMegabyte := res.Memory().Value() / (1000 * 1000)
-	result = append(result, corev1.EnvVar{Name: "GITPOD_MEMORY", Value: strconv.FormatInt(memoryInMegabyte, 10)})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_MEMORY", Value: strconv.FormatInt(memoryInMegabyte, 10)})
 
 	cpuCount := res.Cpu().Value()
-	result = append(result, corev1.EnvVar{Name: "GITPOD_CPU_COUNT", Value: strconv.FormatInt(int64(cpuCount), 10)})
+	result = append(result, corev1.EnvVar{Name: "NXPOD_CPU_COUNT", Value: strconv.FormatInt(int64(cpuCount), 10)})
 
 	if sctx.Headless {
-		result = append(result, corev1.EnvVar{Name: "GITPOD_HEADLESS", Value: "true"})
+		result = append(result, corev1.EnvVar{Name: "NXPOD_HEADLESS", Value: "true"})
 	}
 
 	// remove empty env vars
@@ -655,7 +655,7 @@ func createWorkspaceVolumes(sctx *startWorkspaceContext) (workspace corev1.Volum
 }
 
 func createDefaultSecurityContext() (*corev1.SecurityContext, error) {
-	gitpodGUID := int64(33333)
+	nxpodGUID := int64(33333)
 
 	res := &corev1.SecurityContext{
 		AllowPrivilegeEscalation: pointer.Bool(false),
@@ -681,9 +681,9 @@ func createDefaultSecurityContext() (*corev1.SecurityContext, error) {
 		},
 		Privileged:             pointer.Bool(false),
 		ReadOnlyRootFilesystem: pointer.Bool(false),
-		RunAsGroup:             &gitpodGUID,
+		RunAsGroup:             &nxpodGUID,
 		RunAsNonRoot:           pointer.Bool(true),
-		RunAsUser:              &gitpodGUID,
+		RunAsUser:              &nxpodGUID,
 	}
 
 	return res, nil
@@ -696,7 +696,7 @@ func newStartWorkspaceContext(ctx context.Context, cfg *config.Configuration, ws
 
 	return &startWorkspaceContext{
 		Labels: map[string]string{
-			"app":                         "gitpod",
+			"app":                         "nxpod",
 			"component":                   "workspace",
 			wsk8s.MetaIDLabel:             ws.Spec.Ownership.WorkspaceID,
 			wsk8s.WorkspaceIDLabel:        ws.Name,

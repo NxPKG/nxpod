@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -47,8 +47,8 @@ window.addEventListener("error", (event) => {
 
 require("../src/shared/index.css");
 
-import { WorkspaceInstancePhase } from "@gitpod/gitpod-protocol";
-import { DisposableCollection } from "@gitpod/gitpod-protocol/lib/util/disposable";
+import { WorkspaceInstancePhase } from "@nxpod/nxpod-protocol";
+import { DisposableCollection } from "@nxpod/nxpod-protocol/lib/util/disposable";
 import * as heartBeat from "./ide/heart-beat";
 import * as IDEFrontendService from "./ide/ide-frontend-service-impl";
 import * as IDEWorker from "./ide/ide-worker";
@@ -57,7 +57,7 @@ import { SupervisorServiceClient } from "./ide/supervisor-service-client";
 import * as LoadingFrame from "./shared/loading-frame";
 import { workspaceUrl } from "./shared/urls";
 
-window.gitpod = {} as any;
+window.nxpod = {} as any;
 IDEWorker.install();
 IDEWebSocket.install();
 const ideService = IDEFrontendService.create();
@@ -78,12 +78,12 @@ LoadingFrame.load().then(async (loading) => {
         willRedirect = true;
     });
 
-    document.title = frontendDashboardServiceClient.latestInfo.workspaceDescription ?? "gitpod";
-    window.gitpod.loggedUserID = frontendDashboardServiceClient.latestInfo.loggedUserId;
-    window.gitpod.openDesktopIDE = frontendDashboardServiceClient.openDesktopIDE.bind(frontendDashboardServiceClient);
-    window.gitpod.decrypt = frontendDashboardServiceClient.decrypt.bind(frontendDashboardServiceClient);
-    window.gitpod.encrypt = frontendDashboardServiceClient.encrypt.bind(frontendDashboardServiceClient);
-    window.gitpod.isEncryptedData = frontendDashboardServiceClient.isEncryptedData.bind(frontendDashboardServiceClient);
+    document.title = frontendDashboardServiceClient.latestInfo.workspaceDescription ?? "nxpod";
+    window.nxpod.loggedUserID = frontendDashboardServiceClient.latestInfo.loggedUserId;
+    window.nxpod.openDesktopIDE = frontendDashboardServiceClient.openDesktopIDE.bind(frontendDashboardServiceClient);
+    window.nxpod.decrypt = frontendDashboardServiceClient.decrypt.bind(frontendDashboardServiceClient);
+    window.nxpod.encrypt = frontendDashboardServiceClient.encrypt.bind(frontendDashboardServiceClient);
+    window.nxpod.isEncryptedData = frontendDashboardServiceClient.isEncryptedData.bind(frontendDashboardServiceClient);
 
     (async () => {
         const supervisorServiceClient = SupervisorServiceClient.get();
@@ -96,7 +96,7 @@ LoadingFrame.load().then(async (loading) => {
         });
         toStop.push(hideDesktopIdeEventListener);
 
-        //#region gitpod browser telemetry
+        //#region nxpod browser telemetry
         // TODO(ak) get rid of it
         // it is bad usage of window.postMessage
         // VS Code should use Segment directly here and publish to production/staging untrusted

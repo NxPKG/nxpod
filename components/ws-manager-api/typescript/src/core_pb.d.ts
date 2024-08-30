@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -11,7 +11,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as content_service_api_initializer_pb from "@gitpod/content-service/lib";
+import * as content_service_api_initializer_pb from "@nxpod/content-service/lib";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 
 export class MetadataFilter extends jspb.Message {

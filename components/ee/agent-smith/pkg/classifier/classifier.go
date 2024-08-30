@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/common"
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/common"
+	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sirupsen/logrus"
 )
@@ -64,7 +64,7 @@ func NewCommandlineClassifier(name string, level Level, allowList []string, bloc
 		BlockList:    blockList,
 
 		allowListHitTotal: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: "gitpod_agent_smith",
+			Namespace: "nxpod_agent_smith",
 			Subsystem: "classifier_commandline",
 			Name:      "allowlist_hit_total",
 			Help:      "total count of allowlist hits",
@@ -73,7 +73,7 @@ func NewCommandlineClassifier(name string, level Level, allowList []string, bloc
 			},
 		}),
 		blocklistHitTotal: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: "gitpod_agent_smith",
+			Namespace: "nxpod_agent_smith",
 			Subsystem: "classifier_commandline",
 			Name:      "blocklist_hit_total",
 			Help:      "total count of blocklist hits",
@@ -135,7 +135,7 @@ func NewSignatureMatchClassifier(name string, defaultLevel Level, sig []*Signatu
 		Signatures:   sig,
 		DefaultLevel: defaultLevel,
 		processMissTotal: prometheus.NewCounterVec(prometheus.CounterOpts{
-			Namespace: "gitpod_agent_smith",
+			Namespace: "nxpod_agent_smith",
 			Subsystem: "classifier_signature",
 			Name:      "process_miss_total",
 			Help:      "total count of process executable misses",
@@ -144,7 +144,7 @@ func NewSignatureMatchClassifier(name string, defaultLevel Level, sig []*Signatu
 			},
 		}, []string{"reason"}),
 		signatureHitTotal: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: "gitpod_agent_smith",
+			Namespace: "nxpod_agent_smith",
 			Subsystem: "classifier_signature",
 			Name:      "signature_hit_total",
 			Help:      "total count of process executable signature hits",
@@ -373,7 +373,7 @@ func NewCountingMetricsClassifier(name string, delegate ProcessClassifier) *Coun
 	return &CountingMetricsClassifier{
 		D: delegate,
 		callCount: prometheus.NewCounter(prometheus.CounterOpts{
-			Namespace: "gitpod_agent_smith",
+			Namespace: "nxpod_agent_smith",
 			Subsystem: "classifier_count",
 			Name:      "match_total",
 			Help:      "total count of all Matches calls",

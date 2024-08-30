@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { PaginationRequest } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { PaginationRequest } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
 
 export const PAGE_SIZE_DEFAULT = 25;
 export const PAGE_SIZE_MAX = 100;

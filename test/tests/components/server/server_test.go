@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,8 +12,8 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
 func TestServerAccess(t *testing.T) {
@@ -30,9 +30,9 @@ func TestServerAccess(t *testing.T) {
 
 			username := integration.EnsureUserExists(t, username, api)
 
-			server, err := api.GitpodServer(integration.WithGitpodUser(username))
+			server, err := api.NxpodServer(integration.WithNxpodUser(username))
 			if err != nil {
-				t.Fatalf("cannot get GitpodServer: %q", err)
+				t.Fatalf("cannot get NxpodServer: %q", err)
 			}
 
 			_, err = server.GetLoggedInUser(ctx)
@@ -61,13 +61,13 @@ func TestStartWorkspace(t *testing.T) {
 				api.Done(t)
 			})
 
-			server, err := api.GitpodServer(integration.WithGitpodUser(username))
+			server, err := api.NxpodServer(integration.WithNxpodUser(username))
 			if err != nil {
-				t.Fatalf("cannot get GitpodServer: %q", err)
+				t.Fatalf("cannot get NxpodServer: %q", err)
 			}
 
 			resp, err := server.CreateWorkspace(ctx, &protocol.CreateWorkspaceOptions{
-				ContextURL:                         "github.com/gitpod-io/gitpod",
+				ContextURL:                         "github.com/nxpkg/nxpod",
 				IgnoreRunningWorkspaceOnSameCommit: true,
 			})
 			if err != nil {

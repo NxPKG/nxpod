@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -27,7 +27,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InstallationServiceClient interface {
 	// GetInstallationWorkspaceDefaultImage returns the default image for current
-	// Gitpod Installation.
+	// Nxpod Installation.
 	GetInstallationWorkspaceDefaultImage(ctx context.Context, in *GetInstallationWorkspaceDefaultImageRequest, opts ...grpc.CallOption) (*GetInstallationWorkspaceDefaultImageResponse, error)
 	// ListBlockedRepositories lists blocked repositories.
 	ListBlockedRepositories(ctx context.Context, in *ListBlockedRepositoriesRequest, opts ...grpc.CallOption) (*ListBlockedRepositoriesResponse, error)
@@ -119,7 +119,7 @@ func (c *installationServiceClient) GetOnboardingState(ctx context.Context, in *
 // for forward compatibility
 type InstallationServiceServer interface {
 	// GetInstallationWorkspaceDefaultImage returns the default image for current
-	// Gitpod Installation.
+	// Nxpod Installation.
 	GetInstallationWorkspaceDefaultImage(context.Context, *GetInstallationWorkspaceDefaultImageRequest) (*GetInstallationWorkspaceDefaultImageResponse, error)
 	// ListBlockedRepositories lists blocked repositories.
 	ListBlockedRepositories(context.Context, *ListBlockedRepositoriesRequest) (*ListBlockedRepositoriesResponse, error)

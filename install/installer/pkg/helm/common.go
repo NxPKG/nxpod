@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
 )
 
 // KeyValue ensure that a key/value pair is correctly formatted for Values

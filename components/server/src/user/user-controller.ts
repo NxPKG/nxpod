@@ -1,24 +1,24 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import * as crypto from "crypto";
 import { inject, injectable } from "inversify";
-import { OneTimeSecretDB, TeamDB, UserDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID } from "@gitpod/gitpod-db/lib/user-db";
+import { OneTimeSecretDB, TeamDB, UserDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID } from "@nxpod/nxpod-db/lib/user-db";
 import express from "express";
 import { Authenticator } from "../auth/authenticator";
 import { Config } from "../config";
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { AuthorizationService } from "./authorization-service";
-import { Permission } from "@gitpod/gitpod-protocol/lib/permission";
-import { parseWorkspaceIdFromHostname } from "@gitpod/gitpod-protocol/lib/util/parse-workspace-id";
+import { Permission } from "@nxpod/nxpod-protocol/lib/permission";
+import { parseWorkspaceIdFromHostname } from "@nxpod/nxpod-protocol/lib/util/parse-workspace-id";
 import { SessionHandler } from "../session-handler";
 import { URL } from "url";
 import { getRequestingClientInfo } from "../express-util";
-import { GitpodToken, GitpodTokenType, User } from "@gitpod/gitpod-protocol";
+import { NxpodToken, NxpodTokenType, User } from "@nxpod/nxpod-protocol";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { reportJWTCookieIssued } from "../prometheus-metrics";
 import {
@@ -30,17 +30,17 @@ import {
 import { OneTimeSecretServer } from "../one-time-secret-server";
 import { ClientMetadata } from "../websocket/websocket-connection-manager";
 import * as fs from "fs/promises";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { GitpodServerImpl } from "../workspace/gitpod-server-impl";
-import { StopWorkspacePolicy } from "@gitpod/ws-manager/lib";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { NxpodServerImpl } from "../workspace/nxpod-server-impl";
+import { StopWorkspacePolicy } from "@nxpod/ws-manager/lib";
 import { UserService } from "./user-service";
 import { WorkspaceService } from "../workspace/workspace-service";
 import { runWithSubjectId } from "../util/request-context";
 import { SubjectId } from "../auth/subject-id";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 
 export const ServerFactory = Symbol("ServerFactory");
-export type ServerFactory = () => GitpodServerImpl;
+export type ServerFactory = () => NxpodServerImpl;
 
 @injectable()
 export class UserController {
@@ -198,7 +198,7 @@ export class UserController {
         router.get(
             "/login/ots/:userId/:key",
             loginUserWithOts(async (req: express.Request, res: express.Response, user: User, secret: string) => {
-                // This mechanism is used by integration tests, cmp. https://github.com/gitpod-io/gitpod/blob/478a75e744a642d9b764de37cfae655bc8b29dd5/test/tests/ide/vscode/python_ws_test.go#L105
+                // This mechanism is used by integration tests, cmp. https://github.com/nxpkg/nxpod/blob/478a75e744a642d9b764de37cfae655bc8b29dd5/test/tests/ide/vscode/python_ws_test.go#L105
                 const secretHash = crypto
                     .createHash("sha256")
                     .update(user.id + this.config.session.secret)
@@ -413,7 +413,7 @@ export class UserController {
 
                 await runWithSubjectId(SubjectId.fromUserId(user.id), async () => {
                     const resourceGuard = new FGAResourceAccessGuard(user.id, new OwnerResourceGuard(user.id));
-                    const server = this.createGitpodServer(user, resourceGuard);
+                    const server = this.createNxpodServer(user, resourceGuard);
                     try {
                         await server.sendHeartBeat({}, { wasClosed: true, instanceId: instanceID });
                         /** no await */ server
@@ -475,10 +475,10 @@ export class UserController {
 
                     const token = crypto.randomBytes(30).toString("hex");
                     const tokenHash = crypto.createHash("sha256").update(token, "utf8").digest("hex");
-                    const dbToken: GitpodToken = {
+                    const dbToken: NxpodToken = {
                         tokenHash,
                         name: `local-app`,
-                        type: GitpodTokenType.MACHINE_AUTH_TOKEN,
+                        type: NxpodTokenType.MACHINE_AUTH_TOKEN,
                         userId: req.user.id,
                         scopes: [
                             "function:getWorkspaces",
@@ -498,7 +498,7 @@ export class UserController {
                         ],
                         created: new Date().toISOString(),
                     };
-                    await this.userDb.storeGitpodToken(dbToken);
+                    await this.userDb.storeNxpodToken(dbToken);
 
                     const otsExpirationTime = new Date();
                     otsExpirationTime.setMinutes(otsExpirationTime.getMinutes() + 2);
@@ -581,7 +581,7 @@ export class UserController {
 
         // If the context URL contains a known auth host, just use this
         if (returnToURL) {
-            // returnToURL -> https://gitpod.io/#https://github.com/theia-ide/theia"
+            // returnToURL -> https://nxpod.io/#https://github.com/theia-ide/theia"
             const hash = decodeURIComponent(new URL(decodeURIComponent(returnToURL)).hash);
             const value = hash.substr(1); // to remove the leading #
             let contextUrlHost: string | undefined;
@@ -622,7 +622,7 @@ export class UserController {
 
         if (
             this.urlStartsWith(returnToURL, this.config.hostUrl.toString()) ||
-            this.urlStartsWith(returnToURL, "https://www.gitpod.io")
+            this.urlStartsWith(returnToURL, "https://www.nxpod.io")
         ) {
             return returnToURL;
         }
@@ -631,7 +631,7 @@ export class UserController {
         return;
     }
 
-    private createGitpodServer(user: User, resourceGuard: ResourceAccessGuard) {
+    private createNxpodServer(user: User, resourceGuard: ResourceAccessGuard) {
         const server = this.serverFactory();
         server.initialize(undefined, user.id, resourceGuard, ClientMetadata.from(user.id), undefined, {});
         return server;

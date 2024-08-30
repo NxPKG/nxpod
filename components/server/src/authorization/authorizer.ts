@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { v1 } from "@authzed/authzed-node";
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID } from "@gitpod/gitpod-db/lib";
-import { Project, TeamMemberRole } from "@gitpod/gitpod-protocol";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID } from "@nxpod/nxpod-db/lib";
+import { Project, TeamMemberRole } from "@nxpod/nxpod-protocol";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import {
     AllResourceTypes,
     InstallationID,
@@ -23,8 +23,8 @@ import {
     rel,
 } from "./definitions";
 import { SpiceDBAuthorizer } from "./spicedb-authorizer";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { Subject, SubjectId } from "../auth/subject-id";
 import { ctxTrySubjectId } from "../util/request-context";
 import { reportAuthorizerSubjectId } from "../prometheus-metrics";

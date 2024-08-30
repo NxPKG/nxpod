@@ -50,7 +50,7 @@ local_java_protoc() {
         --java_out=java/src/main/java \
         ./*.proto
     # remove trailing spaces
-    find "$COMPONENTS_DIR"/ide-metrics-api/java/src/main/java/io/gitpod/idemetrics/api -maxdepth 1 -name "*.java" -exec sed -i -e "s/[[:space:]]*$//" {} \;
+    find "$COMPONENTS_DIR"/ide-metrics-api/java/src/main/java/io/nxpod/idemetrics/api -maxdepth 1 -name "*.java" -exec sed -i -e "s/[[:space:]]*$//" {} \;
 }
 
 install_dependencies

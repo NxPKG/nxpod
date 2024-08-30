@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,10 +12,10 @@ import (
 	"testing"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/components/public-api/go/client"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	gitpod_experimental_v1connect "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	"github.com/gitpod-io/local-app/pkg/prettyprint"
+	"github.com/nxpkg/nxpod/components/public-api/go/client"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	gitpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	"github.com/nxpkg/local-app/pkg/prettyprint"
 	"github.com/google/go-cmp/cmp"
 )
 

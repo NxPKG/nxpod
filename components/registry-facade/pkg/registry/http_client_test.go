@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,7 +17,7 @@ import (
 	"github.com/hashicorp/go-retryablehttp"
 	"github.com/opencontainers/go-digest"
 
-	"github.com/gitpod-io/gitpod/registry-facade/pkg/registry"
+	"github.com/nxpkg/nxpod/registry-facade/pkg/registry"
 )
 
 func TestRetryableFetcher(t *testing.T) {

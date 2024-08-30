@@ -1,21 +1,21 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import express from "express";
 import { postConstruct, injectable, inject } from "inversify";
-import { TeamDB, WebhookEventDB } from "@gitpod/gitpod-db/lib";
-import { Project, User, CommitContext, CommitInfo, WebhookEvent } from "@gitpod/gitpod-protocol";
+import { TeamDB, WebhookEventDB } from "@nxpod/nxpod-db/lib";
+import { Project, User, CommitContext, CommitInfo, WebhookEvent } from "@nxpod/nxpod-protocol";
 import { PrebuildManager } from "./prebuild-manager";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { TokenService } from "../user/token-service";
 import { HostContextProvider } from "../auth/host-context-provider";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { ContextParser } from "../workspace/context-parser-service";
 import { RepoURL } from "../repohost";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { UserService } from "../user/user-service";
 import { ProjectsService } from "../projects/projects-service";
 import { runWithSubjectId } from "../util/request-context";
@@ -57,7 +57,7 @@ export class GitLabApp {
             const context = req.body as GitLabPushHook;
 
             // trim commits to avoid DB pollution
-            // https://github.com/gitpod-io/gitpod/issues/11578
+            // https://github.com/nxpkg/nxpod/issues/11578
             context.commits = [];
 
             const event = await this.webhookEvents.createEvent({
@@ -112,9 +112,9 @@ export class GitLabApp {
             } else if (!!user.blocked) {
                 throw new Error(`Blocked user ${user.id} tried to start prebuild.`);
             }
-            const identity = user.identities.find((i) => i.authProviderId === TokenService.GITPOD_AUTH_PROVIDER_ID);
+            const identity = user.identities.find((i) => i.authProviderId === TokenService.NXPOD_AUTH_PROVIDER_ID);
             if (!identity) {
-                throw new Error(`User ${user.id} has no identity for '${TokenService.GITPOD_AUTH_PROVIDER_ID}'.`);
+                throw new Error(`User ${user.id} has no identity for '${TokenService.NXPOD_AUTH_PROVIDER_ID}'.`);
             }
             const tokens = await this.userService.findTokensForIdentity(userid, identity);
             const token = tokens.find((t) => t.token.value === tokenValue);

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,10 +15,10 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/sirupsen/logrus"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/terminal"
+	"github.com/nxpkg/nxpod/common-go/log"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/pkg/terminal"
 )
 
 var (
@@ -51,7 +51,7 @@ func TestTaskManager(t *testing.T) {
 		Desc        string
 		Headless    bool
 		Source      csapi.WorkspaceInitSource
-		GitpodTasks *[]TaskConfig
+		NxpodTasks *[]TaskConfig
 
 		ExpectedReporter testHeadlessTaskProgressReporter
 	}{
@@ -69,7 +69,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "headless prebuild should finish without init tasks",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Command: &skipCommand}},
+			NxpodTasks: &[]TaskConfig{{Command: &skipCommand}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -80,7 +80,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "headless prebuild should finish with successful init tasks",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &skipCommand}, {Init: &skipCommand}},
+			NxpodTasks: &[]TaskConfig{{Init: &skipCommand}, {Init: &skipCommand}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -91,7 +91,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "headless prebuild should finish with failed init tasks",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &failCommand}, {Init: &failCommand}},
+			NxpodTasks: &[]TaskConfig{{Init: &failCommand}, {Init: &failCommand}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -102,7 +102,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "headless prebuild should finish with at least one failed init tasks (first)",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &failCommand}, {Init: &skipCommand}},
+			NxpodTasks: &[]TaskConfig{{Init: &failCommand}, {Init: &skipCommand}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -113,7 +113,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "headless prebuild should finish with at least one failed init tasks (second)",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &skipCommand}, {Init: &failCommand}},
+			NxpodTasks: &[]TaskConfig{{Init: &skipCommand}, {Init: &failCommand}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -124,7 +124,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "JSON object converted to plain text object",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testJSONObjectCommand, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testJSONObjectCommand, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -135,7 +135,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "Escaped JSON converts to JSON",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testEscapedJSONObject, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testEscapedJSONObject, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -146,7 +146,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "JSON array is treated as plain array",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testJSONArrayCommand, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testJSONArrayCommand, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -157,7 +157,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "String environment variable is not treated as JSON (extra quotes are stripped)",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testStringEnvCommand, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testStringEnvCommand, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -168,7 +168,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "Boolean environment variable is treated as a boolean",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testBooleanEnvCommand, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testBooleanEnvCommand, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -179,7 +179,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "Null environment variable is treated as null",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testNullEnvCommand, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testNullEnvCommand, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -190,7 +190,7 @@ func TestTaskManager(t *testing.T) {
 			Desc:        "Number environment variable is treated as number",
 			Headless:    true,
 			Source:      csapi.WorkspaceInitFromOther,
-			GitpodTasks: &[]TaskConfig{{Init: &testNumberEnvCommand, Env: exampleEnvVarInputs}},
+			NxpodTasks: &[]TaskConfig{{Init: &testNumberEnvCommand, Env: exampleEnvVarInputs}},
 
 			ExpectedReporter: testHeadlessTaskProgressReporter{
 				Done:    true,
@@ -206,13 +206,13 @@ func TestTaskManager(t *testing.T) {
 			}
 			defer os.RemoveAll(storeLocation)
 
-			gitpodTasks := ""
-			if test.GitpodTasks != nil {
-				result, err := json.Marshal(test.GitpodTasks)
+			nxpodTasks := ""
+			if test.NxpodTasks != nil {
+				result, err := json.Marshal(test.NxpodTasks)
 				if err != nil {
 					t.Fatal(err)
 				}
-				gitpodTasks = string(result)
+				nxpodTasks = string(result)
 			}
 
 			var (
@@ -221,8 +221,8 @@ func TestTaskManager(t *testing.T) {
 				reporter        = testHeadlessTaskProgressReporter{}
 				taskManager     = newTasksManager(&Config{
 					WorkspaceConfig: WorkspaceConfig{
-						GitpodTasks:    gitpodTasks,
-						GitpodHeadless: strconv.FormatBool(test.Headless),
+						NxpodTasks:    nxpodTasks,
+						NxpodHeadless: strconv.FormatBool(test.Headless),
 					},
 				}, terminalService, contentState, &reporter, nil, nil)
 			)

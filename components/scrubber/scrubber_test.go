@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -114,7 +114,7 @@ func TestStruct(t *testing.T) {
 				WorkspaceID  string
 				ContextURL   string
 				LeaveMeAlone string
-			}{Username: "foo", Email: "foo@bar.com", Password: "foobar", WorkspaceID: "gitpodio-gitpod-uesaddev73c", ContextURL: "https://github.com/gitpod-io/gitpod/pull/19402", LeaveMeAlone: "foo"},
+			}{Username: "foo", Email: "foo@bar.com", Password: "foobar", WorkspaceID: "nxpodio-nxpod-uesaddev73c", ContextURL: "https://github.com/nxpkg/nxpod/pull/19402", LeaveMeAlone: "foo"},
 			Expectation: Expectation{
 				Result: &struct {
 					Username     string
@@ -253,7 +253,7 @@ func TestJSON(t *testing.T) {
 	}{
 		{
 			Name:  "basic happy path",
-			Input: `{"ok": true, "email": "foo@bar.com", "workspaceID": "gitpodio-gitpod-uesaddev73c"}`,
+			Input: `{"ok": true, "email": "foo@bar.com", "workspaceID": "nxpodio-nxpod-uesaddev73c"}`,
 			Expectation: Expectation{
 				Result: `{"email":"[redacted]","ok":true,"workspaceID":"[redacted:md5:a35538939333def8477b5c19ac694b35]"}`,
 			},
@@ -264,11 +264,11 @@ func TestJSON(t *testing.T) {
 			Expectation: Expectation{Result: `{"batch":[{"event":"signup","foo":"bar","type":"track"}],"foo":"bar"}`},
 		},
 		{
-			// https://github.com/gitpod-io/security/issues/64
+			// https://github.com/nxpkg/security/issues/64
 			Name:  "complex",
-			Input: `{"auth":{"owner_token":"abcsecrettokendef","total":{}},"env":[{"name":"SECRET_PASSWORD","value":"i-am-leaked-in-the-logs-yikes"},{"name":"GITHUB_TOKEN","value":"thisismyGitHubTokenDontStealIt"},{"name":"SUPER_SEKRET","value":"you.cant.see.me.or.can.you"},{"name":"GITHUB_SSH_PRIVATE_KEY","value":"super-secret-private-ssh-key-from-github"},{"name":"SHELL","value":"zsh"},{"name":"GITLAB_TOKEN","value":"abcsecrettokendef"}],"source":{"file":{"contextPath":".","dockerfilePath":".gitpod.dockerfile","dockerfileVersion":"82561e7f6455e3c0e6ee98be03c4d9aab4d459f8","source":{"git":{"checkoutLocation":"test.repo","cloneTaget":"good-workspace-image","config":{"authPassword":"super-secret-password","authUser":"oauth2","authentication":"BASIC_AUTH"},"remoteUri":"https://github.com/AlexTugarev/test.repo.git","targetMode":"REMOTE_BRANCH"}}}}}`,
+			Input: `{"auth":{"owner_token":"abcsecrettokendef","total":{}},"env":[{"name":"SECRET_PASSWORD","value":"i-am-leaked-in-the-logs-yikes"},{"name":"GITHUB_TOKEN","value":"thisismyGitHubTokenDontStealIt"},{"name":"SUPER_SEKRET","value":"you.cant.see.me.or.can.you"},{"name":"GITHUB_SSH_PRIVATE_KEY","value":"super-secret-private-ssh-key-from-github"},{"name":"SHELL","value":"zsh"},{"name":"GITLAB_TOKEN","value":"abcsecrettokendef"}],"source":{"file":{"contextPath":".","dockerfilePath":".nxpod.dockerfile","dockerfileVersion":"82561e7f6455e3c0e6ee98be03c4d9aab4d459f8","source":{"git":{"checkoutLocation":"test.repo","cloneTaget":"good-workspace-image","config":{"authPassword":"super-secret-password","authUser":"oauth2","authentication":"BASIC_AUTH"},"remoteUri":"https://github.com/AlexTugarev/test.repo.git","targetMode":"REMOTE_BRANCH"}}}}}`,
 			Expectation: Expectation{
-				Result: `{"auth":{"owner_token":"[redacted]","total":{}},"env":[{"name":"SECRET_PASSWORD","value":"[redacted]"},{"name":"GITHUB_TOKEN","value":"[redacted]"},{"name":"SUPER_SEKRET","value":"you.cant.see.me.or.can.you"},{"name":"GITHUB_SSH_PRIVATE_KEY","value":"[redacted]"},{"name":"SHELL","value":"zsh"},{"name":"GITLAB_TOKEN","value":"[redacted]"}],"source":{"file":{"contextPath":".","dockerfilePath":".gitpod.dockerfile","dockerfileVersion":"82561e7f6455e3c0e6ee98be03c4d9aab4d459f8","source":{"git":{"checkoutLocation":"test.repo","cloneTaget":"good-workspace-image","config":{"authPassword":"[redacted]","authUser":"oauth2","authentication":"BASIC_AUTH"},"remoteUri":"https://github.com/AlexTugarev/test.repo.git","targetMode":"REMOTE_BRANCH"}}}}}`,
+				Result: `{"auth":{"owner_token":"[redacted]","total":{}},"env":[{"name":"SECRET_PASSWORD","value":"[redacted]"},{"name":"GITHUB_TOKEN","value":"[redacted]"},{"name":"SUPER_SEKRET","value":"you.cant.see.me.or.can.you"},{"name":"GITHUB_SSH_PRIVATE_KEY","value":"[redacted]"},{"name":"SHELL","value":"zsh"},{"name":"GITLAB_TOKEN","value":"[redacted]"}],"source":{"file":{"contextPath":".","dockerfilePath":".nxpod.dockerfile","dockerfileVersion":"82561e7f6455e3c0e6ee98be03c4d9aab4d459f8","source":{"git":{"checkoutLocation":"test.repo","cloneTaget":"good-workspace-image","config":{"authPassword":"[redacted]","authUser":"oauth2","authentication":"BASIC_AUTH"},"remoteUri":"https://github.com/AlexTugarev/test.repo.git","targetMode":"REMOTE_BRANCH"}}}}}`,
 			},
 		},
 		{
@@ -319,7 +319,7 @@ func TestDeepCopyStruct(t *testing.T) {
 				Password     string
 				WorkspaceID  string
 				LeaveMeAlone string
-			}{Username: "foo", Email: "foo@bar.com", Password: "foobar", WorkspaceID: "gitpodio-gitpod-uesaddev73c", LeaveMeAlone: "foo"},
+			}{Username: "foo", Email: "foo@bar.com", Password: "foobar", WorkspaceID: "nxpodio-nxpod-uesaddev73c", LeaveMeAlone: "foo"},
 			Expectation: Expectation{
 				Result: &struct {
 					Username     string
@@ -338,7 +338,7 @@ func TestDeepCopyStruct(t *testing.T) {
 				Password     string
 				WorkspaceID  string
 				LeaveMeAlone string
-			}{Username: "foo", Email: "foo@bar.com", Password: "foobar", WorkspaceID: "gitpodio-gitpod-uesaddev73c", LeaveMeAlone: "foo"},
+			}{Username: "foo", Email: "foo@bar.com", Password: "foobar", WorkspaceID: "nxpodio-nxpod-uesaddev73c", LeaveMeAlone: "foo"},
 			Expectation: Expectation{
 				Result: struct {
 					Username     string
@@ -486,7 +486,7 @@ func BenchmarkKeyValue(b *testing.B) {
 // 	// 1 MB firehose metrics file.
 // 	// file contains newline-separated json objects in the format {"b": "<data>"}
 // 	// where <data> is a base64-encoded string
-// 	file := "/workspace/gitpod/components/scrubber/metrics-file"
+// 	file := "/workspace/nxpod/components/scrubber/metrics-file"
 // 	var data []string
 // 	osFile, err := os.Open(file)
 // 	if err != nil {
@@ -526,7 +526,7 @@ func BenchmarkKeyValue(b *testing.B) {
 // }
 
 func BenchmarkValue(b *testing.B) {
-	const input = "This text contains {\"json\":\"data\"}, a workspace ID gitpodio-gitpod-uesaddev73c and an email foo@bar.com"
+	const input = "This text contains {\"json\":\"data\"}, a workspace ID nxpodio-nxpod-uesaddev73c and an email foo@bar.com"
 
 	for i := 0; i < b.N; i++ {
 		Default.Value(input)

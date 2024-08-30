@@ -25,13 +25,13 @@ Start by logging in with `gitpod login`, which will also create a default contex
 
 ### Development
 
-To develop the CLI with Gitpod, you can run it just like locally, but in Gitpod workspaces, a browser and a keyring are not available. To log in despite these limitations, provide a PAT via the `GITPOD_TOKEN` environment variable, or use the `--token` flag with the login command.
+To develop the CLI with Nxpod, you can run it just like locally, but in Nxpod workspaces, a browser and a keyring are not available. To log in despite these limitations, provide a PAT via the `NXPOD_TOKEN` environment variable, or use the `--token` flag with the login command.
 
-#### In a Gitpod workspace
+#### In a Nxpod workspace
 
-[![Open in Gitpod](https://www.gitpod.io/svg/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/gitpod)
+[![Open in Nxpod](https://www.gitpod.io/svg/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/nxpkg/nxpod)
 
-You will have gitpod-cli ready as `gitpod` on any Workspace based on `https://github.com/gitpod-io/gitpod`.
+You will have gitpod-cli ready as `gitpod` on any Workspace based on `https://github.com/nxpkg/nxpod`.
 
 ```
 # Reinstall `gitpod`
@@ -43,7 +43,7 @@ leeway run components/local-app:cli-completion
 
 ### Versioning and Release Management
 
-The CLI is versioned independently of other Gitpod artifacts due to its auto-updating behaviour.
+The CLI is versioned independently of other Nxpod artifacts due to its auto-updating behaviour.
 To create a new version that existing clients will consume increment the number in `version.txt`. Make sure to use semantic versioning. The minor version can be greater than 10, e.g. `0.342` is a valid version.
 
 ## local-app
@@ -62,9 +62,9 @@ docker run --rm -it -v /tmp/dest:/out eu.gcr.io/gitpod-core-dev/build/local-app:
 ./local-app
 ```
 
-### How to run in Gitpod against a dev-staging environment
+### How to run in Nxpod against a dev-staging environment
 
 ```
 cd components/local-app
-BROWSER= GITPOD_HOST=<URL-of-your-preview-env> go run main.go --mock-keyring run
+BROWSER= NXPOD_HOST=<URL-of-your-preview-env> go run main.go --mock-keyring run
 ```

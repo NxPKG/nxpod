@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -279,7 +279,7 @@ type GetDefaultWorkspaceImageResponse_ImageSource int32
 
 const (
 	GetDefaultWorkspaceImageResponse_IMAGE_SOURCE_UNSPECIFIED GetDefaultWorkspaceImageResponse_ImageSource = 0
-	// IMAGE_SOURCE_INSTALLATION means the image from Gitpod instance install config
+	// IMAGE_SOURCE_INSTALLATION means the image from Nxpod instance install config
 	GetDefaultWorkspaceImageResponse_IMAGE_SOURCE_INSTALLATION GetDefaultWorkspaceImageResponse_ImageSource = 1
 	// IMAGE_SOURCE_ORGANIZATION means the image from  Organization settings
 	GetDefaultWorkspaceImageResponse_IMAGE_SOURCE_ORGANIZATION GetDefaultWorkspaceImageResponse_ImageSource = 2

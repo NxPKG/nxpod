@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,10 +19,10 @@ func TestBuildChildProcEnv(t *testing.T) {
 	withBaseline := func(i []string) []string {
 		return append(i,
 			"SUPERVISOR_ADDR=localhost:8080",
-			"HOME=/home/gitpod",
-			"USER=gitpod",
+			"HOME=/home/nxpod",
+			"USER=nxpod",
 			"BROWSER=/.supervisor/browser.sh",
-			"HISTFILE=/workspace/.gitpod/.shell_history",
+			"HISTFILE=/workspace/.nxpod/.shell_history",
 			"PROMPT_COMMAND=history -a",
 		)
 	}
@@ -55,7 +55,7 @@ func TestBuildChildProcEnv(t *testing.T) {
 		},
 		{
 			Name:        "removes blacklisted vars",
-			Input:       []string{"GITPOD_TOKENS=foobar"},
+			Input:       []string{"NXPOD_TOKENS=foobar"},
 			Expectation: withBaseline(nil),
 		},
 		{
@@ -90,22 +90,22 @@ func TestBuildChildProcEnv(t *testing.T) {
 		{
 			Name:  "ots",
 			Input: []string{},
-			OTS:   `[{"name":"foo","value":"bar"},{"name":"GITPOD_TOKENS","value":"foobar"}]`,
+			OTS:   `[{"name":"foo","value":"bar"},{"name":"NXPOD_TOKENS","value":"foobar"}]`,
 			Expectation: []string{
-				"HOME=/home/gitpod",
+				"HOME=/home/nxpod",
 				"BROWSER=/.supervisor/browser.sh",
-				"HISTFILE=/workspace/.gitpod/.shell_history",
-				"PROMPT_COMMAND=history -a", "SUPERVISOR_ADDR=localhost:8080", "USER=gitpod", "foo=bar"},
+				"HISTFILE=/workspace/.nxpod/.shell_history",
+				"PROMPT_COMMAND=history -a", "SUPERVISOR_ADDR=localhost:8080", "USER=nxpod", "foo=bar"},
 		},
 		{
 			Name:  "failed ots",
 			Input: []string{},
 			OTS:   `invalid json`,
 			Expectation: []string{
-				"HOME=/home/gitpod",
+				"HOME=/home/nxpod",
 				"BROWSER=/.supervisor/browser.sh",
-				"HISTFILE=/workspace/.gitpod/.shell_history",
-				"PROMPT_COMMAND=history -a", "SUPERVISOR_ADDR=localhost:8080", "USER=gitpod"},
+				"HISTFILE=/workspace/.nxpod/.shell_history",
+				"PROMPT_COMMAND=history -a", "SUPERVISOR_ADDR=localhost:8080", "USER=nxpod"},
 		},
 	}
 
@@ -146,8 +146,8 @@ func TestIsBlacklistedEnvvar(t *testing.T) {
 		Expectation bool
 	}{
 		{Name: "deprecated theia envvars", Input: "THEIA_SUPERVISOR_FOOBAR", Expectation: true},
-		{Name: "gitpod tokens", Input: "GITPOD_TOKENS", Expectation: true},
-		{Name: "gitpod tokens child", Input: "GITPOD_TOKENS_GITHUB", Expectation: true},
+		{Name: "nxpod tokens", Input: "NXPOD_TOKENS", Expectation: true},
+		{Name: "nxpod tokens child", Input: "NXPOD_TOKENS_GITHUB", Expectation: true},
 		{Name: "kubernetes services", Input: "KUBERNETES_SERVICE_FOOBAR", Expectation: true},
 		{Name: "kubernetes service ports", Input: "KUBERNETES_PORT_FOOBAR", Expectation: true},
 		{Name: "something with spaces", Input: "   I_DO_NOT_UNDERSTAND", Expectation: true},

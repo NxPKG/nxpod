@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 /// Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,10 +12,10 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/proxy"
-	config "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/versions"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/proxy"
+	config "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/versions"
 )
 
 func TestCustomizeAnnotation(t *testing.T) {

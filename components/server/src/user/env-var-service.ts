@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ProjectDB, UserDB } from "@gitpod/gitpod-db/lib";
+import { ProjectDB, UserDB } from "@nxpod/nxpod-db/lib";
 import {
     CommitContext,
     EnvVar,
@@ -15,11 +15,11 @@ import {
     WithEnvvarsContext,
     WorkspaceContext,
     WorkspaceType,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
 import { Authorizer } from "../authorization/authorizer";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { Config } from "../config";
 
 export interface ResolvedEnvVars {
@@ -194,8 +194,8 @@ export class EnvVarService {
         if (!envVar.name) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "Variable name cannot be empty");
         }
-        if (!UserEnvVar.WhiteListFromReserved.includes(envVar.name) && envVar.name.startsWith("GITPOD_")) {
-            throw new ApplicationError(ErrorCodes.BAD_REQUEST, "Variable name with prefix 'GITPOD_' is reserved");
+        if (!UserEnvVar.WhiteListFromReserved.includes(envVar.name) && envVar.name.startsWith("NXPOD_")) {
+            throw new ApplicationError(ErrorCodes.BAD_REQUEST, "Variable name with prefix 'NXPOD_' is reserved");
         }
         if (!/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(envVar.name)) {
             throw new ApplicationError(

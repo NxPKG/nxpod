@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,10 +18,10 @@ import (
 
 	"github.com/coreos/go-oidc/v3/oidc"
 	goidc "github.com/coreos/go-oidc/v3/oidc"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/components/gitpod-db/go/dbtest"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws/jwstest"
+	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	"github.com/nxpkg/nxpod/components/gitpod-db/go/dbtest"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/golang-jwt/jwt/v5"

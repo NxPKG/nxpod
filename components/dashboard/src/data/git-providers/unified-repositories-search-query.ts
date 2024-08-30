@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { SuggestedRepository } from "@gitpod/public-api/lib/gitpod/v1/scm_pb";
+import { SuggestedRepository } from "@nxpod/public-api/lib/nxpod/v1/scm_pb";
 import { useSearchRepositories } from "./search-repositories-query";
 import { useSuggestedRepositories } from "./suggested-repositories-query";
 import { PREDEFINED_REPOS } from "./predefined-repos";
 import { useMemo } from "react";
 import { useListConfigurations } from "../configurations/configuration-queries";
 import type { UseInfiniteQueryResult } from "@tanstack/react-query";
-import { Configuration } from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
+import { Configuration } from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
 
 export const flattenPagedConfigurations = (
     data: UseInfiniteQueryResult<{ configurations: Configuration[] }>["data"],

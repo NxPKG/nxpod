@@ -40,9 +40,9 @@ function set-up-ssh {
 }
 
 set-up-ssh
-zone=$(gcloud compute instances list --project gitpod-dev-preview --format="value(zone)" preview-"$VM_NAME")
+zone=$(gcloud compute instances list --project nxpod-dev-preview --format="value(zone)" preview-"$VM_NAME")
 gcloud compute ssh "$USER@preview-$VM_NAME" \
-    --project gitpod-dev-preview \
+    --project nxpod-dev-preview \
     --ssh-key-file "$PRIVATE_KEY" \
     --ssh-flag="-p $PORT" \
     --zone="$zone" \

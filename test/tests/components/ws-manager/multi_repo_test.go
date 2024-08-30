@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,10 +14,10 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 var repos = []struct {
@@ -27,37 +27,37 @@ var repos = []struct {
 	CheckoutLocation string
 }{
 	{
-		RemoteUri:        "https://github.com/gitpod-io/gitpod",
+		RemoteUri:        "https://github.com/nxpkg/nxpod",
 		CloneTarget:      "main",
 		ExpectedBranch:   "main",
 		CheckoutLocation: "gitpod",
 	},
 	{
-		RemoteUri:        "https://github.com/gitpod-io/gitpod",
+		RemoteUri:        "https://github.com/nxpkg/nxpod",
 		CloneTarget:      "master",
 		ExpectedBranch:   "main",
 		CheckoutLocation: "gitpod",
 	},
 	{
-		RemoteUri:        "https://github.com/gitpod-io/workspace-images",
+		RemoteUri:        "https://github.com/nxpkg/workspace-images",
 		CloneTarget:      "main",
 		ExpectedBranch:   "main",
 		CheckoutLocation: "workspace-images",
 	},
 	{
-		RemoteUri:        "https://github.com/gitpod-io/dazzle",
+		RemoteUri:        "https://github.com/nxpkg/dazzle",
 		CloneTarget:      "main",
 		ExpectedBranch:   "main",
 		CheckoutLocation: "dazzle",
 	},
 	{
-		RemoteUri:        "https://github.com/gitpod-io/leeway",
+		RemoteUri:        "https://github.com/nxpkg/leeway",
 		CloneTarget:      "main",
 		ExpectedBranch:   "main",
 		CheckoutLocation: "leeway",
 	},
 	{
-		RemoteUri:        "https://github.com/gitpod-io/ws-manager-integration-test",
+		RemoteUri:        "https://github.com/nxpkg/ws-manager-integration-test",
 		CloneTarget:      "master", // default branch is main
 		ExpectedBranch:   "master",
 		CheckoutLocation: "ws-manager-integration-test",

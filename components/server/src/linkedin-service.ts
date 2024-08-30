@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ErrorCodes, ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { LinkedInProfile, User } from "@gitpod/gitpod-protocol/lib/protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { LinkedInProfileDB } from "@gitpod/gitpod-db/lib";
+import { ErrorCodes, ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { LinkedInProfile, User } from "@nxpod/nxpod-protocol/lib/protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { LinkedInProfileDB } from "@nxpod/nxpod-db/lib";
 import { inject, injectable } from "inversify";
 import fetch from "node-fetch";
 import { Config } from "./config";
@@ -20,7 +20,7 @@ export class LinkedInService {
     async connectWithLinkedIn(user: User, code: string): Promise<LinkedInProfile> {
         const accessToken = await this.getAccessToken(code);
         const profile = await this.getLinkedInProfile(accessToken);
-        // Note: The unique mapping from LinkedIn profile to Gitpod user is guaranteed by the DB.
+        // Note: The unique mapping from LinkedIn profile to Nxpod user is guaranteed by the DB.
         await this.linkedInProfileDB.storeProfile(user.id, profile);
         return profile;
     }

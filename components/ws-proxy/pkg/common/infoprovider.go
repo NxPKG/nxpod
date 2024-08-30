@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,8 +7,8 @@ package common
 import (
 	"time"
 
-	"github.com/gitpod-io/gitpod/ws-manager/api"
-	wsapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/ws-manager/api"
+	wsapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 const (

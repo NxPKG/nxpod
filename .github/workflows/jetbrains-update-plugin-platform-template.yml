@@ -14,7 +14,7 @@ on:
                 type: string
                 required: true
             isBackendPlugin:
-                description: Action is execing for Gitpod JetBrains Backend Plugin or not
+                description: Action is execing for Nxpod JetBrains Backend Plugin or not
                 type: boolean
                 required: true
         secrets:
@@ -74,8 +74,8 @@ jobs:
                       1. Ensure you have the Gateway installed from [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) and have it up-to-date.
                         - You should use Gateway version corresponding to plugin qualifier, i.e. for stable plugin test with released, for latest test with EAP.
                         - It could be that a new Gateway is not published for the given SDK yet then wait for it to be published. You can check the build version in the About dialog.
-                      2. Download the plugin build related to this branch in [Dev Versions](https://plugins.jetbrains.com/plugin/18438-gitpod-gateway/versions/dev), and [install it on the Gateway](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk).
-                        - You can also uninstall current Gitpod plugin, configure dev channel using https://plugins.jetbrains.com/plugins/list?channel=dev&pluginId=18438-gitpod-gateway and restart GW to test that the proper version is detected and installed.
+                      2. Download the plugin build related to this branch in [Dev Versions](https://plugins.jetbrains.com/plugin/18438-nxpod-gateway/versions/dev), and [install it on the Gateway](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk).
+                        - You can also uninstall current Nxpod plugin, configure dev channel using https://plugins.jetbrains.com/plugins/list?channel=dev&pluginId=18438-nxpod-gateway and restart GW to test that the proper version is detected and installed.
                       3. Create a new workspace from the Gateway (it's ok to use the pre-selected IDE and Repository) and confirm if JetBrains Client can connect to it.
                       </details>
 
@@ -92,15 +92,15 @@ jobs:
                       - [x] with-integration-tests=jetbrains
                       - [x] latest-ide-version=${{ contains(inputs.pluginId, 'latest') }}
 
-                      _This PR was created automatically with GitHub Actions using [this](https://github.com/gitpod-io/gitpod/blob/main/.github/workflows/jetbrains-update-plugin-platform-template.yml) template._
+                      _This PR was created automatically with GitHub Actions using [this](https://github.com/nxpkg/nxpod/blob/main/.github/workflows/jetbrains-update-plugin-platform-template.yml) template._
                   commit-message: "Update Platform Version of ${{ inputs.pluginName }} to ${{ steps.latest-version.outputs.result }}"
                   branch: "jetbrains/${{ inputs.pluginId }}-platform"
                   labels: "team: IDE,editor: jetbrains"
                   team-reviewers: |
                     team-experience
                   token: ${{ secrets.roboquatRepoPat }}
-                  committer: Robo Quat <roboquat@gitpod.io>
-                  author: Robo Quat <roboquat@gitpod.io>
+                  committer: Robo Quat <roboquat@nxpod.io>
+                  author: Robo Quat <roboquat@nxpod.io>
             - name: Create Pull Request for Backend Plugin
               id: create-backend-pr
               if: ${{ steps.changes.outputs.dirty && inputs.isBackendPlugin }}
@@ -119,7 +119,7 @@ jobs:
                       <summary>if you want to test manually for some reasons</summary>
                       1. Open the preview environment generated for this branch
                       2. Choose the _Latest Release (Unstable)_ version of IntelliJ IDEA as your preferred editor
-                      3. Start a workspace using this repository: https://github.com/gitpod-samples/spring-petclinic
+                      3. Start a workspace using this repository: https://github.com/nxpod-samples/spring-petclinic
                       4. Verify that the workspace starts successfully
                       5. Verify that the IDE opens successfully
                       </details>
@@ -136,15 +136,15 @@ jobs:
                       - [x] with-integration-tests=jetbrains
                       - [x] latest-ide-version=${{ contains(inputs.pluginId, 'latest') }}
 
-                      _This PR was created automatically with GitHub Actions using [this](https://github.com/gitpod-io/gitpod/blob/main/.github/workflows/jetbrains-update-plugin-platform-template.yml) template._
+                      _This PR was created automatically with GitHub Actions using [this](https://github.com/nxpkg/nxpod/blob/main/.github/workflows/jetbrains-update-plugin-platform-template.yml) template._
                   commit-message: "Update Platform Version of ${{ inputs.pluginName }} to ${{ steps.latest-version.outputs.result }}"
                   branch: "jetbrains/${{ inputs.pluginId }}-platform"
                   labels: "team: IDE,editor: jetbrains"
                   team-reviewers: |
                     team-experience
                   token: ${{ secrets.roboquatRepoPat }}
-                  committer: Robo Quat <roboquat@gitpod.io>
-                  author: Robo Quat <roboquat@gitpod.io>
+                  committer: Robo Quat <roboquat@nxpod.io>
+                  author: Robo Quat <roboquat@nxpod.io>
             - name: Get previous job's status
               id: lastrun
               uses: filiptronicek/get-last-job-status@main

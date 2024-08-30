@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { CallOptions, PromiseClient } from "@connectrpc/connect";
 import { PartialMessage } from "@bufbuild/protobuf";
-import { InstallationService } from "@gitpod/public-api/lib/gitpod/v1/installation_connect";
+import { InstallationService } from "@nxpod/public-api/lib/nxpod/v1/installation_connect";
 import {
     ListBlockedRepositoriesRequest,
     ListBlockedRepositoriesResponse,
@@ -22,18 +22,18 @@ import {
     GetInstallationWorkspaceDefaultImageResponse,
     GetOnboardingStateRequest,
     GetOnboardingStateResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/installation_pb";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { getGitpodService } from "./service";
+} from "@nxpod/public-api/lib/nxpod/v1/installation_pb";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { getNxpodService } from "./service";
 import { converter } from "./public-api";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
 
 export class JsonRpcInstallationClient implements PromiseClient<typeof InstallationService> {
     async getInstallationWorkspaceDefaultImage(
         _request: PartialMessage<GetInstallationWorkspaceDefaultImageRequest>,
         _options?: CallOptions,
     ): Promise<GetInstallationWorkspaceDefaultImageResponse> {
-        const result = await getGitpodService().server.getDefaultWorkspaceImage({});
+        const result = await getNxpodService().server.getDefaultWorkspaceImage({});
         if (result.source !== "installation") {
             throw new ApplicationError(ErrorCodes.INTERNAL_SERVER_ERROR, "unexpected image source");
         }
@@ -45,7 +45,7 @@ export class JsonRpcInstallationClient implements PromiseClient<typeof Installat
         _options?: CallOptions | undefined,
     ): Promise<ListBlockedRepositoriesResponse> {
         // dashboard params is constant, no need to implement
-        const info = await getGitpodService().server.adminGetBlockedRepositories({
+        const info = await getNxpodService().server.adminGetBlockedRepositories({
             limit: 100,
             offset: 0,
             orderBy: "urlRegexp",
@@ -71,7 +71,7 @@ export class JsonRpcInstallationClient implements PromiseClient<typeof Installat
         if (request.blockFreeUsage === undefined) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "blockFreeUsage is required");
         }
-        const info = await getGitpodService().server.adminCreateBlockedRepository(
+        const info = await getNxpodService().server.adminCreateBlockedRepository(
             request.urlRegexp,
             request.blockUser,
             request.blockFreeUsage,
@@ -88,7 +88,7 @@ export class JsonRpcInstallationClient implements PromiseClient<typeof Installat
         if (!request.blockedRepositoryId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "blockedRepositoryId is required");
         }
-        await getGitpodService().server.adminDeleteBlockedRepository(request.blockedRepositoryId);
+        await getNxpodService().server.adminDeleteBlockedRepository(request.blockedRepositoryId);
         return new DeleteBlockedRepositoryResponse();
     }
 
@@ -96,7 +96,7 @@ export class JsonRpcInstallationClient implements PromiseClient<typeof Installat
         request: PartialMessage<ListBlockedEmailDomainsRequest>,
         _options?: CallOptions | undefined,
     ): Promise<ListBlockedEmailDomainsResponse> {
-        const info = await getGitpodService().server.adminGetBlockedEmailDomains();
+        const info = await getNxpodService().server.adminGetBlockedEmailDomains();
         return new ListBlockedEmailDomainsResponse({
             blockedEmailDomains: info.map((item) => converter.toBlockedEmailDomain(item)),
             pagination: new PaginationResponse(),
@@ -113,7 +113,7 @@ export class JsonRpcInstallationClient implements PromiseClient<typeof Installat
         if (request.negative === undefined) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "negative is required");
         }
-        await getGitpodService().server.adminSaveBlockedEmailDomain({
+        await getNxpodService().server.adminSaveBlockedEmailDomain({
             domain: request.domain,
             negative: request.negative,
         });
@@ -125,7 +125,7 @@ export class JsonRpcInstallationClient implements PromiseClient<typeof Installat
         request: PartialMessage<GetOnboardingStateRequest>,
         _options?: CallOptions | undefined,
     ): Promise<GetOnboardingStateResponse> {
-        const info = await getGitpodService().server.getOnboardingState();
+        const info = await getNxpodService().server.getOnboardingState();
         return new GetOnboardingStateResponse({
             onboardingState: converter.toOnboardingState(info),
         });

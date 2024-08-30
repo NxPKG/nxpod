@@ -14,7 +14,7 @@ import (
 //
 // We copied this code to remove the isCookieNameValid check, in order
 // to support the bad habbit of PHP applications to produce invalid cookie
-// names (see https://github.com/gitpod-io/gitpod/issues/2470).
+// names (see https://github.com/nxpkg/nxpod/issues/2470).
 //
 
 // readCookies parses all "Cookie" values from the header h and

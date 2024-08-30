@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ProjectDB, TypeORM, UserDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
-import { Organization, Project, ProjectSettings, User } from "@gitpod/gitpod-protocol";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ProjectDB, TypeORM, UserDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
+import { Organization, Project, ProjectSettings, User } from "@nxpod/nxpod-protocol";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
@@ -16,7 +16,7 @@ import { OrganizationService } from "../orgs/organization-service";
 import { expectError } from "../test/expect-utils";
 import { createTestContainer, withTestCtx } from "../test/service-testing-container-module";
 import { OldProjectSettings, ProjectsService } from "./projects-service";
-import { daysBefore } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { daysBefore } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 import { SYSTEM_USER } from "../authorization/authorizer";
 import { EnvVarService } from "../user/env-var-service";
 
@@ -202,7 +202,7 @@ describe("ProjectsService", async () => {
 
     it("prebuild settings migration / old and inactive project / uses defaults", async () => {
         const ps = container.get(ProjectsService);
-        const cloneUrl = "https://github.com/gitpod-io/gitpod.git";
+        const cloneUrl = "https://github.com/nxpkg/nxpod.git";
         const oldProject = await createTestProject(ps, org, owner, {
             name: "my-project",
             cloneUrl,
@@ -227,7 +227,7 @@ describe("ProjectsService", async () => {
 
     it("prebuild settings migration / inactive project / uses defaults", async () => {
         const ps = container.get(ProjectsService);
-        const cloneUrl = "https://github.com/gitpod-io/gitpod.git";
+        const cloneUrl = "https://github.com/nxpkg/nxpod.git";
         const oldProject = await createTestProject(ps, org, owner, {
             name: "my-project",
             cloneUrl,
@@ -252,7 +252,7 @@ describe("ProjectsService", async () => {
 
     it("prebuild settings migration / new and active project / updated settings", async () => {
         const ps = container.get(ProjectsService);
-        const cloneUrl = "https://github.com/gitpod-io/gitpod.git";
+        const cloneUrl = "https://github.com/nxpkg/nxpod.git";
         const oldProject = await createTestProject(ps, org, owner, {
             name: "my-project",
             cloneUrl,
@@ -282,7 +282,7 @@ describe("ProjectsService", async () => {
 
     it("should find projects by clone url", async () => {
         const ps = container.get(ProjectsService);
-        const cloneUrl = "https://github.com/gitpod-io/gitpod.git";
+        const cloneUrl = "https://github.com/nxpkg/nxpod.git";
 
         await createTestProject(ps, org, owner, { name: "my-project", cloneUrl });
         await createTestProject(ps, org, owner, { name: "my-project-2", cloneUrl });
@@ -290,7 +290,7 @@ describe("ProjectsService", async () => {
         // Create data which should not be found
         await createTestProject(ps, org, owner, {
             name: "my-project-3",
-            cloneUrl: "https://github.com/gitpod-io/different-repo",
+            cloneUrl: "https://github.com/nxpkg/different-repo",
         });
         await createTestProject(ps, anotherOrg, owner, {
             name: "my-project-4",
@@ -310,7 +310,7 @@ describe("ProjectsService", async () => {
         owner: User,
         partial: Partial<Project> = {
             name: "my-project",
-            cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+            cloneUrl: "https://github.com/nxpkg/nxpod.git",
             settings: {
                 prebuilds: Project.PREBUILD_SETTINGS_DEFAULTS,
             },

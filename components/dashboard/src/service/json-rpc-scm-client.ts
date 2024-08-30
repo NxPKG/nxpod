@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { PartialMessage } from "@bufbuild/protobuf";
 import { PromiseClient } from "@connectrpc/connect";
-import { SCMService } from "@gitpod/public-api/lib/gitpod/v1/scm_connect";
+import { SCMService } from "@nxpod/public-api/lib/nxpod/v1/scm_connect";
 import { converter } from "./public-api";
-import { getGitpodService } from "./service";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { getNxpodService } from "./service";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import {
     SearchSCMTokensRequest,
     SearchSCMTokensResponse,
@@ -19,7 +19,7 @@ import {
     ListSuggestedRepositoriesResponse,
     SearchRepositoriesResponse,
     GuessTokenScopesResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/scm_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/scm_pb";
 
 export class JsonRpcScmClient implements PromiseClient<typeof SCMService> {
     async searchSCMTokens({ host }: PartialMessage<SearchSCMTokensRequest>): Promise<SearchSCMTokensResponse> {
@@ -27,7 +27,7 @@ export class JsonRpcScmClient implements PromiseClient<typeof SCMService> {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "host is required");
         }
         const response = new SearchSCMTokensResponse();
-        const token = await getGitpodService().server.getToken({ host });
+        const token = await getNxpodService().server.getToken({ host });
         if (token) {
             response.tokens.push(converter.toSCMToken(token));
         }
@@ -42,7 +42,7 @@ export class JsonRpcScmClient implements PromiseClient<typeof SCMService> {
         if (!host) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "host is required");
         }
-        const response = await getGitpodService().server.guessGitTokenScopes({
+        const response = await getNxpodService().server.guessGitTokenScopes({
             gitCommand: gitCommand || "",
             host,
             repoUrl: repoUrl || "",
@@ -58,7 +58,7 @@ export class JsonRpcScmClient implements PromiseClient<typeof SCMService> {
         if (!searchString) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "searchString is required");
         }
-        const repos = await getGitpodService().server.searchRepositories({ searchString, limit });
+        const repos = await getNxpodService().server.searchRepositories({ searchString, limit });
         return new SearchRepositoriesResponse({
             repositories: repos.map((r) => converter.toSuggestedRepository(r)),
         });
@@ -71,7 +71,7 @@ export class JsonRpcScmClient implements PromiseClient<typeof SCMService> {
         if (!organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        const repos = await getGitpodService().server.getSuggestedRepositories(organizationId);
+        const repos = await getNxpodService().server.getSuggestedRepositories(organizationId);
         return new SearchRepositoriesResponse({
             repositories: repos.map((r) => converter.toSuggestedRepository(r)),
         });

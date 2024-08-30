@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,11 +9,11 @@ import { TextMuted } from "@podkit/typography/TextMuted";
 import { Text } from "@podkit/typography/Text";
 import { LinkButton } from "@podkit/buttons/LinkButton";
 import { TableCell, TableRow } from "@podkit/tables/Table";
-import type { Prebuild } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
+import type { Prebuild } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
 import dayjs from "dayjs";
 import { shortCommitMessage } from "../../projects/render-utils";
 import { Link } from "react-router-dom";
-import { Configuration } from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
+import { Configuration } from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
 import { PrebuildStatus } from "../../projects/prebuild-utils";
 
 /**

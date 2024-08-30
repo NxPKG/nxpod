@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,8 +12,8 @@ import (
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/gitpod-io/gitpod/image-builder/api"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/image-builder/api"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 func TestExtractBuildResponse(t *testing.T) {
@@ -118,7 +118,7 @@ func TestExtractBuildResponse(t *testing.T) {
 					LogInfo: &api.LogInfo{
 						Url: url,
 						Headers: map[string]string{
-							"x-gitpod-owner-token": status.Auth.OwnerToken,
+							"x-nxpod-owner-token": status.Auth.OwnerToken,
 						},
 					},
 				},

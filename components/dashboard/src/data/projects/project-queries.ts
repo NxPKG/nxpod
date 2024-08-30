@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Project } from "@gitpod/gitpod-protocol/lib/teams-projects-protocol";
+import { Project } from "@nxpod/nxpod-protocol/lib/teams-projects-protocol";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useCurrentOrg } from "../organizations/orgs-query";
 import { listAllProjects, projectsService } from "../../service/public-api";
-import type { PartialProject } from "@gitpod/gitpod-protocol";
-import { getGitpodService } from "../../service/service";
+import type { PartialProject } from "@nxpod/nxpod-protocol";
+import { getNxpodService } from "../../service/service";
 
 const BASE_KEY = "projects";
 
@@ -84,7 +84,7 @@ export const useUpdateProject = () => {
             throw new Error("No org currently selected");
         }
 
-        await getGitpodService().server.updateProjectPartial(settings);
+        await getNxpodService().server.updateProjectPartial(settings);
 
         // Invalidate project
         client.invalidateQueries(getProjectQueryKey(org.id, settings.id));

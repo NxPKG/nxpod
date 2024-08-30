@@ -1,8 +1,8 @@
-module github.com/gitpod-io/gitpod/previewctl
+module github.com/nxpkg/nxpod/previewctl
 
 go 1.22
 
-replace github.com/gitpod-io/gitpod/common-go => ../../../components/common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../../components/common-go // leeway
 
 require (
 	cloud.google.com/go/storage v1.39.1

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,9 +11,9 @@ import (
 	"time"
 
 	backoff "github.com/cenkalti/backoff/v4"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/serverapi"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/pkg/serverapi"
 )
 
 // ExposedPort represents an exposed pprt
@@ -58,34 +58,34 @@ func (*NoopExposedPorts) Expose(ctx context.Context, local uint32, public bool, 
 	return done
 }
 
-// GitpodExposedPorts uses a connection to the Gitpod server to implement
+// NxpodExposedPorts uses a connection to the Nxpod server to implement
 // the ExposedPortsInterface.
-type GitpodExposedPorts struct {
+type NxpodExposedPorts struct {
 	WorkspaceID   string
 	InstanceID    string
 	WorkspaceUrl  string
-	gitpodService serverapi.APIInterface
+	nxpodService serverapi.APIInterface
 
 	localExposedPort   []uint32
 	localExposedNotice chan struct{}
-	lastServerExposed  []*gitpod.WorkspaceInstancePort
+	lastServerExposed  []*nxpod.WorkspaceInstancePort
 
 	requests chan *exposePortRequest
 }
 
 type exposePortRequest struct {
-	port *gitpod.WorkspaceInstancePort
+	port *nxpod.WorkspaceInstancePort
 	ctx  context.Context
 	done chan error
 }
 
-// NewGitpodExposedPorts creates a new instance of GitpodExposedPorts
-func NewGitpodExposedPorts(workspaceID string, instanceID string, workspaceUrl string, gitpodService serverapi.APIInterface) *GitpodExposedPorts {
-	return &GitpodExposedPorts{
+// NewNxpodExposedPorts creates a new instance of NxpodExposedPorts
+func NewNxpodExposedPorts(workspaceID string, instanceID string, workspaceUrl string, nxpodService serverapi.APIInterface) *NxpodExposedPorts {
+	return &NxpodExposedPorts{
 		WorkspaceID:   workspaceID,
 		InstanceID:    instanceID,
 		WorkspaceUrl:  workspaceUrl,
-		gitpodService: gitpodService,
+		nxpodService: nxpodService,
 
 		// allow clients to submit 30 expose requests without blocking
 		requests:           make(chan *exposePortRequest, 30),
@@ -93,7 +93,7 @@ func NewGitpodExposedPorts(workspaceID string, instanceID string, workspaceUrl s
 	}
 }
 
-func (g *GitpodExposedPorts) getPortUrl(port uint32) string {
+func (g *NxpodExposedPorts) getPortUrl(port uint32) string {
 	u, err := url.Parse(g.WorkspaceUrl)
 	if err != nil {
 		return ""
@@ -102,16 +102,16 @@ func (g *GitpodExposedPorts) getPortUrl(port uint32) string {
 	return u.String()
 }
 
-func (g *GitpodExposedPorts) getPortProtocol(protocol string) string {
+func (g *NxpodExposedPorts) getPortProtocol(protocol string) string {
 	switch protocol {
-	case gitpod.PortProtocolHTTP, gitpod.PortProtocolHTTPS:
+	case nxpod.PortProtocolHTTP, nxpod.PortProtocolHTTPS:
 		return protocol
 	default:
-		return gitpod.PortProtocolHTTP
+		return nxpod.PortProtocolHTTP
 	}
 }
 
-func (g *GitpodExposedPorts) existInLocalExposed(port uint32) bool {
+func (g *NxpodExposedPorts) existInLocalExposed(port uint32) bool {
 	for _, p := range g.localExposedPort {
 		if p == port {
 			return true
@@ -121,7 +121,7 @@ func (g *GitpodExposedPorts) existInLocalExposed(port uint32) bool {
 }
 
 // Observe starts observing the exposed ports until the context is canceled.
-func (g *GitpodExposedPorts) Observe(ctx context.Context) (<-chan []ExposedPort, <-chan error) {
+func (g *NxpodExposedPorts) Observe(ctx context.Context) (<-chan []ExposedPort, <-chan error) {
 	var (
 		reschan = make(chan []ExposedPort)
 		errchan = make(chan error, 1)
@@ -131,19 +131,19 @@ func (g *GitpodExposedPorts) Observe(ctx context.Context) (<-chan []ExposedPort,
 		defer close(reschan)
 		defer close(errchan)
 
-		updates, err := g.gitpodService.WorkspaceUpdates(ctx)
+		updates, err := g.nxpodService.WorkspaceUpdates(ctx)
 		if err != nil {
 			errchan <- err
 			return
 		}
-		mixin := func(localExposedPort []uint32, serverExposePort []*gitpod.WorkspaceInstancePort) []ExposedPort {
+		mixin := func(localExposedPort []uint32, serverExposePort []*nxpod.WorkspaceInstancePort) []ExposedPort {
 			res := make(map[uint32]ExposedPort)
 			for _, port := range g.localExposedPort {
 				res[port] = ExposedPort{
 					LocalPort: port,
 					Public:    false,
 					URL:       g.getPortUrl(port),
-					Protocol:  gitpod.PortProtocolHTTP,
+					Protocol:  nxpod.PortProtocolHTTP,
 				}
 			}
 
@@ -184,7 +184,7 @@ func (g *GitpodExposedPorts) Observe(ctx context.Context) (<-chan []ExposedPort,
 }
 
 // Listen starts listening to expose port requests
-func (g *GitpodExposedPorts) Run(ctx context.Context) {
+func (g *NxpodExposedPorts) Run(ctx context.Context) {
 	// process multiple parallel requests but process one by one to avoid server/ws-manager rate limitting
 	// if it does not help then we try to expose the same port again with the exponential backoff.
 	for {
@@ -197,7 +197,7 @@ func (g *GitpodExposedPorts) Run(ctx context.Context) {
 	}
 }
 
-func (g *GitpodExposedPorts) doExpose(req *exposePortRequest) {
+func (g *NxpodExposedPorts) doExpose(req *exposePortRequest) {
 	var err error
 	defer func() {
 		if err != nil {
@@ -217,7 +217,7 @@ func (g *GitpodExposedPorts) doExpose(req *exposePortRequest) {
 	exp.Reset()
 	attempt := 0
 	for {
-		_, err = g.gitpodService.OpenPort(req.ctx, req.port)
+		_, err = g.nxpodService.OpenPort(req.ctx, req.port)
 		if err == nil || req.ctx.Err() != nil || attempt == 5 {
 			return
 		}
@@ -238,11 +238,11 @@ func (g *GitpodExposedPorts) doExpose(req *exposePortRequest) {
 }
 
 // Expose exposes a port to the internet. Upon successful execution any Observer will be updated.
-func (g *GitpodExposedPorts) Expose(ctx context.Context, local uint32, public bool, protocol string) <-chan error {
-	if protocol != gitpod.PortProtocolHTTPS && protocol != gitpod.PortProtocolHTTP {
-		protocol = gitpod.PortProtocolHTTP
+func (g *NxpodExposedPorts) Expose(ctx context.Context, local uint32, public bool, protocol string) <-chan error {
+	if protocol != nxpod.PortProtocolHTTPS && protocol != nxpod.PortProtocolHTTP {
+		protocol = nxpod.PortProtocolHTTP
 	}
-	if !public && protocol != gitpod.PortProtocolHTTPS {
+	if !public && protocol != nxpod.PortProtocolHTTPS {
 		if !g.existInLocalExposed(local) {
 			g.localExposedPort = append(g.localExposedPort, local)
 			g.localExposedNotice <- struct{}{}
@@ -251,12 +251,12 @@ func (g *GitpodExposedPorts) Expose(ctx context.Context, local uint32, public bo
 		close(c)
 		return c
 	}
-	visibility := gitpod.PortVisibilityPrivate
+	visibility := nxpod.PortVisibilityPrivate
 	if public {
-		visibility = gitpod.PortVisibilityPublic
+		visibility = nxpod.PortVisibilityPublic
 	}
 	req := &exposePortRequest{
-		port: &gitpod.WorkspaceInstancePort{
+		port: &nxpod.WorkspaceInstancePort{
 			Port:       float64(local),
 			Visibility: visibility,
 			Protocol:   protocol,

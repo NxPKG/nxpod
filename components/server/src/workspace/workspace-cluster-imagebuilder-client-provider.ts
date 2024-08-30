@@ -1,22 +1,22 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { User, Workspace, WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { defaultGRPCOptions } from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { WorkspaceRegion } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+import { User, Workspace, WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { defaultGRPCOptions } from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { WorkspaceRegion } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 import {
     ImageBuilderClient,
     ImageBuilderClientProvider,
     PromisifiedImageBuilderClient,
-} from "@gitpod/image-builder/lib";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
+} from "@nxpod/image-builder/lib";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
 import {
     WorkspaceManagerClientProviderCompositeSource,
     WorkspaceManagerClientProviderSource,
-} from "@gitpod/ws-manager/lib/client-provider-source";
+} from "@nxpod/ws-manager/lib/client-provider-source";
 import { inject, injectable } from "inversify";
 
 @injectable()

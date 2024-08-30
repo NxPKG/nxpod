@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { PartialMessage } from "@bufbuild/protobuf";
 import { CallOptions, PromiseClient } from "@connectrpc/connect";
-import { PrebuildService } from "@gitpod/public-api/lib/gitpod/v1/prebuild_connect";
+import { PrebuildService } from "@nxpod/public-api/lib/nxpod/v1/prebuild_connect";
 import {
     StartPrebuildRequest,
     GetPrebuildRequest,
@@ -20,12 +20,12 @@ import {
     CancelPrebuildResponse,
     ListOrganizationPrebuildsRequest,
     ListOrganizationPrebuildsResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
-import { getGitpodService } from "./service";
+} from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
+import { getNxpodService } from "./service";
 import { converter } from "./public-api";
-import { PrebuildWithStatus } from "@gitpod/gitpod-protocol";
-import { generateAsyncGenerator } from "@gitpod/gitpod-protocol/lib/generate-async-generator";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { PrebuildWithStatus } from "@nxpod/nxpod-protocol";
+import { generateAsyncGenerator } from "@nxpod/nxpod-protocol/lib/generate-async-generator";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildService> {
     async startPrebuild(
@@ -35,7 +35,7 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
         if (!request.configurationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "configurationId is required");
         }
-        const result = await getGitpodService().server.triggerPrebuild(request.configurationId, request.gitRef || null);
+        const result = await getNxpodService().server.triggerPrebuild(request.configurationId, request.gitRef || null);
         return new StartPrebuildResponse({
             prebuildId: result.prebuildId,
         });
@@ -46,11 +46,11 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
         options?: CallOptions,
     ): Promise<CancelPrebuildResponse> {
         const response = await this.getPrebuild(request, options);
-        await getGitpodService().server.cancelPrebuild(response.prebuild!.configurationId, response.prebuild!.id);
+        await getNxpodService().server.cancelPrebuild(response.prebuild!.configurationId, response.prebuild!.id);
         return new CancelPrebuildResponse();
     }
 
-    get gitpodHost(): string {
+    get nxpodHost(): string {
         return window.location.protocol + "//" + window.location.host;
     }
 
@@ -61,12 +61,12 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
         if (!request.prebuildId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "prebuildId is required");
         }
-        const result = await getGitpodService().server.getPrebuild(request.prebuildId);
+        const result = await getNxpodService().server.getPrebuild(request.prebuildId);
         if (!result) {
             throw new ApplicationError(ErrorCodes.NOT_FOUND, `prebuild ${request.prebuildId} not found`);
         }
         return new GetPrebuildResponse({
-            prebuild: converter.toPrebuild(this.gitpodHost, result),
+            prebuild: converter.toPrebuild(this.nxpodHost, result),
         });
     }
 
@@ -75,12 +75,12 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
         options?: CallOptions,
     ): Promise<ListPrebuildsResponse> {
         if (request.workspaceId) {
-            const pbws = await getGitpodService().server.findPrebuildByWorkspaceID(request.workspaceId);
+            const pbws = await getNxpodService().server.findPrebuildByWorkspaceID(request.workspaceId);
             if (pbws) {
-                const prebuild = await getGitpodService().server.getPrebuild(pbws.id);
+                const prebuild = await getNxpodService().server.getPrebuild(pbws.id);
                 if (prebuild) {
                     return new ListPrebuildsResponse({
-                        prebuilds: [converter.toPrebuild(this.gitpodHost, prebuild)],
+                        prebuilds: [converter.toPrebuild(this.nxpodHost, prebuild)],
                     });
                 }
             }
@@ -91,13 +91,13 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
         if (!request.configurationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "configurationId is required");
         }
-        const result = await getGitpodService().server.findPrebuilds({
+        const result = await getNxpodService().server.findPrebuilds({
             projectId: request.configurationId,
             branch: request.gitRef || undefined,
             limit: request.pagination?.pageSize || undefined,
         });
         return new ListPrebuildsResponse({
-            prebuilds: converter.toPrebuilds(this.gitpodHost, result),
+            prebuilds: converter.toPrebuilds(this.nxpodHost, result),
         });
     }
 
@@ -120,7 +120,7 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
         const it = generateAsyncGenerator<PrebuildWithStatus>(
             (queue) => {
                 try {
-                    const dispose = getGitpodService().registerClient({
+                    const dispose = getNxpodService().registerClient({
                         onPrebuildUpdate: (prebuild) => {
                             queue.push(prebuild);
                         },
@@ -142,7 +142,7 @@ export class JsonRpcPrebuildClient implements PromiseClient<typeof PrebuildServi
             } else if (pb.info.projectId !== request.scope.value) {
                 continue;
             }
-            const prebuild = converter.toPrebuild(this.gitpodHost, pb);
+            const prebuild = converter.toPrebuild(this.nxpodHost, pb);
             if (prebuild) {
                 yield new WatchPrebuildResponse({ prebuild });
             }

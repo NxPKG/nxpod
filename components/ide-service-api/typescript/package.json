@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@gitpod/ide-service-api",
+  "name": "@nxpod/ide-service-api",
   "version": "0.1.5",
   "license": "UNLICENSED",
   "files": [

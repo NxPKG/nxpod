@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { FC, useCallback } from "react";
-import type { RepositoryUnauthorizedError } from "@gitpod/public-api/lib/gitpod/v1/error_pb";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import type { RepositoryUnauthorizedError } from "@nxpod/public-api/lib/nxpod/v1/error_pb";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { openAuthorizeWindow } from "../../../provider-utils";
 import { useToast } from "../../../components/toasts/Toasts";
 import { Button } from "@podkit/buttons/Button";
@@ -42,7 +42,7 @@ export const EnablePrebuildsError: FC<Props> = ({ error, onReconnect }) => {
 // 4. User has connected w/ git provider, we have the correct scopes, but we failed to install the webhooks
 //   - This could be because the user doesn't have admin/write permissions on the repo or org
 //   - This could be because our token is invalid / was revoked
-//   - We can provide a link to the gitpod oauth app settings for them to have an admin approve it
+//   - We can provide a link to the nxpod oauth app settings for them to have an admin approve it
 
 type GenericErrorMessageProps = {
     message: string;

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -21,11 +21,11 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/constants"
-	config "github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/constants"
+	config "github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 
-	k8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
+	k8s "github.com/nxpkg/nxpod/common-go/kubernetes"
 )
 
 func NewSubscriberReconciler(c client.Client, cfg *config.Configuration) (*SubscriberReconciler, error) {

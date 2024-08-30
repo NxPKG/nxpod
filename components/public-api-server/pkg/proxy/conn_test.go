@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"net/url"
 	"testing"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/auth"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/origin"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/origin"
 	"github.com/golang/mock/gomock"
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/stretchr/testify/require"

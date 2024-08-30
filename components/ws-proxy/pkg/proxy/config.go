@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,8 +11,8 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/util"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/util"
 )
 
 // Config is the configuration for a WorkspaceProxy.
@@ -24,7 +24,7 @@ type Config struct {
 
 	TransportConfig    *TransportConfig    `json:"transportConfig"`
 	BlobServer         *BlobServerConfig   `json:"blobServer"`
-	GitpodInstallation *GitpodInstallation `json:"gitpodInstallation"`
+	NxpodInstallation *NxpodInstallation `json:"nxpodInstallation"`
 	WorkspacePodConfig *WorkspacePodConfig `json:"workspacePodConfig"`
 
 	BuiltinPages        BuiltinPagesConfig `json:"builtinPages"`
@@ -40,7 +40,7 @@ func (c *Config) Validate() error {
 	for _, v := range []validatable{
 		c.TransportConfig,
 		c.BlobServer,
-		c.GitpodInstallation,
+		c.NxpodInstallation,
 		c.WorkspacePodConfig,
 	} {
 		err := v.Validate()
@@ -105,8 +105,8 @@ func (c *WorkspacePodConfig) Validate() error {
 	return nil
 }
 
-// GitpodInstallation contains config regarding the Gitpod installation.
-type GitpodInstallation struct {
+// NxpodInstallation contains config regarding the Nxpod installation.
+type NxpodInstallation struct {
 	Scheme                   string `json:"scheme"`
 	HostName                 string `json:"hostName"`
 	WorkspaceHostSuffix      string `json:"workspaceHostSuffix"`
@@ -114,9 +114,9 @@ type GitpodInstallation struct {
 }
 
 // Validate validates the configuration to catch issues during startup and not at runtime.
-func (c *GitpodInstallation) Validate() error {
+func (c *NxpodInstallation) Validate() error {
 	if c == nil {
-		return xerrors.Errorf("GitpodInstallation not configured")
+		return xerrors.Errorf("NxpodInstallation not configured")
 	}
 
 	return validation.ValidateStruct(c,

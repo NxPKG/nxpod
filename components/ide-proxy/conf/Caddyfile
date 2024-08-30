@@ -2,7 +2,7 @@
 	auto_https off
 	admin off
 	servers {
-		# gprc service required this, see detail https://github.com/gitpod-io/gitpod/pull/11542#discussion_r937947826
+		# gprc service required this, see detail https://github.com/nxpkg/nxpod/pull/11542#discussion_r937947826
 		# https://github.com/caddyserver/caddy/blob/master/modules/caddyhttp/app.go#L199
 		protocols h1 h2 h2c
 	}
@@ -16,7 +16,7 @@
 		# disable clients from sniffing the media type
 		X-Content-Type-Options     nosniff
 		# Define valid parents that may embed a page
-		Content-Security-Policy    "frame-ancestors 'self' https://*.{$GITPOD_DOMAIN} https://{$GITPOD_DOMAIN}"
+		Content-Security-Policy    "frame-ancestors 'self' https://*.{$NXPOD_DOMAIN} https://{$NXPOD_DOMAIN}"
 		# keep referrer data off of HTTP connections
 		Referrer-Policy            no-referrer-when-downgrade
 		# Enable cross-site filter (XSS) and tell browser to block detected attacks
@@ -62,12 +62,12 @@
 		precompressed gzip br
 	}
 
-	rewrite /static/bin/gitpod-local-companion-linux /static/bin/gitpod-local-companion-linux-amd64
-	rewrite /static/bin/gitpod-local-companion-darwin /static/bin/gitpod-local-companion-darwin-amd64
-	rewrite /static/bin/gitpod-local-companion-windows.exe /static/bin/gitpod-local-companion-windows-amd64.exe
-	rewrite /static/bin/gitpod-local-companion-linux.gz /static/bin/gitpod-local-companion-linux-amd64.gz
-	rewrite /static/bin/gitpod-local-companion-darwin.gz /static/bin/gitpod-local-companion-darwin-amd64.gz
-	rewrite /static/bin/gitpod-local-companion-windows.exe.gz /static/bin/gitpod-local-companion-windows-amd64.exe.gz
+	rewrite /static/bin/nxpod-local-companion-linux /static/bin/nxpod-local-companion-linux-amd64
+	rewrite /static/bin/nxpod-local-companion-darwin /static/bin/nxpod-local-companion-darwin-amd64
+	rewrite /static/bin/nxpod-local-companion-windows.exe /static/bin/nxpod-local-companion-windows-amd64.exe
+	rewrite /static/bin/nxpod-local-companion-linux.gz /static/bin/nxpod-local-companion-linux-amd64.gz
+	rewrite /static/bin/nxpod-local-companion-darwin.gz /static/bin/nxpod-local-companion-darwin-amd64.gz
+	rewrite /static/bin/nxpod-local-companion-windows.exe.gz /static/bin/nxpod-local-companion-windows-amd64.exe.gz
 
 	@bin_asset {
 		file

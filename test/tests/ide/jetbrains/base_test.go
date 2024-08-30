@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,11 +19,11 @@ import (
 	"golang.org/x/oauth2"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	supervisor "github.com/gitpod-io/gitpod/supervisor/api"
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	supervisor "github.com/nxpkg/nxpod/supervisor/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 	"github.com/google/go-github/v42/github"
 )
 
@@ -32,9 +32,9 @@ var testBaseConfig = map[string]struct{ ProductCode, Repo string }{
 	"intellij": {"IU", "https://github.com/jeanp413/spring-petclinic"},
 	"phpstorm": {"PS", "https://github.com/gitpod-samples/template-php-laravel-mysql"},
 	"pycharm":  {"PY", "https://github.com/gitpod-samples/template-python-django"},
-	// TODO: open comment after https://github.com/gitpod-io/gitpod/issues/16302 resolved
+	// TODO: open comment after https://github.com/nxpkg/nxpod/issues/16302 resolved
 	// "rubymine":  {"RM", "https://github.com/gitpod-samples/template-ruby-on-rails-postgres"},
-	"rubymine":  {"RM", "https://github.com/gitpod-io/Gitpod-Ruby-On-Rails"},
+	"rubymine":  {"RM", "https://github.com/nxpkg/Nxpod-Ruby-On-Rails"},
 	"webstorm":  {"WS", "https://github.com/gitpod-samples/template-typescript-react"},
 	"rider":     {"RD", "https://github.com/gitpod-samples/template-dotnet-core-cli-csharp"},
 	"clion":     {"CL", "https://github.com/gitpod-samples/template-cpp"},
@@ -153,7 +153,7 @@ func JetBrainsIDETest(ctx context.Context, t *testing.T, cfg *envconf.Config, op
 
 	t.Logf("get oauth2 token")
 	oauthToken, err := api.CreateOAuth2Token(username, []string{
-		"function:getGitpodTokenScopes",
+		"function:getNxpodTokenScopes",
 		"function:getIDEOptions",
 		"function:getOwnerToken",
 		"function:getWorkspace",
@@ -192,7 +192,7 @@ func JetBrainsIDETest(ctx context.Context, t *testing.T, cfg *envconf.Config, op
 		// Note: For manually trigger github action purpose
 		// t.Logf("secret_gateway_link %s\nsecret_access_token %s\nsecret_endpoint %s\njb_product %s\nuse_latest %v\nbuild_id %s\nbuild_url %s", gatewayLink, oauthToken, strings.TrimPrefix(info.LatestInstance.IdeURL, "https://"), option.IDE, useLatest, os.Getenv("TEST_BUILD_ID"), os.Getenv("TEST_BUILD_URL"))
 		// time.Sleep(30 * time.Minute)
-		_, err = githubClient.Actions.CreateWorkflowDispatchEventByFileName(ctx, "gitpod-io", "gitpod", "jetbrains-integration-test.yml", github.CreateWorkflowDispatchEventRequest{
+		_, err = githubClient.Actions.CreateWorkflowDispatchEventByFileName(ctx, "nxpkg", "gitpod", "jetbrains-integration-test.yml", github.CreateWorkflowDispatchEventRequest{
 			Ref: os.Getenv("TEST_BUILD_REF"),
 			Inputs: map[string]interface{}{
 				"secret_gateway_link": gatewayLink,
@@ -264,9 +264,9 @@ func JetBrainsIDETest(ctx context.Context, t *testing.T, cfg *envconf.Config, op
 			t.Fatal("idea.log file not found in the expected location")
 		}
 
-		pluginLoadedRegex := regexp.MustCompile(`Loaded custom plugins:.* (Gitpod Remote|gitpod-remote)`)
-		pluginStartedRegex := regexp.MustCompile(`Gitpod gateway link`)
-		pluginIncompatibleRegex := regexp.MustCompile(`Plugin '(Gitpod Remote|gitpod-remote)' .* is not compatible`)
+		pluginLoadedRegex := regexp.MustCompile(`Loaded custom plugins:.* (Nxpod Remote|gitpod-remote)`)
+		pluginStartedRegex := regexp.MustCompile(`Nxpod gateway link`)
+		pluginIncompatibleRegex := regexp.MustCompile(`Plugin '(Nxpod Remote|gitpod-remote)' .* is not compatible`)
 
 		ideaLogs := []byte(resp.Stdout)
 		if pluginLoadedRegex.Match(ideaLogs) {
@@ -399,12 +399,12 @@ func MustConnectToServer(ctx context.Context, t *testing.T, cfg *envconf.Config)
 	}
 
 	t.Logf("connecting to server...")
-	server, err := api.GitpodServer(integration.WithGitpodUser(username))
+	server, err := api.NxpodServer(integration.WithNxpodUser(username))
 	if err != nil {
 		t.Fatal(err)
 	}
 	t.Logf("connecting to papi...")
-	papi, err := api.PublicApi(integration.WithGitpodUser(username))
+	papi, err := api.PublicApi(integration.WithNxpodUser(username))
 	if err != nil {
 		t.Fatal(err)
 	}

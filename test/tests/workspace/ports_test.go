@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,9 +15,9 @@ import (
 	"testing"
 	"time"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 )
@@ -27,8 +27,8 @@ func TestRegularWorkspacePorts(t *testing.T) {
 	integration.SkipWithoutUsername(t, username)
 	integration.SkipWithoutUserToken(t, userToken)
 
-	// This branch exposes a python server on port 3000 as part of the Gitpod tasks.
-	testRepo := "https://github.com/gitpod-io/gitpod-test-repo/tree/integration-test/ports"
+	// This branch exposes a python server on port 3000 as part of the Nxpod tasks.
+	testRepo := "https://github.com/nxpkg/nxpod-test-repo/tree/integration-test/ports"
 	testRepoName := "gitpod-test-repo"
 	wsLoc := fmt.Sprintf("/workspace/%s", testRepoName)
 
@@ -51,8 +51,8 @@ func TestRegularWorkspacePorts(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			serverOpts := []integration.GitpodServerOpt{integration.WithGitpodUser(username)}
-			server, err := api.GitpodServer(serverOpts...)
+			serverOpts := []integration.NxpodServerOpt{integration.WithNxpodUser(username)}
+			server, err := api.NxpodServer(serverOpts...)
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -61,7 +61,7 @@ func TestRegularWorkspacePorts(t *testing.T) {
 			err = server.SetEnvVar(ctx, &gitpod.UserEnvVarValue{
 				Name:              "SUPERVISOR_ADDR",
 				Value:             `10.0.5.2:22999`,
-				RepositoryPattern: "gitpod-io/" + testRepoName,
+				RepositoryPattern: "nxpkg/" + testRepoName,
 			})
 			if err != nil {
 				t.Fatal(err)
@@ -69,14 +69,14 @@ func TestRegularWorkspacePorts(t *testing.T) {
 			defer func() {
 				err := server.DeleteEnvVar(ctx, &gitpod.UserEnvVarValue{
 					Name:              "SUPERVISOR_ADDR",
-					RepositoryPattern: "gitpod-io/" + testRepoName,
+					RepositoryPattern: "nxpkg/" + testRepoName,
 				})
 				if err != nil {
 					t.Fatal(err)
 				}
 			}()
 
-			nfo, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, testRepo, username, api, integration.WithGitpodUser(username))
+			nfo, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, testRepo, username, api, integration.WithNxpodUser(username))
 			if err != nil {
 				t.Fatal(err)
 			}

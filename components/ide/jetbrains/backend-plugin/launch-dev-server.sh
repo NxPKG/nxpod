@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -57,12 +57,12 @@ TEST_PLUGINS_DIR="$TEST_BACKEND_DIR/plugins"
 TEST_PLUGIN_DIR="$TEST_PLUGINS_DIR/gitpod-remote"
 rm -rf $TEST_PLUGIN_DIR
 
-GITPOD_PLUGIN_DIR=/workspace/gitpod/components/ide/jetbrains/backend-plugin
-$GITPOD_PLUGIN_DIR/gradlew -PenvironmentName="$JB_QUALIFIER" buildPlugin
+NXPOD_PLUGIN_DIR=/workspace/gitpod/components/ide/jetbrains/backend-plugin
+$NXPOD_PLUGIN_DIR/gradlew -PenvironmentName="$JB_QUALIFIER" buildPlugin
 
 # TODO(ak) actually should be gradle task to make use of output
-GITPOD_PLUGIN_DIST="$GITPOD_PLUGIN_DIR/build/distributions/gitpod-remote.zip"
-unzip $GITPOD_PLUGIN_DIST -d $TEST_PLUGINS_DIR
+NXPOD_PLUGIN_DIST="$NXPOD_PLUGIN_DIR/build/distributions/gitpod-remote.zip"
+unzip $NXPOD_PLUGIN_DIST -d $TEST_PLUGINS_DIR
 rm -rf "$TEST_PLUGINS_DIR/plugin-classpath.txt"
 
 TEST_REPO_NAME=$(basename "$TEST_REPO")
@@ -92,6 +92,6 @@ export GIT_EDITOR="$EDITOR --wait"
 export GP_PREVIEW_BROWSER="$IDEA_CLI_DEV_PATH preview"
 export GP_EXTERNAL_BROWSER="$IDEA_CLI_DEV_PATH preview"
 
-export JETBRAINS_GITPOD_BACKEND_KIND=intellij
+export JETBRAINS_NXPOD_BACKEND_KIND=intellij
 
 $TEST_BACKEND_DIR/bin/remote-dev-server.sh run "$TEST_DIR"

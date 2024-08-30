@@ -1,18 +1,18 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { createClientCallMetricsInterceptor, IClientCallMetrics } from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { Disposable, User, Workspace, WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { defaultGRPCOptions } from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { createClientCallMetricsInterceptor, IClientCallMetrics } from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { Disposable, User, Workspace, WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { defaultGRPCOptions } from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     WorkspaceClusterWoTLS,
     WorkspaceManagerConnectionInfo,
     WorkspaceRegion,
-} from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+} from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 import * as grpc from "@grpc/grpc-js";
 import { inject, injectable, optional } from "inversify";
 import {

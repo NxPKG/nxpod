@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/configcat
+module github.com/nxpkg/nxpod/proxy/plugins/configcat
 
 go 1.21
 

@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { UserDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { SSHPublicKeyValue, UserSSHPublicKeyValue, WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { UserDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { SSHPublicKeyValue, UserSSHPublicKeyValue, WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { inject, injectable } from "inversify";
-import { UpdateSSHKeyRequest } from "@gitpod/ws-manager/lib";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
+import { UpdateSSHKeyRequest } from "@nxpod/ws-manager/lib";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
 import { Authorizer } from "../authorization/authorizer";
 
 @injectable()

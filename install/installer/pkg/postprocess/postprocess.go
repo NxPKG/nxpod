@@ -1,13 +1,13 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 /// Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package postprocess
 
 import (
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	openvsxproxy "github.com/gitpod-io/gitpod/installer/pkg/components/openvsx-proxy"
-	"github.com/gitpod-io/gitpod/installer/pkg/yq"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	openvsxproxy "github.com/nxpkg/nxpod/installer/pkg/components/openvsx-proxy"
+	"github.com/nxpkg/nxpod/installer/pkg/yq"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/utils/pointer"
 )

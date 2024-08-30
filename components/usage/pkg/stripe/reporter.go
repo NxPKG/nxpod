@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,21 +14,21 @@ import (
 
 var (
 	stripeUsageUpdateTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "stripe",
 		Name:      "usage_records_updated_total",
 		Help:      "Counter of usage records updated",
 	}, []string{"outcome"})
 
 	stripeClientRequestsStarted = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "stripe",
 		Name:      "requests_started_total",
 		Help:      "Counter of requests started by stripe clients",
 	}, []string{"resource"})
 
 	stripeClientRequestsCompletedSeconds = prometheus.NewHistogramVec(prometheus.HistogramOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "stripe",
 		Name:      "requests_completed_seconds",
 		Help:      "Histogram of requests completed by stripe clients",

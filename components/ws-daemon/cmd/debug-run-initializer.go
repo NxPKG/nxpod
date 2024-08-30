@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,10 +7,10 @@ package cmd
 import (
 	"context"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/content"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/content"
 	"github.com/spf13/cobra"
 )
 
@@ -25,7 +25,7 @@ var debugRunInitializer = &cobra.Command{
 		return content.RunInitializer(context.Background(), dst, &api.WorkspaceInitializer{
 			Spec: &api.WorkspaceInitializer_Git{
 				Git: &api.GitInitializer{
-					RemoteUri:        "https://github.com/gitpod-io/gitpod.git",
+					RemoteUri:        "https://github.com/nxpkg/nxpod.git",
 					TargetMode:       api.CloneTargetMode_REMOTE_BRANCH,
 					CloneTaget:       "refs/heads/main",
 					CheckoutLocation: "foo",

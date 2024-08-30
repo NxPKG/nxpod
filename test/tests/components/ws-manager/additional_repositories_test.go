@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,10 +14,10 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 func TestAdditionalRepositories(t *testing.T) {
@@ -31,12 +31,12 @@ func TestAdditionalRepositories(t *testing.T) {
 			}{
 				{
 					Name:       "workspace with additionalRepositories using a branch",
-					ContextURL: "https://github.com/gitpod-io/gitpod-test-repo",
+					ContextURL: "https://github.com/nxpkg/nxpod-test-repo",
 					CloneTaget: "aledbf/test-additional-repositories",
 				},
 				{
 					Name:       "workspace with additionalRepositories also using a branch in one of the additionalRepositories",
-					ContextURL: "https://github.com/gitpod-io/gitpod-test-repo",
+					ContextURL: "https://github.com/nxpkg/nxpod-test-repo",
 					CloneTaget: "aledbf/test-additional-repositories-with-branches",
 				},
 			}

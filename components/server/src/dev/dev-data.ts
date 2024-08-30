@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { IssueContext, User, PullRequestContext, Repository, Token } from "@gitpod/gitpod-protocol";
+import { IssueContext, User, PullRequestContext, Repository, Token } from "@nxpod/nxpod-protocol";
 import { GitHubScope } from "../github/scopes";
 import { GitLabScope } from "../gitlab/scopes";
 
@@ -20,13 +20,13 @@ export namespace DevData {
                     authId: "33891423",
                     authName: "somefox",
                     authProviderId: "Public-GitHub",
-                    primaryEmail: "somefox@gitpod.io",
+                    primaryEmail: "somefox@nxpod.io",
                 },
                 {
                     authId: "3171928",
                     authName: "somefox",
                     authProviderId: "Public-GitLab",
-                    primaryEmail: "somefox@gitpod.io",
+                    primaryEmail: "somefox@nxpod.io",
                 },
             ],
             additionalData: {
@@ -40,7 +40,7 @@ export namespace DevData {
 
     export function createGitHubTestToken(): Token {
         return {
-            ...getTokenFromEnv("GITPOD_TEST_TOKEN_GITHUB"),
+            ...getTokenFromEnv("NXPOD_TEST_TOKEN_GITHUB"),
             scopes: [GitHubScope.EMAIL, GitHubScope.PUBLIC, GitHubScope.PRIVATE],
         };
     }
@@ -60,14 +60,14 @@ export namespace DevData {
 
     export function createGitlabTestToken(): Token {
         return {
-            ...getTokenFromEnv("GITPOD_TEST_TOKEN_GITLAB"),
+            ...getTokenFromEnv("NXPOD_TEST_TOKEN_GITLAB"),
             scopes: [GitLabScope.READ_USER, GitLabScope.API],
         };
     }
 
     export function createBitbucketTestToken(): Token {
         const result = {
-            ...getTokenFromEnv("GITPOD_TEST_TOKEN_BITBUCKET"),
+            ...getTokenFromEnv("NXPOD_TEST_TOKEN_BITBUCKET"),
             scopes: [],
         };
         return result;
@@ -85,8 +85,8 @@ export namespace DevData {
         const repository: Repository = {
             host: "github.com",
             owner: user.identities[0].authName,
-            name: "gitpod-test-repo",
-            cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+            name: "nxpod-test-repo",
+            cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
         };
         return <PullRequestContext>{
             repository,
@@ -105,8 +105,8 @@ export namespace DevData {
         const repository: Repository = {
             host: "github.com",
             owner: user.identities[0].authName,
-            name: "gitpod-test-repo",
-            cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+            name: "nxpod-test-repo",
+            cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
         };
         return <IssueContext>{
             ref: "GH-15",

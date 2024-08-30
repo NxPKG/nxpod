@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,8 +9,8 @@ package supervisor;
 import "google/api/annotations.proto";
 import "port.proto";
 
-option go_package = "github.com/gitpod-io/gitpod/supervisor/api";
-option java_package = "io.gitpod.supervisor.api";
+option go_package = "github.com/nxpkg/nxpod/supervisor/api";
+option java_package = "io.nxpod.supervisor.api";
 
 // StatusService provides status feedback for the various in-workspace services.
 service StatusService {
@@ -211,10 +211,10 @@ message PortsStatus {
     // the port is not tunneled.
     TunneledPortInfo tunneled = 6;
 
-    // Port description, obtained from Gitpod PortConfig.
+    // Port description, obtained from Nxpod PortConfig.
     string description = 8;
 
-    // Port name, obtained from Gitpod PortConfig.
+    // Port name, obtained from Nxpod PortConfig.
     string name = 9;
 
     enum OnOpenAction {

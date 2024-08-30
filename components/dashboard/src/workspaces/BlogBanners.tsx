@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -10,23 +10,23 @@ import blogBannerBg from "../images/blog-banner-bg.png";
 const banners = [
     {
         type: "Blog Post",
-        title: "Gitpod Enterprise:<br/> Self-hosted, not self-managed",
-        link: "https://www.gitpod.io/blog/self-hosted-not-self-managed",
+        title: "Nxpod Enterprise:<br/> Self-hosted, not self-managed",
+        link: "https://www.nxpod.io/blog/self-hosted-not-self-managed",
     },
     {
         type: "Customer Story",
-        title: "Thousands of hours spent on VM-based development environments reduced to zero using Gitpod",
-        link: "https://www.gitpod.io/customers/kingland",
+        title: "Thousands of hours spent on VM-based development environments reduced to zero using Nxpod",
+        link: "https://www.nxpod.io/customers/kingland",
     },
     {
         type: "Gartner Report",
         title: `"By 2026, 60% of cloud workloads will be built and deployed using CDE's"`,
-        link: "https://www.gitpod.io/blog/gartner-2023-cde-hypecycle",
+        link: "https://www.nxpod.io/blog/gartner-2023-cde-hypecycle",
     },
     {
         type: "Webinar Series",
         title: "The Platform Engineering maturity model",
-        link: "https://www.gitpod.io/events#platform-maturity-model-series",
+        link: "https://www.nxpod.io/events#platform-maturity-model-series",
     },
 ];
 

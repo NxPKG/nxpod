@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { MetricsReporter } from "@gitpod/gitpod-protocol/lib/metrics";
+import { MetricsReporter } from "@nxpod/nxpod-protocol/lib/metrics";
 import { getExperimentsClient } from "../experiments/client";
 import { v4 } from "uuid";
 const commit = require("./config.json").commit;
@@ -12,7 +12,7 @@ const commit = require("./config.json").commit;
 const originalConsoleError = console.error;
 
 const metricsReporter = new MetricsReporter({
-    gitpodUrl: window.location.href,
+    nxpodUrl: window.location.href,
     clientName: "dashboard",
     clientVersion: commit,
     log: {

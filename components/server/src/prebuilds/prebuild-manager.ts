@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { DBWithTracing, TracedWorkspaceDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
+import { DBWithTracing, TracedWorkspaceDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
 import {
     CommitContext,
     CommitInfo,
@@ -19,27 +19,27 @@ import {
     Workspace,
     WorkspaceConfig,
     WorkspaceInstance,
-} from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+} from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { getCommitInfo, HostContextProvider } from "../auth/host-context-provider";
 import { ConfigProvider } from "../workspace/config-provider";
 import { Config } from "../config";
 import { ProjectsService } from "../projects/projects-service";
-import { secondsBefore } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { secondsBefore } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 
 import { inject, injectable } from "inversify";
 import * as opentracing from "opentracing";
 import { IncrementalWorkspaceService } from "./incremental-workspace-service";
 import { PrebuildRateLimiterConfig } from "../workspace/prebuild-rate-limiter";
-import { ErrorCodes, ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ErrorCodes, ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { EntitlementService, MayStartWorkspaceResult } from "../billing/entitlement-service";
 import { WorkspaceService } from "../workspace/workspace-service";
 import { minimatch as globMatch } from "minimatch";
 import { Authorizer } from "../authorization/authorizer";
 import { ContextParser } from "../workspace/context-parser-service";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { generateAsyncGenerator } from "@gitpod/gitpod-protocol/lib/generate-async-generator";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { generateAsyncGenerator } from "@nxpod/nxpod-protocol/lib/generate-async-generator";
 import { RedisSubscriber } from "../messaging/redis-subscriber";
 
 export interface StartPrebuildParams {
@@ -458,7 +458,7 @@ export class PrebuildManager {
             if (await this.shouldRateLimitPrebuild(span, project)) {
                 prebuild.state = "aborted";
                 prebuild.error =
-                    "Prebuild is rate limited. Please contact Gitpod if you believe this happened in error.";
+                    "Prebuild is rate limited. Please contact Nxpod if you believe this happened in error.";
                 await this.workspaceDB.trace({ span }).storePrebuiltWorkspace(prebuild);
                 span.setTag("ratelimited", true);
             } else if (await this.projectService.isProjectConsideredInactive(user.id, project.id)) {
@@ -513,13 +513,13 @@ export class PrebuildManager {
     } {
         const { config, project, context } = params;
         if (!config || !config._origin || config._origin !== "repo") {
-            // we demand an explicit gitpod config
-            return { shouldRun: false, reason: "no-gitpod-config-in-repo" };
+            // we demand an explicit nxpod config
+            return { shouldRun: false, reason: "no-nxpod-config-in-repo" };
         }
 
         const hasPrebuildTask = !!config.tasks && config.tasks.find((t) => !!t.before || !!t.init || !!t.prebuild);
         if (!hasPrebuildTask) {
-            return { shouldRun: false, reason: "no-tasks-in-gitpod-config" };
+            return { shouldRun: false, reason: "no-tasks-in-nxpod-config" };
         }
 
         const prebuildSettings = Project.getPrebuildSettings(project);

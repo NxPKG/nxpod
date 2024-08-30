@@ -8,7 +8,7 @@ packages:
       - "public/**"
     deps:
       - components/common-go:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/content-service-api/go:lib
       - components/content-service:lib
       - components/registry-facade-api/go:lib
@@ -20,7 +20,7 @@ packages:
       - GOOS=linux
     config:
       packaging: app
-      buildCommand: ["go", "build", "-trimpath", "-ldflags=-buildid= -X 'github.com/gitpod-io/gitpod/ws-proxy/cmd.Version=commit-${__git_commit}'"]
+      buildCommand: ["go", "build", "-trimpath", "-ldflags=-buildid= -X 'github.com/nxpkg/nxpod/ws-proxy/cmd.Version=commit-${__git_commit}'"]
   - name: docker
     type: docker
     srcs:
@@ -47,7 +47,7 @@ packages:
       - "public/**"
     deps:
       - components/common-go:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/content-service-api/go:lib
       - components/content-service:lib
       - components/registry-facade-api/go:lib

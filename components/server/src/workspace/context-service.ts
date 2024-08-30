@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceDB, DBWithTracing, TracedWorkspaceDB } from "@gitpod/gitpod-db/lib";
+import { WorkspaceDB, DBWithTracing, TracedWorkspaceDB } from "@nxpod/nxpod-db/lib";
 import {
     CommitContext,
     PrebuiltWorkspace,
@@ -13,16 +13,16 @@ import {
     WorkspaceContext,
     Project,
     SnapshotContext,
-} from "@gitpod/gitpod-protocol";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+} from "@nxpod/nxpod-protocol";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { inject, injectable } from "inversify";
 import { ContextParser } from "./context-parser-service";
 import { ConfigProvider } from "./config-provider";
 import { ProjectsService } from "../projects/projects-service";
-import { OpenPrebuildContext, WithDefaultConfig } from "@gitpod/gitpod-protocol/lib/protocol";
+import { OpenPrebuildContext, WithDefaultConfig } from "@nxpod/nxpod-protocol/lib/protocol";
 import { IncrementalWorkspaceService } from "../prebuilds/incremental-workspace-service";
 import { Authorizer } from "../authorization/authorizer";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 @injectable()
 export class ContextService {

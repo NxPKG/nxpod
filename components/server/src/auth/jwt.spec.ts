@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -39,7 +39,7 @@ class TestAuthJWT {
         });
 
         expect(decoded["sub"]).to.equal(subject);
-        expect(decoded["iss"]).to.equal("https://mp-server-d7650ec945.preview.gitpod-dev.com");
+        expect(decoded["iss"]).to.equal("https://mp-server-d7650ec945.preview.nxpod-dev.com");
     }
 
     @test
@@ -52,7 +52,7 @@ class TestAuthJWT {
         const decoded = (await sut.verify(encoded)).payload;
 
         expect(decoded["sub"]).to.equal(subject);
-        expect(decoded["iss"]).to.equal("https://mp-server-d7650ec945.preview.gitpod-dev.com");
+        expect(decoded["iss"]).to.equal("https://mp-server-d7650ec945.preview.nxpod-dev.com");
     }
 
     @test
@@ -73,7 +73,7 @@ class TestAuthJWT {
         const decoded = (await sut.verify(encoded)).payload;
 
         expect(decoded["sub"]).to.equal(subject);
-        expect(decoded["iss"]).to.equal("https://mp-server-d7650ec945.preview.gitpod-dev.com");
+        expect(decoded["iss"]).to.equal("https://mp-server-d7650ec945.preview.nxpod-dev.com");
     }
 }
 

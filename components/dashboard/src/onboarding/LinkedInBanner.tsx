@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -11,8 +11,8 @@ import { useLinkedIn } from "react-linkedin-login-oauth2";
 import Alert from "../components/Alert";
 import { Button } from "@podkit/buttons/Button";
 import SignInWithLinkedIn from "../images/sign-in-with-linkedin.svg";
-import { getGitpodService } from "../service/service";
-import { LinkedInProfile } from "@gitpod/gitpod-protocol";
+import { getNxpodService } from "../service/service";
+import { LinkedInProfile } from "@nxpod/nxpod-protocol";
 import { useToast } from "../components/toasts/Toasts";
 
 type Props = {
@@ -27,7 +27,7 @@ export const LinkedInBanner: FC<Props> = ({ onSuccess }) => {
     } = useQuery(
         ["linkedin-clientid"],
         async () => {
-            return (await getGitpodService().server.getLinkedInClientId()) || "";
+            return (await getNxpodService().server.getLinkedInClientId()) || "";
         },
         { enabled: true },
     );
@@ -37,7 +37,7 @@ export const LinkedInBanner: FC<Props> = ({ onSuccess }) => {
         redirectUri: `${window.location.origin}/linkedin`,
         scope: "r_liteprofile r_emailaddress",
         onSuccess: (code) => {
-            getGitpodService()
+            getNxpodService()
                 .server.connectWithLinkedIn(code)
                 .then((profile) => {
                     onSuccess(profile);

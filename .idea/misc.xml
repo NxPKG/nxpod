@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/components/gitpod-protocol/java" />
+    <file type="web" url="file://$PROJECT_DIR$/components/nxpod-protocol/java" />
     <file type="web" url="file://$PROJECT_DIR$/components/ide/jetbrains/backend-plugin" />
     <file type="web" url="file://$PROJECT_DIR$/components/ide/jetbrains/gateway-plugin" />
     <file type="web" url="file://$PROJECT_DIR$/components/supervisor-api/java" />

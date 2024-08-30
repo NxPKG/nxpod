@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/jetbrains/cli
+module github.com/nxpkg/nxpod/jetbrains/cli
 
 go 1.22
 

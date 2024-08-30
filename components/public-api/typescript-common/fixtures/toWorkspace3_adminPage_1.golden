@@ -8,14 +8,14 @@
             "annotations": {},
             "name": "description",
             "pinned": true,
-            "originalContextUrl": "https://github.com/gitpod-io/contextURL"
+            "originalContextUrl": "https://github.com/nxpkg/contextURL"
         },
         "spec": {
             "initializer": {
                 "specs": [
                     {
                         "git": {
-                            "remoteUri": "https://github.com/gitpod-io/contextURL.git",
+                            "remoteUri": "https://github.com/nxpkg/contextURL.git",
                             "upstreamRemoteUri": "",
                             "targetMode": "CLONE_TARGET_MODE_REMOTE_COMMIT",
                             "cloneTarget": "revision",
@@ -79,7 +79,7 @@
                 "timeout": ""
             },
             "gitStatus": {
-                "cloneUrl": "https://github.com/gitpod-io/contextURL.git",
+                "cloneUrl": "https://github.com/nxpkg/contextURL.git",
                 "branch": "master",
                 "latestCommit": "revision",
                 "uncommitedFiles": [],

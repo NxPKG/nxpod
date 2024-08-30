@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/gitpod-io/gitpod/ide-metrics-api/config"
+	"github.com/nxpkg/nxpod/ide-metrics-api/config"
 )
 
 func Test_allowListCollector_Reconcile(t *testing.T) {
@@ -19,7 +19,7 @@ func Test_allowListCollector_Reconcile(t *testing.T) {
 		Collector: nil,
 		Labels:    []string{"hello", "world"},
 		AllowLabelValues: map[string][]string{
-			"hello":    {"awesome", "gitpod"},
+			"hello":    {"awesome", "nxpod"},
 			"world":    {"io"},
 			"wildcard": {"*"},
 		},
@@ -37,12 +37,12 @@ func Test_allowListCollector_Reconcile(t *testing.T) {
 			name: "HappyPath",
 			args: args{
 				labels: map[string]string{
-					"hello": "gitpod",
+					"hello": "nxpod",
 					"world": "io",
 				},
 			},
 			want: map[string]string{
-				"hello": "gitpod",
+				"hello": "nxpod",
 				"world": "io",
 			},
 		},
@@ -109,13 +109,13 @@ func Test_allowListCollector_Reconcile(t *testing.T) {
 			name: "FreeStyle",
 			args: args{
 				labels: map[string]string{
-					"hello": "gitpod",
+					"hello": "nxpod",
 					"world": "aa",
 					"foo":   "bar",
 				},
 			},
 			want: map[string]string{
-				"hello": "gitpod",
+				"hello": "nxpod",
 				"world": UnknownValue,
 			},
 		},
@@ -123,13 +123,13 @@ func Test_allowListCollector_Reconcile(t *testing.T) {
 			name: "Wildcard",
 			args: args{
 				labels: map[string]string{
-					"wildcard": "gitpod",
+					"wildcard": "nxpod",
 				},
 			},
 			want: map[string]string{
 				"hello":    "defaultValue",
 				"world":    UnknownValue,
-				"wildcard": "gitpod",
+				"wildcard": "nxpod",
 			},
 		},
 	}
@@ -167,15 +167,15 @@ func Test_newAllowListCollector(t *testing.T) {
 					},
 				},
 				allowClient: &config.LabelAllowList{
-					Name:         "gitpod",
-					AllowValues:  []string{"awesome", "gitpod"},
-					DefaultValue: "gitpod",
+					Name:         "nxpod",
+					AllowValues:  []string{"awesome", "nxpod"},
+					DefaultValue: "nxpod",
 				},
 			},
 			want: &want{
-				AllowLabelValues:        map[string][]string{"hello": {"world"}, "gitpod": {"awesome", "gitpod"}},
-				AllowLabelDefaultValues: map[string]string{"gitpod": "gitpod"},
-				ClientLabel:             "gitpod",
+				AllowLabelValues:        map[string][]string{"hello": {"world"}, "nxpod": {"awesome", "nxpod"}},
+				AllowLabelDefaultValues: map[string]string{"nxpod": "nxpod"},
+				ClientLabel:             "nxpod",
 			},
 		},
 		{

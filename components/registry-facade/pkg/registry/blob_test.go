@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -31,7 +31,7 @@ import (
 	"github.com/opencontainers/go-digest"
 	redis "github.com/redis/go-redis/v9"
 
-	rfapi "github.com/gitpod-io/gitpod/registry-facade/api"
+	rfapi "github.com/nxpkg/nxpod/registry-facade/api"
 )
 
 var loadPluginsOnce sync.Once

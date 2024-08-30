@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,7 +15,7 @@ import (
 	"net/http"
 	"testing"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 )
@@ -31,7 +31,7 @@ func TestValidateToken(t *testing.T) {
 		},
 	}
 
-	forbiddenErr := errors.New("jsonrpc2: code 403 message: getGitpodTokenScopes")
+	forbiddenErr := errors.New("jsonrpc2: code 403 message: getNxpodTokenScopes")
 
 	tests := []struct {
 		Desc        string
@@ -42,17 +42,17 @@ func TestValidateToken(t *testing.T) {
 		{
 			Desc:        "invalid: unauthorized",
 			ScopesErr:   unauthorizedErr,
-			Expectation: &ErrInvalidGitpodToken{unauthorizedErr},
+			Expectation: &ErrInvalidNxpodToken{unauthorizedErr},
 		},
 		{
 			Desc:        "invalid: forbidden",
 			ScopesErr:   forbiddenErr,
-			Expectation: &ErrInvalidGitpodToken{forbiddenErr},
+			Expectation: &ErrInvalidNxpodToken{forbiddenErr},
 		},
 		{
 			Desc:        "invalid: missing scopes",
 			Scopes:      []string{"function:getWorkspace"},
-			Expectation: &ErrInvalidGitpodToken{errors.New("function:getGitpodTokenScopes scope is missing in [function:getWorkspace]")},
+			Expectation: &ErrInvalidNxpodToken{errors.New("function:getNxpodTokenScopes scope is missing in [function:getWorkspace]")},
 		},
 		{
 			Desc:   "valid",
@@ -65,7 +65,7 @@ func TestValidateToken(t *testing.T) {
 			defer ctrl.Finish()
 
 			gitpodAPI := gitpod.NewMockAPIInterface(ctrl)
-			gitpodAPI.EXPECT().GetGitpodTokenScopes(context.Background(), tokenHash).Times(1).Return(test.Scopes, test.ScopesErr)
+			gitpodAPI.EXPECT().GetNxpodTokenScopes(context.Background(), tokenHash).Times(1).Return(test.Scopes, test.ScopesErr)
 
 			var expectation string
 			if test.Expectation != nil {

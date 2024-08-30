@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -32,7 +32,7 @@ var publicApiCmdOpts struct {
 func init() {
 	rootCmd.AddCommand(publicApiCmd)
 
-	publicApiCmd.PersistentFlags().StringVar(&publicApiCmdOpts.address, "address", "api.main.preview.gitpod-dev.com:443", "Address of the API endpoint. Must be in the form <host>:<port>.")
+	publicApiCmd.PersistentFlags().StringVar(&publicApiCmdOpts.address, "address", "api.main.preview.nxpod-dev.com:443", "Address of the API endpoint. Must be in the form <host>:<port>.")
 	publicApiCmd.PersistentFlags().BoolVar(&publicApiCmdOpts.insecure, "insecure", false, "Disable TLS when making requests against the API. For testing purposes only.")
 	publicApiCmd.PersistentFlags().StringVar(&publicApiCmdOpts.token, "token", os.Getenv("GPCTL_PUBLICAPI_TOKEN"), "Authentication token to interact with the API")
 }

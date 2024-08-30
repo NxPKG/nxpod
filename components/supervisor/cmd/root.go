@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,7 +13,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 	prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )
 
@@ -57,15 +57,15 @@ func (fatalTerminationLogHook) Fire(e *logrus.Entry) error {
 }
 
 const (
-	gitpodLogDir          = "/var/log/gitpod"
-	supervisorLogFilePath = gitpodLogDir + "/supervisor.log"
+	nxpodLogDir          = "/var/log/nxpod"
+	supervisorLogFilePath = nxpodLogDir + "/supervisor.log"
 )
 
 func initLog(json bool) io.Closer {
 	log.Init(ServiceName, Version, json, os.Getenv("SUPERVISOR_DEBUG_ENABLE") == "true")
 	log.Log.Logger.AddHook(fatalTerminationLogHook{})
-	if err := os.MkdirAll(gitpodLogDir, 0755); err != nil {
-		log.WithError(err).Error("cannot create gitpod log directory")
+	if err := os.MkdirAll(nxpodLogDir, 0755); err != nil {
+		log.WithError(err).Error("cannot create nxpod log directory")
 		return io.NopCloser(nil)
 	}
 	supervisorLogFile, err := os.OpenFile(supervisorLogFilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)

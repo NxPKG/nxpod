@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -26,18 +26,18 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cgroup"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/container"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/content"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/controller"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cpulimit"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/diskguard"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/dispatch"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/iws"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/netlimit"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/quota"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cgroup"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/container"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/content"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/controller"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/diskguard"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/dispatch"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/iws"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/netlimit"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/quota"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 )
 
 var (
@@ -66,7 +66,7 @@ func NewDaemon(config Config) (*Daemon, error) {
 		log.Error("failed to use controller-runtime metrics registry, not of expected type. Using default registry instead, but will not collect controller metrics...")
 		registry = prometheus.NewRegistry()
 	}
-	wrappedReg := prometheus.WrapRegistererWithPrefix("gitpod_ws_daemon_", registry)
+	wrappedReg := prometheus.WrapRegistererWithPrefix("nxpod_ws_daemon_", registry)
 
 	restCfg, err := newClientConfig(config.Runtime.Kubeconfig)
 	if err != nil {

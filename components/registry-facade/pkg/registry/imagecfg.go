@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,7 +15,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/connectivity"
 
-	"github.com/gitpod-io/gitpod/registry-facade/api"
+	"github.com/nxpkg/nxpod/registry-facade/api"
 )
 
 // ErrRefInvalid is returned by spec provider who cannot interpret the ref

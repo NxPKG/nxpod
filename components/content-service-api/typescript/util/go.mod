@@ -1,12 +1,12 @@
-module github.com/gitpod-io/gitpod/content-service-api/util
+module github.com/nxpkg/nxpod/content-service-api/util
 
 go 1.22
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../../go
+replace github.com/nxpkg/nxpod/content-service/api => ../../go
 
 require (
 	github.com/32leaves/bel v1.0.1
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
 )
 
 require (

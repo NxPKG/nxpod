@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,14 +13,14 @@ import (
 	"time"
 
 	connect "github.com/bufbuild/connect-go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/v1"
-	v1connect "github.com/gitpod-io/gitpod/components/public-api/go/v1/v1connect"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/v1"
+	v1connect "github.com/nxpkg/nxpod/components/public-api/go/v1/v1connect"
 )
 
 /*
 *
 export TEST_CREATE_TMP_TOKEN=true
-export GITPOD_HOST=hw-token-exp-1084.preview.gitpod-dev.com
+export NXPOD_HOST=hw-token-exp-1084.preview.gitpod-dev.com
 
 	export INSTALLATION_ADMIN_PAT=<admin_pat>
 	# PAT of a member or an owner or a collaborator
@@ -29,7 +29,7 @@ export GITPOD_HOST=hw-token-exp-1084.preview.gitpod-dev.com
 export MEMBER_USER_ID=fffbc8e0-7f70-4afc-a370-63c889f7e644
 export TARGET_USER_ID=fffbc8e0-7f70-4afc-a370-63c889f7e644
 
-go test -run "^TestCreateTemporaryAccessToken" github.com/gitpod-io/gitpod/test/tests/smoke-test -v -count=1
+go test -run "^TestCreateTemporaryAccessToken" github.com/nxpkg/nxpod/test/tests/smoke-test -v -count=1
 */
 const BUILTIN_INSTLLATION_ADMIN_USER_ID = "f071bb8e-b5d1-46cf-a436-da03ae63bcd2"
 
@@ -38,7 +38,7 @@ func TestCreateTemporaryAccessToken(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
@@ -60,7 +60,7 @@ func TestCreateTemporaryAccessTokenDeniedToCreateInstallationAdmin(t *testing.T)
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
@@ -74,7 +74,7 @@ func TestCreateTemporaryAccessTokenWithNotFoundUser(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
@@ -88,7 +88,7 @@ func TestCreateTemporaryAccessTokenViaMember(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	memberUserPAT, _ := os.LookupEnv("MEMBER_USER_PAT")
 	memberUserID, _ := os.LookupEnv("MEMBER_USER_ID")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
@@ -104,7 +104,7 @@ func TestCreateTemporaryAccessTokenExpiry(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -128,7 +128,7 @@ func TestCreateTemporaryAccessTokenCreateEnv(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)

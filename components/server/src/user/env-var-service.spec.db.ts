@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@gitpod/gitpod-db/lib";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@nxpod/nxpod-db/lib";
 import {
     CommitContext,
     // EnvVarWithValue,
@@ -13,17 +13,17 @@ import {
     User,
     UserEnvVarValue,
     WithEnvvarsContext,
-} from "@gitpod/gitpod-protocol";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+} from "@nxpod/nxpod-protocol";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
 import { createTestContainer, withTestCtx } from "../test/service-testing-container-module";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import { OrganizationService } from "../orgs/organization-service";
 import { UserService } from "./user-service";
 import { expectError } from "../test/expect-utils";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { EnvVarService } from "./env-var-service";
 import { ProjectsService } from "../projects/projects-service";
 import { SYSTEM_USER } from "../authorization/authorizer";
@@ -32,8 +32,8 @@ const expect = chai.expect;
 
 const commitContext = {
     repository: {
-        owner: "gitpod",
-        name: "gitpod-io",
+        owner: "nxpod",
+        name: "nxpkg",
     },
     revision: "abcd123",
     title: "test",
@@ -42,19 +42,19 @@ const commitContext = {
 const fooAnyUserEnvVar = {
     name: "foo",
     value: "any",
-    repositoryPattern: "gitpod/*",
+    repositoryPattern: "nxpod/*",
 };
 
 const barUserCommitEnvVar = {
     name: "bar",
     value: "commit",
-    repositoryPattern: "gitpod/gitpod-io",
+    repositoryPattern: "nxpod/nxpkg",
 };
 
 const barUserAnotherCommitEnvVar = {
     name: "bar",
     value: "commit",
-    repositoryPattern: "gitpod/openvscode-server",
+    repositoryPattern: "nxpod/openvscode-server",
 };
 
 const barProjectCensoredEnvVar = {
@@ -123,7 +123,7 @@ describe("EnvVarService", async () => {
                 name: "my-project",
                 slug: "my-project",
                 teamId: org.id,
-                cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+                cloneUrl: "https://github.com/nxpkg/nxpod.git",
                 appInstallationId: "noid",
             },
             member,
@@ -441,17 +441,17 @@ describe("EnvVarService", async () => {
             {
                 name: "MULTIPLE_VARS_WITH_SAME_NAME",
                 value: "true",
-                repositoryPattern: "gitpod/gitpod-io",
+                repositoryPattern: "nxpod/nxpkg",
             },
             {
                 name: "MULTIPLE_VARS_WITH_SAME_NAME",
                 value: "true",
-                repositoryPattern: "gitpod/*",
+                repositoryPattern: "nxpod/*",
             },
             {
                 name: "MULTIPLE_VARS_WITH_SAME_NAME",
                 value: "true",
-                repositoryPattern: "*/gitpod-io",
+                repositoryPattern: "*/nxpkg",
             },
             {
                 name: "MULTIPLE_VARS_WITH_SAME_NAME",

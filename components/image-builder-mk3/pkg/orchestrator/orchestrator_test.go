@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,12 +11,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/image-builder/api"
-	"github.com/gitpod-io/gitpod/image-builder/api/config"
-	apimock "github.com/gitpod-io/gitpod/image-builder/api/mock"
-	"github.com/gitpod-io/gitpod/image-builder/pkg/resolve"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
-	wsmock "github.com/gitpod-io/gitpod/ws-manager/api/mock"
+	"github.com/nxpkg/nxpod/image-builder/api"
+	"github.com/nxpkg/nxpod/image-builder/api/config"
+	apimock "github.com/nxpkg/nxpod/image-builder/api/mock"
+	"github.com/nxpkg/nxpod/image-builder/pkg/resolve"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
+	wsmock "github.com/nxpkg/nxpod/ws-manager/api/mock"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 	"google.golang.org/grpc/codes"

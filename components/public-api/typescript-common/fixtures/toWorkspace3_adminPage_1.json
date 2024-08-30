@@ -1,7 +1,7 @@
 {
   "organizationId": "organizationId",
   "ownerId": "ownerId",
-  "contextURL": "https://github.com/gitpod-io/contextURL",
+  "contextURL": "https://github.com/nxpkg/contextURL",
   "description": "description",
   "context": {
     "isFile": false,
@@ -11,16 +11,16 @@
     "refType": "branch",
     "revision": "revision",
     "repository": {
-      "cloneUrl": "https://github.com/gitpod-io/contextURL.git",
+      "cloneUrl": "https://github.com/nxpkg/contextURL.git",
       "host": "github.com",
       "name": "contextURL",
-      "owner": "gitpod-io",
+      "owner": "nxpkg",
       "private": true
     },
-    "normalizedContextURL": "https://github.com/gitpod-io/contextURL",
+    "normalizedContextURL": "https://github.com/nxpkg/contextURL",
     "checkoutLocation": "contextUrl"
   },
-  "cloneUrl": "https://github.com/gitpod-io/contextURL.git",
+  "cloneUrl": "https://github.com/nxpkg/contextURL.git",
   "config": {
     "image": "mach4/gitpod-wordpress:delta",
     "ports": [
@@ -121,11 +121,11 @@
     "ideSetup": {
       "envvars": [
         {
-          "name": "GITPOD_CONFIGCAT_ENABLED",
+          "name": "NXPOD_CONFIGCAT_ENABLED",
           "value": "true"
         },
         {
-          "name": "GITPOD_IDE_ALIAS",
+          "name": "NXPOD_IDE_ALIAS",
           "value": "code"
         }
       ],

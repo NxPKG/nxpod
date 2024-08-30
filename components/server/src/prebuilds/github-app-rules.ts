@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable } from "inversify";
-import { WorkspaceConfig, GithubAppConfig } from "@gitpod/gitpod-protocol";
+import { WorkspaceConfig, GithubAppConfig } from "@nxpod/nxpod-protocol";
 import deepmerge from "deepmerge";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 const defaultConfig: GithubAppConfig = {
     prebuilds: {
@@ -45,7 +45,7 @@ export class GithubAppRules {
         isFork: boolean,
     ): boolean {
         if (!config || !config._origin || config._origin !== "repo") {
-            // we demand an explicit gitpod config
+            // we demand an explicit nxpod config
             return false;
         }
 

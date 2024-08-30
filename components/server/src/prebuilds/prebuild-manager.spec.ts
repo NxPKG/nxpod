@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,7 +9,7 @@ import { Container, ContainerModule } from "inversify";
 import "mocha";
 import * as chai from "chai";
 import { PrebuildManager } from "./prebuild-manager";
-import { TracedWorkspaceDB } from "@gitpod/gitpod-db/lib";
+import { TracedWorkspaceDB } from "@nxpod/nxpod-db/lib";
 import { WorkspaceService } from "../workspace/workspace-service";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { ConfigProvider } from "../workspace/config-provider";
@@ -17,10 +17,10 @@ import { Config } from "../config";
 import { ProjectsService } from "../projects/projects-service";
 import { IncrementalWorkspaceService } from "./incremental-workspace-service";
 import { EntitlementService } from "../billing/entitlement-service";
-import { CommitContext, Project, ProjectSettings, Repository, WorkspaceConfig } from "@gitpod/gitpod-protocol";
+import { CommitContext, Project, ProjectSettings, Repository, WorkspaceConfig } from "@nxpod/nxpod-protocol";
 import { Authorizer } from "../authorization/authorizer";
 import { ContextParser } from "../workspace/context-parser-service";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
 import { RedisSubscriber } from "../messaging/redis-subscriber";
 
 const expect = chai.expect;
@@ -86,7 +86,7 @@ describe("PrebuildManager", () => {
         {
             title: "no-config",
             shouldRun: false,
-            reason: "no-gitpod-config-in-repo",
+            reason: "no-nxpod-config-in-repo",
             config: clone(config, (c) => (c._origin = undefined)),
             context,
             project,
@@ -94,7 +94,7 @@ describe("PrebuildManager", () => {
         {
             title: "no-tasks",
             shouldRun: false,
-            reason: "no-tasks-in-gitpod-config",
+            reason: "no-tasks-in-nxpod-config",
             config: clone(config, (c) => (c.tasks = [])),
             context,
             project,

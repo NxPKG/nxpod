@@ -19,10 +19,10 @@ packages:
       - CGO_ENABLED=0
       - GOOS=linux
     prep:
-      - ["mv", "_deps/components-ws-manager-mk2--crd/workspace.gitpod.io_workspaces.yaml", "crd/workspace.gitpod.io_workspaces.yaml"]
+      - ["mv", "_deps/components-ws-manager-mk2--crd/workspace.nxpod.io_workspaces.yaml", "crd/workspace.nxpod.io_workspaces.yaml"]
     config:
       packaging: app
-      buildCommand: ["go", "build", "-trimpath", "-ldflags=-buildid= -X 'github.com/gitpod-io/gitpod/ws-daemon/cmd.Version=commit-${__git_commit}'"]
+      buildCommand: ["go", "build", "-trimpath", "-ldflags=-buildid= -X 'github.com/nxpkg/nxpod/ws-daemon/cmd.Version=commit-${__git_commit}'"]
   - name: lib
     type: go
     srcs:
@@ -43,7 +43,7 @@ packages:
       - CGO_ENABLED=0
       - GOOS=linux
     prep:
-      - ["mv", "_deps/components-ws-manager-mk2--crd/workspace.gitpod.io_workspaces.yaml", "crd/workspace.gitpod.io_workspaces.yaml"]
+      - ["mv", "_deps/components-ws-manager-mk2--crd/workspace.nxpod.io_workspaces.yaml", "crd/workspace.nxpod.io_workspaces.yaml"]
     config:
       packaging: library
   - name: content-initializer

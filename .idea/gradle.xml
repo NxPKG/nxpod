@@ -7,7 +7,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$/components/ide/jetbrains/backend-plugin" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/components/gitpod-protocol/java" />
+            <option value="$PROJECT_DIR$/components/nxpod-protocol/java" />
             <option value="$PROJECT_DIR$/components/ide/jetbrains/backend-plugin" />
             <option value="$PROJECT_DIR$/components/supervisor-api/java" />
           </set>
@@ -17,7 +17,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$/components/ide/jetbrains/gateway-plugin" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/components/gitpod-protocol/java" />
+            <option value="$PROJECT_DIR$/components/nxpod-protocol/java" />
             <option value="$PROJECT_DIR$/components/ide/jetbrains/gateway-plugin" />
           </set>
         </option>

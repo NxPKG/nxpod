@@ -8,7 +8,7 @@
         "config": {}
       }
     },
-    "dockerfilePath": ".gitpod.dockerfile",
+    "dockerfilePath": ".nxpod.dockerfile",
     "contextPath": "."
   }
 }

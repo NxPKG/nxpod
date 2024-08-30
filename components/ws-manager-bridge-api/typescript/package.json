@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@gitpod/ws-manager-bridge-api",
+  "name": "@nxpod/ws-manager-bridge-api",
   "version": "0.1.5",
   "license": "UNLICENSED",
   "scripts": {

@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/public-api-server
+module github.com/nxpkg/nxpod/public-api-server
 
 go 1.22
 
@@ -6,11 +6,11 @@ require (
 	github.com/AdaLogics/go-fuzz-headers v0.0.0-20220708163326-82d177caec6e
 	github.com/bufbuild/connect-go v1.10.0
 	github.com/coreos/go-oidc/v3 v3.5.0
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/usage-api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/usage-api v0.0.0-00010101000000-000000000000
 	github.com/go-chi/chi/v5 v5.0.8
 	github.com/golang-jwt/jwt/v5 v5.0.0
 	github.com/golang/mock v1.6.0
@@ -40,7 +40,7 @@ require (
 	github.com/alicebob/gopher-json v0.0.0-20200520072559-a9ecdc9d1d3a // indirect
 	github.com/antlr4-go/antlr/v4 v4.13.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
@@ -104,17 +104,17 @@ require (
 	gorm.io/datatypes v1.0.7 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/gitpod-db/go => ../gitpod-db/go // leeway
+replace github.com/nxpkg/nxpod/components/gitpod-db/go => ../gitpod-db/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../public-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/gitpod-protocol => ../gitpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/usage-api => ../usage-api/go // leeway
+replace github.com/nxpkg/nxpod/usage-api => ../usage-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

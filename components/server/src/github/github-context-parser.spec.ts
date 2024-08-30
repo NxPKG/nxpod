@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -17,7 +17,7 @@ const expect = chai.expect;
 import { BranchRef, GitHubGraphQlEndpoint } from "./api";
 import { NotFoundError } from "../errors";
 import { GithubContextParser } from "./github-context-parser";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import { ContainerModule, Container } from "inversify";
 import { Config } from "../config";
 import { DevData } from "../dev/dev-data";
@@ -25,9 +25,9 @@ import { AuthProviderParams } from "../auth/auth-provider";
 import { TokenProvider } from "../user/token-provider";
 import { GitHubTokenHelper } from "./github-token-helper";
 import { HostContextProvider } from "../auth/host-context-provider";
-import { ifEnvVarNotSet } from "@gitpod/gitpod-protocol/lib/util/skip-if";
+import { ifEnvVarNotSet } from "@nxpod/nxpod-protocol/lib/util/skip-if";
 
-@suite(timeout(10000), retries(2), skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_GITHUB")))
+@suite(timeout(10000), retries(2), skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_GITHUB")))
 class TestGithubContextParser {
     protected parser: GithubContextParser;
     protected user: User;
@@ -203,7 +203,7 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/blob/nametest/src/src/server.ts",
+            "https://github.com/nxpkg/nxpod-test-repo/blob/nametest/src/src/server.ts",
         );
         expect(result).to.deep.include({
             ref: "nametest/src",
@@ -212,13 +212,13 @@ class TestGithubContextParser {
             isFile: true,
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
-            title: "gitpod-io/gitpod-test-repo - nametest/src",
+            title: "nxpkg/nxpod-test-repo - nametest/src",
         });
     }
 
@@ -226,15 +226,15 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/tree/499efbbcb50e7e6e5e2883053f72a34cd5396be3/folder1/folder2",
+            "https://github.com/nxpkg/nxpod-test-repo/tree/499efbbcb50e7e6e5e2883053f72a34cd5396be3/folder1/folder2",
         );
         expect(result).to.deep.include({
-            title: "gitpod-io/gitpod-test-repo - 499efbbc:folder1/folder2",
+            title: "nxpkg/nxpod-test-repo - 499efbbc:folder1/folder2",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
@@ -308,21 +308,21 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod/releases/tag/v0.9.0",
+            "https://github.com/nxpkg/nxpod/releases/tag/v0.9.0",
         );
         expect(result).to.deep.include({
             ref: "v0.9.0",
             refType: "tag",
             isFile: false,
             path: "",
-            title: "gitpod-io/gitpod - v0.9.0",
+            title: "nxpkg/nxpod - v0.9.0",
             revision: "25ece59c495d525614f28971d41d5708a31bf1e3",
             repository: {
-                cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+                cloneUrl: "https://github.com/nxpkg/nxpod.git",
                 defaultBranch: "main",
                 host: "github.com",
-                name: "gitpod",
-                owner: "gitpod-io",
+                name: "nxpod",
+                owner: "nxpkg",
                 private: false,
             },
         });
@@ -332,7 +332,7 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/commits/4test",
+            "https://github.com/nxpkg/nxpod-test-repo/commits/4test",
         );
         expect(result).to.deep.include({
             ref: "4test",
@@ -341,13 +341,13 @@ class TestGithubContextParser {
             isFile: false,
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
-            title: "gitpod-io/gitpod-test-repo - 4test",
+            title: "nxpkg/nxpod-test-repo - 4test",
         });
     }
 
@@ -355,7 +355,7 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/commit/409ac2de49a53d679989d438735f78204f441634",
+            "https://github.com/nxpkg/nxpod-test-repo/commit/409ac2de49a53d679989d438735f78204f441634",
         );
         expect(result).to.deep.include({
             ref: "",
@@ -365,13 +365,13 @@ class TestGithubContextParser {
             isFile: false,
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
-            title: "gitpod-io/gitpod-test-repo - Test 3",
+            title: "nxpkg/nxpod-test-repo - Test 3",
         });
     }
 
@@ -380,7 +380,7 @@ class TestGithubContextParser {
             await this.parser.handle(
                 {},
                 this.user,
-                "https://github.com/gitpod-io/gitpod-test-repo/commit/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "https://github.com/nxpkg/nxpod-test-repo/commit/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             );
             // ensure that an error has been thrown
             chai.assert.fail();
@@ -391,7 +391,7 @@ class TestGithubContextParser {
 
     @test public async testCommitContext_02_invalidSha() {
         try {
-            await this.parser.handle({}, this.user, "https://github.com/gitpod-io/gitpod-test-repo/commit/invalid");
+            await this.parser.handle({}, this.user, "https://github.com/nxpkg/nxpod-test-repo/commit/invalid");
             // ensure that an error has been thrown
             chai.assert.fail();
         } catch (e) {
@@ -483,19 +483,19 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/issues/42",
+            "https://github.com/nxpkg/nxpod-test-repo/issues/42",
         );
         expect(result).to.deep.include({
             title: "Test issue web-extension",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
-            owner: "gitpod-io",
+            owner: "nxpkg",
             nr: 42,
             ref: "1test",
             refType: "branch",
@@ -504,14 +504,14 @@ class TestGithubContextParser {
     }
 
     @test public async testIssuePageContext() {
-        const result = await this.parser.handle({}, this.user, "https://github.com/gitpod-io/gitpod-test-repo/issues");
+        const result = await this.parser.handle({}, this.user, "https://github.com/nxpkg/nxpod-test-repo/issues");
         expect(result).to.deep.include({
-            title: "gitpod-io/gitpod-test-repo - 1test",
+            title: "nxpkg/nxpod-test-repo - 1test",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
@@ -521,18 +521,18 @@ class TestGithubContextParser {
     }
 
     @test public async testIssueThroughPullRequestContext() {
-        const result = await this.parser.handle({}, this.user, "https://github.com/gitpod-io/gitpod-test-repo/pull/42");
+        const result = await this.parser.handle({}, this.user, "https://github.com/nxpkg/nxpod-test-repo/pull/42");
         expect(result).to.deep.include({
             title: "Test issue web-extension",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
-            owner: "gitpod-io",
+            owner: "nxpkg",
             nr: 42,
             ref: "1test",
             refType: "branch",
@@ -544,15 +544,15 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/blob/aba298d5084a817cdde3dd1f26692bc2a216e2b9/test-comment-01.md",
+            "https://github.com/nxpkg/nxpod-test-repo/blob/aba298d5084a817cdde3dd1f26692bc2a216e2b9/test-comment-01.md",
         );
         expect(result).to.deep.include({
-            title: "gitpod-io/gitpod-test-repo - aba298d5:test-comment-01.md",
+            title: "nxpkg/nxpod-test-repo - aba298d5:test-comment-01.md",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
@@ -566,15 +566,15 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/blob/499efbbcb50e7e6e5e2883053f72a34cd5396be3/folder1/folder2/content2",
+            "https://github.com/nxpkg/nxpod-test-repo/blob/499efbbcb50e7e6e5e2883053f72a34cd5396be3/folder1/folder2/content2",
         );
         expect(result).to.deep.include({
-            title: "gitpod-io/gitpod-test-repo - 499efbbc:folder1/folder2/content2",
+            title: "nxpkg/nxpod-test-repo - 499efbbc:folder1/folder2/content2",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
@@ -588,15 +588,15 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/blob/499efbbc/folder1/folder2/content2",
+            "https://github.com/nxpkg/nxpod-test-repo/blob/499efbbc/folder1/folder2/content2",
         );
         expect(result).to.deep.include({
-            title: "gitpod-io/gitpod-test-repo - 499efbbc:folder1/folder2/content2",
+            title: "nxpkg/nxpod-test-repo - 499efbbc:folder1/folder2/content2",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },
@@ -610,15 +610,15 @@ class TestGithubContextParser {
         const result = await this.parser.handle(
             {},
             this.user,
-            "https://github.com/gitpod-io/gitpod-test-repo/blob/499ef/folder1/folder2/content2",
+            "https://github.com/nxpkg/nxpod-test-repo/blob/499ef/folder1/folder2/content2",
         );
         expect(result).to.deep.include({
-            title: "gitpod-io/gitpod-test-repo - 499efbbc:folder1/folder2/content2",
+            title: "nxpkg/nxpod-test-repo - 499efbbc:folder1/folder2/content2",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod-test-repo",
-                cloneUrl: "https://github.com/gitpod-io/gitpod-test-repo.git",
+                owner: "nxpkg",
+                name: "nxpod-test-repo",
+                cloneUrl: "https://github.com/nxpkg/nxpod-test-repo.git",
                 defaultBranch: "1test",
                 private: false,
             },

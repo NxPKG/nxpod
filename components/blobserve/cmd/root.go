@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,8 +12,8 @@ import (
 	containerd_log "github.com/containerd/containerd/log"
 	"github.com/spf13/cobra"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
 )
 
 var (
@@ -31,7 +31,7 @@ var rootCmd = &cobra.Command{
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		log.Init(ServiceName, Version, jsonLog, verbose)
 
-		// configure containerd log with gitpod-io configuration
+		// configure containerd log with nxpkg configuration
 		containerd_log.WithLogger(context.Background(), log.Log)
 	},
 }

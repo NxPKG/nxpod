@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceInstanceConditions } from "@gitpod/gitpod-protocol";
+import { WorkspaceInstanceConditions } from "@nxpod/nxpod-protocol";
 import Tooltip from "../components/Tooltip";
-import { WorkspacePhase_Phase, WorkspaceStatus } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { WorkspacePhase_Phase, WorkspaceStatus } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 
 export function WorkspaceStatusIndicator({ status }: { status?: WorkspaceStatus }) {
     const state: WorkspacePhase_Phase = status?.phase?.name ?? WorkspacePhase_Phase.STOPPED;

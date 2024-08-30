@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/local-app/pkg/auth"
-	"github.com/gitpod-io/local-app/pkg/config"
-	"github.com/gitpod-io/local-app/pkg/prettyprint"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/local-app/pkg/auth"
+	"github.com/nxpkg/local-app/pkg/config"
+	"github.com/nxpkg/local-app/pkg/prettyprint"
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
 )
@@ -50,7 +50,7 @@ var loginCmd = &cobra.Command{
 
 		token := loginOpts.Token
 		if token == "" {
-			token = os.Getenv("GITPOD_TOKEN")
+			token = os.Getenv("NXPOD_TOKEN")
 		}
 		if token == "" {
 			if loginOpts.NonInteractive {
@@ -58,7 +58,7 @@ var loginCmd = &cobra.Command{
 			} else {
 				var err error
 				token, err = auth.Login(context.Background(), auth.LoginOpts{
-					GitpodURL:   loginOpts.Host,
+					NxpodURL:   loginOpts.Host,
 					AuthTimeout: 5 * time.Minute,
 					// Request CLI scopes (extended compared to the local companion app)
 					ExtendScopes: true,
@@ -93,9 +93,9 @@ var loginCmd = &cobra.Command{
 		cfg.ActiveContext = contextName
 
 		if loginOpts.OrganizationID == "" {
-			clnt, err := getGitpodClient(config.ToContext(context.Background(), cfg))
+			clnt, err := getNxpodClient(config.ToContext(context.Background(), cfg))
 			if err != nil {
-				return fmt.Errorf("cannot connect to Gitpod with this context: %w", err)
+				return fmt.Errorf("cannot connect to Nxpod with this context: %w", err)
 			}
 			if !loginOpts.NonInteractive {
 				fmt.Println("loading your organizations...")
@@ -176,7 +176,7 @@ var loginCmd = &cobra.Command{
 			return err
 		}
 
-		client, err := getGitpodClient(config.ToContext(cmd.Context(), cfg))
+		client, err := getNxpodClient(config.ToContext(cmd.Context(), cfg))
 		if err != nil {
 			return err
 		}
@@ -195,11 +195,11 @@ func init() {
 	rootCmd.AddCommand(loginCmd)
 
 	host := "https://gitpod.io"
-	if v := os.Getenv("GITPOD_HOST"); v != "" {
+	if v := os.Getenv("NXPOD_HOST"); v != "" {
 		host = v
 	}
-	loginCmd.Flags().StringVar(&loginOpts.Host, "host", host, "The Gitpod instance to log in to (defaults to $GITPOD_HOST)")
-	loginCmd.Flags().StringVar(&loginOpts.Token, "token", "", "The token to use for authentication (defaults to $GITPOD_TOKEN)")
+	loginCmd.Flags().StringVar(&loginOpts.Host, "host", host, "The Nxpod instance to log in to (defaults to $NXPOD_HOST)")
+	loginCmd.Flags().StringVar(&loginOpts.Token, "token", "", "The token to use for authentication (defaults to $NXPOD_TOKEN)")
 	loginCmd.Flags().StringVarP(&loginOpts.ContextName, "context-name", "n", "default", "The name of the context to create")
 	loginCmd.Flags().StringVar(&loginOpts.OrganizationID, "org", "", "The organization ID to use for the context")
 	loginCmd.Flags().BoolVar(&loginOpts.NonInteractive, "non-interactive", false, "Disable opening the browser and prompt to select an organization")

@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { ImageBuilderClient } from "./imgbuilder_grpc_pb";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { createClientCallMetricsInterceptor, IClientCallMetrics } from "@gitpod/gitpod-protocol/lib/util/grpc";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { createClientCallMetricsInterceptor, IClientCallMetrics } from "@nxpod/nxpod-protocol/lib/util/grpc";
 import * as opentracing from "opentracing";
 import { Metadata } from "@grpc/grpc-js";
 import {
@@ -25,7 +25,7 @@ import {
 import { injectable, inject, optional } from "inversify";
 import * as grpc from "@grpc/grpc-js";
 import { TextDecoder } from "util";
-import { ImageBuildLogInfo, User, Workspace, WorkspaceInstance } from "@gitpod/gitpod-protocol";
+import { ImageBuildLogInfo, User, Workspace, WorkspaceInstance } from "@nxpod/nxpod-protocol";
 
 export const ImageBuilderClientProvider = Symbol("ImageBuilderClientProvider");
 

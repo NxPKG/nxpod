@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject, postConstruct } from "inversify";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import * as opentracing from "opentracing";
 import {
     TracedWorkspaceDB,
@@ -13,8 +13,8 @@ import {
     WorkspaceDB,
     WorkspaceAndOwner,
     WorkspaceOwnerAndSoftDeleted,
-} from "@gitpod/gitpod-db/lib";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+} from "@nxpod/nxpod-db/lib";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { Config } from "../config";
 import { Job } from "./runner";
 import { WorkspaceService } from "../workspace/workspace-service";

@@ -1,17 +1,17 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package components
 
 import (
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/cluster"
-	componentside "github.com/gitpod-io/gitpod/installer/pkg/components/components-ide"
-	componentswebapp "github.com/gitpod-io/gitpod/installer/pkg/components/components-webapp"
-	componentsworkspace "github.com/gitpod-io/gitpod/installer/pkg/components/components-workspace"
-	dockerregistry "github.com/gitpod-io/gitpod/installer/pkg/components/docker-registry"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/gitpod"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/cluster"
+	componentside "github.com/nxpkg/nxpod/installer/pkg/components/components-ide"
+	componentswebapp "github.com/nxpkg/nxpod/installer/pkg/components/components-webapp"
+	componentsworkspace "github.com/nxpkg/nxpod/installer/pkg/components/components-workspace"
+	dockerregistry "github.com/nxpkg/nxpod/installer/pkg/components/docker-registry"
+	"github.com/nxpkg/nxpod/installer/pkg/components/gitpod"
 )
 
 var MetaObjects = common.CompositeRenderFunc(

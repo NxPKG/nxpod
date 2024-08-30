@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -19,15 +19,15 @@ import {
     RedisPrebuildUpdate,
     RedisWorkspaceInstanceUpdate,
     WorkspaceInstanceUpdatesChannel,
-} from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     reportRedisUpdateCompleted,
     reportRedisUpdateReceived,
     updateSubscribersRegistered,
 } from "../prometheus-metrics";
 import { Redis } from "ioredis";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib";
 import { runWithRequestContext } from "../util/request-context";
 import { SYSTEM_USER } from "../authorization/authorizer";
 

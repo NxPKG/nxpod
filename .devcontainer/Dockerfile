@@ -1,12 +1,12 @@
 FROM ubuntu:jammy
 
-ADD https://raw.githubusercontent.com/gitpod-io/workspace-images/main/base/install-packages /usr/bin/install-packages
+ADD https://raw.githubusercontent.com/nxpkg/workspace-images/main/base/install-packages /usr/bin/install-packages
 RUN chmod +x /usr/bin/install-packages
 
 # Improve resilience during build (DNS timeouts, intermediate repo unavailability, broken proxy, etc.)
 # Also, disable APT color output, and set the queue mode to 'host' to avoid issues with Docker's overlayfs.
 # https://serverfault.com/questions/722893/debian-mirror-hash-sum-mismatch/743015#743015
-RUN <<EOF cat >/etc/apt/apt.conf.d/99-gitpod
+RUN <<EOF cat >/etc/apt/apt.conf.d/99-nxpod
 Acquire::Retries "10";
 Acquire::https::Timeout "100";
 Acquire::http::Pipeline-Depth "0";
@@ -75,7 +75,7 @@ RUN yes | unminimize \
 ENV LANG=en_US.UTF-8
 
 ### Git ###
-ADD https://raw.githubusercontent.com/gitpod-io/workspace-images/main/base/default.gitconfig /etc/gitconfig
+ADD https://raw.githubusercontent.com/nxpkg/workspace-images/main/base/default.gitconfig /etc/gitconfig
 
 RUN add-apt-repository -y ppa:git-core/ppa
 # https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
@@ -92,7 +92,7 @@ ARG TARGETOS
 USER root
 ARG LEEWAY_VERSION=0.8.2
 ENV LEEWAY_MAX_PROVENANCE_BUNDLE_SIZE=8388608
-ENV LEEWAY_WORKSPACE_ROOT=/workspace/gitpod
+ENV LEEWAY_WORKSPACE_ROOT=/workspace/nxpod
 ENV LEEWAY_REMOTE_CACHE_BUCKET=leeway-cache-dev-3ac8ef5
 ENV LEEWAY_CACHE_DIR=/workspace/.leeway/cache
 ENV LEEWAY_BUILD_DIR=/workspace/.leeway/build
@@ -103,7 +103,7 @@ RUN arch=$(uname -m); \
     *) echo "Unsupported architecture: $arch"; exit 1 ;; \
     esac; \
     cd /tmp && \
-    curl -OsSL https://github.com/gitpod-io/leeway/releases/download/v${LEEWAY_VERSION}/leeway_${LEEWAY_VERSION}_Linux_${arch}.tar.gz && \
+    curl -OsSL https://github.com/nxpkg/leeway/releases/download/v${LEEWAY_VERSION}/leeway_${LEEWAY_VERSION}_Linux_${arch}.tar.gz && \
     tar -xzf leeway_${LEEWAY_VERSION}_Linux_${arch}.tar.gz && \
     mv leeway /usr/local/bin/leeway && \
     rm leeway_${LEEWAY_VERSION}_Linux_${arch}.tar.gz
@@ -146,7 +146,7 @@ RUN cd /usr/bin && curl -fsSL https://github.com/praetorian-inc/gokart/releases/
 RUN cd /usr/bin && curl -fsSL https://github.com/ktr0731/evans/releases/download/v0.10.6/evans_linux_${TARGETARCH}.tar.gz | tar xz evans
 
 # dazzle
-RUN cd /usr/bin && curl -fsSL https://github.com/gitpod-io/dazzle/releases/download/v0.1.12/dazzle_0.1.12_Linux_x86_64.tar.gz | tar xz
+RUN cd /usr/bin && curl -fsSL https://github.com/nxpkg/dazzle/releases/download/v0.1.12/dazzle_0.1.12_Linux_x86_64.tar.gz | tar xz
 
 # yq - jq for YAML files
 # Note: we rely on version 3.x.x in various places, 4.x breaks this!
@@ -340,6 +340,6 @@ RUN curl -fsSL https://packagecloud.io/datawireio/telepresence/gpgkey | apt-key 
 ENV PRE_COMMIT_HOME=/workspace/.pre-commit
 
 # Setting the environment variable here so that it will be accessible to all tasks and
-# terminal sessions in Gitpod workspaces.
+# terminal sessions in Nxpod workspaces.
 ENV PREVIEW_ENV_DEV_SA_KEY_PATH=/root/.config/gcloud/sa.json
 ENV GOOGLE_EXTERNAL_ACCOUNT_ALLOW_EXECUTABLES=1

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	daemon "github.com/gitpod-io/gitpod/test/pkg/agent/daemon/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	daemon "github.com/nxpkg/nxpod/test/pkg/agent/daemon/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 	corev1 "k8s.io/api/core/v1"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"

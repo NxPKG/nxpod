@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -20,13 +20,13 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 
-	k8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/activity"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/constants"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/maintenance"
-	config "github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	k8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/util"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/activity"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/constants"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/maintenance"
+	config "github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	"github.com/go-logr/logr"
 )
 
@@ -61,8 +61,8 @@ type TimeoutReconciler struct {
 	maintenance       maintenance.Maintenance
 }
 
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=workspaces,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=workspaces/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces/status,verbs=get;update;patch
 
 // Reconcile will check the given workspace for timing out. When done, a new event gets
 // requeued automatically to ensure the workspace gets reconciled at least every reconcileInterval.

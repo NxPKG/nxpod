@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -13,8 +13,8 @@ import {
     PrebuildInitializer,
     SnapshotInitializer,
     WorkspaceInitializer,
-} from "@gitpod/content-service/lib";
-import { CompositeInitializer, FromBackupInitializer } from "@gitpod/content-service/lib/initializer_pb";
+} from "@nxpod/content-service/lib";
+import { CompositeInitializer, FromBackupInitializer } from "@nxpod/content-service/lib/initializer_pb";
 import {
     DBWithTracing,
     ProjectDB,
@@ -23,8 +23,8 @@ import {
     TracedWorkspaceDB,
     UserDB,
     WorkspaceDB,
-} from "@gitpod/gitpod-db/lib";
-import { BlockedRepositoryDB } from "@gitpod/gitpod-db/lib/blocked-repository-db";
+} from "@nxpod/nxpod-db/lib";
+import { BlockedRepositoryDB } from "@nxpod/nxpod-db/lib/blocked-repository-db";
 import {
     AdditionalContentContext,
     BillingTier,
@@ -32,9 +32,9 @@ import {
     Disposable,
     DisposableCollection,
     GitCheckoutInfo,
-    GitpodServer,
-    GitpodToken,
-    GitpodTokenType,
+    NxpodServer,
+    NxpodToken,
+    NxpodTokenType,
     HeadlessWorkspaceEventType,
     IDESettings,
     ImageBuildLogInfo,
@@ -59,14 +59,14 @@ import {
     WorkspaceInstancePhase,
     WorkspaceInstanceStatus,
     WorkspaceTimeoutDuration,
-} from "@gitpod/gitpod-protocol";
-import { IAnalyticsWriter, TrackMessage } from "@gitpod/gitpod-protocol/lib/analytics";
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
-import { LogContext, log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { WorkspaceRegion } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import * as IdeServiceApi from "@gitpod/ide-service-api/lib/ide.pb";
+} from "@nxpod/nxpod-protocol";
+import { IAnalyticsWriter, TrackMessage } from "@nxpod/nxpod-protocol/lib/analytics";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
+import { LogContext, log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { WorkspaceRegion } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import * as IdeServiceApi from "@nxpod/ide-service-api/lib/ide.pb";
 import {
     BuildRegistryAuth,
     BuildRegistryAuthSelective,
@@ -79,15 +79,15 @@ import {
     BuildStatus,
     ImageBuilderClientProvider,
     ResolveBaseImageRequest,
-} from "@gitpod/image-builder/lib";
+} from "@nxpod/image-builder/lib";
 import {
     IDEImage,
     PromisifiedWorkspaceManagerClient,
     StartWorkspaceResponse,
     StartWorkspaceSpec,
     WorkspaceFeatureFlag,
-} from "@gitpod/ws-manager/lib";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
+} from "@nxpod/ws-manager/lib";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
 import {
     AdmissionLevel,
     EnvironmentVariable,
@@ -101,7 +101,7 @@ import {
     StopWorkspacePolicy,
     StopWorkspaceRequest,
     DescribeWorkspaceRequest,
-} from "@gitpod/ws-manager/lib/core_pb";
+} from "@nxpod/ws-manager/lib/core_pb";
 import * as grpc from "@grpc/grpc-js";
 import * as crypto from "crypto";
 import { inject, injectable } from "inversify";
@@ -130,16 +130,16 @@ import { SYSTEM_USER, SYSTEM_USER_ID } from "../authorization/authorizer";
 import { EnvVarService, ResolvedEnvVars } from "../user/env-var-service";
 import { RedlockAbortSignal } from "redlock";
 import { ConfigProvider } from "./config-provider";
-import { isGrpcError } from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { isGrpcError } from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import { ctxIsAborted, runWithRequestContext, runWithSubjectId } from "../util/request-context";
 import { SubjectId } from "../auth/subject-id";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { IDESettingsVersion } from "@gitpod/gitpod-protocol/lib/ide-protocol";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { IDESettingsVersion } from "@nxpod/nxpod-protocol/lib/ide-protocol";
 import { getFeatureFlagEnableExperimentalJBTB } from "../util/featureflags";
 import { OrganizationService } from "../orgs/organization-service";
 
-export interface StartWorkspaceOptions extends Omit<GitpodServer.StartWorkspaceOptions, "ideSettings"> {
+export interface StartWorkspaceOptions extends Omit<NxpodServer.StartWorkspaceOptions, "ideSettings"> {
     excludeFeatureFlags?: NamedWorkspaceFeatureFlag[];
     ideSettings?: ExtendedIDESettings;
 }
@@ -501,7 +501,7 @@ export class WorkspaceStarter {
                     },
                     stoppedTime: new Date().toISOString(),
                 });
-                await this.userDB.trace({ span }).deleteGitpodTokensNamedLike(workspace.ownerId, `${instance.id}-%`);
+                await this.userDB.trace({ span }).deleteNxpodTokensNamedLike(workspace.ownerId, `${instance.id}-%`);
                 await this.publisher.publishInstanceUpdate({
                     instanceID: updated.id,
                     ownerID: workspace.ownerId,
@@ -532,12 +532,12 @@ export class WorkspaceStarter {
             if (tier === "free") {
                 throw new ApplicationError(
                     ErrorCodes.PRECONDITION_FAILED,
-                    `${contextURL} requires a paid plan on Gitpod.`,
+                    `${contextURL} requires a paid plan on Nxpod.`,
                 );
             }
         }
         if (!blockedRepository.blockFreeUsage) {
-            throw new ApplicationError(ErrorCodes.PRECONDITION_FAILED, `${contextURL} is blocklisted on Gitpod.`);
+            throw new ApplicationError(ErrorCodes.PRECONDITION_FAILED, `${contextURL} is blocklisted on Nxpod.`);
         }
     }
 
@@ -792,7 +792,7 @@ export class WorkspaceStarter {
 
     private async getAdditionalImageAuth(envVars: ResolvedEnvVars): Promise<Map<string, string>> {
         const res = new Map<string, string>();
-        const imageAuth = envVars.project.find((e) => e.name === "GITPOD_IMAGE_AUTH");
+        const imageAuth = envVars.project.find((e) => e.name === "NXPOD_IMAGE_AUTH");
         if (!imageAuth) {
             return res;
         }
@@ -1351,33 +1351,33 @@ export class WorkspaceStarter {
         });
 
         const contextUrlEnv = new EnvironmentVariable();
-        contextUrlEnv.setName("GITPOD_WORKSPACE_CONTEXT_URL");
+        contextUrlEnv.setName("NXPOD_WORKSPACE_CONTEXT_URL");
         // Beware that `workspace.contextURL` is not normalized so it might contain other modifiers
         // making it not a valid URL
         contextUrlEnv.setValue(workspace.context.normalizedContextURL || workspace.contextURL);
         envvars.push(contextUrlEnv);
 
         const contextEnv = new EnvironmentVariable();
-        contextEnv.setName("GITPOD_WORKSPACE_CONTEXT");
+        contextEnv.setName("NXPOD_WORKSPACE_CONTEXT");
         contextEnv.setValue(JSON.stringify(workspace.context));
         envvars.push(contextEnv);
 
         const info = this.config.workspaceClasses.find((cls) => cls.id === instance.workspaceClass);
         if (!!info) {
             const workspaceClassInfoEnv = new EnvironmentVariable();
-            workspaceClassInfoEnv.setName("GITPOD_WORKSPACE_CLASS_INFO");
+            workspaceClassInfoEnv.setName("NXPOD_WORKSPACE_CLASS_INFO");
             workspaceClassInfoEnv.setValue(JSON.stringify(info));
             envvars.push(workspaceClassInfoEnv);
         }
 
         log.debug("Workspace config", workspace.config);
 
-        const tasks = resolveGitpodTasks(workspace, instance);
+        const tasks = resolveNxpodTasks(workspace, instance);
         if (tasks.length) {
             // The task config is interpreted by supervisor only, there's little point in transforming it into something
             // wsman understands and back into the very same structure.
             const ev = new EnvironmentVariable();
-            ev.setName("GITPOD_TASKS");
+            ev.setName("NXPOD_TASKS");
             ev.setValue(JSON.stringify(tasks));
             envvars.push(ev);
         }
@@ -1398,7 +1398,7 @@ export class WorkspaceStarter {
             const defaultLimit: number = 1073741824;
 
             const rLimitCore = new EnvironmentVariable();
-            rLimitCore.setName("GITPOD_RLIMIT_CORE");
+            rLimitCore.setName("NXPOD_RLIMIT_CORE");
             rLimitCore.setValue(
                 JSON.stringify({
                     softLimit: workspace.config.coreDump?.softLimit || defaultLimit,
@@ -1408,19 +1408,19 @@ export class WorkspaceStarter {
             envvars.push(rLimitCore);
         }
 
-        const createGitpodTokenPromise = (async () => {
-            const scopes = this.createDefaultGitpodAPITokenScopes(workspace, instance);
+        const createNxpodTokenPromise = (async () => {
+            const scopes = this.createDefaultNxpodAPITokenScopes(workspace, instance);
             const token = crypto.randomBytes(30).toString("hex");
             const tokenHash = crypto.createHash("sha256").update(token, "utf8").digest("hex");
-            const dbToken: GitpodToken = {
+            const dbToken: NxpodToken = {
                 tokenHash,
                 name: `${instance.id}-default`,
-                type: GitpodTokenType.MACHINE_AUTH_TOKEN,
+                type: NxpodTokenType.MACHINE_AUTH_TOKEN,
                 userId: user.id,
                 scopes,
                 created: new Date().toISOString(),
             };
-            await this.userDB.trace(traceCtx).storeGitpodToken(dbToken);
+            await this.userDB.trace(traceCtx).storeNxpodToken(dbToken);
 
             const tokenExpirationTime = new Date();
             tokenExpirationTime.setMinutes(tokenExpirationTime.getMinutes() + 24 * 60);
@@ -1431,7 +1431,7 @@ export class WorkspaceStarter {
                 JSON.stringify([
                     {
                         token: token,
-                        kind: "gitpod",
+                        kind: "nxpod",
                         host: this.config.hostUrl.url.host,
                         scope: scopes,
                         expiryDate: tokenExpirationTime.toISOString(),
@@ -1513,7 +1513,7 @@ export class WorkspaceStarter {
         }
 
         const orgIdEnv = new EnvironmentVariable();
-        orgIdEnv.setName("GITPOD_DEFAULT_WORKSPACE_IMAGE");
+        orgIdEnv.setName("NXPOD_DEFAULT_WORKSPACE_IMAGE");
         orgIdEnv.setValue(await this.configProvider.getDefaultImage(workspace.organizationId));
         sysEnvvars.push(orgIdEnv);
 
@@ -1521,15 +1521,15 @@ export class WorkspaceStarter {
         const [isSetJavaXmx, isSetJavaProcessorCount] = await Promise.all([
             client
                 .getValueAsync("supervisor_set_java_xmx", false, { user })
-                .then((v) => newEnvVar("GITPOD_IS_SET_JAVA_XMX", String(v))),
+                .then((v) => newEnvVar("NXPOD_IS_SET_JAVA_XMX", String(v))),
             client
                 .getValueAsync("supervisor_set_java_processor_count", false, { user })
-                .then((v) => newEnvVar("GITPOD_IS_SET_JAVA_PROCESSOR_COUNT", String(v))),
+                .then((v) => newEnvVar("NXPOD_IS_SET_JAVA_PROCESSOR_COUNT", String(v))),
         ]);
         sysEnvvars.push(isSetJavaXmx);
         sysEnvvars.push(isSetJavaProcessorCount);
         const spec = new StartWorkspaceSpec();
-        await createGitpodTokenPromise;
+        await createNxpodTokenPromise;
         spec.setEnvvarsList(envvars);
         spec.setSysEnvvarsList(sysEnvvars);
         spec.setGit(this.createGitSpec(workspace, user));
@@ -1592,7 +1592,7 @@ export class WorkspaceStarter {
         return spec;
     }
 
-    private createDefaultGitpodAPITokenScopes(workspace: Workspace, instance: WorkspaceInstance): string[] {
+    private createDefaultNxpodAPITokenScopes(workspace: Workspace, instance: WorkspaceInstance): string[] {
         const scopes = [
             "function:getWorkspace",
             "function:getLoggedInUser",
@@ -1606,23 +1606,23 @@ export class WorkspaceStarter {
             "function:getOpenPorts",
             "function:openPort",
             "function:closePort",
-            "function:generateNewGitpodToken",
+            "function:generateNewNxpodToken",
             "function:takeSnapshot",
             "function:waitForSnapshot",
             "function:stopWorkspace",
             "function:getToken",
-            "function:getGitpodTokenScopes",
+            "function:getNxpodTokenScopes",
             "function:accessCodeSyncStorage",
             "function:guessGitTokenScopes",
             "function:updateGitStatus",
             "function:getWorkspaceEnvVars",
-            "function:getEnvVars", // TODO remove this after new gitpod-cli is deployed
+            "function:getEnvVars", // TODO remove this after new nxpod-cli is deployed
             "function:setEnvVar",
             "function:deleteEnvVar",
             "function:getTeams",
             "function:trackEvent",
             "function:getSupportedWorkspaceClasses",
-            // getIDToken is used by Gitpod's OIDC Identity Provider to check for authorisation.
+            // getIDToken is used by Nxpod's OIDC Identity Provider to check for authorisation.
             // Without this scope the workspace cannot produce ID tokens.
             "function:getIDToken",
             "function:getDefaultWorkspaceImage",
@@ -1647,7 +1647,7 @@ export class WorkspaceStarter {
                 }),
             "resource:" +
                 ScopedResourceGuard.marshalResourceScope({
-                    kind: "gitpodToken",
+                    kind: "nxpodToken",
                     subjectID: "*",
                     operations: ["create"],
                 }),
@@ -1966,7 +1966,7 @@ export class WorkspaceStarter {
     }
 }
 
-function resolveGitpodTasks(ws: Workspace, instance: WorkspaceInstance): TaskConfig[] {
+function resolveNxpodTasks(ws: Workspace, instance: WorkspaceInstance): TaskConfig[] {
     const tasks: TaskConfig[] = [];
     if (ws.config.tasks) {
         tasks.push(...ws.config.tasks);

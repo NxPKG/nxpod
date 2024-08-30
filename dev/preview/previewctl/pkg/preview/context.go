@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"k8s.io/client-go/tools/clientcmd/api"
 
-	"github.com/gitpod-io/gitpod/previewctl/pkg/k8s"
-	"github.com/gitpod-io/gitpod/previewctl/pkg/k8s/context/k3s"
+	"github.com/nxpkg/nxpod/previewctl/pkg/k8s"
+	"github.com/nxpkg/nxpod/previewctl/pkg/k8s/context/k3s"
 )
 
 type InstallCtxOpts struct {
@@ -39,7 +39,7 @@ func (c *Config) InstallContext(ctx context.Context, opts *InstallCtxOpts) error
 		k8s.DeleteContext(previewCfg.ClientConfig(), c.name)
 	}
 
-	// TODO: https://github.com/gitpod-io/ops/issues/6524
+	// TODO: https://github.com/nxpod-io/ops/issues/6524
 	if c.configLoader == nil {
 		configLoader, err := k3s.New(ctx, k3s.ConfigLoaderOpts{
 			Logger:            c.logger.Logger,

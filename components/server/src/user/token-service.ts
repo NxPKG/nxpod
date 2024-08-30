@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject } from "inversify";
-import { Token, Identity, User, TokenEntry } from "@gitpod/gitpod-protocol";
+import { Token, Identity, User, TokenEntry } from "@nxpod/nxpod-protocol";
 import { HostContextProvider } from "../auth/host-context-provider";
-import { UserDB } from "@gitpod/gitpod-db/lib";
+import { UserDB } from "@nxpod/nxpod-db/lib";
 import { v4 as uuidv4 } from "uuid";
 import { TokenProvider } from "./token-provider";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { RedisMutex } from "../redis/mutex";
 import {
     OpportunisticRefresh,
@@ -21,7 +21,7 @@ import {
 
 @injectable()
 export class TokenService implements TokenProvider {
-    static readonly GITPOD_AUTH_PROVIDER_ID = "Gitpod";
+    static readonly NXPOD_AUTH_PROVIDER_ID = "Nxpod";
     /**
      * [mins]
      *
@@ -153,11 +153,11 @@ export class TokenService implements TokenProvider {
         }
     }
 
-    async getOrCreateGitpodIdentity(user: User): Promise<Identity> {
-        let identity = User.getIdentity(user, TokenService.GITPOD_AUTH_PROVIDER_ID);
+    async getOrCreateNxpodIdentity(user: User): Promise<Identity> {
+        let identity = User.getIdentity(user, TokenService.NXPOD_AUTH_PROVIDER_ID);
         if (!identity) {
             identity = {
-                authProviderId: TokenService.GITPOD_AUTH_PROVIDER_ID,
+                authProviderId: TokenService.NXPOD_AUTH_PROVIDER_ID,
                 authId: user.id,
                 authName: user.name || user.id,
             };
@@ -167,8 +167,8 @@ export class TokenService implements TokenProvider {
         return identity;
     }
 
-    async createGitpodToken(user: User, ...scopes: string[]): Promise<TokenEntry> {
-        const identity = await this.getOrCreateGitpodIdentity(user);
+    async createNxpodToken(user: User, ...scopes: string[]): Promise<TokenEntry> {
+        const identity = await this.getOrCreateNxpodIdentity(user);
         await this.userDB.deleteTokens(
             identity,
             // delete any tokens with the same scopes

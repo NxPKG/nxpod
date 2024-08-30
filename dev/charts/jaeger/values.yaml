@@ -9,7 +9,7 @@ jaeger:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
-              - key: gitpod.io/workload_meta
+              - key: nxpod.io/workload_meta
                 operator: In
                 values:
                   - 'true'

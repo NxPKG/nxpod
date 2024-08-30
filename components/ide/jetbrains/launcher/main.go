@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -35,11 +35,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/jetbrains/launcher/pkg/constant"
-	supervisor "github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/util"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/jetbrains/launcher/pkg/constant"
+	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
 
 const defaultBackendPort = "63342"
@@ -77,7 +77,7 @@ type LaunchContext struct {
 
 	// Custom fields
 
-	// shouldWaitBackendPlugin is controlled by env GITPOD_WAIT_IDE_BACKEND
+	// shouldWaitBackendPlugin is controlled by env NXPOD_WAIT_IDE_BACKEND
 	shouldWaitBackendPlugin bool
 }
 
@@ -105,10 +105,10 @@ func main() {
 		return
 	}
 
-	// supervisor refer see https://github.com/gitpod-io/gitpod/blob/main/components/supervisor/pkg/supervisor/supervisor.go#L961
-	shouldWaitBackendPlugin := os.Getenv("GITPOD_WAIT_IDE_BACKEND") == "true"
+	// supervisor refer see https://github.com/nxpkg/nxpod/blob/main/components/supervisor/pkg/supervisor/supervisor.go#L961
+	shouldWaitBackendPlugin := os.Getenv("NXPOD_WAIT_IDE_BACKEND") == "true"
 	debugEnabled := os.Getenv("SUPERVISOR_DEBUG_ENABLE") == "true"
-	preferToolbox := os.Getenv("GITPOD_PREFER_TOOLBOX") == "true"
+	preferToolbox := os.Getenv("NXPOD_PREFER_TOOLBOX") == "true"
 	log.Init(ServiceName, constant.Version, true, debugEnabled)
 	log.Info(ServiceName + ": " + constant.Version)
 	startTime := time.Now()
@@ -343,7 +343,7 @@ func serve(launchCtx *LaunchContext) {
 	}
 }
 
-// isBackendPluginReady checks if the backend plugin is ready via backend plugin CLI GitpodCLIService.kt
+// isBackendPluginReady checks if the backend plugin is ready via backend plugin CLI NxpodCLIService.kt
 func isBackendPluginReady(ctx context.Context, backendPort string, shouldWaitBackendPlugin bool) error {
 	if !shouldWaitBackendPlugin {
 		log.Debug("will not wait plugin ready")
@@ -402,7 +402,7 @@ type JoinLinkResponse struct {
 }
 
 func resolveToolboxLink(wsInfo *supervisor.WorkspaceInfoResponse) (string, error) {
-	gitpodUrl, err := url.Parse(wsInfo.GitpodHost)
+	gitpodUrl, err := url.Parse(wsInfo.NxpodHost)
 	if err != nil {
 		return "", err
 	}
@@ -417,7 +417,7 @@ func resolveToolboxLink(wsInfo *supervisor.WorkspaceInfoResponse) (string, error
 }
 
 func resolveGatewayLink(backendPort string, wsInfo *supervisor.WorkspaceInfoResponse) (string, error) {
-	gitpodUrl, err := url.Parse(wsInfo.GitpodHost)
+	gitpodUrl, err := url.Parse(wsInfo.NxpodHost)
 	if err != nil {
 		return "", err
 	}
@@ -538,7 +538,7 @@ func resolveWorkspaceInfo(ctx context.Context) (*supervisor.WorkspaceInfoRespons
 
 func launch(launchCtx *LaunchContext) {
 	projectDir := launchCtx.wsInfo.GetCheckoutLocation()
-	gitpodConfig, err := parseGitpodConfig(projectDir)
+	gitpodConfig, err := parseNxpodConfig(projectDir)
 	if err != nil {
 		log.WithError(err).Error("failed to parse .gitpod.yml")
 	}
@@ -618,10 +618,10 @@ func run(launchCtx *LaunchContext) {
 	args = append(args, launchCtx.projectContextDir)
 
 	cmd := remoteDevServerCmd(args, launchCtx)
-	cmd.Env = append(cmd.Env, "JETBRAINS_GITPOD_BACKEND_KIND="+launchCtx.alias)
+	cmd.Env = append(cmd.Env, "JETBRAINS_NXPOD_BACKEND_KIND="+launchCtx.alias)
 	workspaceUrl, err := url.Parse(launchCtx.wsInfo.WorkspaceUrl)
 	if err == nil {
-		cmd.Env = append(cmd.Env, "JETBRAINS_GITPOD_WORKSPACE_HOST="+workspaceUrl.Hostname())
+		cmd.Env = append(cmd.Env, "JETBRAINS_NXPOD_WORKSPACE_HOST="+workspaceUrl.Hostname())
 	}
 	// Enable host status endpoint
 	cmd.Env = append(cmd.Env, "CWM_HOST_STATUS_OVER_HTTP_TOKEN=gitpod")
@@ -783,7 +783,7 @@ func updatePlatformProperties(content string, configDir string, systemDir string
 	return updated, content
 }
 
-func configureVMOptions(config *gitpod.GitpodConfig, alias string, vmOptionsPath string) error {
+func configureVMOptions(config *gitpod.NxpodConfig, alias string, vmOptionsPath string) error {
 	options, err := readVMOptions(vmOptionsPath)
 	if err != nil {
 		return err
@@ -825,7 +825,7 @@ func deduplicateVMOption(oldLines []string, newLines []string, predicate func(l,
 }
 
 func updateVMOptions(
-	config *gitpod.GitpodConfig,
+	config *gitpod.NxpodConfig,
 	alias string,
 	// original vmoptions (inherited from $JETBRAINS_IDE_HOME/bin/idea64.vmoptions)
 	ideaVMOptionsLines []string) []string {
@@ -840,7 +840,7 @@ func updateVMOptions(
 			strings.Split(l, "=")[0] == strings.Split(r, "=")[0]
 		return isEqual || isXmx || isXms || isXss || isXXOptions
 	}
-	// Gitpod's default customization
+	// Nxpod's default customization
 	var gitpodVMOptions []string
 	gitpodVMOptions = append(gitpodVMOptions, "-Dgtw.disable.exit.dialog=true")
 	// temporary disable auto-attach of the async-profiler to prevent JVM crash
@@ -851,7 +851,7 @@ func updateVMOptions(
 	}
 	// container relevant options
 	gitpodVMOptions = append(gitpodVMOptions, "-XX:+UseContainerSupport")
-	cpuCount := os.Getenv("GITPOD_CPU_COUNT")
+	cpuCount := os.Getenv("NXPOD_CPU_COUNT")
 	parsedCPUCount, err := strconv.Atoi(cpuCount)
 	// if CPU count is set and is parseable as a positive number
 	if err == nil && parsedCPUCount > 0 && parsedCPUCount <= 16 {
@@ -1102,7 +1102,7 @@ func unzipArchive(src, dest string) error {
 	return nil
 }
 
-func installPlugins(config *gitpod.GitpodConfig, launchCtx *LaunchContext) error {
+func installPlugins(config *gitpod.NxpodConfig, launchCtx *LaunchContext) error {
 	plugins, err := getPlugins(config, launchCtx.alias)
 	if err != nil {
 		return err
@@ -1130,7 +1130,7 @@ func installPlugins(config *gitpod.GitpodConfig, launchCtx *LaunchContext) error
 	return nil
 }
 
-func parseGitpodConfig(repoRoot string) (*gitpod.GitpodConfig, error) {
+func parseNxpodConfig(repoRoot string) (*gitpod.NxpodConfig, error) {
 	if repoRoot == "" {
 		return nil, errors.New("repoRoot is empty")
 	}
@@ -1142,14 +1142,14 @@ func parseGitpodConfig(repoRoot string) (*gitpod.GitpodConfig, error) {
 		}
 		return nil, errors.New("read .gitpod.yml file failed: " + err.Error())
 	}
-	var config *gitpod.GitpodConfig
+	var config *gitpod.NxpodConfig
 	if err = yaml.Unmarshal(data, &config); err != nil {
 		return nil, errors.New("unmarshal .gitpod.yml file failed" + err.Error())
 	}
 	return config, nil
 }
 
-func getPlugins(config *gitpod.GitpodConfig, alias string) ([]string, error) {
+func getPlugins(config *gitpod.NxpodConfig, alias string) ([]string, error) {
 	var plugins []string
 	if config == nil || config.Jetbrains == nil {
 		return nil, nil
@@ -1164,7 +1164,7 @@ func getPlugins(config *gitpod.GitpodConfig, alias string) ([]string, error) {
 	return plugins, nil
 }
 
-func getProductConfig(config *gitpod.GitpodConfig, alias string) *gitpod.JetbrainsProduct {
+func getProductConfig(config *gitpod.NxpodConfig, alias string) *gitpod.JetbrainsProduct {
 	defer func() {
 		if err := recover(); err != nil {
 			log.WithField("error", err).WithField("alias", alias).Error("failed to extract JB product config")
@@ -1269,7 +1269,7 @@ func configureToolboxCliProperties(backendDir string) error {
 
 	toolboxCliPropertiesFilePath := fmt.Sprintf("%s/environment.json", toolboxCliPropertiesDir)
 
-	debuggingToolbox := os.Getenv("GITPOD_TOOLBOX_DEBUGGING")
+	debuggingToolbox := os.Getenv("NXPOD_TOOLBOX_DEBUGGING")
 	allowInstallation := strconv.FormatBool(strings.Contains(debuggingToolbox, "allowInstallation"))
 
 	// TODO(hw): restrict IDE installation

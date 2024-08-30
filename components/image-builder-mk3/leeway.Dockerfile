@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -14,7 +14,7 @@ RUN chmod +x /app/image-builder
 ARG __GIT_COMMIT
 ARG VERSION
 
-ENV GITPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
-ENV GITPOD_BUILD_VERSION=${VERSION}
+ENV NXPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
+ENV NXPOD_BUILD_VERSION=${VERSION}
 ENTRYPOINT [ "/app/image-builder" ]
 CMD [ "-v", "help" ]

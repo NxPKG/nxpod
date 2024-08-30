@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,14 +9,14 @@ import Modal, { ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 import Alert from "../components/Alert";
 import { Item, ItemField, ItemFieldContextMenu } from "../components/ItemsList";
 import ConfirmationModal from "../components/ConfirmationModal";
-import { SSHPublicKeyValue } from "@gitpod/gitpod-protocol";
+import { SSHPublicKeyValue } from "@nxpod/nxpod-protocol";
 import dayjs from "dayjs";
 import { PageWithSettingsSubMenu } from "./PageWithSettingsSubMenu";
 import { Heading2, Subheading } from "../components/typography/headings";
 import { EmptyMessage } from "../components/EmptyMessage";
 import { Button } from "@podkit/buttons/Button";
 import { sshClient } from "../service/public-api";
-import { SSHPublicKey } from "@gitpod/public-api/lib/gitpod/v1/ssh_pb";
+import { SSHPublicKey } from "@nxpod/public-api/lib/nxpod/v1/ssh_pb";
 import { InputField } from "../components/forms/InputField";
 import { TextInputField } from "../components/forms/TextInputField";
 
@@ -77,8 +77,8 @@ export function AddSSHKeyModal(props: AddModalProps) {
                 <Alert type="info" className="mt-2">
                     SSH key are used to connect securely to workspaces.{" "}
                     <a
-                        href="https://www.gitpod.io/docs/configure/user-settings/ssh#create-an-ssh-key"
-                        target="gitpod-create-ssh-key-doc"
+                        href="https://www.nxpod.io/docs/configure/user-settings/ssh#create-an-ssh-key"
+                        target="nxpod-create-ssh-key-doc"
                         className="gp-link"
                     >
                         Learn how to create an SSH Key
@@ -185,7 +185,7 @@ export default function SSHKeys() {
                         Create and manage SSH keys.{" "}
                         <a
                             className="gp-link"
-                            href="https://www.gitpod.io/docs/configure/user-settings/ssh"
+                            href="https://www.nxpod.io/docs/configure/user-settings/ssh"
                             target="_blank"
                             rel="noreferrer"
                         >

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,13 +14,13 @@ import (
 	"os"
 	"time"
 
-	"github.com/gitpod-io/gitpod/components/public-api/go/client"
-	"github.com/gitpod-io/local-app/pkg/auth"
-	"github.com/gitpod-io/local-app/pkg/config"
-	"github.com/gitpod-io/local-app/pkg/constants"
-	"github.com/gitpod-io/local-app/pkg/prettyprint"
-	"github.com/gitpod-io/local-app/pkg/selfupdate"
-	"github.com/gitpod-io/local-app/pkg/telemetry"
+	"github.com/nxpkg/nxpod/components/public-api/go/client"
+	"github.com/nxpkg/local-app/pkg/auth"
+	"github.com/nxpkg/local-app/pkg/config"
+	"github.com/nxpkg/local-app/pkg/constants"
+	"github.com/nxpkg/local-app/pkg/prettyprint"
+	"github.com/nxpkg/local-app/pkg/selfupdate"
+	"github.com/nxpkg/local-app/pkg/telemetry"
 	"github.com/gookit/color"
 	"github.com/lmittmann/tint"
 	"github.com/mattn/go-isatty"
@@ -34,12 +34,12 @@ var rootOpts struct {
 
 var rootCmd = &cobra.Command{
 	Use:   "gitpod",
-	Short: "Gitpod: Always ready to code.",
+	Short: "Nxpod: Always ready to code.",
 	Long: color.Sprint(`
-<fg=ff971d>      .-+*#+           </>      <b>Gitpod: Always ready to code.</>
+<fg=ff971d>      .-+*#+           </>      <b>Nxpod: Always ready to code.</>
 <fg=ff971d>   :=*#####*.          </>      Try the following commands to get started:
 <fg=ff971d>  .=*####*+-.    .--:  </>
-<fg=ff971d>  +****=:     :=*####+ </>      gitpod login              <lightgray>Login to Gitpod</>
+<fg=ff971d>  +****=:     :=*####+ </>      gitpod login              <lightgray>Login to Nxpod</>
 <fg=ff971d>  ****:   .-+*########.</>      gitpod whoami             <lightgray>Show information about the currently logged in user</>
 <fg=ff971d>  +***:   *****+--####.</>
 <fg=ff971d>  +***:   .-=:.  .#*##.</>      gitpod workspace list     <lightgray>List your workspaces</>
@@ -135,7 +135,7 @@ func init() {
 	}
 
 	configLocation := config.DEFAULT_LOCATION
-	if fn := os.Getenv("GITPOD_CONFIG"); fn != "" {
+	if fn := os.Getenv("NXPOD_CONFIG"); fn != "" {
 		configLocation = fn
 	}
 	rootCmd.PersistentFlags().StringVar(&rootOpts.ConfigLocation, "config", configLocation, "Location of the configuration file")
@@ -143,13 +143,13 @@ func init() {
 }
 
 var rootTestingOpts struct {
-	Client    *client.Gitpod
+	Client    *client.Nxpod
 	WriterOut io.Writer
 }
 
-var clientCache *client.Gitpod
+var clientCache *client.Nxpod
 
-func getGitpodClient(ctx context.Context) (*client.Gitpod, error) {
+func getNxpodClient(ctx context.Context) (*client.Nxpod, error) {
 	// There will be only one client in a command context right now
 	if clientCache != nil {
 		return clientCache, nil
@@ -175,7 +175,7 @@ func getGitpodClient(ctx context.Context) (*client.Gitpod, error) {
 
 	token := gpctx.Token
 	if token == "" {
-		token = os.Getenv("GITPOD_TOKEN")
+		token = os.Getenv("NXPOD_TOKEN")
 	}
 	if token == "" {
 		var err error
@@ -186,7 +186,7 @@ func getGitpodClient(ctx context.Context) (*client.Gitpod, error) {
 	}
 	if token == "" {
 		return nil, prettyprint.AddResolution(fmt.Errorf("no token found for active context"),
-			"provide a token by setting the GITPOD_TOKEN environment variable",
+			"provide a token by setting the NXPOD_TOKEN environment variable",
 			"login again using `gitpod login`",
 			"change to a different context using `gitpod config use-context <context>`",
 			"set a token explicitly using `gitpod config set-context --current --token <token>`",
@@ -195,7 +195,7 @@ func getGitpodClient(ctx context.Context) (*client.Gitpod, error) {
 
 	var apiHost = *gpctx.Host.URL
 	apiHost.Host = "api." + apiHost.Host
-	slog.Debug("establishing connection to Gitpod", "host", apiHost.String())
+	slog.Debug("establishing connection to Nxpod", "host", apiHost.String())
 	res, err := client.New(
 		client.WithCredentials(token),
 		client.WithURL(apiHost.String()),

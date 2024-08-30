@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { DeleteUserContentRequest, DeleteUserContentResponse } from "@gitpod/content-service/lib/content_pb";
+import { DeleteUserContentRequest, DeleteUserContentResponse } from "@nxpod/content-service/lib/content_pb";
 import {
     PluginDownloadURLRequest,
     PluginDownloadURLResponse,
@@ -12,7 +12,7 @@ import {
     PluginHashResponse,
     PluginUploadURLRequest,
     PluginUploadURLResponse,
-} from "@gitpod/content-service/lib/ideplugin_pb";
+} from "@nxpod/content-service/lib/ideplugin_pb";
 import {
     DeleteWorkspaceRequest,
     DeleteWorkspaceResponse,
@@ -20,8 +20,8 @@ import {
     WorkspaceDownloadURLResponse,
     WorkspaceSnapshotExistsRequest,
     WorkspaceSnapshotExistsResponse,
-} from "@gitpod/content-service/lib/workspace_pb";
-import { SnapshotUrl } from "@gitpod/gitpod-protocol";
+} from "@nxpod/content-service/lib/workspace_pb";
+import { SnapshotUrl } from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
 import {
     CachingContentServiceClientProvider,

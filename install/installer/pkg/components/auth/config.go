@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	server_lib "github.com/gitpod-io/gitpod/server/go/pkg/lib"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	server_lib "github.com/nxpkg/nxpod/server/go/pkg/lib"
 	corev1 "k8s.io/api/core/v1"
 )
 

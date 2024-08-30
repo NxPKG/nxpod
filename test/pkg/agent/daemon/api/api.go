@@ -1,10 +1,10 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package api
 
-import "github.com/gitpod-io/gitpod/common-go/cgroups"
+import "github.com/nxpkg/nxpod/common-go/cgroups"
 
 // CreateBucketRequest is the argument for CreateBucket
 type CreateBucketRequest struct {

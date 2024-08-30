@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/sirupsen/logrus"
@@ -25,7 +25,7 @@ func TestPortsUpdateState(t *testing.T) {
 	type ExposureExpectation []ExposedPort
 	type UpdateExpectation [][]*api.PortsStatus
 	type ConfigChange struct {
-		instance []*gitpod.PortsItems
+		instance []*nxpod.PortsItems
 	}
 	type Change struct {
 		Config      *ConfigChange
@@ -112,7 +112,7 @@ func TestPortsUpdateState(t *testing.T) {
 			Desc: "serving port from the configured port range",
 			Changes: []Change{
 				{Config: &ConfigChange{
-					instance: []*gitpod.PortsItems{{
+					instance: []*nxpod.PortsItems{{
 						OnOpen: "open-browser",
 						Port:   "4000-5000",
 					}},
@@ -140,7 +140,7 @@ func TestPortsUpdateState(t *testing.T) {
 			Desc: "auto expose configured ports",
 			Changes: []Change{
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: 8080, Visibility: "private"},
 					}},
 				},
@@ -202,7 +202,7 @@ func TestPortsUpdateState(t *testing.T) {
 			Desc: "served between auto exposing configured and exposed update",
 			Changes: []Change{
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: 8080, Visibility: "private"},
 					}},
 				},
@@ -409,7 +409,7 @@ func TestPortsUpdateState(t *testing.T) {
 			Desc: "port status has description set as soon as the port gets exposed, if there was a description configured",
 			Changes: []Change{
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: 8080, Visibility: "private", Description: "Development server"},
 					}},
 				},
@@ -431,10 +431,10 @@ func TestPortsUpdateState(t *testing.T) {
 			},
 		},
 		{
-			Desc: "port status has the name attribute set as soon as the port gets exposed, if there was a name configured in Gitpod's Workspace",
+			Desc: "port status has the name attribute set as soon as the port gets exposed, if there was a name configured in Nxpod's Workspace",
 			Changes: []Change{
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: 3000, Visibility: "private", Name: "react"},
 					}},
 				},
@@ -459,13 +459,13 @@ func TestPortsUpdateState(t *testing.T) {
 			Desc: "change configed ports order",
 			Changes: []Change{
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: 3001, Visibility: "private", Name: "react"},
 						{Port: 3000, Visibility: "private", Name: "react"},
 					}},
 				},
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: "5000-5999", Visibility: "private", Name: "react"},
 						{Port: 3001, Visibility: "private", Name: "react"},
 						{Port: 3000, Visibility: "private", Name: "react"},
@@ -478,7 +478,7 @@ func TestPortsUpdateState(t *testing.T) {
 					Served: []ServedPort{{net.IPv4zero, 5002, false}, {net.IPv4zero, 5001, false}},
 				},
 				{
-					Config: &ConfigChange{instance: []*gitpod.PortsItems{
+					Config: &ConfigChange{instance: []*nxpod.PortsItems{
 						{Port: 3000, Visibility: "private", Name: "react"},
 						{Port: 3001, Visibility: "private", Name: "react"},
 					}},
@@ -540,7 +540,7 @@ func TestPortsUpdateState(t *testing.T) {
 			Changes: []Change{
 				{
 					Config: &ConfigChange{
-						instance: []*gitpod.PortsItems{
+						instance: []*nxpod.PortsItems{
 							{Port: 3001, Visibility: "private", Name: "react"},
 							{Port: 3000, Visibility: "private", Name: "react"},
 						},
@@ -548,7 +548,7 @@ func TestPortsUpdateState(t *testing.T) {
 				},
 				{
 					Config: &ConfigChange{
-						instance: []*gitpod.PortsItems{
+						instance: []*nxpod.PortsItems{
 							{Port: 3003, Visibility: "private", Name: "react"},
 							{Port: 3001, Visibility: "private", Name: "react"},
 							{Port: "3001-3005", Visibility: "private", Name: "react"},
@@ -564,7 +564,7 @@ func TestPortsUpdateState(t *testing.T) {
 				},
 				{
 					Config: &ConfigChange{
-						instance: []*gitpod.PortsItems{
+						instance: []*nxpod.PortsItems{
 							{Port: 3003, Visibility: "private", Name: "react"},
 							{Port: 3000, Visibility: "private", Name: "react"},
 						},
@@ -572,7 +572,7 @@ func TestPortsUpdateState(t *testing.T) {
 				},
 				{
 					Config: &ConfigChange{
-						instance: []*gitpod.PortsItems{
+						instance: []*nxpod.PortsItems{
 							{Port: "3001-3005", Visibility: "private", Name: "react"},
 							{Port: 3003, Visibility: "private", Name: "react"},
 							{Port: 3000, Visibility: "private", Name: "react"},
@@ -624,7 +624,7 @@ func TestPortsUpdateState(t *testing.T) {
 		},
 		{
 			// Please make sure this test pass for code browser resolveExternalPort
-			// see also https://github.com/gitpod-io/openvscode-server/blob/5ab7644a8bbf37d28e23212bc6f1529cafd8bf7b/extensions/gitpod-web/src/extension.ts#L310-L339
+			// see also https://github.com/nxpkg/openvscode-server/blob/5ab7644a8bbf37d28e23212bc6f1529cafd8bf7b/extensions/nxpod-web/src/extension.ts#L310-L339
 			Desc: "expose port without served, port should be responded for use case of openvscode-server",
 			Changes: []Change{
 				{
@@ -933,7 +933,7 @@ func TestManager_getStatus(t *testing.T) {
 		},
 		{
 			// Please make sure this test pass for code browser resolveExternalPort
-			// see also https://github.com/gitpod-io/openvscode-server/blob/5ab7644a8bbf37d28e23212bc6f1529cafd8bf7b/extensions/gitpod-web/src/extension.ts#L310-L339
+			// see also https://github.com/nxpkg/openvscode-server/blob/5ab7644a8bbf37d28e23212bc6f1529cafd8bf7b/extensions/nxpod-web/src/extension.ts#L310-L339
 			name: "expose not served ports should respond their status",
 			fields: fields{
 				orderInYaml: []any{},
@@ -964,9 +964,9 @@ func TestManager_getStatus(t *testing.T) {
 					TunneledClients:    map[string]uint32{},
 				}
 			}
-			portsItems := []*gitpod.PortsItems{}
+			portsItems := []*nxpod.PortsItems{}
 			for _, port := range tt.fields.orderInYaml {
-				portsItems = append(portsItems, &gitpod.PortsItems{Port: port})
+				portsItems = append(portsItems, &nxpod.PortsItems{Port: port})
 			}
 			portsConfig, rangeConfig := parseInstanceConfigs(portsItems)
 			pm := &Manager{

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,8 +14,8 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
 type GitTest struct {
@@ -36,7 +36,7 @@ func TestGitActions(t *testing.T) {
 	tests := []GitTest{
 		{
 			Name:          "create, add and commit",
-			ContextURL:    "github.com/gitpod-io/gitpod-test-repo/tree/integration-test/commit",
+			ContextURL:    "github.com/nxpkg/nxpod-test-repo/tree/integration-test/commit",
 			WorkspaceRoot: "/workspace/gitpod-test-repo",
 			Action: func(rsa *integration.RpcClient, git integration.GitClient, workspaceRoot string) (err error) {
 				var resp agent.ExecResponse
@@ -82,7 +82,7 @@ func TestGitActions(t *testing.T) {
 			// fatal: could not read Username for 'https://github.com': No such device or address
 			Skip:          true,
 			Name:          "create, add and commit and PUSH",
-			ContextURL:    "github.com/gitpod-io/gitpod-test-repo/tree/integration-test/commit-and-push",
+			ContextURL:    "github.com/nxpkg/nxpod-test-repo/tree/integration-test/commit-and-push",
 			WorkspaceRoot: "/workspace/gitpod-test-repo",
 			Action: func(rsa *integration.RpcClient, git integration.GitClient, workspaceRoot string) (err error) {
 				var resp agent.ExecResponse

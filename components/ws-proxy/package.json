@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "@gitpod/ws-proxy",
+    "name": "@nxpod/ws-proxy",
     "version": "0.1.5",
     "license": "UNLICENSED",
     "scripts": {

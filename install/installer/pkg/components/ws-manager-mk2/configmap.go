@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -9,16 +9,16 @@ import (
 	"path/filepath"
 	"time"
 
-	wsdaemon "github.com/gitpod-io/gitpod/installer/pkg/components/ws-daemon"
+	wsdaemon "github.com/nxpkg/nxpod/installer/pkg/components/ws-daemon"
 	"sigs.k8s.io/yaml"
 
-	"github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	storageconfig "github.com/gitpod-io/gitpod/content-service/api/config"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	configv1 "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
-	"github.com/gitpod-io/gitpod/ws-manager/api/config"
+	"github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/util"
+	storageconfig "github.com/nxpkg/nxpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	configv1 "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/ws-manager/api/config"
 
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -166,7 +166,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 	if ctx.Config.Kind == configv1.InstallationWorkspace {
 		// Image builder TLS is only enabled in workspace clusters. This check
 		// can be removed once image-builder-mk3 has been removed from application clusters
-		// (https://github.com/gitpod-io/gitpod/issues/7845).
+		// (https://github.com/nxpkg/nxpod/issues/7845).
 		imageBuilderTLS = struct {
 			CA          string `json:"ca"`
 			Certificate string `json:"crt"`
@@ -199,7 +199,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			WorkspaceClasses:        classes,
 			PreferredWorkspaceClass: preferredWorkspaceClass,
 			HeartbeatInterval:       util.Duration(30 * time.Second),
-			GitpodHostURL:           gitpodHostURL,
+			NxpodHostURL:           gitpodHostURL,
 			WorkspaceClusterHost:    workspaceClusterHost,
 			InitProbe: config.InitProbeConfiguration{
 				Timeout: (1 * time.Second).String(),

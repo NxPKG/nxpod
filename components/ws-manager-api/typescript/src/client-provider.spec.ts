@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -14,8 +14,8 @@ import {
     WorkspaceManagerClientProviderCompositeSource,
     WorkspaceManagerClientProviderSource,
 } from "./client-provider-source";
-import { WorkspaceCluster, WorkspaceClusterWoTLS } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { User, Workspace, WorkspaceInstance } from "@gitpod/gitpod-protocol";
+import { WorkspaceCluster, WorkspaceClusterWoTLS } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { User, Workspace, WorkspaceInstance } from "@nxpod/nxpod-protocol";
 import { PromisifiedWorkspaceManagerClient } from ".";
 import { Constraint, ConstraintArgs, constraintHasPermissions, intersect, invert } from "./constraints";
 const expect = chai.expect;

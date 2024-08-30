@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -57,7 +57,7 @@ var aptUpdated = false
 
 const (
 	dockerSocketFN = "/var/run/docker.sock"
-	gitpodUserId   = 33333
+	nxpodUserId   = 33333
 	containerIf    = "eth0"
 )
 
@@ -84,7 +84,7 @@ func main() {
 
 	listenFD := os.Getenv("LISTEN_FDS") != ""
 	if _, err := os.Stat(dockerSocketFN); !listenFD && (err == nil || !os.IsNotExist(err)) {
-		logger.Fatalf("Docker socket already exists at %s.\nIn a Gitpod workspace Docker will start automatically when used.\nIf all else fails, please remove %s and try again.", dockerSocketFN, dockerSocketFN)
+		logger.Fatalf("Docker socket already exists at %s.\nIn a Nxpod workspace Docker will start automatically when used.\nIf all else fails, please remove %s and try again.", dockerSocketFN, dockerSocketFN)
 	}
 
 	err = ensurePrerequisites()
@@ -113,8 +113,8 @@ func runWithinNetns() (err error) {
 	}
 	if opts.RuncFacade {
 		args = append(args,
-			"--add-runtime", "gitpod="+filepath.Join(opts.BinDir, "runc-facade"),
-			"--default-runtime", "gitpod",
+			"--add-runtime", "nxpod="+filepath.Join(opts.BinDir, "runc-facade"),
+			"--default-runtime", "nxpod",
 		)
 	}
 
@@ -133,7 +133,7 @@ func runWithinNetns() (err error) {
 	// configure docker0 MTU (used as control plane, not related to containers)
 	args = append(args, fmt.Sprintf("--network-control-plane-mtu=%v", netIface.Attrs().MTU))
 
-	// cmp. ENT-324: Required to run dockerd >= 26.1 in a Gitpod workspace
+	// cmp. ENT-324: Required to run dockerd >= 26.1 in a Nxpod workspace
 	os.Setenv("DOCKER_ALLOW_IPV6_ON_IPV4_INTERFACE", "1")
 
 	if listenFDs > 0 {
@@ -244,7 +244,7 @@ func convertRemapUser(arg, value string) ([]string, error) {
 		}
 	}
 
-	return []string{"--userns-remap", "gitpod"}, nil
+	return []string{"--userns-remap", "nxpod"}, nil
 }
 
 func adaptSubid(oldfile string, id int) error {
@@ -261,18 +261,18 @@ func adaptSubid(oldfile string, id int) error {
 	mappingFmt := func(username string, id int, size int) string { return fmt.Sprintf("%s:%d:%d\n", username, id, size) }
 
 	if id != 0 {
-		newfile.WriteString(mappingFmt("gitpod", 1, id))
-		newfile.WriteString(mappingFmt("gitpod", gitpodUserId, 1))
+		newfile.WriteString(mappingFmt("nxpod", 1, id))
+		newfile.WriteString(mappingFmt("nxpod", nxpodUserId, 1))
 	} else {
-		newfile.WriteString(mappingFmt("gitpod", gitpodUserId, 1))
-		newfile.WriteString(mappingFmt("gitpod", 1, gitpodUserId-1))
-		newfile.WriteString(mappingFmt("gitpod", gitpodUserId+1, 32200)) // map rest of user ids in the user namespace
+		newfile.WriteString(mappingFmt("nxpod", nxpodUserId, 1))
+		newfile.WriteString(mappingFmt("nxpod", 1, nxpodUserId-1))
+		newfile.WriteString(mappingFmt("nxpod", nxpodUserId+1, 32200)) // map rest of user ids in the user namespace
 	}
 
 	uidScanner := bufio.NewScanner(uid)
 	for uidScanner.Scan() {
 		l := uidScanner.Text()
-		if !strings.HasPrefix(l, "gitpod") {
+		if !strings.HasPrefix(l, "nxpod") {
 			newfile.WriteString(l + "\n")
 		}
 	}

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,9 +18,9 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	imgapi "github.com/gitpod-io/gitpod/image-builder/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	imgapi "github.com/nxpkg/nxpod/image-builder/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
 func TestBaseImageBuild(t *testing.T) {
@@ -54,7 +54,7 @@ func TestBaseImageBuild(t *testing.T) {
 							Source: &csapi.WorkspaceInitializer{
 								Spec: &csapi.WorkspaceInitializer_Git{
 									Git: &csapi.GitInitializer{
-										RemoteUri:  "https://github.com/gitpod-io/gitpod.git",
+										RemoteUri:  "https://github.com/nxpkg/nxpod.git",
 										TargetMode: csapi.CloneTargetMode_REMOTE_BRANCH,
 										CloneTaget: "main",
 										Config: &csapi.GitConfig{
@@ -136,7 +136,7 @@ func TestParallelBaseImageBuild(t *testing.T) {
 							Source: &csapi.WorkspaceInitializer{
 								Spec: &csapi.WorkspaceInitializer_Git{
 									Git: &csapi.GitInitializer{
-										RemoteUri:  "https://github.com/gitpod-io/gitpod.git",
+										RemoteUri:  "https://github.com/nxpkg/nxpod.git",
 										TargetMode: csapi.CloneTargetMode_REMOTE_BRANCH,
 										CloneTaget: "main",
 										Config: &csapi.GitConfig{

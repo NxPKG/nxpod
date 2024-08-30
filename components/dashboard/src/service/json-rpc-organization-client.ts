@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { PartialMessage } from "@bufbuild/protobuf";
 import { CallOptions, PromiseClient } from "@connectrpc/connect";
-import { OrganizationService } from "@gitpod/public-api/lib/gitpod/v1/organization_connect";
+import { OrganizationService } from "@nxpod/public-api/lib/nxpod/v1/organization_connect";
 import {
     CreateOrganizationRequest,
     CreateOrganizationResponse,
@@ -37,11 +37,11 @@ import {
     UpdateOrganizationResponse,
     UpdateOrganizationSettingsRequest,
     UpdateOrganizationSettingsResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
-import { getGitpodService } from "./service";
+} from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
+import { getNxpodService } from "./service";
 import { converter } from "./public-api";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { OrgMemberRole } from "@gitpod/gitpod-protocol";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { OrgMemberRole } from "@nxpod/nxpod-protocol";
 
 export class JsonRpcOrganizationClient implements PromiseClient<typeof OrganizationService> {
     async createOrganization(
@@ -51,7 +51,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.name) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "name is required");
         }
-        const result = await getGitpodService().server.createTeam(request.name);
+        const result = await getNxpodService().server.createTeam(request.name);
         return new CreateOrganizationResponse({
             organization: converter.toOrganization(result),
         });
@@ -64,7 +64,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        const list = await getGitpodService().server.getOrgWorkspaceClasses(request.organizationId);
+        const list = await getNxpodService().server.getOrgWorkspaceClasses(request.organizationId);
         return new ListOrganizationWorkspaceClassesResponse({
             workspaceClasses: list.map((e) => converter.toWorkspaceClass(e)),
         });
@@ -77,7 +77,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "id is required");
         }
-        const result = await getGitpodService().server.getTeam(request.organizationId);
+        const result = await getNxpodService().server.getTeam(request.organizationId);
 
         return new GetOrganizationResponse({
             organization: converter.toOrganization(result),
@@ -94,7 +94,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.name) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "name is required");
         }
-        await getGitpodService().server.updateTeam(request.organizationId, {
+        await getNxpodService().server.updateTeam(request.organizationId, {
             name: request.name,
         });
         return new UpdateOrganizationResponse();
@@ -104,7 +104,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         request: PartialMessage<ListOrganizationsRequest>,
         options?: CallOptions | undefined,
     ): Promise<ListOrganizationsResponse> {
-        const result = await getGitpodService().server.getTeams();
+        const result = await getNxpodService().server.getTeams();
         return new ListOrganizationsResponse({
             organizations: result.map((team) => converter.toOrganization(team)),
         });
@@ -117,7 +117,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        await getGitpodService().server.deleteTeam(request.organizationId);
+        await getNxpodService().server.deleteTeam(request.organizationId);
         return new DeleteOrganizationResponse();
     }
 
@@ -128,7 +128,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        const result = await getGitpodService().server.getGenericInvite(request.organizationId);
+        const result = await getNxpodService().server.getGenericInvite(request.organizationId);
         return new GetOrganizationInvitationResponse({
             invitationId: result.id,
         });
@@ -141,7 +141,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.invitationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "invitationId is required");
         }
-        const result = await getGitpodService().server.joinTeam(request.invitationId);
+        const result = await getNxpodService().server.joinTeam(request.invitationId);
         return new JoinOrganizationResponse({
             organizationId: result.id,
         });
@@ -154,7 +154,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        const newInvite = await getGitpodService().server.resetGenericInvite(request.organizationId);
+        const newInvite = await getNxpodService().server.resetGenericInvite(request.organizationId);
         return new ResetOrganizationInvitationResponse({
             invitationId: newInvite.id,
         });
@@ -167,7 +167,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        const result = await getGitpodService().server.getTeamMembers(request.organizationId);
+        const result = await getNxpodService().server.getTeamMembers(request.organizationId);
         return new ListOrganizationMembersResponse({
             members: result.map((member) => converter.toOrganizationMember(member)),
         });
@@ -186,7 +186,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.role) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "role is required");
         }
-        await getGitpodService().server.setTeamMemberRole(
+        await getNxpodService().server.setTeamMemberRole(
             request.organizationId,
             request.userId,
             converter.fromOrgMemberRole(request.role),
@@ -204,7 +204,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.userId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "userId is required");
         }
-        await getGitpodService().server.removeTeamMember(request.organizationId, request.userId);
+        await getNxpodService().server.removeTeamMember(request.organizationId, request.userId);
         return new DeleteOrganizationMemberResponse();
     }
 
@@ -215,7 +215,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
         if (!request.organizationId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "organizationId is required");
         }
-        const result = await getGitpodService().server.getOrgSettings(request.organizationId);
+        const result = await getNxpodService().server.getOrgSettings(request.organizationId);
         return new GetOrganizationSettingsResponse({
             settings: converter.toOrganizationSettings(result),
         });
@@ -251,7 +251,7 @@ export class JsonRpcOrganizationClient implements PromiseClient<typeof Organizat
                 "updateRestrictedEditorNames is required to be true to update restrictedEditorNames",
             );
         }
-        await getGitpodService().server.updateOrgSettings(request.organizationId, {
+        await getNxpodService().server.updateOrgSettings(request.organizationId, {
             ...update,
             defaultRole: request.defaultRole as OrgMemberRole,
             timeoutSettings: {

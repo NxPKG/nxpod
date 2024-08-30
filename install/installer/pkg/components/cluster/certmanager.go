@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
 
 	trust "github.com/cert-manager/trust-manager/pkg/apis/trust/v1alpha1"
 	v1 "github.com/jetstack/cert-manager/pkg/apis/certmanager/v1"

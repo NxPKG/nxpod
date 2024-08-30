@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	ide_service "github.com/gitpod-io/gitpod/installer/pkg/components/ide-service"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	ide_service "github.com/nxpkg/nxpod/installer/pkg/components/ide-service"
 
 	"github.com/spf13/cobra"
 )
@@ -77,7 +77,7 @@ func init() {
 		log.WithError(err).Fatal("Failed to get working directory")
 	}
 
-	ideConfigmapCmd.PersistentFlags().StringVarP(&ideOpts.ConfigFN, "config", "c", getEnvvar("GITPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file, use - for stdin")
+	ideConfigmapCmd.PersistentFlags().StringVarP(&ideOpts.ConfigFN, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file, use - for stdin")
 	ideConfigmapCmd.PersistentFlags().StringVarP(&ideOpts.Namespace, "namespace", "n", getEnvvar("NAMESPACE", "default"), "namespace to deploy to")
 	ideConfigmapCmd.Flags().BoolVar(&ideOpts.UseExperimentalConfig, "use-experimental-config", false, "enable the use of experimental config that is prone to be changed")
 }

@@ -1,9 +1,9 @@
-module github.com/gitpod-io/gitpod/local-app/api
+module github.com/nxpkg/nxpod/local-app/api
 
 go 1.22
 
 require (
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.49.0
 	google.golang.org/protobuf v1.28.1
 )
@@ -17,4 +17,4 @@ require (
 	google.golang.org/genproto v0.0.0-20220822174746-9e6da59bd2fc // indirect
 )
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../../supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../../supervisor-api/go // leeway

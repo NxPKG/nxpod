@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,9 +13,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	v1 "github.com/gitpod-io/gitpod/usage-api/v1"
+	"github.com/nxpkg/nxpod/common-go/log"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	v1 "github.com/nxpkg/nxpod/usage-api/v1"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/durationpb"

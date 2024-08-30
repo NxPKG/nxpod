@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -13,13 +13,13 @@ import {
     WORKSPACE_LIFETIME_SHORT,
     User,
     BillingTier,
-} from "@gitpod/gitpod-protocol";
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
+} from "@nxpod/nxpod-protocol";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
 import { inject, injectable } from "inversify";
 import { EntitlementService, HitParallelWorkspaceLimit, MayStartWorkspaceResult } from "./entitlement-service";
-import { CostCenter_BillingStrategy } from "@gitpod/usage-api/lib/usage/v1/usage.pb";
+import { CostCenter_BillingStrategy } from "@nxpod/usage-api/lib/usage/v1/usage.pb";
 import { UsageService } from "../orgs/usage-service";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { VerificationService } from "../auth/verification-service";
 
 const MAX_PARALLEL_WORKSPACES_FREE = 4;

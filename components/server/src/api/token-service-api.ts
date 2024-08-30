@@ -1,24 +1,24 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { ServiceImpl } from "@connectrpc/connect";
 import { HandlerContext } from "@connectrpc/connect/dist/cjs/implementation";
-import { TokenService as TokenServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/token_connect";
+import { TokenService as TokenServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/token_connect";
 import {
     CreateTemporaryAccessTokenRequest,
     CreateTemporaryAccessTokenResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/token_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/token_pb";
 import { inject, injectable } from "inversify";
 import { SessionHandler } from "../session-handler";
 import { ctxUserId } from "../util/request-context";
 import { Authorizer } from "../authorization/authorizer";
 import { validate as uuidValidate } from "uuid";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 @injectable()
 export class TokenServiceAPI implements ServiceImpl<typeof TokenServiceInterface> {

@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { inject, injectable } from "inversify";
 import * as grpc from "@grpc/grpc-js";
-import { RedisPublisher, WorkspaceDB } from "@gitpod/gitpod-db/lib";
+import { RedisPublisher, WorkspaceDB } from "@nxpod/nxpod-db/lib";
 import {
     CommitContext,
     GetWorkspaceTimeoutResult,
-    GitpodServer,
+    NxpodServer,
     HeadlessLogUrls,
     PortProtocol,
     PortVisibility,
@@ -30,11 +30,11 @@ import {
     WorkspaceSession,
     WorkspaceSoftDeletion,
     WorkspaceTimeoutDuration,
-} from "@gitpod/gitpod-protocol";
-import { ErrorCodes, ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { generateAsyncGenerator } from "@gitpod/gitpod-protocol/lib/generate-async-generator";
+} from "@nxpod/nxpod-protocol";
+import { ErrorCodes, ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { generateAsyncGenerator } from "@nxpod/nxpod-protocol/lib/generate-async-generator";
 import { Authorizer } from "../authorization/authorizer";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { WorkspaceFactory } from "./workspace-factory";
 import {
     DescribeWorkspaceRequest,
@@ -48,34 +48,34 @@ import {
     AdmissionLevel,
     ControlAdmissionRequest,
     TakeSnapshotRequest,
-} from "@gitpod/ws-manager/lib";
+} from "@nxpod/ws-manager/lib";
 import {
     WorkspaceStarter,
     StartWorkspaceOptions as StarterStartWorkspaceOptions,
     isClusterMaintenanceError,
     getWorkspaceClassForInstance,
 } from "./workspace-starter";
-import { LogContext, log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { LogContext, log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { EntitlementService, MayStartWorkspaceResult } from "../billing/entitlement-service";
 import * as crypto from "crypto";
-import { WorkspaceRegion, isWorkspaceRegion } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+import { WorkspaceRegion, isWorkspaceRegion } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 import { RegionService } from "./region-service";
 import { LazyPrebuildManager, ProjectsService } from "../projects/projects-service";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
-import { SupportedWorkspaceClass } from "@gitpod/gitpod-protocol/lib/workspace-class";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
+import { SupportedWorkspaceClass } from "@nxpod/nxpod-protocol/lib/workspace-class";
 import { Config } from "../config";
-import { goDurationToHumanReadable } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { goDurationToHumanReadable } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 import { HeadlessLogEndpoint, HeadlessLogService } from "./headless-log-service";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
 import { OrganizationService } from "../orgs/organization-service";
-import { isGrpcError } from "@gitpod/gitpod-protocol/lib/util/grpc";
+import { isGrpcError } from "@nxpod/nxpod-protocol/lib/util/grpc";
 import { RedisSubscriber } from "../messaging/redis-subscriber";
 import { SnapshotService } from "./snapshot-service";
 import { InstallationService } from "../auth/installation-service";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
-import { WatchWorkspaceStatusResponse } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
+import { WatchWorkspaceStatusResponse } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { ContextParser } from "./context-parser-service";
-import { scrubber, TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { scrubber, TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 
 export const GIT_STATUS_LENGTH_CAP_BYTES = 4096;
 
@@ -242,7 +242,7 @@ export class WorkspaceService {
         };
     }
 
-    async getWorkspaces(userId: string, options: GitpodServer.GetWorkspacesOptions): Promise<WorkspaceInfo[]> {
+    async getWorkspaces(userId: string, options: NxpodServer.GetWorkspacesOptions): Promise<WorkspaceInfo[]> {
         const res = await this.db.find({
             limit: 20,
             ...options,
@@ -1227,7 +1227,7 @@ export class WorkspaceService {
 
     public async sendHeartBeat(
         userId: string,
-        options: GitpodServer.SendHeartBeatOptions,
+        options: NxpodServer.SendHeartBeatOptions,
         check: (instance: WorkspaceInstance, workspace: Workspace) => Promise<void> = async () => {},
     ): Promise<void> {
         const instanceId = options.instanceId;
@@ -1313,7 +1313,7 @@ export class WorkspaceService {
         try {
             return await this.workspaceStarter.resolveBaseImage(ctx, user, imageRef);
         } catch (e) {
-            // see https://github.com/gitpod-io/gitpod/blob/f3e41f8d86234e4101edff2199c54f50f8cbb656/components/image-builder-mk3/pkg/orchestrator/orchestrator.go#L561
+            // see https://github.com/nxpkg/nxpod/blob/f3e41f8d86234e4101edff2199c54f50f8cbb656/components/image-builder-mk3/pkg/orchestrator/orchestrator.go#L561
             // TODO(ak) ideally we won't check a message (subject to change)
             // but ws-manager does not return INTERNAL for invalid image refs provided by a user
             // otherwise we report it as internal error in observability
@@ -1352,7 +1352,7 @@ export class WorkspaceService {
         };
     }
 
-    public async takeSnapshot(userId: string, options: GitpodServer.TakeSnapshotOptions): Promise<Snapshot> {
+    public async takeSnapshot(userId: string, options: NxpodServer.TakeSnapshotOptions): Promise<Snapshot> {
         const { workspaceId, dontWait } = options;
         await this.auth.checkPermissionOnWorkspace(userId, "create_snapshot", workspaceId);
         const workspace = await this.doGetWorkspace(userId, workspaceId);

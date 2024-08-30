@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/ws-daemon/seccomp-profile-installer
+module github.com/nxpkg/nxpod/ws-daemon/seccomp-profile-installer
 
 go 1.22
 

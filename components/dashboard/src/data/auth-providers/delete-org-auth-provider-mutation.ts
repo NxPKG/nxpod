@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useCurrentOrg } from "../organizations/orgs-query";
 import { getOrgAuthProvidersQueryKey } from "./org-auth-providers-query";
 import { authProviderClient } from "../../service/public-api";
-import { AuthProvider, DeleteAuthProviderRequest } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+import { AuthProvider, DeleteAuthProviderRequest } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 
 type DeleteAuthProviderArgs = {
     providerId: string;

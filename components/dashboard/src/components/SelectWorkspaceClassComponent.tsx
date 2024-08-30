@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,12 +7,12 @@
 import { FC, useCallback, useEffect, useMemo } from "react";
 import WorkspaceClassIcon from "../icons/WorkspaceClass.svg";
 import { Combobox, ComboboxElement, ComboboxSelectedItem } from "./podkit/combobox/Combobox";
-import { WorkspaceClass } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { WorkspaceClass } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { useAllowedWorkspaceClassesMemo } from "../data/workspaces/workspace-classes-query";
 import { PlainMessage } from "@bufbuild/protobuf";
 import { Link } from "react-router-dom";
 import { repositoriesRoutes } from "../repositories/repositories.routes";
-import { isGitpodIo } from "../utils";
+import { isNxpodIo } from "../utils";
 
 interface SelectWorkspaceClassProps {
     selectedConfigurationId?: string;
@@ -44,7 +44,7 @@ export default function SelectWorkspaceClassComponent({
             element: <WorkspaceClassDropDownElement wsClass={c} />,
             isSelectable: true,
         }));
-        if (isGitpodIo()) {
+        if (isNxpodIo()) {
             elements.push({
                 id: "learn-more",
                 element: (
@@ -52,11 +52,11 @@ export default function SelectWorkspaceClassComponent({
                         <span>Need more classes? </span>
                         <a
                             className="text-sm gp-link"
-                            href="https://www.gitpod.io/docs/enterprise"
+                            href="https://www.nxpod.io/docs/enterprise"
                             target="_blank"
                             rel="noreferrer"
                         >
-                            Learn about Gitpod Enterprise
+                            Learn about Nxpod Enterprise
                         </a>
                     </div>
                 ),

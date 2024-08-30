@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -15,7 +15,7 @@ export function load(): Promise<{
         const frame = document.createElement("iframe");
         frame.src = startUrl.toString();
         frame.style.visibility = "visible";
-        frame.className = "gitpod-frame loading";
+        frame.className = "nxpod-frame loading";
         frame.allow = "clipboard-write"
         document.body.prepend(frame);
 

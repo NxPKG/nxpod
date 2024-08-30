@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -24,23 +24,23 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/archive"
-	"github.com/gitpod-io/gitpod/content-service/pkg/git"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/archive"
+	"github.com/nxpkg/nxpod/content-service/pkg/git"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
 )
 
 const (
 	// WorkspaceReadyFile is the name of the ready file we're placing in a workspace
-	WorkspaceReadyFile = ".gitpod/ready"
+	WorkspaceReadyFile = ".nxpod/ready"
 
-	// GitpodUID is the user ID of the gitpod user
-	GitpodUID = 33333
+	// NxpodUID is the user ID of the nxpod user
+	NxpodUID = 33333
 
-	// GitpodGID is the group ID of the gitpod user group
-	GitpodGID = 33333
+	// NxpodGID is the group ID of the nxpod user group
+	NxpodGID = 33333
 
 	// otsDownloadAttempts is the number of times we'll attempt to download the one-time secret
 	otsDownloadAttempts = 20
@@ -99,11 +99,11 @@ func (e CompositeInitializer) Run(ctx context.Context, mappings []archive.IDMapp
 
 // NewFromRequestOpts configures the initializer produced from a content init request
 type NewFromRequestOpts struct {
-	// ForceGitpodUserForGit forces gitpod:gitpod ownership on all files produced by the Git initializer.
+	// ForceNxpodUserForGit forces nxpod:nxpod ownership on all files produced by the Git initializer.
 	// For FWB workspaces the content init is run from supervisor which runs as UID 0. Using this flag, the
-	// Git content is forced to the Gitpod user. All other content (backup, prebuild, snapshot) will already
+	// Git content is forced to the Nxpod user. All other content (backup, prebuild, snapshot) will already
 	// have the correct user.
-	ForceGitpodUserForGit bool
+	ForceNxpodUserForGit bool
 }
 
 // NewFromRequest picks the initializer from the request but does not execute it.
@@ -132,7 +132,7 @@ func NewFromRequest(ctx context.Context, loc string, rs storage.DirectDownloader
 			return nil, status.Error(codes.InvalidArgument, "missing Git initializer spec")
 		}
 
-		initializer, err = newGitInitializer(ctx, loc, ir.Git, opts.ForceGitpodUserForGit)
+		initializer, err = newGitInitializer(ctx, loc, ir.Git, opts.ForceNxpodUserForGit)
 	} else if ir, ok := spec.(*csapi.WorkspaceInitializer_Prebuild); ok {
 		if ir.Prebuild == nil {
 			return nil, status.Error(codes.InvalidArgument, "missing prebuild initializer spec")
@@ -146,7 +146,7 @@ func NewFromRequest(ctx context.Context, loc string, rs storage.DirectDownloader
 		}
 		var gits []*GitInitializer
 		for _, gi := range ir.Prebuild.Git {
-			gitinit, err := newGitInitializer(ctx, loc, gi, opts.ForceGitpodUserForGit)
+			gitinit, err := newGitInitializer(ctx, loc, gi, opts.ForceNxpodUserForGit)
 			if err != nil {
 				return nil, err
 			}
@@ -249,7 +249,7 @@ func (bi *fromBackupInitializer) Run(ctx context.Context, mappings []archive.IDM
 
 // newGitInitializer creates a Git initializer based on the request.
 // Returns gRPC errors.
-func newGitInitializer(ctx context.Context, loc string, req *csapi.GitInitializer, forceGitpodUser bool) (*GitInitializer, error) {
+func newGitInitializer(ctx context.Context, loc string, req *csapi.GitInitializer, forceNxpodUser bool) (*GitInitializer, error) {
 	if req.Config == nil {
 		return nil, status.Error(codes.InvalidArgument, "Git initializer misses config")
 	}
@@ -303,7 +303,7 @@ func newGitInitializer(ctx context.Context, loc string, req *csapi.GitInitialize
 			Config:            req.Config.CustomConfig,
 			AuthMethod:        authMethod,
 			AuthProvider:      authProvider,
-			RunAsGitpodUser:   forceGitpodUser,
+			RunAsNxpodUser:   forceNxpodUser,
 		},
 		TargetMode:  targetMode,
 		CloneTarget: req.CloneTaget,
@@ -425,8 +425,8 @@ func InitializeWorkspace(ctx context.Context, location string, remoteStorage sto
 	cfg := initializeOpts{
 		Initializer: &EmptyInitializer{},
 		CleanSlate:  false,
-		GID:         GitpodGID,
-		UID:         GitpodUID,
+		GID:         NxpodGID,
+		UID:         NxpodUID,
 	}
 	for _, o := range opts {
 		o(&cfg)
@@ -486,10 +486,10 @@ func InitializeWorkspace(ctx context.Context, location string, remoteStorage sto
 	return
 }
 
-// Some workspace content may have a `/dst/.gitpod` file or directory. That would break
-// the workspace ready file placement (see https://github.com/gitpod-io/gitpod/issues/7694).
-// This function ensures that workspaces do not have a `.gitpod` file or directory present.
-func EnsureCleanDotGitpodDirectory(ctx context.Context, wspath string) error {
+// Some workspace content may have a `/dst/.nxpod` file or directory. That would break
+// the workspace ready file placement (see https://github.com/nxpkg/nxpod/issues/7694).
+// This function ensures that workspaces do not have a `.nxpod` file or directory present.
+func EnsureCleanDotNxpodDirectory(ctx context.Context, wspath string) error {
 	var mv func(src, dst string) error
 	if git.IsWorkingCopy(wspath) {
 		c := &git.Client{
@@ -502,8 +502,8 @@ func EnsureCleanDotGitpodDirectory(ctx context.Context, wspath string) error {
 		mv = os.Rename
 	}
 
-	dotGitpod := filepath.Join(wspath, ".gitpod")
-	stat, err := os.Stat(dotGitpod)
+	dotNxpod := filepath.Join(wspath, ".nxpod")
+	stat, err := os.Stat(dotNxpod)
 	if errors.Is(err, fs.ErrNotExist) {
 		return nil
 	}
@@ -512,14 +512,14 @@ func EnsureCleanDotGitpodDirectory(ctx context.Context, wspath string) error {
 		return nil
 	}
 
-	candidateFN := filepath.Join(wspath, ".gitpod.yaml")
+	candidateFN := filepath.Join(wspath, ".nxpod.yaml")
 	if _, err := os.Stat(candidateFN); err == nil {
 		// Our candidate file already exists, hence we cannot just move things.
-		// As fallback we'll delete the .gitpod entry.
-		return os.RemoveAll(dotGitpod)
+		// As fallback we'll delete the .nxpod entry.
+		return os.RemoveAll(dotNxpod)
 	}
 
-	err = mv(dotGitpod, candidateFN)
+	err = mv(dotNxpod, candidateFN)
 	if err != nil {
 		return err
 	}
@@ -543,12 +543,12 @@ func PlaceWorkspaceReadyFile(ctx context.Context, wspath string, initsrc csapi.W
 		return xerrors.Errorf("cannot marshal workspace ready message: %w", err)
 	}
 
-	gitpodDir := filepath.Join(wspath, filepath.Dir(WorkspaceReadyFile))
-	err = os.MkdirAll(gitpodDir, 0777)
+	nxpodDir := filepath.Join(wspath, filepath.Dir(WorkspaceReadyFile))
+	err = os.MkdirAll(nxpodDir, 0777)
 	if err != nil {
 		return xerrors.Errorf("cannot create directory for workspace ready file: %w", err)
 	}
-	err = os.Chown(gitpodDir, uid, gid)
+	err = os.Chown(nxpodDir, uid, gid)
 	if err != nil {
 		return xerrors.Errorf("cannot chown directory for workspace ready file: %w", err)
 	}

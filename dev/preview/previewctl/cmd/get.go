@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,7 +13,7 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/client-go/util/homedir"
 
-	"github.com/gitpod-io/gitpod/previewctl/pkg/preview"
+	"github.com/nxpkg/nxpod/previewctl/pkg/preview"
 )
 
 func newGetCmd(logger *logrus.Logger) *cobra.Command {
@@ -63,7 +63,7 @@ func newGetUrlSubCmd() *cobra.Command {
 				return err
 			}
 
-			previewUrl := fmt.Sprintf("https://%s.preview.gitpod-dev.com", previewName)
+			previewUrl := fmt.Sprintf("https://%s.preview.nxpod-dev.com", previewName)
 			fmt.Println(previewUrl)
 
 			return nil

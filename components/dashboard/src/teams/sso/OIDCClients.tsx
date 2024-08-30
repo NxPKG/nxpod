@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { OIDCClientConfig } from "@gitpod/public-api/lib/gitpod/experimental/v1/oidc_pb";
+import { OIDCClientConfig } from "@nxpod/public-api/lib/nxpod/experimental/v1/oidc_pb";
 import { FC, useCallback, useState } from "react";
 import { Button } from "@podkit/buttons/Button";
 import { EmptyMessage } from "../../components/EmptyMessage";

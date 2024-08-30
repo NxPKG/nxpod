@@ -1,20 +1,20 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { v1 } from "@authzed/authzed-node";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 
 import { incSpiceDBRequestsCheckTotal, observeSpicedbClientLatency, spicedbClientLatency } from "../prometheus-metrics";
 import { SpiceDBClientProvider } from "./spicedb";
 import * as grpc from "@grpc/grpc-js";
 import { base64decode } from "@jmondi/oauth2-server";
-import { DecodedZedToken } from "@gitpod/spicedb-impl/lib/impl/v1/impl.pb";
+import { DecodedZedToken } from "@nxpod/spicedb-impl/lib/impl/v1/impl.pb";
 import { ctxTryGetCache, ctxTrySetCache } from "../util/request-context";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 async function tryThree<T>(errMessage: string, code: (attempt: number) => Promise<T>): Promise<T> {
     let attempt = 0;

@@ -260,10 +260,10 @@
               }
             },
             "author": {
-              "raw": "Gitpod <cornelius.ludmann+atlassian-gitpod@typefox.io>",
+              "raw": "Nxpod <cornelius.ludmann+atlassian-nxpod@typefox.io>",
               "type": "author",
               "user": {
-                "display_name": "Gitpod",
+                "display_name": "Nxpod",
                 "account_id": "5eb417d896bbcb0b85844b89",
                 "links": {
                   "self": {
@@ -276,7 +276,7 @@
                     "href": "https://secure.gravatar.com/avatar/7b0cf857bd37fd64637b700b29aa8193?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FG-6.png"
                   }
                 },
-                "nickname": "Gitpod",
+                "nickname": "Nxpod",
                 "type": "user",
                 "uuid": "{7d3643e3-6182-4191-a1e7-7559658f698b}"
               }
@@ -403,10 +403,10 @@
     "parent": {
       "links": {
         "self": {
-          "href": "https://api.bitbucket.org/2.0/repositories/gitpod/sample-repository"
+          "href": "https://api.bitbucket.org/2.0/repositories/nxpod/sample-repository"
         },
         "html": {
-          "href": "https://bitbucket.org/gitpod/sample-repository"
+          "href": "https://bitbucket.org/nxpod/sample-repository"
         },
         "avatar": {
           "href": "https://bytebucket.org/ravatar/%7B1351a853-bde6-4be3-966e-37e3624972ca%7D?ts=markdown"
@@ -414,7 +414,7 @@
       },
       "type": "repository",
       "name": "Sample Repository",
-      "full_name": "gitpod/sample-repository",
+      "full_name": "nxpod/sample-repository",
       "uuid": "{1351a853-bde6-4be3-966e-37e3624972ca}"
     },
     "links": {

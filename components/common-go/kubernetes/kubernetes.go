@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,7 +17,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 const (
@@ -43,44 +43,44 @@ const (
 	ServiceTypeLabel = "serviceType"
 
 	// WorkspaceManaged indicates which component is responsible for managing the workspace
-	WorkspaceManagedByLabel = "gitpod.io/managed-by"
+	WorkspaceManagedByLabel = "nxpod.io/managed-by"
 
 	// CPULimitAnnotation enforces a strict CPU limit on a workspace by virtue of ws-daemon
-	CPULimitAnnotation = "gitpod.io/cpuLimit"
+	CPULimitAnnotation = "nxpod.io/cpuLimit"
 
 	// WorkspaceURLAnnotation is the annotation on the WS pod which contains the public workspace URL.
-	WorkspaceURLAnnotation = "gitpod/url"
+	WorkspaceURLAnnotation = "nxpod/url"
 
 	// OwnerTokenAnnotation contains the owner token of the workspace.
-	OwnerTokenAnnotation = "gitpod/ownerToken"
+	OwnerTokenAnnotation = "nxpod/ownerToken"
 
 	// WorkspaceAdmissionAnnotation determines the user admission to a workspace, i.e. if it can be accessed by everyone without token.
-	WorkspaceAdmissionAnnotation = "gitpod/admission"
+	WorkspaceAdmissionAnnotation = "nxpod/admission"
 
 	// WorkspaceImageSpecAnnotation contains the protobuf serialized image spec in base64 encoding. We need to keep this around post-request
 	// to provide this information to the registry facade later in the workspace's lifecycle.
-	WorkspaceImageSpecAnnotation = "gitpod/imageSpec"
+	WorkspaceImageSpecAnnotation = "nxpod/imageSpec"
 
 	// WorkspaceExposedPorts contains the exposed ports in the workspace
-	WorkspaceExposedPorts = "gitpod/exposedPorts"
+	WorkspaceExposedPorts = "nxpod/exposedPorts"
 
 	// WorkspaceSSHPublicKeys contains all authorized ssh public keys that can be connected to the workspace
-	WorkspaceSSHPublicKeys = "gitpod.io/sshPublicKeys"
+	WorkspaceSSHPublicKeys = "nxpod.io/sshPublicKeys"
 
 	// workspaceCpuMinLimitAnnotation denotes the minimum cpu limit of a workspace i.e. the minimum amount of resources it is guaranteed to get
-	WorkspaceCpuMinLimitAnnotation = "gitpod.io/cpuMinLimit"
+	WorkspaceCpuMinLimitAnnotation = "nxpod.io/cpuMinLimit"
 
 	// workspaceCpuBurstLimit denotes the cpu burst limit of a workspace
-	WorkspaceCpuBurstLimitAnnotation = "gitpod.io/cpuBurstLimit"
+	WorkspaceCpuBurstLimitAnnotation = "nxpod.io/cpuBurstLimit"
 
 	// workspaceNetConnLimit denotes the maximum number of connections a workspace can make per minute
-	WorkspaceNetConnLimitAnnotation = "gitpod.io/netConnLimitPerMinute"
+	WorkspaceNetConnLimitAnnotation = "nxpod.io/netConnLimitPerMinute"
 
 	// workspacePressureStallInfo indicates if pressure stall information should be retrieved for the workspace
-	WorkspacePressureStallInfoAnnotation = "gitpod.io/psi"
+	WorkspacePressureStallInfoAnnotation = "nxpod.io/psi"
 
 	// ImageNameAnnotation indicates the original format of the main image of the pod
-	ImageNameAnnotation = "gitpod.io/image_name"
+	ImageNameAnnotation = "nxpod.io/image_name"
 )
 
 // GetOWIFromObject finds the owner, workspace and instance information on a Kubernetes object using labels

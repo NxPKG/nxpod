@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,15 +13,15 @@ import (
 	"testing"
 
 	connect "github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/experiments/experimentstest"
-	"github.com/gitpod-io/gitpod/components/public-api/go/config"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/auth"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws/jwstest"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/experiments/experimentstest"
+	"github.com/nxpkg/nxpod/components/public-api/go/config"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -59,12 +59,12 @@ func TestGetIDToken(t *testing.T) {
 				ma.EXPECT().GetWorkspace(gomock.Any(), workspaceID).MinTimes(1).Return(
 					&protocol.WorkspaceInfo{
 						Workspace: &protocol.Workspace{
-							ContextURL: "https://github.com/gitpod-io/gitpod",
+							ContextURL: "https://github.com/nxpkg/nxpod",
 							Context: &protocol.WorkspaceContext{
 								Repository: &protocol.Repository{
-									CloneURL: "https://github.com/gitpod-io/gitpod.git",
+									CloneURL: "https://github.com/nxpkg/nxpod.git",
 								},
-								NormalizedContextURL: "https://github.com/gitpod-io/gitpod",
+								NormalizedContextURL: "https://github.com/nxpkg/nxpod",
 							},
 						},
 					},
@@ -108,12 +108,12 @@ func TestGetIDToken(t *testing.T) {
 				ma.EXPECT().GetWorkspace(gomock.Any(), workspaceID).MinTimes(1).Return(
 					&protocol.WorkspaceInfo{
 						Workspace: &protocol.Workspace{
-							ContextURL: "https://github.com/gitpod-io/gitpod",
+							ContextURL: "https://github.com/nxpkg/nxpod",
 							Context: &protocol.WorkspaceContext{
 								Repository: &protocol.Repository{
-									CloneURL: "https://github.com/gitpod-io/gitpod.git",
+									CloneURL: "https://github.com/nxpkg/nxpod.git",
 								},
-								NormalizedContextURL: "https://github.com/gitpod-io/gitpod",
+								NormalizedContextURL: "https://github.com/nxpkg/nxpod",
 							},
 						},
 					},
@@ -175,9 +175,9 @@ func TestGetIDToken(t *testing.T) {
 				ma.EXPECT().GetWorkspace(gomock.Any(), workspaceID).MinTimes(1).Return(
 					&protocol.WorkspaceInfo{
 						Workspace: &protocol.Workspace{
-							ContextURL: "https://github.com/gitpod-io/gitpod",
+							ContextURL: "https://github.com/nxpkg/nxpod",
 							Context: &protocol.WorkspaceContext{
-								NormalizedContextURL: "https://github.com/gitpod-io/gitpod",
+								NormalizedContextURL: "https://github.com/nxpkg/nxpod",
 							},
 						},
 					},
@@ -226,12 +226,12 @@ func TestGetIDToken(t *testing.T) {
 				ma.EXPECT().GetWorkspace(gomock.Any(), workspaceID).MinTimes(1).Return(
 					&protocol.WorkspaceInfo{
 						Workspace: &protocol.Workspace{
-							ContextURL: "https://github.com/gitpod-io/gitpod",
+							ContextURL: "https://github.com/nxpkg/nxpod",
 							Context: &protocol.WorkspaceContext{
 								Repository: &protocol.Repository{
-									CloneURL: "https://github.com/gitpod-io/gitpod.git",
+									CloneURL: "https://github.com/nxpkg/nxpod.git",
 								},
-								NormalizedContextURL: "https://github.com/gitpod-io/gitpod",
+								NormalizedContextURL: "https://github.com/nxpkg/nxpod",
 							},
 						},
 					},
@@ -273,9 +273,9 @@ func TestGetIDToken(t *testing.T) {
 				ma.EXPECT().GetWorkspace(gomock.Any(), workspaceID).MinTimes(1).Return(
 					&protocol.WorkspaceInfo{
 						Workspace: &protocol.Workspace{
-							ContextURL: "https://github.com/gitpod-io/gitpod",
+							ContextURL: "https://github.com/nxpkg/nxpod",
 							Context: &protocol.WorkspaceContext{
-								NormalizedContextURL: "https://github.com/gitpod-io/gitpod",
+								NormalizedContextURL: "https://github.com/nxpkg/nxpod",
 							},
 						},
 					},
@@ -353,7 +353,7 @@ func (f functionIDTokenSource) IDToken(ctx context.Context, org string, audience
 }
 
 func TestGetOIDCSubject(t *testing.T) {
-	normalizedContextUrl := "https://github.com/gitpod-io/gitpod"
+	normalizedContextUrl := "https://github.com/nxpkg/nxpod"
 	defaultWorkspace := &protocol.Workspace{
 		ContextURL: "SOME_ENV=test/" + normalizedContextUrl,
 		Context: &protocol.WorkspaceContext{

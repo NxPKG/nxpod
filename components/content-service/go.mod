@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/content-service
+module github.com/nxpkg/nxpod/content-service
 
 go 1.22
 
@@ -10,8 +10,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.53.0
 	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/fsouza/fake-gcs-server v1.48.0
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
 	github.com/go-ozzo/ozzo-validation v3.5.0+incompatible
 	github.com/golang/mock v1.6.0
 	github.com/google/go-cmp v0.6.0
@@ -55,7 +55,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -116,11 +116,11 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../content-service-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

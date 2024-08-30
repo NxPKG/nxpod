@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { FunctionComponent, useCallback } from "react";
 import ConfirmationModal from "../../../components/ConfirmationModal";
-import type { Configuration } from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
+import type { Configuration } from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
 import { useDeleteConfiguration } from "../../../data/configurations/configuration-queries";
 
 type Props = {

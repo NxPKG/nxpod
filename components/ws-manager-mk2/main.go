@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -36,20 +36,20 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/pprof"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	"github.com/gitpod-io/gitpod/components/scrubber"
-	imgbldr "github.com/gitpod-io/gitpod/image-builder/api"
-	regapi "github.com/gitpod-io/gitpod/registry-facade/api"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/controllers"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/maintenance"
-	imgproxy "github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/proxy"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/service"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
-	config "github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/pprof"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/components/scrubber"
+	imgbldr "github.com/nxpkg/nxpod/image-builder/api"
+	regapi "github.com/nxpkg/nxpod/registry-facade/api"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/controllers"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/maintenance"
+	imgproxy "github.com/nxpkg/nxpod/ws-manager-mk2/pkg/proxy"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/service"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
+	config "github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -139,7 +139,7 @@ func main() {
 		}),
 		HealthProbeBindAddress:        cfg.Health.Addr,
 		LeaderElection:                true,
-		LeaderElectionID:              "ws-manager-mk2-leader.gitpod.io",
+		LeaderElectionID:              "ws-manager-mk2-leader.nxpod.io",
 		LeaderElectionReleaseOnCancel: true,
 		NewClient: func(config *rest.Config, options client.Options) (client.Client, error) {
 			config.QPS = 100

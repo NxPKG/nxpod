@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/jsonselect
+module github.com/nxpkg/nxpod/proxy/plugins/jsonselect
 
 go 1.21
 

@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { isGitpodIo } from "../utils";
-import { OrganizationSettings } from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
+import { isNxpodIo } from "../utils";
+import { OrganizationSettings } from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import Alert from "../components/Alert";
 import { CheckboxInputField } from "../components/forms/CheckboxInputField";
@@ -33,7 +33,7 @@ import { useOrgBillingMode } from "../data/billing-mode/org-billing-mode-query";
 import { converter } from "../service/public-api";
 import { useToast } from "../components/toasts/Toasts";
 import type { PlainMessage } from "@bufbuild/protobuf";
-import { WorkspaceTimeoutDuration } from "@gitpod/gitpod-protocol";
+import { WorkspaceTimeoutDuration } from "@nxpod/nxpod-protocol";
 import { Link } from "react-router-dom";
 import { InputField } from "../components/forms/InputField";
 import { TextInput } from "../components/forms/TextInputField";
@@ -212,7 +212,7 @@ export default function TeamPoliciesPage() {
                         handleUpdateTeamSettings={handleUpdateTeamSettings}
                     />
 
-                    {isGitpodIo() && <WorkspaceClassesEnterpriseCallout />}
+                    {isNxpodIo() && <WorkspaceClassesEnterpriseCallout />}
 
                     <EditorOptions
                         isOwner={isOwner}
@@ -401,7 +401,7 @@ const WorkspaceClassesEnterpriseCallout = () => {
                 <LinkButton
                     variant="secondary"
                     className="border border-pk-content-tertiary text-pk-content-primary bg-pk-surface-primary"
-                    href="https://www.gitpod.io/docs/configure/workspaces/workspace-classes#enterprise"
+                    href="https://www.nxpod.io/docs/configure/workspaces/workspace-classes#enterprise"
                     isExternalUrl={true}
                 >
                     Documentation
@@ -409,7 +409,7 @@ const WorkspaceClassesEnterpriseCallout = () => {
                 <LinkButton
                     variant="secondary"
                     className="border border-pk-content-tertiary text-pk-content-primary bg-pk-surface-primary"
-                    href="https://www.gitpod.io/docs/enterprise"
+                    href="https://www.nxpod.io/docs/enterprise"
                     isExternalUrl={true}
                 >
                     Learn more about Enterprise

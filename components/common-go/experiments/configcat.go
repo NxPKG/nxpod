@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,7 +9,7 @@ import (
 	"fmt"
 
 	configcat "github.com/configcat/go-sdk/v7"
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/sirupsen/logrus"
 )
 
@@ -19,7 +19,7 @@ const (
 	teamIDAttribute         = "team_id"
 	teamNameAttribute       = "team_name"
 	vscodeClientIDAttribute = "vscode_client_id"
-	gitpodHost              = "gitpod_host"
+	nxpodHost              = "nxpod_host"
 	component               = "component"
 )
 
@@ -82,8 +82,8 @@ func attributesToUser(attributes Attributes) *configcat.UserData {
 		custom[vscodeClientIDAttribute] = attributes.VSCodeClientID
 	}
 
-	if attributes.GitpodHost != "" {
-		custom[gitpodHost] = attributes.GitpodHost
+	if attributes.NxpodHost != "" {
+		custom[nxpodHost] = attributes.NxpodHost
 	}
 
 	if attributes.Component != "" {

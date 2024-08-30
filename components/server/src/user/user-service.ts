@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { inject, injectable } from "inversify";
 import { Config } from "../config";
-import { UserDB } from "@gitpod/gitpod-db/lib";
+import { UserDB } from "@nxpod/nxpod-db/lib";
 import { Authorizer } from "../authorization/authorizer";
 import {
     AdditionalUserData,
@@ -17,14 +17,14 @@ import {
     User,
     WorkspaceTimeoutDuration,
     WorkspaceTimeoutSetting,
-} from "@gitpod/gitpod-protocol";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { CreateUserParams } from "./user-authentication";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { TransactionalContext } from "@gitpod/gitpod-db/lib/typeorm/transactional-db-impl";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { TransactionalContext } from "@nxpod/nxpod-db/lib/typeorm/transactional-db-impl";
 import { RelationshipUpdater } from "../authorization/relationship-updater";
-import { getName, getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { getName, getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 
 @injectable()
 export class UserService {

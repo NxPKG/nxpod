@@ -1,5 +1,5 @@
 locals {
-  letsencrypt_enabled = var.cert_issuer == "letsencrypt-issuer-gitpod-core-dev"
+  letsencrypt_enabled = var.cert_issuer == "letsencrypt-issuer-nxpod-core-dev"
 }
 
 resource "tls_private_key" "letsencrypt" {
@@ -13,7 +13,7 @@ resource "acme_registration" "letsencrypt" {
   count    = local.letsencrypt_enabled ? 1 : 0
 
   account_key_pem = tls_private_key.letsencrypt[0].private_key_pem
-  email_address   = "preview-environment-certificate-throwaway@gitpod.io"
+  email_address   = "preview-environment-certificate-throwaway@nxpod.io"
 }
 
 resource "acme_certificate" "letsencrypt" {

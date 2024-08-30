@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,10 +20,10 @@ import (
 	env "github.com/Netflix/go-env"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/api"
 
 	"github.com/iancoleman/orderedmap"
 )
@@ -34,8 +34,8 @@ const supervisorConfigFile = "supervisor-config.json"
 //   1. supervisor (static):
 //                  there's some configuration that lives with supervisor and its "installation",
 //                  For example the IDE config location depends on if supervisor is served via registry-facade.
-//   2. IDE: Gitpod supports different IDEs, all of which have different configuration needs.
-//   3. DesktopIDE: Gitpod supports to connect external IDEs (like desktop IDEs).
+//   2. IDE: Nxpod supports different IDEs, all of which have different configuration needs.
+//   3. DesktopIDE: Nxpod supports to connect external IDEs (like desktop IDEs).
 //   4. Workspace: which depends on the individual workspace, its content and configuration.
 
 // Config configures supervisor.
@@ -237,49 +237,49 @@ func (i WorkspaceClassInfo) MarshalEnvironmentValue() (string, error) {
 // from environment variables.
 type WorkspaceConfig struct {
 	// WorkspaceContextURL is an URL for which workspace was created.
-	WorkspaceContextURL string `env:"GITPOD_WORKSPACE_CONTEXT_URL"`
+	WorkspaceContextURL string `env:"NXPOD_WORKSPACE_CONTEXT_URL"`
 
 	// WorkspaceUrl is an URL for which workspace is accessed.
-	WorkspaceUrl string `env:"GITPOD_WORKSPACE_URL"`
+	WorkspaceUrl string `env:"NXPOD_WORKSPACE_URL"`
 
 	// WorkspaceClass denotes the class of the workspace
-	WorkspaceClass string `env:"GITPOD_WORKSPACE_CLASS"`
+	WorkspaceClass string `env:"NXPOD_WORKSPACE_CLASS"`
 
 	// WorkspaceClassInfo denotes the detail of workspace class
-	WorkspaceClassInfo *WorkspaceClassInfo `env:"GITPOD_WORKSPACE_CLASS_INFO"`
+	WorkspaceClassInfo *WorkspaceClassInfo `env:"NXPOD_WORKSPACE_CLASS_INFO"`
 
 	// DefaultWorkspaceImage is the default image of current workspace
-	DefaultWorkspaceImage string `env:"GITPOD_DEFAULT_WORKSPACE_IMAGE"`
+	DefaultWorkspaceImage string `env:"NXPOD_DEFAULT_WORKSPACE_IMAGE"`
 
 	// IsSetJavaXmx is a flag to indicate if the JAVA_XMX environment variable is set
 	// value retrieved from server with FeatureFlag
-	IsSetJavaXmx bool `env:"GITPOD_IS_SET_JAVA_XMX"`
+	IsSetJavaXmx bool `env:"NXPOD_IS_SET_JAVA_XMX"`
 
 	// IsSetJavaProcessorCount is a flag to indicate if the JAVA_PROCESSOR_COUNT environment variable is set
 	// value retrieved from server with FeatureFlag
-	IsSetJavaProcessorCount bool `env:"GITPOD_IS_SET_JAVA_PROCESSOR_COUNT"`
+	IsSetJavaProcessorCount bool `env:"NXPOD_IS_SET_JAVA_PROCESSOR_COUNT"`
 
 	// IDEPort is the port at which the IDE will need to run on. This is not an IDE config
-	// because Gitpod determines this port, not the IDE.
-	IDEPort int `env:"GITPOD_THEIA_PORT"`
+	// because Nxpod determines this port, not the IDE.
+	IDEPort int `env:"NXPOD_THEIA_PORT"`
 
 	// IDEAlias is the alias of the IDE to be run. Possible values: "code", "code-latest", "theia"
-	IDEAlias string `env:"GITPOD_IDE_ALIAS"`
+	IDEAlias string `env:"NXPOD_IDE_ALIAS"`
 
 	// WorkspaceRoot is the location in the filesystem where the workspace content root is located.
 	WorkspaceRoot string `env:"THEIA_WORKSPACE_ROOT"`
 
 	// RepoRoot is the location in the filesystem where the Git repository (not workspace content)
 	// is located. If there's no Git repo in this workspace, this will be empty.
-	RepoRoot string `env:"GITPOD_REPO_ROOT"`
+	RepoRoot string `env:"NXPOD_REPO_ROOT"`
 
 	// RepoRoots is the comma seprated list of locations in the filesystem where Git repositories
 	// are located. If there's no Git repo in this workspace, this will be empty.
-	RepoRoots string `env:"GITPOD_REPO_ROOTS"`
+	RepoRoots string `env:"NXPOD_REPO_ROOTS"`
 
 	// PreventMetadataAccess exits supervisor/stops the workspace if we can access Google Cloud
 	// compute metadata from within the container.
-	PreventMetadataAccess bool `env:"GITPOD_PREVENT_METADATA_ACCESS"`
+	PreventMetadataAccess bool `env:"NXPOD_PREVENT_METADATA_ACCESS"`
 
 	// LogRateLimit limits the log output of the IDE process.
 	// Any output that exceeds this limit is silently dropped.
@@ -287,36 +287,36 @@ type WorkspaceConfig struct {
 	WorkspaceLogRateLimit int `env:"THEIA_RATELIMIT_LOG"`
 
 	// GitUsername makes supervisor configure the global user.name Git setting.
-	GitUsername string `env:"GITPOD_GIT_USER_NAME"`
+	GitUsername string `env:"NXPOD_GIT_USER_NAME"`
 	// GitEmail makes supervisor configure the global user.email Git setting.
-	GitEmail string `env:"GITPOD_GIT_USER_EMAIL"`
+	GitEmail string `env:"NXPOD_GIT_USER_EMAIL"`
 
-	// Tokens is a JSON encoded list of WorkspaceGitpodToken
+	// Tokens is a JSON encoded list of WorkspaceNxpodToken
 	Tokens string `env:"THEIA_SUPERVISOR_TOKENS"`
 
 	// WorkspaceID is the ID of the workspace
-	WorkspaceID string `env:"GITPOD_WORKSPACE_ID"`
+	WorkspaceID string `env:"NXPOD_WORKSPACE_ID"`
 
 	// WorkspaceInstanceID is the instance ID of the workspace
-	WorkspaceInstanceID string `env:"GITPOD_INSTANCE_ID"`
+	WorkspaceInstanceID string `env:"NXPOD_INSTANCE_ID"`
 
-	// GitpodHost points to the Gitpod API server we're to talk to
-	GitpodHost string `env:"GITPOD_HOST"`
+	// NxpodHost points to the Nxpod API server we're to talk to
+	NxpodHost string `env:"NXPOD_HOST"`
 
-	// GitpodTasks is the task configuration of the workspace
-	GitpodTasks string `env:"GITPOD_TASKS"`
+	// NxpodTasks is the task configuration of the workspace
+	NxpodTasks string `env:"NXPOD_TASKS"`
 
-	// GitpodHeadless controls whether the workspace is running headless
-	GitpodHeadless string `env:"GITPOD_HEADLESS"`
+	// NxpodHeadless controls whether the workspace is running headless
+	NxpodHeadless string `env:"NXPOD_HEADLESS"`
 
 	// DebugEnabled controls whether the supervisor debugging facilities (pprof, grpc tracing) should be enabled
 	DebugEnable bool `env:"SUPERVISOR_DEBUG_ENABLE"`
 
 	// WorkspaceContext is a context for this workspace
-	WorkspaceContext string `env:"GITPOD_WORKSPACE_CONTEXT"`
+	WorkspaceContext string `env:"NXPOD_WORKSPACE_CONTEXT"`
 
-	// WorkspaceClusterHost is a host under which this workspace is served, e.g. ws-eu11.gitpod.io
-	WorkspaceClusterHost string `env:"GITPOD_WORKSPACE_CLUSTER_HOST"`
+	// WorkspaceClusterHost is a host under which this workspace is served, e.g. ws-eu11.nxpod.io
+	WorkspaceClusterHost string `env:"NXPOD_WORKSPACE_CLUSTER_HOST"`
 
 	// DotfileRepo is a user-configurable repository which contains their dotfiles to customise
 	// the in-workspace epxerience.
@@ -329,10 +329,10 @@ type WorkspaceConfig struct {
 	EnvvarOTS string `env:"SUPERVISOR_ENVVAR_OTS"`
 
 	// TerminationGracePeriodSeconds is the max number of seconds the workspace can take to shut down all its processes after SIGTERM was sent.
-	TerminationGracePeriodSeconds *int `env:"GITPOD_TERMINATION_GRACE_PERIOD_SECONDS"`
+	TerminationGracePeriodSeconds *int `env:"NXPOD_TERMINATION_GRACE_PERIOD_SECONDS"`
 
 	// OwnerId is the user id who owns the workspace
-	OwnerId string `env:"GITPOD_OWNER_ID"`
+	OwnerId string `env:"NXPOD_OWNER_ID"`
 
 	// DebugWorkspaceType indicates whether it is a regular or prebuild debug workspace
 	DebugWorkspaceType api.DebugWorkspaceType `env:"SUPERVISOR_DEBUG_WORKSPACE_TYPE"`
@@ -341,18 +341,18 @@ type WorkspaceConfig struct {
 	DebugWorkspaceContenSource api.ContentSource `env:"SUPERVISOR_DEBUG_WORKSPACE_CONTENT_SOURCE"`
 
 	// ConfigcatEnabled controls whether configcat is enabled
-	ConfigcatEnabled bool `env:"GITPOD_CONFIGCAT_ENABLED"`
+	ConfigcatEnabled bool `env:"NXPOD_CONFIGCAT_ENABLED"`
 
-	SSHGatewayCAPublicKey string `env:"GITPOD_SSH_CA_PUBLIC_KEY"`
+	SSHGatewayCAPublicKey string `env:"NXPOD_SSH_CA_PUBLIC_KEY"`
 }
 
-// WorkspaceGitpodToken is a list of tokens that should be added to supervisor's token service.
-type WorkspaceGitpodToken struct {
+// WorkspaceNxpodToken is a list of tokens that should be added to supervisor's token service.
+type WorkspaceNxpodToken struct {
 	api.SetTokenRequest
 	TokenOTS string `json:"tokenOTS"`
 }
 
-// TaskConfig defines gitpod task shape.
+// TaskConfig defines nxpod task shape.
 type TaskConfig struct {
 	Name     *string                 `json:"name,omitempty"`
 	Before   *string                 `json:"before,omitempty"`
@@ -367,7 +367,7 @@ type TaskConfig struct {
 // Validate validates this configuration.
 func (c WorkspaceConfig) Validate() error {
 	if !(0 < c.IDEPort && c.IDEPort <= math.MaxUint16) {
-		return xerrors.Errorf("GITPOD_THEIA_PORT must be between 0 and %d", math.MaxUint16)
+		return xerrors.Errorf("NXPOD_THEIA_PORT must be between 0 and %d", math.MaxUint16)
 	}
 
 	if c.WorkspaceRoot == "" {
@@ -382,7 +382,7 @@ func (c WorkspaceConfig) Validate() error {
 		return err
 	}
 
-	if _, _, err := c.GitpodAPIEndpoint(); err != nil {
+	if _, _, err := c.NxpodAPIEndpoint(); err != nil {
 		return err
 	}
 
@@ -396,13 +396,13 @@ func (c Config) GetDesktopIDE() *IDEConfig {
 	return c.DesktopIDEs[0]
 }
 
-// GetTokens parses tokens from GITPOD_TOKENS and possibly downloads OTS.
-func (c WorkspaceConfig) GetTokens(downloadOTS bool) ([]WorkspaceGitpodToken, error) {
+// GetTokens parses tokens from NXPOD_TOKENS and possibly downloads OTS.
+func (c WorkspaceConfig) GetTokens(downloadOTS bool) ([]WorkspaceNxpodToken, error) {
 	if c.Tokens == "" {
 		return nil, nil
 	}
 
-	var tks []WorkspaceGitpodToken
+	var tks []WorkspaceNxpodToken
 	err := json.Unmarshal([]byte(c.Tokens), &tks)
 	if err != nil {
 		return nil, xerrors.Errorf("cannot parse tokens: %w", err)
@@ -437,9 +437,9 @@ func (c WorkspaceConfig) GetTokens(downloadOTS bool) ([]WorkspaceGitpodToken, er
 	return tks, nil
 }
 
-// GitpodAPIEndpoint produces the data required to connect to the Gitpod API.
-func (c WorkspaceConfig) GitpodAPIEndpoint() (endpoint, host string, err error) {
-	gphost, err := url.Parse(c.GitpodHost)
+// NxpodAPIEndpoint produces the data required to connect to the Nxpod API.
+func (c WorkspaceConfig) NxpodAPIEndpoint() (endpoint, host string, err error) {
+	gphost, err := url.Parse(c.NxpodHost)
 	if err != nil {
 		return
 	}
@@ -455,12 +455,12 @@ func (c WorkspaceConfig) GitpodAPIEndpoint() (endpoint, host string, err error) 
 
 // isPrebuild returns true if the workspace is prebuild.
 func (c WorkspaceConfig) isPrebuild() bool {
-	return c.GitpodHeadless == "true" || c.DebugWorkspaceType == api.DebugWorkspaceType_prebuild
+	return c.NxpodHeadless == "true" || c.DebugWorkspaceType == api.DebugWorkspaceType_prebuild
 }
 
-// getGitpodTasks returns true if the workspace is headless.
+// getNxpodTasks returns true if the workspace is headless.
 func (c WorkspaceConfig) isHeadless() bool {
-	return c.GitpodHeadless == "true"
+	return c.NxpodHeadless == "true"
 }
 
 // isDebugWorkspace returns true if the workspace is in debug mode.
@@ -478,11 +478,11 @@ func (c WorkspaceConfig) GetDebugWorkspaceContentSource() csapi.WorkspaceInitSou
 	return contentSources[c.DebugWorkspaceContenSource]
 }
 
-// getGitpodTasks parses gitpod tasks.
-func (c Config) getGitpodTasks() (tasks []TaskConfig, err error) {
-	if c.GitpodTasks != "" {
+// getNxpodTasks parses nxpod tasks.
+func (c Config) getNxpodTasks() (tasks []TaskConfig, err error) {
+	if c.NxpodTasks != "" {
 		var configured *[]TaskConfig
-		err = json.Unmarshal([]byte(c.GitpodTasks), &configured)
+		err = json.Unmarshal([]byte(c.NxpodTasks), &configured)
 		if err != nil {
 			return nil, xerrors.Errorf("cannot parse tasks: %w", err)
 		}
@@ -533,7 +533,7 @@ func (c Config) getGitpodTasks() (tasks []TaskConfig, err error) {
 }
 
 // getCommit returns a commit from which this workspace was created.
-func (c WorkspaceConfig) getCommit() (commit *gitpod.Commit, err error) {
+func (c WorkspaceConfig) getCommit() (commit *nxpod.Commit, err error) {
 	if c.WorkspaceContext == "" {
 		return
 	}

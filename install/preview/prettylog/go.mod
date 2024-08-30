@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/install/preview/prettylog
+module github.com/nxpkg/nxpod/install/preview/prettylog
 
 go 1.22
 

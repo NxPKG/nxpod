@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,12 +7,12 @@ package config
 import (
 	"time"
 
-	agentSmith "github.com/gitpod-io/gitpod/agent-smith/pkg/config"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	"github.com/gitpod-io/gitpod/installer/pkg/config"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
-	"github.com/gitpod-io/gitpod/installer/pkg/containerd"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cpulimit"
+	agentSmith "github.com/nxpkg/nxpod/agent-smith/pkg/config"
+	"github.com/nxpkg/nxpod/common-go/util"
+	"github.com/nxpkg/nxpod/installer/pkg/config"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/installer/pkg/containerd"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
 
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -37,7 +37,7 @@ func (v version) Factory() interface{} {
 }
 
 var (
-	defaultRepositoryUrl = config.GitpodContainerRegistry
+	defaultRepositoryUrl = config.NxpodContainerRegistry
 )
 
 const (
@@ -281,7 +281,7 @@ type ServiceAnnotations map[string]string
 
 type LogLevel string
 
-// Taken from github.com/gitpod-io/gitpod/components/gitpod-protocol/src/util/logging.ts
+// Taken from github.com/nxpkg/nxpod/components/gitpod-protocol/src/util/logging.ts
 const (
 	LogLevelTrace   LogLevel = "trace"
 	LogLevelDebug   LogLevel = "debug"

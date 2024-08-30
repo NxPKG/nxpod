@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -42,16 +42,16 @@ import (
 	"sigs.k8s.io/e2e-framework/klient"
 	"sigs.k8s.io/e2e-framework/klient/k8s"
 
-	// Gitpod uses mysql, so it makes sense to make this DB driver available
+	// Nxpod uses mysql, so it makes sense to make this DB driver available
 	// by default.
 	_ "github.com/go-sql-driver/mysql"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	imgbldr "github.com/gitpod-io/gitpod/image-builder/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration/common"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	imgbldr "github.com/nxpkg/nxpod/image-builder/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration/common"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 // API provides access to the individual component's API
@@ -239,11 +239,11 @@ type gitpodServerOpts struct {
 	User string
 }
 
-// GitpodServerOpt specificies Gitpod server access
-type GitpodServerOpt func(*gitpodServerOpts) error
+// NxpodServerOpt specificies Nxpod server access
+type NxpodServerOpt func(*gitpodServerOpts) error
 
-// WithGitpodUser specifies the user as which we want to access the API.
-func WithGitpodUser(name string) GitpodServerOpt {
+// WithNxpodUser specifies the user as which we want to access the API.
+func WithNxpodUser(name string) NxpodServerOpt {
 	return func(o *gitpodServerOpts) error {
 		o.User = name
 		return nil
@@ -251,24 +251,24 @@ func WithGitpodUser(name string) GitpodServerOpt {
 }
 
 func (c *ComponentAPI) CreateOAuth2Token(user string, scopes []string) (string, error) {
-	tkn, err := c.createGitpodToken(user, scopes)
+	tkn, err := c.createNxpodToken(user, scopes)
 	if err != nil {
 		return "", err
 	}
 	return tkn, nil
 }
 
-func (c *ComponentAPI) ClearGitpodServerClientCache() {
+func (c *ComponentAPI) ClearNxpodServerClientCache() {
 	c.serverStatus.Client = map[string]*gitpod.APIoverJSONRPC{}
 }
 
-// GitpodServer provides access to the Gitpod server API
-func (c *ComponentAPI) GitpodServer(opts ...GitpodServerOpt) (gitpod.APIInterface, error) {
+// NxpodServer provides access to the Nxpod server API
+func (c *ComponentAPI) NxpodServer(opts ...NxpodServerOpt) (gitpod.APIInterface, error) {
 	var options gitpodServerOpts
 	for _, o := range opts {
 		err := o(&options)
 		if err != nil {
-			return nil, xerrors.Errorf("cannot access Gitpod server API: %q", err)
+			return nil, xerrors.Errorf("cannot access Nxpod server API: %q", err)
 		}
 	}
 
@@ -281,7 +281,7 @@ func (c *ComponentAPI) GitpodServer(opts ...GitpodServerOpt) (gitpod.APIInterfac
 		tkn := c.serverStatus.Token[options.User]
 		if tkn == "" {
 			var err error
-			tkn, err = c.createGitpodToken(options.User, []string{
+			tkn, err = c.createNxpodToken(options.User, []string{
 				"resource:default",
 				"function:*",
 			})
@@ -341,7 +341,7 @@ func (c *ComponentAPI) GitpodServer(opts ...GitpodServerOpt) (gitpod.APIInterfac
 		return nil
 	}()
 	if err != nil {
-		return nil, xerrors.Errorf("cannot access Gitpod server API: %q", err)
+		return nil, xerrors.Errorf("cannot access Nxpod server API: %q", err)
 	}
 
 	return res, nil
@@ -366,7 +366,7 @@ func (c *ComponentAPI) GetServerEndpoint() (string, error) {
 	return fmt.Sprintf("%s://%s/", "https", endpoint.Hostname()), nil
 }
 
-func (c *ComponentAPI) GitpodSessionCookie(userId string, secretKey string) (*http.Cookie, error) {
+func (c *ComponentAPI) NxpodSessionCookie(userId string, secretKey string) (*http.Cookie, error) {
 	var res *http.Cookie
 	err := func() error {
 		config, err := GetServerConfig(c.namespace, c.client)
@@ -568,7 +568,7 @@ func (c *ComponentAPI) CreateUser(username string, token string) (string, error)
 	return userId, nil
 }
 
-func (c *ComponentAPI) createGitpodToken(user string, scopes []string) (tkn string, err error) {
+func (c *ComponentAPI) createNxpodToken(user string, scopes []string) (tkn string, err error) {
 	id, err := c.GetUserId(user)
 	if err != nil {
 		return "", err
@@ -584,7 +584,7 @@ func (c *ComponentAPI) createGitpodToken(user string, scopes []string) (tkn stri
 	hash.Write([]byte(tkn))
 	hashVal := fmt.Sprintf("%x", hash.Sum(nil))
 
-	// see https://github.com/gitpod-io/gitpod/blob/master/components/gitpod-protocol/src/protocol.ts#L274
+	// see https://github.com/nxpkg/nxpod/blob/master/components/gitpod-protocol/src/protocol.ts#L274
 	const tokenTypeMachineAuthToken = 1
 
 	db, err := c.DB()
@@ -611,7 +611,7 @@ func (c *ComponentAPI) createGitpodToken(user string, scopes []string) (tkn stri
 	return tkn, nil
 }
 
-func (c *ComponentAPI) CreateGitpodOneTimeSecret(value string) (id string, err error) {
+func (c *ComponentAPI) CreateNxpodOneTimeSecret(value string) (id string, err error) {
 	dbConfig, err := FindDBConfigFromPodEnv("server", c.namespace, c.client)
 	if err != nil {
 		return "", err
@@ -811,7 +811,7 @@ var (
 	cachedDBs = sync.Map{}
 )
 
-// DB provides access to the Gitpod database.
+// DB provides access to the Nxpod database.
 // Callers must never close the DB.
 func (c *ComponentAPI) DB(options ...DBOpt) (*sql.DB, error) {
 	opts := dbOpts{
@@ -1192,7 +1192,7 @@ func (c *ComponentAPI) Done(t *testing.T) {
 		} else {
 			t.Logf("preview status: ready=%v, reason=%s", ready, reason)
 		}
-		logGitpodStatus(t, c.client, c.namespace)
+		logNxpodStatus(t, c.client, c.namespace)
 	}
 }
 

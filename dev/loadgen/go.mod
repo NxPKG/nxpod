@@ -1,12 +1,12 @@
-module github.com/gitpod-io/gitpod/loadgen
+module github.com/nxpkg/nxpod/loadgen
 
 go 1.22
 
 require (
 	github.com/cheggaaa/pb/v3 v3.0.5
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-manager/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-manager/api v0.0.0-00010101000000-000000000000
 	github.com/google/uuid v1.3.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.4.0
@@ -20,7 +20,7 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/fatih/color v1.7.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	github.com/hashicorp/golang-lru v1.0.2 // indirect
@@ -43,13 +43,13 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../components/common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../components/common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../components/scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../components/scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../../components/content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../../components/content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-manager/api => ../../components/ws-manager-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-manager/api => ../../components/ws-manager-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

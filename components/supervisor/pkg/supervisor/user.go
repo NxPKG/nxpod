@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -16,7 +16,7 @@ import (
 
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 type lookup interface {
@@ -35,26 +35,26 @@ func (osLookup) LookupId(id string) (grp *user.User, err error)       { return u
 
 var defaultLookup lookup = osLookup{}
 
-func AddGitpodUserIfNotExists() error {
-	ok, err := hasGroup(gitpodGroupName, gitpodGID)
+func AddNxpodUserIfNotExists() error {
+	ok, err := hasGroup(nxpodGroupName, nxpodGID)
 	if err != nil {
 		return err
 	}
 	if !ok {
-		err = addGroup(gitpodGroupName, gitpodGID)
+		err = addGroup(nxpodGroupName, nxpodGID)
 		if err != nil {
 			return err
 		}
 	}
-	if err := addSudoer(gitpodGroupName); err != nil {
-		log.WithError(err).Error("add gitpod sudoers")
+	if err := addSudoer(nxpodGroupName); err != nil {
+		log.WithError(err).Error("add nxpod sudoers")
 	}
 
 	targetUser := &user.User{
-		Uid:      strconv.Itoa(gitpodUID),
-		Gid:      strconv.Itoa(gitpodGID),
-		Username: gitpodUserName,
-		HomeDir:  "/home/" + gitpodUserName,
+		Uid:      strconv.Itoa(nxpodUID),
+		Gid:      strconv.Itoa(nxpodGID),
+		Username: nxpodUserName,
+		HomeDir:  "/home/" + nxpodUserName,
 	}
 	ok, err = hasUser(targetUser)
 	if err != nil {
@@ -93,7 +93,7 @@ func hasGroup(name string, gid int) (bool, error) {
 	}
 	if grpByID == nil && grpByName != nil {
 		// a group with this name already exists, but has a different GID
-		return true, xerrors.Errorf("group named %s exists but uses different GID %s, should be: %d", name, grpByName.Gid, gitpodGID)
+		return true, xerrors.Errorf("group named %s exists but uses different GID %s, should be: %d", name, grpByName.Gid, nxpodGID)
 	}
 
 	// group exists and all is well
@@ -127,7 +127,7 @@ func hasUser(u *user.User) (bool, error) {
 	}
 	if userByID == nil && userByName != nil {
 		// a user with this name already exists, but has a different GID
-		return true, xerrors.Errorf("user named %s exists but uses different UID %s, should be: %d", u.Username, userByName.Uid, gitpodUID)
+		return true, xerrors.Errorf("user named %s exists but uses different UID %s, should be: %d", u.Username, userByName.Uid, nxpodUID)
 	}
 
 	// at this point it doesn't matter if we use userByID or byName - they're likely the same
@@ -190,11 +190,11 @@ func addSudoer(group string) error {
 	if err != nil {
 		return err
 	}
-	gitpodSudoer := []byte(fmt.Sprintf("%%%s ALL=NOPASSWD:ALL", group))
-	// Line starts with "%gitpod ..."
+	nxpodSudoer := []byte(fmt.Sprintf("%%%s ALL=NOPASSWD:ALL", group))
+	// Line starts with "%nxpod ..."
 	re := regexp.MustCompile(fmt.Sprintf("(?m)^%%%s\\s+.*?$", group))
 	if len(re.FindStringIndex(string(b))) > 0 {
-		nb := re.ReplaceAll(b, gitpodSudoer)
+		nb := re.ReplaceAll(b, nxpodSudoer)
 		return os.WriteFile(sudoersPath, nb, finfo.Mode().Perm())
 	}
 	file, err := os.OpenFile(sudoersPath, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
@@ -202,7 +202,7 @@ func addSudoer(group string) error {
 		return err
 	}
 	defer file.Close()
-	_, err = file.Write(append([]byte("\n"), gitpodSudoer...))
+	_, err = file.Write(append([]byte("\n"), nxpodSudoer...))
 	return err
 }
 

@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/ws-manager-bridge/api
+module github.com/nxpkg/nxpod/ws-manager-bridge/api
 
 go 1.22
 
@@ -15,7 +15,7 @@ require (
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../common-go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

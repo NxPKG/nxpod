@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -22,14 +22,14 @@ import {
     RepositoryResourceGuard,
     SharedWorkspaceAccessGuard,
 } from "./resource-access";
-import { PrebuiltWorkspace, User, UserEnvVar, Workspace, WorkspaceType } from "@gitpod/gitpod-protocol/lib/protocol";
+import { PrebuiltWorkspace, User, UserEnvVar, Workspace, WorkspaceType } from "@nxpod/nxpod-protocol/lib/protocol";
 import {
     OrgMemberInfo,
     Organization,
     TeamMemberInfo,
     TeamMemberRole,
     WorkspaceInstance,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { HostContextProvider } from "./host-context-provider";
 
 class MockedRepositoryResourceGuard extends RepositoryResourceGuard {
@@ -693,10 +693,10 @@ class TestResourceAccess {
                 config: {},
                 creationTime: new Date(2000, 1, 2).toISOString(),
                 description: "test workspace ws-123",
-                contextURL: "https://github.com/gitpod-io/gitpod",
+                contextURL: "https://github.com/nxpkg/nxpod",
                 context: {
-                    title: "gitpod-io/gitpod",
-                    normalizedContextURL: "https://github.com/gitpod-io/gitpod",
+                    title: "nxpkg/nxpod",
+                    normalizedContextURL: "https://github.com/nxpkg/nxpod",
                 },
             };
         };
@@ -707,7 +707,7 @@ class TestResourceAccess {
                 creationTime: new Date(2000, 1, 2).toISOString(),
                 region: "local",
                 configuration: {
-                    ideImage: "gitpod/workspace-full:latest",
+                    ideImage: "nxpod/workspace-full:latest",
                 },
                 status: {
                     version: 1,
@@ -715,14 +715,14 @@ class TestResourceAccess {
                     phase: "running",
                 },
                 ideUrl: "https://some.where",
-                workspaceImage: "gitpod/workspace-full:latest",
+                workspaceImage: "nxpod/workspace-full:latest",
             };
         };
         const createPrebuild = (): PrebuiltWorkspace => {
             return {
                 id: "pws-123",
                 buildWorkspaceId: workspaceId,
-                cloneURL: "https://github.com/gitpod-io/gitpod",
+                cloneURL: "https://github.com/nxpkg/nxpod",
                 commit: "sha123123213",
                 creationTime: new Date(2000, 1, 2).toISOString(),
                 state: "available",

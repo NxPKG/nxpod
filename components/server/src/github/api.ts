@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,14 +9,14 @@ import { Octokit, RestEndpointMethodTypes } from "@octokit/rest";
 import { OctokitResponse } from "@octokit/types";
 import { OctokitOptions } from "@octokit/core/dist-types/types";
 
-import { Branch, CommitInfo, User } from "@gitpod/gitpod-protocol";
-import { GarbageCollectedCache } from "@gitpod/gitpod-protocol/lib/util/garbage-collected-cache";
+import { Branch, CommitInfo, User } from "@nxpod/nxpod-protocol";
+import { GarbageCollectedCache } from "@nxpod/nxpod-protocol/lib/util/garbage-collected-cache";
 import { injectable, inject } from "inversify";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { GitHubScope } from "./scopes";
 import { AuthProviderParams } from "../auth/auth-provider";
 import { GitHubTokenHelper } from "./github-token-helper";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
 
 import { URL } from "url";
 
@@ -158,7 +158,7 @@ export class GitHubRestApi {
     }
 
     protected get userAgent() {
-        return (this.config.oauth && new URL(this.config.oauth?.callBackUrl)?.hostname) || "Gitpod unknown";
+        return (this.config.oauth && new URL(this.config.oauth?.callBackUrl)?.hostname) || "Nxpod unknown";
     }
 
     /**

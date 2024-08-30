@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,19 +10,19 @@ import (
 	"path"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/installer/pkg/cluster"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/auth"
-	contentservice "github.com/gitpod-io/gitpod/installer/pkg/components/content-service"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/spicedb"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/usage"
-	wsmanagermk2 "github.com/gitpod-io/gitpod/installer/pkg/components/ws-manager-mk2"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/installer/pkg/cluster"
+	"github.com/nxpkg/nxpod/installer/pkg/components/auth"
+	contentservice "github.com/nxpkg/nxpod/installer/pkg/components/content-service"
+	"github.com/nxpkg/nxpod/installer/pkg/components/spicedb"
+	"github.com/nxpkg/nxpod/installer/pkg/components/usage"
+	wsmanagermk2 "github.com/nxpkg/nxpod/installer/pkg/components/ws-manager-mk2"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	wsmanagerbridge "github.com/gitpod-io/gitpod/installer/pkg/components/ws-manager-bridge"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	wsmanagerbridge "github.com/nxpkg/nxpod/installer/pkg/components/ws-manager-bridge"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
 
-	"github.com/gitpod-io/gitpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/kubernetes"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"

@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Commit, Repository, User } from "@gitpod/gitpod-protocol";
+import { Commit, Repository, User } from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
 import { FileProvider, MaybeContent } from "../repohost/file-provider";
 import { BitbucketServerApi } from "./bitbucket-server-api";
@@ -13,8 +13,8 @@ import { BitbucketServerApi } from "./bitbucket-server-api";
 export class BitbucketServerFileProvider implements FileProvider {
     @inject(BitbucketServerApi) protected api: BitbucketServerApi;
 
-    public async getGitpodFileContent(commit: Commit, user: User): Promise<MaybeContent> {
-        return this.getFileContent(commit, user, ".gitpod.yml");
+    public async getNxpodFileContent(commit: Commit, user: User): Promise<MaybeContent> {
+        return this.getFileContent(commit, user, ".nxpod.yml");
     }
 
     public async getLastChangeRevision(

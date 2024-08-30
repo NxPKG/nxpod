@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,7 +14,7 @@ import (
 )
 
 // PossibleWorkspaceIDPatterns
-// gitpod-protocol/src/util/generate-workspace-id.ts is authoritative over the generation
+// nxpod-protocol/src/util/generate-workspace-id.ts is authoritative over the generation
 // ws-proxy/pkg/proxy/workspacerouter.go is authoritative for this regexp
 var PossibleWorkspaceIDPatterns = []string{
 	"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",

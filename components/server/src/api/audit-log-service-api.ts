@@ -1,18 +1,18 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { AuditLogService as AuditLogServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/auditlogs_connect";
-import { ListAuditLogsRequest, ListAuditLogsResponse } from "@gitpod/public-api/lib/gitpod/v1/auditlogs_pb";
+import { AuditLogService as AuditLogServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/auditlogs_connect";
+import { ListAuditLogsRequest, ListAuditLogsResponse } from "@nxpod/public-api/lib/nxpod/v1/auditlogs_pb";
 import { inject, injectable } from "inversify";
 import { AuditLogService } from "../audit/AuditLogService";
 import { ctxUserId } from "../util/request-context";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { parsePagination } from "@gitpod/public-api-common/lib/public-api-pagination";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { parsePagination } from "@nxpod/public-api-common/lib/public-api-pagination";
 import { validate as uuidValidate } from "uuid";
 
 @injectable()

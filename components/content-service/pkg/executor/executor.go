@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,9 +11,9 @@ import (
 
 	"google.golang.org/protobuf/encoding/protojson"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/initializer"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/initializer"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
 )
 
 type config struct {
@@ -64,7 +64,7 @@ func Execute(ctx context.Context, destination string, cfgin io.Reader, forceGitU
 
 		rs = &storage.NamedURLDownloader{URLs: cfg.URLs}
 		ilr, err = initializer.NewFromRequest(ctx, destination, rs, &req, initializer.NewFromRequestOpts{
-			ForceGitpodUserForGit: forceGitUser,
+			ForceNxpodUserForGit: forceGitUser,
 		})
 		if err != nil {
 			return "", err
@@ -83,7 +83,7 @@ func Execute(ctx context.Context, destination string, cfgin io.Reader, forceGitU
 		return "", err
 	}
 
-	err = initializer.PlaceWorkspaceReadyFile(ctx, destination, src, stats, initializer.GitpodUID, initializer.GitpodGID)
+	err = initializer.PlaceWorkspaceReadyFile(ctx, destination, src, stats, initializer.NxpodUID, initializer.NxpodGID)
 	if err != nil {
 		return src, err
 	}

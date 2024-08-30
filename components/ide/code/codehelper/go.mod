@@ -1,11 +1,11 @@
-module github.com/gitpod-io/gitpod/code/codehelper
+module github.com/nxpkg/nxpod/code/codehelper
 
 go 1.22
 
 require (
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	github.com/sirupsen/logrus v1.9.3
 	google.golang.org/grpc v1.52.3
 	gopkg.in/yaml.v2 v2.4.0
@@ -17,7 +17,7 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/golang/mock v1.6.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
@@ -39,13 +39,13 @@ require (
 	google.golang.org/protobuf v1.33.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../../../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/gitpod-protocol => ../../../gitpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../../../supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../../../supervisor-api/go // leeway
 
 replace github.com/google/addlicense => ../../../../dev/addlicense // leeway
 

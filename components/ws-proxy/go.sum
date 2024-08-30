@@ -43,8 +43,8 @@ github.com/frankban/quicktest v1.11.2 h1:mjwHjStlXWibxOohM7HYieIViKyh56mmt3+6viy
 github.com/frankban/quicktest v1.11.2/go.mod h1:K+q6oSqb0W0Ininfk863uOk1lMy69l/P6txr3mVT54s=
 github.com/fsnotify/fsnotify v1.7.0 h1:8JEhPFa5W2WU7YfeZzPNqzMP6Lwt7L2715Ggo0nosvA=
 github.com/fsnotify/fsnotify v1.7.0/go.mod h1:40Bi/Hjc2AVfZrqy+aj+yEI+/bRxZnMJyTJwOpGvigM=
-github.com/gitpod-io/golang-crypto v0.0.0-20231122075959-de838e9cb174 h1:OoCsCV3wxfN5FvbuhwuUgz6rZvsyfPxX3jZ2fKA+9H8=
-github.com/gitpod-io/golang-crypto v0.0.0-20231122075959-de838e9cb174/go.mod h1:+RoU4suPnVpAnzmlQZx/MZEIaZTT14LnHddujMkIVSk=
+github.com/nxpkg/golang-crypto v0.0.0-20231122075959-de838e9cb174 h1:OoCsCV3wxfN5FvbuhwuUgz6rZvsyfPxX3jZ2fKA+9H8=
+github.com/nxpkg/golang-crypto v0.0.0-20231122075959-de838e9cb174/go.mod h1:+RoU4suPnVpAnzmlQZx/MZEIaZTT14LnHddujMkIVSk=
 github.com/go-kit/kit v0.9.0/go.mod h1:xBxKIO96dXMWWy0MnWVtmwkA9/13aqxPnvrjFYMA2as=
 github.com/go-logfmt/logfmt v0.4.0/go.mod h1:3RMwSq7FuexP4Kalkev3ejPJsZTpXXBr9+V4qmtdjCk=
 github.com/go-logr/logr v1.0.0/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=

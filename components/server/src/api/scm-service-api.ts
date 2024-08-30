@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { SCMService as ScmServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/scm_connect";
+import { SCMService as ScmServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/scm_connect";
 import { inject, injectable } from "inversify";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
 import { ScmService } from "../scm/scm-service";
 import {
     GuessTokenScopesRequest,
@@ -18,14 +18,14 @@ import {
     ListSuggestedRepositoriesResponse,
     SearchSCMTokensRequest,
     SearchSCMTokensResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/scm_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/scm_pb";
 import { ctxUserId } from "../util/request-context";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { validate as uuidValidate } from "uuid";
 import { ProjectsService } from "../projects/projects-service";
 import { WorkspaceService } from "../workspace/workspace-service";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
-import { Project } from "@gitpod/gitpod-protocol";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
+import { Project } from "@nxpod/nxpod-protocol";
 
 @injectable()
 export class ScmServiceAPI implements ServiceImpl<typeof ScmServiceInterface> {

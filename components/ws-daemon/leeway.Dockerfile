@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -48,24 +48,24 @@ RUN apt update \
 
 COPY --from=dl /dl/runc.amd64 /usr/bin/runc
 
-# Add gitpod user for operations (e.g. checkout because of the post-checkout hook!)
-RUN groupadd -r -g 33333 gitpod \
-  && useradd -r -u 33333 -md /home/gitpod -s /bin/bash -g gitpod gitpod \
-  && usermod -a -G gitpod gitpod
+# Add nxpod user for operations (e.g. checkout because of the post-checkout hook!)
+RUN groupadd -r -g 33333 nxpod \
+  && useradd -r -u 33333 -md /home/nxpod -s /bin/bash -g nxpod nxpod \
+  && usermod -a -G nxpod nxpod
 
 COPY components-ws-daemon--app/ws-daemon /app/ws-daemond
 COPY components-ws-daemon--content-initializer/ws-daemon /app/content-initializer
 COPY components-ws-daemon-nsinsider--app/nsinsider /app/nsinsider
 
 COPY default.gitconfig /etc/gitconfig
-COPY default.gitconfig /home/gitpod/.gitconfig
+COPY default.gitconfig /home/nxpod/.gitconfig
 
 USER root
 
 ARG __GIT_COMMIT
 ARG VERSION
 
-ENV GITPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
-ENV GITPOD_BUILD_VERSION=${VERSION}
+ENV NXPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
+ENV NXPOD_BUILD_VERSION=${VERSION}
 ENTRYPOINT [ "/app/ws-daemond" ]
 CMD [ "-v", "help" ]

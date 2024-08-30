@@ -1,7 +1,7 @@
-# Gitpod Remote
+# Nxpod Remote
 
 <!-- Plugin description -->
-Provides integrations within a Gitpod workspace.
+Provides integrations within a Nxpod workspace.
 
 <!-- Plugin description end -->
 
@@ -13,7 +13,7 @@ Provides integrations within a Gitpod workspace.
 
 ## Development
 
-The ideal setup to develop this plugin is using IntelliJ in Gitpod.
+The ideal setup to develop this plugin is using IntelliJ in Nxpod.
 
 1. Choose IntelliJ as your editor in [gitpod.io/preferences](https://gitpod.io/preferences)
 2. Start a workspace for this repository
@@ -30,7 +30,7 @@ There are a set of flags available in the script:
 
 ```bash
 -s # Use the stable image of IntelliJ (by default it will use the "latest")
--r # Specify a test repository (e.g. -r https://github.com/gitpod-io/empty)
+-r # Specify a test repository (e.g. -r https://github.com/nxpkg/empty)
 -p # Specify a debug port (useful if used in combination with the Remote JVM debugger in IntelliJ)
 ```
 
@@ -41,11 +41,11 @@ To use the script, from your gitpod's workspace:
   cd components/ide/jetbrains/backend-plugin
   ./launch-dev-server.sh
   ```
-2. Connect the IDE to the test backend instance. Find the `Gitpod gateway link` in the logs and open it, e.g:
+2. Connect the IDE to the test backend instance. Find the `Nxpod gateway link` in the logs and open it, e.g:
   ```console
   *********************************************************
 
-  Gitpod gateway link: jetbrains-gateway://connect#gitpodHost=ak-jb-backend-debug-flow.staging.gitpod-dev.com&workspaceId=gitpodio-gitpod-rvg0x7havor&backendPort=63343
+  Nxpod gateway link: jetbrains-gateway://connect#gitpodHost=ak-jb-backend-debug-flow.staging.gitpod-dev.com&workspaceId=gitpodio-gitpod-rvg0x7havor&backendPort=63343
 
   *********************************************************
   ```
@@ -53,7 +53,7 @@ To use the script, from your gitpod's workspace:
 By default, the test-repository is [gitpod-samples/spring-petclinic](https://github.com/gitpod-samples/spring-petclinic). You can specify a different test repo using the `-r` argument, e.g:
 
 ```bash
-./launch-dev-server.sh -r https://github.com/gitpod-io/empty
+./launch-dev-server.sh -r https://github.com/nxpkg/empty
 ```
 
 If you want to specify the qualifier (latest/stable) of the IntelliJ version, use the `-s` flag, by default it will use the `latest`. To use stable, run:

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,18 +11,18 @@ import (
 	"testing"
 	"time"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	supervisorapi "github.com/gitpod-io/gitpod/supervisor/api"
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	supervisorapi "github.com/nxpkg/nxpod/supervisor/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 )
 
 func TestRegularWorkspaceTasks(t *testing.T) {
-	testRepo := "https://github.com/gitpod-io/empty"
+	testRepo := "https://github.com/nxpkg/empty"
 	testRepoName := "empty"
 	wsLoc := fmt.Sprintf("/workspace/%s", testRepoName)
 	tests := []struct {
@@ -65,7 +65,7 @@ func TestRegularWorkspaceTasks(t *testing.T) {
 							return err
 						}
 						swr.Spec.Envvars = append(swr.Spec.Envvars, &wsmanapi.EnvironmentVariable{
-							Name:  "GITPOD_TASKS",
+							Name:  "NXPOD_TASKS",
 							Value: string(tasks),
 						})
 						swr.Spec.FeatureFlags = test.FF

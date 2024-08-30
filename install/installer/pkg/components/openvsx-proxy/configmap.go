@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/util"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	openvsx "github.com/gitpod-io/gitpod/openvsx-proxy/pkg"
+	"github.com/nxpkg/nxpod/common-go/util"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	openvsx "github.com/nxpkg/nxpod/openvsx-proxy/pkg"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"

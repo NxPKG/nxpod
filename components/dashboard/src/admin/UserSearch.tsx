@@ -1,22 +1,22 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AdminGetListResult, User } from "@gitpod/gitpod-protocol";
+import { AdminGetListResult, User } from "@nxpod/nxpod-protocol";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { SpinnerLoader } from "../components/Loader";
 import Pagination from "../Pagination/Pagination";
-import { getGitpodService } from "../service/service";
+import { getNxpodService } from "../service/service";
 import { AdminPageHeader } from "./AdminPageHeader";
 import UserDetail from "./UserDetail";
 import searchIcon from "../icons/search.svg";
 import Tooltip from "../components/Tooltip";
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 
 export default function UserSearch() {
     const location = useLocation();
@@ -34,7 +34,7 @@ export default function UserSearch() {
             if (user) {
                 setCurrentUserState(user);
             } else {
-                getGitpodService()
+                getNxpodService()
                     .server.adminGetUser(userId)
                     .then((user) => setCurrentUserState(user))
                     .catch((e) => console.error(e));
@@ -52,7 +52,7 @@ export default function UserSearch() {
     const search = async (page: number = 1) => {
         setSearching(true);
         try {
-            const result = await getGitpodService().server.adminGetUsers({
+            const result = await getNxpodService().server.adminGetUsers({
                 searchTerm,
                 limit: pageLength,
                 orderBy: "creationDate",

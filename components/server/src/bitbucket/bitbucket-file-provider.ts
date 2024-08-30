@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Commit, Repository, User } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { Commit, Repository, User } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { inject, injectable } from "inversify";
 import { FileProvider, MaybeContent } from "../repohost/file-provider";
 import { BitbucketApiFactory } from "./bitbucket-api-factory";
@@ -14,10 +14,10 @@ import { BitbucketApiFactory } from "./bitbucket-api-factory";
 export class BitbucketFileProvider implements FileProvider {
     @inject(BitbucketApiFactory) protected readonly apiFactory: BitbucketApiFactory;
 
-    public async getGitpodFileContent(commit: Commit, user: User): Promise<MaybeContent> {
+    public async getNxpodFileContent(commit: Commit, user: User): Promise<MaybeContent> {
         const yamlVersion1 = await Promise.all([
-            this.getFileContent(commit, user, ".gitpod.yml"),
-            this.getFileContent(commit, user, ".gitpod"),
+            this.getFileContent(commit, user, ".nxpod.yml"),
+            this.getFileContent(commit, user, ".nxpod"),
         ]);
         return yamlVersion1.filter((f) => !!f)[0];
     }

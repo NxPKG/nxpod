@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -52,12 +52,12 @@ export const poll = async <T>(
     }
 };
 
-export function isGitpodIo() {
+export function isNxpodIo() {
     return (
-        window.location.hostname === "gitpod.io" ||
-        window.location.hostname === "gitpod-staging.com" ||
-        window.location.hostname.endsWith("gitpod-dev.com") ||
-        window.location.hostname.endsWith("gitpod-io-dev.com")
+        window.location.hostname === "nxpod.io" ||
+        window.location.hostname === "nxpod-staging.com" ||
+        window.location.hostname.endsWith("nxpod-dev.com") ||
+        window.location.hostname.endsWith("nxpkg-dev.com")
     );
 }
 
@@ -102,7 +102,7 @@ export function isWebsiteSlug(pathName: string) {
         "events",
         "features",
         "for",
-        "gitpod-vs-github-codespaces",
+        "nxpod-vs-github-codespaces",
         "guides",
         "imprint",
         "media-kit",

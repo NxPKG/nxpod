@@ -1,14 +1,14 @@
 {
-    "name": "gitpod",
+    "name": "nxpod",
     "build": {
         "context": "..",
         "dockerfile": "./Dockerfile"
     },
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/gitpod,type=bind",
-    "workspaceFolder": "/workspace/gitpod/",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/nxpod,type=bind",
+    "workspaceFolder": "/workspace/nxpod/",
     "postCreateCommand": "dev/install-dependencies.sh",
     "mounts": [
-        "source=/usr/local/gitpod/config/,target=/usr/local/gitpod/config/,type=bind"
+        "source=/usr/local/nxpod/config/,target=/usr/local/nxpod/config/,type=bind"
     ],
     "remoteEnv": {
         "GIT_EDITOR": "code --wait",

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,8 +7,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import UAParser from "ua-parser-js";
 import { useUserLoader } from "../hooks/use-user-loader";
-import { User } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
-import { AuthProviderDescription, AuthProviderType } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+import { User } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
+import { AuthProviderDescription, AuthProviderType } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 import { useAuthProviderDescriptions } from "../data/auth-providers/auth-provider-descriptions-query";
 import { useFeatureFlag } from "../data/featureflag-query";
 import { trackEvent } from "../Analytics";
@@ -35,12 +35,12 @@ const installationOptions: BrowserOption[] = [
     {
         type: "firefox",
         aliases: ["firefox"],
-        url: "https://addons.mozilla.org/en-US/firefox/addon/gitpod/",
+        url: "https://addons.mozilla.org/en-US/firefox/addon/nxpod/",
     },
     {
         type: "chromium",
         aliases: ["chrome", "edge", "brave", "chromium", "vivaldi", "opera"],
-        url: "https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki",
+        url: "https://chrome.google.com/webstore/detail/nxpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki",
     },
 ];
 
@@ -210,13 +210,13 @@ export function BrowserExtensionBanner() {
                             className="gp-link"
                             rel="noreferrer"
                         >
-                            Install the Gitpod extension
+                            Install the Nxpod extension
                         </a>{" "}
                         to launch workspaces from {scmProviderString}.
                     </span>
                 </div>
                 <img
-                    alt="A button that says Gitpod"
+                    alt="A button that says Nxpod"
                     src={browserExtensionImages[usedProviders.at(0)!]}
                     className="w-32 h-fit self-end mb-4 mr-8"
                 />

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,13 +18,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/analytics"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	supervisor "github.com/gitpod-io/gitpod/supervisor/api"
-	tracker "github.com/gitpod-io/gitpod/ws-proxy/pkg/analytics"
-	"github.com/gitpod-io/gitpod/ws-proxy/pkg/common"
-	"github.com/gitpod-io/golang-crypto/ssh"
+	"github.com/nxpkg/nxpod/common-go/analytics"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	supervisor "github.com/nxpkg/nxpod/supervisor/api"
+	tracker "github.com/nxpkg/nxpod/ws-proxy/pkg/analytics"
+	"github.com/nxpkg/nxpod/ws-proxy/pkg/common"
+	"github.com/nxpkg/golang-crypto/ssh"
 	"github.com/prometheus/client_golang/prometheus"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
@@ -37,22 +37,22 @@ const workspaceIDRegex = "([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a
 
 var (
 	SSHConnectionCount = prometheus.NewGauge(prometheus.GaugeOpts{
-		Name: "gitpod_ws_proxy_ssh_connection_count",
+		Name: "nxpod_ws_proxy_ssh_connection_count",
 		Help: "Current number of SSH connection",
 	})
 
 	SSHAttemptTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Name: "gitpod_ws_proxy_ssh_attempt_total",
+		Name: "nxpod_ws_proxy_ssh_attempt_total",
 		Help: "Total number of SSH attempt",
 	}, []string{"status", "error_type"})
 
 	SSHTunnelOpenedTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Name: "gitpod_ws_proxy_ssh_tunnel_opened_total",
+		Name: "nxpod_ws_proxy_ssh_tunnel_opened_total",
 		Help: "Total number of SSH tunnels opened by the ws-proxy",
 	}, []string{})
 
 	SSHTunnelClosedTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Name: "gitpod_ws_proxy_ssh_tunnel_closed_total",
+		Name: "nxpod_ws_proxy_ssh_tunnel_closed_total",
 		Help: "Total number of SSH tunnels closed by the ws-proxy",
 	}, []string{"code"})
 )
@@ -139,7 +139,7 @@ func New(signers []ssh.Signer, workspaceInfoProvider common.WorkspaceInfoProvide
 	}
 
 	authWithWebsocketTunnel := func(conn ssh.ConnMetadata) (*ssh.Permissions, error) {
-		wsConn, ok := conn.RawConn().(*gitpod.WebsocketConnection)
+		wsConn, ok := conn.RawConn().(*nxpod.WebsocketConnection)
 		if !ok {
 			return nil, ErrAuthFailed
 		}
@@ -162,7 +162,7 @@ func New(signers []ssh.Signer, workspaceInfoProvider common.WorkspaceInfoProvide
 	}
 
 	server.sshConfig = &ssh.ServerConfig{
-		ServerVersion: "SSH-2.0-GITPOD-GATEWAY",
+		ServerVersion: "SSH-2.0-NXPOD-GATEWAY",
 		NoClientAuth:  true,
 		NoClientAuthCallback: func(conn ssh.ConnMetadata) (*ssh.Permissions, error) {
 			if perm, err := authWithWebsocketTunnel(conn); err == nil {
@@ -314,7 +314,7 @@ func (s *Server) HandleConn(c net.Conn) {
 
 	var key ssh.Signer
 	//nolint:ineffassign
-	userName := "gitpod"
+	userName := "nxpod"
 
 	session := &Session{
 		Conn:        clientConn,
@@ -512,7 +512,7 @@ func (s *Server) GetWorkspaceSSHKey(ctx context.Context, workspaceIP string, sup
 	}
 	userName := keyInfo.UserName
 	if userName == "" {
-		userName = "gitpod"
+		userName = "nxpod"
 	}
 	return key, userName, nil
 }

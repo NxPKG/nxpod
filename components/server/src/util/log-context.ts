@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { performance } from "node:perf_hooks";
 import { RequestContext, ctxTryGet } from "./request-context";
 

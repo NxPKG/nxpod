@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,7 +8,7 @@ import (
 	"context"
 	"testing"
 
-	config "github.com/gitpod-io/gitpod/content-service/api/config"
+	config "github.com/nxpkg/nxpod/content-service/api/config"
 )
 
 func TestMinioBucketName(t *testing.T) {
@@ -22,7 +22,7 @@ func TestMinioBucketName(t *testing.T) {
 			Name:             "no dedicated bucket",
 			BucketNameConfig: "",
 			OwnerID:          "fake-owner-id",
-			ExpectedBucket:   "gitpod-user-fake-owner-id",
+			ExpectedBucket:   "nxpod-user-fake-owner-id",
 		},
 		{
 			Name:             "with dedicated bucket",
@@ -78,19 +78,19 @@ func TestMinioBackupObject(t *testing.T) {
 			Name:                 "no dedicated bucket",
 			BucketNameConfig:     "",
 			Username:             "test-user",
-			Workspace:            "gitpodio-gitpod-2cx8z8e643x",
+			Workspace:            "nxpodio-nxpod-2cx8z8e643x",
 			InstanceID:           "fa9aa2af-b6de-45fc-8b48-534bb440429f",
 			ObjectName:           "backup.tar",
-			ExpectedBackupObject: "workspaces/gitpodio-gitpod-2cx8z8e643x/backup.tar",
+			ExpectedBackupObject: "workspaces/nxpodio-nxpod-2cx8z8e643x/backup.tar",
 		},
 		{
 			Name:                 "with dedicated bucket",
 			BucketNameConfig:     "root-bucket",
 			Username:             "test-user",
-			Workspace:            "gitpodio-gitpod-2cx8z8e643x",
+			Workspace:            "nxpodio-nxpod-2cx8z8e643x",
 			InstanceID:           "fa9aa2af-b6de-45fc-8b48-534bb440429f",
 			ObjectName:           "backup.tar",
-			ExpectedBackupObject: "test-user/workspaces/gitpodio-gitpod-2cx8z8e643x/backup.tar",
+			ExpectedBackupObject: "test-user/workspaces/nxpodio-nxpod-2cx8z8e643x/backup.tar",
 		},
 	}
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -22,13 +22,13 @@ const localAppClientID = "gplctl-1.0";
 const localClient: OAuthClient = {
     id: localAppClientID,
     secret: `${localAppClientID}-secret`,
-    name: "Gitpod local control client",
+    name: "Nxpod local control client",
     // Set of valid redirect URIs
     // NOTE: these need to be kept in sync with the port range in the local app
     redirectUris: Array.from({ length: 10 }, (_, i) => "http://127.0.0.1:" + (63110 + i)),
     allowedGrants: ["authorization_code"],
     scopes: [
-        { name: "function:getGitpodTokenScopes" },
+        { name: "function:getNxpodTokenScopes" },
         { name: "function:getWorkspace" },
         { name: "function:getWorkspaces" },
         { name: "function:listenForWorkspaceInstanceUpdates" },
@@ -36,18 +36,18 @@ const localClient: OAuthClient = {
     ],
 };
 
-const localCliClientID = "gitpod-cli";
+const localCliClientID = "nxpod-cli";
 const localCli: OAuthClient = {
     id: localCliClientID,
     secret: `${localCliClientID}-secret`,
-    name: "Gitpod CLI",
+    name: "Nxpod CLI",
     // Set of valid redirect URIs
     // NOTE: these need to be kept in sync with the port range in the local app
     redirectUris: Array.from({ length: 10 }, (_, i) => "http://127.0.0.1:" + (63110 + i)),
     allowedGrants: ["authorization_code"],
     scopes: [
         { name: "function:listenForWorkspaceInstanceUpdates" },
-        { name: "function:getGitpodTokenScopes" },
+        { name: "function:getNxpodTokenScopes" },
         { name: "function:getLoggedInUser" },
         { name: "function:accessCodeSyncStorage" },
         { name: "function:getOwnerToken" },
@@ -70,18 +70,18 @@ const localCli: OAuthClient = {
 };
 
 const jetBrainsGateway: OAuthClient = {
-    id: "jetbrains-gateway-gitpod-plugin",
-    name: "JetBrains Gateway Gitpod Plugin",
+    id: "jetbrains-gateway-nxpod-plugin",
+    name: "JetBrains Gateway Nxpod Plugin",
     // Set of valid redirect URIs
     // NOTE: these need to be kept in sync with the port range in
     // https://github.com/JetBrains/intellij-community/blob/8f07b83138bcb8a98a031e4508080c849a735644/platform/built-in-server/src/org/jetbrains/builtInWebServer/BuiltInServerOptions.java#L34
     redirectUris: Array.from(
         { length: 20 },
-        (_, i) => `http://127.0.0.1:${63342 + i}/api/gitpod/oauth/authorization_code`,
+        (_, i) => `http://127.0.0.1:${63342 + i}/api/nxpod/oauth/authorization_code`,
     ),
     allowedGrants: ["authorization_code"],
     scopes: [
-        { name: "function:getGitpodTokenScopes" },
+        { name: "function:getNxpodTokenScopes" },
         { name: "function:getIDEOptions" },
         { name: "function:getOwnerToken" },
         { name: "function:getWorkspace" },
@@ -93,12 +93,12 @@ const jetBrainsGateway: OAuthClient = {
 
 function createVSCodeClient(protocol: string, displayName: string): OAuthClient {
     return {
-        id: `${protocol}-gitpod`,
-        name: `${displayName}: Gitpod extension`,
-        redirectUris: [protocol + "://gitpod.gitpod-desktop/complete-gitpod-auth"],
+        id: `${protocol}-nxpod`,
+        name: `${displayName}: Nxpod extension`,
+        redirectUris: [protocol + "://nxpod.nxpod-desktop/complete-nxpod-auth"],
         allowedGrants: ["authorization_code"],
         scopes: [
-            { name: "function:getGitpodTokenScopes" },
+            { name: "function:getNxpodTokenScopes" },
             { name: "function:getLoggedInUser" },
             { name: "function:accessCodeSyncStorage" },
             { name: "function:getOwnerToken" },
@@ -115,12 +115,12 @@ function createVSCodeClient(protocol: string, displayName: string): OAuthClient 
 }
 
 const desktopClient: OAuthClient = {
-    id: "gitpod-desktop",
-    name: "Gitpod Desktop",
-    redirectUris: ["gitpod://complete-auth"],
+    id: "nxpod-desktop",
+    name: "Nxpod Desktop",
+    redirectUris: ["nxpod://complete-auth"],
     allowedGrants: ["authorization_code"],
     scopes: [
-        { name: "function:getGitpodTokenScopes" },
+        { name: "function:getNxpodTokenScopes" },
         { name: "function:getLoggedInUser" },
         { name: "function:accessCodeSyncStorage" },
         { name: "function:getOwnerToken" },
@@ -142,12 +142,12 @@ const desktopClient: OAuthClient = {
 };
 
 const toolbox: OAuthClient = {
-    id: "toolbox-gateway-gitpod-plugin",
-    name: "JetBrains Toolbox Gitpod Plugin",
-    redirectUris: ["jetbrains://gateway/io.gitpod.toolbox.gateway/auth"],
+    id: "toolbox-gateway-nxpod-plugin",
+    name: "JetBrains Toolbox Nxpod Plugin",
+    redirectUris: ["jetbrains://gateway/io.nxpod.toolbox.gateway/auth"],
     allowedGrants: ["authorization_code"],
     scopes: [
-        { name: "function:getGitpodTokenScopes" },
+        { name: "function:getNxpodTokenScopes" },
         { name: "function:getLoggedInUser" },
         { name: "function:getOwnerToken" },
         { name: "function:getWorkspace" },

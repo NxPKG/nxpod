@@ -1,20 +1,20 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import * as chai from "chai";
 import "mocha";
 import { Container } from "inversify";
 import { createTestContainer, withTestCtx } from "../test/service-testing-container-module";
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM, UserDB } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM, UserDB } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import { OrganizationService } from "../orgs/organization-service";
 import { SYSTEM_USER } from "../authorization/authorizer";
 import { UserService } from "./user-service";
-import { Organization, Token, User } from "@gitpod/gitpod-protocol";
+import { Organization, Token, User } from "@nxpod/nxpod-protocol";
 import { TokenService } from "./token-service";
 import { TokenProvider } from "./token-provider";
 import { HostContextProvider } from "../auth/host-context-provider";

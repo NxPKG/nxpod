@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/gitpod-io/gitpod/ws-daemon/api"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/content"
+	"github.com/nxpkg/nxpod/ws-daemon/api"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/content"
 	"github.com/google/go-cmp/cmp"
 )
 

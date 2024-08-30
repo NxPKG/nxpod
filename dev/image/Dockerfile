@@ -1,8 +1,8 @@
-# Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
-FROM gitpod/workspace-gitpod-dev:latest
+FROM nxpod/workspace-nxpod-dev:latest
 
 ENV TRIGGER_REBUILD 41
 
@@ -47,21 +47,21 @@ RUN cd /usr/bin && curl -fsSL https://github.com/praetorian-inc/gokart/releases/
 # leeway
 ARG LEEWAY_VERSION=0.8.2
 ENV LEEWAY_MAX_PROVENANCE_BUNDLE_SIZE=8388608
-ENV LEEWAY_WORKSPACE_ROOT=/workspace/gitpod
+ENV LEEWAY_WORKSPACE_ROOT=/workspace/nxpod
 ENV LEEWAY_REMOTE_CACHE_BUCKET=leeway-cache-dev-3ac8ef5
 ENV LEEWAY_CACHE_DIR=/workspace/.leeway/cache
 ENV LEEWAY_BUILD_DIR=/workspace/.leeway/build
-RUN cd /usr/bin && curl -fsSL https://github.com/gitpod-io/leeway/releases/download/v${LEEWAY_VERSION}/leeway_${LEEWAY_VERSION}_Linux_x86_64.tar.gz | tar xz
+RUN cd /usr/bin && curl -fsSL https://github.com/nxpod-io/leeway/releases/download/v${LEEWAY_VERSION}/leeway_${LEEWAY_VERSION}_Linux_x86_64.tar.gz | tar xz
 
 # evans (gRPC client)
 RUN cd /usr/bin && curl -fsSL https://github.com/ktr0731/evans/releases/download/v0.10.6/evans_linux_amd64.tar.gz | tar xz evans
 
 # dazzle
-RUN cd /usr/bin && curl -fsSL https://github.com/gitpod-io/dazzle/releases/download/v0.1.12/dazzle_0.1.12_Linux_x86_64.tar.gz | tar xz
+RUN cd /usr/bin && curl -fsSL https://github.com/nxpod-io/dazzle/releases/download/v0.1.12/dazzle_0.1.12_Linux_x86_64.tar.gz | tar xz
 
 # werft CLI
-ENV WERFT_CREDENTIAL_HELPER=/workspace/gitpod/dev/preview/werft-credential-helper.sh
-ENV WERFT_HOST=werft-grpc.gitpod-dev.com:443
+ENV WERFT_CREDENTIAL_HELPER=/workspace/nxpod/dev/preview/werft-credential-helper.sh
+ENV WERFT_HOST=werft-grpc.nxpod-dev.com:443
 ENV WERFT_TLS_MODE=system
 RUN cd /usr/bin && curl -fsSL https://github.com/csweichel/werft/releases/download/v0.3.3/werft-client-linux-amd64.tar.gz | tar xz && mv werft-client-linux-amd64 werft
 
@@ -121,14 +121,14 @@ RUN install-packages \
 # Install netcat to use it as proxy for SSH access to Harvester VMs
 RUN install-packages netcat
 
-USER gitpod
+USER nxpod
 
 # Fix node version we develop against
-ARG GITPOD_NODE_VERSION=18.20.2
+ARG NXPOD_NODE_VERSION=18.20.2
 RUN bash -c ". .nvm/nvm.sh \
-    && nvm install $GITPOD_NODE_VERSION \
+    && nvm install $NXPOD_NODE_VERSION \
     && npm install -g typescript yarn"
-ENV PATH=/home/gitpod/.nvm/versions/node/v${GITPOD_NODE_VERSION}/bin:$PATH
+ENV PATH=/home/nxpod/.nvm/versions/node/v${NXPOD_NODE_VERSION}/bin:$PATH
 
 ## Register leeway autocompletion in bashrc
 RUN bash -c "echo . \<\(leeway bash-completion\) >> ~/.bashrc"
@@ -137,7 +137,7 @@ RUN bash -c "echo . \<\(leeway bash-completion\) >> ~/.bashrc"
 # not installed via repository as then 'docker-credential-gcr' is not available
 ARG GCS_DIR=/opt/google-cloud-sdk
 ENV PATH=$GCS_DIR/bin:$PATH
-RUN sudo chown gitpod: /opt \
+RUN sudo chown nxpod: /opt \
     && mkdir $GCS_DIR \
     && curl -fsSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-472.0.0-linux-x86_64.tar.gz \
     | tar -xzvC /opt \
@@ -156,10 +156,10 @@ RUN sudo install-packages \
 
 RUN sudo python3 -m pip uninstall crcmod; sudo python3 -m pip install --no-cache-dir -U crcmod
 
-### gitpod-core specific gcloud config
-# Copy GCloud default config that points to gitpod-dev
-ARG GCLOUD_CONFIG_DIR=/home/gitpod/.config/gcloud
-COPY --chown=gitpod gcloud-default-config $GCLOUD_CONFIG_DIR/configurations/config_default
+### nxpod-core specific gcloud config
+# Copy GCloud default config that points to nxpod-dev
+ARG GCLOUD_CONFIG_DIR=/home/nxpod/.config/gcloud
+COPY --chown=nxpod gcloud-default-config $GCLOUD_CONFIG_DIR/configurations/config_default
 
 ENV DB_HOST=127.0.0.1
 
@@ -249,8 +249,8 @@ RUN bash -c "echo . \<\(gpctl completion bash\) >> ~/.bashrc"
 ENV PATH=$PATH:/workspace/bin
 
 # Setting the environment variable here so that it will be accessible to all tasks and
-# terminal sessions in Gitpod workspaces.
-ENV PREVIEW_ENV_DEV_SA_KEY_PATH=/home/gitpod/.config/gcloud/preview-environment-dev-sa.json
+# terminal sessions in Nxpod workspaces.
+ENV PREVIEW_ENV_DEV_SA_KEY_PATH=/home/nxpod/.config/gcloud/preview-environment-dev-sa.json
 
 # So we can parse the report.html output by leeway, and remove the output produced by this image build
 # why? it's too verbose, exceeding the Github Actions summary limit

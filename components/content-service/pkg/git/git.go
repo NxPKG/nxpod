@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,9 +17,9 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
 )
 
 var (
@@ -84,7 +84,7 @@ type Client struct {
 	// Location is the path in the filesystem where we'll work in (the CWD of the Git executable)
 	Location string
 
-	// Config values to be set on clone provided through `.gitpod.yml`
+	// Config values to be set on clone provided through `.nxpod.yml`
 	Config map[string]string
 
 	// RemoteURI is the Git WS remote origin
@@ -93,8 +93,8 @@ type Client struct {
 	// UpstreamCloneURI is the fork upstream of a repository
 	UpstreamRemoteURI string
 
-	// if true will run git command as gitpod user (should be executed as root that has access to sudo in this case)
-	RunAsGitpodUser bool
+	// if true will run git command as nxpod user (should be executed as root that has access to sudo in this case)
+	RunAsNxpodUser bool
 }
 
 // Status describes the status of a Git repo/working copy akin to "git status"
@@ -178,7 +178,7 @@ func (c *Client) GitWithOutput(ctx context.Context, ignoreErr *string, subcomman
 		env = append(env, fmt.Sprintf("GIT_AUTH_PASSWORD=%s", pwd))
 	}
 
-	env = append(env, "HOME=/home/gitpod")
+	env = append(env, "HOME=/home/nxpod")
 
 	fullArgs = append(fullArgs, subcommand)
 	fullArgs = append(fullArgs, args...)
@@ -201,9 +201,9 @@ func (c *Client) GitWithOutput(ctx context.Context, ignoreErr *string, subcomman
 	span.LogKV("args", fullArgs)
 
 	cmdName := "git"
-	if c.RunAsGitpodUser {
+	if c.RunAsNxpodUser {
 		cmdName = "sudo"
-		fullArgs = append([]string{"-u", "gitpod", "git"}, fullArgs...)
+		fullArgs = append([]string{"-u", "nxpod", "git"}, fullArgs...)
 	}
 	cmd := exec.Command(cmdName, fullArgs...)
 	cmd.Dir = c.Location

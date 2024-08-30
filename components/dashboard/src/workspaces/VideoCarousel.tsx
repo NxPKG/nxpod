@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -17,10 +17,10 @@ interface Video {
 }
 
 const videos: Video[] = [
-    { id: "1ZBN-b2cIB8", title: "Gitpod in 120 seconds", analyticsLabel: "gitpod-demo" },
-    { id: "zhZNnzFlZnY", title: "Getting started with Gitpod", analyticsLabel: "getting-started-with-gitpod" },
-    { id: "kuoHM2bpBqY", title: "Fully automate your dev setup", analyticsLabel: "automate-gitpod-setup" },
-    { id: "_CwFzCbAsoU", title: "Personalise your workspace", analyticsLabel: "personalise-gitpod-workspace" },
+    { id: "1ZBN-b2cIB8", title: "Nxpod in 120 seconds", analyticsLabel: "nxpod-demo" },
+    { id: "zhZNnzFlZnY", title: "Getting started with Nxpod", analyticsLabel: "getting-started-with-nxpod" },
+    { id: "kuoHM2bpBqY", title: "Fully automate your dev setup", analyticsLabel: "automate-nxpod-setup" },
+    { id: "_CwFzCbAsoU", title: "Personalise your workspace", analyticsLabel: "personalise-nxpod-workspace" },
 ];
 
 declare global {

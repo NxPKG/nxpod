@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,8 +14,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	builder "github.com/gitpod-io/gitpod/image-builder/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	builder "github.com/nxpkg/nxpod/image-builder/api"
 )
 
 // imagebuildsBuildBatch represents the build command
@@ -24,7 +24,7 @@ var imagebuildsBuildBatch = &cobra.Command{
 	Use:   "build-batch",
 	Short: "Builds workspace images from base-image refs read from STDIN",
 	Long: `Tip: re-build the workspace images of all workspaces started in the last 30 days.
-	mysql -N -B -u gitpod -p -h 127.0.0.1 gitpod -e 'SELECT ws.baseImageNameResolved FROM d_b_workspace_instance wsi LEFT JOIN d_b_workspace ws ON ws.id = workspaceId WHERE wsi.creationTime > (NOW() - INTERVAL 30 DAY)' | \
+	mysql -N -B -u nxpod -p -h 127.0.0.1 nxpod -e 'SELECT ws.baseImageNameResolved FROM d_b_workspace_instance wsi LEFT JOIN d_b_workspace ws ON ws.id = workspaceId WHERE wsi.creationTime > (NOW() - INTERVAL 30 DAY)' | \
 	sort | \
 	uniq | \
 	gpctl imagebuilds build-batch
@@ -87,7 +87,7 @@ func buildWorkspaceImage(wg *sync.WaitGroup, ctx context.Context, client builder
 			},
 		},
 		// TODO: this shouldn't be hard coded
-		SupervisorRef: "eu.gcr.io/gitpod-core-dev/build/supervisor:commit-4cb5b6b9c0e993f3964e978e387fb0e7c1c04276",
+		SupervisorRef: "eu.gcr.io/nxpod-core-dev/build/supervisor:commit-4cb5b6b9c0e993f3964e978e387fb0e7c1c04276",
 		TriggeredBy:   "c0f5dbf1-8d50-4d2a-8cd9-fe563fa53c71",
 	})
 	if err != nil {

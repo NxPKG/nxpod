@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/cpulimit"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
 	"github.com/google/go-cmp/cmp"
 	"k8s.io/apimachinery/pkg/api/resource"
 )

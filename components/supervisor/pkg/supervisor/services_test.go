@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,7 +15,7 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/api"
 )
 
 func TestInMemoryTokenServiceGetToken(t *testing.T) {
@@ -26,7 +26,7 @@ func TestInMemoryTokenServiceGetToken(t *testing.T) {
 	var (
 		defaultToken = "foobar"
 		defaultKind  = "myprovider"
-		defaultHost  = "gitpod.io"
+		defaultHost  = "nxpod.io"
 
 		errNoToken = status.Error(codes.NotFound, "no token available").Error()
 	)
@@ -265,7 +265,7 @@ func TestInMemoryTokenServiceGetToken(t *testing.T) {
 
 func TestInMemoryTokenServiceSetToken(t *testing.T) {
 	var (
-		defaultHost  = "gitpod.io"
+		defaultHost  = "nxpod.io"
 		defaultToken = "foobar"
 	)
 

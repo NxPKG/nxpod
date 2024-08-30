@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,14 +8,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/util"
+	"github.com/nxpkg/nxpod/common-go/util"
 )
 
 func BenchmarkRenderWorkspacePortURL(b *testing.B) {
 	b.ReportAllocs()
 
 	for n := 0; n < b.N; n++ {
-		RenderWorkspaceURL("{{.Port}}-{{.Prefix}}.{{.Host}}", "foo", "bar", "gitpod.io")
+		RenderWorkspaceURL("{{.Port}}-{{.Prefix}}.{{.Host}}", "foo", "bar", "nxpod.io")
 	}
 }
 
@@ -37,9 +37,9 @@ func TestValidate(t *testing.T) {
 				DefaultWorkspaceClass: {},
 			},
 			HeartbeatInterval:    util.Duration(10 * time.Second),
-			GitpodHostURL:        "https://gitpod.io",
+			NxpodHostURL:        "https://nxpod.io",
 			ReconnectionInterval: util.Duration(10 * time.Second),
-			WorkspaceURLTemplate: "https://gitpod.io/foobar",
+			WorkspaceURLTemplate: "https://nxpod.io/foobar",
 			WorkspaceHostPath:    "/mnt/data",
 		}
 		mod(res)

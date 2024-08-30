@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,11 +8,11 @@ import (
 	"context"
 
 	connect "github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/proxy"
+	"github.com/nxpkg/nxpod/common-go/log"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/proxy"
 )
 
 func NewUserService(pool proxy.ServerConnectionPool) *UserService {
@@ -97,7 +97,7 @@ func userToAPIResponse(user *protocol.User) *v1.User {
 		Id:        user.ID,
 		Name:      name,
 		AvatarUrl: user.AvatarURL,
-		CreatedAt: parseGitpodTimeStampOrDefault(user.CreationDate),
+		CreatedAt: parseNxpodTimeStampOrDefault(user.CreationDate),
 	}
 }
 
@@ -106,7 +106,7 @@ func sshKeyToAPIResponse(key *protocol.UserSSHPublicKeyValue) *v1.SSHKey {
 		Id:        key.ID,
 		Name:      key.Name,
 		Key:       key.Key,
-		CreatedAt: parseGitpodTimeStampOrDefault(key.CreationTime),
+		CreatedAt: parseNxpodTimeStampOrDefault(key.CreationTime),
 	}
 }
 

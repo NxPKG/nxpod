@@ -4,7 +4,7 @@ const http2 = require("http2");
 const getIDToken = async () => {
     return new Promise((resolve, reject) => {
         try {
-            const configPath = "/usr/local/gitpod/config/initial-spec.json";
+            const configPath = "/usr/local/nxpod/config/initial-spec.json";
             const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
             const controlPlaneApiEndpoint = config.controlPlaneApiEndpoint;
@@ -17,7 +17,7 @@ const getIDToken = async () => {
                 ":method": "POST",
                 "content-type": "application/json",
                 authorization: `Bearer ${workspaceToken}`,
-                ":path": `${url.pathname}/gitpod.v1.IdentityService/GetIDToken`,
+                ":path": `${url.pathname}/nxpod.v1.IdentityService/GetIDToken`,
             });
 
             let responseData = "";

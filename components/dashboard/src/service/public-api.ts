@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,38 +8,38 @@ import { PartialMessage } from "@bufbuild/protobuf";
 import { MethodKind, ServiceType } from "@bufbuild/protobuf";
 import { CallOptions, Code, ConnectError, PromiseClient, createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { Disposable } from "@gitpod/gitpod-protocol";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
-import { Project as ProtocolProject } from "@gitpod/gitpod-protocol/lib/teams-projects-protocol";
-import { HelloService } from "@gitpod/public-api/lib/gitpod/experimental/v1/dummy_connect";
-import { OIDCService } from "@gitpod/public-api/lib/gitpod/experimental/v1/oidc_connect";
-import { ProjectsService } from "@gitpod/public-api/lib/gitpod/experimental/v1/projects_connect";
-import { Project } from "@gitpod/public-api/lib/gitpod/experimental/v1/projects_pb";
-import { TokensService } from "@gitpod/public-api/lib/gitpod/experimental/v1/tokens_connect";
-import { OrganizationService } from "@gitpod/public-api/lib/gitpod/v1/organization_connect";
-import { WorkspaceService } from "@gitpod/public-api/lib/gitpod/v1/workspace_connect";
-import { ConfigurationService } from "@gitpod/public-api/lib/gitpod/v1/configuration_connect";
-import { PrebuildService } from "@gitpod/public-api/lib/gitpod/v1/prebuild_connect";
-import { getMetricsInterceptor } from "@gitpod/gitpod-protocol/lib/metrics";
+import { Disposable } from "@nxpod/nxpod-protocol";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
+import { Project as ProtocolProject } from "@nxpod/nxpod-protocol/lib/teams-projects-protocol";
+import { HelloService } from "@nxpod/public-api/lib/nxpod/experimental/v1/dummy_connect";
+import { OIDCService } from "@nxpod/public-api/lib/nxpod/experimental/v1/oidc_connect";
+import { ProjectsService } from "@nxpod/public-api/lib/nxpod/experimental/v1/projects_connect";
+import { Project } from "@nxpod/public-api/lib/nxpod/experimental/v1/projects_pb";
+import { TokensService } from "@nxpod/public-api/lib/nxpod/experimental/v1/tokens_connect";
+import { OrganizationService } from "@nxpod/public-api/lib/nxpod/v1/organization_connect";
+import { WorkspaceService } from "@nxpod/public-api/lib/nxpod/v1/workspace_connect";
+import { ConfigurationService } from "@nxpod/public-api/lib/nxpod/v1/configuration_connect";
+import { PrebuildService } from "@nxpod/public-api/lib/nxpod/v1/prebuild_connect";
+import { getMetricsInterceptor } from "@nxpod/nxpod-protocol/lib/metrics";
 import { getExperimentsClient } from "../experiments/client";
 import { JsonRpcOrganizationClient } from "./json-rpc-organization-client";
 import { JsonRpcWorkspaceClient } from "./json-rpc-workspace-client";
 import { JsonRpcAuthProviderClient } from "./json-rpc-authprovider-client";
-import { AuthProviderService } from "@gitpod/public-api/lib/gitpod/v1/authprovider_connect";
-import { EnvironmentVariableService } from "@gitpod/public-api/lib/gitpod/v1/envvar_connect";
+import { AuthProviderService } from "@nxpod/public-api/lib/nxpod/v1/authprovider_connect";
+import { EnvironmentVariableService } from "@nxpod/public-api/lib/nxpod/v1/envvar_connect";
 import { JsonRpcEnvvarClient } from "./json-rpc-envvar-client";
-import { Prebuild, WatchPrebuildRequest, WatchPrebuildResponse } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
+import { Prebuild, WatchPrebuildRequest, WatchPrebuildResponse } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
 import { JsonRpcPrebuildClient } from "./json-rpc-prebuild-client";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { JsonRpcScmClient } from "./json-rpc-scm-client";
-import { SCMService } from "@gitpod/public-api/lib/gitpod/v1/scm_connect";
-import { SSHService } from "@gitpod/public-api/lib/gitpod/v1/ssh_connect";
-import { UserService } from "@gitpod/public-api/lib/gitpod/v1/user_connect";
+import { SCMService } from "@nxpod/public-api/lib/nxpod/v1/scm_connect";
+import { SSHService } from "@nxpod/public-api/lib/nxpod/v1/ssh_connect";
+import { UserService } from "@nxpod/public-api/lib/nxpod/v1/user_connect";
 import { JsonRpcSSHClient } from "./json-rpc-ssh-client";
 import { JsonRpcVerificationClient } from "./json-rpc-verification-client";
-import { VerificationService } from "@gitpod/public-api/lib/gitpod/v1/verification_connect";
+import { VerificationService } from "@nxpod/public-api/lib/nxpod/v1/verification_connect";
 import { JsonRpcInstallationClient } from "./json-rpc-installation-client";
-import { InstallationService } from "@gitpod/public-api/lib/gitpod/v1/installation_connect";
+import { InstallationService } from "@nxpod/public-api/lib/nxpod/v1/installation_connect";
 import { JsonRpcUserClient } from "./json-rpc-user-client";
 
 const transport = createConnectTransport({
@@ -184,7 +184,7 @@ function createServiceClient<T extends ServiceType>(
                     featureFlags.map((ff) =>
                         experimentsClient.getValueAsync(ff, false, {
                             user,
-                            gitpodHost: window.location.host,
+                            nxpodHost: window.location.host,
                         }),
                     ),
                 );

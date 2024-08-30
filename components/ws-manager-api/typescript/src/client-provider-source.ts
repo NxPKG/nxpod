@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,8 +9,8 @@ import {
     WorkspaceCluster,
     WorkspaceClusterDB,
     WorkspaceClusterWoTLS,
-} from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 export const WorkspaceManagerClientProviderSource = Symbol("WorkspaceManagerClientProviderSource");
 

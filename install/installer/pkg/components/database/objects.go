@@ -1,14 +1,14 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package database
 
 import (
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/database/cloudsql"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/database/external"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/database/incluster"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/database/cloudsql"
+	"github.com/nxpkg/nxpod/installer/pkg/components/database/external"
+	"github.com/nxpkg/nxpod/installer/pkg/components/database/incluster"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/utils/pointer"
 )

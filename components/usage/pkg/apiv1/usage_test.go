@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,10 +11,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/components/gitpod-db/go/dbtest"
-	v1 "github.com/gitpod-io/gitpod/usage-api/v1"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
+	v1 "github.com/nxpkg/nxpod/usage-api/v1"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
@@ -107,7 +107,7 @@ func TestReconcile(t *testing.T) {
 		"g1-standard-pvc":      0.1666666667,
 		"g1-large":             0.3333333333,
 		"g1-large-pvc":         0.3333333333,
-		"gitpodio-internal-xl": 0.3333333333,
+		"nxpodio-internal-xl": 0.3333333333,
 	})
 	require.NoError(t, err)
 

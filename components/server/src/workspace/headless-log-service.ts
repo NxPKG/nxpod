@@ -1,40 +1,40 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
-import { HeadlessLogUrls } from "@gitpod/gitpod-protocol/lib/headless-workspace-log";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
+import { HeadlessLogUrls } from "@nxpod/nxpod-protocol/lib/headless-workspace-log";
 import { inject, injectable } from "inversify";
 import * as url from "url";
-import { Status, StatusServiceClient } from "@gitpod/supervisor-api-grpcweb/lib/status_pb_service";
+import { Status, StatusServiceClient } from "@nxpod/supervisor-api-grpcweb/lib/status_pb_service";
 import {
     TasksStatusRequest,
     TasksStatusResponse,
     TaskState,
     TaskStatus,
-} from "@gitpod/supervisor-api-grpcweb/lib/status_pb";
-import { ResponseStream } from "@gitpod/supervisor-api-grpcweb/lib/terminal_pb_service";
-import { ListenToOutputRequest, ListenToOutputResponse } from "@gitpod/supervisor-api-grpcweb/lib/task_pb";
-import { TaskServiceClient } from "@gitpod/supervisor-api-grpcweb/lib/task_pb_service";
-import { WorkspaceInstance } from "@gitpod/gitpod-protocol";
+} from "@nxpod/supervisor-api-grpcweb/lib/status_pb";
+import { ResponseStream } from "@nxpod/supervisor-api-grpcweb/lib/terminal_pb_service";
+import { ListenToOutputRequest, ListenToOutputResponse } from "@nxpod/supervisor-api-grpcweb/lib/task_pb";
+import { TaskServiceClient } from "@nxpod/supervisor-api-grpcweb/lib/task_pb_service";
+import { WorkspaceInstance } from "@nxpod/nxpod-protocol";
 import * as grpc from "@grpc/grpc-js";
 import { Config } from "../config";
 import * as browserHeaders from "browser-headers";
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { WebsocketTransport } from "../util/grpc-web-ws-transport";
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
 import {
     ListLogsRequest,
     ListLogsResponse,
     LogDownloadURLRequest,
     LogDownloadURLResponse,
-} from "@gitpod/content-service/lib/headless-log_pb";
+} from "@nxpod/content-service/lib/headless-log_pb";
 import { CachingHeadlessLogServiceClientProvider } from "../util/content-service-sugar";
 import { ctxIsAborted, ctxOnAbort } from "../util/request-context";
-import { PREBUILD_LOGS_PATH_PREFIX as PREBUILD_LOGS_PATH_PREFIX_common } from "@gitpod/public-api-common/lib/prebuild-utils";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { PREBUILD_LOGS_PATH_PREFIX as PREBUILD_LOGS_PATH_PREFIX_common } from "@nxpod/public-api-common/lib/prebuild-utils";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 export const HEADLESS_LOGS_PATH_PREFIX = "/headless-logs";
 export const HEADLESS_LOG_DOWNLOAD_PATH_PREFIX = "/headless-log-download";
@@ -52,7 +52,7 @@ export namespace HeadlessLogEndpoint {
     ): browserHeaders.BrowserHeaders | undefined {
         const headers = new browserHeaders.BrowserHeaders(logEndpoint.headers);
         if (logEndpoint.ownerToken) {
-            headers.set("x-gitpod-owner-token", logEndpoint.ownerToken);
+            headers.set("x-nxpod-owner-token", logEndpoint.ownerToken);
         }
 
         if (Object.keys(headers.headersMap).length === 0) {

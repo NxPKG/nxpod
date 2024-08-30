@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { v4 as uuidv4 } from "uuid";
-import { DBWithTracing, TracedWorkspaceDB, WorkspaceDB, TeamDB } from "@gitpod/gitpod-db/lib";
+import { DBWithTracing, TracedWorkspaceDB, WorkspaceDB, TeamDB } from "@nxpod/nxpod-db/lib";
 import {
     AdditionalContentContext,
     CommitContext,
@@ -21,11 +21,11 @@ import {
     WithSnapshot,
     Workspace,
     WorkspaceContext,
-} from "@gitpod/gitpod-protocol";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { generateWorkspaceID } from "@gitpod/gitpod-protocol/lib/util/generate-workspace-id";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+} from "@nxpod/nxpod-protocol";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { generateWorkspaceID } from "@nxpod/nxpod-protocol/lib/util/generate-workspace-id";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { inject, injectable } from "inversify";
 import { RepoURL } from "../repohost";
 import { ConfigProvider } from "./config-provider";

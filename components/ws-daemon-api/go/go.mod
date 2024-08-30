@@ -1,10 +1,10 @@
-module github.com/gitpod-io/gitpod/ws-daemon/api
+module github.com/nxpkg/nxpod/ws-daemon/api
 
 go 1.22
 
 require (
 	github.com/fatih/gomodifytags v1.14.0
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
 	github.com/golang/mock v1.6.0
 	google.golang.org/grpc v1.52.3
 	google.golang.org/protobuf v1.33.0
@@ -24,9 +24,9 @@ require (
 	google.golang.org/genproto v0.0.0-20221118155620-16455021b5e6 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../../content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../../content-service-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

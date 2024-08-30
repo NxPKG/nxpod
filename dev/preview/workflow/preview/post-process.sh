@@ -72,7 +72,7 @@ while [ "$documentIndex" -le "$DOCS" ]; do
    WORKSPACE_COMPONENTS=("image-builder" "image-builder-mk3 blobserve registry-facade" "ws-daemon" "agent-smith")
    # shellcheck disable=SC2076
    if [[ " ${WORKSPACE_COMPONENTS[*]} " =~ " ${NAME} " ]] && { [[ "$KIND" == "Deployment" ]] || [[ "$KIND" == "DaemonSet" ]]; }; then
-      LABEL="gitpod.io/workspace_$NODE_POOL_INDEX"
+      LABEL="nxpod.io/workspace_$NODE_POOL_INDEX"
       echo "setting $LABEL for $NAME"
       touch /tmp/"$NAME"pool.yaml
       # create a matching expression
@@ -81,7 +81,7 @@ while [ "$documentIndex" -le "$DOCS" ]; do
       # append it
       yq m --arrays=overwrite -i k8s.yaml -d "$documentIndex" /tmp/"$NAME"pool.yaml
    elif [[ "$KIND" == "DaemonSet" ]] || [[ "$KIND" == "Deployment" ]] || [[ "$KIND" == "StatefulSet" ]] || [[ "$KIND" == "Job" ]]; then
-      LABEL="gitpod.io/workload_meta"
+      LABEL="nxpod.io/workload_meta"
       echo "setting $LABEL for $NAME"
       touch /tmp/"$NAME"pool.yaml
       # create a matching expression
@@ -145,7 +145,7 @@ while [ "$documentIndex" -le "$DOCS" ]; do
       yq r k8s.yaml -d "$documentIndex" data | yq prefix - data > /tmp/"$NAME"-overrides.yaml
       yq r /tmp/"$NAME"-overrides.yaml 'data.[config.json]' > /tmp/"$NAME"-overrides.json
 
-      jq 'if .blobserve.repos["eu.gcr.io/gitpod-core-dev/build/ide/code"] == null then .blobserve.repos["eu.gcr.io/gitpod-core-dev/build/ide/code"] = .blobserve.repos["eu.gcr.io/gitpod-dev-artifact/build/ide/code"] else . end' /tmp/"$NAME"-overrides.json > /tmp/"$NAME"-updated-overrides.json
+      jq 'if .blobserve.repos["eu.gcr.io/nxpod-core-dev/build/ide/code"] == null then .blobserve.repos["eu.gcr.io/nxpod-core-dev/build/ide/code"] = .blobserve.repos["eu.gcr.io/nxpod-dev-artifact/build/ide/code"] else . end' /tmp/"$NAME"-overrides.json > /tmp/"$NAME"-updated-overrides.json
 
       yq w -i /tmp/"$NAME"-overrides.yaml  "data.[config.json]" -- "$(< /tmp/"$NAME"-updated-overrides.json)"
       yq m -x -i k8s.yaml -d "$documentIndex" /tmp/"$NAME"-overrides.yaml
@@ -185,7 +185,7 @@ while [ "$documentIndex" -le "$DOCS" ]; do
       yq r k8s.yaml -d "$documentIndex" 'data.[default.yaml]' > /tmp/"$NAME"overrides.yaml
 
       # add the proper affinity
-      LABEL="gitpod.io/workspace_$NODE_POOL_INDEX"
+      LABEL="nxpod.io/workspace_$NODE_POOL_INDEX"
       yq w -i /tmp/"$NAME"overrides.yaml spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[0].matchExpressions[0].key "$LABEL"
       yq w -i /tmp/"$NAME"overrides.yaml spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[0].matchExpressions[0].operator Exists
 
@@ -226,9 +226,9 @@ while [ "$documentIndex" -le "$DOCS" ]; do
       # get a copy of the config we're working with
       yq r k8s.yaml -d "$documentIndex" > /tmp/"$NAME"-"$KIND"-overrides.yaml
 
-      # replace gitpod token
+      # replace nxpod token
       yq r /tmp/"$NAME"-"$KIND"-overrides.yaml 'data.[config.json]' \
-      | jq ".gitpodAPI.apiToken = \"$SMITH_TOKEN\"" > /tmp/"$NAME"-"$KIND"-overrides.json
+      | jq ".nxpodAPI.apiToken = \"$SMITH_TOKEN\"" > /tmp/"$NAME"-"$KIND"-overrides.json
 
       # create override file
       touch /tmp/"$NAME"-"$KIND"-data-overrides.yaml
@@ -239,17 +239,17 @@ while [ "$documentIndex" -le "$DOCS" ]; do
    fi
 
    # suspend telemetry cron job
-   if [[ "gitpod-telemetry" == "$NAME" ]] && [[ "$KIND" == "CronJob" ]]; then
+   if [[ "nxpod-telemetry" == "$NAME" ]] && [[ "$KIND" == "CronJob" ]]; then
       WORK="suspend $NAME $KIND"
       echo "$WORK"
       yq w -i k8s.yaml -d "$documentIndex" spec.suspend "true"
    fi
 
-   # Uncomment to change or remove resources from the configmap which can be used to uninstall Gitpod
+   # Uncomment to change or remove resources from the configmap which can be used to uninstall Nxpod
    # There are a couple use cases where you may want to do this:
    # 1. We don't want to uninstall a shared resource that is needed by other preview env namespaces
    # 2. The apiVersion used by the installer is not supported by core-dev
-   # if [[ "gitpod-app" == "$NAME" ]] && [[ "$KIND" == "ConfigMap" ]]; then
+   # if [[ "nxpod-app" == "$NAME" ]] && [[ "$KIND" == "ConfigMap" ]]; then
    #    WORK="overrides for $NAME $KIND"
    #    echo "$WORK"
    #    # Get a copy of the config we're working with
@@ -269,18 +269,18 @@ while [ "$documentIndex" -le "$DOCS" ]; do
    #       # Avoid writing something to the configmap, like a cluster scoped resource, so it is not uninstalled
    #       # Other namespaces may depend on it
    #       # if [[ "jaegers.jaegertracing.io" == "$CONFIG_NAME" ]] && [[ "$CONFIG_KIND" == "CustomResourceDefinition" ]]; then
-   #       #    echo "Avoiding writing the $CONFIG_NAME $CONFIG_KIND to the gitpod-app ConfigMap"
+   #       #    echo "Avoiding writing the $CONFIG_NAME $CONFIG_KIND to the nxpod-app ConfigMap"
    #       #    ci=$((ci + 1))
    #       #    continue
    #       # fi
 
-   #       yq r /tmp/"$NAME"-"$KIND"-original.yaml -d "$ci" > /tmp/gitpod-app_config_"$ci"
+   #       yq r /tmp/"$NAME"-"$KIND"-original.yaml -d "$ci" > /tmp/nxpod-app_config_"$ci"
    #       if [ "$ci" -gt 0 ]; then
    #          # add a document separater
    #          echo "---" >> /tmp/"$NAME"-"$KIND"-overrides.yaml
    #       fi
 
-   #       cat /tmp/gitpod-app_config_"$ci" >> /tmp/"$NAME"-"$KIND"-overrides.yaml
+   #       cat /tmp/nxpod-app_config_"$ci" >> /tmp/"$NAME"-"$KIND"-overrides.yaml
    #       ci=$((ci + 1))
    #       new_ci=$((new_ci + 1))
    #    done

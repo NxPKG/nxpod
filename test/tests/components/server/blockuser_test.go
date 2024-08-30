@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,8 +14,8 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
 func TestAdminBlockUser(t *testing.T) {
@@ -61,8 +61,8 @@ func TestAdminBlockUser(t *testing.T) {
 			})
 			t.Logf("user '%s' with ID %s created", username, userId)
 
-			serverOpts := []integration.GitpodServerOpt{integration.WithGitpodUser(adminUsername)}
-			server, err := api.GitpodServer(serverOpts...)
+			serverOpts := []integration.NxpodServerOpt{integration.WithNxpodUser(adminUsername)}
+			server, err := api.NxpodServer(serverOpts...)
 			if err != nil {
 				t.Fatalf("cannot perform AdminBlockUser: %q", err)
 			}

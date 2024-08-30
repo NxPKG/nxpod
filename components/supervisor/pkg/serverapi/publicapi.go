@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,10 +15,10 @@ import (
 	"time"
 
 	backoff "github.com/cenkalti/backoff/v4"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/api"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"github.com/prometheus/client_golang/prometheus"
 	"google.golang.org/grpc"
@@ -29,18 +29,18 @@ import (
 )
 
 type APIInterface interface {
-	GetToken(ctx context.Context, query *gitpod.GetTokenSearchOptions) (res *gitpod.Token, err error)
-	OpenPort(ctx context.Context, port *gitpod.WorkspaceInstancePort) (res *gitpod.WorkspaceInstancePort, err error)
-	UpdateGitStatus(ctx context.Context, status *gitpod.WorkspaceInstanceRepoStatus) (err error)
-	WorkspaceUpdates(ctx context.Context) (<-chan *gitpod.WorkspaceInstance, error)
+	GetToken(ctx context.Context, query *nxpod.GetTokenSearchOptions) (res *nxpod.Token, err error)
+	OpenPort(ctx context.Context, port *nxpod.WorkspaceInstancePort) (res *nxpod.WorkspaceInstancePort, err error)
+	UpdateGitStatus(ctx context.Context, status *nxpod.WorkspaceInstanceRepoStatus) (err error)
+	WorkspaceUpdates(ctx context.Context) (<-chan *nxpod.WorkspaceInstance, error)
 
 	// Metrics
 	RegisterMetrics(registry *prometheus.Registry) error
 }
 
 const (
-	// KindGitpod marks tokens that provide access to the Gitpod server API.
-	KindGitpod = "gitpod"
+	// KindNxpod marks tokens that provide access to the Nxpod server API.
+	KindNxpod = "nxpod"
 )
 
 var errNotConnected = errors.New("not connected to server/public api")
@@ -63,7 +63,7 @@ type Service struct {
 	publicAPIConn *grpc.ClientConn
 
 	// subs is the subscribers of workspaceUpdates
-	subs     map[chan *gitpod.WorkspaceInstance]struct{}
+	subs     map[chan *nxpod.WorkspaceInstance]struct{}
 	subMutex sync.Mutex
 
 	apiMetrics *ClientMetrics
@@ -73,7 +73,7 @@ var _ APIInterface = (*Service)(nil)
 
 func NewServerApiService(ctx context.Context, cfg *ServiceConfig, tknsrv api.TokenServiceServer) *Service {
 	tknres, err := tknsrv.GetToken(context.Background(), &api.GetTokenRequest{
-		Kind: KindGitpod,
+		Kind: KindNxpod,
 		Host: cfg.Host,
 		Scope: []string{
 			"function:getToken",
@@ -83,7 +83,7 @@ func NewServerApiService(ctx context.Context, cfg *ServiceConfig, tknsrv api.Tok
 		},
 	})
 	if err != nil {
-		log.WithError(err).Error("cannot get token for Gitpod API")
+		log.WithError(err).Error("cannot get token for Nxpod API")
 		return nil
 	}
 
@@ -91,7 +91,7 @@ func NewServerApiService(ctx context.Context, cfg *ServiceConfig, tknsrv api.Tok
 		token:      tknres.Token,
 		cfg:        cfg,
 		apiMetrics: NewClientMetrics(),
-		subs:       make(map[chan *gitpod.WorkspaceInstance]struct{}),
+		subs:       make(map[chan *nxpod.WorkspaceInstance]struct{}),
 	}
 
 	// public api
@@ -132,7 +132,7 @@ func (s *Service) tryConnToPublicAPI(ctx context.Context) {
 	}
 }
 
-func (s *Service) GetToken(ctx context.Context, query *gitpod.GetTokenSearchOptions) (res *gitpod.Token, err error) {
+func (s *Service) GetToken(ctx context.Context, query *nxpod.GetTokenSearchOptions) (res *nxpod.Token, err error) {
 	if s == nil {
 		return nil, errNotConnected
 	}
@@ -149,7 +149,7 @@ func (s *Service) GetToken(ctx context.Context, query *gitpod.GetTokenSearchOpti
 		log.WithField("method", "GetGitToken").WithError(err).Error("failed to call PublicAPI")
 		return nil, err
 	}
-	return &gitpod.Token{
+	return &nxpod.Token{
 		ExpiryDate:   resp.Token.ExpiryDate,
 		IDToken:      resp.Token.IdToken,
 		RefreshToken: resp.Token.RefreshToken,
@@ -160,7 +160,7 @@ func (s *Service) GetToken(ctx context.Context, query *gitpod.GetTokenSearchOpti
 	}, nil
 }
 
-func (s *Service) UpdateGitStatus(ctx context.Context, status *gitpod.WorkspaceInstanceRepoStatus) (err error) {
+func (s *Service) UpdateGitStatus(ctx context.Context, status *nxpod.WorkspaceInstanceRepoStatus) (err error) {
 	if s == nil {
 		return errNotConnected
 	}
@@ -189,7 +189,7 @@ func (s *Service) UpdateGitStatus(ctx context.Context, status *gitpod.WorkspaceI
 	return
 }
 
-func (s *Service) OpenPort(ctx context.Context, port *gitpod.WorkspaceInstancePort) (res *gitpod.WorkspaceInstancePort, err error) {
+func (s *Service) OpenPort(ctx context.Context, port *nxpod.WorkspaceInstancePort) (res *nxpod.WorkspaceInstancePort, err error) {
 	if s == nil {
 		return nil, errNotConnected
 	}
@@ -206,12 +206,12 @@ func (s *Service) OpenPort(ctx context.Context, port *gitpod.WorkspaceInstancePo
 			Port: uint64(port.Port),
 		},
 	}
-	if port.Visibility == gitpod.PortVisibilityPublic {
+	if port.Visibility == nxpod.PortVisibilityPublic {
 		payload.Port.Policy = v1.PortPolicy_PORT_POLICY_PUBLIC
 	} else {
 		payload.Port.Policy = v1.PortPolicy_PORT_POLICY_PRIVATE
 	}
-	if port.Protocol == gitpod.PortProtocolHTTPS {
+	if port.Protocol == nxpod.PortProtocolHTTPS {
 		payload.Port.Protocol = v1.PortProtocol_PORT_PROTOCOL_HTTPS
 	} else {
 		payload.Port.Protocol = v1.PortProtocol_PORT_PROTOCOL_HTTP
@@ -222,7 +222,7 @@ func (s *Service) OpenPort(ctx context.Context, port *gitpod.WorkspaceInstancePo
 		return nil, err
 	}
 	// server don't respond anything
-	// see https://github.com/gitpod-io/gitpod/blob/2967579c330de67090d975661a6e3e1cd970ab68/components/server/src/workspace/gitpod-server-impl.ts#L1521
+	// see https://github.com/nxpkg/nxpod/blob/2967579c330de67090d975661a6e3e1cd970ab68/components/server/src/workspace/nxpod-server-impl.ts#L1521
 	return port, nil
 }
 
@@ -266,11 +266,11 @@ func (s *Service) onWorkspaceUpdates(ctx context.Context) {
 	}()
 }
 
-func (s *Service) WorkspaceUpdates(ctx context.Context) (<-chan *gitpod.WorkspaceInstance, error) {
+func (s *Service) WorkspaceUpdates(ctx context.Context) (<-chan *nxpod.WorkspaceInstance, error) {
 	if s == nil {
 		return nil, errNotConnected
 	}
-	ch := make(chan *gitpod.WorkspaceInstance)
+	ch := make(chan *nxpod.WorkspaceInstance)
 	s.subMutex.Lock()
 	s.subs[ch] = struct{}{}
 	s.subMutex.Unlock()
@@ -358,12 +358,12 @@ func (s *Service) RegisterMetrics(registry *prometheus.Registry) error {
 	return registry.Register(s.apiMetrics)
 }
 
-func workspaceStatusToWorkspaceInstance(status *v1.WorkspaceStatus) *gitpod.WorkspaceInstance {
-	instance := &gitpod.WorkspaceInstance{
+func workspaceStatusToWorkspaceInstance(status *v1.WorkspaceStatus) *nxpod.WorkspaceInstance {
+	instance := &nxpod.WorkspaceInstance{
 		CreationTime: status.Instance.CreatedAt.String(),
 		ID:           status.Instance.InstanceId,
-		Status: &gitpod.WorkspaceInstanceStatus{
-			ExposedPorts: []*gitpod.WorkspaceInstancePort{},
+		Status: &nxpod.WorkspaceInstanceStatus{
+			ExposedPorts: []*nxpod.WorkspaceInstancePort{},
 			Message:      status.Instance.Status.Message,
 			// OwnerToken:   "", not used so ignore
 			Phase:   status.Instance.Status.Phase.String(),
@@ -373,19 +373,19 @@ func workspaceStatusToWorkspaceInstance(status *v1.WorkspaceStatus) *gitpod.Work
 		WorkspaceID: status.Instance.WorkspaceId,
 	}
 	for _, port := range status.Instance.Status.Ports {
-		info := &gitpod.WorkspaceInstancePort{
+		info := &nxpod.WorkspaceInstancePort{
 			Port: float64(port.Port),
 			URL:  port.Url,
 		}
 		if port.Policy == v1.PortPolicy_PORT_POLICY_PUBLIC {
-			info.Visibility = gitpod.PortVisibilityPublic
+			info.Visibility = nxpod.PortVisibilityPublic
 		} else {
-			info.Visibility = gitpod.PortVisibilityPrivate
+			info.Visibility = nxpod.PortVisibilityPrivate
 		}
 		if port.Protocol == v1.PortProtocol_PORT_PROTOCOL_HTTPS {
-			info.Protocol = gitpod.PortProtocolHTTPS
+			info.Protocol = nxpod.PortProtocolHTTPS
 		} else {
-			info.Protocol = gitpod.PortProtocolHTTP
+			info.Protocol = nxpod.PortProtocolHTTP
 		}
 		instance.Status.ExposedPorts = append(instance.Status.ExposedPorts, info)
 	}

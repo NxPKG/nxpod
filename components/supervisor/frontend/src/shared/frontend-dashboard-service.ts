@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import * as crypto from "crypto";
-import { IDEFrontendDashboardService } from "@gitpod/gitpod-protocol/lib/frontend-dashboard-service";
-import { RemoteTrackMessage } from "@gitpod/gitpod-protocol/lib/analytics";
-import { Emitter } from "@gitpod/gitpod-protocol/lib/util/event";
+import { IDEFrontendDashboardService } from "@nxpod/nxpod-protocol/lib/frontend-dashboard-service";
+import { RemoteTrackMessage } from "@nxpod/nxpod-protocol/lib/analytics";
+import { Emitter } from "@nxpod/nxpod-protocol/lib/util/event";
 import { workspaceUrl, serverUrl } from "./urls";
 import { metricsReporter } from "../ide/ide-metrics-service-client";
 
@@ -132,7 +132,7 @@ export class FrontendDashboardServiceClient implements IDEFrontendDashboardServi
         );
     }
 
-    // always perfrom redirect to dekstop IDE on gitpod origin
+    // always perfrom redirect to dekstop IDE on nxpod origin
     // to avoid confirmation popup on each workspace origin
     openDesktopIDE(url: string): void {
         this.serverWindow.postMessage(

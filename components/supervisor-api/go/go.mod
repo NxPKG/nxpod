@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/supervisor/api
+module github.com/nxpkg/nxpod/supervisor/api
 
 go 1.22
 

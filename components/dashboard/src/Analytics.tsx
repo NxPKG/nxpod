@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import Cookies from "js-cookie";
 import { v4 } from "uuid";
 import { StartWorkspaceError } from "./start/StartPage";
-import { RemoteTrackMessage } from "@gitpod/gitpod-protocol/lib/analytics";
+import { RemoteTrackMessage } from "@nxpod/nxpod-protocol/lib/analytics";
 
 export type Event =
     | "invite_url_requested"

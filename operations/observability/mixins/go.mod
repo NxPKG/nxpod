@@ -1,4 +1,4 @@
-module gitpod-io/mixin-utils
+module nxpkg/mixin-utils
 
 go 1.15
 

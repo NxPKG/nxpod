@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/activity"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/maintenance"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/activity"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/maintenance"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	"github.com/go-logr/logr"
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/prometheus/client_golang/prometheus"
@@ -549,8 +549,8 @@ func (n *nodeUtilizationVec) Collect(ch chan<- prometheus.Metric) {
 		nodeTypes       = make(map[string]string)
 	)
 	for _, node := range nodes.Items {
-		isRegular := node.Labels["gitpod.io/workload_workspace_regular"] == "true"
-		isHeadless := node.Labels["gitpod.io/workload_workspace_headless"] == "true"
+		isRegular := node.Labels["nxpod.io/workload_workspace_regular"] == "true"
+		isHeadless := node.Labels["nxpod.io/workload_workspace_headless"] == "true"
 		if !isRegular && !isHeadless {
 			// Ignore non-workspace nodes.
 			continue

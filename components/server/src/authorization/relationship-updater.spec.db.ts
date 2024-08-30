@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -11,10 +11,10 @@ import {
     TypeORM,
     UserDB,
     WorkspaceDB,
-} from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
-import { User, Workspace } from "@gitpod/gitpod-protocol";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+} from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
+import { User, Workspace } from "@nxpod/nxpod-protocol";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
@@ -215,7 +215,7 @@ describe("RelationshipUpdater", async () => {
             id: v4(),
             name: "MyProject",
             appInstallationId: "123",
-            cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+            cloneUrl: "https://github.com/nxpkg/nxpod.git",
             teamId: org.id,
             creationTime: new Date().toISOString(),
         });
@@ -223,7 +223,7 @@ describe("RelationshipUpdater", async () => {
             id: v4(),
             name: "MyProject",
             appInstallationId: "123",
-            cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+            cloneUrl: "https://github.com/nxpkg/nxpod.git",
             teamId: org.id,
             creationTime: new Date().toISOString(),
         });
@@ -249,7 +249,7 @@ describe("RelationshipUpdater", async () => {
             id: v4(),
             name: "MyProject",
             appInstallationId: "123",
-            cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+            cloneUrl: "https://github.com/nxpkg/nxpod.git",
             teamId: org.id,
             creationTime: new Date().toISOString(),
         });

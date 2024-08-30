@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -11,13 +11,13 @@
         name: 'gitpod-component-node-alerts',
         rules: [
           {
-            alert: 'GitpodNodeRunningOutOfEphemeralStorage',
+            alert: 'NxpodNodeRunningOutOfEphemeralStorage',
             labels: {
               severity: 'critical',
             },
             'for': '10m',
             annotations: {
-              runbook_url: 'https://github.com/gitpod-io/runbooks/blob/main/runbooks/GitpodNodeRunningOutOfEphemeralStorage.md',
+              runbook_url: 'https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodNodeRunningOutOfEphemeralStorage.md',
               summary: 'Node almost out of ephemeral storage',
               description: 'Node {{ $labels.node }} is reporting {{ printf "%.2f" $value }}% ephemeral storage left under {{ $labels.mountpoint }}.',
             },
@@ -31,13 +31,13 @@
               |||,
           },
           {
-            alert: 'GitpodNodeConntrackTableIsFull',
+            alert: 'NxpodNodeConntrackTableIsFull',
             labels: {
               severity: 'critical',
             },
             'for': '5m',
             annotations: {
-              runbook_url: 'https://github.com/gitpod-io/runbooks/blob/main/runbooks/GitpodNodeConntrackTableIsFull.md',
+              runbook_url: 'https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodNodeConntrackTableIsFull.md',
               summary: 'Node conntrack table is almost full',
               description: 'Node {{ $labels.node }} conntrack table is almost full. If it gets full, packets will be getting dropped.',
             },
@@ -47,13 +47,13 @@
               |||,
           },
           {
-            alert: 'GitpodNodeConntrackTableGettingFull',
+            alert: 'NxpodNodeConntrackTableGettingFull',
             labels: {
               severity: 'warning',
             },
             'for': '10m',
             annotations: {
-              runbook_url: 'https://github.com/gitpod-io/runbooks/blob/main/runbooks/GitpodNodeConntrackTableIsFull.md',
+              runbook_url: 'https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodNodeConntrackTableIsFull.md',
               summary: 'Node conntrack table is getting full',
               description: 'Node {{ $labels.node }} conntrack table is getting full. If it gets full, packets will be getting dropped.',
             },

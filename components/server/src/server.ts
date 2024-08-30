@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -15,26 +15,26 @@ import { SessionHandler } from "./session-handler";
 import { Authenticator } from "./auth/authenticator";
 import { UserController } from "./user/user-controller";
 import { EventEmitter } from "events";
-import { createWebSocketConnection, toIWebSocket } from "@gitpod/gitpod-protocol/lib/messaging/node/connection";
+import { createWebSocketConnection, toIWebSocket } from "@nxpod/nxpod-protocol/lib/messaging/node/connection";
 import { WsExpressHandler, WsRequestHandler } from "./express/ws-handler";
 import { isAllowedWebsocketDomain, bottomErrorHandler, unhandledToError, toHeaders } from "./express-util";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { AddressInfo } from "net";
 import { WorkspaceDownloadService } from "./workspace/workspace-download-service";
 import { MonitoringEndpointsApp } from "./monitoring-endpoints";
 import { WebsocketConnectionManager } from "./websocket/websocket-connection-manager";
-import { TypeORM } from "@gitpod/gitpod-db/lib";
+import { TypeORM } from "@nxpod/nxpod-db/lib";
 import { OneTimeSecretServer } from "./one-time-secret-server";
-import { Disposable, DisposableCollection } from "@gitpod/gitpod-protocol";
+import { Disposable, DisposableCollection } from "@nxpod/nxpod-protocol";
 import { BearerAuth, isBearerAuthError } from "./auth/bearer-authenticator";
 import { HostContextProvider } from "./auth/host-context-provider";
 import { CodeSyncService } from "./code-sync/code-sync-service";
-import { increaseHttpRequestCounter, observeHttpRequestDuration, setGitpodVersion } from "./prometheus-metrics";
+import { increaseHttpRequestCounter, observeHttpRequestDuration, setNxpodVersion } from "./prometheus-metrics";
 import { OAuthController } from "./oauth-server/oauth-controller";
 import { HeadlessLogController } from "./workspace/headless-log-controller";
 import { NewsletterSubscriptionController } from "./user/newsletter-subscription-controller";
 import { Config } from "./config";
-import { DebugApp } from "@gitpod/gitpod-protocol/lib/util/debug-app";
+import { DebugApp } from "@nxpod/nxpod-protocol/lib/util/debug-app";
 import { WsConnectionHandler } from "./express/ws-connection-handler";
 import { LivenessController } from "./liveness/liveness-controller";
 import { IamSessionApp } from "./iam/iam-session-app";
@@ -107,7 +107,7 @@ export class Server {
         log.info("server initializing...");
 
         // Set version info metric
-        setGitpodVersion(this.config.version);
+        setNxpodVersion(this.config.version);
 
         // ensure DB connection is established to avoid noisy error messages
         await this.typeOrm.connect();
@@ -169,10 +169,10 @@ export class Server {
         const websocketConnectionHandler = this.websocketConnectionHandler;
         this.eventEmitter.on(Server.EVENT_ON_START, (httpServer) => {
             // CSRF protection: check "Origin" header:
-            //  - for cookie/session AND Bearer auth: MUST be hostUrl.hostname (gitpod.io)
+            //  - for cookie/session AND Bearer auth: MUST be hostUrl.hostname (nxpod.io)
             //  - edge case: empty "Origin" is always permitted
-            // We rely on the origin header being set correctly (needed by regular clients to use Gitpod:
-            // CORS allows subdomains to access gitpod.io)
+            // We rely on the origin header being set correctly (needed by regular clients to use Nxpod:
+            // CORS allows subdomains to access nxpod.io)
             const verifyOrigin = (origin: string) => {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                 let allowedRequest = isAllowedWebsocketDomain(origin, this.config.hostUrl.url.hostname);

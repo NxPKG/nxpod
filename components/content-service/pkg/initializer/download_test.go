@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,7 +12,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/gitpod-io/gitpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/api"
 	"github.com/opencontainers/go-digest"
 )
 

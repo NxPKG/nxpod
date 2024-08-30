@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,8 +8,8 @@ import express from "express";
 import { inject, injectable } from "inversify";
 import websocket from "ws";
 
-import { User } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { User } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { AuthJWT } from "./auth/jwt";
 import { Config } from "./config";
 import { WsNextFunction, WsRequestHandler } from "./express/ws-handler";

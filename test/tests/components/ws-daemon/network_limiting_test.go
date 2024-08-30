@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/kubernetes"
-	daemon "github.com/gitpod-io/gitpod/test/pkg/agent/daemon/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	"github.com/nxpkg/nxpod/common-go/kubernetes"
+	daemon "github.com/nxpkg/nxpod/test/pkg/agent/daemon/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 	corev1 "k8s.io/api/core/v1"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
@@ -41,7 +41,7 @@ func TestNetworkLimiting(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			ws, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "https://github.com/gitpod-io/empty", username, api, integration.WithGitpodUser(username))
+			ws, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "https://github.com/nxpkg/empty", username, api, integration.WithNxpodUser(username))
 			if err != nil {
 				t.Fatal(err)
 			}

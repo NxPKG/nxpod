@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,7 +7,7 @@
 import express from "express";
 import { injectable } from "inversify";
 import * as prometheusClient from "prom-client";
-import { redisMetricsRegistry, registerDBMetrics } from "@gitpod/gitpod-db/lib";
+import { redisMetricsRegistry, registerDBMetrics } from "@nxpod/nxpod-db/lib";
 import { registerServerMetrics } from "./prometheus-metrics";
 
 @injectable()

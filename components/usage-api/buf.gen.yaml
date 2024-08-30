@@ -3,11 +3,11 @@ plugins:
   - name: go
     out: go
     opt:
-     - module=github.com/gitpod-io/gitpod/usage-api
+     - module=github.com/nxpkg/nxpod/usage-api
   - name: go-grpc
     out: go
     opt:
-      - module=github.com/gitpod-io/gitpod/usage-api
+      - module=github.com/nxpkg/nxpod/usage-api
 
   - name: ts_proto
     out: typescript/src

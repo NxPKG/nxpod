@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,8 +8,8 @@ package supervisor;
 
 import "google/api/annotations.proto";
 
-option go_package = "github.com/gitpod-io/gitpod/supervisor/api";
-option java_package = "io.gitpod.supervisor.api";
+option go_package = "github.com/nxpkg/nxpod/supervisor/api";
+option java_package = "io.nxpod.supervisor.api";
 
 service InfoService {
     rpc WorkspaceInfo(WorkspaceInfoRequest) returns (WorkspaceInfoResponse) {
@@ -22,8 +22,8 @@ service InfoService {
 message WorkspaceInfoRequest {}
 
 message WorkspaceInfoResponse {
-    message GitpodAPI {
-        // endpoint is the websocket URL on which the token-accessible Gitpod API is served on
+    message NxpodAPI {
+        // endpoint is the websocket URL on which the token-accessible Nxpod API is served on
         string endpoint = 1;
         // host is the host of the endpoint. Use this host to ask supervisor a token.
         string host = 2;
@@ -49,11 +49,11 @@ message WorkspaceInfoResponse {
     // user_home is the path to the user's home.
     string user_home = 6;
 
-    // GitpodAPI provides information to reach the Gitpod server API.
-    GitpodAPI gitpod_api = 7;
+    // NxpodAPI provides information to reach the Nxpod server API.
+    NxpodAPI nxpod_api = 7;
 
-    // gitpod_host provides Gitpod host URL.
-    string gitpod_host = 8;
+    // nxpod_host provides Nxpod host URL.
+    string nxpod_host = 8;
 
     // workspace_context_url is an URL for which the workspace was created.
     string workspace_context_url = 9;
@@ -67,7 +67,7 @@ message WorkspaceInfoResponse {
     // repository is a repository from which this workspace was created
     Repository repository = 10;
 
-    // workspace_cluster_host provides the cluster host under which this workspace is served, e.g. ws-eu11.gitpod.io
+    // workspace_cluster_host provides the cluster host under which this workspace is served, e.g. ws-eu11.nxpod.io
     string workspace_cluster_host = 11;
 
     // workspace_url is an URL for which the workspace is accessed.

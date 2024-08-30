@@ -8,7 +8,7 @@ function ensure_gcloud_auth() {
         echo "Currently you need to be authenticated with gcloud to run the build"
         echo
         echo "This is needed to you can use the Leeway build cache that Werft also uses"
-        echo "We're working on automating this here: https://github.com/gitpod-io/gitpod/issues/13714"
+        echo "We're working on automating this here: https://github.com/nxpkg/nxpod/issues/13714"
         echo
         echo "But for now you have to run the following log in manually"
         echo

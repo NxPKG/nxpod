@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,8 +9,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/installer/pkg/config"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/installer/pkg/config"
 	"github.com/spf13/cobra"
 )
 
@@ -67,5 +67,5 @@ func init() {
 		log.WithError(err).Fatal("Failed to get working directory")
 	}
 
-	validateCmd.PersistentFlags().StringVarP(&validateConfigOpts.Config, "config", "c", getEnvvar("GITPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file")
+	validateCmd.PersistentFlags().StringVarP(&validateConfigOpts.Config, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file")
 }

@@ -1,19 +1,19 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject } from "inversify";
-import { WorkspaceDB, TeamDB } from "@gitpod/gitpod-db/lib";
-import { User, Workspace } from "@gitpod/gitpod-protocol";
+import { WorkspaceDB, TeamDB } from "@nxpod/nxpod-db/lib";
+import { User, Workspace } from "@nxpod/nxpod-protocol";
 import { StorageClient } from "../storage/storage-client";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { StopWorkspacePolicy } from "@gitpod/ws-manager/lib";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { StopWorkspacePolicy } from "@nxpod/ws-manager/lib";
 import { AuthProviderService } from "../auth/auth-provider-service";
 import { WorkspaceService } from "../workspace/workspace-service";
 import { UserService } from "./user-service";
-import { TransactionalContext } from "@gitpod/gitpod-db/lib/typeorm/transactional-db-impl";
+import { TransactionalContext } from "@nxpod/nxpod-db/lib/typeorm/transactional-db-impl";
 import { OrganizationService } from "../orgs/organization-service";
 
 @injectable()

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -10,7 +10,7 @@ import { useCurrentUser } from "../../user-context";
 import {
     AuthProviderDescription,
     ListAuthProviderDescriptionsRequest,
-} from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 
 export const useAuthProviderDescriptions = () => {
     const user = useCurrentUser();

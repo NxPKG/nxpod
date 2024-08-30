@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { NavigatorContext, PullRequestContext, Repository, User, WorkspaceContext } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { NavigatorContext, PullRequestContext, Repository, User, WorkspaceContext } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { inject, injectable } from "inversify";
 import { NotFoundError } from "../errors";
 import { AbstractContextParser, IContextParser, URLParts } from "../workspace/context-parser";
@@ -86,7 +86,7 @@ export class BitbucketServerContextParser extends AbstractContextParser implemen
         const lengthOfRelativePath = host.split("/").length - 1; // e.g. "123.123.123.123/gitlab" => length of 1
         if (lengthOfRelativePath > 0) {
             // remove segments from the path to be consider further, which belong to the relative location of the host
-            // cf. https://github.com/gitpod-io/gitpod/issues/2637
+            // cf. https://github.com/nxpkg/nxpod/issues/2637
             segments.splice(0, lengthOfRelativePath);
         }
 

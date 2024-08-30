@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -27,9 +27,9 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"sigs.k8s.io/yaml"
 
-	"github.com/gitpod-io/gitpod/loadgen/pkg/loadgen"
-	"github.com/gitpod-io/gitpod/loadgen/pkg/observer"
-	"github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/loadgen/pkg/loadgen"
+	"github.com/nxpkg/nxpod/loadgen/pkg/observer"
+	"github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 var benchmarkOpts struct {
@@ -72,7 +72,7 @@ var benchmarkCommand = &cobra.Command{
 				},
 				Admission: api.AdmissionLevel_ADMIT_OWNER_ONLY,
 				Git: &api.GitSpec{
-					Email:    "test@gitpod.io",
+					Email:    "test@nxpod.io",
 					Username: "foobar",
 				},
 				FeatureFlags:   scenario.FeatureFlags,

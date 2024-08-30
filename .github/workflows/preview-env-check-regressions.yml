@@ -14,19 +14,19 @@ on:
         description: "The name of the preview environment"
       version:
         required: true
-        description: "The version of Gitpod to install"
+        description: "The version of Nxpod to install"
       image_repo_base:
         type: choice
         required: false
         description: "The base repo of image"
         options:
-          - "eu.gcr.io/gitpod-core-dev/build"
-          - "eu.gcr.io/gitpod-dev-artifact/build"
-        default: "eu.gcr.io/gitpod-core-dev/build"
+          - "eu.gcr.io/nxpod-core-dev/build"
+          - "eu.gcr.io/nxpod-dev-artifact/build"
+        default: "eu.gcr.io/nxpod-core-dev/build"
 
 jobs:
   create-runner:
-    uses: gitpod-io/gce-github-runner/.github/workflows/create-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/create-vm.yml@main
     secrets:
       runner_token: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_TOKEN }}
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
@@ -57,7 +57,7 @@ jobs:
               {
                   echo "version=main-gha.${{ github.event.workflow_run.run_number }}"
                   echo "name=preview-regression-check-main-${{ github.run_id }}-${{ github.run_attempt }}"
-                  echo "image_repo_base=eu.gcr.io/gitpod-core-dev/build"
+                  echo "image_repo_base=eu.gcr.io/nxpod-core-dev/build"
                   echo "skip=${{ github.event.workflow_run.conclusion == 'failure' }}"
               } >> $GITHUB_OUTPUT
           fi
@@ -85,9 +85,9 @@ jobs:
           large_vm: false
           preemptible: true
           image_repo_base: ${{ needs.configuration.outputs.image_repo_base }}
-      - name: Deploy Gitpod to the preview environment
-        id: deploy-gitpod
-        uses: ./.github/actions/deploy-gitpod
+      - name: Deploy Nxpod to the preview environment
+        id: deploy-nxpod
+        uses: ./.github/actions/deploy-nxpod
         with:
           name: ${{ needs.configuration.outputs.name }}
           version: ${{ needs.configuration.outputs.version}}
@@ -99,7 +99,7 @@ jobs:
     if: ${{ needs.configuration.outputs.skip == 'false' }}
     runs-on: ${{ needs.create-runner.outputs.label }}
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
       volumes:
         - /var/tmp:/var/tmp
         - /tmp:/tmp
@@ -122,14 +122,14 @@ jobs:
           set -euo pipefail
 
           export LEEWAY_WORKSPACE_ROOT="$(pwd)"
-          export HOME="/home/gitpod"
+          export HOME="/home/nxpod"
 
           leeway run dev/preview/previewctl:install
           previewctl install-context --branch "${PREVIEW_NAME}" --log-level debug --timeout 1m
 
           # start integration test
           args=()
-          args+=( "-kubeconfig=/home/gitpod/.kube/config" )
+          args+=( "-kubeconfig=/home/nxpod/.kube/config" )
           args+=( "-namespace=default" )
           [[ "$USERNAME" != "" ]] && args+=( "-username=$USERNAME" )
           args+=( "-timeout=60m" )
@@ -196,7 +196,7 @@ jobs:
       - infrastructure
       - check
       - delete
-    uses: gitpod-io/gce-github-runner/.github/workflows/delete-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/delete-vm.yml@main
     secrets:
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
     with:

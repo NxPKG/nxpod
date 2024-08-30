@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@gitpod/ws-daemon",
+  "name": "@nxpod/ws-daemon",
   "version": "0.1.5",
   "license": "UNLICENSED",
   "scripts": {
@@ -12,7 +12,7 @@
     "lib"
   ],
   "dependencies": {
-    "@gitpod/content-service": "0.1.5",
+    "@nxpod/content-service": "0.1.5",
     "@grpc/grpc-js": "1.10.8",
     "google-protobuf": "^3.19.1",
     "inversify": "^6.0.1",

@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 import { useQuery } from "@tanstack/react-query";
 import { getExperimentsClient } from "../experiments/client";
 import { useCurrentUser } from "../user-context";
@@ -12,12 +12,12 @@ import { useCurrentOrg } from "./organizations/orgs-query";
 
 const featureFlags = {
     oidcServiceEnabled: false,
-    // Default to true to enable on gitpod dedicated until ff support is added for dedicated
+    // Default to true to enable on nxpod dedicated until ff support is added for dedicated
     orgGitAuthProviders: true,
     userGitAuthProviders: false,
     enableDedicatedOnboardingFlow: false,
     // Local SSH feature of VS Code Desktop Extension
-    gitpod_desktop_use_local_ssh_proxy: false,
+    nxpod_desktop_use_local_ssh_proxy: false,
     enabledOrbitalDiscoveries: "",
     repositoryFinderSearch: false,
     // dummy specified dataops feature, default false
@@ -42,7 +42,7 @@ export const useFeatureFlag = <K extends keyof FeatureFlags>(featureFlag: K): Fe
             },
             teamId: org?.id,
             teamName: org?.name,
-            gitpodHost: window.location.host,
+            nxpodHost: window.location.host,
         });
         return flagValue;
     });

@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 FROM gitpod/openvscode-server-linux-build-agent:centos7-devtoolset8-x64 as dependencies_builder
@@ -10,7 +10,7 @@ ARG CODE_COMMIT
 RUN mkdir /gp-code \
     && cd /gp-code \
     && git init \
-    && git remote add origin https://github.com/gitpod-io/openvscode-server \
+    && git remote add origin https://github.com/nxpkg/openvscode-server \
     && git fetch origin $CODE_COMMIT --depth=1 \
     && git reset --hard FETCH_HEAD
 WORKDIR /gp-code
@@ -45,7 +45,7 @@ RUN apt-get update && apt-get install -y nodejs
 RUN mkdir /gp-code \
     && cd /gp-code \
     && git init \
-    && git remote add origin https://github.com/gitpod-io/openvscode-server \
+    && git remote add origin https://github.com/nxpkg/openvscode-server \
     && git fetch origin $CODE_COMMIT --depth=1 \
     && git reset --hard FETCH_HEAD
 WORKDIR /gp-code

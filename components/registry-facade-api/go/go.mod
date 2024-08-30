@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/registry-facade/api
+module github.com/nxpkg/nxpod/registry-facade/api
 
 go 1.22
 

@@ -4,31 +4,31 @@
     "creationTime": "2023-12-01T04:53:27.228Z",
     "organizationId": "ce36c2f8-5d43-4b1d-92f2-08cb6f0e0869",
     "ownerId": "b49148ed-6e1f-4eae-927f-1e62a3c9dab9",
-    "contextURL": "https://github.com/gitpod-io/gitpod",
+    "contextURL": "https://github.com/nxpkg/nxpod",
     "projectId": "1fffcdbd-f716-4185-a14f-a689bd52cd2d",
-    "description": "gitpod-io/gitpod - main",
+    "description": "nxpkg/gitpod - main",
     "context": {
       "isFile": false,
       "path": "",
-      "title": "gitpod-io/gitpod - main",
+      "title": "nxpkg/gitpod - main",
       "ref": "main",
       "refType": "branch",
       "revision": "eb6a504011d82fe87d0746012c75b4916ce54480",
       "repository": {
-        "cloneUrl": "https://github.com/gitpod-io/gitpod.git",
+        "cloneUrl": "https://github.com/nxpkg/nxpod.git",
         "host": "github.com",
         "defaultBranch": "main",
         "name": "gitpod",
-        "owner": "gitpod-io",
+        "owner": "nxpkg",
         "private": false
       },
-      "normalizedContextURL": "https://github.com/gitpod-io/gitpod",
+      "normalizedContextURL": "https://github.com/nxpkg/nxpod",
       "checkoutLocation": "gitpod",
       "snapshotBucketId": "bbbbucketID",
       "prebuildWorkspaceId": "68da9714-93c0-4b7c-8579-dee70b1fbc3a",
       "wasPrebuilt": true
     },
-    "cloneUrl": "https://github.com/gitpod-io/gitpod.git",
+    "cloneUrl": "https://github.com/nxpkg/nxpod.git",
     "config": {
       "image": "eu.gcr.io/gitpod-core-dev/dev/dev-environment:aledbf-go-122-gha.23879",
       "workspaceLocation": "gitpod/gitpod-ws.code-workspace",
@@ -166,7 +166,7 @@
       "ideSetup": {
         "envvars": [
           {
-            "name": "GITPOD_IDE_ALIAS",
+            "name": "NXPOD_IDE_ALIAS",
             "value": "code"
           }
         ],

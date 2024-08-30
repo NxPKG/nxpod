@@ -1,13 +1,13 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
 package image_builder_mk3
 
 import (
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/server"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/server"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1"
 
 	networkingv1 "k8s.io/api/networking/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -18,7 +18,7 @@ func networkpolicy(ctx *common.RenderContext) ([]runtime.Object, error) {
 	labels := common.DefaultLabels(Component)
 	var ingressRules []networkingv1.NetworkPolicyPeer
 	// Allow all ingress in workspace clusters
-	// until https://github.com/gitpod-io/ops/issues/6905 is fixed.
+	// until https://github.com/nxpkg/ops/issues/6905 is fixed.
 	if ctx.Config.Kind != config.InstallationWorkspace {
 		ingressRules = []networkingv1.NetworkPolicyPeer{
 			{

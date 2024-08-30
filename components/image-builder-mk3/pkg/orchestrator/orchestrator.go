@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -31,16 +31,16 @@ import (
 	"google.golang.org/grpc/status"
 
 	awsconfig "github.com/aws/aws-sdk-go-v2/config"
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/image-builder/api"
-	protocol "github.com/gitpod-io/gitpod/image-builder/api"
-	"github.com/gitpod-io/gitpod/image-builder/api/config"
-	"github.com/gitpod-io/gitpod/image-builder/pkg/auth"
-	"github.com/gitpod-io/gitpod/image-builder/pkg/resolve"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/image-builder/api"
+	protocol "github.com/nxpkg/nxpod/image-builder/api"
+	"github.com/nxpkg/nxpod/image-builder/api/config"
+	"github.com/nxpkg/nxpod/image-builder/pkg/auth"
+	"github.com/nxpkg/nxpod/image-builder/pkg/resolve"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 const (
@@ -417,7 +417,7 @@ func (o *Orchestrator) Build(req *protocol.BuildRequest, resp protocol.ImageBuil
 					{Name: "BOB_BUILD_BASE", Value: buildBase},
 					{Name: "BOB_DOCKERFILE_PATH", Value: dockerfilePath},
 					{Name: "BOB_CONTEXT_DIR", Value: contextPath},
-					{Name: "GITPOD_TASKS", Value: `[{"name": "build", "init": "sudo -E /app/bob build"}]`},
+					{Name: "NXPOD_TASKS", Value: `[{"name": "build", "init": "sudo -E /app/bob build"}]`},
 					{Name: "WORKSPACEKIT_RING2_ENCLAVE", Value: "/app/bob proxy"},
 					{Name: "WORKSPACEKIT_BOBPROXY_BASEREF", Value: baseref},
 					{Name: "WORKSPACEKIT_BOBPROXY_TARGETREF", Value: wsrefstr},
@@ -461,7 +461,7 @@ func (o *Orchestrator) Build(req *protocol.BuildRequest, resp protocol.ImageBuil
 
 		// The failed condition of ws-manager is not stable, hence we might wrongly report that the
 		// build was successful when in fact it wasn't. This would break workspace startup with a strange
-		// "cannot pull from reg.gitpod.io" error message. Instead the image-build should fail properly.
+		// "cannot pull from reg.nxpod.io" error message. Instead the image-build should fail properly.
 		// To do this, we resolve the built image afterwards to ensure it was actually built.
 		if update.Status == protocol.BuildStatus_done_success {
 			exists, err := o.checkImageExists(ctx, wsrefstr, wsrefAuth)

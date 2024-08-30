@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -48,22 +48,22 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/gitpod-io/gitpod/common-go/analytics"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/pprof"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/executor"
-	"github.com/gitpod-io/gitpod/content-service/pkg/git"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/config"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/dropwriter"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/metrics"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/ports"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/serverapi"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/shared"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/terminal"
+	"github.com/nxpkg/nxpod/common-go/analytics"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/pprof"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/executor"
+	"github.com/nxpkg/nxpod/content-service/pkg/git"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/pkg/config"
+	"github.com/nxpkg/nxpod/supervisor/pkg/dropwriter"
+	"github.com/nxpkg/nxpod/supervisor/pkg/metrics"
+	"github.com/nxpkg/nxpod/supervisor/pkg/ports"
+	"github.com/nxpkg/nxpod/supervisor/pkg/serverapi"
+	"github.com/nxpkg/nxpod/supervisor/pkg/shared"
+	"github.com/nxpkg/nxpod/supervisor/pkg/terminal"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -73,10 +73,10 @@ import (
 )
 
 const (
-	gitpodUID       = 33333
-	gitpodUserName  = "gitpod"
-	gitpodGID       = 33333
-	gitpodGroupName = "gitpod"
+	nxpodUID       = 33333
+	nxpodUserName  = "nxpod"
+	nxpodGID       = 33333
+	nxpodGroupName = "nxpod"
 	desktopIDEPort  = 24000
 	debugProxyPort  = 23003
 )
@@ -184,18 +184,18 @@ func Run(options ...RunOption) {
 		log.WithError(err).Fatal("configuration error")
 	}
 	if len(os.Args) < 2 || os.Args[1] != "run" {
-		fmt.Println("supervisor makes sure your workspace/IDE keeps running smoothly.\nYou don't have to call this thing, Gitpod calls it for you.")
+		fmt.Println("supervisor makes sure your workspace/IDE keeps running smoothly.\nYou don't have to call this thing, Nxpod calls it for you.")
 		return
 	}
 
-	endpoint, host, err := cfg.GitpodAPIEndpoint()
+	endpoint, host, err := cfg.NxpodAPIEndpoint()
 	if err != nil {
-		log.WithError(err).Fatal("cannot find Gitpod API endpoint")
+		log.WithError(err).Fatal("cannot find Nxpod API endpoint")
 	}
 
 	experimentsClientOpts := []experiments.ClientOpt{}
 	if cfg.ConfigcatEnabled {
-		experimentsClientOpts = append(experimentsClientOpts, experiments.WithGitpodProxy(host))
+		experimentsClientOpts = append(experimentsClientOpts, experiments.WithNxpodProxy(host))
 	}
 	exps := experiments.NewClient(experimentsClientOpts...)
 
@@ -203,9 +203,9 @@ func Run(options ...RunOption) {
 	//         URL, which would fail if we tried another time.
 	childProcEnvvars = buildChildProcEnv(cfg, nil, opts.RunGP)
 
-	err = AddGitpodUserIfNotExists()
+	err = AddNxpodUserIfNotExists()
 	if err != nil {
-		log.WithError(err).Fatal("cannot ensure Gitpod user exists")
+		log.WithError(err).Fatal("cannot ensure Nxpod user exists")
 	}
 	symlinkBinaries(cfg)
 
@@ -264,13 +264,13 @@ func Run(options ...RunOption) {
 		desktopIdeReady *ideReadyState = nil
 
 		cstate        = NewInMemoryContentState(cfg.RepoRoot)
-		gitpodService serverapi.APIInterface
+		nxpodService serverapi.APIInterface
 
 		notificationService = NewNotificationService()
 	)
 
 	if !opts.RunGP {
-		gitpodService = serverapi.NewServerApiService(ctx, &serverapi.ServiceConfig{
+		nxpodService = serverapi.NewServerApiService(ctx, &serverapi.ServiceConfig{
 			Host:              host,
 			Endpoint:          endpoint,
 			InstanceID:        cfg.WorkspaceInstanceID,
@@ -287,15 +287,15 @@ func Run(options ...RunOption) {
 	if !cfg.isHeadless() && !opts.RunGP && !cfg.isDebugWorkspace() {
 		go trackReadiness(ctx, telemetry, cfg, cstate, ideReady, desktopIdeReady)
 	}
-	tokenService.provider[KindGit] = []tokenProvider{NewGitTokenProvider(gitpodService, cfg.WorkspaceConfig, notificationService)}
+	tokenService.provider[KindGit] = []tokenProvider{NewGitTokenProvider(nxpodService, cfg.WorkspaceConfig, notificationService)}
 
-	gitpodConfigService := config.NewConfigService(cfg.RepoRoot+"/.gitpod.yml", cstate.ContentReady())
-	go gitpodConfigService.Watch(ctx)
+	nxpodConfigService := config.NewConfigService(cfg.RepoRoot+"/.nxpod.yml", cstate.ContentReady())
+	go nxpodConfigService.Watch(ctx)
 
 	var exposedPorts ports.ExposedPortsInterface
 
 	if !opts.RunGP {
-		exposedPorts = createExposedPortsImpl(cfg, gitpodService)
+		exposedPorts = createExposedPortsImpl(cfg, nxpodService)
 	}
 
 	portMgmt := ports.NewManager(
@@ -303,7 +303,7 @@ func Run(options ...RunOption) {
 		&ports.PollingServedPortsObserver{
 			RefreshInterval: 2 * time.Second,
 		},
-		ports.NewConfigService(cfg.WorkspaceID, gitpodConfigService),
+		ports.NewConfigService(cfg.WorkspaceID, nxpodConfigService),
 		tunneledPortsService,
 		internalPorts...,
 	)
@@ -314,22 +314,22 @@ func Run(options ...RunOption) {
 	}
 
 	if !cfg.isHeadless() && !opts.RunGP {
-		go analyseConfigChanges(ctx, cfg, telemetry, gitpodConfigService)
+		go analyseConfigChanges(ctx, cfg, telemetry, nxpodConfigService)
 		go analysePerfChanges(ctx, cfg, telemetry, topService)
 	}
 
 	supervisorMetrics := metrics.NewMetrics()
 	var metricsReporter *metrics.GrpcMetricsReporter
 	if !opts.RunGP && !cfg.isDebugWorkspace() && !strings.Contains("ephemeral", cfg.WorkspaceClusterHost) {
-		_, gitpodHost, err := cfg.GitpodAPIEndpoint()
+		_, nxpodHost, err := cfg.NxpodAPIEndpoint()
 		if err != nil {
-			log.WithError(err).Error("grpc metrics: failed to parse gitpod host")
+			log.WithError(err).Error("grpc metrics: failed to parse nxpod host")
 		} else {
-			metricsReporter = metrics.NewGrpcMetricsReporter(gitpodHost)
+			metricsReporter = metrics.NewGrpcMetricsReporter(nxpodHost)
 			if err := supervisorMetrics.Register(metricsReporter.Registry); err != nil {
 				log.WithError(err).Error("could not register supervisor metrics")
 			}
-			if err := gitpodService.RegisterMetrics(metricsReporter.Registry); err != nil {
+			if err := nxpodService.RegisterMetrics(metricsReporter.Registry); err != nil {
 				log.WithError(err).Error("could not register public api metrics")
 			}
 		}
@@ -353,8 +353,8 @@ func Run(options ...RunOption) {
 	}
 	termMuxSrv.Env = childProcEnvvars
 	termMuxSrv.DefaultCreds = &syscall.Credential{
-		Uid: gitpodUID,
-		Gid: gitpodGID,
+		Uid: nxpodUID,
+		Gid: nxpodGID,
 	}
 
 	taskManager := newTasksManager(cfg, termMuxSrv, cstate, nil, ideReady, desktopIdeReady)
@@ -368,7 +368,7 @@ func Run(options ...RunOption) {
 			experiments:   exps,
 			content:       cstate,
 			git:           &git.Client{Location: cfg.RepoRoot},
-			gitpodService: gitpodService,
+			nxpodService: nxpodService,
 		}
 		go gitStatusService.Run(gitStatusCtx, gitStatusWg)
 	}
@@ -388,7 +388,7 @@ func Run(options ...RunOption) {
 		termMuxSrv,
 		RegistrableTokenService{Service: tokenService},
 		notificationService,
-		NewInfoService(cfg, cstate, gitpodService),
+		NewInfoService(cfg, cstate, nxpodService),
 		&ControlService{portsManager: portMgmt},
 		&portService{portsManager: portMgmt},
 		&taskService{
@@ -406,9 +406,9 @@ func Run(options ...RunOption) {
 	}
 
 	shouldShutdown, shutdownDuration := getIDENotReadyShutdownDuration(ctx, exps, host)
-	// with value true, supervisor will pass env GITPOD_WAIT_IDE_BACKEND=true when starting IDEs
+	// with value true, supervisor will pass env NXPOD_WAIT_IDE_BACKEND=true when starting IDEs
 	// works with IDEs:
-	// - JB backend-plugin https://github.com/gitpod-io/gitpod/blob/main/components/ide/jetbrains/launcher/main.go#L80
+	// - JB backend-plugin https://github.com/nxpkg/nxpod/blob/main/components/ide/jetbrains/launcher/main.go#L80
 	shouldWaitBackend := shouldShutdown
 	var ideWG sync.WaitGroup
 	ideWG.Add(1)
@@ -497,7 +497,7 @@ func Run(options ...RunOption) {
 					return
 				}
 
-				cmd := runAsGitpodUser(exec.Command("git", "fetch", "--unshallow", "--tags"))
+				cmd := runAsNxpodUser(exec.Command("git", "fetch", "--unshallow", "--tags"))
 				cmd.Dir = repoRoot
 				cmd.Stdout = os.Stdout
 				cmd.Stderr = os.Stderr
@@ -554,7 +554,7 @@ func waitWithTimeout(wg *sync.WaitGroup, timeout time.Duration) bool {
 	}
 }
 
-func getIDENotReadyShutdownDuration(ctx context.Context, exps experiments.Client, gitpodHost string) (bool, time.Duration) {
+func getIDENotReadyShutdownDuration(ctx context.Context, exps experiments.Client, nxpodHost string) (bool, time.Duration) {
 	if exps == nil {
 		return false, time.Hour
 	}
@@ -564,7 +564,7 @@ func getIDENotReadyShutdownDuration(ctx context.Context, exps experiments.Client
 			return false, time.Hour
 		default:
 		}
-		value := exps.GetStringValue(ctx, "supervisor_ide_not_ready_shutdown_duration", "not_found", experiments.Attributes{GitpodHost: gitpodHost})
+		value := exps.GetStringValue(ctx, "supervisor_ide_not_ready_shutdown_duration", "not_found", experiments.Attributes{NxpodHost: nxpodHost})
 		if value == "not_found" || value == "undefined" {
 			return false, time.Hour
 		}
@@ -579,7 +579,7 @@ func getIDENotReadyShutdownDuration(ctx context.Context, exps experiments.Client
 }
 
 func isShallowRepository(rootDir string) bool {
-	cmd := runAsGitpodUser(exec.Command("git", "rev-parse", "--is-shallow-repository"))
+	cmd := runAsNxpodUser(exec.Command("git", "rev-parse", "--is-shallow-repository"))
 	cmd.Dir = rootDir
 	out, err := cmd.CombinedOutput()
 	if err != nil {
@@ -602,7 +602,7 @@ func installDotfiles(ctx context.Context, cfg *Config, tokenService *InMemoryTok
 		return
 	}
 
-	const dotfilePath = "/home/gitpod/.dotfiles"
+	const dotfilePath = "/home/nxpod/.dotfiles"
 	if _, err := os.Stat(dotfilePath); err == nil {
 		// dotfile path exists already - nothing to do here
 		return
@@ -610,15 +610,15 @@ func installDotfiles(ctx context.Context, cfg *Config, tokenService *InMemoryTok
 
 	prep := func(cfg *Config, out io.Writer, name string, args ...string) *exec.Cmd {
 		cmd := exec.Command(name, args...)
-		cmd.Dir = "/home/gitpod"
-		runAsGitpodUser(cmd)
+		cmd.Dir = "/home/nxpod"
+		runAsNxpodUser(cmd)
 		cmd.Stdout = out
 		cmd.Stderr = out
 		return cmd
 	}
 
 	err := func() (err error) {
-		out, err := os.OpenFile("/home/gitpod/.dotfiles.log", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
+		out, err := os.OpenFile("/home/nxpod/.dotfiles.log", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
 		if err != nil {
 			return err
 		}
@@ -670,7 +670,7 @@ func installDotfiles(ctx context.Context, cfg *Config, tokenService *InMemoryTok
 
 		filepath.Walk(dotfilePath, func(name string, info os.FileInfo, err error) error {
 			if err == nil {
-				err = os.Chown(name, gitpodUID, gitpodGID)
+				err = os.Chown(name, nxpodUID, nxpodGID)
 			}
 			return err
 		})
@@ -732,7 +732,7 @@ func installDotfiles(ctx context.Context, cfg *Config, tokenService *InMemoryTok
 				return nil
 			}
 
-			homeFN := filepath.Join("/home/gitpod", strings.TrimPrefix(path, dotfilePath))
+			homeFN := filepath.Join("/home/nxpod", strings.TrimPrefix(path, dotfilePath))
 			if _, err := os.Stat(homeFN); err == nil {
 				// homeFN exists already - do nothing
 				return nil
@@ -761,12 +761,12 @@ func installDotfiles(ctx context.Context, cfg *Config, tokenService *InMemoryTok
 	}
 }
 
-func createExposedPortsImpl(cfg *Config, gitpodService serverapi.APIInterface) ports.ExposedPortsInterface {
-	if gitpodService == nil {
+func createExposedPortsImpl(cfg *Config, nxpodService serverapi.APIInterface) ports.ExposedPortsInterface {
+	if nxpodService == nil {
 		log.Error("auto-port exposure won't work")
 		return &ports.NoopExposedPorts{}
 	}
-	return ports.NewGitpodExposedPorts(cfg.WorkspaceID, cfg.WorkspaceInstanceID, cfg.WorkspaceUrl, gitpodService)
+	return ports.NewNxpodExposedPorts(cfg.WorkspaceID, cfg.WorkspaceInstanceID, cfg.WorkspaceUrl, nxpodService)
 }
 
 // supervisor ships some binaries we want in the PATH. We could just add some directory to the path, but
@@ -780,7 +780,7 @@ func symlinkBinaries(cfg *Config) {
 	base := filepath.Dir(bin)
 
 	binaries := map[string]string{
-		"gitpod-cli": "gp",
+		"nxpod-cli": "gp",
 	}
 	for k, v := range binaries {
 		var (
@@ -816,7 +816,7 @@ func configureGit(cfg *Config) {
 
 	for _, s := range settings {
 		cmd := exec.Command("git", append([]string{"config", "--global"}, s...)...)
-		cmd = runAsGitpodUser(cmd)
+		cmd = runAsNxpodUser(cmd)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		err := cmd.Run()
@@ -981,8 +981,8 @@ func launchIDE(cfg *Config, ideConfig *IDEConfig, cmd *exec.Cmd, ideStopped chan
 		log.Info("start launchIDE")
 		if shouldWaitBackend && ide == DesktopIDE {
 			// works with IDEs:
-			// - JB backend-plugin https://github.com/gitpod-io/gitpod/blob/main/components/ide/jetbrains/launcher/main.go#L80
-			cmd.Env = append(cmd.Env, "GITPOD_WAIT_IDE_BACKEND=true")
+			// - JB backend-plugin https://github.com/nxpkg/nxpod/blob/main/components/ide/jetbrains/launcher/main.go#L80
+			cmd.Env = append(cmd.Env, "NXPOD_WAIT_IDE_BACKEND=true")
 		}
 		err := cmd.Start()
 		if err != nil {
@@ -1027,9 +1027,9 @@ func prepareIDELaunch(cfg *Config, ideConfig *IDEConfig) *exec.Cmd {
 
 	cmd := exec.Command(ideConfig.Entrypoint, args...)
 
-	// All supervisor children run as gitpod user. The environment variables we produce are also
-	// gitpod user specific.
-	runAsGitpodUser(cmd)
+	// All supervisor children run as nxpod user. The environment variables we produce are also
+	// nxpod user specific.
+	runAsNxpodUser(cmd)
 
 	// We need the child process to run in its own process group, s.t. we can suspend and resume
 	// IDE and its children.
@@ -1113,7 +1113,7 @@ func buildChildProcEnv(cfg *Config, envvars []string, runGP bool) []string {
 	}
 
 	// We're forcing basic environment variables here, because supervisor acts like a login process at this point.
-	// The gitpod user might not have existed when supervisor was started, hence the HOME coming
+	// The nxpod user might not have existed when supervisor was started, hence the HOME coming
 	// from the container runtime is probably wrong ("/" to be exact).
 	//
 	// Wait, how does this env var stuff work on Linux?
@@ -1127,10 +1127,10 @@ func buildChildProcEnv(cfg *Config, envvars []string, runGP bool) []string {
 	//     - https://github.com/mirror/busybox/blob/24198f652f10dca5603df7c704263358ca21f5ce/libbb/setup_environment.c#L32
 	//     - https://github.com/mirror/busybox/blob/24198f652f10dca5603df7c704263358ca21f5ce/libbb/login.c#L140-L170
 	//
-	envs["HOME"] = "/home/gitpod"
-	envs["USER"] = "gitpod"
+	envs["HOME"] = "/home/nxpod"
+	envs["USER"] = "nxpod"
 
-	if cpuCount, ok := envs["GITPOD_CPU_COUNT"]; ok && cfg.IsSetJavaProcessorCount {
+	if cpuCount, ok := envs["NXPOD_CPU_COUNT"]; ok && cfg.IsSetJavaProcessorCount {
 		if _, exists := envs["JAVA_TOOL_OPTIONS"]; exists {
 			// check if the JAVA_TOOL_OPTIONS already contains the ActiveProcessorCount flag
 			if !strings.Contains(envs["JAVA_TOOL_OPTIONS"], "-XX:ActiveProcessorCount=") {
@@ -1141,12 +1141,12 @@ func buildChildProcEnv(cfg *Config, envvars []string, runGP bool) []string {
 		}
 	}
 	// Particular Java optimisation: Java pre v10 did not gauge it's available memory correctly, and needed explicitly setting "-Xmx" for all Hotspot/openJDK VMs
-	if mem, ok := envs["GITPOD_MEMORY"]; ok && cfg.IsSetJavaXmx {
+	if mem, ok := envs["NXPOD_MEMORY"]; ok && cfg.IsSetJavaXmx {
 		envs["JAVA_TOOL_OPTIONS"] += fmt.Sprintf(" -Xmx%sm", mem)
 	}
 
 	if _, ok := envs["HISTFILE"]; !ok {
-		envs["HISTFILE"] = "/workspace/.gitpod/.shell_history"
+		envs["HISTFILE"] = "/workspace/.nxpod/.shell_history"
 		envs["PROMPT_COMMAND"] = "history -a"
 	}
 
@@ -1284,7 +1284,7 @@ func isBlacklistedEnvvar(name string) bool {
 	// exclude blacklisted
 	prefixBlacklist := []string{
 		"THEIA_SUPERVISOR_",
-		"GITPOD_TOKENS",
+		"NXPOD_TOKENS",
 		// The following vars are meant to filter out the kubernetes-injected env vars that we do not know how to turn of (yet)
 		"KUBERNETES_SERVICE",
 		"KUBERNETES_PORT",
@@ -1341,7 +1341,7 @@ func startAPIEndpoint(
 	if metricsReporter != nil {
 		grpcMetrics := grpc_prometheus.NewServerMetrics()
 		grpcMetrics.EnableHandlingTimeHistogram(
-			// it should be aligned with https://github.com/gitpod-io/gitpod/blob/196a109eee50bfb7da2c6b858a3e78f2a2d0b26f/install/installer/pkg/components/ide-metrics/configmap.go#L199
+			// it should be aligned with https://github.com/nxpkg/nxpod/blob/196a109eee50bfb7da2c6b858a3e78f2a2d0b26f/install/installer/pkg/components/ide-metrics/configmap.go#L199
 			grpc_prometheus.WithHistogramBuckets([]float64{.005, .025, .05, .1, .5, 1, 2.5, 5, 30, 60, 120, 240, 600}),
 		)
 		unaryInterceptors = append(unaryInterceptors, grpcMetrics.UnaryServerInterceptor())
@@ -1432,7 +1432,7 @@ func startAPIEndpoint(
 			log.WithError(err).Error("tunnel: upgrade to the WebSocket protocol failed")
 			return
 		}
-		conn, err := gitpod.NewWebsocketConnection(ctx, wsConn, func(staleErr error) {
+		conn, err := nxpod.NewWebsocketConnection(ctx, wsConn, func(staleErr error) {
 			log.WithError(staleErr).Error("tunnel: closing stale connection")
 		})
 		if err != nil {
@@ -1458,7 +1458,7 @@ func startAPIEndpoint(
 			log.WithError(err).Error("tunnel ssh: upgrade to the WebSocket protocol failed")
 			return
 		}
-		conn, err := gitpod.NewWebsocketConnection(ctx, wsConn, func(staleErr error) {
+		conn, err := nxpod.NewWebsocketConnection(ctx, wsConn, func(staleErr error) {
 			log.WithError(staleErr).Error("tunnel ssh: closing stale connection")
 		})
 		if err != nil {
@@ -1515,7 +1515,7 @@ func startAPIEndpoint(
 	server.Shutdown(ctx)
 }
 
-func tunnelOverWebSocket(tunneled *ports.TunneledPortsService, conn *gitpod.WebsocketConnection) {
+func tunnelOverWebSocket(tunneled *ports.TunneledPortsService, conn *nxpod.WebsocketConnection) {
 	hostKey, err := generateHostKey()
 	if err != nil {
 		log.WithError(err).Error("tunnel: failed to generate host key")
@@ -1649,8 +1649,8 @@ func startContentInit(ctx context.Context, cfg *Config, wg *sync.WaitGroup, cst 
 		log.WithError(err).Fatal("content initialization failed")
 	}()
 
-	fn := "/workspace/.gitpod/content.json"
-	fnReady := "/workspace/.gitpod/ready"
+	fn := "/workspace/.nxpod/content.json"
+	fnReady := "/workspace/.nxpod/ready"
 
 	contentFile, err := os.Open(fn)
 	if err != nil {
@@ -1717,7 +1717,7 @@ func startContentInit(ctx context.Context, cfg *Config, wg *sync.WaitGroup, cst 
 }
 
 func recordInitializerMetrics(path string, metrics *metrics.SupervisorMetrics) {
-	readyFile := filepath.Join(path, ".gitpod/ready")
+	readyFile := filepath.Join(path, ".nxpod/ready")
 
 	content, err := os.ReadFile(readyFile)
 	if err != nil {
@@ -1764,11 +1764,11 @@ func analysePerfChanges(ctx context.Context, wscfg *Config, w analytics.Writer, 
 			return
 		}
 		if wscfg.isDebugWorkspace() {
-			log.WithField("buckets", analyzer.buckets).WithField("used", used).WithField("label", analyzer.label).Info("gitpod perf analytics: changed")
+			log.WithField("buckets", analyzer.buckets).WithField("used", used).WithField("label", analyzer.label).Info("nxpod perf analytics: changed")
 		} else {
 			w.Track(analytics.TrackMessage{
 				Identity: analytics.Identity{UserID: wscfg.OwnerId},
-				Event:    "gitpod_" + analyzer.label + "_changed",
+				Event:    "nxpod_" + analyzer.label + "_changed",
 				Properties: map[string]interface{}{
 					"used":        used,
 					"buckets":     analyzer.buckets,
@@ -1814,7 +1814,7 @@ func analyzeImageFileChanges(ctx context.Context, wscfg *Config, w analytics.Wri
 			timer = nil
 			msg := analytics.TrackMessage{
 				Identity: analytics.Identity{UserID: wscfg.OwnerId},
-				Event:    "gitpod_image_file_changed",
+				Event:    "nxpod_image_file_changed",
 				Properties: map[string]interface{}{
 					"instanceId":  wscfg.WorkspaceInstanceID,
 					"workspaceId": wscfg.WorkspaceID,
@@ -1824,7 +1824,7 @@ func analyzeImageFileChanges(ctx context.Context, wscfg *Config, w analytics.Wri
 			if !wscfg.isDebugWorkspace() {
 				w.Track(msg)
 			} else {
-				log.WithField("msg", msg).Info("gitpod config analytics: image file changed")
+				log.WithField("msg", msg).Info("nxpod config analytics: image file changed")
 			}
 		})
 	}
@@ -1850,7 +1850,7 @@ func analyzeImageFileChanges(ctx context.Context, wscfg *Config, w analytics.Wri
 
 func analyseConfigChanges(ctx context.Context, wscfg *Config, w analytics.Writer, cfgobs config.ConfigInterface) {
 	var analyzer *config.ConfigAnalyzer
-	log.Debug("gitpod config analytics: watching...")
+	log.Debug("nxpod config analytics: watching...")
 
 	debounceDuration := 5 * time.Second
 	go analyzeImageFileChanges(ctx, wscfg, w, cfgobs, debounceDuration)
@@ -1868,7 +1868,7 @@ func analyseConfigChanges(ctx context.Context, wscfg *Config, w analytics.Writer
 				analyzer = config.NewConfigAnalyzer(log.Log, debounceDuration, func(field string) {
 					msg := analytics.TrackMessage{
 						Identity: analytics.Identity{UserID: wscfg.OwnerId},
-						Event:    "gitpod_config_changed",
+						Event:    "nxpod_config_changed",
 						Properties: map[string]interface{}{
 							"key":         field,
 							"instanceId":  wscfg.WorkspaceInstanceID,
@@ -1878,7 +1878,7 @@ func analyseConfigChanges(ctx context.Context, wscfg *Config, w analytics.Writer
 					if !wscfg.isDebugWorkspace() {
 						w.Track(msg)
 					} else {
-						log.WithField("msg", msg).Info("gitpod config analytics: config changed")
+						log.WithField("msg", msg).Info("nxpod config analytics: config changed")
 					}
 				}, cfg)
 			}
@@ -1923,7 +1923,7 @@ func trackReadiness(ctx context.Context, w analytics.Writer, cfg *Config, cstate
 	}
 }
 
-func runAsGitpodUser(cmd *exec.Cmd) *exec.Cmd {
+func runAsNxpodUser(cmd *exec.Cmd) *exec.Cmd {
 	if cmd.SysProcAttr == nil {
 		cmd.SysProcAttr = &syscall.SysProcAttr{}
 	}
@@ -1931,8 +1931,8 @@ func runAsGitpodUser(cmd *exec.Cmd) *exec.Cmd {
 		cmd.SysProcAttr.Credential = &syscall.Credential{}
 	}
 	cmd.Env = append(cmd.Env, childProcEnvvars...)
-	cmd.SysProcAttr.Credential.Uid = gitpodUID
-	cmd.SysProcAttr.Credential.Gid = gitpodGID
+	cmd.SysProcAttr.Credential.Uid = nxpodUID
+	cmd.SysProcAttr.Credential.Gid = nxpodGID
 	return cmd
 }
 

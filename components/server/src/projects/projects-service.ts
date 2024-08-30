@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { inject, injectable } from "inversify";
-import { DBWithTracing, ProjectDB, TracedWorkspaceDB, WorkspaceDB } from "@gitpod/gitpod-db/lib";
+import { DBWithTracing, ProjectDB, TracedWorkspaceDB, WorkspaceDB } from "@nxpod/nxpod-db/lib";
 import {
     Branch,
     PrebuildWithStatus,
@@ -13,22 +13,22 @@ import {
     FindPrebuildsParams,
     Project,
     User,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { RepoURL } from "../repohost";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     PartialProject,
     PrebuildSettings,
     ProjectSettings,
     ProjectUsage,
-} from "@gitpod/gitpod-protocol/lib/teams-projects-protocol";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { ErrorCodes, ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
+} from "@nxpod/nxpod-protocol/lib/teams-projects-protocol";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { ErrorCodes, ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { URL } from "url";
 import { Authorizer, SYSTEM_USER, SYSTEM_USER_ID } from "../authorization/authorizer";
-import { TransactionalContext } from "@gitpod/gitpod-db/lib/typeorm/transactional-db-impl";
-import { daysBefore, isDateSmaller } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { TransactionalContext } from "@nxpod/nxpod-db/lib/typeorm/transactional-db-impl";
+import { daysBefore, isDateSmaller } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 import deepmerge from "deepmerge";
 import { runWithSubjectId } from "../util/request-context";
 import { InstallationService } from "../auth/installation-service";

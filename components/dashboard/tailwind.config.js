@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -38,12 +38,12 @@ module.exports = {
             colors: {
                 green: colors.lime,
                 orange: colors.amber,
-                // TODO: figure out if we want to just pull in the specific gitpod-* colors
+                // TODO: figure out if we want to just pull in the specific nxpod-* colors
                 teal: colors.teal,
                 sky: colors.sky,
                 rose: colors.rose,
-                "gitpod-black": podkitColors.black,
-                "gitpod-red": "#CE4A3E",
+                "nxpod-black": podkitColors.black,
+                "nxpod-red": "#CE4A3E",
                 "kumquat-dark": "#FF8A00",
                 "kumquat-base": "#FFAE33",
                 "kumquat-ripe": "#FFB45B",

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -26,10 +26,10 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/loadgen/pkg/loadgen"
-	"github.com/gitpod-io/gitpod/loadgen/pkg/observer"
-	"github.com/gitpod-io/gitpod/ws-manager/api"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/loadgen/pkg/loadgen"
+	"github.com/nxpkg/nxpod/loadgen/pkg/observer"
+	"github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 var runOpts struct {
@@ -58,20 +58,20 @@ var runCmd = &cobra.Command{
 			ServicePrefix: "will-be-overriden",
 			Spec: &api.StartWorkspaceSpec{
 				IdeImage: &api.IDEImage{
-					WebRef: "eu.gcr.io/gitpod-core-dev/build/ide/code:commit-8c1466008dedabe79d82cbb91931a16f7ce7994c",
+					WebRef: "eu.gcr.io/nxpod-core-dev/build/ide/code:commit-8c1466008dedabe79d82cbb91931a16f7ce7994c",
 				},
 				Admission: api.AdmissionLevel_ADMIT_OWNER_ONLY,
 				Git: &api.GitSpec{
-					Email:    "test@gitpod.io",
+					Email:    "test@nxpod.io",
 					Username: "foobar",
 				},
 				FeatureFlags: []api.WorkspaceFeatureFlag{},
 				Initializer: &csapi.WorkspaceInitializer{
 					Spec: &csapi.WorkspaceInitializer_Git{
 						Git: &csapi.GitInitializer{
-							CheckoutLocation: "gitpod",
+							CheckoutLocation: "nxpod",
 							CloneTaget:       "main",
-							RemoteUri:        "https://github.com/gitpod-io/gitpod.git",
+							RemoteUri:        "https://github.com/nxpkg/nxpod.git",
 							TargetMode:       csapi.CloneTargetMode_REMOTE_BRANCH,
 							Config: &csapi.GitConfig{
 								Authentication: csapi.GitAuthMethod_NO_AUTH,
@@ -80,12 +80,12 @@ var runCmd = &cobra.Command{
 					},
 				},
 				Timeout:           "5m",
-				WorkspaceImage:    "eu.gcr.io/gitpod-dev/workspace-images:3fcaad7ba5a5a4695782cb4c366b82f927f1e6c1cf0c88fd4f14d985f7eb21f6",
-				WorkspaceLocation: "gitpod",
+				WorkspaceImage:    "eu.gcr.io/nxpod-dev/workspace-images:3fcaad7ba5a5a4695782cb4c366b82f927f1e6c1cf0c88fd4f14d985f7eb21f6",
+				WorkspaceLocation: "nxpod",
 				Envvars: []*api.EnvironmentVariable{
 					{
 						Name:  "THEIA_SUPERVISOR_TOKENS",
-						Value: `[{"token":"foobar","host":"gitpod-staging.com","scope":["function:getWorkspace","function:getLoggedInUser","function:getWorkspaceOwner","function:getWorkspaceUsers","function:isWorkspaceOwner","function:controlAdmission","function:setWorkspaceTimeout","function:getWorkspaceTimeout","function:sendHeartBeat","function:getOpenPorts","function:openPort","function:closePort","function:generateNewGitpodToken","function:takeSnapshot","function:stopWorkspace","resource:workspace::fa498dcc-0a84-448f-9666-79f297ad821a::get/update","resource:workspaceInstance::e0a17083-6a78-441a-9b97-ef90d6aff463::get/update/delete","resource:snapshot::*::create/get","resource:gitpodToken::*::create","resource:userStorage::*::create/get/update"],"expiryDate":"2020-12-01T07:55:12.501Z","reuse":2}]`,
+						Value: `[{"token":"foobar","host":"nxpod-staging.com","scope":["function:getWorkspace","function:getLoggedInUser","function:getWorkspaceOwner","function:getWorkspaceUsers","function:isWorkspaceOwner","function:controlAdmission","function:setWorkspaceTimeout","function:getWorkspaceTimeout","function:sendHeartBeat","function:getOpenPorts","function:openPort","function:closePort","function:generateNewNxpodToken","function:takeSnapshot","function:stopWorkspace","resource:workspace::fa498dcc-0a84-448f-9666-79f297ad821a::get/update","resource:workspaceInstance::e0a17083-6a78-441a-9b97-ef90d6aff463::get/update/delete","resource:snapshot::*::create/get","resource:nxpodToken::*::create","resource:userStorage::*::create/get/update"],"expiryDate":"2020-12-01T07:55:12.501Z","reuse":2}]`,
 					},
 				},
 			},

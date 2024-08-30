@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/installer
+module github.com/nxpkg/nxpod/installer
 
 go 1.22.2
 
@@ -7,24 +7,24 @@ require (
 	github.com/cert-manager/trust-manager v0.9.1
 	github.com/distribution/reference v0.5.0
 	github.com/fatih/structtag v1.2.0
-	github.com/gitpod-io/gitpod/agent-smith v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/blobserve v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/spicedb v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ide-metrics-api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ide-service-api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/image-builder/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/openvsx-proxy v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/registry-facade/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/server/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/usage v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-daemon v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-daemon/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-manager/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-proxy v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/agent-smith v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/blobserve v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/spicedb v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ide-metrics-api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ide-service-api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/image-builder/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/openvsx-proxy v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/registry-facade/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/server/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/usage v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-daemon v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-daemon/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-manager/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-proxy v0.0.0-00010101000000-000000000000
 	github.com/go-playground/validator/v10 v10.9.0
 	github.com/google/go-cmp v0.6.0
 	github.com/jetstack/cert-manager v1.5.0
@@ -129,12 +129,12 @@ require (
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/fvbommel/sortorder v1.1.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
-	github.com/gitpod-io/gitpod/content-service v0.0.0-00010101000000-000000000000 // indirect
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000 // indirect
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000 // indirect
-	github.com/gitpod-io/gitpod/usage-api v0.0.0-00010101000000-000000000000 // indirect
-	github.com/gitpod-io/golang-crypto v0.0.0-20231122075959-de838e9cb174 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/content-service v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/usage-api v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/golang-crypto v0.0.0-20231122075959-de838e9cb174 // indirect
 	github.com/go-errors/errors v1.4.2 // indirect
 	github.com/go-gorp/gorp/v3 v3.0.5 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
@@ -313,57 +313,57 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/components/spicedb => ../../components/spicedb // leeway
+replace github.com/nxpkg/nxpod/components/spicedb => ../../components/spicedb // leeway
 
-replace github.com/gitpod-io/gitpod/image-builder => ../components/image-builder-mk3 // leeway
+replace github.com/nxpkg/nxpod/image-builder => ../components/image-builder-mk3 // leeway
 
-replace github.com/gitpod-io/gitpod/agent-smith => ../../components/ee/agent-smith // leeway
+replace github.com/nxpkg/nxpod/agent-smith => ../../components/ee/agent-smith // leeway
 
-replace github.com/gitpod-io/gitpod/blobserve => ../../components/blobserve // leeway
+replace github.com/nxpkg/nxpod/blobserve => ../../components/blobserve // leeway
 
-replace github.com/gitpod-io/gitpod/common-go => ../../components/common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../components/common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../components/scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../components/scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/components/gitpod-db/go => ../../components/gitpod-db/go // leeway
+replace github.com/nxpkg/nxpod/components/gitpod-db/go => ../../components/gitpod-db/go // leeway
 
-replace github.com/gitpod-io/gitpod/content-service => ../../components/content-service // leeway
+replace github.com/nxpkg/nxpod/content-service => ../../components/content-service // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../../components/content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../../components/content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../../components/gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/gitpod-protocol => ../../components/gitpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/ide-metrics-api => ../../components/ide-metrics-api/go // leeway
+replace github.com/nxpkg/nxpod/ide-metrics-api => ../../components/ide-metrics-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ide-service-api => ../../components/ide-service-api/go // leeway
+replace github.com/nxpkg/nxpod/ide-service-api => ../../components/ide-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/image-builder/api => ../../components/image-builder-api/go // leeway
+replace github.com/nxpkg/nxpod/image-builder/api => ../../components/image-builder-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/openvsx-proxy => ../../components/openvsx-proxy // leeway
+replace github.com/nxpkg/nxpod/openvsx-proxy => ../../components/openvsx-proxy // leeway
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../../components/public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../../components/public-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/registry-facade => ../../components/registry-facade // leeway
+replace github.com/nxpkg/nxpod/registry-facade => ../../components/registry-facade // leeway
 
-replace github.com/gitpod-io/gitpod/registry-facade/api => ../../components/registry-facade-api/go // leeway
+replace github.com/nxpkg/nxpod/registry-facade/api => ../../components/registry-facade-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../../components/supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../../components/supervisor-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/usage => ../../components/usage // leeway
+replace github.com/nxpkg/nxpod/usage => ../../components/usage // leeway
 
-replace github.com/gitpod-io/gitpod/usage-api => ../../components/usage-api/go // leeway
+replace github.com/nxpkg/nxpod/usage-api => ../../components/usage-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-daemon => ../../components/ws-daemon // leeway
+replace github.com/nxpkg/nxpod/ws-daemon => ../../components/ws-daemon // leeway
 
-replace github.com/gitpod-io/gitpod/ws-daemon/api => ../../components/ws-daemon-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-daemon/api => ../../components/ws-daemon-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-manager/api => ../../components/ws-manager-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-manager/api => ../../components/ws-manager-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-proxy => ../../components/ws-proxy // leeway
+replace github.com/nxpkg/nxpod/ws-proxy => ../../components/ws-proxy // leeway
 
-replace github.com/gitpod-io/gitpod/node-labeler => ../../components/node-labeler // leeway
+replace github.com/nxpkg/nxpod/node-labeler => ../../components/node-labeler // leeway
 
-replace github.com/gitpod-io/gitpod/server/go => ../../components/server/go // leeway
+replace github.com/nxpkg/nxpod/server/go => ../../components/server/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

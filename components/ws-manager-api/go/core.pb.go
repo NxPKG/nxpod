@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,7 +11,7 @@
 package api
 
 import (
-	api "github.com/gitpod-io/gitpod/content-service/api"
+	api "github.com/nxpkg/nxpod/content-service/api"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -467,7 +467,7 @@ const (
 	WorkspaceType_REGULAR WorkspaceType = 0
 	// Prebuild workspaces are workspaces used to pre-build the content of other workspaces. They run headless and have no direct user-interaction.
 	WorkspaceType_PREBUILD WorkspaceType = 1
-	// Imagebuild workspaces build a workspace, incl. their Gitpod layer. They run headless and have no direct user-interaction.
+	// Imagebuild workspaces build a workspace, incl. their Nxpod layer. They run headless and have no direct user-interaction.
 	WorkspaceType_IMAGEBUILD WorkspaceType = 4
 )
 
@@ -519,7 +519,7 @@ type MetadataFilter struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// owner is the ID of the Gitpod user to whom we'll bill this workspace and who we consider responsible for its content
+	// owner is the ID of the Nxpod user to whom we'll bill this workspace and who we consider responsible for its content
 	Owner string `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
 	// meta_id is the workspace ID of this currently running workspace instance on the "meta pool" side
 	MetaId string `protobuf:"bytes,2,opt,name=meta_id,json=metaId,proto3" json:"meta_id,omitempty"`
@@ -691,7 +691,7 @@ type StartWorkspaceRequest struct {
 	// For example if the service_prefix is foobar there will be the services foobar-theia and foobar-ports.
 	// If this field is empty the workspace ID becomes the service prefix.
 	ServicePrefix string `protobuf:"bytes,2,opt,name=service_prefix,json=servicePrefix,proto3" json:"service_prefix,omitempty"`
-	// Metadata is data associated with this workspace that's required for other parts of Gitpod to function
+	// Metadata is data associated with this workspace that's required for other parts of Nxpod to function
 	Metadata *WorkspaceMetadata `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// Spec is the configuration of the workspace that's required for the ws-manager to start the workspace
 	Spec *StartWorkspaceSpec `protobuf:"bytes,4,opt,name=spec,proto3" json:"spec,omitempty"`
@@ -1986,7 +1986,7 @@ type WorkspaceStatus struct {
 	// as a timestemp), but it can be used to impose a partial order.
 	// If a.status_version < b.status_version then a was the status before b.
 	StatusVersion uint64 `protobuf:"varint,10,opt,name=status_version,json=statusVersion,proto3" json:"status_version,omitempty"`
-	// Metadata is data associated with this workspace that's required for other parts of Gitpod to function
+	// Metadata is data associated with this workspace that's required for other parts of Nxpod to function
 	Metadata *WorkspaceMetadata `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// Spec is the workspace spec during runtime
 	Spec *WorkspaceSpec `protobuf:"bytes,3,opt,name=spec,proto3" json:"spec,omitempty"`
@@ -2587,7 +2587,7 @@ type WorkspaceMetadata struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// owner is the ID of the Gitpod user to whom we'll bill this workspace and who we consider responsible for its content
+	// owner is the ID of the Nxpod user to whom we'll bill this workspace and who we consider responsible for its content
 	Owner string `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
 	// meta_id is the workspace ID of this currently running workspace instance on the "meta pool" side
 	MetaId string `protobuf:"bytes,2,opt,name=meta_id,json=metaId,proto3" json:"meta_id,omitempty"`

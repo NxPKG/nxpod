@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/code-desktop/status
+module github.com/nxpkg/nxpod/code-desktop/status
 
 go 1.22
 
@@ -7,8 +7,8 @@ require google.golang.org/grpc v1.52.3
 require github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.3 // indirect
 
 require (
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	github.com/golang/protobuf v1.5.4 // indirect
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
@@ -18,11 +18,11 @@ require (
 	google.golang.org/protobuf v1.33.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../../../supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../../../supervisor-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

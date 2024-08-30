@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/corsorigin
+module github.com/nxpkg/nxpod/proxy/plugins/corsorigin
 
 go 1.21
 

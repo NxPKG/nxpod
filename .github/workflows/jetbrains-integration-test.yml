@@ -33,13 +33,13 @@ on:
         required: true
 jobs:
   create-runner:
-    uses: gitpod-io/gce-github-runner/.github/workflows/create-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/create-vm.yml@main
     secrets:
       runner_token: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_TOKEN }}
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
   jetbrains-smoke-test-linux:
     container:
-      image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+      image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
     runs-on: ${{ needs.create-runner.outputs.label }}
     needs: [create-runner]
     steps:
@@ -66,7 +66,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libxkbfile-dev pkg-config libsecret-1-dev libxss1 dbus xvfb libgtk-3-0 libgbm1
-          sudo wget https://raw.githubusercontent.com/gitpod-io/openvscode-server/main/build/azure-pipelines/linux/xvfb.init
+          sudo wget https://raw.githubusercontent.com/nxpkg/openvscode-server/main/build/azure-pipelines/linux/xvfb.init
           sudo mv ./xvfb.init /etc/init.d/xvfb
           sudo chmod +x /etc/init.d/xvfb
           sudo update-rc.d xvfb defaults
@@ -97,7 +97,7 @@ jobs:
           TEST_USE_LATEST: ${{ inputs.use_latest }}
         run: |
           export GATEWAY_LINK=$(jq -r '.inputs.secret_gateway_link' $GITHUB_EVENT_PATH)
-          export GITPOD_TEST_ACCESSTOKEN=$(jq -r '.inputs.secret_access_token' $GITHUB_EVENT_PATH)
+          export NXPOD_TEST_ACCESSTOKEN=$(jq -r '.inputs.secret_access_token' $GITHUB_EVENT_PATH)
           export WS_ENDPOINT=$(jq -r '.inputs.secret_endpoint' $GITHUB_EVENT_PATH)
 
           export LEEWAY_WORKSPACE_ROOT=$(pwd)
@@ -129,7 +129,7 @@ jobs:
     needs:
       - create-runner
       - jetbrains-smoke-test-linux
-    uses: gitpod-io/gce-github-runner/.github/workflows/delete-vm.yml@main
+    uses: nxpkg/gce-github-runner/.github/workflows/delete-vm.yml@main
     secrets:
       gcp_credentials: ${{ secrets.SELF_HOSTED_GITHUB_RUNNER_GCP_CREDENTIALS }}
     with:

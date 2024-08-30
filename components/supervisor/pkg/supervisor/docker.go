@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,13 +20,13 @@ import (
 	"github.com/cenkalti/backoff/v4"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/analytics"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/process"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/activation"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/dropwriter"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/terminal"
+	"github.com/nxpkg/nxpod/common-go/analytics"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/process"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/pkg/activation"
+	"github.com/nxpkg/nxpod/supervisor/pkg/dropwriter"
+	"github.com/nxpkg/nxpod/supervisor/pkg/terminal"
 )
 
 // if exit error happens one after another within dockerStartErrorBurstDuration then we're in the burst
@@ -36,7 +36,7 @@ const (
 	dockerStartErrorBurstDuration = time.Minute * 1
 	maxIntervalBetweenDockerStart = 15 * time.Second
 
-	logsDir             = "/workspace/.gitpod/logs"
+	logsDir             = "/workspace/.nxpod/logs"
 	dockerUpLogFilePath = logsDir + "/docker-up.log"
 )
 
@@ -86,7 +86,7 @@ func socketActivationForDocker(parentCtx context.Context, wg *sync.WaitGroup, te
 		}
 		telemetry.Track(analytics.TrackMessage{
 			Identity: analytics.Identity{UserID: cfg.OwnerId},
-			Event:    "gitpod_activate_docker_fail_notification",
+			Event:    "nxpod_activate_docker_fail_notification",
 			Properties: map[string]interface{}{
 				"instanceId":     cfg.WorkspaceInstanceID,
 				"workspaceId":    cfg.WorkspaceID,
@@ -164,7 +164,7 @@ func listenToDockerSocket(parentCtx context.Context, term *terminal.Mux, cfg *Co
 		l.Close()
 	}()
 
-	_ = os.Chown(fn, gitpodUID, gitpodGID)
+	_ = os.Chown(fn, nxpodUID, nxpodGID)
 
 	var lastExitErrorTime time.Time
 	burstAttempts := 0
@@ -177,7 +177,7 @@ func listenToDockerSocket(parentCtx context.Context, term *terminal.Mux, cfg *Co
 			startTime := time.Now()
 			telemetry.Track(analytics.TrackMessage{
 				Identity: analytics.Identity{UserID: cfg.OwnerId},
-				Event:    "gitpod_activate_docker",
+				Event:    "nxpod_activate_docker",
 				Properties: map[string]interface{}{
 					"instanceId":     cfg.WorkspaceInstanceID,
 					"workspaceId":    cfg.WorkspaceID,
@@ -271,7 +271,7 @@ func openDockerUpLogFile() (*os.File, error) {
 	if err := os.MkdirAll(logsDir, 0755); err != nil {
 		return nil, xerrors.Errorf("cannot create logs dir: %w", err)
 	}
-	if err := os.Chown(logsDir, gitpodUID, gitpodGID); err != nil {
+	if err := os.Chown(logsDir, nxpodUID, nxpodGID); err != nil {
 		return nil, xerrors.Errorf("cannot chown logs dir: %w", err)
 	}
 	logFile, err := os.OpenFile(dockerUpLogFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -279,7 +279,7 @@ func openDockerUpLogFile() (*os.File, error) {
 		return nil, xerrors.Errorf("cannot open docker-up log file: %w", err)
 	}
 
-	if err := os.Chown(dockerUpLogFilePath, gitpodUID, gitpodGID); err != nil {
+	if err := os.Chown(dockerUpLogFilePath, nxpodUID, nxpodGID); err != nil {
 		_ = logFile.Close()
 		return nil, xerrors.Errorf("cannot chown docker-up log file: %w", err)
 	}

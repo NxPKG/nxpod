@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,10 +20,10 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	supervisor "github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/util"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/sirupsen/logrus"
 )
 
@@ -56,9 +56,9 @@ func main() {
 	}
 	phaseDone()
 
-	url, err := url.Parse(wsInfo.GitpodHost)
+	url, err := url.Parse(wsInfo.NxpodHost)
 	if err != nil {
-		log.WithError(err).Errorf("failed to parse GitpodHost %s", wsInfo.GitpodHost)
+		log.WithError(err).Errorf("failed to parse NxpodHost %s", wsInfo.NxpodHost)
 		return
 	}
 	domain := url.Hostname()
@@ -122,7 +122,7 @@ func main() {
 	args = append(args, os.Args[1:]...)
 	args = append(args, "--do-not-sync")
 	args = append(args, "--start-server")
-	cmdEnv := append(os.Environ(), fmt.Sprintf("GITPOD_CODE_HOST=%s", domain))
+	cmdEnv := append(os.Environ(), fmt.Sprintf("NXPOD_CODE_HOST=%s", domain))
 	log.WithField("cost", time.Now().Local().Sub(startTime).Milliseconds()).Info("starting server")
 	if err := syscall.Exec(Code, append([]string{"gitpod-code"}, args...), cmdEnv); err != nil {
 		log.WithError(err).Error("install ext and start code server failed")
@@ -179,7 +179,7 @@ func getExtensions(repoRoot string) (extensions []Extension, err error) {
 		err = errors.New("read .gitpod.yml file failed: " + err.Error())
 		return
 	}
-	var config *gitpod.GitpodConfig
+	var config *gitpod.NxpodConfig
 	if err = yaml.Unmarshal(data, &config); err != nil {
 		err = errors.New("unmarshal .gitpod.yml file failed" + err.Error())
 		return

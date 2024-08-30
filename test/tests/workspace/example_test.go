@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,9 +13,9 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	"github.com/gitpod-io/gitpod/test/pkg/report"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	"github.com/nxpkg/nxpod/test/pkg/report"
 )
 
 func TestWorkspaceInstrumentation(t *testing.T) {
@@ -29,7 +29,7 @@ func TestWorkspaceInstrumentation(t *testing.T) {
 	}{
 		{
 			Name:          "example",
-			ContextURL:    "https://github.com/gitpod-io/empty",
+			ContextURL:    "https://github.com/nxpkg/empty",
 			WorkspaceRoot: "/workspace/empty",
 		},
 	}

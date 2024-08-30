@@ -6,7 +6,7 @@ set -euo pipefail
 
 SCRIPT_PATH=$(realpath "$(dirname "$0")")
 
-# Ensure components/gitpod-db:dbtest-init works
+# Ensure components/nxpod-db:dbtest-init works
 export DB_HOST="${DB_HOST:-127.0.0.1}"
 
 # shellcheck source=../lib/common.sh
@@ -34,4 +34,4 @@ ensure_gcloud_auth
 
 leeway run dev/preview:create-preview dev/preview:build
 previewctl install-context --timeout 10m
-leeway run dev/preview:deploy-gitpod
+leeway run dev/preview:deploy-nxpod

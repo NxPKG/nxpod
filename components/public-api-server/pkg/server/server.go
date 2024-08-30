@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,38 +15,38 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/go-chi/chi/v5"
 	chi_middleware "github.com/go-chi/chi/v5/middleware"
 	"github.com/redis/go-redis/v9"
 	"gorm.io/gorm"
 
-	"github.com/gitpod-io/gitpod/components/public-api/go/config"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
+	"github.com/nxpkg/nxpod/components/public-api/go/config"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
 	"github.com/gorilla/handlers"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	db "github.com/gitpod-io/gitpod/components/gitpod-db/go"
-	"github.com/gitpod-io/gitpod/public-api-server/middleware"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/apiv1"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/auth"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/billingservice"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/identityprovider"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/oidc"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/origin"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/proxy"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/webhooks"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	"github.com/nxpkg/nxpod/public-api-server/middleware"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/apiv1"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/billingservice"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/identityprovider"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/oidc"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/origin"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/proxy"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/webhooks"
 	"github.com/sirupsen/logrus"
 )
 
 func Start(logger *logrus.Entry, version string, cfg *config.Configuration) error {
 	logger.WithField("config", cfg).Info("Starting public-api.")
 
-	gitpodAPI, err := url.Parse(cfg.GitpodServiceURL)
+	gitpodAPI, err := url.Parse(cfg.NxpodServiceURL)
 	if err != nil {
-		return fmt.Errorf("failed to parse Gitpod API URL: %w", err)
+		return fmt.Errorf("failed to parse Nxpod API URL: %w", err)
 	}
 
 	connPool, err := proxy.NewConnectionPool(gitpodAPI, 500)

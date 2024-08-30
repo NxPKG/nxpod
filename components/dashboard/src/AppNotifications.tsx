@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License-AGPL.txt in the project root for license information.
  */
@@ -8,18 +8,18 @@ import dayjs from "dayjs";
 import { useCallback, useEffect, useState } from "react";
 import Alert, { AlertType } from "./components/Alert";
 import { useUserLoader } from "./hooks/use-user-loader";
-import { isGitpodIo } from "./utils";
+import { isNxpodIo } from "./utils";
 import { trackEvent } from "./Analytics";
 import { useUpdateCurrentUserMutation } from "./data/current-user/update-mutation";
-import { User as UserProtocol } from "@gitpod/gitpod-protocol";
-import { User } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
+import { User as UserProtocol } from "@nxpod/nxpod-protocol";
+import { User } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
 import { useCurrentOrg } from "./data/organizations/orgs-query";
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
-import { getGitpodService } from "./service/service";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
+import { getNxpodService } from "./service/service";
 import { useOrgBillingMode } from "./data/billing-mode/org-billing-mode-query";
-import { Organization } from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
+import { Organization } from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
 
-const KEY_APP_DISMISSED_NOTIFICATIONS = "gitpod-app-notifications-dismissed";
+const KEY_APP_DISMISSED_NOTIFICATIONS = "nxpod-app-notifications-dismissed";
 const PRIVACY_POLICY_LAST_UPDATED = "2023-12-20";
 
 interface Notification {
@@ -55,7 +55,7 @@ const UPDATED_PRIVACY_POLICY = (updateUser: (user: Partial<UserProtocol>) => Pro
         message: (
             <span className="text-md">
                 We've updated our Privacy Policy. You can review it{" "}
-                <a className="gp-link" href="https://www.gitpod.io/privacy" target="_blank" rel="noreferrer">
+                <a className="gp-link" href="https://www.nxpod.io/privacy" target="_blank" rel="noreferrer">
                     here
                 </a>
                 .
@@ -102,14 +102,14 @@ export function AppNotifications() {
             const notifications = [];
             if (!loading) {
                 if (
-                    isGitpodIo() &&
+                    isNxpodIo() &&
                     (!user?.profile?.acceptedPrivacyPolicyDate ||
                         new Date(PRIVACY_POLICY_LAST_UPDATED) > new Date(user.profile.acceptedPrivacyPolicyDate))
                 ) {
                     notifications.push(UPDATED_PRIVACY_POLICY((u: Partial<UserProtocol>) => mutateAsync(u)));
                 }
 
-                if (isGitpodIo() && currentOrg && billingMode?.mode === "usage-based") {
+                if (isNxpodIo() && currentOrg && billingMode?.mode === "usage-based") {
                     const notification = await checkForInvalidBillingAddress(currentOrg);
                     if (notification) {
                         notifications.push(notification);
@@ -172,17 +172,17 @@ async function checkForInvalidBillingAddress(org: Organization): Promise<Notific
     try {
         const attributionId = AttributionId.render(AttributionId.createFromOrganizationId(org.id));
 
-        const subscriptionId = await getGitpodService().server.findStripeSubscriptionId(attributionId);
+        const subscriptionId = await getNxpodService().server.findStripeSubscriptionId(attributionId);
         if (!subscriptionId) {
             return undefined;
         }
 
-        const invalidBillingAddress = await getGitpodService().server.isCustomerBillingAddressInvalid(attributionId);
+        const invalidBillingAddress = await getNxpodService().server.isCustomerBillingAddressInvalid(attributionId);
         if (!invalidBillingAddress) {
             return undefined;
         }
 
-        const stripePortalUrl = await getGitpodService().server.getStripePortalUrl(attributionId);
+        const stripePortalUrl = await getNxpodService().server.getStripePortalUrl(attributionId);
         return INVALID_BILLING_ADDRESS(stripePortalUrl);
     } catch (err) {
         // On error we don't want to block but still would like to report against metrics

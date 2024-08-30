@@ -1,39 +1,39 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import {
     Emitter,
-    GitpodClient,
-    GitpodServer,
-    GitpodServerPath,
-    GitpodService,
-    GitpodServiceImpl,
+    NxpodClient,
+    NxpodServer,
+    NxpodServerPath,
+    NxpodService,
+    NxpodServiceImpl,
     Disposable,
-} from "@gitpod/gitpod-protocol";
-import { WebSocketConnectionProvider } from "@gitpod/gitpod-protocol/lib/messaging/browser/connection";
-import { GitpodHostUrl } from "@gitpod/gitpod-protocol/lib/util/gitpod-host-url";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { IDEFrontendDashboardService } from "@gitpod/gitpod-protocol/lib/frontend-dashboard-service";
-import { RemoteTrackMessage } from "@gitpod/gitpod-protocol/lib/analytics";
+} from "@nxpod/nxpod-protocol";
+import { WebSocketConnectionProvider } from "@nxpod/nxpod-protocol/lib/messaging/browser/connection";
+import { NxpodHostUrl } from "@nxpod/nxpod-protocol/lib/util/nxpod-host-url";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { IDEFrontendDashboardService } from "@nxpod/nxpod-protocol/lib/frontend-dashboard-service";
+import { RemoteTrackMessage } from "@nxpod/nxpod-protocol/lib/analytics";
 import { converter, helloService, stream, userClient, workspaceClient } from "./public-api";
 import { getExperimentsClient } from "../experiments/client";
 import { instrumentWebSocket } from "./metrics";
-import { LotsOfRepliesResponse } from "@gitpod/public-api/lib/gitpod/experimental/v1/dummy_pb";
-import { User } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
+import { LotsOfRepliesResponse } from "@nxpod/public-api/lib/nxpod/experimental/v1/dummy_pb";
+import { User } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
 import {
     WatchWorkspaceStatusPriority,
     watchWorkspaceStatusInOrder,
 } from "../data/workspaces/listen-to-workspace-ws-messages2";
-import { Workspace, WorkspaceSpec_WorkspaceType, WorkspaceStatus } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { Workspace, WorkspaceSpec_WorkspaceType, WorkspaceStatus } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { sendTrackEvent } from "../Analytics";
 
-export const gitpodHostUrl = new GitpodHostUrl(window.location.toString());
+export const nxpodHostUrl = new NxpodHostUrl(window.location.toString());
 
-function createGitpodService<C extends GitpodClient, S extends GitpodServer>() {
-    let host = gitpodHostUrl.asWebsocket().with({ pathname: GitpodServerPath }).withApi();
+function createNxpodService<C extends NxpodClient, S extends NxpodServer>() {
+    let host = nxpodHostUrl.asWebsocket().with({ pathname: NxpodServerPath }).withApi();
 
     const connectionProvider = new WebSocketConnectionProvider();
     instrumentWebSocketConnection(connectionProvider);
@@ -57,7 +57,7 @@ function createGitpodService<C extends GitpodClient, S extends GitpodServer>() {
         },
     });
 
-    return new GitpodServiceImpl<C, S>(proxy, { onReconnect });
+    return new NxpodServiceImpl<C, S>(proxy, { onReconnect });
 }
 
 function instrumentWebSocketConnection(connectionProvider: WebSocketConnectionProvider): void {
@@ -69,7 +69,7 @@ function instrumentWebSocketConnection(connectionProvider: WebSocketConnectionPr
             new Proxy(WebSocket, {
                 construct(target: any, argArray) {
                     const webSocket = new target(...argArray);
-                    instrumentWebSocket(webSocket, "gitpod");
+                    instrumentWebSocket(webSocket, "nxpod");
                     return webSocket;
                 },
             }),
@@ -77,12 +77,12 @@ function instrumentWebSocketConnection(connectionProvider: WebSocketConnectionPr
     };
 }
 
-export function getGitpodService(): GitpodService {
+export function getNxpodService(): NxpodService {
     const w = window as any;
     const _gp = w._gp || (w._gp = {});
-    let service = _gp.gitpodService;
+    let service = _gp.nxpodService;
     if (!service) {
-        service = _gp.gitpodService = createGitpodService();
+        service = _gp.nxpodService = createNxpodService();
         testPublicAPI(service);
     }
     return service;
@@ -111,7 +111,7 @@ function testPublicAPI(service: any): void {
                             false,
                             {
                                 user,
-                                gitpodHost: window.location.host,
+                                nxpodHost: window.location.host,
                             },
                         );
                         if (isTest) {
@@ -142,7 +142,7 @@ function testPublicAPI(service: any): void {
                 !!user &&
                 (await getExperimentsClient().getValueAsync("public_api_dummy_reliability_test", false, {
                     user,
-                    gitpodHost: window.location.host,
+                    nxpodHost: window.location.host,
                 }));
             if (isTest) {
                 if (!watching) {
@@ -157,7 +157,7 @@ function testPublicAPI(service: any): void {
     })();
 }
 let ideFrontendService: IDEFrontendService | undefined;
-export function getIDEFrontendService(workspaceID: string, sessionId: string, service: GitpodService) {
+export function getIDEFrontendService(workspaceID: string, sessionId: string, service: NxpodService) {
     if (!ideFrontendService) {
         ideFrontendService = new IDEFrontendService(workspaceID, sessionId, service, window.parent);
     }
@@ -180,7 +180,7 @@ export class IDEFrontendService implements IDEFrontendDashboardService.IServer {
     constructor(
         private workspaceID: string,
         private sessionId: string,
-        private service: GitpodService,
+        private service: NxpodService,
         private clientWindow: Window,
     ) {
         this.processServerInfo();
@@ -215,8 +215,8 @@ export class IDEFrontendService implements IDEFrontendDashboardService.IServer {
             // send last heartbeat (wasClosed: true)
             const data = { sessionId: this.sessionId };
             const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
-            const gitpodHostUrl = new GitpodHostUrl(window.location.toString());
-            const url = gitpodHostUrl.withApi({ pathname: `/auth/workspacePageClose/${this.instanceID}` }).toString();
+            const nxpodHostUrl = new NxpodHostUrl(window.location.toString());
+            const url = nxpodHostUrl.withApi({ pathname: `/auth/workspacePageClose/${this.instanceID}` }).toString();
             navigator.sendBeacon(url, blob);
         });
     }
@@ -278,11 +278,11 @@ export class IDEFrontendService implements IDEFrontendDashboardService.IServer {
     private async redirectToCustomUrl(info: IDEFrontendDashboardService.Info) {
         const isDataOps = await getExperimentsClient().getValueAsync("dataops", false, {
             user: { id: this.user!.id },
-            gitpodHost: gitpodHostUrl.toString(),
+            nxpodHost: nxpodHostUrl.toString(),
         });
         const dataOpsRedirectUrl = await getExperimentsClient().getValueAsync("dataops_redirect_url", "undefined", {
             user: { id: this.user!.id },
-            gitpodHost: gitpodHostUrl.toString(),
+            nxpodHost: nxpodHostUrl.toString(),
         });
 
         if (!isDataOps) {
@@ -315,7 +315,7 @@ export class IDEFrontendService implements IDEFrontendDashboardService.IServer {
         if (!this.instanceID) {
             return;
         }
-        const url = gitpodHostUrl.asWorkspaceAuth(this.instanceID).toString();
+        const url = nxpodHostUrl.asWorkspaceAuth(this.instanceID).toString();
         await fetch(url, {
             credentials: "include",
         });
@@ -349,7 +349,7 @@ export class IDEFrontendService implements IDEFrontendDashboardService.IServer {
             if (
                 redirect &&
                 desktopLink.protocol === "jetbrains:" &&
-                !desktopLink.href.startsWith("jetbrains://gateway/io.gitpod.toolbox.gateway/")
+                !desktopLink.href.startsWith("jetbrains://gateway/io.nxpod.toolbox.gateway/")
             ) {
                 redirect = false;
             }

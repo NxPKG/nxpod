@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,7 +14,7 @@ import (
 
 	"crypto/sha512"
 
-	"github.com/gitpod-io/gitpod/previewctl/pkg/preview"
+	"github.com/nxpkg/nxpod/previewctl/pkg/preview"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	v1 "k8s.io/api/core/v1"
@@ -66,7 +66,7 @@ func newCreateAdminCredentialsCmd(logger *logrus.Logger) *cobra.Command {
 				WithField("algo", creds.Algo).
 				WithField("expires_unix", creds.ExpiresAt).
 				WithField("expires", time.Unix(creds.ExpiresAt, 0).Format(time.RFC3339)).
-				Infof("Created new admin credentials: https://%s.preview.gitpod-dev.com/api/login/ots/admin/%s", previewName, token)
+				Infof("Created new admin credentials: https://%s.preview.nxpod-dev.com/api/login/ots/admin/%s", previewName, token)
 			return nil
 		},
 	}
@@ -122,7 +122,7 @@ func createAdminCredentials(ctx context.Context, expiry time.Duration) (string, 
 			Name:      "admin-credentials",
 			Namespace: "default",
 			Labels: map[string]string{
-				"app":       "gitpod",
+				"app":       "nxpod",
 				"component": "server",
 			},
 		},

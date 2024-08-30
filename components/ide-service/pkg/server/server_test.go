@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,11 +11,11 @@ import (
 
 	"github.com/containerd/containerd/remotes"
 	"github.com/containerd/containerd/remotes/docker"
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	api "github.com/gitpod-io/gitpod/ide-service-api"
-	"github.com/gitpod-io/gitpod/ide-service-api/config"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	api "github.com/nxpkg/nxpod/ide-service-api"
+	"github.com/nxpkg/nxpod/ide-service-api/config"
 
-	ctesting "github.com/gitpod-io/gitpod/common-go/testing"
+	ctesting "github.com/nxpkg/nxpod/common-go/testing"
 )
 
 func TestResolveWorkspaceConfig(t *testing.T) {

@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
 import { inject, injectable } from "inversify";
-import { ConfigurationService as ConfigurationServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/configuration_connect";
-import { PublicAPIConverter, PartialConfiguration } from "@gitpod/public-api-common/lib/public-api-converter";
+import { ConfigurationService as ConfigurationServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/configuration_connect";
+import { PublicAPIConverter, PartialConfiguration } from "@nxpod/public-api-common/lib/public-api-converter";
 import { ProjectsService } from "../projects/projects-service";
 import {
     CreateConfigurationRequest,
@@ -19,16 +19,16 @@ import {
     ListConfigurationsResponse,
     PrebuildSettings,
     UpdateConfigurationRequest,
-} from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+} from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { validate as uuidValidate } from "uuid";
 import { PaginationToken, generatePaginationToken, parsePaginationToken } from "./pagination";
 import { ctxUserId } from "../util/request-context";
 import { UserService } from "../user/user-service";
-import { SortOrder } from "@gitpod/public-api/lib/gitpod/v1/sorting_pb";
-import { Project } from "@gitpod/gitpod-protocol";
-import { DeepPartial } from "@gitpod/gitpod-protocol/lib/util/deep-partial";
+import { SortOrder } from "@nxpod/public-api/lib/nxpod/v1/sorting_pb";
+import { Project } from "@nxpod/nxpod-protocol";
+import { DeepPartial } from "@nxpod/nxpod-protocol/lib/util/deep-partial";
 import { ContextService } from "../workspace/context-service";
 
 function buildUpdateObject<T extends Record<string, any>>(obj: T): Partial<T> {

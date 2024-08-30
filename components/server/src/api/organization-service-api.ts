@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
 import { inject, injectable } from "inversify";
-import { OrganizationService as OrganizationServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/organization_connect";
+import { OrganizationService as OrganizationServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/organization_connect";
 import {
     CreateOrganizationRequest,
     CreateOrganizationResponse,
@@ -37,14 +37,14 @@ import {
     ListOrganizationsRequest_Scope,
     ListOrganizationWorkspaceClassesRequest,
     ListOrganizationWorkspaceClassesResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
+} from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
 import { OrganizationService } from "../orgs/organization-service";
-import { OrganizationSettings as ProtocolOrganizationSettings } from "@gitpod/gitpod-protocol";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
+import { OrganizationSettings as ProtocolOrganizationSettings } from "@nxpod/nxpod-protocol";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
 import { validate as uuidValidate } from "uuid";
 import { ctxUserId } from "../util/request-context";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 @injectable()
 export class OrganizationServiceAPI implements ServiceImpl<typeof OrganizationServiceInterface> {

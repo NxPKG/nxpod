@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import * as grpc from "@grpc/grpc-js";
-import { IAnalyticsWriter, NullAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { IDEServiceClient, IDEServiceDefinition } from "@gitpod/ide-service-api/lib/ide.pb";
-import { UsageServiceDefinition } from "@gitpod/usage-api/lib/usage/v1/usage.pb";
+import { IAnalyticsWriter, NullAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { IDEServiceClient, IDEServiceDefinition } from "@nxpod/ide-service-api/lib/ide.pb";
+import { UsageServiceDefinition } from "@nxpod/usage-api/lib/usage/v1/usage.pb";
 import { ContainerModule } from "inversify";
 import { v4 } from "uuid";
 import { AuthProvider, AuthProviderParams } from "../auth/auth-provider";
@@ -16,14 +16,14 @@ import { HostContextProviderImpl } from "../auth/host-context-provider-impl";
 import { SpiceDBClientProvider } from "../authorization/spicedb";
 import { AuthConfig, Config } from "../config";
 import { StorageClient } from "../storage/storage-client";
-import { testContainer } from "@gitpod/gitpod-db/lib";
+import { testContainer } from "@nxpod/nxpod-db/lib";
 import { productionContainerModule } from "../container-module";
 import { createMock } from "./mocks/mock";
 import { UsageServiceClientMock } from "./mocks/usage-service-client-mock";
 import { env, nextTick } from "process";
-import { WorkspaceManagerClientProviderSource } from "@gitpod/ws-manager/lib/client-provider-source";
-import { WorkspaceClusterWoTLS } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
+import { WorkspaceManagerClientProviderSource } from "@nxpod/ws-manager/lib/client-provider-source";
+import { WorkspaceClusterWoTLS } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
 import {
     BuildInfo,
     BuildResponse,
@@ -31,15 +31,15 @@ import {
     IImageBuilderClient,
     LogInfo,
     ResolveWorkspaceImageResponse,
-} from "@gitpod/image-builder/lib";
-import { IWorkspaceManagerClient, StartWorkspaceResponse } from "@gitpod/ws-manager/lib";
+} from "@nxpod/image-builder/lib";
+import { IWorkspaceManagerClient, StartWorkspaceResponse } from "@nxpod/ws-manager/lib";
 import { TokenProvider } from "../user/token-provider";
 import { GitHubScope } from "../github/scopes";
-import { GitpodHostUrl } from "@gitpod/gitpod-protocol/lib/util/gitpod-host-url";
+import { NxpodHostUrl } from "@nxpod/nxpod-protocol/lib/util/nxpod-host-url";
 import * as crypto from "crypto";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { Subject, SubjectId } from "../auth/subject-id";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import { runWithRequestContext } from "../util/request-context";
 
 const signingKeyPair = crypto.generateKeyPairSync("rsa", { modulusLength: 2048 });
@@ -52,10 +52,10 @@ export const mockAuthConfig: AuthConfig = {
         validating: [toKeyPair("0002", validatingKeyPair1), toKeyPair("0003", validatingKeyPair2)],
     },
     session: {
-        issuer: "https://mp-server-d7650ec945.preview.gitpod-dev.com",
+        issuer: "https://mp-server-d7650ec945.preview.nxpod-dev.com",
         lifetimeSeconds: 7 * 24 * 60 * 60,
         cookie: {
-            name: "__Host-_gitpod_dev_jwt_",
+            name: "__Host-_nxpod_dev_jwt_",
             secure: true,
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60,
@@ -137,7 +137,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
             {
                 name: "eu-central-1",
                 region: "europe",
-                url: "https://ws.gitpod.io",
+                url: "https://ws.nxpod.io",
                 state: "available",
                 maxScore: 100,
                 score: 100,
@@ -160,7 +160,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
             {
                 name: "eu-central-1-nextgen",
                 region: "europe",
-                url: "https://ws.gitpod.io",
+                url: "https://ws.nxpod.io",
                 state: "available",
                 maxScore: 100,
                 score: 100,
@@ -225,7 +225,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
                                 response.setRef("my-test-build-ref");
                                 const buildInfo = new BuildInfo();
                                 const logInfo = new LogInfo();
-                                logInfo.setUrl("https://ws.gitpod.io/my-test-image-build/logs");
+                                logInfo.setUrl("https://ws.nxpod.io/my-test-image-build/logs");
                                 buildInfo.setLogInfo(logInfo);
                                 response.setInfo(buildInfo);
                                 listeners.get("data")!(response);
@@ -240,7 +240,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
                         startWorkspace(request, metadata, options, callback) {
                             const workspaceId = request.getServicePrefix();
                             const response = new StartWorkspaceResponse();
-                            response.setUrl(`https://${workspaceId}.ws.gitpod.io`);
+                            response.setUrl(`https://${workspaceId}.ws.nxpod.io`);
                             callback(null, response);
                         },
                     },
@@ -253,8 +253,8 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
             async resolveWorkspaceConfig() {
                 return {
                     envvars: [],
-                    supervisorImage: "gitpod/supervisor:latest",
-                    webImage: "gitpod/code:latest",
+                    supervisorImage: "nxpod/supervisor:latest",
+                    webImage: "nxpod/code:latest",
                     ideImageLayers: [],
                     refererIde: "code",
                     ideSettings: "",
@@ -265,7 +265,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
     );
 
     rebind<Partial<Config>>(Config).toConstantValue({
-        hostUrl: new GitpodHostUrl("https://gitpod.io"),
+        hostUrl: new NxpodHostUrl("https://nxpod.io"),
         blockNewUsers: {
             enabled: false,
             passlist: [],
@@ -274,7 +274,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
             address: (env.REDIS_HOST || "127.0.0.1") + ":" + (env.REDIS_PORT || "6379"),
         },
         workspaceDefaults: {
-            workspaceImage: "gitpod/workspace-full",
+            workspaceImage: "nxpod/workspace-full",
             defaultFeatureFlags: [],
             previewFeatureFlags: [],
         },
@@ -289,7 +289,7 @@ const mockApplyingContainerModule = new ContainerModule((bind, unbound, isbound,
             },
         ],
         authProviderConfigs: [],
-        installationShortname: "gitpod",
+        installationShortname: "nxpod",
         auth: mockAuthConfig,
         prebuildLimiter: {
             "*": {

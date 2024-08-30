@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,38 +14,38 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff/v4"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/content-service/pkg/git"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/api"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/serverapi"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/content-service/pkg/git"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/api"
+	"github.com/nxpkg/nxpod/supervisor/pkg/serverapi"
 	"golang.org/x/xerrors"
 )
 
 // GitTokenProvider provides tokens for Git hosting services by asking
-// the Gitpod server.
+// the Nxpod server.
 type GitTokenProvider struct {
 	notificationService *NotificationService
 	workspaceConfig     WorkspaceConfig
-	gitpodAPI           serverapi.APIInterface
+	nxpodAPI           serverapi.APIInterface
 }
 
 // NewGitTokenProvider creates a new instance of gitTokenProvider.
-func NewGitTokenProvider(gitpodAPI serverapi.APIInterface, workspaceConfig WorkspaceConfig, notificationService *NotificationService) *GitTokenProvider {
+func NewGitTokenProvider(nxpodAPI serverapi.APIInterface, workspaceConfig WorkspaceConfig, notificationService *NotificationService) *GitTokenProvider {
 	return &GitTokenProvider{
 		notificationService: notificationService,
 		workspaceConfig:     workspaceConfig,
-		gitpodAPI:           gitpodAPI,
+		nxpodAPI:           nxpodAPI,
 	}
 }
 
 // GetToken resolves a token from a git hosting service.
 func (p *GitTokenProvider) GetToken(ctx context.Context, req *api.GetTokenRequest) (tkn *Token, err error) {
-	if p.gitpodAPI == nil {
+	if p.nxpodAPI == nil {
 		return nil, nil
 	}
-	token, err := p.gitpodAPI.GetToken(ctx, &gitpod.GetTokenSearchOptions{
+	token, err := p.nxpodAPI.GetToken(ctx, &nxpod.GetTokenSearchOptions{
 		Host: req.Host,
 	})
 	if err != nil {
@@ -91,8 +91,8 @@ func (p *GitTokenProvider) openAccessControl() error {
 	if err != nil {
 		return err
 	}
-	gpCmd := exec.Command(gpPath, "preview", "--external", p.workspaceConfig.GitpodHost+"/access-control")
-	runAsGitpodUser(gpCmd)
+	gpCmd := exec.Command(gpPath, "preview", "--external", p.workspaceConfig.NxpodHost+"/access-control")
+	runAsNxpodUser(gpCmd)
 	if b, err := gpCmd.CombinedOutput(); err != nil {
 		log.WithField("Stdout", string(b)).WithError(err).Error("failed to exec gp preview to open access control")
 		return err
@@ -119,12 +119,12 @@ type GitStatusService struct {
 	cfg           *Config
 	content       ContentState
 	git           *git.Client
-	gitpodService serverapi.APIInterface
+	nxpodService serverapi.APIInterface
 	experiments   experiments.Client
 }
 
 type gitStatusUpdateContext struct {
-	lastSuccessfullStatus *gitpod.WorkspaceInstanceRepoStatus
+	lastSuccessfullStatus *nxpod.WorkspaceInstanceRepoStatus
 	statusBackoff         *backoff.ExponentialBackOff
 	updateBackoff         *backoff.ExponentialBackOff
 }
@@ -145,7 +145,7 @@ func (s *GitStatusService) Run(ctx context.Context, wg *sync.WaitGroup) {
 	updateContext.updateBackoff.MaxElapsedTime = 30 * time.Second
 
 	go func() {
-		updates, err := s.gitpodService.WorkspaceUpdates(ctx)
+		updates, err := s.nxpodService.WorkspaceUpdates(ctx)
 		if err != nil {
 			log.WithError(err).Error("git: error getting workspace updates")
 			return
@@ -190,7 +190,7 @@ func (s *GitStatusService) update(ctx context.Context, updateContext *gitStatusU
 	}
 	updateContext.statusBackoff.Reset()
 
-	var newStatus *gitpod.WorkspaceInstanceRepoStatus
+	var newStatus *nxpod.WorkspaceInstanceRepoStatus
 	if status != nil {
 		limit := func(entries []string) []string {
 			const maxPendingChanges = 100
@@ -200,7 +200,7 @@ func (s *GitStatusService) update(ctx context.Context, updateContext *gitStatusU
 
 			return entries
 		}
-		newStatus = &gitpod.WorkspaceInstanceRepoStatus{
+		newStatus = &nxpod.WorkspaceInstanceRepoStatus{
 			Branch:               status.BranchHead,
 			LatestCommit:         status.LatestCommit,
 			TotalUncommitedFiles: float64(len(status.UncommitedFiles)),
@@ -216,7 +216,7 @@ func (s *GitStatusService) update(ctx context.Context, updateContext *gitStatusU
 		return
 	}
 
-	err = s.gitpodService.UpdateGitStatus(ctx, newStatus)
+	err = s.nxpodService.UpdateGitStatus(ctx, newStatus)
 	if err != nil {
 		log.WithError(err).Error("git: error updating repo status")
 		time.Sleep(updateContext.updateBackoff.NextBackOff())

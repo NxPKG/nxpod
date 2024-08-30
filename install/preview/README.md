@@ -1,6 +1,6 @@
-# Gitpod Local Preview
+# Nxpod Local Preview
 
-This repo helps users to try out and preview self-hosted Gitpod **locally** without all the things
+This repo helps users to try out and preview self-hosted Nxpod **locally** without all the things
 needed for a production instance. The aim is to provide an installation mechanism as minimal and
 simple as possible.
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -16,10 +16,10 @@ import { useInvalidateOrgAuthProvidersQuery } from "../../data/auth-providers/or
 import { useCurrentOrg } from "../../data/organizations/orgs-query";
 import { useOnBlurError } from "../../hooks/use-onblur-error";
 import { openAuthorizeWindow, toAuthProviderLabel } from "../../provider-utils";
-import { gitpodHostUrl } from "../../service/service";
+import { nxpodHostUrl } from "../../service/service";
 import { UserContext } from "../../user-context";
 import { useToast } from "../../components/toasts/Toasts";
-import { AuthProvider, AuthProviderType } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+import { AuthProvider, AuthProviderType } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 import { useCreateOrgAuthProviderMutation } from "../../data/auth-providers/create-org-auth-provider-mutation";
 import { useUpdateOrgAuthProviderMutation } from "../../data/auth-providers/update-org-auth-provider-mutation";
 import { authProviderClient, userClient } from "../../service/public-api";
@@ -301,7 +301,7 @@ export const GitIntegrationModal: FunctionComponent<Props> = (props) => {
 
 const callbackUrl = () => {
     const pathname = `/auth/callback`;
-    return gitpodHostUrl.with({ pathname }).toString();
+    return nxpodHostUrl.with({ pathname }).toString();
 };
 
 const getPlaceholderForIntegrationType = (type: AuthProviderType) => {
@@ -326,16 +326,16 @@ const RedirectUrlDescription: FunctionComponent<RedirectUrlDescriptionProps> = (
     let docsUrl = ``;
     switch (type) {
         case AuthProviderType.GITHUB:
-            docsUrl = `https://www.gitpod.io/docs/configure/authentication/github-enterprise`;
+            docsUrl = `https://www.nxpod.io/docs/configure/authentication/github-enterprise`;
             break;
         case AuthProviderType.GITLAB:
-            docsUrl = `https://www.gitpod.io/docs/configure/authentication/gitlab#registering-a-self-hosted-gitlab-installation`;
+            docsUrl = `https://www.nxpod.io/docs/configure/authentication/gitlab#registering-a-self-hosted-gitlab-installation`;
             break;
         case AuthProviderType.BITBUCKET:
-            docsUrl = `https://www.gitpod.io/docs/configure/authentication`;
+            docsUrl = `https://www.nxpod.io/docs/configure/authentication`;
             break;
         case AuthProviderType.BITBUCKET_SERVER:
-            docsUrl = "https://www.gitpod.io/docs/configure/authentication/bitbucket-server";
+            docsUrl = "https://www.nxpod.io/docs/configure/authentication/bitbucket-server";
             break;
         default:
             return null;
@@ -344,7 +344,7 @@ const RedirectUrlDescription: FunctionComponent<RedirectUrlDescriptionProps> = (
     return (
         <span>
             Use this redirect URI to register a {toAuthProviderLabel(type)} instance as an authorized Git provider in
-            Gitpod.{" "}
+            Nxpod.{" "}
             <a href={docsUrl} target="_blank" rel="noreferrer noopener" className="gp-link">
                 Learn more
             </a>

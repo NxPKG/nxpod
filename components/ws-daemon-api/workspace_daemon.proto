@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package iws;
 
-option go_package = "github.com/gitpod-io/gitpod/ws-daemon/api";
+option go_package = "github.com/nxpkg/nxpod/ws-daemon/api";
 
 service InWorkspaceService {
     // PrepareForUserNS prepares a workspace container for wrapping it in a user namespace.

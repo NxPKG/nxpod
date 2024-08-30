@@ -1,18 +1,18 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { FC, useCallback, useState } from "react";
 import Modal, { ModalBody, ModalFooter, ModalFooterAlert, ModalHeader } from "../../components/Modal";
-import { SuggestedRepository } from "@gitpod/gitpod-protocol";
+import { SuggestedRepository } from "@nxpod/nxpod-protocol";
 import RepositoryFinder from "../../components/RepositoryFinder";
 import { InputField } from "../../components/forms/InputField";
 import { AuthorizeGit, useNeedsGitAuthorization } from "../../components/AuthorizeGit";
 import { useTemporaryState } from "../../hooks/use-temporary-value";
 import { CreateConfigurationArgs, useCreateConfiguration } from "../../data/configurations/configuration-queries";
-import type { Configuration } from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
+import type { Configuration } from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
 import { LoadingButton } from "@podkit/buttons/LoadingButton";
 import { Button } from "@podkit/buttons/Button";
 

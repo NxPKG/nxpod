@@ -1,23 +1,23 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     CostCenter_BillingStrategy,
     ListUsageRequest_Ordering,
     UsageServiceClient,
     UsageServiceDefinition,
     Usage_Kind,
-} from "@gitpod/usage-api/lib/usage/v1/usage.pb";
+} from "@nxpod/usage-api/lib/usage/v1/usage.pb";
 import { inject, injectable } from "inversify";
 import { Authorizer } from "../authorization/authorizer";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { CostCenterJSON, ListUsageRequest, ListUsageResponse } from "@gitpod/gitpod-protocol/lib/usage";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { CostCenterJSON, ListUsageRequest, ListUsageResponse } from "@nxpod/nxpod-protocol/lib/usage";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 
 @injectable()
 export class UsageService {

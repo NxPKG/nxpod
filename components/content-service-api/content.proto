@@ -6,7 +6,7 @@ syntax = "proto3";
 
 package contentservice;
 
-option go_package = "github.com/gitpod-io/gitpod/content-service/api";
+option go_package = "github.com/nxpkg/nxpod/content-service/api";
 
 service ContentService {
     // DeleteUserContent deletes all content associated with a user.

@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceContext, User } from "@gitpod/gitpod-protocol";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { WorkspaceContext, User } from "@nxpod/nxpod-protocol";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { inject, injectable } from "inversify";
 import { AuthProviderParams } from "../auth/auth-provider";
 import { URLSearchParams, URL } from "url";
@@ -53,7 +53,7 @@ export abstract class AbstractContextParser implements IContextParser {
         const lenghtOfRelativePath = host.split("/").length - 1; // e.g. "123.123.123.123/gitlab" => length of 1
         if (lenghtOfRelativePath > 0) {
             // remove segments from the path to be consider further, which belong to the relative location of the host
-            // cf. https://github.com/gitpod-io/gitpod/issues/2637
+            // cf. https://github.com/nxpkg/nxpod/issues/2637
             segments.splice(0, lenghtOfRelativePath);
         }
 

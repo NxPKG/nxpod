@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -33,11 +33,11 @@ import {
     DescribeClusterRequest,
     DescribeClusterResponse,
 } from "./core_pb";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import * as opentracing from "opentracing";
 import * as grpc from "@grpc/grpc-js";
-import { Disposable } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { Disposable } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 export function withTracing(ctx: TraceContext) {
     const metadata = new grpc.Metadata();
@@ -121,7 +121,7 @@ export class PromisifiedWorkspaceManagerClient implements Disposable {
                         withTracing({ span }),
                         {
                             // Important!!!!: client timeout must be higher than ws-manager to be able to process any error
-                            // https://github.com/gitpod-io/gitpod/blob/main/components/ws-manager/pkg/manager/manager.go#L171
+                            // https://github.com/nxpkg/nxpod/blob/main/components/ws-manager/pkg/manager/manager.go#L171
                             deadline: new Date(new Date().getTime() + 60000 * 11),
                             interceptors: this.interceptor,
                         },

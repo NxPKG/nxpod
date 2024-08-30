@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,7 +7,7 @@ package detector
 import (
 	"context"
 
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/common"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/common"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

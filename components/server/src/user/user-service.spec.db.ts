@@ -1,21 +1,21 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import * as chai from "chai";
 import "mocha";
 import { Container } from "inversify";
 import { createTestContainer, withTestCtx } from "../test/service-testing-container-module";
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import { OrganizationService } from "../orgs/organization-service";
 import { Authorizer, SYSTEM_USER } from "../authorization/authorizer";
 import { UserService } from "./user-service";
-import { Organization, User } from "@gitpod/gitpod-protocol";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { Organization, User } from "@nxpod/nxpod-protocol";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { expectError } from "../test/expect-utils";
 
 const expect = chai.expect;

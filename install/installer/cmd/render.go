@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,13 +13,13 @@ import (
 
 	_ "embed"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components"
-	"github.com/gitpod-io/gitpod/installer/pkg/config"
-	configv1 "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
-	"github.com/gitpod-io/gitpod/installer/pkg/postprocess"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components"
+	"github.com/nxpkg/nxpod/installer/pkg/config"
+	configv1 "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/installer/pkg/postprocess"
 	"github.com/spf13/cobra"
 	"sigs.k8s.io/yaml"
 )
@@ -35,14 +35,14 @@ var renderOpts struct {
 // renderCmd represents the render command
 var renderCmd = &cobra.Command{
 	Use:   "render",
-	Short: "Renders the Kubernetes manifests required to install Gitpod",
-	Long: `Renders the Kubernetes manifests required to install Gitpod
+	Short: "Renders the Kubernetes manifests required to install Nxpod",
+	Long: `Renders the Kubernetes manifests required to install Nxpod
 
 A config file is required which can be generated with the init command.`,
 	Example: `  # Default install.
   gitpod-installer render --config config.yaml | kubectl apply -f -
 
-  # Install Gitpod into a non-default namespace.
+  # Install Nxpod into a non-default namespace.
   gitpod-installer render --config config.yaml --namespace gitpod | kubectl apply -f -`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		yaml, err := renderFn()
@@ -261,7 +261,7 @@ func init() {
 		log.WithError(err).Fatal("Failed to get working directory")
 	}
 
-	renderCmd.PersistentFlags().StringVarP(&renderOpts.ConfigFN, "config", "c", getEnvvar("GITPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file, use - for stdin")
+	renderCmd.PersistentFlags().StringVarP(&renderOpts.ConfigFN, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file, use - for stdin")
 	renderCmd.PersistentFlags().StringVarP(&renderOpts.Namespace, "namespace", "n", getEnvvar("NAMESPACE", "default"), "namespace to deploy to")
 	renderCmd.Flags().BoolVar(&renderOpts.ValidateConfigDisabled, "no-validation", false, "if set, the config will not be validated before running")
 	renderCmd.Flags().BoolVar(&renderOpts.UseExperimentalConfig, "use-experimental-config", false, "enable the use of experimental config that is prone to be changed")

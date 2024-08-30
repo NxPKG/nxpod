@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,7 +12,7 @@ import (
 	context "context"
 	errors "errors"
 	connect_go "github.com/bufbuild/connect-go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/v1"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/v1"
 	http "net/http"
 	strings "strings"
 )
@@ -32,7 +32,7 @@ const (
 // InstallationServiceClient is a client for the gitpod.v1.InstallationService service.
 type InstallationServiceClient interface {
 	// GetInstallationWorkspaceDefaultImage returns the default image for current
-	// Gitpod Installation.
+	// Nxpod Installation.
 	GetInstallationWorkspaceDefaultImage(context.Context, *connect_go.Request[v1.GetInstallationWorkspaceDefaultImageRequest]) (*connect_go.Response[v1.GetInstallationWorkspaceDefaultImageResponse], error)
 	// ListBlockedRepositories lists blocked repositories.
 	ListBlockedRepositories(context.Context, *connect_go.Request[v1.ListBlockedRepositoriesRequest]) (*connect_go.Response[v1.ListBlockedRepositoriesResponse], error)
@@ -146,7 +146,7 @@ func (c *installationServiceClient) GetOnboardingState(ctx context.Context, req 
 // InstallationServiceHandler is an implementation of the gitpod.v1.InstallationService service.
 type InstallationServiceHandler interface {
 	// GetInstallationWorkspaceDefaultImage returns the default image for current
-	// Gitpod Installation.
+	// Nxpod Installation.
 	GetInstallationWorkspaceDefaultImage(context.Context, *connect_go.Request[v1.GetInstallationWorkspaceDefaultImageRequest]) (*connect_go.Response[v1.GetInstallationWorkspaceDefaultImageResponse], error)
 	// ListBlockedRepositories lists blocked repositories.
 	ListBlockedRepositories(context.Context, *connect_go.Request[v1.ListBlockedRepositoriesRequest]) (*connect_go.Response[v1.ListBlockedRepositoriesResponse], error)

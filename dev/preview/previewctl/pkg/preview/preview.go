@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,8 +15,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"google.golang.org/api/option"
 
-	"github.com/gitpod-io/gitpod/previewctl/pkg/k8s"
-	"github.com/gitpod-io/gitpod/previewctl/pkg/k8s/context/k3s"
+	"github.com/nxpkg/nxpod/previewctl/pkg/k8s"
+	"github.com/nxpkg/nxpod/previewctl/pkg/k8s/context/k3s"
 )
 
 const TFStateBucket = "5d39183e-preview-tf-state"

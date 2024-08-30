@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package usage.v1;
 
-option go_package = "github.com/gitpod-io/gitpod/usage-api/v1";
+option go_package = "github.com/nxpkg/nxpod/usage-api/v1";
 
 service BillingService {
   // ReconcileInvoices retrieves current credit balance and reflects it in
@@ -88,7 +88,7 @@ message CreateStripeCustomerRequest {
   string name = 2;
   string email = 3;
   string currency = 4;
-  // Gitpod User ID for the user setting up billing.
+  // Nxpod User ID for the user setting up billing.
   string billing_creator_user_id = 5;
 }
 

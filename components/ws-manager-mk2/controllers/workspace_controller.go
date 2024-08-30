@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License-AGPL.txt in the project root for license information.
 
@@ -29,18 +29,18 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/predicate"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/constants"
-	"github.com/gitpod-io/gitpod/ws-manager-mk2/pkg/maintenance"
-	config "github.com/gitpod-io/gitpod/ws-manager/api/config"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/constants"
+	"github.com/nxpkg/nxpod/ws-manager-mk2/pkg/maintenance"
+	config "github.com/nxpkg/nxpod/ws-manager/api/config"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	"github.com/go-logr/logr"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
 const (
-	metricsNamespace          = "gitpod"
+	metricsNamespace          = "nxpod"
 	metricsWorkspaceSubsystem = "ws_manager_mk2"
 	// kubernetesOperationTimeout is the time we give Kubernetes operations in general.
 	kubernetesOperationTimeout = 5 * time.Second
@@ -77,9 +77,9 @@ type WorkspaceReconciler struct {
 	Recorder    record.EventRecorder
 }
 
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=workspaces,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=workspaces/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=workspace.gitpod.io,resources=workspaces/finalizers,verbs=update
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces/finalizers,verbs=update
 //+kubebuilder:rbac:groups=core,resources=pod,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=core,resources=pod/status,verbs=get
 
@@ -227,13 +227,13 @@ func (r *WorkspaceReconciler) actOnStatus(ctx context.Context, workspace *worksp
 			}
 
 			// Done stopping workspace - remove finalizer.
-			if controllerutil.ContainsFinalizer(workspace, workspacev1.GitpodFinalizerName) {
-				controllerutil.RemoveFinalizer(workspace, workspacev1.GitpodFinalizerName)
+			if controllerutil.ContainsFinalizer(workspace, workspacev1.NxpodFinalizerName) {
+				controllerutil.RemoveFinalizer(workspace, workspacev1.NxpodFinalizerName)
 				if err := r.Update(ctx, workspace); err != nil {
 					if apierrors.IsNotFound(err) {
 						return ctrl.Result{}, nil
 					} else {
-						return ctrl.Result{}, fmt.Errorf("failed to remove gitpod finalizer from workspace: %w", err)
+						return ctrl.Result{}, fmt.Errorf("failed to remove nxpod finalizer from workspace: %w", err)
 					}
 				}
 			}
@@ -310,10 +310,10 @@ func (r *WorkspaceReconciler) actOnStatus(ctx context.Context, workspace *worksp
 
 	// we've disposed already - try to remove the finalizer and call it a day
 	case workspace.Status.Phase == workspacev1.WorkspacePhaseStopped:
-		hadFinalizer := controllerutil.ContainsFinalizer(pod, workspacev1.GitpodFinalizerName)
-		controllerutil.RemoveFinalizer(pod, workspacev1.GitpodFinalizerName)
+		hadFinalizer := controllerutil.ContainsFinalizer(pod, workspacev1.NxpodFinalizerName)
+		controllerutil.RemoveFinalizer(pod, workspacev1.NxpodFinalizerName)
 		if err := r.Client.Update(ctx, pod); err != nil {
-			return ctrl.Result{}, fmt.Errorf("failed to remove gitpod finalizer from pod: %w", err)
+			return ctrl.Result{}, fmt.Errorf("failed to remove nxpod finalizer from pod: %w", err)
 		}
 
 		if hadFinalizer {

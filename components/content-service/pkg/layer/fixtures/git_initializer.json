@@ -10,7 +10,7 @@
     }
   ],
   "contentManifest": {
-    "type": "application/vnd.gitpod.wsfull.v1",
+    "type": "application/vnd.nxpod.wsfull.v1",
     "layers": null
   }
 }

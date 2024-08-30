@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,15 +9,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/auth"
-	contentservice "github.com/gitpod-io/gitpod/installer/pkg/components/content-service"
-	ideservice "github.com/gitpod-io/gitpod/installer/pkg/components/ide-service"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/redis"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/usage"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/workspace"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/v1/experimental"
-	"github.com/gitpod-io/gitpod/ws-manager/api/config"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/auth"
+	contentservice "github.com/nxpkg/nxpod/installer/pkg/components/content-service"
+	ideservice "github.com/nxpkg/nxpod/installer/pkg/components/ide-service"
+	"github.com/nxpkg/nxpod/installer/pkg/components/redis"
+	"github.com/nxpkg/nxpod/installer/pkg/components/usage"
+	"github.com/nxpkg/nxpod/installer/pkg/components/workspace"
+	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"
+	"github.com/nxpkg/nxpod/ws-manager/api/config"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"

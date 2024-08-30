@@ -25,7 +25,7 @@ pushd go
 # source mode does not always work for gRPC: see https://github.com/golang/mock/pull/163
 mockgen \
     -package mock \
-    github.com/gitpod-io/gitpod/ws-manager/api WorkspaceManager_SubscribeServer,WorkspaceManagerServer,WorkspaceManager_SubscribeClient,WorkspaceManagerClient > mock/mock.go
+    github.com/nxpkg/nxpod/ws-manager/api WorkspaceManager_SubscribeServer,WorkspaceManagerServer,WorkspaceManager_SubscribeClient,WorkspaceManagerClient > mock/mock.go
 
 # return to previous directory
 popd

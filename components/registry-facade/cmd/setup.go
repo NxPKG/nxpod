@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,7 +12,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 var (
@@ -36,7 +36,7 @@ var setupCmd = &cobra.Command{
 			}
 
 			caPath := filepath.Join(fakeRegPath, "ca.crt")
-			err = copyFile("/usr/local/share/ca-certificates/gitpod-ca.crt", caPath)
+			err = copyFile("/usr/local/share/ca-certificates/nxpod-ca.crt", caPath)
 			if err != nil {
 				log.Fatal(err)
 			}

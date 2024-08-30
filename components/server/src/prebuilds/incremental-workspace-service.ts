@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -13,10 +13,10 @@ import {
     Workspace,
     WorkspaceConfig,
     WorkspaceImageSource,
-} from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { PrebuiltWorkspaceState, WithCommitHistory } from "@gitpod/gitpod-protocol/lib/protocol";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib";
+} from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { PrebuiltWorkspaceState, WithCommitHistory } from "@nxpod/nxpod-protocol/lib/protocol";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib";
 import { Config } from "../config";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { ImageSourceProvider } from "../workspace/image-source-provider";
@@ -81,7 +81,7 @@ export class IncrementalWorkspaceService {
         const imageSourcePromise = this.imageSourceProvider.getImageSource({}, user, context, config);
 
         // Note: This query returns only not-garbage-collected prebuilds in order to reduce cardinality
-        // (e.g., at the time of writing, the Gitpod repository has 16K+ prebuilds, but only ~300 not-garbage-collected)
+        // (e.g., at the time of writing, the Nxpod repository has 16K+ prebuilds, but only ~300 not-garbage-collected)
         const recentPrebuilds = await this.workspaceDB.findPrebuildsWithWorkspace(projectId);
         const imageSource = await imageSourcePromise;
         for (const recentPrebuild of recentPrebuilds) {

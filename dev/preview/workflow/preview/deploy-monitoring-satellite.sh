@@ -14,7 +14,7 @@ source "$(realpath "${SCRIPT_PATH}/../lib/k8s-util.sh")"
 PREVIEW_NAME="${PREVIEW_NAME:-$(previewctl get name)}"
 PREVIEW_K3S_KUBE_PATH="${PREVIEW_K3S_KUBECONFIG_PATH:-$HOME/.kube/config}"
 PREVIEW_K3S_KUBE_CONTEXT="${PREVIEW_K3S_KUBE_CONTEXT:-$PREVIEW_NAME}"
-PREVIEW_GCP_PROJECT="gitpod-dev-preview"
+PREVIEW_GCP_PROJECT="nxpod-dev-preview"
 
 INITIAL_DEFAULT_NAMESPACE="$(kubens -c)"
 
@@ -55,7 +55,7 @@ if ! command -v envsubst; then
   go install github.com/a8m/envsubst/cmd/envsubst@latest
 fi
 
-GOBIN=$(pwd) go install github.com/gitpod-io/observability/installer@main
+GOBIN=$(pwd) go install github.com/nxpod-io/observability/installer@main
 mv installer observability-installer
 
 HONEYCOMB_API_KEY="$(gcloud secrets versions access latest --secret="honeycomb-api-key" --project=${PREVIEW_GCP_PROJECT})" \

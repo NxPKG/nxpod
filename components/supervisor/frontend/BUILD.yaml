@@ -9,7 +9,7 @@ packages:
       - webpack.config.js
       - tsconfig.json
     deps:
-      - components/gitpod-protocol:lib
+      - components/nxpod-protocol:lib
       - components/supervisor-api/typescript-grpc:lib
       - components/ide-metrics-api/typescript-grpcweb:lib
     config:

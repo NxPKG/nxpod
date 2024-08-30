@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,19 +8,19 @@ import { FC, useCallback, useContext, useEffect, useMemo, useState } from "react
 import { useLocation } from "react-router";
 import { Location } from "history";
 import { countries } from "countries-list";
-import { getGitpodService, gitpodHostUrl } from "../service/service";
+import { getNxpodService, nxpodHostUrl } from "../service/service";
 import { useCurrentUser } from "../user-context";
 import ContextMenu, { ContextMenuEntry } from "../components/ContextMenu";
 import { Separator } from "../components/Separator";
 import PillMenuItem from "../components/PillMenuItem";
 import { PaymentContext } from "../payment-context";
 import FeedbackFormModal from "../feedback-form/FeedbackModal";
-import { isGitpodIo } from "../utils";
+import { isNxpodIo } from "../utils";
 import OrganizationSelector from "./OrganizationSelector";
 import { getAdminTabs } from "../admin/admin.routes";
 import classNames from "classnames";
-import { User, RoleOrPermission } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { User, RoleOrPermission } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 import { ConfigurationsMigrationCoachmark } from "../repositories/coachmarks/MigrationCoachmark";
 
 interface Entry {
@@ -36,7 +36,7 @@ export default function Menu() {
     const [isFeedbackFormVisible, setFeedbackFormVisible] = useState<boolean>(false);
 
     useEffect(() => {
-        const { server } = getGitpodService();
+        const { server } = getNxpodService();
         server.getClientRegion().then((v) => {
             // @ts-ignore
             setCurrency(countries[v]?.currency === "EUR" ? "EUR" : "USD");
@@ -95,7 +95,7 @@ export default function Menu() {
                                         />
                                     </li>
                                 )}
-                                {isGitpodIo() && (
+                                {isNxpodIo() && (
                                     <li className="cursor-pointer">
                                         <PillMenuItem name="Feedback" onClick={handleFeedbackFormClick} />
                                     </li>
@@ -172,7 +172,7 @@ const UserMenu: FC<UserMenuProps> = ({ user, className, withAdminLink, withFeedb
                 link: "/admin",
             });
         }
-        if (withFeedbackLink && isGitpodIo()) {
+        if (withFeedbackLink && isNxpodIo()) {
             items.push({
                 title: "Feedback",
                 onClick: onFeedback,
@@ -200,13 +200,13 @@ const UserMenu: FC<UserMenuProps> = ({ user, className, withAdminLink, withFeedb
             },
             {
                 title: "Docs",
-                href: "https://www.gitpod.io/docs/",
+                href: "https://www.nxpod.io/docs/",
                 target: "_blank",
                 rel: "noreferrer",
             },
             {
                 title: "Help",
-                href: "https://www.gitpod.io/support/",
+                href: "https://www.nxpod.io/support/",
                 target: "_blank",
                 rel: "noreferrer",
                 separator: true,
@@ -214,7 +214,7 @@ const UserMenu: FC<UserMenuProps> = ({ user, className, withAdminLink, withFeedb
             ...extraSection,
             {
                 title: "Log out",
-                href: gitpodHostUrl.asApiLogout().toString(),
+                href: nxpodHostUrl.asApiLogout().toString(),
             },
         ];
     }, [extraSection, user]);

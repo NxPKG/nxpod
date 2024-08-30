@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { IDEFrontendService, IDEFrontendState } from "@gitpod/gitpod-protocol/lib/ide-frontend-service";
-import { Disposable, DisposableCollection } from "@gitpod/gitpod-protocol/lib/util/disposable";
-import { Emitter } from "@gitpod/gitpod-protocol/lib/util/event";
+import { IDEFrontendService, IDEFrontendState } from "@nxpod/nxpod-protocol/lib/ide-frontend-service";
+import { Disposable, DisposableCollection } from "@nxpod/nxpod-protocol/lib/util/disposable";
+import { Emitter } from "@nxpod/nxpod-protocol/lib/util/event";
 
 interface IDEFrontendCapabilities {
     /**
@@ -77,10 +77,10 @@ export function create(): IDEFrontendService {
         },
     };
     const capabilitiesElementAttribute = document
-        .getElementById("gitpod-ide-capabilities")
+        .getElementById("nxpod-ide-capabilities")
         ?.getAttribute("data-settings");
     capabilities = (capabilitiesElementAttribute && JSON.parse(capabilitiesElementAttribute)) || capabilities;
-    Object.defineProperty(window.gitpod, "ideService", {
+    Object.defineProperty(window.nxpod, "ideService", {
         get() {
             return _delegate;
         },

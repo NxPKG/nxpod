@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, UserDB } from "@gitpod/gitpod-db/lib";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, UserDB } from "@nxpod/nxpod-db/lib";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { inject, injectable } from "inversify";
 import { Job } from "./runner";
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,9 +14,9 @@ import (
 
 	"github.com/stripe/stripe-go/v72/webhook"
 
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/billingservice"
-	mockbillingservice "github.com/gitpod-io/gitpod/public-api-server/pkg/billingservice/mock_billingservice"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/billingservice"
+	mockbillingservice "github.com/nxpkg/nxpod/public-api-server/pkg/billingservice/mock_billingservice"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/require"
 )

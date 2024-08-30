@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -25,7 +25,7 @@ import (
 
 	//+kubebuilder:scaffold:imports
 
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 )
 

@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/version-manifest
+module github.com/nxpkg/nxpod/version-manifest
 
 go 1.22
 

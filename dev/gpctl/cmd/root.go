@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,16 +13,16 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/client-go/rest"
 
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/gpctl/pkg/prettyprint"
-	"github.com/gitpod-io/gitpod/gpctl/pkg/util"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/gpctl/pkg/prettyprint"
+	"github.com/nxpkg/nxpod/gpctl/pkg/util"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gpctl",
-	Short: "Gpctl controls a Gitpod installation",
+	Short: "Gpctl controls a Nxpod installation",
 	Args:  cobra.MinimumNArgs(1),
 }
 

@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject } from "inversify";
 import express from "express";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { OneTimeSecretDB, DBWithTracing, TracedOneTimeSecretDB } from "@gitpod/gitpod-db/lib";
-import { Disposable } from "@gitpod/gitpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { OneTimeSecretDB, DBWithTracing, TracedOneTimeSecretDB } from "@nxpod/nxpod-db/lib";
+import { Disposable } from "@nxpod/nxpod-protocol";
 import * as opentracing from "opentracing";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { Config } from "./config";
 
 @injectable()

@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TypeORM, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { TypeORM, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import {
     CommitContext,
     Organization,
@@ -13,9 +13,9 @@ import {
     User,
     WorkspaceConfig,
     WorkspaceInstancePort,
-} from "@gitpod/gitpod-protocol";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+} from "@nxpod/nxpod-protocol";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
@@ -45,7 +45,7 @@ describe("WorkspaceService", async () => {
         container.rebind(ConfigProvider).toConstantValue({
             fetchConfig: () => ({
                 config: <WorkspaceConfig>{
-                    image: "gitpod/workspace-full:latest",
+                    image: "nxpod/workspace-full:latest",
                 },
             }),
         } as any as ConfigProvider);
@@ -83,7 +83,7 @@ describe("WorkspaceService", async () => {
                 name: "my-project",
                 slug: "my-project",
                 teamId: org.id,
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 appInstallationId: "noid",
             },
             owner,
@@ -787,16 +787,16 @@ async function createTestWorkspace(svc: WorkspaceService, org: Organization, own
         org.id,
         project,
         <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod.git",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod.git",
             },
             revision: "asdf",
         },
-        "github.com/gitpod-io/gitpod",
+        "github.com/nxpkg/nxpod",
         undefined,
     );
     return ws;

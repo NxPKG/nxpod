@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { prebuildClient } from "../../service/public-api";
-import { ListOrganizationPrebuildsRequest_Filter } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
+import { ListOrganizationPrebuildsRequest_Filter } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
 import { useCurrentOrg } from "../organizations/orgs-query";
 import { PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import type { DeepPartial } from "@gitpod/gitpod-protocol/lib/util/deep-partial";
-import { Sort } from "@gitpod/public-api/lib/gitpod/v1/sorting_pb";
+import type { DeepPartial } from "@nxpod/nxpod-protocol/lib/util/deep-partial";
+import { Sort } from "@nxpod/public-api/lib/nxpod/v1/sorting_pb";
 
 type Args = {
     filter: DeepPartial<PlainMessage<ListOrganizationPrebuildsRequest_Filter>>;

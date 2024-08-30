@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { OrganizationSettings } from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
+import { OrganizationSettings } from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
 import React, { Children, ReactNode, useCallback, useMemo, useState } from "react";
 import Alert from "../components/Alert";
 import ConfirmationModal from "../components/ConfirmationModal";
@@ -21,10 +21,10 @@ import { useUpdateOrgSettingsMutation } from "../data/organizations/update-org-s
 import { useOnBlurError } from "../hooks/use-onblur-error";
 import { ReactComponent as Stack } from "../icons/Stack.svg";
 import { organizationClient } from "../service/public-api";
-import { gitpodHostUrl } from "../service/service";
+import { nxpodHostUrl } from "../service/service";
 import { useCurrentUser } from "../user-context";
 import { OrgSettingsPage } from "./OrgSettingsPage";
-import { ErrorCode } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ErrorCode } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { Button } from "@podkit/buttons/Button";
 import { useInstallationDefaultWorkspaceImageQuery } from "../data/installation/default-workspace-image-query";
 import { ConfigurationSettingsField } from "../repositories/detail/ConfigurationSettingsField";
@@ -88,7 +88,7 @@ export default function TeamSettingsPage() {
 
         await organizationClient.deleteOrganization({ organizationId: org.id });
         invalidateOrgs();
-        document.location.href = gitpodHostUrl.asDashboard().toString();
+        document.location.href = nxpodHostUrl.asDashboard().toString();
     }, [invalidateOrgs, org, user]);
 
     const { data: settings, isLoading } = useOrgSettingsQuery();
@@ -400,7 +400,7 @@ function OrgDefaultWorkspaceImageModal(props: OrgDefaultWorkspaceImageModalProps
                 <div className="mt-4">
                     <TextInputField
                         label="Default Image"
-                        hint="Use any official or custom workspace image from Docker Hub or any private container registry that the Gitpod instance can access."
+                        hint="Use any official or custom workspace image from Docker Hub or any private container registry that the Nxpod instance can access."
                         placeholder={props.installationDefaultWorkspaceImage}
                         value={defaultWorkspaceImage}
                         onChange={setDefaultWorkspaceImage}

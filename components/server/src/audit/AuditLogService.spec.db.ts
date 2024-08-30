@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TypeORM, UserDB, resetDB } from "@gitpod/gitpod-db/lib";
-import { AuditLogDB } from "@gitpod/gitpod-db/lib/audit-log-db";
-import { Organization, User } from "@gitpod/gitpod-protocol";
+import { TypeORM, UserDB, resetDB } from "@nxpod/nxpod-db/lib";
+import { AuditLogDB } from "@nxpod/nxpod-db/lib/audit-log-db";
+import { Organization, User } from "@nxpod/nxpod-protocol";
 import { expect } from "chai";
 import { Container } from "inversify";
 import { v4 } from "uuid";
@@ -14,7 +14,7 @@ import { OrganizationService } from "../orgs/organization-service";
 import { createTestContainer } from "../test/service-testing-container-module";
 import { UserService } from "../user/user-service";
 import { AuditLogService } from "./AuditLogService";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import { Timestamp } from "@bufbuild/protobuf";
 
 describe("AuditLogService", () => {

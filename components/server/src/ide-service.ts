@@ -1,21 +1,21 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { IDESettings, User, Workspace } from "@gitpod/gitpod-protocol";
-import { IDEClient, IDEOption, IDEOptions, IDESettingsVersion } from "@gitpod/gitpod-protocol/lib/ide-protocol";
-import * as IdeServiceApi from "@gitpod/ide-service-api/lib/ide.pb";
+import { IDESettings, User, Workspace } from "@nxpod/nxpod-protocol";
+import { IDEClient, IDEOption, IDEOptions, IDESettingsVersion } from "@nxpod/nxpod-protocol/lib/ide-protocol";
+import * as IdeServiceApi from "@nxpod/ide-service-api/lib/ide.pb";
 import {
     IDEServiceClient,
     IDEServiceDefinition,
     ResolveWorkspaceConfigResponse,
-} from "@gitpod/ide-service-api/lib/ide.pb";
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+} from "@nxpod/ide-service-api/lib/ide.pb";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 import { inject, injectable } from "inversify";
 import { AuthorizationService } from "./user/authorization-service";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 interface IDEVersion {
     version: string;

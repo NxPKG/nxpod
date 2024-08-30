@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package usage.v1;
 
-option go_package = "github.com/gitpod-io/gitpod/usage-api/v1";
+option go_package = "github.com/nxpkg/nxpod/usage-api/v1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";

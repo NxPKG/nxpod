@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,12 +14,12 @@ import (
 	"time"
 
 	connect "github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	experimentalv1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	experimentalv1connect "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/v1"
-	v1connect "github.com/gitpod-io/gitpod/components/public-api/go/v1/v1connect"
-	serverapi "github.com/gitpod-io/gitpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/common-go/util"
+	experimentalv1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	experimentalv1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/v1"
+	v1connect "github.com/nxpkg/nxpod/components/public-api/go/v1/v1connect"
+	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
@@ -34,21 +34,21 @@ import (
 
 cd test
 export TEST_COLLABORATOR=true
-export GITPOD_HOST=hw-collaborator.preview.gitpod-dev.com
+export NXPOD_HOST=hw-collaborator.preview.gitpod-dev.com
 export ORG_ID=130d67cf-8b11-45e9-b8d2-33bf34ca4a4c
 export PROJECT_ID=699c6566-1049-469e-9e61-c8fe0db9d396
 
 # test with cookie, cookie should format like `_hw_collaborator_preview_gitpod_dev_com_jwt2_=xxx“
 export USE_COOKIE=true
 	export USER_TOKEN="<your_cookie>"
-go test -run "^TestMembers|TestProjects|TestGetProject$" github.com/gitpod-io/gitpod/test/tests/smoke-test -v -count=1
+go test -run "^TestMembers|TestProjects|TestGetProject$" github.com/nxpkg/nxpod/test/tests/smoke-test -v -count=1
 
 # test with PAT
 export USE_COOKIE=false
 	export USER_TOKEN=<your_pat>
-go test -run "^TestMembers|TestProjects|TestGetProject$" github.com/gitpod-io/gitpod/test/tests/smoke-test -v -count=1
+go test -run "^TestMembers|TestProjects|TestGetProject$" github.com/nxpkg/nxpod/test/tests/smoke-test -v -count=1
 
-# debug: go test -run "^TestProjects$" github.com/gitpod-io/gitpod/test/tests/smoke-test -v -count=1
+# debug: go test -run "^TestProjects$" github.com/nxpkg/nxpod/test/tests/smoke-test -v -count=1
 */
 
 // TestMembers tests collaborator can't access members with:
@@ -63,7 +63,7 @@ func TestMembers(t *testing.T) {
 		return
 	}
 	userToken, _ := os.LookupEnv("USER_TOKEN")
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	orgID, _ := os.LookupEnv("ORG_ID")
 
 	serverConn, err0 := connectToServer(gitpodHost, userToken)
@@ -110,7 +110,7 @@ func TestProjects(t *testing.T) {
 		return
 	}
 	userToken, _ := os.LookupEnv("USER_TOKEN")
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	orgID, _ := os.LookupEnv("ORG_ID")
 
 	serverConn, err0 := connectToServer(gitpodHost, userToken)
@@ -161,7 +161,7 @@ func TestGetProject(t *testing.T) {
 		return
 	}
 	userToken, _ := os.LookupEnv("USER_TOKEN")
-	gitpodHost, _ := os.LookupEnv("GITPOD_HOST")
+	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	projectID, _ := os.LookupEnv("PROJECT_ID")
 
 	if _, err := connectToServer(gitpodHost, userToken); err != nil {

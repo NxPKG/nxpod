@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 	"testing"
 	"time"
 
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 )
@@ -43,7 +43,7 @@ func TestProcessPriority(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			nfo, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "https://github.com/gitpod-io/empty", username, api, integration.WithGitpodUser(username))
+			nfo, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "https://github.com/nxpkg/empty", username, api, integration.WithNxpodUser(username))
 			if err != nil {
 				t.Fatal(err)
 			}

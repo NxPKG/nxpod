@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/supervisor
+module github.com/nxpkg/nxpod/supervisor
 
 go 1.22
 
@@ -8,14 +8,14 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.0
 	github.com/creack/pty v1.1.18
 	github.com/fsnotify/fsnotify v1.4.9
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ide-metrics-api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-daemon/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ide-metrics-api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-daemon/api v0.0.0-00010101000000-000000000000
 	github.com/golang/mock v1.6.0
 	github.com/google/go-cmp v0.6.0
 	github.com/google/uuid v1.6.0
@@ -65,7 +65,7 @@ require (
 )
 
 require (
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	inet.af/tcpproxy v0.0.0-20221017015627-91f861402626
 )
@@ -165,23 +165,23 @@ require (
 	nhooyr.io/websocket v1.8.7 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../public-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service => ../content-service // leeway
+replace github.com/nxpkg/nxpod/content-service => ../content-service // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../nxpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/ide-metrics-api => ../ide-metrics-api/go // leeway
+replace github.com/nxpkg/nxpod/ide-metrics-api => ../ide-metrics-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../supervisor-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-daemon/api => ../ws-daemon-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-daemon/api => ../ws-daemon-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

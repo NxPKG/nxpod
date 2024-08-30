@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,12 +17,12 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/process"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/archive"
-	"github.com/gitpod-io/gitpod/content-service/pkg/git"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/process"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/archive"
+	"github.com/nxpkg/nxpod/content-service/pkg/git"
 )
 
 // CloneTargetMode is the target state in which we want to leave a GitInitializer
@@ -52,7 +52,7 @@ type GitInitializer struct {
 	// The value for the clone target mode - use depends on the target mode
 	CloneTarget string
 
-	// If true, the Git initializer will chown(gitpod) after the clone
+	// If true, the Git initializer will chown(nxpod) after the clone
 	Chown bool
 }
 
@@ -81,10 +81,10 @@ func (ws *GitInitializer) Run(ctx context.Context, mappings []archive.IDMapping)
 			return err
 		}
 
-		// make sure that folder itself is owned by gitpod user prior to doing git clone
+		// make sure that folder itself is owned by nxpod user prior to doing git clone
 		// this is needed as otherwise git clone will fail if the folder is owned by root
-		if ws.RunAsGitpodUser {
-			args := []string{"gitpod", ws.Location}
+		if ws.RunAsNxpodUser {
+			args := []string{"nxpod", ws.Location}
 			cmd := exec.Command("chown", args...)
 			res, cerr := cmd.CombinedOutput()
 			if cerr != nil && !process.IsNotChildProcess(cerr) {
@@ -103,7 +103,7 @@ func (ws *GitInitializer) Run(ctx context.Context, mappings []archive.IDMapping)
 		if err != nil {
 			if strings.Contains(err.Error(), "Access denied") {
 				err = &backoff.PermanentError{
-					Err: fmt.Errorf("Access denied. Please check that Gitpod was given permission to access the repository"),
+					Err: fmt.Errorf("Access denied. Please check that Nxpod was given permission to access the repository"),
 				}
 			}
 
@@ -158,7 +158,7 @@ func (ws *GitInitializer) Run(ctx context.Context, mappings []archive.IDMapping)
 			return
 		}
 		// TODO (aledbf): refactor to remove the need of manual chown
-		args := []string{"-R", "-L", "gitpod", ws.Location}
+		args := []string{"-R", "-L", "nxpod", ws.Location}
 		cmd := exec.Command("chown", args...)
 		res, cerr := cmd.CombinedOutput()
 		if cerr != nil && !process.IsNotChildProcess(cerr) {

@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BillingMode } from "@gitpod/gitpod-protocol/lib/billing-mode";
+import { BillingMode } from "@nxpod/nxpod-protocol/lib/billing-mode";
 import { useMemo } from "react";
 import { Redirect } from "react-router";
 import Header from "../components/Header";
@@ -13,9 +13,9 @@ import { PageWithSubMenu } from "../components/PageWithSubMenu";
 import { useOrgBillingMode } from "../data/billing-mode/org-billing-mode-query";
 import { useCurrentOrg } from "../data/organizations/orgs-query";
 import { useFeatureFlag } from "../data/featureflag-query";
-import { Organization } from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
+import { Organization } from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
 import { useIsOwner } from "../data/organizations/members-query";
-import { isGitpodIo } from "../utils";
+import { isNxpodIo } from "../utils";
 
 export interface OrgSettingsPageProps {
     children: React.ReactNode;
@@ -88,7 +88,7 @@ function getOrgSettingsMenu(params: {
             link: [`/settings/policy`],
         },
     ];
-    if (isGitpodIo()) {
+    if (isNxpodIo()) {
         result.push(
             {
                 title: "Networking",

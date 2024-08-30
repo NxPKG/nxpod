@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -33,12 +33,12 @@ func testWithoutGithubAction(ctx context.Context, gatewayLink, gitpodAccessToken
 	}
 
 	if localDebug {
-		fmt.Printf("Exec command below to run UI tests:\n\nexport DISPLAY=:0\nexport GATEWAY_LINK=\"%s\"\nexport GITPOD_TEST_ACCESSTOKEN=\"%s\"\nexport WS_ENDPOINT=%s\nleeway run %s -Dversion=integration-test -DpublishToJBMarketplace=false", gatewayLink, gitpodAccessToken, secretEndpoint, scriptName)
+		fmt.Printf("Exec command below to run UI tests:\n\nexport DISPLAY=:0\nexport GATEWAY_LINK=\"%s\"\nexport NXPOD_TEST_ACCESSTOKEN=\"%s\"\nexport WS_ENDPOINT=%s\nleeway run %s -Dversion=integration-test -DpublishToJBMarketplace=false", gatewayLink, gitpodAccessToken, secretEndpoint, scriptName)
 		os.Exit(1)
 	}
 	cmdEnv := os.Environ()
 	cmdEnv = append(cmdEnv, "GATEWAY_LINK="+gatewayLink)
-	cmdEnv = append(cmdEnv, "GITPOD_TEST_ACCESSTOKEN="+gitpodAccessToken)
+	cmdEnv = append(cmdEnv, "NXPOD_TEST_ACCESSTOKEN="+gitpodAccessToken)
 	cmdEnv = append(cmdEnv, "WS_ENDPOINT="+secretEndpoint)
 	cmd := exec.CommandContext(ctx, "leeway", "run", scriptName, "-Dversion=integration-test", "-DpublishToJBMarketplace=false")
 	cmd.Env = cmdEnv

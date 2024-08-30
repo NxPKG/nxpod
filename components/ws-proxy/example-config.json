@@ -12,11 +12,11 @@
       "maxIdleConns": 0,
       "maxIdleConnsPerHost": 100
     },
-    "gitpodInstallation": {
+    "nxpodInstallation": {
       "scheme": "http",
-      "hostName": "gpl-portal.staging.gitpod-dev.com",
-      "workspaceHostSuffix": ".ws-dev.gpl-portal.staging.gitpod-dev.com",
-      "workspaceHostSuffixRegex": "\\.ws[^\\.]*\\.gpl-portal\\.staging\\.gitpod-dev\\.com"
+      "hostName": "gpl-portal.staging.nxpod-dev.com",
+      "workspaceHostSuffix": ".ws-dev.gpl-portal.staging.nxpod-dev.com",
+      "workspaceHostSuffixRegex": "\\.ws[^\\.]*\\.gpl-portal\\.staging\\.nxpod-dev\\.com"
     },
     "workspacePodConfig": {
       "theiaPort": 23000,

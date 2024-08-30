@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -24,7 +24,7 @@ func (m *Metrics) ReportLog(level logrus.Level) {
 func NewMetrics() *Metrics {
 	return &Metrics{
 		logEmitedCounter: prometheus.NewCounterVec(prometheus.CounterOpts{
-			Name: "gitpod_logs_total",
+			Name: "nxpod_logs_total",
 			Help: "Total number of logs produced by level",
 		}, []string{"level"}),
 	}

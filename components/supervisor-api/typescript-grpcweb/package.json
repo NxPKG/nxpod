@@ -1,5 +1,5 @@
 {
-  "name": "@gitpod/supervisor-api-grpcweb",
+  "name": "@nxpod/supervisor-api-grpcweb",
   "version": "0.1.5",
   "license": "UNLICENSED",
   "scripts": {

@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/sshtunnel
+module github.com/nxpkg/nxpod/proxy/plugins/sshtunnel
 
 go 1.21
 

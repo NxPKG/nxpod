@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,9 +19,9 @@ import (
 	"golang.org/x/net/nettest"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/api"
 	"inet.af/tcpproxy"
 )
 
@@ -331,7 +331,7 @@ func (pm *Manager) nextState(ctx context.Context) map[uint32]*managedPort {
 			return mp
 		}
 		config, _, exists := pm.configs.Get(port)
-		var portConfig *gitpod.PortConfig
+		var portConfig *nxpod.PortConfig
 		if exists && config != nil {
 			portConfig = &config.PortConfig
 		}
@@ -359,7 +359,7 @@ func (pm *Manager) nextState(ctx context.Context) map[uint32]*managedPort {
 			Visibility = api.PortVisibility_public
 		}
 		portProtocol := api.PortProtocol_http
-		if exposed.Protocol == gitpod.PortProtocolHTTPS {
+		if exposed.Protocol == nxpod.PortProtocolHTTPS {
 			portProtocol = api.PortProtocol_https
 		}
 		mp := genManagedPort(port)
@@ -592,7 +592,7 @@ func (pm *Manager) updateProxies() {
 }
 
 // deprecated
-func getOnExposedAction(config *gitpod.PortConfig, port uint32) api.OnPortExposedAction {
+func getOnExposedAction(config *nxpod.PortConfig, port uint32) api.OnPortExposedAction {
 	if config == nil {
 		// anything above 32767 seems odd (e.g. used by language servers)
 		unusualRange := !(0 < port && port < 32767)
@@ -614,7 +614,7 @@ func getOnExposedAction(config *gitpod.PortConfig, port uint32) api.OnPortExpose
 	return api.OnPortExposedAction_notify
 }
 
-func getOnOpenAction(config *gitpod.PortConfig, port uint32) api.PortsStatus_OnOpenAction {
+func getOnOpenAction(config *nxpod.PortConfig, port uint32) api.PortsStatus_OnOpenAction {
 	if config == nil {
 		// anything above 32767 seems odd (e.g. used by language servers)
 		unusualRange := !(0 < port && port < 32767)
@@ -673,7 +673,7 @@ func (pm *Manager) Expose(ctx context.Context, port uint32) error {
 	unlock = false
 
 	public := false
-	protocol := gitpod.PortProtocolHTTP
+	protocol := nxpod.PortProtocolHTTP
 
 	if exists {
 		public = config.Visibility != "private"

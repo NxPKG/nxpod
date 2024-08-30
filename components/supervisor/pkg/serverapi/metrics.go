@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,7 +9,7 @@ import (
 	"errors"
 	"time"
 
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sourcegraph/jsonrpc2"
 	"google.golang.org/grpc/codes"
@@ -37,7 +37,7 @@ func NewClientMetrics() *ClientMetrics {
 			prometheus.HistogramOpts{
 				Name: "supervisor_client_handling_seconds",
 				Help: "Histogram of response latency (seconds) of the supervisor outgoing services until it is finished by the application.",
-				// it should be aligned with https://github.com/gitpod-io/gitpod/blob/84ed1a0672d91446ba33cb7b504cfada769271a8/install/installer/pkg/components/ide-metrics/configmap.go#L315
+				// it should be aligned with https://github.com/nxpkg/nxpod/blob/84ed1a0672d91446ba33cb7b504cfada769271a8/install/installer/pkg/components/ide-metrics/configmap.go#L315
 				Buckets: []float64{0.1, 0.2, 0.5, 1, 2, 5, 10},
 			}, []string{"method", "server", "err_code"}),
 	}

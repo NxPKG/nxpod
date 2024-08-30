@@ -16,7 +16,7 @@ repos:
       - id: check-merge-conflict
 
   # keep fork in sync!
-  - repo: https://github.com/gitpod-io/pre-commit-hooks
+  - repo: https://github.com/nxpkg/pre-commit-hooks
     rev: "2.1.5"
     hooks:
       - id: forbid-binary

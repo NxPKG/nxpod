@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,7 +7,7 @@ package agent
 import (
 	"sync"
 
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/detector"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/detector"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -27,7 +27,7 @@ func newAgentMetrics() *metrics {
 
 	m.penaltyAttempts = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
-			Namespace: "gitpod",
+			Namespace: "nxpod",
 			Subsystem: "agent_smith",
 			Name:      "penalty_attempts_total",
 			Help:      "The total amount of attempts that agent-smith is trying to apply a penalty.",
@@ -35,14 +35,14 @@ func newAgentMetrics() *metrics {
 	)
 	m.penaltyFailures = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
-			Namespace: "gitpod",
+			Namespace: "nxpod",
 			Subsystem: "agent_smith",
 			Name:      "penalty_attempts_failed_total",
 			Help:      "The total amount of failed attempts that agent-smith is trying to apply a penalty.",
 		}, []string{"penalty", "reason"},
 	)
 	m.classificationBackpressureInDrop = prometheus.NewCounter(prometheus.CounterOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "agent_smith",
 		Name:      "classification_backpressure_in_drop_total",
 		Help:      "total count of processes that went unclassified because of backpressure",
@@ -60,13 +60,13 @@ func (m *metrics) RegisterClassificationQueues(in chan detector.Process, out cha
 	defer m.mu.Unlock()
 
 	m.classificationBackpressureInCount = prometheus.NewGaugeFunc(prometheus.GaugeOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "agent_smith",
 		Name:      "classification_backpressure_in_count",
 		Help:      "processes queued for classification",
 	}, func() float64 { return float64(len(in)) })
 	m.classificationBackpressureOutCount = prometheus.NewGaugeFunc(prometheus.GaugeOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "agent_smith",
 		Name:      "classification_backpressure_out_count",
 		Help:      "processes coming out of classification",

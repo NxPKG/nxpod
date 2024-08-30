@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,16 +11,16 @@ import (
 	"time"
 
 	"github.com/alicebob/miniredis/v2"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	v1 "github.com/gitpod-io/gitpod/usage-api/v1"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/log"
+	v1 "github.com/nxpkg/nxpod/usage-api/v1"
 	"github.com/go-redis/redis"
 	"github.com/go-redsync/redsync/v4"
 	"github.com/go-redsync/redsync/v4/redis/goredis"
 	"google.golang.org/grpc"
 )
 
-// TEST_SCHEDULER=true go test -timeout 60s -run ^Test_startScheduler$ github.com/gitpod-io/gitpod/usage/pkg/server
+// TEST_SCHEDULER=true go test -timeout 60s -run ^Test_startScheduler$ github.com/nxpkg/nxpod/usage/pkg/server
 func Test_startScheduler(t *testing.T) {
 	if os.Getenv("TEST_SCHEDULER") != "true" {
 		t.Skipf("Skipping test because TEST_SCHEDULER is not set to true")

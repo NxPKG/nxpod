@@ -24,7 +24,7 @@ pushd go
 
 mockgen \
     -package mock \
-    github.com/gitpod-io/gitpod/ws-daemon/api WorkspaceContentServiceClient,WorkspaceContentServiceServer,InWorkspaceServiceClient > mock/mock.go
+    github.com/nxpkg/nxpod/ws-daemon/api WorkspaceContentServiceClient,WorkspaceContentServiceServer,InWorkspaceServiceClient > mock/mock.go
 
 # NOTE: must manually embed the Unimplemented struct as mockgen cannot do so
 sed -i '/\trecorder \*MockWorkspaceContentServiceServerMockRecorde/a \\tapi.UnimplementedWorkspaceContentServiceServer' mock/mock.go

@@ -1,14 +1,14 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/logif
+module github.com/nxpkg/nxpod/proxy/plugins/logif
 
 go 1.21
 
-replace github.com/gitpod-io/gitpod/proxy/plugins/jsonselect => ../jsonselect
+replace github.com/nxpkg/nxpod/proxy/plugins/jsonselect => ../jsonselect
 
 require (
 	github.com/PaesslerAG/gval v1.2.2
 	github.com/buger/jsonparser v1.1.1
 	github.com/caddyserver/caddy/v2 v2.7.6
-	github.com/gitpod-io/gitpod/proxy/plugins/jsonselect v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/proxy/plugins/jsonselect v0.0.0-00010101000000-000000000000
 	go.uber.org/zap v1.25.0
 	golang.org/x/term v0.13.0
 )

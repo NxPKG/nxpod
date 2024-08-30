@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { Code, ConnectError, ServiceImpl } from "@connectrpc/connect";
 import { inject, injectable } from "inversify";
-import { TeamsService as TeamServiceInterface } from "@gitpod/public-api/lib/gitpod/experimental/v1/teams_connect";
+import { TeamsService as TeamServiceInterface } from "@nxpod/public-api/lib/nxpod/experimental/v1/teams_connect";
 import {
     CreateTeamRequest,
     CreateTeamResponse,
@@ -32,10 +32,10 @@ import {
     TeamRole,
     UpdateTeamMemberRequest,
     UpdateTeamMemberResponse,
-} from "@gitpod/public-api/lib/gitpod/experimental/v1/teams_pb";
-import { TeamDB } from "@gitpod/gitpod-db/lib";
+} from "@nxpod/public-api/lib/nxpod/experimental/v1/teams_pb";
+import { TeamDB } from "@nxpod/nxpod-db/lib";
 import { validate } from "uuid";
-import { OrgMemberInfo, Organization, TeamMembershipInvite } from "@gitpod/gitpod-protocol";
+import { OrgMemberInfo, Organization, TeamMembershipInvite } from "@nxpod/nxpod-protocol";
 import { Timestamp } from "@bufbuild/protobuf";
 
 @injectable()

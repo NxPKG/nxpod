@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -32,9 +32,9 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/proto"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	app "github.com/gitpod-io/gitpod/local-app/api"
-	supervisor "github.com/gitpod-io/gitpod/supervisor/api"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	app "github.com/nxpkg/nxpod/local-app/api"
+	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
 
 var (

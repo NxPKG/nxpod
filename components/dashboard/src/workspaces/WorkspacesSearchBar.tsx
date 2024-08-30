@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,7 +9,7 @@ import { StartWorkspaceModalKeyBinding } from "../App";
 import DropDown from "../components/DropDown";
 import search from "../icons/search.svg";
 import { LinkButton } from "@podkit/buttons/LinkButton";
-import { isGitpodIo } from "../utils";
+import { isNxpodIo } from "../utils";
 
 type WorkspacesSearchBarProps = {
     searchTerm: string;
@@ -25,7 +25,7 @@ export const WorkspacesSearchBar: FunctionComponent<WorkspacesSearchBarProps> = 
     onLimitUpdated,
 }) => {
     return (
-        <div className={isGitpodIo() ? "app-container xl:!pr-4 py-5 flex" : "py-5 flex"}>
+        <div className={isNxpodIo() ? "app-container xl:!pr-4 py-5 flex" : "py-5 flex"}>
             <div className="flex relative h-10 my-auto">
                 <img src={search} title="Search" className="filter-grayscale absolute top-3 left-3" alt="search icon" />
                 <input

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -125,7 +125,7 @@ function FeedbackComponent(props: {
                         <p className="text-gray-500">
                             {" "}
                             By submitting this form you acknowledge that you have read and understood our{" "}
-                            <a className="gp-link" target="gitpod-privacy" href="https://www.gitpod.io/privacy/">
+                            <a className="gp-link" target="nxpod-privacy" href="https://www.nxpod.io/privacy/">
                                 privacy policy
                             </a>
                             .

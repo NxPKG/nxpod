@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/gpctl
+module github.com/nxpkg/nxpod/gpctl
 
 go 1.22
 
@@ -7,14 +7,14 @@ require (
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/sprig v2.22.0+incompatible
 	github.com/alecthomas/repr v0.0.0-20200325044227-4184120f674c
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/image-builder/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-daemon/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-manager-bridge/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-manager/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/image-builder/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-daemon/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-manager-bridge/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-manager/api v0.0.0-00010101000000-000000000000
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
@@ -36,7 +36,7 @@ require (
 	github.com/fatih/camelcase v1.0.0 // indirect
 	github.com/fatih/gomodifytags v1.14.0 // indirect
 	github.com/fatih/structtag v1.2.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-20230629121047-713293e23c47 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-20230629121047-713293e23c47 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/jsonreference v0.20.2 // indirect
@@ -93,25 +93,25 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../components/common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../components/common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/public-api/go => ../../components/public-api/go // leeway
+replace github.com/nxpkg/nxpod/components/public-api/go => ../../components/public-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../components/scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../components/scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../../components/content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../../components/content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../../components/gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../../components/nxpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/image-builder/api => ../../components/image-builder-api/go // leeway
+replace github.com/nxpkg/nxpod/image-builder/api => ../../components/image-builder-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/registry-facade/api => ../../components/registry-facade-api/go // leeway
+replace github.com/nxpkg/nxpod/registry-facade/api => ../../components/registry-facade-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-daemon/api => ../../components/ws-daemon-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-daemon/api => ../../components/ws-daemon-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-manager-bridge/api => ../../components/ws-manager-bridge-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-manager-bridge/api => ../../components/ws-manager-bridge-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-manager/api => ../../components/ws-manager-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-manager/api => ../../components/ws-manager-api/go // leeway
 
 replace github.com/google/addlicense => ../addlicense // leeway
 

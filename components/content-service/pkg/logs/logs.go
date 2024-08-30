@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,7 +19,7 @@ import (
 const (
 	// TerminalStoreLocation is the path in the workspace where terminal related data like logs or hist-files are
 	// persisted in the file system
-	TerminalStoreLocation = "/workspace/.gitpod"
+	TerminalStoreLocation = "/workspace/.nxpod"
 
 	prebuildLogFilePrefix = "prebuild-log-"
 

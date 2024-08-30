@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,15 +11,15 @@ import (
 	"regexp"
 	"strconv"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/config"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/supervisor/pkg/config"
 )
 
 const NON_CONFIGED_BASIC_SCORE = 100000
 
 // RangeConfig is a port range config.
 type RangeConfig struct {
-	gitpod.PortsItems
+	nxpod.PortsItems
 	Start uint32
 	End   uint32
 	Sort  uint32
@@ -27,7 +27,7 @@ type RangeConfig struct {
 
 // SortConfig is a port with a sort field
 type SortConfig struct {
-	gitpod.PortConfig
+	nxpod.PortConfig
 	Sort uint32
 }
 
@@ -75,7 +75,7 @@ func (configs *Configs) Get(port uint32) (*SortConfig, ConfigKind, bool) {
 	for _, rangeConfig := range configs.instanceRangeConfigs {
 		if rangeConfig.Start <= port && port <= rangeConfig.End {
 			return &SortConfig{
-				PortConfig: gitpod.PortConfig{
+				PortConfig: nxpod.PortConfig{
 					Port:        float64(port),
 					OnOpen:      rangeConfig.OnOpen,
 					Visibility:  rangeConfig.Visibility,
@@ -145,9 +145,9 @@ func (service *ConfigService) Observe(ctx context.Context) (<-chan *Configs, <-c
 	return updatesChan, errorsChan
 }
 
-func (service *ConfigService) update(config *gitpod.GitpodConfig, current *Configs) bool {
+func (service *ConfigService) update(config *nxpod.NxpodConfig, current *Configs) bool {
 	currentPortConfigs, currentRangeConfigs := current.instancePortConfigs, current.instanceRangeConfigs
-	var ports []*gitpod.PortsItems
+	var ports []*nxpod.PortsItems
 	if config != nil {
 		ports = config.Ports
 	}
@@ -159,7 +159,7 @@ func (service *ConfigService) update(config *gitpod.GitpodConfig, current *Confi
 
 var portRangeRegexp = regexp.MustCompile(`^(\d+)[-:](\d+)$`)
 
-func parseInstanceConfigs(ports []*gitpod.PortsItems) (portConfigs map[uint32]*SortConfig, rangeConfigs []*RangeConfig) {
+func parseInstanceConfigs(ports []*nxpod.PortsItems) (portConfigs map[uint32]*SortConfig, rangeConfigs []*RangeConfig) {
 	for index, config := range ports {
 		if config == nil {
 			continue
@@ -175,7 +175,7 @@ func parseInstanceConfigs(ports []*gitpod.PortsItems) (portConfigs map[uint32]*S
 			_, exists := portConfigs[port]
 			if !exists {
 				portConfigs[port] = &SortConfig{
-					PortConfig: gitpod.PortConfig{
+					PortConfig: nxpod.PortConfig{
 						OnOpen:      config.OnOpen,
 						Port:        float64(Port),
 						Visibility:  config.Visibility,

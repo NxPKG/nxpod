@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -64,9 +64,9 @@ export class RepoUrlTest {
     }
 
     @test public parseScmCloneUrl() {
-        const testUrl = RepoURL.parseRepoUrl("https://bitbucket.gitpod-self-hosted.com/scm/~jan/yolo.git");
+        const testUrl = RepoURL.parseRepoUrl("https://bitbucket.nxpod-self-hosted.com/scm/~jan/yolo.git");
         expect(testUrl).to.deep.include({
-            host: "bitbucket.gitpod-self-hosted.com",
+            host: "bitbucket.nxpod-self-hosted.com",
             repoKind: "users",
             owner: "jan",
             repo: "yolo",

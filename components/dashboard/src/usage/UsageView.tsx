@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { Ordering } from "@gitpod/gitpod-protocol/lib/usage";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { Ordering } from "@nxpod/nxpod-protocol/lib/usage";
 import dayjs, { Dayjs } from "dayjs";
 import { FC, useCallback, useMemo } from "react";
 import { useHistory, useLocation } from "react-router";
@@ -15,7 +15,7 @@ import { Item, ItemField, ItemsList } from "../components/ItemsList";
 import { useListUsage } from "../data/usage/usage-query";
 import Spinner from "../icons/Spinner.svg";
 import Pagination from "../Pagination/Pagination";
-import { gitpodHostUrl } from "../service/service";
+import { nxpodHostUrl } from "../service/service";
 import { Heading2, Subheading } from "../components/typography/headings";
 import { UsageSummaryData } from "./UsageSummary";
 import { UsageEntry } from "./UsageEntry";
@@ -165,7 +165,7 @@ export const UsageView: FC<UsageViewProps> = ({ attributionId }) => {
                                 <Heading2 className="text-center mt-8">No sessions found.</Heading2>
                                 <Subheading className="text-center mt-1">
                                     Have you started any
-                                    <a className="gp-link" href={gitpodHostUrl.asWorkspacePage().toString()}>
+                                    <a className="gp-link" href={nxpodHostUrl.asWorkspacePage().toString()}>
                                         {" "}
                                         workspaces
                                     </a>{" "}

@@ -1,5 +1,5 @@
 locals {
-  zerossl_enabled = var.cert_issuer == "zerossl-issuer-gitpod-core-dev"
+  zerossl_enabled = var.cert_issuer == "zerossl-issuer-nxpod-core-dev"
 }
 
 data "google_secret_manager_secret_version" "zerossl_eab" {
@@ -20,7 +20,7 @@ resource "acme_registration" "zerossl" {
   count    = local.zerossl_enabled ? 1 : 0
 
   account_key_pem = tls_private_key.zerossl[0].private_key_pem
-  email_address   = "preview-environment-certificate-throwaway@gitpod.io"
+  email_address   = "preview-environment-certificate-throwaway@nxpod.io"
 
   external_account_binding {
     key_id      = jsondecode(data.google_secret_manager_secret_version.zerossl_eab[0].secret_data).kid

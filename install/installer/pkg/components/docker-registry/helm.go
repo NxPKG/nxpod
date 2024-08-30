@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/helm"
-	"github.com/gitpod-io/gitpod/installer/third_party/charts"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/helm"
+	"github.com/nxpkg/nxpod/installer/third_party/charts"
 	"helm.sh/helm/v3/pkg/cli/values"
 	"k8s.io/utils/pointer"
 )

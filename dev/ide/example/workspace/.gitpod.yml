@@ -1,4 +1,0 @@
-image:
-  file: Dockerfile
-tasks:
-  - command: gp open .gitpod.yml

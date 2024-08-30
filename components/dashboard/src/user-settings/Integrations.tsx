@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { getScopesForAuthProviderType } from "@gitpod/public-api-common/lib/auth-providers";
-import { SelectAccountPayload } from "@gitpod/gitpod-protocol/lib/auth";
+import { getScopesForAuthProviderType } from "@nxpod/public-api-common/lib/auth-providers";
+import { SelectAccountPayload } from "@nxpod/nxpod-protocol/lib/auth";
 import { useQuery } from "@tanstack/react-query";
 import React, { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import Alert from "../components/Alert";
@@ -19,7 +19,7 @@ import Modal, { ModalBody, ModalHeader, ModalFooter } from "../components/Modal"
 import { Heading2, Subheading } from "../components/typography/headings";
 import exclamation from "../images/exclamation.svg";
 import { openAuthorizeWindow, toAuthProviderLabel } from "../provider-utils";
-import { gitpodHostUrl } from "../service/service";
+import { nxpodHostUrl } from "../service/service";
 import { UserContext } from "../user-context";
 import { AuthEntryItem } from "./AuthEntryItem";
 import { IntegrationEntryItem } from "./IntegrationItemEntry";
@@ -33,13 +33,13 @@ import {
     AuthProvider,
     AuthProviderDescription,
     AuthProviderType,
-} from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 import { authProviderClient, scmClient, userClient } from "../service/public-api";
 import { useCreateUserAuthProviderMutation } from "../data/auth-providers/create-user-auth-provider-mutation";
 import { useUpdateUserAuthProviderMutation } from "../data/auth-providers/update-user-auth-provider-mutation";
 import { useDeleteUserAuthProviderMutation } from "../data/auth-providers/delete-user-auth-provider-mutation";
 import { Button } from "@podkit/buttons/Button";
-import { isOrganizationOwned } from "@gitpod/public-api-common/lib/user-utils";
+import { isOrganizationOwned } from "@nxpod/public-api-common/lib/user-utils";
 import { InputWithCopy } from "../components/InputWithCopy";
 
 export default function Integrations() {
@@ -161,8 +161,8 @@ function GitProviders() {
 
     const disconnect = async (ap: AuthProviderDescription) => {
         setDisconnectModal(undefined);
-        const returnTo = gitpodHostUrl.with({ pathname: "complete-auth", search: "message=success" }).toString();
-        const deauthorizeUrl = gitpodHostUrl
+        const returnTo = nxpodHostUrl.with({ pathname: "complete-auth", search: "message=success" }).toString();
+        const deauthorizeUrl = nxpodHostUrl
             .withApi({
                 pathname: "/deauthorize",
                 search: `returnTo=${returnTo}&host=${ap.host}`,
@@ -355,7 +355,7 @@ function GitProviders() {
                 Manage your permissions to the available Git provider integrations.{" "}
                 <a
                     className="gp-link"
-                    href="https://www.gitpod.io/docs/configure/authentication"
+                    href="https://www.nxpod.io/docs/configure/authentication"
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -542,7 +542,7 @@ export function GitIntegrationModal(
         onAuthorize?: (payload?: string) => void;
     },
 ) {
-    const callbackUrl = useMemo(() => gitpodHostUrl.with({ pathname: `/auth/callback` }).toString(), []);
+    const callbackUrl = useMemo(() => nxpodHostUrl.with({ pathname: `/auth/callback` }).toString(), []);
 
     const [mode, setMode] = useState<"new" | "edit">("new");
     const [providerEntry, setProviderEntry] = useState<AuthProvider | undefined>(undefined);
@@ -720,10 +720,10 @@ export function GitIntegrationModal(
         let docsUrl = ``;
         switch (type) {
             case AuthProviderType.GITHUB:
-                docsUrl = `https://www.gitpod.io/docs/github-integration/#oauth-application`;
+                docsUrl = `https://www.nxpod.io/docs/github-integration/#oauth-application`;
                 break;
             case AuthProviderType.GITLAB:
-                docsUrl = `https://www.gitpod.io/docs/gitlab-integration/#oauth-application`;
+                docsUrl = `https://www.nxpod.io/docs/gitlab-integration/#oauth-application`;
                 break;
             default:
                 return undefined;

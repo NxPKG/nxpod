@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/gitpod-io/gitpod/ws-manager/api"
-	"github.com/gitpod-io/gitpod/ws-proxy/pkg/common"
+	"github.com/nxpkg/nxpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/ws-proxy/pkg/common"
 )
 
 // WorkspaceAuthHandler rejects requests which are not authenticated or authorized to access a workspace.
@@ -83,7 +83,7 @@ func WorkspaceAuthHandler(domain string, info common.WorkspaceInfoProvider) mux.
 				// port seems to be private - subject it to the same access policy as the workspace itself
 			}
 
-			tkn := req.Header.Get("x-gitpod-owner-token")
+			tkn := req.Header.Get("x-nxpod-owner-token")
 			if tkn == "" {
 				cn := fmt.Sprintf("%s%s_owner_", cookiePrefix, ws.InstanceID)
 				c, err := req.Cookie(cn)

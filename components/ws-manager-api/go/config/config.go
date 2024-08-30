@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -21,9 +21,9 @@ import (
 	"k8s.io/apimachinery/pkg/util/validation"
 	"k8s.io/apimachinery/pkg/util/yaml"
 
-	"github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/util"
-	cntntcfg "github.com/gitpod-io/gitpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/util"
+	cntntcfg "github.com/nxpkg/nxpod/content-service/api/config"
 )
 
 // DefaultWorkspaceClass is the name of the default workspace class
@@ -93,13 +93,13 @@ type Configuration struct {
 	// workspace. Available fields are:
 	// - `ID` which is the workspace ID,
 	// - `Prefix` which is the workspace's service prefix
-	// - `Host` which is the GitpodHostURL
+	// - `Host` which is the NxpodHostURL
 	WorkspaceURLTemplate string `json:"urlTemplate"`
 	// WorkspaceURLTemplate is a Go template which resolves to the external URL of the
 	// workspace port. Available fields are:
 	// - `ID` which is the workspace ID,
 	// - `Prefix` which is the workspace's service prefix
-	// - `Host` which is the GitpodHostURL
+	// - `Host` which is the NxpodHostURL
 	// - `WorkspacePort` which is the workspace port
 	// - `IngressPort` which is the publicly accessile port
 	WorkspacePortURLTemplate string `json:"portUrlTemplate"`
@@ -107,8 +107,8 @@ type Configuration struct {
 	WorkspaceHostPath string `json:"workspaceHostPath"`
 	// HeartbeatInterval is the time in seconds in which Theia sends a heartbeat if the user is active
 	HeartbeatInterval util.Duration `json:"heartbeatInterval"`
-	// Is the URL under which Gitpod is installed (e.g. https://gitpod.io)
-	GitpodHostURL string `json:"hostURL"`
+	// Is the URL under which Nxpod is installed (e.g. https://nxpod.io)
+	NxpodHostURL string `json:"hostURL"`
 	// EventTraceLog is a path to file where we'll write the monitor event trace log to
 	EventTraceLog string `json:"eventTraceLog,omitempty"`
 	// ReconnectionInterval configures the time we wait until we reconnect to the various other services
@@ -119,7 +119,7 @@ type Configuration struct {
 	WorkspaceDaemon WorkspaceDaemonConfiguration `json:"wsdaemon"`
 	// RegistryFacadeHost is the host (possibly including port) on which the registry facade resolves
 	RegistryFacadeHost string `json:"registryFacadeHost"`
-	// Cluster host under which workspaces are served, e.g. ws-eu11.gitpod.io
+	// Cluster host under which workspaces are served, e.g. ws-eu11.nxpod.io
 	WorkspaceClusterHost string `json:"workspaceClusterHost"`
 	// WorkspaceClasses provide different resource classes for workspaces
 	WorkspaceClasses map[string]*WorkspaceClass `json:"workspaceClass"`
@@ -241,7 +241,7 @@ func (c *Configuration) Validate() error {
 		ozzo.Field(&c.WorkspaceURLTemplate, ozzo.Required, validWorkspaceURLTemplate),
 		ozzo.Field(&c.WorkspaceHostPath, ozzo.Required),
 		ozzo.Field(&c.HeartbeatInterval, ozzo.Required),
-		ozzo.Field(&c.GitpodHostURL, ozzo.Required, is.URL),
+		ozzo.Field(&c.NxpodHostURL, ozzo.Required, is.URL),
 		ozzo.Field(&c.ReconnectionInterval, ozzo.Required),
 	)
 	if err != nil {
@@ -289,7 +289,7 @@ var validWorkspaceURLTemplate = ozzo.By(func(o interface{}) error {
 		return xerrors.Errorf("field should be string")
 	}
 
-	wsurl, err := RenderWorkspaceURL(s, "foo", "bar", "gitpod.io")
+	wsurl, err := RenderWorkspaceURL(s, "foo", "bar", "nxpod.io")
 	if err != nil {
 		return xerrors.Errorf("cannot render URL: %w", err)
 	}

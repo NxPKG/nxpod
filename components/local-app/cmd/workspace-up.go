@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,10 +17,10 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/local-app/pkg/config"
-	"github.com/gitpod-io/local-app/pkg/helper"
-	"github.com/gitpod-io/local-app/pkg/prettyprint"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/local-app/pkg/config"
+	"github.com/nxpkg/local-app/pkg/helper"
+	"github.com/nxpkg/local-app/pkg/prettyprint"
 	"github.com/go-git/go-git/v5"
 	gitcfg "github.com/go-git/go-git/v5/config"
 	"github.com/gookit/color"
@@ -48,7 +48,7 @@ var workspaceUpCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		gitpod, err := getGitpodClient(cmd.Context())
+		gitpod, err := getNxpodClient(cmd.Context())
 		if err != nil {
 			return err
 		}
@@ -154,7 +154,7 @@ var workspaceUpCmd = &cobra.Command{
 
 		newWorkspace, err := gitpod.Workspaces.CreateAndStartWorkspace(ctx, connect.NewRequest(
 			&v1.CreateAndStartWorkspaceRequest{
-				Source:         &v1.CreateAndStartWorkspaceRequest_ContextUrl{ContextUrl: "GITPODCLI_CONTENT_INIT=push/https://github.com/gitpod-io/empty"},
+				Source:         &v1.CreateAndStartWorkspaceRequest_ContextUrl{ContextUrl: "NXPODCLI_CONTENT_INIT=push/https://github.com/nxpkg/empty"},
 				OrganizationId: orgId,
 				StartSpec: &v1.StartWorkspaceSpec{
 					IdeSettings: &v1.IDESettings{

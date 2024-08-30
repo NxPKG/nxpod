@@ -58,11 +58,11 @@ Consider the `Config` section from the [Twelve-Factor App](https://12factor.net/
 
 > A litmus test for whether an app has all config correctly factored out of the code is whether the codebase could be made open source at any moment, without compromising any credentials.
 
-Gitpod is an open-source application, so this is already correct. Instead:
+Nxpod is an open-source application, so this is already correct. Instead:
 
 > A customer can submit their `config.yaml` via Discord, email or a GitHub ticket, without compromising any credentials.
 
-By storing sensitive data in the Kubernetes-idiomatic way, it will be easier for Gitpod to maintain and achieve required levels of compliance for ourselves and our users.
+By storing sensitive data in the Kubernetes-idiomatic way, it will be easier for Nxpod to maintain and achieve required levels of compliance for ourselves and our users.
 
 Examples of sensitive data:
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -107,7 +107,7 @@ func TestScrubFormatter(t *testing.T) {
 		return &TestWorkspaceInfo{
 			WorkspaceId:         "1234567890",
 			InstanceId:          "1234567890",
-			WorkspaceContextUrl: "https://github.com/gitpod-io/gitpod",
+			WorkspaceContextUrl: "https://github.com/nxpkg/nxpod",
 		}
 	}
 	info := createInfo()
@@ -117,10 +117,10 @@ func TestScrubFormatter(t *testing.T) {
 	logger.WithTime(logTime).WithField("info", info).WithField("workspaceID", workspaceID).
 		WithError(fmt.Errorf("some test error")).
 		WithFields(ServiceContext("test", "1.0.0")).
-		Info("email: anton@gitpod.io")
+		Info("email: anton@nxpod.io")
 
 	expectation := fmt.Sprintf(
-		`{"error":"some test error","info":"[redacted:nested]","level":"info","message":"email: anton@gitpod.io","serviceContext":{"service":"test","version":"1.0.0"},"severity":"INFO","time":"%s","workspaceID":"[redacted:md5:e807f1fcf82d132f9bb018ca6738a19f]"}`,
+		`{"error":"some test error","info":"[redacted:nested]","level":"info","message":"email: anton@nxpod.io","serviceContext":{"service":"test","version":"1.0.0"},"severity":"INFO","time":"%s","workspaceID":"[redacted:md5:e807f1fcf82d132f9bb018ca6738a19f]"}`,
 		logTime.Format(time.RFC3339Nano),
 	)
 	actual := strings.TrimSpace(buffer.String())
@@ -189,7 +189,7 @@ func BenchmarkSimpleScrubFormatter(b *testing.B) {
 	logger.SetOutput(io.Discard)
 
 	run := func() {
-		logger.WithField("workspaceID", "1234567890").Info("email: anton@gitpod.io")
+		logger.WithField("workspaceID", "1234567890").Info("email: anton@nxpod.io")
 	}
 
 	logger.SetFormatter(newGcpFormatter(true))
@@ -256,7 +256,7 @@ func BenchmarkStructScrubFormatter(b *testing.B) {
 		logger.WithField("info", &TestWorkspaceInfo{
 			WorkspaceId:         "1234567890",
 			InstanceId:          "1234567890",
-			WorkspaceContextUrl: "https://github.com/gitpod-io/gitpod",
+			WorkspaceContextUrl: "https://github.com/nxpkg/nxpod",
 		}).Info("resolve workspace info failed")
 	}
 

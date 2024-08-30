@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { PermissionName, RolesOrPermissions, User, Workspace, WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { AdmissionConstraint, WorkspaceClusterWoTLS } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+import { PermissionName, RolesOrPermissions, User, Workspace, WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { AdmissionConstraint, WorkspaceClusterWoTLS } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 
 export interface WorkspaceClusterConstraintSet {
     name: string;

@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -19,12 +19,12 @@ spec:
 
   - name: workspace-alerts
     rules:
-    - alert: GitpodWorkspaceTooManyRegularNotActiveMk2
+    - alert: NxpodWorkspaceTooManyRegularNotActiveMk2
       labels:
         severity: critical
       for: 10m
       annotations:
-        runbook_url: https://github.com/gitpod-io/runbooks/blob/main/runbooks/GitpodWorkspaceRegularNotActive.md
+        runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodWorkspaceRegularNotActive.md
         summary: too many running but inactive workspaces
         description: too many running but inactive workspaces. lower bound is 20 "regular not active" workspaces to reduce the false-positive rate.
       # bumped from 20 to 40 temporarily
@@ -33,12 +33,12 @@ spec:
         AND
         sum (gitpod_ws_manager_mk2_workspace_activity_total{active="false"}) by (cluster) > 40
 
-    - alert: GitpodWorkspacesNotStartingMk2
+    - alert: NxpodWorkspacesNotStartingMk2
       labels:
         severity: critical
       for: 10m
       annotations:
-        runbook_url: https://github.com/gitpod-io/runbooks/blob/main/runbooks/GitpodWorkspaceRegularNotActive.md
+        runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodWorkspaceRegularNotActive.md
         summary: workspaces are not starting.
         description: inactive regular workspaces exists but workspaces are not being started.
       expr: |

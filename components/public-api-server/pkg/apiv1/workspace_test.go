@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,17 +11,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/namegen"
+	"github.com/nxpkg/nxpod/common-go/namegen"
 
 	fuzz "github.com/AdaLogics/go-fuzz-headers"
 	connect "github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/components/public-api/go/config"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/auth"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws"
-	"github.com/gitpod-io/gitpod/public-api-server/pkg/jws/jwstest"
+	"github.com/nxpkg/nxpod/components/public-api/go/config"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
+	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/sourcegraph/jsonrpc2"
@@ -653,9 +653,9 @@ var workspaceTestData = []workspaceTestDataEntry{
 				BaseImageNameResolved: "foo:bar",
 				ID:                    "gitpodio-gitpod-isq6xj458lj",
 				OwnerID:               "fake-owner-id",
-				ContextURL:            "open-prebuild/126ac54a-5922-4a45-9a18-670b057bf540/https://github.com/gitpod-io/gitpod/pull/18291",
+				ContextURL:            "open-prebuild/126ac54a-5922-4a45-9a18-670b057bf540/https://github.com/nxpkg/nxpod/pull/18291",
 				Context: &protocol.WorkspaceContext{
-					NormalizedContextURL: "https://github.com/gitpod-io/gitpod/pull/18291",
+					NormalizedContextURL: "https://github.com/nxpkg/nxpod/pull/18291",
 					Title:                "tes ttitle",
 					Repository: &protocol.Repository{
 						Host: "github.com",
@@ -699,10 +699,10 @@ var workspaceTestData = []workspaceTestDataEntry{
 			WorkspaceId: "gitpodio-gitpod-isq6xj458lj",
 			OwnerId:     "fake-owner-id",
 			Context: &v1.WorkspaceContext{
-				ContextUrl: "open-prebuild/126ac54a-5922-4a45-9a18-670b057bf540/https://github.com/gitpod-io/gitpod/pull/18291",
+				ContextUrl: "open-prebuild/126ac54a-5922-4a45-9a18-670b057bf540/https://github.com/nxpkg/nxpod/pull/18291",
 				Details: &v1.WorkspaceContext_Git_{
 					Git: &v1.WorkspaceContext_Git{
-						NormalizedContextUrl: "https://github.com/gitpod-io/gitpod/pull/18291",
+						NormalizedContextUrl: "https://github.com/nxpkg/nxpod/pull/18291",
 						Repository: &v1.WorkspaceContext_Repository{
 							Name: "gitpod",
 						},

@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TeamDB, UserDB } from "@gitpod/gitpod-db/lib";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TeamDB, UserDB } from "@nxpod/nxpod-db/lib";
 import {
     OrgMemberInfo,
     OrgMemberRole,
@@ -13,26 +13,26 @@ import {
     TeamMemberRole,
     TeamMembershipInvite,
     WorkspaceTimeoutDuration,
-} from "@gitpod/gitpod-protocol";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { inject, injectable } from "inversify";
 import { Authorizer, SYSTEM_USER, SYSTEM_USER_ID } from "../authorization/authorizer";
 import { ProjectsService } from "../projects/projects-service";
-import { TransactionalContext } from "@gitpod/gitpod-db/lib/typeorm/transactional-db-impl";
+import { TransactionalContext } from "@nxpod/nxpod-db/lib/typeorm/transactional-db-impl";
 import { DefaultWorkspaceImageValidator } from "./default-workspace-image-validator";
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 import { UserService } from "../user/user-service";
-import { SupportedWorkspaceClass } from "@gitpod/gitpod-protocol/lib/workspace-class";
+import { SupportedWorkspaceClass } from "@nxpod/nxpod-protocol/lib/workspace-class";
 import { InstallationService } from "../auth/installation-service";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import { runWithSubjectId } from "../util/request-context";
 import { IDEService } from "../ide-service";
 import { StripeService } from "../billing/stripe-service";
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
 import { UsageService } from "./usage-service";
-import { CostCenter_BillingStrategy } from "@gitpod/gitpod-protocol/lib/usage";
+import { CostCenter_BillingStrategy } from "@nxpod/nxpod-protocol/lib/usage";
 
 @injectable()
 export class OrganizationService {
@@ -223,7 +223,7 @@ export class OrganizationService {
         const members = await this.teamDB.findMembersByTeam(orgId);
 
         // TODO(at) remove this workaround once email addresses are persisted under `User.emails`.
-        // For now we're avoiding adding `getPrimaryEmail` as dependency to `gitpod-db` module.
+        // For now we're avoiding adding `getPrimaryEmail` as dependency to `nxpod-db` module.
         for (const member of members) {
             const user = await this.userDB.findUserById(member.userId);
             if (user) {

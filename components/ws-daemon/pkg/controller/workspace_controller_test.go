@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/aws/smithy-go/ptr"
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	workspacev1 "github.com/gitpod-io/gitpod/ws-manager/api/crd/v1"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	workspacev1 "github.com/nxpkg/nxpod/ws-manager/api/crd/v1"
 	"github.com/golang/mock/gomock"
 	"github.com/google/uuid"
 	. "github.com/onsi/ginkgo/v2"
@@ -145,13 +145,13 @@ func newWorkspace(name, namespace string, phase workspacev1.WorkspacePhase) *wor
 
 	return &workspacev1.Workspace{
 		TypeMeta: metav1.TypeMeta{
-			APIVersion: "workspace.gitpod.io/v1",
+			APIVersion: "workspace.nxpod.io/v1",
 			Kind:       "Workspace",
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       name,
 			Namespace:  namespace,
-			Finalizers: []string{workspacev1.GitpodFinalizerName},
+			Finalizers: []string{workspacev1.NxpodFinalizerName},
 		},
 		Spec: workspacev1.WorkspaceSpec{
 			Ownership: workspacev1.Ownership{

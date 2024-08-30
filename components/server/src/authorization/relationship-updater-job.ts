@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable, inject } from "inversify";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { Job } from "../jobs/runner";
 import { RelationshipUpdater } from "./relationship-updater";
-import { UserDB } from "@gitpod/gitpod-db/lib";
+import { UserDB } from "@nxpod/nxpod-db/lib";
 
 @injectable()
 export class RelationshipUpdateJob implements Job {

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,7 +7,7 @@ package auth
 import (
 	"testing"
 
-	server_lib "github.com/gitpod-io/gitpod/server/go/pkg/lib"
+	server_lib "github.com/nxpkg/nxpod/server/go/pkg/lib"
 )
 
 func TestCookieNameFromDomain(t *testing.T) {

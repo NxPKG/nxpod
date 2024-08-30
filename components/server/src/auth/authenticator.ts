@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TeamDB } from "@gitpod/gitpod-db/lib";
-import { User } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TeamDB } from "@nxpod/nxpod-db/lib";
+import { User } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import express from "express";
 import { inject, injectable, postConstruct } from "inversify";
 import passport from "passport";
@@ -99,7 +99,7 @@ export class Authenticator {
     private async parseState(state: string): Promise<AuthFlow> {
         // In preview environments, we prepend the current development branch to the state, to allow
         // our preview proxy to route the Auth callback appropriately.
-        // See https://github.com/gitpod-io/ops/pull/9398/files
+        // See https://github.com/nxpkg/ops/pull/9398/files
         //
         // We need to strip the branch out of the state, if it's present
         if (state.indexOf(",") >= 0) {
@@ -113,7 +113,7 @@ export class Authenticator {
     private deriveAuthState(state: string): string {
         // In preview environments, we prepend the current development branch to the state, to allow
         // our preview proxy to route the Auth callback appropriately.
-        // See https://github.com/gitpod-io/ops/pull/9398/files
+        // See https://github.com/nxpkg/ops/pull/9398/files
         if (this.config.devBranch) {
             return `${this.config.devBranch},${state}`;
         }
@@ -295,7 +295,7 @@ export class Authenticator {
                 wantedScopes = this.mergeScopes(authProvider.info.requirements.default, wantedScopes);
             }
         }
-        // authorize Gitpod
+        // authorize Nxpod
         log.info(`(doAuthorize) wanted scopes (${override ? "overriding" : "merging"}): ${wantedScopes.join(",")}`);
         const state = await this.signInJWT.sign({ host, returnTo, overrideScopes: override });
         authProvider.authorize(req, res, next, this.deriveAuthState(state), wantedScopes);

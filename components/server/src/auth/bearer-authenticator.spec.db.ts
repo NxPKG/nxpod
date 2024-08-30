@@ -1,18 +1,18 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TypeORM, resetDB } from "@gitpod/gitpod-db/lib";
+import { TypeORM, resetDB } from "@nxpod/nxpod-db/lib";
 import { BearerAuth, PersonalAccessToken } from "./bearer-authenticator";
 import { expect } from "chai";
 import { describe } from "mocha";
 import { Container } from "inversify";
 import { createTestContainer } from "../test/service-testing-container-module";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import { UserService } from "../user/user-service";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import { Config } from "../config";
 import { Request } from "express";
 import { WithResourceAccessGuard } from "./resource-access";
@@ -41,7 +41,7 @@ describe("BearerAuth", () => {
             "INSERT d_b_personal_access_token (id, userId, hash, name, scopes, expirationTime, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?)",
             [patId, userId, pat.hash(), patId, scopes, toDateTime(new Date("2030")), toDateTime(new Date())],
         );
-        return `gitpod_pat_${signature}.${patValue}`;
+        return `nxpod_pat_${signature}.${patValue}`;
     }
 
     beforeEach(async () => {
@@ -101,7 +101,7 @@ describe("BearerAuth", () => {
     });
 
     it("authExpressRequest should fail to authenticate with missing BearerToken from DB (PAT)", async () => {
-        const patNotStored = "gitpod_pat_GrvGthczSRf3ypqFhNtcRiN5fK6CV7rdCkkPLfpbc_4";
+        const patNotStored = "nxpod_pat_GrvGthczSRf3ypqFhNtcRiN5fK6CV7rdCkkPLfpbc_4";
 
         const req = {
             headers: {
@@ -130,7 +130,7 @@ describe("BearerAuth", () => {
     });
 
     it("tryAuthFromHeaders should fail to authenticate with missing BearerToken from DB (PAT)", async () => {
-        const patNotStored = "gitpod_pat_GrvGthczSRf3ypqFhNtcRiN5fK6CV7rdCkkPLfpbc_4";
+        const patNotStored = "nxpod_pat_GrvGthczSRf3ypqFhNtcRiN5fK6CV7rdCkkPLfpbc_4";
 
         const headers = new Headers();
         headers.set("authorization", `Bearer ${patNotStored}`);

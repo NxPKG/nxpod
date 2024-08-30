@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,14 +9,14 @@ import { suite, test } from "@testdeck/mocha";
 import * as chai from "chai";
 import { ConfigProvider } from "./config-provider";
 import { Container, ContainerModule } from "inversify";
-import { GitpodFileParser } from "@gitpod/gitpod-protocol/lib/gitpod-file-parser";
+import { NxpodFileParser } from "@nxpod/nxpod-protocol/lib/nxpod-file-parser";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { ConfigurationService } from "../config/configuration-service";
-import { TeamDB } from "@gitpod/gitpod-db/lib";
+import { TeamDB } from "@nxpod/nxpod-db/lib";
 import { Config } from "../config";
 import { AuthorizationService } from "../user/authorization-service";
 import { EntitlementService } from "../billing/entitlement-service";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 const expect = chai.expect;
 const baseUserInfo: User = {
     id: "1",
@@ -24,9 +24,9 @@ const baseUserInfo: User = {
     identities: [],
     name: "John Doe",
 };
-const globalDefaultImage = "gitpod/global-default";
-const baseOrgImage = "gitpod/org-default";
-const baseYamlImage = "gitpod/yml";
+const globalDefaultImage = "nxpod/global-default";
+const baseOrgImage = "nxpod/org-default";
+const baseYamlImage = "nxpod/yml";
 
 const orgDefaultImageMap: Record<string, string | undefined> = {
     ORG: baseOrgImage,
@@ -39,7 +39,7 @@ class TestConfigProvider {
     public before() {
         this.container.load(
             new ContainerModule((bind, unbind, isBound, rebind) => {
-                bind(GitpodFileParser).toSelf().inSingletonScope();
+                bind(NxpodFileParser).toSelf().inSingletonScope();
                 bind(ConfigProvider).toSelf().inSingletonScope();
                 bind(HostContextProvider).toConstantValue({
                     get(hostname: string) {
@@ -49,7 +49,7 @@ class TestConfigProvider {
                             },
                             services: {
                                 fileProvider: {
-                                    getGitpodFileContent: async () => {
+                                    getNxpodFileContent: async () => {
                                         return hostname === "HAS_IMAGE" ? "image: " + baseYamlImage : undefined;
                                     },
                                     getFileContent: async () => {

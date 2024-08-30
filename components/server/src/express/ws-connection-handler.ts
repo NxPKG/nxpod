@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import express from "express";
 import websocket from "ws";
-import { Disposable, DisposableCollection } from "@gitpod/gitpod-protocol";
-import { repeat } from "@gitpod/gitpod-protocol/lib/util/repeat";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { Disposable, DisposableCollection } from "@nxpod/nxpod-protocol";
+import { repeat } from "@nxpod/nxpod-protocol/lib/util/repeat";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { WsNextFunction, WsRequestHandler } from "./ws-handler";
 import { ClientMetadata } from "../websocket/websocket-connection-manager";
 

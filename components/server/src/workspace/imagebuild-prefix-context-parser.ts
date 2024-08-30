@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ContextURL, User, WorkspaceContext } from "@gitpod/gitpod-protocol";
+import { ContextURL, User, WorkspaceContext } from "@nxpod/nxpod-protocol";
 import { injectable } from "inversify";
 import { IPrefixContextParser } from "./context-parser";
 

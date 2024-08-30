@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,10 +8,10 @@ import { serverUrl, workspaceUrl } from "../shared/urls";
 const commit = require("../../config.json").commit;
 import { v4 } from "uuid";
 
-import { MetricsReporter } from "@gitpod/gitpod-protocol/lib/metrics";
+import { MetricsReporter } from "@nxpod/nxpod-protocol/lib/metrics";
 
 export const metricsReporter = new MetricsReporter({
-    gitpodUrl: serverUrl.toString(),
+    nxpodUrl: serverUrl.toString(),
     clientName: "supervisor-frontend",
     clientVersion: commit,
     log: console,
@@ -27,9 +27,9 @@ import { FrontendDashboardServiceClient } from "../shared/frontend-dashboard-ser
 const MetricsUrl = serverUrl.asIDEMetrics().toString();
 
 export enum MetricsName {
-    SupervisorFrontendClientTotal = "gitpod_supervisor_frontend_client_total",
-    SupervisorFrontendErrorTotal = "gitpod_supervisor_frontend_error_total",
-    SupervisorFrontendLoadTotal = "gitpod_vscode_web_load_total",
+    SupervisorFrontendClientTotal = "nxpod_supervisor_frontend_client_total",
+    SupervisorFrontendErrorTotal = "nxpod_supervisor_frontend_error_total",
+    SupervisorFrontendLoadTotal = "nxpod_vscode_web_load_total",
 }
 
 interface AddCounterParam {

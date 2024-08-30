@@ -18,7 +18,7 @@ container_cpu_rss(pod="`<ws-proxy-pod-name>`", container="ws-proxy"}
 
 Prepare workspace pair AB like this:
 
-1. We need to keep workspace alive, so edit gitpod-cli to build a new tmp exec file with command to keep heartbeat: send heartbeat every 30 seconds
+1. We need to keep workspace alive, so edit nxpod-cli to build a new tmp exec file with command to keep heartbeat: send heartbeat every 30 seconds
 2. Open a workspace `A` as target workspace, copy file that step1 produce to it, and exec file to keep it alive
 3. Open a workspace `B`, repeat step 2
 
@@ -37,7 +37,7 @@ Testing in prev envs and test several cases:
 
     🟢 After 10000 connect exec, **`ws-proxy` works fine**, target workspace works fine, (but sender's workspace network broken)
     > `wait: remote command exited without exit status or exit signal` appear after exec command, maybe ssh gateway still has some difference with real ssh
-    > Fixed with [PR](https://github.com/gitpod-io/gitpod/pull/7772)
+    > Fixed with [PR](https://github.com/nxpkg/nxpod/pull/7772)
 
 2. Several connection with huge amount of data back and forth
 
@@ -57,7 +57,7 @@ Testing in prev envs and test several cases:
     go run main.go -u <workspace_url> -t <owner_token> -c <concurrent_num> reopen
     ```
 
-    🟠 Memory leak appeared and fixed by [this commit](https://github.com/gitpod-io/gitpod/pull/7772/commits/e5c3defe2588774cf713b948f0dac35ef94350e9)
+    🟠 Memory leak appeared and fixed by [this commit](https://github.com/nxpkg/nxpod/pull/7772/commits/e5c3defe2588774cf713b948f0dac35ef94350e9)
 
     After fix
 

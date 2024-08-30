@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/headlesslogdownload
+module github.com/nxpkg/nxpod/proxy/plugins/headlesslogdownload
 
 go 1.21
 

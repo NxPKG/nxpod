@@ -28,7 +28,7 @@ provider "k8s" {
 }
 
 provider "google" {
-  project = "gitpod-dev-preview"
+  project = "nxpod-dev-preview"
   region  = "europe-west1"
 }
 

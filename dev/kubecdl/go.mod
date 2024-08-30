@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/kubecdl
+module github.com/nxpkg/nxpod/kubecdl
 
 go 1.22
 

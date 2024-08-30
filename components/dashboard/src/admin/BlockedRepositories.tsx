@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -16,8 +16,8 @@ import { SpinnerLoader } from "../components/Loader";
 import searchIcon from "../icons/search.svg";
 import { Button } from "@podkit/buttons/Button";
 import { installationClient } from "../service/public-api";
-import { Sort, SortOrder } from "@gitpod/public-api/lib/gitpod/v1/sorting_pb";
-import { BlockedRepository, ListBlockedRepositoriesResponse } from "@gitpod/public-api/lib/gitpod/v1/installation_pb";
+import { Sort, SortOrder } from "@nxpod/public-api/lib/nxpod/v1/sorting_pb";
+import { BlockedRepository, ListBlockedRepositoriesResponse } from "@nxpod/public-api/lib/nxpod/v1/installation_pb";
 import { TextInputField } from "../components/forms/TextInputField";
 
 export function BlockedRepositories() {
@@ -298,7 +298,7 @@ function Details(props: {
     return (
         <div className="border-gray-200 dark:border-gray-800 -mx-6 px-6 py-4 flex flex-col">
             {props.error ? (
-                <div className="bg-kumquat-light rounded-md p-3 text-gitpod-red text-sm mb-2">{props.error}</div>
+                <div className="bg-kumquat-light rounded-md p-3 text-nxpod-red text-sm mb-2">{props.error}</div>
             ) : null}
             <TextInputField
                 label="Repository URL RegEx"

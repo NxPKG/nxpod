@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -11,16 +11,16 @@ COPY plugins /plugins
 # build caddy
 RUN xcaddy build v2.7.6 \
   --output /caddy \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/corsorigin=/plugins/corsorigin \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/secwebsocketkey=/plugins/secwebsocketkey \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/workspacedownload=/plugins/workspacedownload \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/headlesslogdownload=/plugins/headlesslogdownload \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/configcat=/plugins/configcat \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/analytics=/plugins/analytics \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/logif=/plugins/logif \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/jsonselect=/plugins/jsonselect \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/sshtunnel=/plugins/sshtunnel \
-  --with github.com/gitpod-io/gitpod/proxy/plugins/frontend_dev=/plugins/frontend_dev
+  --with github.com/nxpkg/nxpod/proxy/plugins/corsorigin=/plugins/corsorigin \
+  --with github.com/nxpkg/nxpod/proxy/plugins/secwebsocketkey=/plugins/secwebsocketkey \
+  --with github.com/nxpkg/nxpod/proxy/plugins/workspacedownload=/plugins/workspacedownload \
+  --with github.com/nxpkg/nxpod/proxy/plugins/headlesslogdownload=/plugins/headlesslogdownload \
+  --with github.com/nxpkg/nxpod/proxy/plugins/configcat=/plugins/configcat \
+  --with github.com/nxpkg/nxpod/proxy/plugins/analytics=/plugins/analytics \
+  --with github.com/nxpkg/nxpod/proxy/plugins/logif=/plugins/logif \
+  --with github.com/nxpkg/nxpod/proxy/plugins/jsonselect=/plugins/jsonselect \
+  --with github.com/nxpkg/nxpod/proxy/plugins/sshtunnel=/plugins/sshtunnel \
+  --with github.com/nxpkg/nxpod/proxy/plugins/frontend_dev=/plugins/frontend_dev
 
 FROM cgr.dev/chainguard/wolfi-base:latest@sha256:72c8bfed3266b2780243b144dc5151150015baf5a739edbbde53d154574f1607
 
@@ -41,7 +41,7 @@ COPY conf/workspace-handler.* /etc/caddy/workspace-handler/
 ARG __GIT_COMMIT
 ARG VERSION
 
-ENV GITPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
-ENV GITPOD_BUILD_VERSION=${VERSION}
+ENV NXPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
+ENV NXPOD_BUILD_VERSION=${VERSION}
 
 CMD [ "caddy", "run", "--adapter", "inject-ssh-tunnel" , "--watch", "--config", "/etc/caddy/Caddyfile" ]

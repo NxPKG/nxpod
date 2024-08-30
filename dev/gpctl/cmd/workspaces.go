@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,14 +20,14 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/gitpod-io/gitpod/gpctl/pkg/util"
-	"github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/gpctl/pkg/util"
+	"github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 // workspacesCmd represents the client command
 var workspacesCmd = &cobra.Command{
 	Use:   "workspaces",
-	Short: "Controls and inspects workspaces in the Gitpod installation",
+	Short: "Controls and inspects workspaces in the Nxpod installation",
 	Args:  cobra.ExactArgs(1),
 }
 

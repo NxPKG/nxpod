@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import * as GitpodCookie from "@gitpod/gitpod-protocol/lib/util/gitpod-cookie";
+import * as NxpodCookie from "@nxpod/nxpod-protocol/lib/util/nxpod-cookie";
 import { useContext, useEffect, useState, useMemo, useCallback, FC } from "react";
 import { UserContext } from "./user-context";
-import { getGitpodService } from "./service/service";
+import { getNxpodService } from "./service/service";
 import { iconForAuthProvider, openAuthorizeWindow, simplifyProviderName } from "./provider-utils";
 import exclamation from "./images/exclamation.svg";
 import { getURLHash, isTrustedUrlOrPath } from "./utils";
@@ -17,20 +17,20 @@ import { SSOLoginForm } from "./login/SSOLoginForm";
 import { useAuthProviderDescriptions } from "./data/auth-providers/auth-provider-descriptions-query";
 import { SetupPending } from "./login/SetupPending";
 import { useNeedsSetup } from "./dedicated-setup/use-needs-setup";
-import { AuthProviderDescription } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+import { AuthProviderDescription } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 import { Button, ButtonProps } from "@podkit/buttons/Button";
 import { cn } from "@podkit/lib/cn";
 import { userClient } from "./service/public-api";
 import { ProductLogo } from "./components/ProductLogo";
 import { useIsDataOps } from "./data/featureflag-query";
-import { isGitpodIo } from "./utils";
+import { isNxpodIo } from "./utils";
 
 export function markLoggedIn() {
-    document.cookie = GitpodCookie.generateCookie(window.location.hostname);
+    document.cookie = NxpodCookie.generateCookie(window.location.hostname);
 }
 
 export function hasLoggedInBefore() {
-    return GitpodCookie.isPresent(document.cookie);
+    return NxpodCookie.isPresent(document.cookie);
 }
 
 type LoginProps = {
@@ -68,7 +68,7 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
     }
 
     const updateUser = useCallback(async () => {
-        await getGitpodService().reconnect();
+        await getNxpodService().reconnect();
         const { user } = await userClient.getAuthenticatedUser({});
         if (user) {
             setUser(user);
@@ -146,7 +146,7 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
                                             <Subheading>for the repository {repoPathname?.slice(1)}</Subheading>
                                         </>
                                     ) : (
-                                        <Heading1>Log in to Gitpod</Heading1>
+                                        <Heading1>Log in to Nxpod</Heading1>
                                     )}
                                 </div>
 
@@ -171,16 +171,16 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
                                             </LoginButton>
                                         ))
                                     )}
-                                    {isGitpodIo() && (
+                                    {isNxpodIo() && (
                                         <div className="text-pk-content-tertiary py-3">
                                             <span className="text-sm font-bold">Need SSO? </span>
                                             <a
                                                 className="text-sm gp-link"
-                                                href="https://www.gitpod.io/docs/enterprise"
+                                                href="https://www.nxpod.io/docs/enterprise"
                                                 target="_blank"
                                                 rel="noreferrer"
                                             >
-                                                Try Gitpod Enterprise
+                                                Try Nxpod Enterprise
                                             </a>
                                         </div>
                                     )}
@@ -200,16 +200,16 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
                                 By signing in, you agree to our{" "}
                                 <a
                                     className="gp-link hover:text-gray-600"
-                                    target="gitpod-terms"
-                                    href="https://www.gitpod.io/terms/"
+                                    target="nxpod-terms"
+                                    href="https://www.nxpod.io/terms/"
                                 >
                                     terms of service
                                 </a>{" "}
                                 and{" "}
                                 <a
                                     className="gp-link hover:text-gray-600"
-                                    target="gitpod-privacy"
-                                    href="https://www.gitpod.io/privacy/"
+                                    target="nxpod-privacy"
+                                    href="https://www.nxpod.io/privacy/"
                                 >
                                     privacy policy
                                 </a>

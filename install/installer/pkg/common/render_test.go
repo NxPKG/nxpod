@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 /// Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,12 +14,12 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/utils/pointer"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	content_service "github.com/gitpod-io/gitpod/installer/pkg/components/content-service"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/dashboard"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/server"
-	config "github.com/gitpod-io/gitpod/installer/pkg/config/v1"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/versions"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	content_service "github.com/nxpkg/nxpod/installer/pkg/components/content-service"
+	"github.com/nxpkg/nxpod/installer/pkg/components/dashboard"
+	"github.com/nxpkg/nxpod/installer/pkg/components/server"
+	config "github.com/nxpkg/nxpod/installer/pkg/config/v1"
+	"github.com/nxpkg/nxpod/installer/pkg/config/versions"
 )
 
 func TestCompositeRenderFunc_NilObjectsNilError(t *testing.T) {
@@ -193,9 +193,9 @@ func TestRepoName(t *testing.T) {
 		DropImageRepo *bool
 	}{
 		{
-			Name: "gitpod-io/workspace-full",
+			Name: "nxpkg/workspace-full",
 			Expectation: Expectation{
-				Result: "docker.io/gitpod-io/workspace-full",
+				Result: "docker.io/nxpkg/workspace-full",
 			},
 		},
 		{
@@ -214,7 +214,7 @@ func TestRepoName(t *testing.T) {
 		},
 		// Drop repo, no namespace
 		{
-			Name: "gitpod-io/workspace-full",
+			Name: "nxpkg/workspace-full",
 			Expectation: Expectation{
 				Result: "some.registry.com/workspace-full",
 			},
@@ -241,7 +241,7 @@ func TestRepoName(t *testing.T) {
 		},
 		// Drop repo, namespace
 		{
-			Name: "gitpod-io/workspace-full",
+			Name: "nxpkg/workspace-full",
 			Expectation: Expectation{
 				Result: "some.registry.com/gitpod/workspace-full",
 			},

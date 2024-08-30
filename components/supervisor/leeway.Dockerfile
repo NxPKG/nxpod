@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -18,13 +18,13 @@ FROM scratch
 # BEWARE: This must be the first layer in the image, s.t. that blobserve
 #         can serve the IDE host. Even moving WORKDIR before this line
 #         would break things.
-COPY components-supervisor-frontend--app/node_modules/@gitpod/supervisor-frontend/dist/ /.supervisor/frontend/
+COPY components-supervisor-frontend--app/node_modules/@nxpod/supervisor-frontend/dist/ /.supervisor/frontend/
 
 WORKDIR "/.supervisor"
 COPY components-supervisor--app/supervisor \
      supervisor-config.json \
      browser.sh \
-     components-gitpod-cli--app/gitpod-cli \
+     components-nxpod-cli--app/nxpod-cli \
      ./
 
 WORKDIR "/.supervisor/ssh"
@@ -32,12 +32,12 @@ COPY components-supervisor-openssh--app/usr/sbin/sshd .
 COPY components-supervisor-openssh--app/usr/bin/ssh-keygen .
 COPY components-supervisor-openssh--app/usr/libexec/sshd-session .
 
-COPY --from=docker_cli_builder /gp-docker/docker/docker /.supervisor/gitpod-docker-cli
+COPY --from=docker_cli_builder /gp-docker/docker/docker /.supervisor/nxpod-docker-cli
 
 ARG __GIT_COMMIT
 ARG VERSION
 
-ENV GITPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
-ENV GITPOD_BUILD_VERSION=${VERSION}
+ENV NXPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
+ENV NXPOD_BUILD_VERSION=${VERSION}
 
 ENTRYPOINT ["/.supervisor/supervisor"]

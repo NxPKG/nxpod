@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,11 +11,11 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	"github.com/gitpod-io/gitpod/installer/pkg/components/workspace/ide"
-	"github.com/gitpod-io/gitpod/installer/pkg/config/versions"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	"github.com/nxpkg/nxpod/installer/pkg/components/workspace/ide"
+	"github.com/nxpkg/nxpod/installer/pkg/config/versions"
 
-	ide_config "github.com/gitpod-io/gitpod/ide-service-api/config"
+	ide_config "github.com/nxpkg/nxpod/ide-service-api/config"
 
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

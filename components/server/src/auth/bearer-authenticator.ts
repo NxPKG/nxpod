@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { UserDB, PersonalAccessTokenDB } from "@gitpod/gitpod-db/lib";
-import { GitpodTokenType, User } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { UserDB, PersonalAccessTokenDB } from "@nxpod/nxpod-db/lib";
+import { NxpodTokenType, User } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import * as crypto from "crypto";
 import express from "express";
 import { inject, injectable } from "inversify";
@@ -58,7 +58,7 @@ export class BearerAuth {
                 await this.authExpressRequest(req);
             } catch (e) {
                 if (isBearerAuthError(e)) {
-                    // (AT) while investigating https://github.com/gitpod-io/gitpod/issues/8703 we
+                    // (AT) while investigating https://github.com/nxpkg/nxpod/issues/8703 we
                     // came to the assumption that a workspace pod might start talking to a server pod
                     // from the other cluster, which is not periodic delete'd yet.
                     // Logging this should allow us to test this assumption.
@@ -123,7 +123,7 @@ export class BearerAuth {
 
     private async userAndScopesFromToken(token: string): Promise<{ user: User; scopes: string[] }> {
         // We handle two types of Bearer tokens:
-        //  1. Personal Access Tokens which are prefixed with `gitpod_pat_`
+        //  1. Personal Access Tokens which are prefixed with `nxpod_pat_`
         //  2. Old(er) access tokens which do not have any specific prefix.
 
         // Personal access tokens are only enabled when a signing key is configured.
@@ -155,7 +155,7 @@ export class BearerAuth {
         }
 
         const hash = crypto.createHash("sha256").update(token, "utf8").digest("hex");
-        const userAndToken = await this.userDB.findUserByGitpodToken(hash, GitpodTokenType.API_AUTH_TOKEN);
+        const userAndToken = await this.userDB.findUserByNxpodToken(hash, NxpodTokenType.API_AUTH_TOKEN);
         if (!userAndToken) {
             throw createBearerAuthError("invalid Bearer token");
         }
@@ -171,7 +171,7 @@ export class BearerAuth {
 // See public-api-server/auth/tokens.go
 export class PersonalAccessToken {
     // a PAT has a fixed prefix, which uniquely identifies it from other tokens.
-    private static PAT_PREFIX = "gitpod_pat_";
+    private static PAT_PREFIX = "nxpod_pat_";
 
     signature: string;
     value: string;

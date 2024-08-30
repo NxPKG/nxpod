@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AuthProviderType } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+import { AuthProviderType } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 import bitbucket from "./images/bitbucket.svg";
 import github from "./images/github.svg";
 import gitlab from "./images/gitlab.svg";
-import { gitpodHostUrl } from "./service/service";
+import { nxpodHostUrl } from "./service/service";
 
 function iconForAuthProvider(type: string | AuthProviderType) {
     switch (type) {
@@ -74,16 +74,16 @@ async function openAuthorizeWindow(params: OpenAuthorizeWindowParams) {
     const { login, host, scopes, overrideScopes } = params;
     const successKey = getUniqueSuccessKey();
     let search = `message=${successKey}`;
-    const returnTo = gitpodHostUrl.with({ pathname: "complete-auth", search: search }).toString();
+    const returnTo = nxpodHostUrl.with({ pathname: "complete-auth", search: search }).toString();
     const requestedScopes = scopes || [];
     const url = login
-        ? gitpodHostUrl
+        ? nxpodHostUrl
               .withApi({
                   pathname: "/login",
                   search: `host=${host}&returnTo=${encodeURIComponent(returnTo)}`,
               })
               .toString()
-        : gitpodHostUrl
+        : nxpodHostUrl
               .withApi({
                   pathname: "/authorize",
                   search: `returnTo=${encodeURIComponent(returnTo)}&host=${host}${
@@ -107,18 +107,18 @@ async function redirectToAuthorize(params: OpenAuthorizeWindowParams) {
         }
         searchParamsReturn.append(key, value);
     }
-    const returnTo = gitpodHostUrl
+    const returnTo = nxpodHostUrl
         .with({ pathname: window.location.pathname, search: searchParamsReturn.toString(), hash: window.location.hash })
         .toString();
     const requestedScopes = scopes ?? [];
     const url = login
-        ? gitpodHostUrl
+        ? nxpodHostUrl
               .withApi({
                   pathname: "/login",
                   search: `host=${host}&returnTo=${encodeURIComponent(returnTo)}`,
               })
               .toString()
-        : gitpodHostUrl
+        : nxpodHostUrl
               .withApi({
                   pathname: "/authorize",
                   search: `returnTo=${encodeURIComponent(returnTo)}&host=${host}${
@@ -139,7 +139,7 @@ function openModalWindow(url: string) {
     // Optimistically assume that the new window was opened.
     window.open(
         url,
-        "gitpod-auth-window",
+        "nxpod-auth-window",
         `width=${width},height=${height},top=${top},left=${left},status=yes,scrollbars=yes,resizable=yes`,
     );
 }
@@ -206,7 +206,7 @@ async function redirectToOIDC({ orgSlug = "", configId, activate = false, verify
         }
         searchParamsReturn.append(key, value);
     }
-    const returnTo = gitpodHostUrl
+    const returnTo = nxpodHostUrl
         .with({ pathname: window.location.pathname, search: searchParamsReturn.toString(), hash: window.location.hash })
         .toString();
     const searchParams = new URLSearchParams({ returnTo });
@@ -222,7 +222,7 @@ async function redirectToOIDC({ orgSlug = "", configId, activate = false, verify
         searchParams.append("verify", "true");
     }
 
-    const url = gitpodHostUrl
+    const url = nxpodHostUrl
         .with(() => ({
             pathname: `/iam/oidc/start`,
             search: searchParams.toString(),
@@ -236,7 +236,7 @@ async function openOIDCStartWindow(params: OpenOIDCStartWindowParams) {
     const { orgSlug, configId, activate = false, verify = false } = params;
     const successKey = getUniqueSuccessKey();
     let search = `message=${successKey}`;
-    const returnTo = gitpodHostUrl.with({ pathname: "complete-auth", search }).toString();
+    const returnTo = nxpodHostUrl.with({ pathname: "complete-auth", search }).toString();
     const searchParams = new URLSearchParams({ returnTo });
     if (orgSlug) {
         searchParams.append("orgSlug", orgSlug);
@@ -250,7 +250,7 @@ async function openOIDCStartWindow(params: OpenOIDCStartWindowParams) {
         searchParams.append("verify", "true");
     }
 
-    const url = gitpodHostUrl
+    const url = nxpodHostUrl
         .with((url) => ({
             pathname: `/iam/oidc/start`,
             search: searchParams.toString(),

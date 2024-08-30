@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,8 +13,8 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/v1"
-	v1connect "github.com/gitpod-io/gitpod/components/public-api/go/v1/v1connect"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/v1"
+	v1connect "github.com/nxpkg/nxpod/components/public-api/go/v1/v1connect"
 	"golang.org/x/xerrors"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -26,13 +26,13 @@ type PAPIClient struct {
 	Organization  v1connect.OrganizationServiceClient
 }
 
-// GitpodServer provides access to the Gitpod server API
-func (c *ComponentAPI) PublicApi(opts ...GitpodServerOpt) (*PAPIClient, error) {
+// NxpodServer provides access to the Nxpod server API
+func (c *ComponentAPI) PublicApi(opts ...NxpodServerOpt) (*PAPIClient, error) {
 	var options gitpodServerOpts
 	for _, o := range opts {
 		err := o(&options)
 		if err != nil {
-			return nil, xerrors.Errorf("cannot access Gitpod public API: %q", err)
+			return nil, xerrors.Errorf("cannot access Nxpod public API: %q", err)
 		}
 	}
 
@@ -45,7 +45,7 @@ func (c *ComponentAPI) PublicApi(opts ...GitpodServerOpt) (*PAPIClient, error) {
 		tkn := c.serverStatus.Token[options.User]
 		if tkn == "" {
 			var err error
-			tkn, err = c.createGitpodToken(options.User, []string{
+			tkn, err = c.createNxpodToken(options.User, []string{
 				"resource:default",
 				"function:*",
 			})
@@ -103,7 +103,7 @@ func (c *ComponentAPI) PublicApi(opts ...GitpodServerOpt) (*PAPIClient, error) {
 		return nil
 	}()
 	if err != nil {
-		return nil, xerrors.Errorf("cannot access Gitpod public API: %q", err)
+		return nil, xerrors.Errorf("cannot access Nxpod public API: %q", err)
 	}
 
 	return res, nil

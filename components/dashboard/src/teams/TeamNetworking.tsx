@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { isGitpodIo } from "../utils";
+import { isNxpodIo } from "../utils";
 import React from "react";
 import { Heading2, Heading3, Subheading } from "../components/typography/headings";
 import { OrgSettingsPage } from "./OrgSettingsPage";
@@ -18,7 +18,7 @@ import PillLabel from "../components/PillLabel";
 export default function TeamPoliciesPage() {
     useDocumentTitle("Organization Settings - Networking");
 
-    if (!isGitpodIo) {
+    if (!isNxpodIo) {
         return <Redirect to="/settings" />;
     }
 
@@ -50,7 +50,7 @@ const SelfHostedCalloutCard = () => {
         <ConfigurationSettingsField className="bg-pk-surface-secondary">
             <Heading3>Self-host in your cloud account</Heading3>
             <Subheading className="mt-1">
-                Deploy the Gitpod infrastructure into your own cloud account and connect to your private network
+                Deploy the Nxpod infrastructure into your own cloud account and connect to your private network
             </Subheading>
 
             <div className="mt-8 flex flex-col space-y-2">
@@ -65,7 +65,7 @@ const SelfHostedCalloutCard = () => {
             </div>
 
             <LinkButton
-                href="https://www.gitpod.io/contact/enterprise-self-serve"
+                href="https://www.nxpod.io/contact/enterprise-self-serve"
                 isExternalUrl={true}
                 className="mt-8"
             >
@@ -80,7 +80,7 @@ const DeployedRegionCard = () => {
         <ConfigurationSettingsField className="bg-pk-surface-secondary">
             <Heading3>Choose your deployed region</Heading3>
             <Subheading className="mt-1">
-                Deploy Gitpod to any location, such as: United States, South America, Europe and Asia Pacific
+                Deploy Nxpod to any location, such as: United States, South America, Europe and Asia Pacific
             </Subheading>
 
             <div className="mt-8 flex flex-col space-y-2">
@@ -97,7 +97,7 @@ const DeployedRegionCard = () => {
             <LinkButton
                 variant="secondary"
                 className="mt-8 border border-pk-content-tertiary text-pk-content-primary bg-pk-surface-primary"
-                href="https://www.gitpod.io/docs/enterprise/overview#aws-support-and-regions"
+                href="https://www.nxpod.io/docs/enterprise/overview#aws-support-and-regions"
                 isExternalUrl={true}
             >
                 Documentation
@@ -117,7 +117,7 @@ const VPNCard = () => {
             <LinkButton
                 variant="secondary"
                 className="mt-8 border border-pk-content-tertiary text-pk-content-primary bg-pk-surface-primary"
-                href="https://www.gitpod.io/docs/enterprise/getting-started/networking#private-networking-configuration-highly-restrictive"
+                href="https://www.nxpod.io/docs/enterprise/getting-started/networking#private-networking-configuration-highly-restrictive"
                 isExternalUrl={true}
             >
                 Documentation

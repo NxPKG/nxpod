@@ -109,12 +109,12 @@ const q90 = (arr) => {
 
             const [avgMax, maxMax, q90Max, avgUsed, maxUsed, q90user] = (
                 await Promise.allSettled([
-                    query("avg_over_time(gitpod_jb_backend_memory_max_bytes"),
-                    query("max_over_time(gitpod_jb_backend_memory_max_bytes"),
-                    query("quantile_over_time(0.9, gitpod_jb_backend_memory_max_bytes"),
-                    query("avg_over_time(gitpod_jb_backend_memory_used_bytes"),
-                    query("max_over_time(gitpod_jb_backend_memory_used_bytes"),
-                    query("quantile_over_time(0.9, gitpod_jb_backend_memory_used_bytes"),
+                    query("avg_over_time(nxpod_jb_backend_memory_max_bytes"),
+                    query("max_over_time(nxpod_jb_backend_memory_max_bytes"),
+                    query("quantile_over_time(0.9, nxpod_jb_backend_memory_max_bytes"),
+                    query("avg_over_time(nxpod_jb_backend_memory_used_bytes"),
+                    query("max_over_time(nxpod_jb_backend_memory_used_bytes"),
+                    query("quantile_over_time(0.9, nxpod_jb_backend_memory_used_bytes"),
                 ])
             ).map((v) => {
                 if (v.status === "fulfilled") {

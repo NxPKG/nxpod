@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,14 +8,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gitpod-io/gitpod/gp-gcloud/cmd/compute"
+	"github.com/nxpkg/nxpod/gp-gcloud/cmd/compute"
 	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gp-gcloud",
-	Short: "Gcloud wrapper for internal gitpod usage",
+	Short: "Gcloud wrapper for internal nxpod usage",
 	Args:  cobra.MinimumNArgs(1),
 }
 

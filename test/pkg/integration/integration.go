@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -42,9 +42,9 @@ import (
 	"k8s.io/kubectl/pkg/cmd/util"
 	"sigs.k8s.io/e2e-framework/klient"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	ide "github.com/gitpod-io/gitpod/ide-service-api/config"
-	"github.com/gitpod-io/gitpod/test/pkg/integration/common"
+	"github.com/nxpkg/nxpod/common-go/log"
+	ide "github.com/nxpkg/nxpod/ide-service-api/config"
+	"github.com/nxpkg/nxpod/test/pkg/integration/common"
 )
 
 const (
@@ -650,7 +650,7 @@ func GetIDEConfig(namespace string, client klient.Client) (*ide.IDEConfig, error
 	return &config, nil
 }
 
-// ComponentType denotes a Gitpod component
+// ComponentType denotes a Nxpod component
 type ComponentType string
 
 const (

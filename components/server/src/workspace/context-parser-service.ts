@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceContext, User, CommitContext, GitCheckoutInfo, PullRequestContext } from "@gitpod/gitpod-protocol";
+import { WorkspaceContext, User, CommitContext, GitCheckoutInfo, PullRequestContext } from "@nxpod/nxpod-protocol";
 import { injectable, multiInject, inject } from "inversify";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { IPrefixContextParser, IContextParser } from "./context-parser";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { ConfigProvider } from "./config-provider";
-import { InvalidGitpodYMLError } from "@gitpod/public-api-common/lib/public-api-errors";
+import { InvalidNxpodYMLError } from "@nxpod/public-api-common/lib/public-api-errors";
 
 @injectable()
 export class ContextParser {
@@ -129,7 +129,7 @@ export class ContextParser {
                     config.config.mainConfiguration,
                 );
                 if (!CommitContext.is(mainRepoContext)) {
-                    throw new InvalidGitpodYMLError({
+                    throw new InvalidNxpodYMLError({
                         violations: [`Cannot find main repository '${config.config.mainConfiguration}'.`],
                     });
                 }
@@ -147,7 +147,7 @@ export class ContextParser {
                         subRepo.url,
                     )) as CommitContext;
                     if (!CommitContext.is(subContext)) {
-                        throw new InvalidGitpodYMLError({
+                        throw new InvalidNxpodYMLError({
                             violations: [`Cannot find sub-repository '${subRepo.url}'.`],
                         });
                     }

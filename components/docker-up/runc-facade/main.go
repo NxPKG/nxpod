@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -88,7 +88,7 @@ func createAndRunc(runcPath string, log *logrus.Logger) error {
 	}
 
 	// See here for more details on why retries are necessary.
-	// https://github.com/gitpod-io/gitpod/issues/12365
+	// https://github.com/nxpkg/nxpod/issues/12365
 	for i := 0; i <= RETRY; i++ {
 
 		cmd := exec.Command(runcPath, os.Args[1:]...)
@@ -104,7 +104,7 @@ func createAndRunc(runcPath string, log *logrus.Logger) error {
 			// Easing of on the pressure here lowers the likelihood of that error.
 			// NOTE(cw): glossing over races with delays is bad style, but also pragmatic.
 			//
-			// Context: https://linear.app/gitpod/issue/ENG-797/docker-containers-sometimes-fail-to-start
+			// Context: https://linear.app/nxpod/issue/ENG-797/docker-containers-sometimes-fail-to-start
 			time.Sleep(100 * time.Millisecond)
 			continue
 		}

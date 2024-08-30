@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/changelog
+module github.com/nxpkg/nxpod/changelog
 
 go 1.22
 

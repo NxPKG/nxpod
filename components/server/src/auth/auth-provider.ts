@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import express from "express";
-import { AuthProviderInfo, User, AuthProviderEntry, Token } from "@gitpod/gitpod-protocol";
+import { AuthProviderInfo, User, AuthProviderEntry, Token } from "@nxpod/nxpod-protocol";
 
-import { UserEnvVarValue } from "@gitpod/gitpod-protocol";
+import { UserEnvVarValue } from "@nxpod/nxpod-protocol";
 
 export const AuthProviderParams = Symbol("AuthProviderParams");
 export interface AuthProviderParams extends AuthProviderEntry {

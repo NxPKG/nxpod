@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,10 +7,10 @@
 import "source-map-support/register";
 
 import { start } from "./init";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { Container } from "inversify";
 import { productionContainerModule } from "./container-module";
-import { dbContainerModule } from "@gitpod/gitpod-db/lib/container-module";
+import { dbContainerModule } from "@nxpod/nxpod-db/lib/container-module";
 import { DataCacheRedis } from "./redis/data-cache";
 
 const container = new Container();

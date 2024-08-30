@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,7 +20,7 @@ import (
 
 	"github.com/shirou/gopsutil/process"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 // ProcessType referes to the kinds of prioritisable processes in the cgroup
@@ -126,7 +126,7 @@ func (c *ProcessPriorityV2) Apply(ctx context.Context, opts *PluginOptions) erro
 }
 
 var (
-	vsCodeNodeRegex = regexp.MustCompile("/home/gitpod/.vscode-server/bin/.*/node")
+	vsCodeNodeRegex = regexp.MustCompile("/home/nxpod/.vscode-server/bin/.*/node")
 	jetBrainsRegex  = regexp.MustCompile("/ide-desktop/.*/backend/plugins/remote-dev-server/selfcontained/lib")
 )
 
@@ -152,7 +152,7 @@ func determineProcessType(p *process.Process) ProcessType {
 		return ProcessCodeServerHelper
 	}
 
-	if strings.HasSuffix(cmd[0], "/ide/bin/gitpod-code") {
+	if strings.HasSuffix(cmd[0], "/ide/bin/nxpod-code") {
 		return ProcessIDE
 	}
 

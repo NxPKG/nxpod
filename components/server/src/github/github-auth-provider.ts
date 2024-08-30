@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable } from "inversify";
 import express from "express";
-import { AuthProviderInfo } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { AuthProviderInfo } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { GitHubScope } from "./scopes";
 import { AuthUserSetup } from "../auth/auth-provider";
 import { Octokit } from "@octokit/rest";
@@ -117,7 +117,7 @@ export class GitHubAuthProvider extends GenericAuthProvider {
                         return result[0].email;
                     }
                 }
-                // otherwise use GitHub's primary email as Gitpod's primary email
+                // otherwise use GitHub's primary email as Nxpod's primary email
                 return emails.filter((e) => e.primary)[0].email;
             };
 

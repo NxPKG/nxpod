@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -17,7 +17,7 @@ import (
 
 	"github.com/containerd/containerd/errdefs"
 	"github.com/containerd/containerd/remotes"
-	"github.com/gitpod-io/gitpod/image-builder/pkg/resolve"
+	"github.com/nxpkg/nxpod/image-builder/pkg/resolve"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -56,12 +56,12 @@ func TestStandaloneRefResolverResolve(t *testing.T) {
 		},
 		{
 			Name: "with-port",
-			Ref:  "some-internal-registry.customer.com:5000/gitpod/base-image:latest",
+			Ref:  "some-internal-registry.customer.com:5000/nxpod/base-image:latest",
 			ResolveResponse: ResolveResponse{
 				MF: &ociv1.Manifest{Config: ociv1.Descriptor{Size: 1}},
 			},
 			Expectation: Expectation{
-				Ref: "some-internal-registry.customer.com:5000/gitpod/base-image@sha256:25d33b2d291ce47c3e4059589766ed98fadab639577efe5e9c89e4a4b50888fc",
+				Ref: "some-internal-registry.customer.com:5000/nxpod/base-image@sha256:25d33b2d291ce47c3e4059589766ed98fadab639577efe5e9c89e4a4b50888fc",
 			},
 		},
 		{
@@ -100,7 +100,7 @@ func TestStandaloneRefResolverResolve(t *testing.T) {
 		},
 		{
 			Name: "not authorized",
-			Ref:  "registry-1.testing.gitpod-self-hosted.com:5000/gitpod/gitpod/workspace-full:latest",
+			Ref:  "registry-1.testing.nxpod-self-hosted.com:5000/nxpod/nxpod/workspace-full:latest",
 			ResolveResponse: ResolveResponse{
 				Error: errors.New("401 Unauthorized"),
 			},
@@ -110,9 +110,9 @@ func TestStandaloneRefResolverResolve(t *testing.T) {
 		},
 		{
 			Name: "dockerhub rate limit",
-			Ref:  "registry-1.docker.io:5000/gitpod/gitpod/workspace-full:latest-pulled-too-often",
+			Ref:  "registry-1.docker.io:5000/nxpod/nxpod/workspace-full:latest-pulled-too-often",
 			ResolveResponse: ResolveResponse{
-				Error: errors.New("httpReadSeeker: failed open: unexpected status code https://registry-1.docker.io/v2/gitpod/workspace-full/manifests/sha256:279f925ad6395f11f6b60e63d7efa5c0b26a853c6052327efbe29bbcc0bafd6a: 429 Too Many Requests - Server message: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit"),
+				Error: errors.New("httpReadSeeker: failed open: unexpected status code https://registry-1.docker.io/v2/nxpod/workspace-full/manifests/sha256:279f925ad6395f11f6b60e63d7efa5c0b26a853c6052327efbe29bbcc0bafd6a: 429 Too Many Requests - Server message: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit"),
 			},
 			Expectation: Expectation{
 				ErrorMatcher: resolve.TooManyRequestsMatcher,

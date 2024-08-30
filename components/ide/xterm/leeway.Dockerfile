@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2024 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 FROM node:20 as ide_installer
@@ -11,7 +11,7 @@ RUN apt update -y \
 RUN mkdir /build \
     && cd /build \
     && git init \
-    && git remote add origin https://github.com/gitpod-io/xterm-web-ide \
+    && git remote add origin https://github.com/nxpkg/xterm-web-ide \
     && git fetch origin $XTERM_COMMIT --depth=1 \
     && git reset --hard FETCH_HEAD
 WORKDIR /build

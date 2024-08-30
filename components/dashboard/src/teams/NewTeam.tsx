@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -45,11 +45,11 @@ export default function NewTeamPage() {
         <div className="flex flex-col w-96 mt-24 mx-auto items-center">
             <Heading1>New&nbsp;Organization</Heading1>
             <Subheading className="text-center">
-                <a href="https://www.gitpod.io/docs/configure/teams" className="gp-link">
+                <a href="https://www.nxpod.io/docs/configure/teams" className="gp-link">
                     Organizations
                 </a>{" "}
                 allow you to manage related{" "}
-                <a href="https://www.gitpod.io/docs/configure/projects" className="gp-link">
+                <a href="https://www.nxpod.io/docs/configure/projects" className="gp-link">
                     projects
                 </a>{" "}
                 and collaborate with other members.
@@ -67,7 +67,7 @@ export default function NewTeamPage() {
                         onChange={setName}
                     />
                     {!!creationError && (
-                        <p className="text-gitpod-red">
+                        <p className="text-nxpod-red">
                             {creationError.message.replace(/Request \w+ failed with message: /, "")}
                         </p>
                     )}

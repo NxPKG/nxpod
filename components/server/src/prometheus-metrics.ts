@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -14,7 +14,7 @@ export function registerServerMetrics(registry: prometheusClient.Registry) {
     registry.registerMetric(apiCallDurationHistogram);
     registry.registerMetric(httpRequestTotal);
     registry.registerMetric(httpRequestDuration);
-    registry.registerMetric(gitpodVersionInfo);
+    registry.registerMetric(nxpodVersionInfo);
     registry.registerMetric(instanceStartsSuccessTotal);
     registry.registerMetric(instanceStartsFailedTotal);
     registry.registerMetric(prebuildsStartedTotal);
@@ -56,23 +56,23 @@ export const grpcServerHandling = new prometheusClient.Histogram({
 });
 
 export const dbConnectionsTotal = new prometheusClient.Gauge({
-    name: "gitpod_typeorm_total_connections",
+    name: "nxpod_typeorm_total_connections",
     help: "Total number of connections in TypeORM pool",
 });
 
 export const dbConnectionsFree = new prometheusClient.Gauge({
-    name: "gitpod_typeorm_free_connections",
+    name: "nxpod_typeorm_free_connections",
     help: "Number of free connections in TypeORM pool",
 });
 
 export const dbConnectionsEnqueued = new prometheusClient.Counter({
-    name: "gitpod_typeorm_enqueued_connections",
+    name: "nxpod_typeorm_enqueued_connections",
     help: "Number of times requests put on the queue, because the pool was maxed out.",
 });
 
 const loginCompletedTotal = new prometheusClient.Counter({
-    name: "gitpod_login_completed_total",
-    help: "Total number of logins completed into gitpod, by status",
+    name: "nxpod_login_completed_total",
+    help: "Total number of logins completed into nxpod, by status",
     labelNames: ["status", "type"],
 });
 
@@ -91,7 +91,7 @@ type LoginCounterStatus =
     | "failed_client";
 
 const apiConnectionCounter = new prometheusClient.Counter({
-    name: "gitpod_server_api_connections_total",
+    name: "nxpod_server_api_connections_total",
     help: "Total amount of established API connections",
 });
 
@@ -100,7 +100,7 @@ export function increaseApiConnectionCounter() {
 }
 
 const sessionsWithJWTs = new prometheusClient.Counter({
-    name: "gitpod_server_requests_with_jwt_sessions_total",
+    name: "nxpod_server_requests_with_jwt_sessions_total",
     help: "Total amount of established API connections",
     labelNames: ["with_jwt"],
 });
@@ -110,7 +110,7 @@ export function reportSessionWithJWT(containedJWT: boolean) {
 }
 
 const jwtCookieIssued = new prometheusClient.Counter({
-    name: "gitpod_server_jwt_cookie_issued_total",
+    name: "nxpod_server_jwt_cookie_issued_total",
     help: "Total number of JWT cookies issued for login sessions",
 });
 
@@ -119,7 +119,7 @@ export function reportJWTCookieIssued() {
 }
 
 const apiConnectionClosedCounter = new prometheusClient.Counter({
-    name: "gitpod_server_api_connections_closed_total",
+    name: "nxpod_server_api_connections_closed_total",
     help: "Total amount of closed API connections",
 });
 
@@ -128,7 +128,7 @@ export function increaseApiConnectionClosedCounter() {
 }
 
 const apiCallCounter = new prometheusClient.Counter({
-    name: "gitpod_server_api_calls_total",
+    name: "nxpod_server_api_calls_total",
     help: "Total amount of API calls per method",
     labelNames: ["method", "statusCode"],
 });
@@ -138,7 +138,7 @@ export function increaseApiCallCounter(method: string, statusCode: number) {
 }
 
 export const apiCallDurationHistogram = new prometheusClient.Histogram({
-    name: "gitpod_server_api_calls_duration_seconds",
+    name: "nxpod_server_api_calls_duration_seconds",
     help: "Duration of API calls in seconds",
     labelNames: ["method", "statusCode"],
     buckets: [0.1, 0.5, 1, 5, 10, 15, 30],
@@ -149,7 +149,7 @@ export function observeAPICallsDuration(method: string, statusCode: number, dura
 }
 
 const httpRequestTotal = new prometheusClient.Counter({
-    name: "gitpod_server_http_requests_total",
+    name: "nxpod_server_http_requests_total",
     help: "Total amount of HTTP requests per express route",
     labelNames: ["method", "route", "statusCode"],
 });
@@ -159,7 +159,7 @@ export function increaseHttpRequestCounter(method: string, route: string, status
 }
 
 const httpRequestDuration = new prometheusClient.Histogram({
-    name: "gitpod_server_http_request_duration_seconds",
+    name: "nxpod_server_http_request_duration_seconds",
     help: "Duration of HTTP requests in seconds",
     labelNames: ["method", "route", "statusCode"],
     buckets: [0.01, 0.05, 0.1, 0.5, 1, 5, 10],
@@ -174,18 +174,18 @@ export function observeHttpRequestDuration(
     httpRequestDuration.observe({ method, route, statusCode }, durationInSeconds);
 }
 
-const gitpodVersionInfo = new prometheusClient.Gauge({
-    name: "gitpod_version_info",
-    help: "Gitpod's version",
-    labelNames: ["gitpod_version"],
+const nxpodVersionInfo = new prometheusClient.Gauge({
+    name: "nxpod_version_info",
+    help: "Nxpod's version",
+    labelNames: ["nxpod_version"],
 });
 
-export function setGitpodVersion(gitpod_version: string) {
-    gitpodVersionInfo.set({ gitpod_version }, 1);
+export function setNxpodVersion(nxpod_version: string) {
+    nxpodVersionInfo.set({ nxpod_version }, 1);
 }
 
 const instanceStartsSuccessTotal = new prometheusClient.Counter({
-    name: "gitpod_server_instance_starts_success_total",
+    name: "nxpod_server_instance_starts_success_total",
     help: "Total amount of successfully performed instance starts",
     labelNames: ["retries"],
 });
@@ -195,7 +195,7 @@ export function increaseSuccessfulInstanceStartCounter(retries: number = 0) {
 }
 
 const instanceStartsFailedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_instance_starts_failed_total",
+    name: "nxpod_server_instance_starts_failed_total",
     help: "Total amount of failed performed instance starts",
     labelNames: ["reason"],
 });
@@ -214,7 +214,7 @@ export function increaseFailedInstanceStartCounter(reason: FailedInstanceStartRe
 }
 
 const prebuildsStartedTotal = new prometheusClient.Counter({
-    name: "gitpod_prebuilds_started_total",
+    name: "nxpod_prebuilds_started_total",
     help: "Counter of total prebuilds started.",
 });
 
@@ -223,7 +223,7 @@ export function increasePrebuildsStartedCounter() {
 }
 
 export const stripeClientRequestsCompletedDurationSeconds = new prometheusClient.Histogram({
-    name: "gitpod_server_stripe_client_requests_completed_duration_seconds",
+    name: "nxpod_server_stripe_client_requests_completed_duration_seconds",
     help: "Completed stripe client requests, by outcome and operation",
     labelNames: ["operation", "outcome"],
 });
@@ -233,7 +233,7 @@ export function observeStripeClientRequestsCompleted(operation: string, outcome:
 }
 
 export const imageBuildsStartedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_image_builds_started_total",
+    name: "nxpod_server_image_builds_started_total",
     help: "counter of the total number of image builds started on server",
 });
 
@@ -242,7 +242,7 @@ export function increaseImageBuildsStartedTotal() {
 }
 
 export const imageBuildsCompletedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_image_builds_completed_total",
+    name: "nxpod_server_image_builds_completed_total",
     help: "counter of the total number of image builds recorded as completed on server",
     labelNames: ["outcome"],
 });
@@ -252,12 +252,12 @@ export function increaseImageBuildsCompletedTotal(outcome: "succeeded" | "failed
 }
 
 export const fgaRelationsUpdateClientLatency = new prometheusClient.Histogram({
-    name: "gitpod_fga_relationship_update_seconds",
+    name: "nxpod_fga_relationship_update_seconds",
     help: "Histogram of completed relationship updates",
 });
 
 export const spicedbClientLatency = new prometheusClient.Histogram({
-    name: "gitpod_spicedb_client_requests_completed_seconds",
+    name: "nxpod_spicedb_client_requests_completed_seconds",
     help: "Histogram of completed spicedb client requests",
     labelNames: ["operation", "outcome"],
 });
@@ -270,7 +270,7 @@ export function observeSpicedbClientLatency(operation: string, outcome: Error | 
 }
 
 export const jobStartedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_jobs_started_total",
+    name: "nxpod_server_jobs_started_total",
     help: "Total number of errors caught by an error boundary in the dashboard",
     labelNames: ["name"],
 });
@@ -280,7 +280,7 @@ export function reportJobStarted(name: string) {
 }
 
 export const jobsCompletedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_jobs_completed_total",
+    name: "nxpod_server_jobs_completed_total",
     help: "Total number of errors caught by an error boundary in the dashboard",
     labelNames: ["name", "success", "unitsOfWork"],
 });
@@ -290,7 +290,7 @@ export function reportJobCompleted(name: string, success: boolean, unitsOfWork?:
 }
 
 export const jobsDurationSeconds = new prometheusClient.Histogram({
-    name: "gitpod_server_jobs_duration_seconds",
+    name: "nxpod_server_jobs_duration_seconds",
     help: "Histogram of job duration",
     buckets: [10, 30, 60, 2 * 60, 3 * 60, 5 * 60, 10 * 60, 15 * 60],
     labelNames: ["name"],
@@ -298,7 +298,7 @@ export const jobsDurationSeconds = new prometheusClient.Histogram({
 
 // Total requests (with label on hit/miss)
 export const redisCacheRequestsTotal = new prometheusClient.Counter({
-    name: "gitpod_redis_cache_requests_total",
+    name: "nxpod_redis_cache_requests_total",
     help: "Total number of cache requests",
     labelNames: ["hit"],
 });
@@ -308,21 +308,21 @@ export function reportRedisCacheRequest(hit: boolean) {
 }
 
 export const redisCacheGetLatencyHistogram = new prometheusClient.Histogram({
-    name: "gitpod_redis_cache_get_latency_seconds",
+    name: "nxpod_redis_cache_get_latency_seconds",
     help: "Cache get latency in seconds",
     labelNames: ["cache_group"],
     buckets: [0.01, 0.1, 0.2, 0.5, 1, 2, 5, 10],
 });
 
 export const redisCacheSetLatencyHistogram = new prometheusClient.Histogram({
-    name: "gitpod_redis_cache_set_latency_seconds",
+    name: "nxpod_redis_cache_set_latency_seconds",
     help: "Cache set latency in seconds",
     labelNames: ["cache_group"],
     buckets: [0.01, 0.1, 0.2, 0.5, 1, 2, 5, 10],
 });
 
 export const redisUpdatesReceived = new prometheusClient.Counter({
-    name: "gitpod_redis_updates_received_total",
+    name: "nxpod_redis_updates_received_total",
     help: "Counter of udpates recieved over Redis Pub/Sub",
     labelNames: ["channel"],
 });
@@ -332,7 +332,7 @@ export function reportRedisUpdateReceived(channel: string) {
 }
 
 export const redisUpdatesCompletedTotal = new prometheusClient.Counter({
-    name: "gitpod_redis_updates_completed_total",
+    name: "nxpod_redis_updates_completed_total",
     help: "Counter of udpates recieved over Redis Pub/Sub which completed",
     labelNames: ["channel", "error"],
 });
@@ -342,13 +342,13 @@ export function reportRedisUpdateCompleted(channel: string, err?: Error) {
 }
 
 export const updateSubscribersRegistered = new prometheusClient.Gauge({
-    name: "gitpod_server_subscribers_registered",
+    name: "nxpod_server_subscribers_registered",
     help: "Gauge of subscribers registered",
     labelNames: ["type"],
 });
 
 export const guardAccessChecksTotal = new prometheusClient.Counter({
-    name: "gitpod_guard_access_checks_total",
+    name: "nxpod_guard_access_checks_total",
     help: "Counter for the number of guard access checks we do by type",
     labelNames: ["type"],
 });
@@ -359,7 +359,7 @@ export function reportGuardAccessCheck(type: GuardAccessCheckType) {
 }
 
 export const spicedbCheckRequestsTotal = new prometheusClient.Counter({
-    name: "gitpod_spicedb_requests_check_total",
+    name: "nxpod_spicedb_requests_check_total",
     help: "Counter for the number of check requests against SpiceDB",
     labelNames: ["consistency"],
 });
@@ -375,7 +375,7 @@ export function incSpiceDBRequestsCheckTotal(consistency: SpiceDBCheckConsistenc
 }
 
 export const authorizerSubjectId = new prometheusClient.Counter({
-    name: "gitpod_authorizer_subject_id_total",
+    name: "nxpod_authorizer_subject_id_total",
     help: "Counter for the number of authorizer permission checks",
     labelNames: ["match"],
 });
@@ -385,7 +385,7 @@ export function reportAuthorizerSubjectId(match: AuthorizerSubjectIdMatch) {
 }
 
 export const scmTokenRefreshRequestsTotal = new prometheusClient.Counter({
-    name: "gitpod_scm_token_refresh_requests_total",
+    name: "nxpod_scm_token_refresh_requests_total",
     help: "Counter for the number of token refresh requests we issue against SCM systems",
     labelNames: ["host", "result", "opportunisticRefresh"],
 });
@@ -407,7 +407,7 @@ export function reportScmTokenRefreshRequest(
 }
 
 export const scmTokenRefreshLatencyHistogram = new prometheusClient.Histogram({
-    name: "gitpod_scm_token_refresh_latency_seconds",
+    name: "nxpod_scm_token_refresh_latency_seconds",
     help: "SCM token refresh latency in seconds",
     labelNames: ["host"],
     buckets: [0.01, 0.1, 0.2, 0.5, 1, 2, 5, 10],

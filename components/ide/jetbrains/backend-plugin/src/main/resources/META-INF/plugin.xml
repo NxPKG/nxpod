@@ -1,5 +1,5 @@
 <!--
- Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  Licensed under the GNU Affero General Public License (AGPL).
  See License.AGPL.txt in the project root for license information.
 -->
@@ -8,9 +8,9 @@
     <xi:include href="/META-INF/extensions.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
     <id>io.gitpod.jetbrains.remote</id>
-    <name>Gitpod Remote</name>
-    <vendor>Gitpod</vendor>
-    <description>Provides integrations within a Gitpod workspace.</description>
+    <name>Nxpod Remote</name>
+    <vendor>Nxpod</vendor>
+    <description>Provides integrations within a Nxpod workspace.</description>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -29,114 +29,114 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="io.gitpod.jetbrains.remote.services.HeartbeatService"
                             preload="true"/>
-        <applicationService serviceImplementation="io.gitpod.jetbrains.remote.GitpodManager" preload="true"/>
+        <applicationService serviceImplementation="io.gitpod.jetbrains.remote.NxpodManager" preload="true"/>
 
-        <projectService serviceImplementation="io.gitpod.jetbrains.remote.internal.GitpodTerminalServiceImpl" client="controller"
+        <projectService serviceImplementation="io.gitpod.jetbrains.remote.internal.NxpodTerminalServiceImpl" client="controller"
                         preload="true"/>
 
-        <notificationGroup id="Gitpod Notifications" displayType="BALLOON" isLogByDefault="false"/>
+        <notificationGroup id="Nxpod Notifications" displayType="BALLOON" isLogByDefault="false"/>
 
-        <httpRequestHandler implementation="io.gitpod.jetbrains.remote.GitpodCLIService"/>
+        <httpRequestHandler implementation="io.gitpod.jetbrains.remote.NxpodCLIService"/>
 
-        <projectService serviceImplementation="io.gitpod.jetbrains.remote.GitpodClientProjectSessionTracker"
+        <projectService serviceImplementation="io.gitpod.jetbrains.remote.NxpodClientProjectSessionTracker"
                         client="controller" preload="true"/>
 
         <gateway.customization.name
-                implementation="io.gitpod.jetbrains.remote.GitpodGatewayClientCustomizationProvider"/>
+                implementation="io.gitpod.jetbrains.remote.NxpodGatewayClientCustomizationProvider"/>
         <gateway.customization.metrics id="gitpodMetricsProvider"
-                                       implementation="io.gitpod.jetbrains.remote.GitpodMetricProvider"/>
+                                       implementation="io.gitpod.jetbrains.remote.NxpodMetricProvider"/>
 
         <registryKey key="gitpod.forceUpdateMavenProjects.disabled" defaultValue="false"
                      description="Disable the forced update of Maven projects when IDE opens."
                      restartRequired="true"/>
 
 
-        <applicationService serviceInterface="io.gitpod.jetbrains.remote.GitpodIgnoredPortsForNotificationService"
-                            serviceImplementation="io.gitpod.jetbrains.remote.internal.GitpodIgnoredPortsForNotificationServiceImpl"
+        <applicationService serviceInterface="io.gitpod.jetbrains.remote.NxpodIgnoredPortsForNotificationService"
+                            serviceImplementation="io.gitpod.jetbrains.remote.internal.NxpodIgnoredPortsForNotificationServiceImpl"
                             preload="true"/>
     </extensions>
 
     <actions>
         <action id="io.gitpod.jetbrains.remote.actions.StopWorkspaceAction"
                 class="io.gitpod.jetbrains.remote.actions.StopWorkspaceAction"
-                text="Gitpod: Stop Workspace"
+                text="Nxpod: Stop Workspace"
                 icon="AllIcons.Actions.Pause">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.DashboardAction"
                 class="io.gitpod.jetbrains.remote.actions.DashboardAction"
-                text="Gitpod: Open Dashboard"
+                text="Nxpod: Open Dashboard"
                 icon="AllIcons.General.ProjectTab">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.ExtendWorkspaceTimeoutAction"
                 class="io.gitpod.jetbrains.remote.actions.ExtendWorkspaceTimeoutAction"
-                text="Gitpod: Extend Workspace Timeout"
+                text="Nxpod: Extend Workspace Timeout"
                 icon="AllIcons.Vcs.History">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.ContextAction"
                 class="io.gitpod.jetbrains.remote.actions.ContextAction"
-                text="Gitpod: Open Context"
+                text="Nxpod: Open Context"
                 icon="AllIcons.General.FitContent">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.SettingsAction"
                 class="io.gitpod.jetbrains.remote.actions.SettingsAction"
-                text="Gitpod: Open Settings"
+                text="Nxpod: Open Settings"
                 icon="AllIcons.General.Settings">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.ShareWorkspaceSnapshotAction"
                 class="io.gitpod.jetbrains.remote.actions.ShareWorkspaceSnapshotAction"
-                text="Gitpod: Share Workspace Snapshot"
+                text="Nxpod: Share Workspace Snapshot"
                 icon="AllIcons.Actions.Dump">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.AccessControlAction"
                 class="io.gitpod.jetbrains.remote.actions.AccessControlAction"
-                text="Gitpod: Open Access Control"
+                text="Nxpod: Open Access Control"
                 icon="AllIcons.Actions.Properties">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.DocumentationAction"
                 class="io.gitpod.jetbrains.remote.actions.DocumentationAction"
-                text="Gitpod: Documentation"
+                text="Nxpod: Documentation"
                 icon="AllIcons.General.ReaderMode">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.UpgradeSubscriptionAction"
                 class="io.gitpod.jetbrains.remote.actions.UpgradeSubscriptionAction"
-                text="Gitpod: Upgrade Subscription"
+                text="Nxpod: Upgrade Subscription"
                 icon="AllIcons.Actions.PreviousOccurence">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.CommunityChatAction"
                 class="io.gitpod.jetbrains.remote.actions.CommunityChatAction"
-                text="Gitpod: Open Community Chat"
+                text="Nxpod: Open Community Chat"
                 icon="AllIcons.General.Balloon">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.ReportIssueAction"
                 class="io.gitpod.jetbrains.remote.actions.ReportIssueAction"
-                text="Gitpod: Report Issue"
+                text="Nxpod: Report Issue"
                 icon="AllIcons.General.ShowWarning">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
         <action id="io.gitpod.jetbrains.remote.actions.FollowUsOnTwitterAction"
                 class="io.gitpod.jetbrains.remote.actions.FollowUsOnTwitterAction"
-                text="Gitpod: Follow Us On Twitter"
+                text="Nxpod: Follow Us On Twitter"
                 icon="AllIcons.Gutter.ExtAnnotation">
             <add-to-group group-id="UnattendedHostDropdownGroup" anchor="last"/>
         </action>
-        <action id="io.gitpod.jetbrains.remote.actions.GitpodCopyUrlAction"
-                class="io.gitpod.jetbrains.remote.actions.GitpodCopyUrlAction"
+        <action id="io.gitpod.jetbrains.remote.actions.NxpodCopyUrlAction"
+                class="io.gitpod.jetbrains.remote.actions.NxpodCopyUrlAction"
                 text="Copy URL"
                 icon="AllIcons.Actions.Copy">
             <add-to-group group-id="PortForwardingPortGroup" anchor="last"/>
         </action>
-        <action id="io.gitpod.jetbrains.remote.actions.GitpodCopyWebUrlAction"
-                class="io.gitpod.jetbrains.remote.actions.GitpodCopyWebUrlAction"
+        <action id="io.gitpod.jetbrains.remote.actions.NxpodCopyWebUrlAction"
+                class="io.gitpod.jetbrains.remote.actions.NxpodCopyWebUrlAction"
                 text="Copy Web URL"
                 icon="AllIcons.Actions.Copy">
             <add-to-group group-id="PortForwardingPortGroup" anchor="last"/>

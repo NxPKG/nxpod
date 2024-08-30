@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,14 +10,14 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/gitpod-io/gitpod/ws-proxy/pkg/common"
+	"github.com/nxpkg/nxpod/ws-proxy/pkg/common"
 	"github.com/google/go-cmp/cmp"
 	"github.com/gorilla/mux"
 )
 
 func TestWorkspaceRouter(t *testing.T) {
-	const wsHostRegex = "\\.ws\\.gitpod\\.dev"
-	const wsHostSuffix = ".ws.gitpod.dev"
+	const wsHostRegex = "\\.ws\\.nxpod\\.dev"
+	const wsHostSuffix = ".ws.nxpod.dev"
 	type Expectation struct {
 		WorkspaceID        string
 		WorkspacePort      string
@@ -37,23 +37,23 @@ func TestWorkspaceRouter(t *testing.T) {
 	}{
 		{
 			Name: "host-based workspace access",
-			URL:  "http://amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+			URL:  "http://amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			Headers: map[string]string{
-				forwardedHostnameHeader: "amaranth-smelt-9ba20cc1.ws.gitpod.dev",
+				forwardedHostnameHeader: "amaranth-smelt-9ba20cc1.ws.nxpod.dev",
 			},
 			Router:       HostBasedRouter(forwardedHostnameHeader, wsHostSuffix, wsHostRegex),
 			WSHostSuffix: wsHostSuffix,
 			Expected: Expectation{
 				WorkspaceID: "amaranth-smelt-9ba20cc1",
 				Status:      http.StatusOK,
-				URL:         "http://amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+				URL:         "http://amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			},
 		},
 		{
 			Name: "host-based debug workspace access",
-			URL:  "http://debug-amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+			URL:  "http://debug-amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			Headers: map[string]string{
-				forwardedHostnameHeader: "debug-amaranth-smelt-9ba20cc1.ws.gitpod.dev",
+				forwardedHostnameHeader: "debug-amaranth-smelt-9ba20cc1.ws.nxpod.dev",
 			},
 			Router:       HostBasedRouter(forwardedHostnameHeader, wsHostSuffix, wsHostRegex),
 			WSHostSuffix: wsHostSuffix,
@@ -61,14 +61,14 @@ func TestWorkspaceRouter(t *testing.T) {
 				DebugWorkspace: "true",
 				WorkspaceID:    "amaranth-smelt-9ba20cc1",
 				Status:         http.StatusOK,
-				URL:            "http://debug-amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+				URL:            "http://debug-amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			},
 		},
 		{
 			Name: "host-based port access",
-			URL:  "http://1234-amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+			URL:  "http://1234-amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			Headers: map[string]string{
-				forwardedHostnameHeader: "1234-amaranth-smelt-9ba20cc1.ws.gitpod.dev",
+				forwardedHostnameHeader: "1234-amaranth-smelt-9ba20cc1.ws.nxpod.dev",
 			},
 			Router:       HostBasedRouter(forwardedHostnameHeader, wsHostSuffix, wsHostRegex),
 			WSHostSuffix: wsHostSuffix,
@@ -76,14 +76,14 @@ func TestWorkspaceRouter(t *testing.T) {
 				WorkspaceID:   "amaranth-smelt-9ba20cc1",
 				WorkspacePort: "1234",
 				Status:        http.StatusOK,
-				URL:           "http://1234-amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+				URL:           "http://1234-amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			},
 		},
 		{
 			Name: "host-based debug port access",
-			URL:  "http://1234-debug-amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+			URL:  "http://1234-debug-amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			Headers: map[string]string{
-				forwardedHostnameHeader: "1234-debug-amaranth-smelt-9ba20cc1.ws.gitpod.dev",
+				forwardedHostnameHeader: "1234-debug-amaranth-smelt-9ba20cc1.ws.nxpod.dev",
 			},
 			Router:       HostBasedRouter(forwardedHostnameHeader, wsHostSuffix, wsHostRegex),
 			WSHostSuffix: wsHostSuffix,
@@ -92,7 +92,7 @@ func TestWorkspaceRouter(t *testing.T) {
 				WorkspaceID:    "amaranth-smelt-9ba20cc1",
 				WorkspacePort:  "1234",
 				Status:         http.StatusOK,
-				URL:            "http://1234-debug-amaranth-smelt-9ba20cc1.ws.gitpod.dev/",
+				URL:            "http://1234-debug-amaranth-smelt-9ba20cc1.ws.nxpod.dev/",
 			},
 		},
 	}
@@ -162,7 +162,7 @@ func TestMatchWorkspaceHostHeader(t *testing.T) {
 		PortVars         map[string]string
 	}
 
-	wsHostSuffix := ".gitpod.io"
+	wsHostSuffix := ".nxpod.io"
 	tests := []struct {
 		Name       string
 		HostHeader string
@@ -180,12 +180,12 @@ func TestMatchWorkspaceHostHeader(t *testing.T) {
 		{
 			Name:       "no match 2",
 			HostHeader: "0d9rkrj560blqb5s07q431ru9mhg19k1k4bqgd1dbprtgmt7vuhk" + wsHostSuffix,
-			Path:       "eu.gcr.io/gitpod-core-dev/build/ide/code:nightly@sha256:41aeea688aa0943bd746cb70c4ed378910f7c7ecf56f5f53ccb2b76c6b68e1a7/__files__/index.html",
+			Path:       "eu.gcr.io/nxpod-core-dev/build/ide/code:nightly@sha256:41aeea688aa0943bd746cb70c4ed378910f7c7ecf56f5f53ccb2b76c6b68e1a7/__files__/index.html",
 		},
 		{
 			Name:       "no match 3",
 			HostHeader: "v--0d9rkrj560blqb5s07q431ru9mhg19k1k4bqgd1dbprtgmt7vuhk" + wsHostSuffix,
-			Path:       "eu.gcr.io/gitpod-core-dev/build/ide/code:nightly@sha256:41aeea688aa0943bd746cb70c4ed378910f7c7ecf56f5f53ccb2b76c6b68e1a7/__files__/index.html",
+			Path:       "eu.gcr.io/nxpod-core-dev/build/ide/code:nightly@sha256:41aeea688aa0943bd746cb70c4ed378910f7c7ecf56f5f53ccb2b76c6b68e1a7/__files__/index.html",
 		},
 		{
 			Name:       "workspace match",

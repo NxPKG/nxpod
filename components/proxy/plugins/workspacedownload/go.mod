@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/workspacedownload
+module github.com/nxpkg/nxpod/proxy/plugins/workspacedownload
 
 go 1.21
 

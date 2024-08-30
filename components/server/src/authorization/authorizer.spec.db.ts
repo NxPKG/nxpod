@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 import { v1 } from "@authzed/authzed-node";
-import { TypeORM } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { TypeORM } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
@@ -17,7 +17,7 @@ import { v4 } from "uuid";
 import { Subject, SubjectId } from "../auth/subject-id";
 import { runWithRequestContext } from "../util/request-context";
 import { fail } from "assert";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 const expect = chai.expect;
 

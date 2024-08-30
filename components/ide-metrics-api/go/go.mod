@@ -1,9 +1,9 @@
-module github.com/gitpod-io/gitpod/ide-metrics-api
+module github.com/nxpkg/nxpod/ide-metrics-api
 
 go 1.22
 
 require (
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.3
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f
 	google.golang.org/genproto v0.0.0-20221118155620-16455021b5e6
@@ -14,7 +14,7 @@ require (
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
@@ -33,9 +33,9 @@ require (
 	golang.org/x/time v0.3.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../scrubber // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

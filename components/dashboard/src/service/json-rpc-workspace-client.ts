@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { CallOptions, PromiseClient } from "@connectrpc/connect";
 import { PartialMessage } from "@bufbuild/protobuf";
-import { WorkspaceService } from "@gitpod/public-api/lib/gitpod/v1/workspace_connect";
+import { WorkspaceService } from "@nxpod/public-api/lib/nxpod/v1/workspace_connect";
 import {
     CreateAndStartWorkspaceRequest,
     CreateAndStartWorkspaceResponse,
@@ -48,15 +48,15 @@ import {
     WorkspacePort_Protocol,
     ListWorkspaceSessionsRequest,
     ListWorkspaceSessionsResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { converter } from "./public-api";
-import { getGitpodService } from "./service";
-import { PaginationResponse } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
-import { generateAsyncGenerator } from "@gitpod/gitpod-protocol/lib/generate-async-generator";
-import { WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { parsePagination } from "@gitpod/public-api-common/lib/public-api-pagination";
+import { getNxpodService } from "./service";
+import { PaginationResponse } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
+import { generateAsyncGenerator } from "@nxpod/nxpod-protocol/lib/generate-async-generator";
+import { WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { parsePagination } from "@nxpod/public-api-common/lib/public-api-pagination";
 import { validate as uuidValidate } from "uuid";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceService> {
     async listWorkspaceSessions(
@@ -70,7 +70,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        const info = await getGitpodService().server.getWorkspace(request.workspaceId);
+        const info = await getNxpodService().server.getWorkspace(request.workspaceId);
         const workspace = converter.toWorkspace(info);
         const result = new GetWorkspaceResponse();
         result.workspace = workspace;
@@ -96,7 +96,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         const it = generateAsyncGenerator<WorkspaceInstance>(
             (queue) => {
                 try {
-                    const dispose = getGitpodService().registerClient({
+                    const dispose = getNxpodService().registerClient({
                         onInstanceUpdate: (instance) => {
                             queue.push(instance);
                         },
@@ -137,7 +137,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         }
         const { limit } = parsePagination(request.pagination, 50);
         let resultTotal = 0;
-        const results = await getGitpodService().server.getWorkspaces({
+        const results = await getNxpodService().server.getWorkspaces({
             limit,
             pinnedOnly: request.pinned,
             searchString: request.searchTerm,
@@ -164,7 +164,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.source.value.url) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "source is required");
         }
-        const response = await getGitpodService().server.createWorkspace({
+        const response = await getNxpodService().server.createWorkspace({
             organizationId: request.metadata.organizationId,
             ignoreRunningWorkspaceOnSameCommit: true,
             contextUrl: request.source.value.url,
@@ -188,7 +188,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        await getGitpodService().server.startWorkspace(request.workspaceId, {
+        await getNxpodService().server.startWorkspace(request.workspaceId, {
             forceDefaultImage: request.forceDefaultConfig,
         });
         const workspace = await this.getWorkspace({ workspaceId: request.workspaceId });
@@ -204,7 +204,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        const response = await getGitpodService().server.getDefaultWorkspaceImage({
+        const response = await getNxpodService().server.getDefaultWorkspaceImage({
             workspaceId: request.workspaceId,
         });
         const result = new GetWorkspaceDefaultImageResponse();
@@ -234,7 +234,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         ) {
             throw new ApplicationError(ErrorCodes.PRECONDITION_FAILED, "workspace is not running");
         }
-        await getGitpodService().server.sendHeartBeat({
+        await getNxpodService().server.sendHeartBeat({
             instanceId: workspace.workspace.status.instanceId,
             wasClosed: request.disconnected === true,
         });
@@ -248,7 +248,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        const ownerToken = await getGitpodService().server.getOwnerToken(request.workspaceId);
+        const ownerToken = await getNxpodService().server.getOwnerToken(request.workspaceId);
         const result = new GetWorkspaceOwnerTokenResponse();
         result.ownerToken = ownerToken;
         return result;
@@ -261,7 +261,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        const credentials = await getGitpodService().server.getIDECredentials(request.workspaceId);
+        const credentials = await getNxpodService().server.getIDECredentials(request.workspaceId);
         const result = new GetWorkspaceEditorCredentialsResponse();
         result.editorCredentials = credentials;
         return result;
@@ -284,7 +284,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         // check if user can access workspace first
         await this.getWorkspace({ workspaceId: request.workspaceId });
 
-        const server = getGitpodService().server;
+        const server = getNxpodService().server;
         const tasks: Array<Promise<any>> = [];
 
         if (request.metadata) {
@@ -341,7 +341,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        await getGitpodService().server.stopWorkspace(request.workspaceId);
+        await getNxpodService().server.stopWorkspace(request.workspaceId);
         const result = new StopWorkspaceResponse();
         return result;
     }
@@ -353,7 +353,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        await getGitpodService().server.deleteWorkspace(request.workspaceId);
+        await getNxpodService().server.deleteWorkspace(request.workspaceId);
         const result = new DeleteWorkspaceResponse();
         return result;
     }
@@ -365,7 +365,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!request.contextUrl) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "contextUrl is required");
         }
-        const context = await getGitpodService().server.resolveContext(request.contextUrl);
+        const context = await getNxpodService().server.resolveContext(request.contextUrl);
         return converter.toParseContextURLResponse({}, context);
     }
 
@@ -373,7 +373,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         request: PartialMessage<ListWorkspaceClassesRequest>,
         _options?: CallOptions | undefined,
     ): Promise<ListWorkspaceClassesResponse> {
-        const list = await getGitpodService().server.getSupportedWorkspaceClasses();
+        const list = await getNxpodService().server.getSupportedWorkspaceClasses();
         const response = new ListWorkspaceClassesResponse();
         response.pagination = new PaginationResponse();
         response.workspaceClasses = list.map((i) => converter.toWorkspaceClass(i));
@@ -387,7 +387,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!req.workspaceId) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "workspaceId is required");
         }
-        const snapshotId = await getGitpodService().server.takeSnapshot({
+        const snapshotId = await getNxpodService().server.takeSnapshot({
             workspaceId: req.workspaceId,
             dontWait: true,
         });
@@ -406,7 +406,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!req.snapshotId || !uuidValidate(req.snapshotId)) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "snapshotId is required");
         }
-        await getGitpodService().server.waitForSnapshot(req.snapshotId);
+        await getNxpodService().server.waitForSnapshot(req.snapshotId);
         return new WaitForWorkspaceSnapshotResponse();
     }
 
@@ -423,7 +423,7 @@ export class JsonRpcWorkspaceClient implements PromiseClient<typeof WorkspaceSer
         if (!req.admission && !req.protocol) {
             throw new ApplicationError(ErrorCodes.BAD_REQUEST, "admission or protocol is required");
         }
-        getGitpodService().server.openPort(req.workspaceId, {
+        getNxpodService().server.openPort(req.workspaceId, {
             port: Number(req.port),
             visibility: req.admission ? (req.admission === AdmissionLevel.EVERYONE ? "public" : "private") : undefined,
             protocol: req.protocol ? (req.protocol === WorkspacePort_Protocol.HTTPS ? "https" : "http") : undefined,

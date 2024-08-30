@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	connect "github.com/bufbuild/connect-go"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/namegen"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/namegen"
 	"github.com/google/uuid"
 	"github.com/relvacode/iso8601"
 	"google.golang.org/protobuf/proto"
@@ -30,15 +30,15 @@ func validateTeamID(ctx context.Context, id string) (uuid.UUID, error) {
 	return teamID, nil
 }
 
-func parseGitpodTimeStampOrDefault(s string) *timestamppb.Timestamp {
-	parsed, err := parseGitpodTimestamp(s)
+func parseNxpodTimeStampOrDefault(s string) *timestamppb.Timestamp {
+	parsed, err := parseNxpodTimestamp(s)
 	if err != nil {
 		return &timestamppb.Timestamp{}
 	}
 	return parsed
 }
 
-func parseGitpodTimestamp(input string) (*timestamppb.Timestamp, error) {
+func parseNxpodTimestamp(input string) (*timestamppb.Timestamp, error) {
 	parsed, err := iso8601.ParseString(input)
 	if err != nil {
 		return nil, err

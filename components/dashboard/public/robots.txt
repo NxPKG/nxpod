@@ -3,4 +3,4 @@ User-agent: *
 Disallow: /
 
 # We prevent indexing of all web app pages, because only public website/docs/community pages
-# are relevant for search results: https://github.com/gitpod-io/gitpod/issues/9607
+# are relevant for search results: https://github.com/nxpkg/nxpod/issues/9607

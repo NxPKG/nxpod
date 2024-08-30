@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,7 +7,7 @@
 import { FunctionComponent, useCallback, useState } from "react";
 import Modal, { ModalBody, ModalFooter, ModalHeader } from "../components/Modal";
 import { Button } from "@podkit/buttons/Button";
-import { Workspace } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { Workspace } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { useUpdateWorkspaceMutation } from "../data/workspaces/update-workspace-mutation";
 import { LoadingButton } from "@podkit/buttons/LoadingButton";
 
@@ -60,7 +60,7 @@ export const RenameWorkspaceModal: FunctionComponent<Props> = ({ workspace, onCl
             <ModalHeader>Rename Workspace</ModalHeader>
             <ModalBody>
                 {errorMessage.length > 0 ? (
-                    <div className="bg-kumquat-light rounded-md p-3 text-gitpod-red text-sm mb-2">{errorMessage}</div>
+                    <div className="bg-kumquat-light rounded-md p-3 text-nxpod-red text-sm mb-2">{errorMessage}</div>
                 ) : null}
                 <input
                     autoFocus

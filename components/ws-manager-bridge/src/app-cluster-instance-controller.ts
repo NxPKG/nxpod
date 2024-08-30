@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -16,7 +16,7 @@ import { WorkspaceInstanceController } from "./workspace-instance-controller";
 /**
  * The WorkspaceInstance lifecycle is split between application clusters and workspace clusters on the transition from
  * pending/building -> starting (cmp. WorkspacePhases here:
- * https://github.com/gitpod-io/gitpod/blob/008ea3fadc89d4817cf3effc8a5b30eaf469fb1c/components/gitpod-protocol/src/workspace-instance.ts#L111).
+ * https://github.com/nxpkg/nxpod/blob/008ea3fadc89d4817cf3effc8a5b30eaf469fb1c/components/gitpod-protocol/src/workspace-instance.ts#L111).
  *
  * Before the transition, WorkspaceInstances belong to the respective app cluster, denoted by "instance.region === 'eu02'", for exmaple.
  * After a WorkspaceInstance has been moved over to a workspace cluster, that moved "ownership" is reflected in said field.

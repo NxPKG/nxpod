@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -24,8 +24,8 @@ import (
 	"github.com/gorilla/mux"
 	"golang.org/x/xerrors"
 
-	blobserve_config "github.com/gitpod-io/gitpod/blobserve/pkg/config"
-	"github.com/gitpod-io/gitpod/common-go/log"
+	blobserve_config "github.com/nxpkg/nxpod/blobserve/pkg/config"
+	"github.com/nxpkg/nxpod/common-go/log"
 )
 
 // ResolverProvider provides new resolver
@@ -221,7 +221,7 @@ func (reg *Server) serve(w http.ResponseWriter, req *http.Request) {
 
 	// http.FileServer has a special case where ServeFile redirects any request where r.URL.Path
 	// ends in "/index.html" to the same path, without the final "index.html".
-	// We do not want this behaviour to make the gitpod-ide-index mechanism in ws-proxy work.
+	// We do not want this behaviour to make the nxpod-ide-index mechanism in ws-proxy work.
 	resourcePath := strings.TrimPrefix(req.URL.Path, pathPrefix)
 	if resourcePath == "/" {
 		resourcePath = "/index.html"

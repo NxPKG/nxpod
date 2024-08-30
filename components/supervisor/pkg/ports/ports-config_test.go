@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,13 +11,13 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 )
 
 func TestPortsConfig(t *testing.T) {
 	tests := []struct {
 		Desc         string
-		GitpodConfig *gitpod.GitpodConfig
+		NxpodConfig *nxpod.NxpodConfig
 		Expectation  *PortConfigTestExpectations
 	}{
 		{
@@ -26,8 +26,8 @@ func TestPortsConfig(t *testing.T) {
 		},
 		{
 			Desc: "instance port config",
-			GitpodConfig: &gitpod.GitpodConfig{
-				Ports: []*gitpod.PortsItems{
+			NxpodConfig: &nxpod.NxpodConfig{
+				Ports: []*nxpod.PortsItems{
 					{
 						Port:        9229,
 						OnOpen:      "ignore",
@@ -38,7 +38,7 @@ func TestPortsConfig(t *testing.T) {
 				},
 			},
 			Expectation: &PortConfigTestExpectations{
-				InstancePortConfigs: []*gitpod.PortConfig{
+				InstancePortConfigs: []*nxpod.PortConfig{
 					{
 						Port:        9229,
 						OnOpen:      "ignore",
@@ -51,8 +51,8 @@ func TestPortsConfig(t *testing.T) {
 		},
 		{
 			Desc: "instance range config",
-			GitpodConfig: &gitpod.GitpodConfig{
-				Ports: []*gitpod.PortsItems{
+			NxpodConfig: &nxpod.NxpodConfig{
+				Ports: []*nxpod.PortsItems{
 					{
 						Port:        "9229-9339",
 						OnOpen:      "ignore",
@@ -65,7 +65,7 @@ func TestPortsConfig(t *testing.T) {
 			Expectation: &PortConfigTestExpectations{
 				InstanceRangeConfigs: []*RangeConfig{
 					{
-						PortsItems: gitpod.PortsItems{
+						PortsItems: nxpod.PortsItems{
 							Port:        "9229-9339",
 							OnOpen:      "ignore",
 							Visibility:  "public",
@@ -81,8 +81,8 @@ func TestPortsConfig(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.Desc, func(t *testing.T) {
-			configService := &testGitpodConfigService{
-				configs: make(chan *gitpod.GitpodConfig),
+			configService := &testNxpodConfigService{
+				configs: make(chan *nxpod.NxpodConfig),
 				changes: make(chan *struct{}),
 			}
 			defer close(configService.configs)
@@ -101,9 +101,9 @@ func TestPortsConfig(t *testing.T) {
 
 			actual := &PortConfigTestExpectations{}
 
-			if test.GitpodConfig != nil {
+			if test.NxpodConfig != nil {
 				go func() {
-					configService.configs <- test.GitpodConfig
+					configService.configs <- test.NxpodConfig
 				}()
 				select {
 				case err := <-errors:
@@ -124,22 +124,22 @@ func TestPortsConfig(t *testing.T) {
 }
 
 type PortConfigTestExpectations struct {
-	InstancePortConfigs  []*gitpod.PortConfig
+	InstancePortConfigs  []*nxpod.PortConfig
 	InstanceRangeConfigs []*RangeConfig
 }
 
-type testGitpodConfigService struct {
-	configs chan *gitpod.GitpodConfig
+type testNxpodConfigService struct {
+	configs chan *nxpod.NxpodConfig
 	changes chan *struct{}
 }
 
-func (service *testGitpodConfigService) Watch(ctx context.Context) {
+func (service *testNxpodConfigService) Watch(ctx context.Context) {
 }
 
-func (service *testGitpodConfigService) Observe(ctx context.Context) <-chan *gitpod.GitpodConfig {
+func (service *testNxpodConfigService) Observe(ctx context.Context) <-chan *nxpod.NxpodConfig {
 	return service.configs
 }
 
-func (service *testGitpodConfigService) ObserveImageFile(ctx context.Context) <-chan *struct{} {
+func (service *testNxpodConfigService) ObserveImageFile(ctx context.Context) <-chan *struct{} {
 	return service.changes
 }

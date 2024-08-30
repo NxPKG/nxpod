@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,12 +13,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	"github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/api/config"
-	"github.com/gitpod-io/gitpod/content-service/pkg/logs"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/content-service/pkg/logs"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
 )
 
 // HeadlessLogService implements LogServiceServer

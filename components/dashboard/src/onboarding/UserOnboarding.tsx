@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { User } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
+import { User } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
 import { FunctionComponent, useCallback, useContext, useState } from "react";
-import gitpodIcon from "../icons/gitpod.svg";
+import nxpodIcon from "../icons/nxpod.svg";
 import { Separator } from "../components/Separator";
 import { useHistory, useLocation } from "react-router";
 import { StepUserInfo } from "./StepUserInfo";
@@ -118,7 +118,7 @@ const UserOnboarding: FunctionComponent<Props> = ({ user }) => {
         <div className="container">
             <div className="app-container">
                 <div className="flex items-center justify-center py-3">
-                    <img src={gitpodIcon} className="h-6" alt="Gitpod's logo" />
+                    <img src={nxpodIcon} className="h-6" alt="Nxpod's logo" />
                 </div>
                 <Separator />
                 <div className="mt-24">

@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -15,10 +15,10 @@ import (
 	"sync"
 	"syscall"
 
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/pprof"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/pprof"
+	"github.com/nxpkg/nxpod/common-go/tracing"
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/opentracing/opentracing-go"
@@ -52,7 +52,7 @@ func New(name string, opts ...Option) (*Server, error) {
 	server.httpMux = http.NewServeMux()
 	server.http = &http.Server{Handler: std.Handler("", middleware.New(middleware.Config{
 		Recorder: http_metrics.NewRecorder(http_metrics.Config{
-			Prefix:   "gitpod",
+			Prefix:   "nxpod",
 			Registry: server.MetricsRegistry(),
 		}),
 	}), server.httpMux)}

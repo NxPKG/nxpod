@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,13 +20,13 @@ import (
 	"github.com/containerd/containerd/remotes"
 	"github.com/containerd/containerd/remotes/docker"
 	"github.com/docker/cli/cli/config/configfile"
-	"github.com/gitpod-io/gitpod/common-go/baseserver"
-	"github.com/gitpod-io/gitpod/common-go/experiments"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/watch"
-	gitpodapi "github.com/gitpod-io/gitpod/gitpod-protocol"
-	api "github.com/gitpod-io/gitpod/ide-service-api"
-	"github.com/gitpod-io/gitpod/ide-service-api/config"
+	"github.com/nxpkg/nxpod/common-go/baseserver"
+	"github.com/nxpkg/nxpod/common-go/experiments"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/watch"
+	gitpodapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	api "github.com/nxpkg/nxpod/ide-service-api"
+	"github.com/nxpkg/nxpod/ide-service-api/config"
 	"github.com/heptiolabs/healthcheck"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sirupsen/logrus"
@@ -374,12 +374,12 @@ func (s *IDEServiceServer) ResolveWorkspaceConfig(ctx context.Context, req *api.
 
 	if os.Getenv("CONFIGCAT_SDK_KEY") != "" {
 		resp.Envvars = append(resp.Envvars, &api.EnvironmentVariable{
-			Name:  "GITPOD_CONFIGCAT_ENABLED",
+			Name:  "NXPOD_CONFIGCAT_ENABLED",
 			Value: "true",
 		})
 	}
 
-	var wsConfig *gitpodapi.GitpodConfig
+	var wsConfig *gitpodapi.NxpodConfig
 
 	if req.WorkspaceConfig != "" {
 		if err := json.Unmarshal([]byte(req.WorkspaceConfig), &wsConfig); err != nil {
@@ -453,11 +453,11 @@ func (s *IDEServiceServer) ResolveWorkspaceConfig(ctx context.Context, req *api.
 
 		if preferToolbox {
 			preferToolboxEnv := api.EnvironmentVariable{
-				Name:  "GITPOD_PREFER_TOOLBOX",
+				Name:  "NXPOD_PREFER_TOOLBOX",
 				Value: "true",
 			}
 			debuggingEnv := api.EnvironmentVariable{
-				Name:  "GITPOD_TOOLBOX_DEBUGGING",
+				Name:  "NXPOD_TOOLBOX_DEBUGGING",
 				Value: s.experimentsClient.GetStringValue(ctx, "enable_experimental_jbtb_debugging", "", experiments.Attributes{UserID: req.User.Id}),
 			}
 			resp.Envvars = append(resp.Envvars, &preferToolboxEnv, &debuggingEnv)
@@ -471,7 +471,7 @@ func (s *IDEServiceServer) ResolveWorkspaceConfig(ctx context.Context, req *api.
 				// user's settings for backward compatibility but in the future
 				// we want to make it represent the actual IDE.
 				ideAlias := api.EnvironmentVariable{
-					Name:  "GITPOD_IDE_ALIAS",
+					Name:  "NXPOD_IDE_ALIAS",
 					Value: userIdeName,
 				}
 				resp.Envvars = append(resp.Envvars, &ideAlias)
@@ -567,7 +567,7 @@ func (s *IDEServiceServer) ResolveWorkspaceConfig(ctx context.Context, req *api.
 	return
 }
 
-func getPrebuilds(config *gitpodapi.GitpodConfig, alias string) *gitpodapi.Prebuilds {
+func getPrebuilds(config *gitpodapi.NxpodConfig, alias string) *gitpodapi.Prebuilds {
 	if config == nil || config.Jetbrains == nil {
 		return nil
 	}
@@ -578,7 +578,7 @@ func getPrebuilds(config *gitpodapi.GitpodConfig, alias string) *gitpodapi.Prebu
 	return productConfig.Prebuilds
 }
 
-func getProductConfig(config *gitpodapi.GitpodConfig, alias string) *gitpodapi.JetbrainsProduct {
+func getProductConfig(config *gitpodapi.NxpodConfig, alias string) *gitpodapi.JetbrainsProduct {
 	defer func() {
 		if err := recover(); err != nil {
 			log.WithField("error", err).WithField("alias", alias).Error("failed to extract JB product config")

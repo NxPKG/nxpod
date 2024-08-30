@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,12 +19,12 @@ import (
 	"google.golang.org/grpc/status"
 	"k8s.io/apimachinery/pkg/util/wait"
 
-	"github.com/gitpod-io/gitpod/common-go/namegen"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
-	ide "github.com/gitpod-io/gitpod/ide-service-api/config"
-	imgbldr "github.com/gitpod-io/gitpod/image-builder/api"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/common-go/namegen"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	ide "github.com/nxpkg/nxpod/ide-service-api/config"
+	imgbldr "github.com/nxpkg/nxpod/image-builder/api"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 const (
@@ -315,12 +315,12 @@ func LaunchWorkspaceDirectly(t *testing.T, ctx context.Context, api *ComponentAP
 	}, stopWs, nil
 }
 
-// LaunchWorkspaceFromContextURL force-creates a new workspace using the Gitpod server API,
+// LaunchWorkspaceFromContextURL force-creates a new workspace using the Nxpod server API,
 // and waits for the workspace to start. If any step along the way fails, this function will
 // fail the test.
 //
 // When possible, prefer the less complex LaunchWorkspaceDirectly.
-func LaunchWorkspaceFromContextURL(t *testing.T, ctx context.Context, contextURL string, username string, api *ComponentAPI, serverOpts ...GitpodServerOpt) (*protocol.WorkspaceInfo, StopWorkspaceFunc, error) {
+func LaunchWorkspaceFromContextURL(t *testing.T, ctx context.Context, contextURL string, username string, api *ComponentAPI, serverOpts ...NxpodServerOpt) (*protocol.WorkspaceInfo, StopWorkspaceFunc, error) {
 	return LaunchWorkspaceWithOptions(t, ctx, &LaunchWorkspaceOptions{
 		ContextURL: contextURL,
 	}, username, api, serverOpts...)
@@ -332,20 +332,20 @@ type LaunchWorkspaceOptions struct {
 	IDESettings *protocol.IDESettings
 }
 
-// LaunchWorkspaceWithOptions force-creates a new workspace using the Gitpod server API,
+// LaunchWorkspaceWithOptions force-creates a new workspace using the Nxpod server API,
 // and waits for the workspace to start. If any step along the way fails, this function will
 // fail the test.
 //
 // When possible, prefer the less complex LaunchWorkspaceDirectly.
-func LaunchWorkspaceWithOptions(t *testing.T, ctx context.Context, opts *LaunchWorkspaceOptions, username string, api *ComponentAPI, serverOpts ...GitpodServerOpt) (*protocol.WorkspaceInfo, StopWorkspaceFunc, error) {
+func LaunchWorkspaceWithOptions(t *testing.T, ctx context.Context, opts *LaunchWorkspaceOptions, username string, api *ComponentAPI, serverOpts ...NxpodServerOpt) (*protocol.WorkspaceInfo, StopWorkspaceFunc, error) {
 	var (
-		defaultServerOpts []GitpodServerOpt
+		defaultServerOpts []NxpodServerOpt
 		stopWs            StopWorkspaceFunc = nil
 		err               error
 	)
 
 	if username != "" {
-		defaultServerOpts = []GitpodServerOpt{WithGitpodUser(username)}
+		defaultServerOpts = []NxpodServerOpt{WithNxpodUser(username)}
 	}
 
 	parallelLimiter <- struct{}{}
@@ -355,7 +355,7 @@ func LaunchWorkspaceWithOptions(t *testing.T, ctx context.Context, opts *LaunchW
 		}
 	}()
 
-	server, err := api.GitpodServer(append(defaultServerOpts, serverOpts...)...)
+	server, err := api.NxpodServer(append(defaultServerOpts, serverOpts...)...)
 	if err != nil {
 		return nil, nil, xerrors.Errorf("cannot start server: %w", err)
 	}
@@ -394,8 +394,8 @@ func LaunchWorkspaceWithOptions(t *testing.T, ctx context.Context, opts *LaunchW
 			if scode == codes.NotFound || scode == codes.Unavailable {
 				t.Log("retry strarting a workspace because cannnot start workspace: %w", err)
 				time.Sleep(1 * time.Second)
-				api.ClearGitpodServerClientCache()
-				server, err = api.GitpodServer(append(defaultServerOpts, serverOpts...)...)
+				api.ClearNxpodServerClientCache()
+				server, err = api.NxpodServer(append(defaultServerOpts, serverOpts...)...)
 				if err != nil {
 					return nil, nil, xerrors.Errorf("cannot start server: %w", err)
 				}

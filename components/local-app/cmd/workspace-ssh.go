@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	v1 "github.com/gitpod-io/gitpod/components/public-api/go/experimental/v1"
-	"github.com/gitpod-io/local-app/pkg/helper"
+	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
+	"github.com/nxpkg/local-app/pkg/helper"
 	"github.com/spf13/cobra"
 )
 
@@ -44,7 +44,7 @@ var workspaceSSHCmd = &cobra.Command{
 
 		workspaceID := args[0]
 
-		gitpod, err := getGitpodClient(cmd.Context())
+		gitpod, err := getNxpodClient(cmd.Context())
 		if err != nil {
 			return err
 		}

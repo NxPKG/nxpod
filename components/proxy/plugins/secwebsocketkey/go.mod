@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/secwebsocketkey
+module github.com/nxpkg/nxpod/proxy/plugins/secwebsocketkey
 
 go 1.21
 

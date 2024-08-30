@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { inject, injectable } from "inversify";
 import { v4 as uuidv4 } from "uuid";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { GitpodServer, Snapshot } from "@gitpod/gitpod-protocol";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { NxpodServer, Snapshot } from "@nxpod/nxpod-protocol";
 import { StorageClient } from "../storage/storage-client";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 export interface WaitForSnapshotOptions {
     workspaceOwner: string;
@@ -24,7 +24,7 @@ export class SnapshotService {
     @inject(WorkspaceDB) protected readonly workspaceDb: WorkspaceDB;
     @inject(StorageClient) protected readonly storageClient: StorageClient;
 
-    public async createSnapshot(options: GitpodServer.TakeSnapshotOptions, snapshotUrl: string): Promise<Snapshot> {
+    public async createSnapshot(options: NxpodServer.TakeSnapshotOptions, snapshotUrl: string): Promise<Snapshot> {
         const id = uuidv4();
         return await this.workspaceDb.storeSnapshot({
             id,

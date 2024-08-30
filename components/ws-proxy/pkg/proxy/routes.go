@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -28,17 +28,17 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/gitpod-io/golang-crypto/ssh"
+	"github.com/nxpkg/golang-crypto/ssh"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/ws-manager/api"
-	"github.com/gitpod-io/gitpod/ws-proxy/pkg/common"
-	"github.com/gitpod-io/gitpod/ws-proxy/pkg/sshproxy"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	"github.com/nxpkg/nxpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/ws-proxy/pkg/common"
+	"github.com/nxpkg/nxpod/ws-proxy/pkg/sshproxy"
 )
 
 // RouteHandlerConfig configures a RouteHandler.
@@ -55,13 +55,13 @@ type RouteHandlerConfigOpt func(*Config, *RouteHandlerConfig)
 // WithDefaultAuth enables workspace access authentication.
 func WithDefaultAuth(infoprov common.WorkspaceInfoProvider) RouteHandlerConfigOpt {
 	return func(config *Config, c *RouteHandlerConfig) {
-		c.WorkspaceAuthHandler = WorkspaceAuthHandler(config.GitpodInstallation.HostName, infoprov)
+		c.WorkspaceAuthHandler = WorkspaceAuthHandler(config.NxpodInstallation.HostName, infoprov)
 	}
 }
 
 // NewRouteHandlerConfig creates a new instance.
 func NewRouteHandlerConfig(config *Config, opts ...RouteHandlerConfigOpt) (*RouteHandlerConfig, error) {
-	corsHandler, err := corsHandler(config.CorsEnabled, config.GitpodInstallation.Scheme, config.GitpodInstallation.HostName)
+	corsHandler, err := corsHandler(config.CorsEnabled, config.NxpodInstallation.Scheme, config.NxpodInstallation.HostName)
 	if err != nil {
 		return nil, err
 	}
@@ -215,7 +215,7 @@ func (ir *ideRoutes) HandleCreateKeyRoute(route *mux.Route, hostKeyList []ssh.Si
 			return
 		}
 		resp.Privatekey = string(pem.EncodeToMemory(block))
-		resp.UserName = "gitpod"
+		resp.UserName = "nxpod"
 
 		var hostKey ssh.Signer
 		for _, hk := range hostKeyList {
@@ -281,7 +281,7 @@ func (ir *ideRoutes) HandleSSHOverWebsocketTunnel(route *mux.Route, sshGatewaySe
 		infomap[common.WorkspaceIDIdentifier] = coords.ID
 		infomap[common.DebugWorkspaceIdentifier] = strconv.FormatBool(coords.Debug)
 		ctx := context.WithValue(r.Context(), common.WorkspaceInfoIdentifier, infomap)
-		conn, err := gitpod.NewWebsocketConnection(ctx, wsConn, func(staleErr error) {
+		conn, err := nxpod.NewWebsocketConnection(ctx, wsConn, func(staleErr error) {
 			log.WithError(staleErr).Error("tunnel ssh: closing stale connection")
 		})
 		if err != nil {
@@ -385,7 +385,7 @@ func (ir *ideRoutes) HandleRoot(route *mux.Route) {
 	r.Use(ir.Config.CorsHandler)
 	r.Use(ir.workspaceMustExistHandler)
 
-	proxyPassWoSensitiveCookies := sensitiveCookieHandler(ir.Config.Config.GitpodInstallation.HostName)(proxyPass(ir.Config, ir.InfoProvider, workspacePodResolver))
+	proxyPassWoSensitiveCookies := sensitiveCookieHandler(ir.Config.Config.NxpodInstallation.HostName)(proxyPass(ir.Config, ir.InfoProvider, workspacePodResolver))
 	directIDEPass := ir.Config.WorkspaceAuthHandler(proxyPassWoSensitiveCookies)
 
 	// always hit the blobserver to ensure that blob is downloaded
@@ -488,7 +488,7 @@ func installBlobserveRoutes(r *mux.Router, config *RouteHandlerConfig, infoProvi
 	r.Use(logRouteHandlerHandler("BlobserveRootHandler"))
 
 	// filter all session cookies
-	r.Use(sensitiveCookieHandler(config.Config.GitpodInstallation.HostName))
+	r.Use(sensitiveCookieHandler(config.Config.NxpodInstallation.HostName))
 
 	targetResolver := func(cfg *Config, infoProvider common.WorkspaceInfoProvider, req *http.Request) (tgt *url.URL, err error) {
 		segments := strings.SplitN(req.URL.Path, imagePathSeparator, 2)
@@ -519,7 +519,7 @@ func installDebugWorkspaceRoutes(r *mux.Router, config *RouteHandlerConfig, info
 	r.Use(config.CorsHandler)
 	r.Use(config.WorkspaceAuthHandler)
 	// filter all session cookies
-	r.Use(sensitiveCookieHandler(config.Config.GitpodInstallation.HostName))
+	r.Use(sensitiveCookieHandler(config.Config.NxpodInstallation.HostName))
 
 	r.NewRoute().HandlerFunc(proxyPass(config, infoProvider, workspacePodResolver, withHTTPErrorHandler(showPortNotFoundPage)))
 	return nil
@@ -535,12 +535,12 @@ func installWorkspacePortRoutes(r *mux.Router, config *RouteHandlerConfig, infoP
 	r.Use(logHandler)
 	r.Use(config.WorkspaceAuthHandler)
 	// filter all session cookies
-	r.Use(sensitiveCookieHandler(config.Config.GitpodInstallation.HostName))
+	r.Use(sensitiveCookieHandler(config.Config.NxpodInstallation.HostName))
 
 	// forward request to workspace port
 	r.NewRoute().HandlerFunc(
 		func(rw http.ResponseWriter, r *http.Request) {
-			// a work-around for servers which does not respect case-insensitive headers, see https://github.com/gitpod-io/gitpod/issues/4047#issuecomment-856566526
+			// a work-around for servers which does not respect case-insensitive headers, see https://github.com/nxpkg/nxpod/issues/4047#issuecomment-856566526
 			for _, name := range []string{"Key", "Extensions", "Accept", "Protocol", "Version"} {
 				values := r.Header["Sec-Websocket-"+name]
 				if len(values) != 0 {
@@ -761,7 +761,7 @@ func sensitiveCookieHandler(domain string) func(h http.Handler) http.Handler {
 				if cookie == "" {
 					// because we're checking for nil above, it must be that the cookie name is invalid.
 					// Some languages have no quarels with producing invalid cookie names, so we must too.
-					// See https://github.com/gitpod-io/gitpod/issues/2470 for more details.
+					// See https://github.com/nxpkg/nxpod/issues/2470 for more details.
 					var (
 						originalName    = c.Name
 						replacementName = fmt.Sprintf("name%d%d", rand.Uint64(), time.Now().Unix())
@@ -782,7 +782,7 @@ func sensitiveCookieHandler(domain string) func(h http.Handler) http.Handler {
 			}
 
 			// using the header string slice here directly would result in multiple cookie header
-			// being sent. See https://github.com/gitpod-io/gitpod/issues/2121.
+			// being sent. See https://github.com/nxpkg/nxpod/issues/2121.
 			req.Header["Cookie"] = []string{strings.Join(header, ";")}
 
 			h.ServeHTTP(resp, req)
@@ -797,7 +797,7 @@ func workspaceMustExistHandler(config *Config, infoProvider common.WorkspaceInfo
 			coords := getWorkspaceCoords(req)
 			info := infoProvider.WorkspaceInfo(coords.ID)
 			if info == nil {
-				redirectURL := fmt.Sprintf("%s://%s/start/?not_found=true#%s", config.GitpodInstallation.Scheme, config.GitpodInstallation.HostName, coords.ID)
+				redirectURL := fmt.Sprintf("%s://%s/start/?not_found=true#%s", config.NxpodInstallation.Scheme, config.NxpodInstallation.HostName, coords.ID)
 				http.Redirect(resp, req, redirectURL, http.StatusFound)
 				return
 			}
@@ -954,8 +954,8 @@ func (t *blobserveTransport) redirect(image string, req *http.Request) (*http.Re
 
 func (t *blobserveTransport) asBlobserveURL(image string, path string) string {
 	return fmt.Sprintf("%s://ide.%s/blobserve/%s%s%s",
-		t.Config.GitpodInstallation.Scheme,
-		t.Config.GitpodInstallation.HostName,
+		t.Config.NxpodInstallation.Scheme,
+		t.Config.NxpodInstallation.HostName,
 		image,
 		imagePathSeparator,
 		path,
@@ -977,7 +977,7 @@ func servePortNotFoundPage(config *Config) (http.Handler, error) {
 	if err != nil {
 		return nil, err
 	}
-	page = bytes.ReplaceAll(page, []byte("https://gitpod.io"), []byte(fmt.Sprintf("%s://%s", config.GitpodInstallation.Scheme, config.GitpodInstallation.HostName)))
+	page = bytes.ReplaceAll(page, []byte("https://nxpod.io"), []byte(fmt.Sprintf("%s://%s", config.NxpodInstallation.Scheme, config.NxpodInstallation.HostName)))
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)

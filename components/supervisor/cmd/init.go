@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,10 +18,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/process"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/shared"
-	"github.com/gitpod-io/gitpod/supervisor/pkg/supervisor"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/process"
+	"github.com/nxpkg/nxpod/supervisor/pkg/shared"
+	"github.com/nxpkg/nxpod/supervisor/pkg/supervisor"
 	"github.com/prometheus/procfs"
 	reaper "github.com/ramr/go-reaper"
 	"github.com/spf13/cobra"
@@ -47,7 +47,7 @@ var initCmd = &cobra.Command{
 		// checking for it here allows to bubble up this error to the user
 		_, err = exec.LookPath("git")
 		if err != nil {
-			log.WithError(err).Fatal("cannot find git executable, make sure it is installed as part of gitpod image")
+			log.WithError(err).Fatal("cannot find git executable, make sure it is installed as part of nxpod image")
 		}
 
 		supervisorPath, err := os.Executable()
@@ -169,7 +169,7 @@ type shutdownLogger interface {
 }
 
 func newShutdownLogger() shutdownLogger {
-	file := "/workspace/.gitpod/supervisor-termination.log"
+	file := "/workspace/.nxpod/supervisor-termination.log"
 	f, err := os.Create(file)
 	if err != nil {
 		log.WithError(err).WithField("file", file).Error("Couldn't create shutdown log file")

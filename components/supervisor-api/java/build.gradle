@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-group 'io.gitpod.api'
+group 'io.nxpod.api'
 
 dependencies {
     compileOnly 'com.google.protobuf:protobuf-java:3.19.1'
@@ -22,7 +22,7 @@ dependencies {
 }
 
 application {
-    mainClass = 'io.gitpod.supervisor.testclient.TestClient'
+    mainClass = 'io.nxpod.supervisor.testclient.TestClient'
 }
 
 java {

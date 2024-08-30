@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { DisposableCollection, RateLimiterError, WorkspaceImageBuild } from "@gitpod/gitpod-protocol";
-import { IDEOptions } from "@gitpod/gitpod-protocol/lib/ide-protocol";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { DisposableCollection, RateLimiterError, WorkspaceImageBuild } from "@nxpod/nxpod-protocol";
+import { IDEOptions } from "@nxpod/nxpod-protocol/lib/ide-protocol";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import EventEmitter from "events";
 import * as queryString from "query-string";
 import React, { Suspense, useEffect, useMemo } from "react";
@@ -15,7 +15,7 @@ import Arrow from "../components/Arrow";
 import ContextMenu from "../components/ContextMenu";
 import PendingChangesDropdown from "../components/PendingChangesDropdown";
 import PrebuildLogs from "../components/PrebuildLogs";
-import { getGitpodService, gitpodHostUrl, getIDEFrontendService, IDEFrontendService } from "../service/service";
+import { getNxpodService, nxpodHostUrl, getIDEFrontendService, IDEFrontendService } from "../service/service";
 import { StartPage, StartPhase, StartWorkspaceError } from "./StartPage";
 import ConnectToSSHModal from "../workspaces/ConnectToSSHModal";
 import Alert from "../components/Alert";
@@ -32,7 +32,7 @@ import {
     Workspace,
     WorkspacePhase_Phase,
     WorkspaceSpec_WorkspaceType,
-} from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { PartialMessage } from "@bufbuild/protobuf";
 import { trackEvent } from "../Analytics";
 import { fromWorkspaceName } from "../workspaces/RenameWorkspaceModal";
@@ -45,7 +45,7 @@ export interface StartWorkspaceProps {
     workspaceId: string;
     runsInIFrame: boolean;
     /**
-     * This flag is used to break the autostart-cycle explained in https://github.com/gitpod-io/gitpod/issues/8043
+     * This flag is used to break the autostart-cycle explained in https://github.com/nxpkg/nxpod/issues/8043
      */
     dontAutostart: boolean;
 }
@@ -116,7 +116,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
     private readonly toDispose = new DisposableCollection();
     componentWillMount() {
         if (this.props.runsInIFrame) {
-            this.ideFrontendService = getIDEFrontendService(this.props.workspaceId, sessionId, getGitpodService());
+            this.ideFrontendService = getIDEFrontendService(this.props.workspaceId, sessionId, getNxpodService());
             this.toDispose.push(
                 this.ideFrontendService.onSetState((data) => {
                     if (data.ideFrontendFailureCause) {
@@ -153,7 +153,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
             );
             this.toDispose.push(watchDispose);
             this.toDispose.push(
-                getGitpodService().registerClient({
+                getNxpodService().registerClient({
                     notifyDidOpenConnection: () => this.fetchWorkspaceInfo(undefined),
                 }),
             );
@@ -236,7 +236,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
             console.error(normalizedError);
 
             if (normalizedError?.code === ErrorCodes.USER_BLOCKED) {
-                this.redirectTo(gitpodHostUrl.with({ pathname: "/blocked" }).toString());
+                this.redirectTo(nxpodHostUrl.with({ pathname: "/blocked" }).toString());
                 return;
             }
             this.setState({ error: normalizedError });
@@ -244,7 +244,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
     }
 
     /**
-     * TODO(gpl) Ideally this can be pushed into the GitpodService implementation. But to get started we hand-roll it here.
+     * TODO(gpl) Ideally this can be pushed into the NxpodService implementation. But to get started we hand-roll it here.
      * @param workspaceId
      * @param options
      * @returns
@@ -318,7 +318,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
      * what support it was started with.
      */
     protected async fetchIDEOptions() {
-        const ideOptions = await getGitpodService().server.getIDEOptions();
+        const ideOptions = await getNxpodService().server.getIDEOptions();
         this.setState({ ideOptions });
     }
 
@@ -384,7 +384,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
             // here we want to point to the original context, w/o any modifiers "workspace" was started with (as this might have been a manually triggered prebuild!)
             const contextURL = this.state.workspace.metadata?.originalContextUrl;
             if (contextURL) {
-                this.redirectTo(gitpodHostUrl.withContext(contextURL.toString()).toString());
+                this.redirectTo(nxpodHostUrl.withContext(contextURL.toString()).toString());
             } else {
                 console.error(`unable to parse contextURL: ${contextURL}`);
             }
@@ -404,7 +404,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
             let code: number | undefined = undefined;
             fetchError = undefined;
             try {
-                const authURL = gitpodHostUrl.asWorkspaceAuth(instanceID);
+                const authURL = nxpodHostUrl.asWorkspaceAuth(instanceID);
                 const response = await fetch(authURL.toString());
                 code = response.status;
             } catch (err) {
@@ -601,7 +601,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
                                         },
                                         {
                                             title: "Go to Dashboard",
-                                            href: gitpodHostUrl.asWorkspacePage().toString(),
+                                            href: nxpodHostUrl.asWorkspacePage().toString(),
                                             target: "_parent",
                                         },
                                     ]}
@@ -620,7 +620,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
                                         className="gp-link"
                                         target="_blank"
                                         rel="noreferrer"
-                                        href={gitpodHostUrl.asPreferences().toString()}
+                                        href={nxpodHostUrl.asPreferences().toString()}
                                     >
                                         user preferences
                                     </a>
@@ -678,7 +678,7 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
                             </div>
                         </div>
                         <div className="mt-10 flex justify-center">
-                            <a target="_parent" href={gitpodHostUrl.asWorkspacePage().toString()}>
+                            <a target="_parent" href={nxpodHostUrl.asWorkspacePage().toString()}>
                                 <Button variant="secondary">Go to Dashboard</Button>
                             </a>
                         </div>
@@ -727,10 +727,10 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
                             className="justify-center"
                         />
                         <div className="mt-10 justify-center flex space-x-2">
-                            <a target="_parent" href={gitpodHostUrl.asWorkspacePage().toString()}>
+                            <a target="_parent" href={nxpodHostUrl.asWorkspacePage().toString()}>
                                 <Button variant="secondary">Go to Dashboard</Button>
                             </a>
-                            <a target="_parent" href={gitpodHostUrl.asStart(this.state.workspace.id).toString()}>
+                            <a target="_parent" href={nxpodHostUrl.asStart(this.state.workspace.id).toString()}>
                                 <Button>Open Workspace</Button>
                             </a>
                         </div>
@@ -770,7 +770,7 @@ function ImageBuildView(props: ImageBuildViewProps) {
             }
             registered = true;
 
-            getGitpodService()
+            getNxpodService()
                 .server.watchWorkspaceImageBuildLogs(props.workspaceId)
                 .catch((err) => {
                     registered = false;
@@ -782,7 +782,7 @@ function ImageBuildView(props: ImageBuildViewProps) {
         };
         watchBuild();
 
-        const toDispose = getGitpodService().registerClient({
+        const toDispose = getNxpodService().registerClient({
             notifyDidOpenConnection: () => {
                 registered = false; // new connection, we're not registered anymore
                 watchBuild();
@@ -817,7 +817,7 @@ function ImageBuildView(props: ImageBuildViewProps) {
                             💡 You can use the <code>gp validate</code> command to validate the workspace configuration
                             from the editor terminal. &nbsp;
                             <a
-                                href="https://www.gitpod.io/docs/configure/workspaces/workspace-image#trying-out-changes-to-your-dockerfile"
+                                href="https://www.nxpod.io/docs/configure/workspaces/workspace-image#trying-out-changes-to-your-dockerfile"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="gp-link"

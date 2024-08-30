@@ -1,15 +1,15 @@
-module github.com/gitpod-io/gitpod/ws-proxy
+module github.com/nxpkg/nxpod/ws-proxy
 
 go 1.22.2
 
 require (
 	github.com/bombsimon/logrusr/v2 v2.0.1
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/gitpod-protocol v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/server/go v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/supervisor/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/gitpod/ws-manager/api v0.0.0-00010101000000-000000000000
-	github.com/gitpod-io/golang-crypto v0.0.0-20231122075959-de838e9cb174
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/server/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/ws-manager/api v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/golang-crypto v0.0.0-20231122075959-de838e9cb174
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
 	github.com/google/go-cmp v0.6.0
 	github.com/gorilla/handlers v1.5.1
@@ -39,8 +39,8 @@ require (
 	github.com/evanphx/json-patch/v5 v5.8.0 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
-	github.com/gitpod-io/gitpod/content-service/api v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/jsonreference v0.20.2 // indirect
@@ -105,23 +105,23 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../nxpod-protocol/go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service => ../content-service // leeway
+replace github.com/nxpkg/nxpod/content-service => ../content-service // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/registry-facade/api => ../registry-facade-api/go // leeway
+replace github.com/nxpkg/nxpod/registry-facade/api => ../registry-facade-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/supervisor/api => ../supervisor-api/go // leeway
+replace github.com/nxpkg/nxpod/supervisor/api => ../supervisor-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-manager/api => ../ws-manager-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-manager/api => ../ws-manager-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/server/go => ../server/go // leeway
+replace github.com/nxpkg/nxpod/server/go => ../server/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

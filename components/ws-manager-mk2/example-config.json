@@ -20,7 +20,7 @@
     },
     "urlTemplate": "https://{{ .Prefix }}.ws.foo.com",
     "portUrlTemplate": "https://{{ .WorkspacePort }}-{{ .Prefix }}.ws.foo.com",
-    "workspaceHostPath": "/var/gitpod/workspaces",
+    "workspaceHostPath": "/var/nxpod/workspaces",
     "heartbeatInterval": "30s",
     "hostURL": "https://foo.com",
     "reconnectionInterval": "30s",

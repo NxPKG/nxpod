@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -12,8 +12,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 )
 
 var callServerCmd = &cobra.Command{
@@ -28,7 +28,7 @@ var callServerCmd = &cobra.Command{
 		)
 		defer cancel()
 
-		api, err := gitpod.ConnectToServer(fmt.Sprintf("ws://%s/api/v1", host), gitpod.ConnectToServerOpts{
+		api, err := nxpod.ConnectToServer(fmt.Sprintf("ws://%s/api/v1", host), nxpod.ConnectToServerOpts{
 			Token: token,
 			Log:   log.Log,
 		})
@@ -68,5 +68,5 @@ var callServerCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(callServerCmd)
 
-	callServerCmd.Flags().String("workspace-id", os.Getenv("GITPOD_WORKSPACE_ID"), "workspace ID to listen for")
+	callServerCmd.Flags().String("workspace-id", os.Getenv("NXPOD_WORKSPACE_ID"), "workspace ID to listen for")
 }

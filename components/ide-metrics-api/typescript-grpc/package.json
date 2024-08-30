@@ -1,5 +1,5 @@
 {
-  "name": "@gitpod/ide-metrics-api-grpc",
+  "name": "@nxpod/ide-metrics-api-grpc",
   "version": "0.0.1",
   "license": "UNLICENSED",
   "scripts": {

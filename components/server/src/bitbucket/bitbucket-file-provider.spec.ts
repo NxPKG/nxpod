@@ -1,10 +1,10 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Commit, Repository, User } from "@gitpod/gitpod-protocol";
+import { Commit, Repository, User } from "@nxpod/nxpod-protocol";
 import * as chai from "chai";
 import { Container, ContainerModule } from "inversify";
 import { retries, skip, suite, test, timeout } from "@testdeck/mocha";
@@ -16,9 +16,9 @@ import { BitbucketApiFactory, BasicAuthBitbucketApiFactory } from "./bitbucket-a
 import { BitbucketFileProvider } from "./bitbucket-file-provider";
 import { BitbucketTokenHelper } from "./bitbucket-token-handler";
 const expect = chai.expect;
-import { ifEnvVarNotSet } from "@gitpod/gitpod-protocol/lib/util/skip-if";
+import { ifEnvVarNotSet } from "@nxpod/nxpod-protocol/lib/util/skip-if";
 
-@suite(timeout(10000), retries(2), skip(ifEnvVarNotSet("GITPOD_TEST_TOKEN_BITBUCKET")))
+@suite(timeout(10000), retries(2), skip(ifEnvVarNotSet("NXPOD_TEST_TOKEN_BITBUCKET")))
 class TestBitbucketFileProvider {
     protected fileProvider: BitbucketFileProvider;
     protected user: User;
@@ -66,7 +66,7 @@ class TestBitbucketFileProvider {
 
     @test public async testGetFileContents() {
         const result = await this.fileProvider.getFileContent(
-            { repository: { owner: "gitpod", name: "integration-tests" }, revision: "5a24a0c" } as Commit,
+            { repository: { owner: "nxpod", name: "integration-tests" }, revision: "5a24a0c" } as Commit,
             this.user,
             "README.md",
         );
@@ -77,7 +77,7 @@ This is the readme of the second branch.`);
 
     @test public async testGetLastChangeRevision() {
         const result = await this.fileProvider.getLastChangeRevision(
-            { owner: "gitpod", name: "integration-tests" } as Repository,
+            { owner: "nxpod", name: "integration-tests" } as Repository,
             "second-branch",
             this.user,
             "README.md",

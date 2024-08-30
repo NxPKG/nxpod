@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -10,8 +10,8 @@ import { useState, useEffect } from "react";
 import TeamDetail from "./TeamDetail";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { getGitpodService } from "../service/service";
-import { AdminGetListResult, Team } from "@gitpod/gitpod-protocol";
+import { getNxpodService } from "../service/service";
+import { AdminGetListResult, Team } from "@nxpod/nxpod-protocol";
 import Label from "./Label";
 import { AdminPageHeader } from "./AdminPageHeader";
 import Pagination from "../Pagination/Pagination";
@@ -44,7 +44,7 @@ export function TeamsSearch() {
             if (foundTeam) {
                 setCurrentTeam(foundTeam);
             } else {
-                getGitpodService()
+                getNxpodService()
                     .server.adminGetTeamById(teamId)
                     .then((team) => setCurrentTeam(team))
                     .catch((e) => console.error(e));
@@ -62,7 +62,7 @@ export function TeamsSearch() {
     const search = async (page: number = 1) => {
         setSearching(true);
         try {
-            const result = await getGitpodService().server.adminGetTeams({
+            const result = await getNxpodService().server.adminGetTeams({
                 searchTerm,
                 limit: pageLength,
                 orderBy: "creationTime",

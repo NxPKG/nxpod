@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -25,12 +25,12 @@ import (
 	"golang.org/x/xerrors"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	csapi "github.com/gitpod-io/gitpod/content-service/api"
-	"github.com/gitpod-io/gitpod/content-service/pkg/archive"
-	wsinit "github.com/gitpod-io/gitpod/content-service/pkg/initializer"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	csapi "github.com/nxpkg/nxpod/content-service/api"
+	"github.com/nxpkg/nxpod/content-service/pkg/archive"
+	wsinit "github.com/nxpkg/nxpod/content-service/pkg/initializer"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
 )
 
 // RunInitializerOpts configure RunInitializer
@@ -140,10 +140,10 @@ func RunInitializer(ctx context.Context, destination string, initializer *csapi.
 	}
 
 	if opts.GID == 0 {
-		opts.GID = wsinit.GitpodGID
+		opts.GID = wsinit.NxpodGID
 	}
 	if opts.UID == 0 {
-		opts.UID = wsinit.GitpodUID
+		opts.UID = wsinit.NxpodUID
 	}
 
 	tmpdir, err := os.MkdirTemp("", "content-init")
@@ -329,7 +329,7 @@ func RunInitializerChild() (err error) {
 	rs := &remoteContentStorage{RemoteContent: initmsg.RemoteContent}
 
 	dst := initmsg.Destination
-	initializer, err := wsinit.NewFromRequest(ctx, dst, rs, &req, wsinit.NewFromRequestOpts{ForceGitpodUserForGit: false})
+	initializer, err := wsinit.NewFromRequest(ctx, dst, rs, &req, wsinit.NewFromRequestOpts{ForceNxpodUserForGit: false})
 	if err != nil {
 		return err
 	}
@@ -344,9 +344,9 @@ func RunInitializerChild() (err error) {
 		return err
 	}
 
-	// some workspace content may have a `/dst/.gitpod` file or directory. That would break
-	// the workspace ready file placement (see https://github.com/gitpod-io/gitpod/issues/7694).
-	err = wsinit.EnsureCleanDotGitpodDirectory(ctx, dst)
+	// some workspace content may have a `/dst/.nxpod` file or directory. That would break
+	// the workspace ready file placement (see https://github.com/nxpkg/nxpod/issues/7694).
+	err = wsinit.EnsureCleanDotNxpodDirectory(ctx, dst)
 	if err != nil {
 		return err
 	}

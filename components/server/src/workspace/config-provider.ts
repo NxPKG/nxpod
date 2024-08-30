@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,7 +8,7 @@ import { inject, injectable } from "inversify";
 import * as path from "path";
 import * as crypto from "crypto";
 
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     User,
     WorkspaceConfig,
@@ -22,23 +22,23 @@ import {
     AdditionalContentContext,
     WithDefaultConfig,
     ProjectConfig,
-} from "@gitpod/gitpod-protocol";
-import { GitpodFileParser } from "@gitpod/gitpod-protocol/lib/gitpod-file-parser";
+} from "@nxpod/nxpod-protocol";
+import { NxpodFileParser } from "@nxpod/nxpod-protocol/lib/nxpod-file-parser";
 
 import { ConfigurationService } from "../config/configuration-service";
 import { HostContextProvider } from "../auth/host-context-provider";
 import { AuthorizationService } from "../user/authorization-service";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { Config } from "../config";
 import { EntitlementService } from "../billing/entitlement-service";
-import { TeamDB } from "@gitpod/gitpod-db/lib";
-import { InvalidGitpodYMLError } from "@gitpod/public-api-common/lib/public-api-errors";
+import { TeamDB } from "@nxpod/nxpod-db/lib";
+import { InvalidNxpodYMLError } from "@nxpod/public-api-common/lib/public-api-errors";
 
 const POD_PATH_WORKSPACE_BASE = "/workspace";
 
 @injectable()
 export class ConfigProvider {
-    @inject(GitpodFileParser) protected readonly gitpodParser: GitpodFileParser;
+    @inject(NxpodFileParser) protected readonly nxpodParser: NxpodFileParser;
     @inject(HostContextProvider) protected readonly hostContextProvider: HostContextProvider;
     @inject(AuthorizationService) protected readonly authService: AuthorizationService;
     @inject(Config) protected readonly config: Config;
@@ -144,13 +144,13 @@ export class ConfigProvider {
         try {
             let customConfig: WorkspaceConfig | undefined;
             const configBasePath = "";
-            if (AdditionalContentContext.is(commit) && commit.additionalFiles[".gitpod.yml"]) {
-                customConfigString = commit.additionalFiles[".gitpod.yml"];
-                const parseResult = this.gitpodParser.parse(customConfigString);
+            if (AdditionalContentContext.is(commit) && commit.additionalFiles[".nxpod.yml"]) {
+                customConfigString = commit.additionalFiles[".nxpod.yml"];
+                const parseResult = this.nxpodParser.parse(customConfigString);
                 customConfig = parseResult.config;
                 customConfig._origin = "additional-content";
                 if (parseResult.validationErrors) {
-                    const err = new InvalidGitpodYMLError({
+                    const err = new InvalidNxpodYMLError({
                         violations: parseResult.validationErrors,
                     });
                     // this is not a system error but a user misconfiguration
@@ -170,7 +170,7 @@ export class ConfigProvider {
                     throw new Error(`Cannot fetch config for host: ${host}`);
                 }
                 const services = hostContext.services;
-                const contextRepoConfig = services.fileProvider.getGitpodFileContent(commit, user);
+                const contextRepoConfig = services.fileProvider.getNxpodFileContent(commit, user);
                 customConfigString = await contextRepoConfig;
                 let origin: WorkspaceConfig["_origin"] = "repo";
 
@@ -186,10 +186,10 @@ export class ConfigProvider {
                 }
 
                 if (customConfigString) {
-                    const parseResult = this.gitpodParser.parse(customConfigString);
+                    const parseResult = this.nxpodParser.parse(customConfigString);
                     customConfig = parseResult.config;
                     if (parseResult.validationErrors) {
-                        const err = new InvalidGitpodYMLError({
+                        const err = new InvalidNxpodYMLError({
                             violations: parseResult.validationErrors,
                         });
                         // this is not a system error but a user misconfiguration
@@ -208,7 +208,7 @@ export class ConfigProvider {
                 return undefined;
             }
 
-            return { customConfig, configBasePath, literalConfig: { ".gitpod.yml": customConfigString || "" } };
+            return { customConfig, configBasePath, literalConfig: { ".nxpod.yml": customConfigString || "" } };
         } catch (e) {
             TraceContext.setError({ span }, e);
             throw e;
@@ -285,7 +285,7 @@ export class ConfigProvider {
             if (this.leavesWorkspaceBase(normalizedPath)) {
                 log.error({ userId: user.id }, `Invalid checkout location. Would end up at ${normalizedPath}`);
                 throw new Error(
-                    `Checkout location must not leave the ${POD_PATH_WORKSPACE_BASE} folder. Check your .gitpod.yml file.`,
+                    `Checkout location must not leave the ${POD_PATH_WORKSPACE_BASE} folder. Check your .nxpod.yml file.`,
                 );
             }
         }
@@ -296,7 +296,7 @@ export class ConfigProvider {
             if (this.leavesWorkspaceBase(normalizedPath)) {
                 log.error({ userId: user.id }, `Invalid workspace location. Would end up at ${normalizedPath}`);
                 throw new Error(
-                    `Workspace location must not leave the ${POD_PATH_WORKSPACE_BASE} folder. Check your .gitpod.yml file.`,
+                    `Workspace location must not leave the ${POD_PATH_WORKSPACE_BASE} folder. Check your .nxpod.yml file.`,
                 );
             }
         }

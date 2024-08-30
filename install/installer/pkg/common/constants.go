@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -7,14 +7,14 @@ package common
 import (
 	"time"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/config"
+	"github.com/nxpkg/nxpod/installer/pkg/config"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // This file exists to break cyclic-dependency errors
 
 var (
-	GitpodContainerRegistry = config.GitpodContainerRegistry
+	NxpodContainerRegistry = config.NxpodContainerRegistry
 )
 
 const (

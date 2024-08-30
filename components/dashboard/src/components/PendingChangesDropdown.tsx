@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2021 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import ContextMenu, { ContextMenuEntry } from "./ContextMenu";
 import CaretDown from "../icons/CaretDown.svg";
-import { WorkspaceGitStatus } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+import { WorkspaceGitStatus } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 import { cn } from "@podkit/lib/cn";
 
 type Props = {
@@ -49,7 +49,7 @@ export default function PendingChangesDropdown({ gitStatus, className }: Props) 
             menuEntries={menuEntries}
             customClasses={"w-64 max-h-48 overflow-y-scroll overflow-x-clip mx-auto left-0 right-0"}
         >
-            <p className={cn("flex items-center text-gitpod-red", className)}>
+            <p className={cn("flex items-center text-nxpod-red", className)}>
                 <span>
                     {totalChanges} Change{totalChanges === 1 ? "" : "s"}
                 </span>

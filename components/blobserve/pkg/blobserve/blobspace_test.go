@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,7 +13,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	blobserve_config "github.com/gitpod-io/gitpod/blobserve/pkg/config"
+	blobserve_config "github.com/nxpkg/nxpod/blobserve/pkg/config"
 	"github.com/google/go-cmp/cmp"
 )
 

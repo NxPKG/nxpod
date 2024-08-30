@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -19,9 +19,9 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/tools/clientcmd/api"
 
-	"github.com/gitpod-io/gitpod/previewctl/pkg/k8s"
-	kctx "github.com/gitpod-io/gitpod/previewctl/pkg/k8s/context"
-	pssh "github.com/gitpod-io/gitpod/previewctl/pkg/ssh"
+	"github.com/nxpkg/nxpod/previewctl/pkg/k8s"
+	kctx "github.com/nxpkg/nxpod/previewctl/pkg/k8s/context"
+	pssh "github.com/nxpkg/nxpod/previewctl/pkg/ssh"
 )
 
 var _ kctx.Loader = (*ConfigLoader)(nil)
@@ -97,7 +97,7 @@ func (k *ConfigLoader) Load(ctx context.Context) (*api.Config, error) {
 			k.logger.Error(err)
 			return nil, err
 		}
-		err = k.connectToHost(ctx, fmt.Sprintf("%s.preview.gitpod-dev.com", k.opts.PreviewName), "2222")
+		err = k.connectToHost(ctx, fmt.Sprintf("%s.preview.nxpod-dev.com", k.opts.PreviewName), "2222")
 		if err != nil {
 			k.logger.Error(err)
 			return nil, err
@@ -143,7 +143,7 @@ func (k *ConfigLoader) getContext(ctx context.Context) (*api.Config, error) {
 		return nil, err
 	}
 
-	k3sConfig.Clusters[k.opts.PreviewName].Server = fmt.Sprintf("https://%s.preview.gitpod-dev.com:6443", k.opts.PreviewName)
+	k3sConfig.Clusters[k.opts.PreviewName].Server = fmt.Sprintf("https://%s.preview.nxpod-dev.com:6443", k.opts.PreviewName)
 
 	return &rc, nil
 }

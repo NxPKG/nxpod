@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TypeORM, WorkspaceDB } from "@gitpod/gitpod-db/lib";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { TypeORM, WorkspaceDB } from "@nxpod/nxpod-db/lib";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import {
     CommitContext,
     Organization,
@@ -18,8 +18,8 @@ import {
     Workspace,
     WorkspaceConfig,
     WorkspaceImageSource,
-} from "@gitpod/gitpod-protocol";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+} from "@nxpod/nxpod-protocol";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import * as chai from "chai";
 import { Container, injectable } from "inversify";
 import "mocha";
@@ -32,7 +32,7 @@ import { SYSTEM_USER } from "../authorization/authorizer";
 import { WorkspaceFactory } from "./workspace-factory";
 import { IncrementalWorkspaceService } from "../prebuilds/incremental-workspace-service";
 import { ImageSourceProvider } from "./image-source-provider";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 
 const expect = chai.expect;
 
@@ -45,7 +45,7 @@ export class MockIncrementalWorkspaceService extends IncrementalWorkspaceService
 
 @injectable()
 export class MockImageSourceProvider extends ImageSourceProvider {
-    public imageSource: WorkspaceImageSource = { baseImageResolved: "gitpod/workspace-full:latest" };
+    public imageSource: WorkspaceImageSource = { baseImageResolved: "nxpod/workspace-full:latest" };
     public async getImageSource(
         ctx: TraceContext,
         user: User,
@@ -71,7 +71,7 @@ describe("WorkspaceFactory", async () => {
         container.rebind(ConfigProvider).toConstantValue({
             fetchConfig: () => ({
                 config: <WorkspaceConfig>{
-                    image: "gitpod/workspace-full:latest",
+                    image: "nxpod/workspace-full:latest",
                 },
             }),
         } as any as ConfigProvider);
@@ -112,7 +112,7 @@ describe("WorkspaceFactory", async () => {
                 name: "my-project",
                 slug: "my-project",
                 teamId: org.id,
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 appInstallationId: "noid",
             },
             owner,
@@ -130,12 +130,12 @@ describe("WorkspaceFactory", async () => {
         // data
         const revision = "asdf";
         const context = <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 defaultBranch: "main",
                 private: false,
             },
@@ -143,7 +143,7 @@ describe("WorkspaceFactory", async () => {
             ref: "gpl/test",
             refType: "branch",
         };
-        const contextURL = "https://github.com/gitpod-io/gitpod/tree/gpl/test";
+        const contextURL = "https://github.com/nxpkg/nxpod/tree/gpl/test";
 
         // prepare
 
@@ -161,12 +161,12 @@ describe("WorkspaceFactory", async () => {
         // data
         const revision = "asdf";
         const context = <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 defaultBranch: "main",
                 private: false,
             },
@@ -174,9 +174,9 @@ describe("WorkspaceFactory", async () => {
             ref: "gpl/test",
             refType: "branch",
         };
-        const contextURL = "https://github.com/gitpod-io/gitpod/tree/gpl/test";
+        const contextURL = "https://github.com/nxpkg/nxpod/tree/gpl/test";
         const config = <WorkspaceConfig>{
-            image: "gitpod/workspace-full:latest",
+            image: "nxpod/workspace-full:latest",
         };
 
         // prepare prebuild for "perfect hit"
@@ -205,12 +205,12 @@ describe("WorkspaceFactory", async () => {
         // data
         const revision = "asdf";
         const context = <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 defaultBranch: "main",
                 private: false,
             },
@@ -218,9 +218,9 @@ describe("WorkspaceFactory", async () => {
             ref: "gpl/test",
             refType: "branch",
         };
-        const contextURL = "https://github.com/gitpod-io/gitpod/tree/gpl/test";
+        const contextURL = "https://github.com/nxpkg/nxpod/tree/gpl/test";
         const config = <WorkspaceConfig>{
-            image: "gitpod/workspace-full:latest",
+            image: "nxpod/workspace-full:latest",
         };
 
         // prepare prebuild for "perfect hit"
@@ -259,12 +259,12 @@ describe("WorkspaceFactory", async () => {
         // data
         const revision = "asdf";
         const context = <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 defaultBranch: "main",
                 private: false,
             },
@@ -273,9 +273,9 @@ describe("WorkspaceFactory", async () => {
             // ref: "gpl/test",
             refType: "revision",
         };
-        const contextURL = "https://github.com/gitpod-io/gitpod/tree/gpl/test";
+        const contextURL = "https://github.com/nxpkg/nxpod/tree/gpl/test";
         const config = <WorkspaceConfig>{
-            image: "gitpod/workspace-full:latest",
+            image: "nxpod/workspace-full:latest",
         };
 
         // prepare prebuild for "perfect hit"
@@ -314,12 +314,12 @@ describe("WorkspaceFactory", async () => {
         // data
         const revision = "asdf";
         const context = <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 defaultBranch: "main",
                 private: false,
             },
@@ -328,9 +328,9 @@ describe("WorkspaceFactory", async () => {
             // ref: "gpl/test",
             refType: "revision",
         };
-        const contextURL = "https://github.com/gitpod-io/gitpod/tree/gpl/test";
+        const contextURL = "https://github.com/nxpkg/nxpod/tree/gpl/test";
         const config = <WorkspaceConfig>{
-            image: "gitpod/workspace-full:latest",
+            image: "nxpod/workspace-full:latest",
         };
 
         // prepare prebuild for "perfect hit"
@@ -360,12 +360,12 @@ describe("WorkspaceFactory", async () => {
         const prebuildRevision = "asdf";
         const workspaceRevision = "qwer";
         const context = <CommitContext>{
-            title: "gitpod",
+            title: "nxpod",
             repository: {
                 host: "github.com",
-                owner: "gitpod-io",
-                name: "gitpod",
-                cloneUrl: "https://github.com/gitpod-io/gitpod",
+                owner: "nxpkg",
+                name: "nxpod",
+                cloneUrl: "https://github.com/nxpkg/nxpod",
                 defaultBranch: "main",
                 private: false,
             },
@@ -373,9 +373,9 @@ describe("WorkspaceFactory", async () => {
             ref: "gpl/test",
             refType: "branch",
         };
-        const contextURL = "https://github.com/gitpod-io/gitpod/tree/gpl/test";
+        const contextURL = "https://github.com/nxpkg/nxpod/tree/gpl/test";
         const config = <WorkspaceConfig>{
-            image: "gitpod/workspace-full:latest",
+            image: "nxpod/workspace-full:latest",
         };
 
         // prepare prebuild for "perfect hit"

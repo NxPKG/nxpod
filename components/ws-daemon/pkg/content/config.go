@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,9 +8,9 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/gitpod-io/gitpod/common-go/util"
-	cntntcfg "github.com/gitpod-io/gitpod/content-service/api/config"
-	"github.com/gitpod-io/gitpod/ws-daemon/api"
+	"github.com/nxpkg/nxpod/common-go/util"
+	cntntcfg "github.com/nxpkg/nxpod/content-service/api/config"
+	"github.com/nxpkg/nxpod/ws-daemon/api"
 	"golang.org/x/xerrors"
 )
 

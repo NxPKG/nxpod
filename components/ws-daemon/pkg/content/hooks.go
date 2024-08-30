@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -10,14 +10,14 @@ import (
 	"io/fs"
 	"os"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/common-go/tracing"
-	"github.com/gitpod-io/gitpod/content-service/pkg/initializer"
-	"github.com/gitpod-io/gitpod/content-service/pkg/storage"
-	"github.com/gitpod-io/gitpod/ws-daemon/api"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/internal/session"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/iws"
-	"github.com/gitpod-io/gitpod/ws-daemon/pkg/quota"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/common-go/tracing"
+	"github.com/nxpkg/nxpod/content-service/pkg/initializer"
+	"github.com/nxpkg/nxpod/content-service/pkg/storage"
+	"github.com/nxpkg/nxpod/ws-daemon/api"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/internal/session"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/iws"
+	"github.com/nxpkg/nxpod/ws-daemon/pkg/quota"
 	"github.com/opentracing/opentracing-go"
 	"golang.org/x/xerrors"
 )
@@ -98,7 +98,7 @@ func hookSetupWorkspaceLocation(ctx context.Context, ws *session.Workspace) (err
 	}
 
 	// Chown the workspace directory
-	err = os.Chown(location, initializer.GitpodUID, initializer.GitpodGID)
+	err = os.Chown(location, initializer.NxpodUID, initializer.NxpodGID)
 	if err != nil {
 		return xerrors.Errorf("cannot create workspace: %w", err)
 	}

@@ -3,4 +3,4 @@ region = europe-west1
 zone = europe-west1-b
 
 [core]
-project = gitpod-core-dev
+project = nxpod-core-dev

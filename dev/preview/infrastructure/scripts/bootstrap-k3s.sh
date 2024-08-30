@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-# inspired by https://github.com/gitpod-io/ops/blob/main/deploy/workspace/templates/bootstrap.sh
+# inspired by https://github.com/nxpod-io/ops/blob/main/deploy/workspace/templates/bootstrap.sh
 
 # Install k3s
 export INSTALL_K3S_SKIP_DOWNLOAD=true
@@ -33,35 +33,35 @@ sleep 10
 # shellcheck disable=SC2154
 # shellcheck disable=SC2086
 kubectl label nodes ${vm_name} \
-  gitpod.io/workload_meta=true \
-  gitpod.io/workload_ide=true \
-  gitpod.io/workload_workspace_services=true \
-  gitpod.io/workload_services=true \
-  gitpod.io/workload_workspace_regular=true \
-  gitpod.io/workload_workspace_headless=true \
-  gitpod.io/workspace_0=true \
-  gitpod.io/workspace_1=true \
-  gitpod.io/workspace_2=true
+  nxpod.io/workload_meta=true \
+  nxpod.io/workload_ide=true \
+  nxpod.io/workload_workspace_services=true \
+  nxpod.io/workload_services=true \
+  nxpod.io/workload_workspace_regular=true \
+  nxpod.io/workload_workspace_headless=true \
+  nxpod.io/workspace_0=true \
+  nxpod.io/workspace_1=true \
+  nxpod.io/workspace_2=true
 
 # apply fix from https://github.com/k3s-io/klipper-lb/issues/6 so we can use the klipper servicelb
-# this can be removed if https://github.com/gitpod-io/gitpod-packer-gcp-image/pull/20 gets merged
+# this can be removed if https://github.com/nxpkg/nxpod-packer-gcp-image/pull/20 gets merged
 # shellcheck disable=SC2002
 # shellcheck disable=SC1001
-cat /var/lib/gitpod/manifests/calico.yaml | sed s/__KUBERNETES_NODE_NAME__\"\,/__KUBERNETES_NODE_NAME__\",\ \"container_settings\"\:\ \{\ \"allow_ip_forwarding\"\:\ true\ \}\,/ >/var/lib/gitpod/manifests/calico2.yaml
+cat /var/lib/nxpod/manifests/calico.yaml | sed s/__KUBERNETES_NODE_NAME__\"\,/__KUBERNETES_NODE_NAME__\",\ \"container_settings\"\:\ \{\ \"allow_ip_forwarding\"\:\ true\ \}\,/ >/var/lib/nxpod/manifests/calico2.yaml
 
-sed -i 's/docker.io/quay.io/g' /var/lib/gitpod/manifests/calico2.yaml
-sed -i 's/interface=ens/interface=en/g' /var/lib/gitpod/manifests/calico2.yaml
+sed -i 's/docker.io/quay.io/g' /var/lib/nxpod/manifests/calico2.yaml
+sed -i 's/interface=ens/interface=en/g' /var/lib/nxpod/manifests/calico2.yaml
 # shellcheck disable=SC2016
-sed -i 's/\$CLUSTER_IP_RANGE/10.20.0.0\/16/g' /var/lib/gitpod/manifests/calico2.yaml
+sed -i 's/\$CLUSTER_IP_RANGE/10.20.0.0\/16/g' /var/lib/nxpod/manifests/calico2.yaml
 
-kubectl apply -f /var/lib/gitpod/manifests/calico2.yaml
+kubectl apply -f /var/lib/nxpod/manifests/calico2.yaml
 
-kubectl apply -f /var/lib/gitpod/manifests/cert-manager.yaml
-kubectl apply -f /var/lib/gitpod/manifests/metrics-server.yaml
+kubectl apply -f /var/lib/nxpod/manifests/cert-manager.yaml
+kubectl apply -f /var/lib/nxpod/manifests/metrics-server.yaml
 
 # install CSI snapshotter CRDs and snapshot controller
-kubectl apply -f /var/lib/gitpod/manifests/csi-driver.yaml || true
-kubectl apply -f /var/lib/gitpod/manifests/csi-config.yaml || true
+kubectl apply -f /var/lib/nxpod/manifests/csi-driver.yaml || true
+kubectl apply -f /var/lib/nxpod/manifests/csi-config.yaml || true
 
 cat <<EOF >>/etc/bash.bashrc
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml

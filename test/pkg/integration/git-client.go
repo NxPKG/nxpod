@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	agent "github.com/gitpod-io/gitpod/test/pkg/agent/workspace/api"
+	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
 )
 
 type GitClient struct {

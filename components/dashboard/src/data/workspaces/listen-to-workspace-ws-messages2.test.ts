@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Disposable } from "@gitpod/gitpod-protocol";
+import { Disposable } from "@nxpod/nxpod-protocol";
 import { WatchWorkspaceStatusCallback, watchWorkspaceStatus } from "./listen-to-workspace-ws-messages";
 import { WatchWorkspaceStatusPriority, watchWorkspaceStatusInOrder } from "./listen-to-workspace-ws-messages2";
 import {
     WatchWorkspaceStatusResponse,
     WorkspacePhase_Phase,
     WorkspaceStatus,
-} from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
 
 jest.mock("./listen-to-workspace-ws-messages", () => ({
     watchWorkspaceStatus: jest.fn(),

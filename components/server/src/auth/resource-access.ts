@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import {
     CommitContext,
-    GitpodToken,
+    NxpodToken,
     PrebuiltWorkspace,
     Repository,
     Snapshot,
@@ -17,8 +17,8 @@ import {
     UserEnvVar,
     Workspace,
     WorkspaceInstance,
-} from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+} from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { UnauthorizedError } from "../errors";
 import { RepoURL } from "../repohost";
 import { HostContextProvider } from "./host-context-provider";
@@ -34,7 +34,7 @@ export type GuardedResource =
     | GuardedWorkspaceInstance
     | GuardedUser
     | GuardedSnapshot
-    | GuardedGitpodToken
+    | GuardedNxpodToken
     | GuardedToken
     | GuardedUserStorage
     | GuardedContentBlob
@@ -48,7 +48,7 @@ const ALL_GUARDED_RESOURCE_KINDS = new Set<GuardedResourceKind>([
     "workspaceInstance",
     "user",
     "snapshot",
-    "gitpodToken",
+    "nxpodToken",
     "token",
     "userStorage",
     "contentBlob",
@@ -107,9 +107,9 @@ export interface GuardedTeam {
     members: TeamMemberInfo[];
 }
 
-export interface GuardedGitpodToken {
-    kind: "gitpodToken";
-    subject: GitpodToken;
+export interface GuardedNxpodToken {
+    kind: "nxpodToken";
+    subject: NxpodToken;
 }
 
 export interface GuardedToken {
@@ -228,7 +228,7 @@ export class OwnerResourceGuard implements ResourceAccessGuard {
         switch (resource.kind) {
             case "contentBlob":
                 return resource.userID === this.userId;
-            case "gitpodToken":
+            case "nxpodToken":
                 return resource.subject.userId === this.userId;
             case "snapshot":
                 return resource.workspace.ownerId === this.userId;
@@ -411,7 +411,7 @@ export namespace ScopedResourceGuard {
         switch (resource.kind) {
             case "contentBlob":
                 return `${resource.userID}:${resource.name}`;
-            case "gitpodToken":
+            case "nxpodToken":
                 return resource.subject.tokenHash;
             case "snapshot":
                 if (resource.subject) {
@@ -468,7 +468,7 @@ export class TokenResourceGuard implements ResourceAccessGuard {
     }
 
     async canAccess(resource: GuardedResource, operation: ResourceAccessOp): Promise<boolean> {
-        if (resource.kind === "gitpodToken" && operation === "create") {
+        if (resource.kind === "nxpodToken" && operation === "create") {
             return TokenResourceGuard.areScopesSubsetOf(this.allTokenScopes, resource.subject.scopes);
         }
 

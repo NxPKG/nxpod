@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -18,8 +18,8 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
+	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
 func TestSSHGatewayConnection(t *testing.T) {
@@ -43,15 +43,15 @@ func TestSSHGatewayConnection(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			serverOpts := []integration.GitpodServerOpt{integration.WithGitpodUser(username)}
-			server, err := api.GitpodServer(serverOpts...)
+			serverOpts := []integration.NxpodServerOpt{integration.WithNxpodUser(username)}
+			server, err := api.NxpodServer(serverOpts...)
 			if err != nil {
 				t.Fatal(err)
 			}
 
 			// This env var caused an incident https://www.gitpodstatus.com/incidents/26gwnhcpvqqx before
-			// Which was introduced by PR https://github.com/gitpod-io/gitpod/pull/13822
-			// And fixed by PR https://github.com/gitpod-io/gitpod/pull/13858
+			// Which was introduced by PR https://github.com/nxpkg/nxpod/pull/13822
+			// And fixed by PR https://github.com/nxpkg/nxpod/pull/13858
 			_ = server.SetEnvVar(ctx, &gitpod.UserEnvVarValue{
 				Name:              "TEST",
 				RepositoryPattern: "*/*",
@@ -65,7 +65,7 @@ func TestSSHGatewayConnection(t *testing.T) {
 World`,
 			})
 
-			nfo, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "github.com/gitpod-io/empty", username, api)
+			nfo, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "github.com/nxpkg/empty", username, api)
 			if err != nil {
 				t.Fatal(err)
 			}

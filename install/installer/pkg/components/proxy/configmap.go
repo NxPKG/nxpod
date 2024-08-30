@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2021 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -11,10 +11,10 @@ import (
 	"fmt"
 	"text/template"
 
-	"github.com/gitpod-io/gitpod/installer/pkg/common"
-	ideProxyComponent "github.com/gitpod-io/gitpod/installer/pkg/components/ide-proxy"
-	minioComponent "github.com/gitpod-io/gitpod/installer/pkg/components/minio"
-	openvsxproxy "github.com/gitpod-io/gitpod/installer/pkg/components/openvsx-proxy"
+	"github.com/nxpkg/nxpod/installer/pkg/common"
+	ideProxyComponent "github.com/nxpkg/nxpod/installer/pkg/components/ide-proxy"
+	minioComponent "github.com/nxpkg/nxpod/installer/pkg/components/minio"
+	openvsxproxy "github.com/nxpkg/nxpod/installer/pkg/components/openvsx-proxy"
 
 	"golang.org/x/crypto/bcrypt"
 	corev1 "k8s.io/api/core/v1"

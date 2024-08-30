@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { useQuery } from "@tanstack/react-query";
 import { prebuildClient } from "../../service/public-api";
-import { Prebuild } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { Prebuild } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 type Args = {
     projectId: string;

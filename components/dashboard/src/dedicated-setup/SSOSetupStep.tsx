@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -9,7 +9,7 @@ import { Heading1, Subheading } from "../components/typography/headings";
 import { SetupLayout } from "./SetupLayout";
 import { SSOConfigForm, isValid, ssoConfigReducer, useSaveSSOConfig } from "../teams/sso/SSOConfigForm";
 import Alert from "../components/Alert";
-import { OIDCClientConfig } from "@gitpod/public-api/lib/gitpod/experimental/v1/oidc_pb";
+import { OIDCClientConfig } from "@nxpod/public-api/lib/nxpod/experimental/v1/oidc_pb";
 import { openOIDCStartWindow } from "../provider-utils";
 import { LoadingButton } from "@podkit/buttons/LoadingButton";
 
@@ -88,7 +88,7 @@ export const SSOSetupStep: FC<Props> = ({ config, onComplete, progressCurrent, p
                 <Subheading>
                     Enable single sign-on for your organization using the OpenID Connect (OIDC) standard.{" "}
                     <a
-                        href="https://www.gitpod.io/docs/enterprise/setup-gitpod/configure-sso"
+                        href="https://www.nxpod.io/docs/enterprise/setup-nxpod/configure-sso"
                         target="_blank"
                         rel="noreferrer noopener"
                         className="gp-link"

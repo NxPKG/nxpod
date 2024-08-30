@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+# Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
@@ -21,11 +21,11 @@ ENV NODE_OPTIONS="--unhandled-rejections=warn --max_old_space_size=2048"
 EXPOSE 3000
 
 COPY --from=builder --chown=node:node /app /app/
-WORKDIR /app/node_modules/@gitpod/server
+WORKDIR /app/node_modules/@nxpod/server
 
 ARG __GIT_COMMIT
 ARG VERSION
 
-ENV GITPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
-ENV GITPOD_BUILD_VERSION=${VERSION}
+ENV NXPOD_BUILD_GIT_COMMIT=${__GIT_COMMIT}
+ENV NXPOD_BUILD_VERSION=${VERSION}
 CMD ["./dist/main.js"]

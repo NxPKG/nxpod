@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { HandlerContext, ServiceImpl } from "@connectrpc/connect";
-import { AuthProviderService as AuthProviderServiceInterface } from "@gitpod/public-api/lib/gitpod/v1/authprovider_connect";
+import { AuthProviderService as AuthProviderServiceInterface } from "@nxpod/public-api/lib/nxpod/v1/authprovider_connect";
 import { inject, injectable } from "inversify";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
 import {
     CreateAuthProviderRequest,
     CreateAuthProviderResponse,
@@ -21,15 +21,15 @@ import {
     UpdateAuthProviderResponse,
     DeleteAuthProviderRequest,
     DeleteAuthProviderResponse,
-} from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 import { AuthProviderService } from "../auth/auth-provider-service";
-import { AuthProviderEntry, AuthProviderInfo, User } from "@gitpod/gitpod-protocol";
+import { AuthProviderEntry, AuthProviderInfo, User } from "@nxpod/nxpod-protocol";
 import { Unauthenticated } from "./unauthenticated";
 import { validate as uuidValidate } from "uuid";
 import { selectPage } from "./pagination";
 import { ctxTrySubjectId, ctxUserId } from "../util/request-context";
 import { UserService } from "../user/user-service";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 @injectable()
 export class AuthProviderServiceAPI implements ServiceImpl<typeof AuthProviderServiceInterface> {

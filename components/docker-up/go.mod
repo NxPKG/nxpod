@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/docker-up
+module github.com/nxpkg/nxpod/docker-up
 
 go 1.22
 
@@ -17,4 +17,4 @@ require (
 	github.com/vishvananda/netns v0.0.0-20191106174202-0a2b9b5464df // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway

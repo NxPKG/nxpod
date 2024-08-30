@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -19,7 +19,7 @@ export const query = (...tuples: [string, string][]) => {
 // Strict: We only allow connections from the base domain, so disallow connections from all other Origins
 //      Only (current) exception: If no Origin header is set, skip the check!
 // Non-Strict: "rely" on subdomain parsing (do we still need this?)
-export const isAllowedWebsocketDomain = (originHeader: string, gitpodHostName: string): boolean => {
+export const isAllowedWebsocketDomain = (originHeader: string, nxpodHostName: string): boolean => {
     if (!originHeader) {
         // Origin header check not applied because of empty Origin header
         return true;
@@ -28,7 +28,7 @@ export const isAllowedWebsocketDomain = (originHeader: string, gitpodHostName: s
     try {
         const originUrl = new URL(originHeader);
         const originHostname = originUrl.hostname;
-        return originHostname === gitpodHostName;
+        return originHostname === nxpodHostName;
     } catch (err) {
         return false;
     }

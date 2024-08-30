@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import type { Prebuild } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
+import type { Prebuild } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
 import { Suspense, memo, useEffect } from "react";
 import { usePrebuildLogsEmitter } from "../../data/prebuilds/prebuild-logs-emitter";
 import React from "react";
 import { useToast } from "../../components/toasts/Toasts";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { TabsContent } from "@podkit/tabs/Tabs";
 import { PrebuildTaskErrorTab } from "./PrebuildTaskErrorTab";
 import type { PlainMessage } from "@bufbuild/protobuf";
@@ -76,7 +76,7 @@ export const PrebuildTaskTab = memo(({ taskId, prebuild }: Props) => {
                 Logs of this prebuild task are inaccessible. Use <code>gp validate --prebuild --headless</code> in a
                 workspace to see logs and debug prebuild issues.{" "}
                 <a
-                    href="https://www.gitpod.io/docs/configure/workspaces#validate-your-gitpod-configuration"
+                    href="https://www.nxpod.io/docs/configure/workspaces#validate-your-nxpod-configuration"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="gp-link"

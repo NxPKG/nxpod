@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -23,14 +23,14 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/utils/lru"
 
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/classifier"
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/common"
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/config"
-	"github.com/gitpod-io/gitpod/agent-smith/pkg/detector"
-	common_grpc "github.com/gitpod-io/gitpod/common-go/grpc"
-	"github.com/gitpod-io/gitpod/common-go/log"
-	gitpod "github.com/gitpod-io/gitpod/gitpod-protocol"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/classifier"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/common"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/config"
+	"github.com/nxpkg/nxpod/agent-smith/pkg/detector"
+	common_grpc "github.com/nxpkg/nxpod/common-go/grpc"
+	"github.com/nxpkg/nxpod/common-go/log"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 const (
@@ -41,7 +41,7 @@ const (
 // Smith can perform operations within a users workspace and judge a user
 type Smith struct {
 	Config           config.Config
-	GitpodAPI        gitpod.APIInterface
+	NxpodAPI        nxpod.APIInterface
 	EnforcementRules map[string]config.EnforcementRules
 	Kubernetes       kubernetes.Interface
 	metrics          *metrics
@@ -62,21 +62,21 @@ func NewAgentSmith(cfg config.Config) (*Smith, error) {
 		cfg.Enforcement.CPULimitPenalty = "500m"
 	}
 
-	var api gitpod.APIInterface
-	if cfg.GitpodAPI.HostURL != "" {
-		u, err := url.Parse(cfg.GitpodAPI.HostURL)
+	var api nxpod.APIInterface
+	if cfg.NxpodAPI.HostURL != "" {
+		u, err := url.Parse(cfg.NxpodAPI.HostURL)
 		if err != nil {
-			return nil, xerrors.Errorf("cannot parse Gitpod API host url: %w", err)
+			return nil, xerrors.Errorf("cannot parse Nxpod API host url: %w", err)
 		}
 		endpoint := fmt.Sprintf("wss://%s/api/v1", u.Hostname())
 
-		api, err = gitpod.ConnectToServer(endpoint, gitpod.ConnectToServerOpts{
+		api, err = nxpod.ConnectToServer(endpoint, nxpod.ConnectToServerOpts{
 			Context: context.Background(),
-			Token:   cfg.GitpodAPI.APIToken,
+			Token:   cfg.NxpodAPI.APIToken,
 			Log:     log.Log,
 		})
 		if err != nil {
-			return nil, xerrors.Errorf("cannot connect to Gitpod API: %w", err)
+			return nil, xerrors.Errorf("cannot connect to Nxpod API: %w", err)
 		}
 	}
 
@@ -145,7 +145,7 @@ func NewAgentSmith(cfg config.Config) (*Smith, error) {
 			},
 		},
 		Config:     cfg,
-		GitpodAPI:  api,
+		NxpodAPI:  api,
 		Kubernetes: clientset,
 
 		wsman: wsman,

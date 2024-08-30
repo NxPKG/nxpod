@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,8 +8,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	wsmanapi "github.com/gitpod-io/gitpod/ws-manager/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 type Heartbeat interface {

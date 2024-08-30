@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -14,8 +14,8 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	"github.com/gitpod-io/gitpod/test/pkg/integration"
-	"github.com/gitpod-io/gitpod/test/pkg/report"
+	"github.com/nxpkg/nxpod/test/pkg/integration"
+	"github.com/nxpkg/nxpod/test/pkg/report"
 )
 
 type ContextTest struct {
@@ -32,25 +32,25 @@ func TestGitHubContexts(t *testing.T) {
 	tests := []ContextTest{
 		{
 			Name:           "open repository",
-			ContextURL:     "github.com/gitpod-io/template-golang-cli",
+			ContextURL:     "github.com/nxpkg/template-golang-cli",
 			WorkspaceRoot:  "/workspace/template-golang-cli",
 			ExpectedBranch: "main",
 		},
 		{
 			Name:           "open branch",
-			ContextURL:     "github.com/gitpod-io/gitpod-test-repo/tree/integration-test-1",
+			ContextURL:     "github.com/nxpkg/nxpod-test-repo/tree/integration-test-1",
 			WorkspaceRoot:  "/workspace/gitpod-test-repo",
 			ExpectedBranch: "integration-test-1",
 		},
 		{
 			// Branch name decisions are not tested in the workspace as it is the server side logic
 			Name:          "open issue",
-			ContextURL:    "github.com/gitpod-io/gitpod-test-repo/issues/88",
+			ContextURL:    "github.com/nxpkg/nxpod-test-repo/issues/88",
 			WorkspaceRoot: "/workspace/gitpod-test-repo",
 		},
 		{
 			Name:           "open tag",
-			ContextURL:     "github.com/gitpod-io/gitpod-test-repo/tree/integration-test-context-tag",
+			ContextURL:     "github.com/nxpkg/nxpod-test-repo/tree/integration-test-context-tag",
 			WorkspaceRoot:  "/workspace/gitpod-test-repo",
 			ExpectedBranch: "HEAD",
 		},
@@ -62,7 +62,7 @@ func TestGitHubContexts(t *testing.T) {
 		},
 		{
 			Name:           "empty repo",
-			ContextURL:     "github.com/gitpod-io/empty",
+			ContextURL:     "github.com/nxpkg/empty",
 			WorkspaceRoot:  "/workspace/empty",
 			ExpectedBranch: "HEAD",
 			IgnoreError:    true,

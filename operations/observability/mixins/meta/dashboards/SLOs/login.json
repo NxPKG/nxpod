@@ -791,8 +791,8 @@
           "scopedVars": {
             "cluster": {
               "selected": false,
-              "text": "production.gitpod-io.us-west1.03",
-              "value": "production.gitpod-io.us-west1.03"
+              "text": "production.nxpkg.us-west1.03",
+              "value": "production.nxpkg.us-west1.03"
             }
           },
           "seriesOverrides": [
@@ -910,8 +910,8 @@
           "scopedVars": {
             "cluster": {
               "selected": false,
-              "text": "production.gitpod-io.europe-west1.03",
-              "value": "production.gitpod-io.europe-west1.03"
+              "text": "production.nxpkg.europe-west1.03",
+              "value": "production.nxpkg.europe-west1.03"
             }
           },
           "seriesOverrides": [
@@ -1396,6 +1396,6 @@
   },
   "timepicker": {},
   "timezone": "utc",
-  "title": "Gitpod / SLOs / Login",
+  "title": "Nxpod / SLOs / Login",
   "uid": "login-slo"
 }

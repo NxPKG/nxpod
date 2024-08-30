@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -54,10 +54,10 @@ if (typeof (Symbol as any).asyncIterator === "undefined") {
 import express from "express";
 import { Container } from "inversify";
 import { Server } from "./server";
-import { log, LogrusLogLevel } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { installLogCountMetric } from "@gitpod/gitpod-protocol/lib/util/logging-node";
-import { TracingManager } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { TypeORM } from "@gitpod/gitpod-db/lib";
+import { log, LogrusLogLevel } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { installLogCountMetric } from "@nxpod/nxpod-protocol/lib/util/logging-node";
+import { TracingManager } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { TypeORM } from "@nxpod/nxpod-db/lib";
 import { dbConnectionsEnqueued, dbConnectionsFree, dbConnectionsTotal } from "./prometheus-metrics";
 import { installCtxLogAugmenter } from "./util/log-context";
 if (process.env.NODE_ENV === "development") {

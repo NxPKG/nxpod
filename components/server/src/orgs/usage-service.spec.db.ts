@@ -1,21 +1,21 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@gitpod/gitpod-db/lib";
-import { Organization, User } from "@gitpod/gitpod-protocol";
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { ListUsageRequest, Ordering } from "@gitpod/gitpod-protocol/lib/usage";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@nxpod/nxpod-db/lib";
+import { Organization, User } from "@nxpod/nxpod-protocol";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { ListUsageRequest, Ordering } from "@nxpod/nxpod-protocol/lib/usage";
 import {
     CostCenter_BillingStrategy,
     GetCostCenterRequest,
     UsageServiceClient,
     UsageServiceDefinition,
-} from "@gitpod/usage-api/lib/usage/v1/usage.pb";
+} from "@nxpod/usage-api/lib/usage/v1/usage.pb";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
@@ -23,7 +23,7 @@ import { Mock } from "../test/mocks/mock";
 import { createTestContainer, withTestCtx } from "../test/service-testing-container-module";
 import { OrganizationService } from "./organization-service";
 import { UsageService } from "./usage-service";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import { expectError } from "../test/expect-utils";
 import { UserService } from "../user/user-service";
 import { SYSTEM_USER } from "../authorization/authorizer";

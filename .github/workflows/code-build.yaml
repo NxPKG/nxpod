@@ -4,7 +4,7 @@ on:
     inputs:
       branch:
         required: true
-        description: "The commit of gitpod-io/openvscode-server release branch like gp-code/release/1.89"
+        description: "The commit of nxpkg/openvscode-server release branch like gp-code/release/1.89"
 
 jobs:
   update:
@@ -58,20 +58,20 @@ jobs:
               - [ ] extension management (installing/uninstalling)
               - [ ] install the [VIM extension](https://open-vsx.org/extension/vscodevim/vim) to test web extensions
               - that user data is synced across workspaces as well as on workspace restarts, especially for extensions
-                - [ ] extensions from `.gitpod.yml` are not installed as sync
+                - [ ] extensions from `.nxpod.yml` are not installed as sync
                 - [ ] extensions installed as sync are actually synced to all new workspaces
               - [ ] settings should not contain any mentions of MS telemetry
               - [ ] WebSockets and workers are properly proxied
                 - [ ] diff editor should be operable
                 - [ ] trigger reconnection with `window.WebSocket.disconnectWorkspace()`, check that old WebSockets are closed and new opened of the same amount
-              - [ ] workspace specific commands should work, i.e. <kbd>F1</kbd> → type <kbd>Gitpod</kbd>
+              - [ ] workspace specific commands should work, i.e. <kbd>F1</kbd> → type <kbd>Nxpod</kbd>
               - [ ] that a PR view is preloaded when opening a PR URL
               - [ ] test `gp open` and `gp preview`
               - [ ] test open in VS Code Desktop, check `gp open` and `gp preview` in task/user terminals
-              - [ ] telemetry data like `vscode_extension_gallery` is collected in [Segment](https://app.segment.com/gitpod/sources/staging_trusted/debugger)
+              - [ ] telemetry data like `vscode_extension_gallery` is collected in [Segment](https://app.segment.com/nxpod/sources/staging_trusted/debugger)
 
             ### Preview status
-            gitpod:summary
+            nxpod:summary
 
             ## Werft options:
 
@@ -82,8 +82,8 @@ jobs:
           branch: "ide/code-stable"
           labels: "team: IDE,editor: code (browser)"
           token: ${{ secrets.ROBOQUAT_REPO_PAT }}
-          committer: Robo Quat <roboquat@gitpod.io>
-          author: Robo Quat <roboquat@gitpod.io>
+          committer: Robo Quat <roboquat@nxpod.io>
+          author: Robo Quat <roboquat@nxpod.io>
           team-reviewers: |
             team-experience
       - name: Get previous job's status

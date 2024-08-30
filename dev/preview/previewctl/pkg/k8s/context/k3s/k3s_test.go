@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -13,7 +13,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/tools/clientcmd/api"
 
-	pssh "github.com/gitpod-io/gitpod/previewctl/pkg/ssh"
+	pssh "github.com/nxpkg/nxpod/previewctl/pkg/ssh"
 )
 
 func Test_LoadK3SConfig(t *testing.T) {
@@ -50,7 +50,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: dGVzdF9kYXRh
-    server: https://default.kube.gitpod-dev.com:6443
+    server: https://default.kube.nxpod-dev.com:6443
   name: default
 contexts:
 - context:
@@ -83,7 +83,7 @@ users:
 					},
 					Clusters: map[string]*api.Cluster{
 						"k3s": {
-							Server:                   "https://k3s.preview.gitpod-dev.com:6443",
+							Server:                   "https://k3s.preview.nxpod-dev.com:6443",
 							CertificateAuthorityData: []byte("test_data"),
 							Extensions:               map[string]runtime.Object{},
 						},

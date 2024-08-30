@@ -18,7 +18,7 @@ packages:
       - .eslintrc.js
       - scripts/run-integration-tests.sh
     deps:
-      - components/gitpod-protocol:lib
+      - components/nxpod-protocol:lib
       - components/public-api/typescript:lib
       - components/public-api/typescript-common:lib
     config:
@@ -45,7 +45,7 @@ packages:
     deps:
       - :app
       - :static
-      - components/gitpod-protocol:gitpod-schema
+      - components/nxpod-protocol:nxpod-schema
     argdeps:
       - imageRepoBase
     config:

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -13,8 +13,8 @@ import { useLocation } from "react-router";
 import { useOrgBillingMode } from "../data/billing-mode/org-billing-mode-query";
 import { useFeatureFlag } from "../data/featureflag-query";
 import { useIsOwner, useListOrganizationMembers, useHasRolePermission } from "../data/organizations/members-query";
-import { isOrganizationOwned } from "@gitpod/public-api-common/lib/user-utils";
-import { OrganizationRole } from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
+import { isOrganizationOwned } from "@nxpod/public-api-common/lib/user-utils";
+import { OrganizationRole } from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
 
 export default function OrganizationSelector() {
     const user = useCurrentUser();

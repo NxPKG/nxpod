@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -17,19 +17,19 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { FunctionComponent } from "react";
 import debounce from "lodash/debounce";
 // Need to import all the protobuf classes we want to support for hydration
-import * as OrganizationClasses from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
-import * as WorkspaceClasses from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
-import * as PaginationClasses from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
-import * as ConfigurationClasses from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
-import * as AuthProviderClasses from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
-import * as EnvVarClasses from "@gitpod/public-api/lib/gitpod/v1/envvar_pb";
-import * as PrebuildClasses from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
-import * as VerificationClasses from "@gitpod/public-api/lib/gitpod/v1/verification_pb";
-import * as InstallationClasses from "@gitpod/public-api/lib/gitpod/v1/installation_pb";
-import * as SCMClasses from "@gitpod/public-api/lib/gitpod/v1/scm_pb";
-import * as SSHClasses from "@gitpod/public-api/lib/gitpod/v1/ssh_pb";
-import * as UserClasses from "@gitpod/public-api/lib/gitpod/v1/user_pb";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import * as OrganizationClasses from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
+import * as WorkspaceClasses from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
+import * as PaginationClasses from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
+import * as ConfigurationClasses from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
+import * as AuthProviderClasses from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
+import * as EnvVarClasses from "@nxpod/public-api/lib/nxpod/v1/envvar_pb";
+import * as PrebuildClasses from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
+import * as VerificationClasses from "@nxpod/public-api/lib/nxpod/v1/verification_pb";
+import * as InstallationClasses from "@nxpod/public-api/lib/nxpod/v1/installation_pb";
+import * as SCMClasses from "@nxpod/public-api/lib/nxpod/v1/scm_pb";
+import * as SSHClasses from "@nxpod/public-api/lib/nxpod/v1/ssh_pb";
+import * as UserClasses from "@nxpod/public-api/lib/nxpod/v1/user_pb";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 // This is used to version the cache
 // If data we cache changes in a non-backwards compatible way, increment this version
@@ -87,7 +87,7 @@ export const setupQueryClientProvider = () => {
     };
 
     // Return a wrapper around PersistQueryClientProvider w/ the query client options we setp
-    const GitpodQueryClientProvider: FunctionComponent = ({ children }) => {
+    const NxpodQueryClientProvider: FunctionComponent = ({ children }) => {
         return (
             <PersistQueryClientProvider client={client} persistOptions={persistOptions}>
                 {children}
@@ -96,11 +96,11 @@ export const setupQueryClientProvider = () => {
         );
     };
 
-    return GitpodQueryClientProvider;
+    return NxpodQueryClientProvider;
 };
 
 // Persister that uses IndexedDB
-export function createIDBPersister(idbValidKey: IDBValidKey = "gitpodQueryClient"): Persister {
+export function createIDBPersister(idbValidKey: IDBValidKey = "nxpodQueryClient"): Persister {
     // Track a flag that indicates if we're attempting to persist the client
     // Some browsers/versions don't support using indexed-db w/ certain settings or in private mode
     // If we get an error performing an operation, we'll disable persistance and assume it's not supported

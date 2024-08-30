@@ -21,11 +21,11 @@
     },
     "config": {
       "required": [
-        "gitpodAPI",
+        "nxpodAPI",
         "namespace"
       ],
       "properties": {
-        "gitpodAPI": {
+        "nxpodAPI": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "$ref": "#/definitions/"
         },

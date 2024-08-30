@@ -1,19 +1,19 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@gitpod/gitpod-db/lib";
-import { Organization, OrganizationSettings, TeamMemberRole, User } from "@gitpod/gitpod-protocol";
-import { Experiments } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { BUILTIN_INSTLLATION_ADMIN_USER_ID, TypeORM } from "@nxpod/nxpod-db/lib";
+import { Organization, OrganizationSettings, TeamMemberRole, User } from "@nxpod/nxpod-protocol";
+import { Experiments } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import * as chai from "chai";
 import { Container } from "inversify";
 import "mocha";
 import { createTestContainer, withTestCtx } from "../test/service-testing-container-module";
 import { OrganizationService } from "./organization-service";
-import { resetDB } from "@gitpod/gitpod-db/lib/test/reset-db";
+import { resetDB } from "@nxpod/nxpod-db/lib/test/reset-db";
 import { expectError } from "../test/expect-utils";
 import { UserService } from "../user/user-service";
 import { DefaultWorkspaceImageValidator } from "./default-workspace-image-validator";

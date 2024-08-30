@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -23,8 +23,8 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/xerrors"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/registry-facade/api"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/registry-facade/api"
 )
 
 const (
@@ -32,7 +32,7 @@ const (
 	// If the value of this label
 	//   - is not a number (cannot be parsed by strconv.ParseUint), registry-facade fails to use the image,
 	//   - is larger than the number of layers in the image, the image is considered empty (i.e. to have no layer).
-	labelSkipNLayer = "skip-n.registry-facade.gitpod.io"
+	labelSkipNLayer = "skip-n.registry-facade.nxpod.io"
 )
 
 // LayerSource provides layers for a workspace image
@@ -231,9 +231,9 @@ func (s ImageLayerSource) GetBlob(ctx context.Context, spec *api.ImageSpec, dgst
 }
 
 const (
-	envPrefixSet     = "GITPOD_ENV_SET_"
-	envPrefixAppend  = "GITPOD_ENV_APPEND_"
-	envPrefixPrepend = "GITPOD_ENV_PREPEND_"
+	envPrefixSet     = "NXPOD_ENV_SET_"
+	envPrefixAppend  = "NXPOD_ENV_APPEND_"
+	envPrefixPrepend = "NXPOD_ENV_PREPEND_"
 )
 
 // NewStaticSourceFromImage downloads image layers into the store and uses them as static layer

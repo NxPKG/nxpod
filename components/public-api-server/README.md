@@ -2,17 +2,17 @@
 
 :warning: Public API is currently experimental and under development. We will provide public announcements once maturity of the API moves into alpha/beta and stable.
 
-This component holds implementation of Gitpod's public API. API specification for this server can be found in [public-api](/components/public-api).
+This component holds implementation of Nxpod's public API. API specification for this server can be found in [public-api](/components/public-api).
 
 ### Motivation
 As more companies and engineers embrace cloud development environments, the need for a first class, managed and versioned API will grow. Providing a first class Public API
-enabled the community to build on top of Gitpod, automate and orchestrate use cases beyond the core focus of Gitpod. The API will act as a catalyst to further reduce toil
+enabled the community to build on top of Nxpod, automate and orchestrate use cases beyond the core focus of Nxpod. The API will act as a catalyst to further reduce toil
 from development environments and will enable richer integrations with Integrated Development Environments (IDEs) and platforms.
 
 ### Goal
-* Provide a first class Public API which is the canonical way to access Gitpod functionality programatically
+* Provide a first class Public API which is the canonical way to access Nxpod functionality programatically
 * Offer a versioned API with compatibility guarantees and clear upgrade path
-* Enable, and catalyze, community integrations and workflows beyond what Gitpod offers today
+* Enable, and catalyze, community integrations and workflows beyond what Nxpod offers today
 
 
 ## Usage

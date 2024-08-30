@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { injectable } from "inversify";
 
-import { RoleOrPermission, PermissionName, RolesOrPermissions } from "@gitpod/gitpod-protocol/lib/permission";
-import { User } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { RoleOrPermission, PermissionName, RolesOrPermissions } from "@nxpod/nxpod-protocol/lib/permission";
+import { User } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 export const AuthorizationService = Symbol("AuthorizationService");
 export interface AuthorizationService {

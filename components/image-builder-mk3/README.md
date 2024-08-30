@@ -2,9 +2,9 @@
 
 `image-builder-mk3` is a service that runs in meta clusters, which provides APIs to create and list workspace image builds, resolve workspace docker image references, and listen to build updates and logs.
 
-> Once completed, [#7845](https://github.com/gitpod-io/gitpod/issues/7845) will move `image-builder-mk3` (and image builds) from meta to workspace clusters.
+> Once completed, [#7845](https://github.com/nxpkg/nxpod/issues/7845) will move `image-builder-mk3` (and image builds) from meta to workspace clusters.
 
-The following diagram shows what happens during a workspace image build. See the (internal) [Architecture page](https://www.notion.so/gitpod/Architecture-0e39e570b10f4e8ba7b259629ee3cb74) for more details.
+The following diagram shows what happens during a workspace image build. See the (internal) [Architecture page](https://www.notion.so/nxpod/Architecture-0e39e570b10f4e8ba7b259629ee3cb74) for more details.
 
 ![Architecture](../../docs/workspace/image-builder-mk3/sequencediagram.svg)
 
@@ -35,7 +35,7 @@ Changes to the installed k8s config can be done [here](../../install/installer/p
 To run `image-builder-mk3` locally, the `example-config.json` can be used as follows:
 
 ```console
-cd /workspace/gitpod/components/image-builder-mk3
+cd /workspace/nxpod/components/image-builder-mk3
 
 # Set up kube context, the image builder will connect to this cluster's ws-manager.
 kubectx [cluster-name]
@@ -59,7 +59,7 @@ When `image-builder-mk3` is running locally, you can use `grpcurl` to make gRPC 
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 
 # Call RPC, e.g. ListBuilds:
-grpcurl -plaintext -proto /workspace/gitpod/components/image-builder-api/imgbuilder.proto -import-path=/workspace/gitpod/components/ localhost:8080 builder.ImageBuilder.ListBuilds
+grpcurl -plaintext -proto /workspace/nxpod/components/image-builder-api/imgbuilder.proto -import-path=/workspace/nxpod/components/ localhost:8080 builder.ImageBuilder.ListBuilds
 ```
 
 See https://github.com/fullstorydev/grpcurl#invoking-rpcs for how to make different types of requests with `grpcurl`.

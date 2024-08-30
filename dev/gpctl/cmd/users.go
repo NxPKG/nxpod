@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2022 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	api "github.com/gitpod-io/gitpod/gitpod-protocol"
-	protocol "github.com/gitpod-io/gitpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/common-go/log"
+	api "github.com/nxpkg/nxpod/nxpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
@@ -30,7 +30,7 @@ var usersCmdOpts struct {
 func init() {
 	rootCmd.AddCommand(usersCmd)
 
-	usersCmd.PersistentFlags().StringVar(&usersCmdOpts.address, "address", "wss://gitpod.io/api/v1", "Address of the API endpoint. Must be in the form <host>:<port>.")
+	usersCmd.PersistentFlags().StringVar(&usersCmdOpts.address, "address", "wss://nxpod.io/api/v1", "Address of the API endpoint. Must be in the form <host>:<port>.")
 	usersCmd.PersistentFlags().BoolVar(&usersCmdOpts.insecure, "insecure", false, "Disable TLS when making requests against the API. For testing purposes only.")
 	usersCmd.PersistentFlags().StringVar(&usersCmdOpts.token, "token", os.Getenv("GPCTL_API_TOKEN"), "Authentication token to interact with the API")
 }
@@ -48,7 +48,7 @@ func newLegacyAPIConn() (*api.APIoverJSONRPC, error) {
 		Token: usersCmdOpts.token,
 		Log:   logrus.NewEntry(log.Log.Logger),
 		ExtraHeaders: map[string]string{
-			"User-Agent":       "gitpod/gpctl",
+			"User-Agent":       "nxpod/gpctl",
 			"X-Client-Version": "0",
 		},
 	})

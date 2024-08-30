@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { QueryErrorResetBoundary, useQueryClient } from "@tanstack/react-query";
 import { FC } from "react";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 import { hasLoggedInBefore, Login } from "../../Login";
-import { isGitpodIo } from "../../utils";
+import { isNxpodIo } from "../../utils";
 import { CaughtError } from "./ReloadPageErrorBoundary";
-import { gitpodHostUrl } from "../../service/service";
+import { nxpodHostUrl } from "../../service/service";
 import QuickStart from "../QuickStart";
 
 // Error boundary intended to catch and handle expected errors from api calls
@@ -40,14 +40,14 @@ const ExpectedQueryErrorsFallback: FC<FallbackProps> = ({ error, resetErrorBound
         client.clear();
 
         // redirect to <domain>/logout
-        const loginUrl = gitpodHostUrl
+        const loginUrl = nxpodHostUrl
             .withApi({
                 pathname: "/login",
                 search: `returnTo=${encodeURIComponent(window.location.href)}`,
             })
             .toString();
 
-        const logoutUrl = gitpodHostUrl
+        const logoutUrl = nxpodHostUrl
             .withApi({
                 pathname: "/logout",
                 search: `returnTo=${encodeURIComponent(loginUrl)}`,
@@ -70,10 +70,10 @@ const ExpectedQueryErrorsFallback: FC<FallbackProps> = ({ error, resetErrorBound
 
         // Before we show a Login screen, check to see if we need to redirect to www site
         // Redirects if it's the root, no user, and no gp cookie present (has logged in recently)
-        if (isGitpodIo() && window.location.pathname === "/" && window.location.hash === "") {
+        if (isNxpodIo() && window.location.pathname === "/" && window.location.hash === "") {
             // If there's no gp cookie, bounce to www site
             if (!hasLoggedInBefore()) {
-                window.location.href = `https://www.gitpod.io`;
+                window.location.href = `https://www.nxpod.io`;
                 return <div></div>;
             }
         }

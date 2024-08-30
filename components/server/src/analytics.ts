@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import { Request } from "express";
-import { IAnalyticsWriter, IdentifyMessage, PageMessage, TrackMessage } from "@gitpod/gitpod-protocol/lib/analytics";
+import { IAnalyticsWriter, IdentifyMessage, PageMessage, TrackMessage } from "@nxpod/nxpod-protocol/lib/analytics";
 import * as crypto from "crypto";
 import { clientIp } from "./express-util";
 import { ctxTrySubjectId } from "./util/request-context";
-import { getPrimaryEmail } from "@gitpod/public-api-common/lib/user-utils";
+import { getPrimaryEmail } from "@nxpod/public-api-common/lib/user-utils";
 
 export async function trackLogin(user: User, request: Request, authHost: string, analytics: IAnalyticsWriter) {
     // make new complete identify call for each login
@@ -41,7 +41,7 @@ export async function trackSignup(user: User, request: Request, analytics: IAnal
         event: "signup",
         properties: {
             auth_provider: user.identities[0].authProviderId,
-            qualified: !!request.cookies["gitpod-marketing-website-visited"],
+            qualified: !!request.cookies["nxpod-marketing-website-visited"],
             blocked: user.blocked,
         },
     });

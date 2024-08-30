@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -7,19 +7,19 @@
 import { MethodKind, ServiceType } from "@bufbuild/protobuf";
 import { Code, ConnectError, ConnectRouter, HandlerContext, ServiceImpl } from "@connectrpc/connect";
 import { expressConnectMiddleware } from "@connectrpc/connect-express";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { PublicAPIConverter } from "@gitpod/public-api-common/lib/public-api-converter";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { HelloService } from "@gitpod/public-api/lib/gitpod/experimental/v1/dummy_connect";
-import { StatsService } from "@gitpod/public-api/lib/gitpod/experimental/v1/stats_connect";
-import { TeamsService as TeamsServiceDefinition } from "@gitpod/public-api/lib/gitpod/experimental/v1/teams_connect";
-import { OrganizationService } from "@gitpod/public-api/lib/gitpod/v1/organization_connect";
-import { WorkspaceService } from "@gitpod/public-api/lib/gitpod/v1/workspace_connect";
-import { AuditLogService as AuditLogServiceFromAPI } from "@gitpod/public-api/lib/gitpod/v1/auditlogs_connect";
-import { UserService } from "@gitpod/public-api/lib/gitpod/v1/user_connect";
-import { ConfigurationService } from "@gitpod/public-api/lib/gitpod/v1/configuration_connect";
-import { AuthProviderService } from "@gitpod/public-api/lib/gitpod/v1/authprovider_connect";
-import { EnvironmentVariableService } from "@gitpod/public-api/lib/gitpod/v1/envvar_connect";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { PublicAPIConverter } from "@nxpod/public-api-common/lib/public-api-converter";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { HelloService } from "@nxpod/public-api/lib/nxpod/experimental/v1/dummy_connect";
+import { StatsService } from "@nxpod/public-api/lib/nxpod/experimental/v1/stats_connect";
+import { TeamsService as TeamsServiceDefinition } from "@nxpod/public-api/lib/nxpod/experimental/v1/teams_connect";
+import { OrganizationService } from "@nxpod/public-api/lib/nxpod/v1/organization_connect";
+import { WorkspaceService } from "@nxpod/public-api/lib/nxpod/v1/workspace_connect";
+import { AuditLogService as AuditLogServiceFromAPI } from "@nxpod/public-api/lib/nxpod/v1/auditlogs_connect";
+import { UserService } from "@nxpod/public-api/lib/nxpod/v1/user_connect";
+import { ConfigurationService } from "@nxpod/public-api/lib/nxpod/v1/configuration_connect";
+import { AuthProviderService } from "@nxpod/public-api/lib/nxpod/v1/authprovider_connect";
+import { EnvironmentVariableService } from "@nxpod/public-api/lib/nxpod/v1/envvar_connect";
 import express from "express";
 import * as http from "http";
 import { decorate, inject, injectable, interfaces } from "inversify";
@@ -50,19 +50,19 @@ import { Unauthenticated } from "./unauthenticated";
 import { SubjectId } from "../auth/subject-id";
 import { BearerAuth } from "../auth/bearer-authenticator";
 import { ScmServiceAPI } from "./scm-service-api";
-import { SCMService } from "@gitpod/public-api/lib/gitpod/v1/scm_connect";
-import { SSHService } from "@gitpod/public-api/lib/gitpod/v1/ssh_connect";
+import { SCMService } from "@nxpod/public-api/lib/nxpod/v1/scm_connect";
+import { SSHService } from "@nxpod/public-api/lib/nxpod/v1/ssh_connect";
 import { PrebuildServiceAPI } from "./prebuild-service-api";
-import { PrebuildService } from "@gitpod/public-api/lib/gitpod/v1/prebuild_connect";
+import { PrebuildService } from "@nxpod/public-api/lib/nxpod/v1/prebuild_connect";
 import { VerificationServiceAPI } from "./verification-service-api";
-import { VerificationService } from "@gitpod/public-api/lib/gitpod/v1/verification_connect";
+import { VerificationService } from "@nxpod/public-api/lib/nxpod/v1/verification_connect";
 import { UserServiceAPI } from "./user-service-api";
 import { UserService as UserServiceInternal } from "../user/user-service";
 import { InstallationServiceAPI } from "./installation-service-api";
-import { InstallationService } from "@gitpod/public-api/lib/gitpod/v1/installation_connect";
+import { InstallationService } from "@nxpod/public-api/lib/nxpod/v1/installation_connect";
 import { RateLimitter } from "../rate-limitter";
 import { TokenServiceAPI } from "./token-service-api";
-import { TokenService } from "@gitpod/public-api/lib/gitpod/v1/token_connect";
+import { TokenService } from "@nxpod/public-api/lib/nxpod/v1/token_connect";
 import { AuditLogService } from "../audit/AuditLogService";
 import { AuditLogServiceAPI } from "./audit-log-service-api";
 
@@ -233,7 +233,7 @@ export class API {
                             err.code === Code.Internal &&
                             err.message.includes("Cannot call write after a stream was destroyed")
                         ) {
-                            // Compare https://linear.app/gitpod/issue/ENT-232 and https://github.com/gitpod-io/gitpod/pull/19827
+                            // Compare https://linear.app/nxpod/issue/ENT-232 and https://github.com/nxpkg/nxpod/pull/19827
                             // Connect seems to try to write an error response to a closed stream in some cases(*), resulting in this error.
                             // We don't want it to pollute our metrics, so we ignore it.
                             //

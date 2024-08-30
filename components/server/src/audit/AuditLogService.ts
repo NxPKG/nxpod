@@ -1,19 +1,19 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { UserDB } from "@gitpod/gitpod-db/lib";
-import { AuditLogDB } from "@gitpod/gitpod-db/lib/audit-log-db";
-import { AuditLog } from "@gitpod/gitpod-protocol/lib/audit-log";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TrustedValue, scrubber } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { UserDB } from "@nxpod/nxpod-db/lib";
+import { AuditLogDB } from "@nxpod/nxpod-db/lib/audit-log-db";
+import { AuditLog } from "@nxpod/nxpod-protocol/lib/audit-log";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TrustedValue, scrubber } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 import { inject, injectable } from "inversify";
 import { v4 } from "uuid";
 import { Authorizer } from "../authorization/authorizer";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 
 @injectable()
 export class AuditLogService {

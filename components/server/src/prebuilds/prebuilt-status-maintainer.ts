@@ -1,24 +1,24 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { ProbotOctokit } from "probot";
 import { injectable, inject } from "inversify";
-import { WorkspaceDB, TracedWorkspaceDB, DBWithTracing } from "@gitpod/gitpod-db/lib";
+import { WorkspaceDB, TracedWorkspaceDB, DBWithTracing } from "@nxpod/nxpod-db/lib";
 import { v4 as uuidv4 } from "uuid";
-import { HeadlessWorkspaceEvent } from "@gitpod/gitpod-protocol/lib/headless-workspace-log";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { HeadlessWorkspaceEvent } from "@nxpod/nxpod-protocol/lib/headless-workspace-log";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     PrebuiltWorkspaceUpdatable,
     PrebuiltWorkspace,
     Disposable,
     DisposableCollection,
     WorkspaceConfig,
-} from "@gitpod/gitpod-protocol";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { repeat } from "@gitpod/gitpod-protocol/lib/util/repeat";
+} from "@nxpod/nxpod-protocol";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { repeat } from "@nxpod/nxpod-protocol/lib/util/repeat";
 import { RedisSubscriber } from "../messaging/redis-subscriber";
 
 export interface CheckRunInfo {
@@ -32,8 +32,8 @@ const MAX_UPDATABLE_AGE = 6 * 60 * 60 * 1000; // 6h
 const MAX_UPDATABLES = 100; // to be processed at a time
 const IGNORED_UPDATEABLE_AGE = 24 * 60 * 60 * 1000; // 24h
 
-const DEFAULT_STATUS_DESCRIPTION = "Open a prebuilt online workspace in Gitpod";
-const NON_PREBUILT_STATUS_DESCRIPTION = "Open an online workspace in Gitpod";
+const DEFAULT_STATUS_DESCRIPTION = "Open a prebuilt online workspace in Nxpod";
+const NON_PREBUILT_STATUS_DESCRIPTION = "Open an online workspace in Nxpod";
 
 export type AuthenticatedGithubProvider = (
     installationId: number,
@@ -92,7 +92,7 @@ export class PrebuildStatusMaintainer implements Disposable {
                     owner: cri.owner,
                     sha: cri.head_sha,
                     target_url: cri.details_url,
-                    context: "Gitpod",
+                    context: "Nxpod",
                     description: "prebuilding an online workspace for this PR",
                     state: "pending",
                 });
@@ -104,7 +104,7 @@ export class PrebuildStatusMaintainer implements Disposable {
                     owner: cri.owner,
                     sha: cri.head_sha,
                     target_url: cri.details_url,
-                    context: "Gitpod",
+                    context: "Nxpod",
                     description: conclusion == "success" ? DEFAULT_STATUS_DESCRIPTION : NON_PREBUILT_STATUS_DESCRIPTION,
                     state: config?.github?.prebuilds?.addCheck === "prevent-merge-on-error" ? conclusion : "success",
                 });
@@ -188,7 +188,7 @@ export class PrebuildStatusMaintainer implements Disposable {
                     await githubApi.repos.createCommitStatus({
                         owner: updatable.owner,
                         repo: updatable.repo,
-                        context: "Gitpod",
+                        context: "Nxpod",
                         sha: updatable.commitSHA || pws.commit,
                         target_url: updatable.contextUrl,
                         description:

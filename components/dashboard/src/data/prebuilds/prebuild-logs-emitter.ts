@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2024 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2024 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
 import { useEffect, useMemo } from "react";
-import { matchPrebuildError } from "@gitpod/public-api-common/lib/prebuild-utils";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { Disposable, DisposableCollection, HEADLESS_LOG_STREAM_STATUS_CODE_REGEX } from "@gitpod/gitpod-protocol";
-import { Prebuild, PrebuildPhase_Phase } from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
+import { matchPrebuildError } from "@nxpod/public-api-common/lib/prebuild-utils";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { Disposable, DisposableCollection, HEADLESS_LOG_STREAM_STATUS_CODE_REGEX } from "@nxpod/nxpod-protocol";
+import { Prebuild, PrebuildPhase_Phase } from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
 import { PlainMessage } from "@bufbuild/protobuf";
 import { ReplayableEventEmitter } from "../../utils";
 

@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/common-go
+module github.com/nxpkg/nxpod/common-go
 
 go 1.22
 
@@ -6,7 +6,7 @@ require (
 	github.com/configcat/go-sdk/v7 v7.6.0
 	github.com/containerd/cgroups v1.0.4
 	github.com/fsnotify/fsnotify v1.4.9
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000
 	github.com/go-test/deep v1.0.5
 	github.com/google/go-cmp v0.6.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
@@ -123,4 +123,4 @@ replace k8s.io/mount-utils => k8s.io/mount-utils v0.29.3
 
 replace k8s.io/pod-security-admission => k8s.io/pod-security-admission v0.29.3
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway

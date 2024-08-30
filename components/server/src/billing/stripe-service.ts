@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2022 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
@@ -8,14 +8,14 @@ import { inject, injectable } from "inversify";
 import Stripe from "stripe";
 import * as grpc from "@grpc/grpc-js";
 import { Config } from "../config";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     observeStripeClientRequestsCompleted,
     stripeClientRequestsCompletedDurationSeconds,
 } from "../prometheus-metrics";
-import { BillingServiceClient, BillingServiceDefinition } from "@gitpod/usage-api/lib/usage/v1/billing.pb";
-import { ErrorCodes, ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { AttributionId } from "@gitpod/gitpod-protocol/lib/attribution";
+import { BillingServiceClient, BillingServiceDefinition } from "@nxpod/usage-api/lib/usage/v1/billing.pb";
+import { ErrorCodes, ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { AttributionId } from "@nxpod/nxpod-protocol/lib/attribution";
 
 @injectable()
 export class StripeService {

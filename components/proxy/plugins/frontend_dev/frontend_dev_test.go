@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2023 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -21,7 +21,7 @@ const index_html = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#000000" />
 <meta name="robots" content="noindex">
-<meta name="Gitpod" content="Always Ready-to-Code" />
+<meta name="Nxpod" content="Always Ready-to-Code" />
 <link rel="apple-touch-icon" href="/favicon192.png" />
 <link rel="manifest" href="/manifest.json" />
 <title>Dashboard</title>
@@ -63,7 +63,7 @@ func Test_MatchAndRewriteRootRequest(t *testing.T) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#000000" />
 <meta name="robots" content="noindex">
-<meta name="Gitpod" content="Always Ready-to-Code" />
+<meta name="Nxpod" content="Always Ready-to-Code" />
 <link rel="apple-touch-icon" href="https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io/favicon192.png" />
 <link rel="manifest" href="https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io/manifest.json" />
 <title>Dashboard</title>

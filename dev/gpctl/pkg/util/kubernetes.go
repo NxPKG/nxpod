@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -23,7 +23,7 @@ import (
 	"k8s.io/client-go/tools/portforward"
 	"k8s.io/client-go/transport/spdy"
 
-	wsk8s "github.com/gitpod-io/gitpod/common-go/kubernetes"
+	wsk8s "github.com/nxpkg/nxpod/common-go/kubernetes"
 )
 
 // GetKubeconfig loads kubernetes connection config from a kubeconfig file

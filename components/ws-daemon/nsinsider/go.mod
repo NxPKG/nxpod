@@ -1,11 +1,11 @@
-module github.com/gitpod-io/gitpod/ws-daemon/nsinsider
+module github.com/nxpkg/nxpod/ws-daemon/nsinsider
 
 go 1.22
 
-replace github.com/seccomp/libseccomp-golang => github.com/gitpod-io/libseccomp-golang v0.9.2-0.20220203100026-45179215fdb1 // leeway indirect from components/workspacekit:lib
+replace github.com/seccomp/libseccomp-golang => github.com/nxpkg/libseccomp-golang v0.9.2-0.20220203100026-45179215fdb1 // leeway indirect from components/workspacekit:lib
 
 require (
-	github.com/gitpod-io/gitpod/common-go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
 	github.com/google/nftables v0.1.0
 	github.com/urfave/cli/v2 v2.3.0
 	github.com/vishvananda/netlink v1.1.1-0.20210330154013-f5de75959ad5
@@ -18,7 +18,7 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
-	github.com/gitpod-io/gitpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
@@ -46,13 +46,13 @@ require (
 	honnef.co/go/tools v0.2.2 // indirect
 )
 
-replace github.com/gitpod-io/gitpod/common-go => ../../common-go // leeway
+replace github.com/nxpkg/nxpod/common-go => ../../common-go // leeway
 
-replace github.com/gitpod-io/gitpod/components/scrubber => ../../scrubber // leeway
+replace github.com/nxpkg/nxpod/components/scrubber => ../../scrubber // leeway
 
-replace github.com/gitpod-io/gitpod/content-service/api => ../../content-service-api/go // leeway
+replace github.com/nxpkg/nxpod/content-service/api => ../../content-service-api/go // leeway
 
-replace github.com/gitpod-io/gitpod/ws-daemon/api => ../../ws-daemon-api/go // leeway
+replace github.com/nxpkg/nxpod/ws-daemon/api => ../../ws-daemon-api/go // leeway
 
 replace k8s.io/api => k8s.io/api v0.29.3 // leeway indirect from components/common-go:lib
 

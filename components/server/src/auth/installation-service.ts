@@ -1,19 +1,19 @@
 /**
- * Copyright (c) 2023 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2023 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AdminGetListRequest, AdminGetListResult, EmailDomainFilterEntry, GitpodServer } from "@gitpod/gitpod-protocol";
+import { AdminGetListRequest, AdminGetListResult, EmailDomainFilterEntry, NxpodServer } from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
-import { EmailDomainFilterDB, TeamDB } from "@gitpod/gitpod-db/lib";
-import { BlockedRepository } from "@gitpod/gitpod-protocol/lib/blocked-repositories-protocol";
+import { EmailDomainFilterDB, TeamDB } from "@nxpod/nxpod-db/lib";
+import { BlockedRepository } from "@nxpod/nxpod-protocol/lib/blocked-repositories-protocol";
 import { Authorizer } from "../authorization/authorizer";
-import { BlockedRepositoryDB } from "@gitpod/gitpod-db/lib/blocked-repository-db";
+import { BlockedRepositoryDB } from "@nxpod/nxpod-db/lib/blocked-repository-db";
 import { Config } from "../config";
-import { SupportedWorkspaceClass } from "@gitpod/gitpod-protocol/lib/workspace-class";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { SupportedWorkspaceClass } from "@nxpod/nxpod-protocol/lib/workspace-class";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 
 @injectable()
 export class InstallationService {
@@ -69,8 +69,8 @@ export class InstallationService {
         return this.config.workspaceDefaults.workspaceImage;
     }
 
-    async getOnboardingState(): Promise<GitpodServer.OnboardingState> {
-        // Find useful details about the state of the Gitpod installation.
+    async getOnboardingState(): Promise<NxpodServer.OnboardingState> {
+        // Find useful details about the state of the Nxpod installation.
         const { rows } = await this.teamDB.findTeams(
             0 /* offset */,
             1 /* limit */,

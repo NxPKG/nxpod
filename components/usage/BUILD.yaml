@@ -7,28 +7,28 @@ packages:
       - "go.sum"
       - "**/fixtures/*.yaml"
     deps:
-      - components/gitpod-db/go:lib
+      - components/nxpod-db/go:lib
       - components/common-go:lib
       - components/usage-api/go:lib
       - components/public-api/go:lib
       - components/content-service-api/go:lib
-      - components/gitpod-db/go:init-testdb
+      - components/nxpod-db/go:init-testdb
     env:
       - CGO_ENABLED=0
       - GOOS=linux
     config:
       packaging: app
-      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/gitpod-io/gitpod/usage/cmd.Version=commit-${__git_commit}'"]
+      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/nxpkg/nxpod/usage/cmd.Version=commit-${__git_commit}'"]
 
   - name: lib
     type: go
     deps:
-      - components/gitpod-db/go:lib
+      - components/nxpod-db/go:lib
       - components/common-go:lib
       - components/usage-api/go:lib
       - components/public-api/go:lib
       - components/content-service-api/go:lib
-      - components/gitpod-db/go:init-testdb
+      - components/nxpod-db/go:init-testdb
     srcs:
       - "**/*.go"
       - "go.mod"

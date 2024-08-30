@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+ * Copyright (c) 2020 Nxpod GmbH. All rights reserved.
  * Licensed under the GNU Affero General Public License (AGPL).
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AuthCodeRepositoryDB } from "@gitpod/gitpod-db/lib/typeorm/auth-code-repository-db";
-import { UserDB } from "@gitpod/gitpod-db/lib/user-db";
-import { User } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { AuthCodeRepositoryDB } from "@nxpod/nxpod-db/lib/typeorm/auth-code-repository-db";
+import { UserDB } from "@nxpod/nxpod-db/lib/user-db";
+import { User } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { OAuthRequest, OAuthResponse } from "@jmondi/oauth2-server";
 import { handleExpressResponse, handleExpressError } from "@jmondi/oauth2-server/dist/adapters/express";
 import express from "express";

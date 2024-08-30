@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -20,8 +20,8 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/gitpod-io/gitpod/common-go/log"
-	"github.com/gitpod-io/gitpod/components/scrubber"
+	"github.com/nxpkg/nxpod/common-go/log"
+	"github.com/nxpkg/nxpod/components/scrubber"
 )
 
 type tracingOptions struct {
@@ -48,11 +48,11 @@ func Init(serviceName string, opts ...Option) io.Closer {
 
 	cfg.Tags = append(cfg.Tags, opentracing.Tag{
 		Key:   "service.build.commit",
-		Value: os.Getenv("GITPOD_BUILD_GIT_COMMIT"),
+		Value: os.Getenv("NXPOD_BUILD_GIT_COMMIT"),
 	})
 	cfg.Tags = append(cfg.Tags, opentracing.Tag{
 		Key:   "service.build.version",
-		Value: os.Getenv("GITPOD_BUILD_VERSION"),
+		Value: os.Getenv("NXPOD_BUILD_VERSION"),
 	})
 
 	reporter, err := cfg.Reporter.NewReporter(serviceName, nil, nil)

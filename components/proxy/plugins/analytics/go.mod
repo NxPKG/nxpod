@@ -1,4 +1,4 @@
-module github.com/gitpod-io/gitpod/proxy/plugins/analytics
+module github.com/nxpkg/nxpod/proxy/plugins/analytics
 
 go 1.21
 

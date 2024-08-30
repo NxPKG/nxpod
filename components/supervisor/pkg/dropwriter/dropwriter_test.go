@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Gitpod GmbH. All rights reserved.
+// Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitpod-io/gitpod/supervisor/pkg/dropwriter"
+	"github.com/nxpkg/nxpod/supervisor/pkg/dropwriter"
 )
 
 func TestBucket(t *testing.T) {
