@@ -261,7 +261,7 @@
           "align": "auto",
           "link": true,
           "linkTargetBlank": true,
-          "linkUrl": "d/gitpod-admin-nodes/gitpod-admin-nodes?var-datasource=$datasource&var-cluster=$__cell_1&var-nodepool=$__cell_3&var-node=$__cell",
+          "linkUrl": "d/nxpod-admin-nodes/nxpod-admin-nodes?var-datasource=$datasource&var-cluster=$__cell_1&var-nodepool=$__cell_3&var-node=$__cell",
           "pattern": "node"
         },
         {
@@ -542,7 +542,7 @@
           "align": "auto",
           "link": true,
           "linkTargetBlank": true,
-          "linkUrl": "d/gitpod-admin-nodes/gitpod-admin-nodes?var-datasource=$datasource&var-cluster=$__cell_1&var-nodepool=$__cell_3&var-node=$__cell",
+          "linkUrl": "d/nxpod-admin-nodes/nxpod-admin-nodes?var-datasource=$datasource&var-cluster=$__cell_1&var-nodepool=$__cell_3&var-node=$__cell",
           "pattern": "node"
         },
         {
@@ -762,7 +762,7 @@
           "align": "auto",
           "link": true,
           "linkTargetBlank": true,
-          "linkUrl": "d/gitpod-admin-nodes/gitpod-admin-nodes?var-datasource=$datasource&var-cluster=$__cell_1&var-nodepool=$__cell_3&var-node=$__cell",
+          "linkUrl": "d/nxpod-admin-nodes/nxpod-admin-nodes?var-datasource=$datasource&var-cluster=$__cell_1&var-nodepool=$__cell_3&var-node=$__cell",
           "pattern": "node"
         },
         {
@@ -861,7 +861,7 @@
   "schemaVersion": 37,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [
@@ -963,7 +963,7 @@
   },
   "timezone": "utc",
   "title": "Nxpod / Nodes Overview",
-  "uid": "gitpod-nodes-overview",
+  "uid": "nxpod-nodes-overview",
   "version": 1,
   "weekStart": ""
 }

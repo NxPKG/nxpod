@@ -11,13 +11,13 @@ configuration file.
 
 ```yaml
 envvars:
-    DOMAIN: gitpod.io
+    DOMAIN: nxpod.khulnasoft.com
 ```
 
 ## Example expect.yaml
 
 ```yaml
-domain: gitpod.io
+domain: nxpod.khulnasoft.com
 ```
 
 This does not require the factory/default values that will be generated automatically

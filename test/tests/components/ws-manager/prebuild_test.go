@@ -18,7 +18,7 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
 	csapi "github.com/nxpkg/nxpod/content-service/api"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
 	"github.com/nxpkg/nxpod/test/pkg/integration"
 	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
@@ -33,7 +33,7 @@ func TestPrebuildWorkspaceTaskSuccess(t *testing.T) {
 				ContextURL       string
 				WorkspaceRoot    string
 				CheckoutLocation string
-				Task             []gitpod.TasksItems
+				Task             []nxpod.TasksItems
 				FF               []wsmanapi.WorkspaceFeatureFlag
 			}{
 				{
@@ -41,7 +41,7 @@ func TestPrebuildWorkspaceTaskSuccess(t *testing.T) {
 					ContextURL:       "https://github.com/nxpkg/empty",
 					CheckoutLocation: "empty",
 					WorkspaceRoot:    "/workspace/empty",
-					Task: []gitpod.TasksItems{
+					Task: []nxpod.TasksItems{
 						{Init: "echo \"some output\" > someFile; exit 0;"},
 					},
 				},
@@ -167,7 +167,7 @@ func TestPrebuildWorkspaceTaskFail(t *testing.T) {
 }
 
 const (
-	prebuildLogPath string = "/workspace/.gitpod"
+	prebuildLogPath string = "/workspace/.nxpod"
 	prebuildLog     string = "'🍊 This task ran as a workspace prebuild'"
 	initTask        string = "echo \"some output\" > someFile;"
 	regularPrefix   string = "ws-"
@@ -320,10 +320,10 @@ func TestOpenWorkspaceFromPrebuild(t *testing.T) {
 					// check prebuild log message exists
 					checkPrebuildLogExist(t, cfg, rsa, ws, test.WorkspaceRoot)
 
-					// check the folder permission is gitpod
+					// check the folder permission is nxpod
 					checkFolderPermission(t, rsa, "/workspace")
 
-					// check the files/folders permission under .git/ is gitpod
+					// check the files/folders permission under .git/ is nxpod
 					checkGitFolderPermission(t, rsa, test.WorkspaceRoot)
 
 					// write file foobar.txt and stop the workspace
@@ -416,7 +416,7 @@ func TestOpenWorkspaceFromPrebuild(t *testing.T) {
 // TestOpenWorkspaceFromOutdatedPrebuild
 // - create a prebuild on older commit
 // - open a workspace from a later commit with a prebuild initializer
-// - make sure the workspace's init task ran (the init task will create a file `incremental.txt` see https://github.com/nxpkg/test-incremental-workspace/blob/main/.gitpod.yml)
+// - make sure the workspace's init task ran (the init task will create a file `incremental.txt` see https://github.com/nxpkg/test-incremental-workspace/blob/main/.nxpod.yml)
 func TestOpenWorkspaceFromOutdatedPrebuild(t *testing.T) {
 
 	f := features.New("prebuild").
@@ -606,7 +606,7 @@ func checkPrebuildLogExist(t *testing.T, cfg *envconf.Config, rsa *integration.R
 	t.Logf("cannot found the prebuild message %s in %s, err:%v, exitCode:%d, stdout:%s, stderr:%s", prebuildLog, prebuildLogPath, err, grepResp.ExitCode, grepResp.Stdout, grepResp.Stderr)
 
 	// somehow, the prebuild log message '🍊 This task ran as a workspace prebuild' does not exists
-	// we fall back to check the init task message within the /workspace/.gitpod/prebuild-log-* or not
+	// we fall back to check the init task message within the /workspace/.nxpod/prebuild-log-* or not
 	var grepResp1 agent.ExecResponse
 	var checkInitTaskMsg bool
 	err = rsa.Call("WorkspaceAgent.Exec", &agent.ExecRequest{
@@ -626,7 +626,7 @@ func checkPrebuildLogExist(t *testing.T, cfg *envconf.Config, rsa *integration.R
 
 	t.Logf("cannot found the init task message %s in %s, err:%v, exitCode:%d, stdout:%s", initTask, prebuildLogPath, err, grepResp.ExitCode, grepResp.Stdout)
 
-	// somehow, the init task message does not exist within the /workspace/.gitpod/prebuild-log-*
+	// somehow, the init task message does not exist within the /workspace/.nxpod/prebuild-log-*
 	// we fall back to check the file exists or not
 	var ls agent.ListDirResponse
 	err = rsa.Call("WorkspaceAgent.ListDir", &agent.ListDirRequest{
@@ -649,14 +649,14 @@ func checkPrebuildLogExist(t *testing.T, cfg *envconf.Config, rsa *integration.R
 	t.Fatal("did not find someFile from previous workspace instance")
 }
 
-// checkFolderPermission checks the folder UID and GID is gitpod
+// checkFolderPermission checks the folder UID and GID is nxpod
 func checkFolderPermission(t *testing.T, rsa *integration.RpcClient, workspace string) {
 	var uid agent.ExecResponse
 	err := rsa.Call("WorkspaceAgent.Exec", &agent.ExecRequest{
 		Command: "stat",
 		Args:    []string{"--format", "%U", workspace},
 	}, &uid)
-	if err != nil || uid.ExitCode != 0 || strings.Trim(uid.Stdout, " \t\n") != "gitpod" {
+	if err != nil || uid.ExitCode != 0 || strings.Trim(uid.Stdout, " \t\n") != "nxpod" {
 		t.Fatalf("folder %s UID %s is incorrect, err:%v, exitCode:%d", workspace, uid.Stdout, err, uid.ExitCode)
 	}
 
@@ -665,12 +665,12 @@ func checkFolderPermission(t *testing.T, rsa *integration.RpcClient, workspace s
 		Command: "stat",
 		Args:    []string{"--format", "%G", workspace},
 	}, &gid)
-	if err != nil || uid.ExitCode != 0 || strings.Trim(gid.Stdout, " \t\n") != "gitpod" {
+	if err != nil || uid.ExitCode != 0 || strings.Trim(gid.Stdout, " \t\n") != "nxpod" {
 		t.Fatalf("folder %s GID %s is incorrect, err:%v, exitCode:%d", workspace, gid.Stdout, err, uid.ExitCode)
 	}
 }
 
-// checkGitFolderPermission checks the files/folders UID and GID under .git/ is gitpod
+// checkGitFolderPermission checks the files/folders UID and GID under .git/ is nxpod
 func checkGitFolderPermission(t *testing.T, rsa *integration.RpcClient, workspaceRoot string) {
 	var findUserResp agent.ExecResponse
 	var gitDir string = fmt.Sprintf("%s/%s", workspaceRoot, ".git")
@@ -678,7 +678,7 @@ func checkGitFolderPermission(t *testing.T, rsa *integration.RpcClient, workspac
 	err := rsa.Call("WorkspaceAgent.Exec", &agent.ExecRequest{
 		Dir:     gitDir,
 		Command: "find",
-		Args:    []string{"!", "-user", "gitpod"},
+		Args:    []string{"!", "-user", "nxpod"},
 	}, &findUserResp)
 	if err != nil || findUserResp.ExitCode != 0 || strings.Trim(findUserResp.Stdout, " \t\n") != "" {
 		t.Fatalf("incorrect UID under %s folder, err:%v, exitCode:%d, stdout:%s", gitDir, err, findUserResp.ExitCode, findUserResp.Stdout)
@@ -688,7 +688,7 @@ func checkGitFolderPermission(t *testing.T, rsa *integration.RpcClient, workspac
 	err = rsa.Call("WorkspaceAgent.Exec", &agent.ExecRequest{
 		Dir:     gitDir,
 		Command: "find",
-		Args:    []string{"!", "-group", "gitpod"},
+		Args:    []string{"!", "-group", "nxpod"},
 	}, &findGroupResp)
 	if err != nil || findGroupResp.ExitCode != 0 || strings.Trim(findGroupResp.Stdout, " \t\n") != "" {
 		t.Fatalf("incorrect GID under %s folder, err:%v, exitCode:%d, stdout:%s", gitDir, err, findGroupResp.ExitCode, findGroupResp.Stdout)

@@ -239,7 +239,7 @@ func (r *RpcClient) Close() error {
 }
 
 // Instrument builds and uploads an agent to a pod, then connects to its RPC service.
-// We first check if there's an executable in the path named `gitpod-integration-test-<agentName>-agent`.
+// We first check if there's an executable in the path named `nxpod-integration-test-<agentName>-agent`.
 // If there isn't, we attempt to build `<agentName>_agent/main.go`.
 // The binary is copied to the destination pod, started and port-forwarded. Then we
 // create an RPC client.
@@ -265,7 +265,7 @@ func Instrument(component ComponentType, agentName string, namespace string, kub
 		err           error
 	)
 	for i := 0; i < connectFailureMaxTries; i++ {
-		expectedBinaryName := fmt.Sprintf("gitpod-integration-test-%d-%s-agent", i, agentName)
+		expectedBinaryName := fmt.Sprintf("nxpod-integration-test-%d-%s-agent", i, agentName)
 		agentLoc, _ := exec.LookPath(expectedBinaryName)
 		if agentLoc == "" {
 			var err error
@@ -293,7 +293,7 @@ func Instrument(component ComponentType, agentName string, namespace string, kub
 		podExec := NewPodExec(*client.RESTConfig(), clientConfig)
 
 		tgtFN := filepath.Base(agentLoc)
-		_, _, _, err = podExec.PodCopyFile(agentLoc, fmt.Sprintf("%s/%s:/home/gitpod/%s", namespace, podName, tgtFN), containerName)
+		_, _, _, err = podExec.PodCopyFile(agentLoc, fmt.Sprintf("%s/%s:/home/nxpod/%s", namespace, podName, tgtFN), containerName)
 		if err != nil {
 			log.WithError(err).Warnf("failed to copy agent to pod (attempt %d)", i)
 			time.Sleep(10 * time.Second)
@@ -372,7 +372,7 @@ func portfw(podExec *PodExec, kubeconfig string, podName string, namespace strin
 		return nil, closer, err
 	}
 
-	cmd := []string{filepath.Join("/home/gitpod/", tgtFN), "-rpc-port", strconv.Itoa(localAgentPort)}
+	cmd := []string{filepath.Join("/home/nxpod/", tgtFN), "-rpc-port", strconv.Itoa(localAgentPort)}
 	if options.WorkspacekitLift {
 		cmd = append([]string{"/.supervisor/workspacekit", "lift"}, cmd...)
 	}
@@ -514,7 +514,7 @@ func doBuildAgent(name string) (loc string, err error) {
 		return "", err
 	}
 
-	f, err := os.CreateTemp("", fmt.Sprintf("gitpod-integration-test-%s-*", name))
+	f, err := os.CreateTemp("", fmt.Sprintf("nxpod-integration-test-%s-*", name))
 	if err != nil {
 		return "", err
 	}

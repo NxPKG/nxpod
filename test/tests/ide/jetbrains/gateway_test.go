@@ -196,7 +196,7 @@ func TestIntelliJWarmup(t *testing.T) {
 			ctx, cancel := context.WithTimeout(testCtx, 30*time.Minute)
 			defer cancel()
 
-			testRepo := "https://github.com/gitpod-samples/spring-petclinic"
+			testRepo := "https://github.com/nxpod-samples/spring-petclinic"
 			testRepoBranch := "gp/integration-test"
 
 			api, _, papi, _ := MustConnectToServer(ctx, t, cfg)

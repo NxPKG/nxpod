@@ -18,7 +18,7 @@ featureFlags:
 # from core.proto: WORKSPACE_CONNECTION_LIMITING = 10;
   - 10
 repos:
-  - cloneURL: https://github.com/nxpod-io/workspace-stress
+  - cloneURL: https://github.com/nxpkg/workspace-stress
     cloneTarget: main
     score: 20
     workspaceImage: registry.hub.docker.com/nxpod/workspace-full:latest
@@ -97,7 +97,7 @@ repos:
     environment:
     - name: "NXPOD_TASKS"
       value: "[{\"name\":\"Open port 1\",\"command\":\"gp ports visibility 6879:private\"},{\"name\":\"Open port 2\",\"command\":\"gp ports visibility 7869:private\"}]"
-  - cloneURL: https://github.com/nxpod-io/non-nxpodified-repo
+  - cloneURL: https://github.com/nxpkg/non-nxpodified-repo
     score: 20
     cloneTarget: main
     workspaceImage: registry.hub.docker.com/nxpod/workspace-full:latest

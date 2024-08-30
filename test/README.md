@@ -50,7 +50,7 @@ Test will work if images that they use are already cached by Nxpod instance. If 
 There are 4 different types of tests:
 
 1. Enterprise specific, that require valid license to be installed. Run those with `-enterprise=true`
-2. Tests that require correct user (user should have github OAuth integration setup with gitpod). Run those with `-username=<gitpod_username>`. Make sure to load https://github.com/nxpkg/nxpod-test-repo and https://github.com/nxpkg/nxpod workspaces inside your gitpod that you are testing to preload those images onto your node. Wait for it to finish pulling those image, this will ensure that test will not fail due to timeout while waiting to pull an image for the first time.
+2. Tests that require correct user (user should have github OAuth integration setup with nxpod). Run those with `-username=<nxpod_username>`. Make sure to load https://github.com/nxpkg/nxpod-test-repo and https://github.com/nxpkg/nxpod workspaces inside your nxpod that you are testing to preload those images onto your node. Wait for it to finish pulling those image, this will ensure that test will not fail due to timeout while waiting to pull an image for the first time.
 3. To test gitlab integration, add `-gitlab=true`
 4. All other tests.
 
@@ -78,7 +78,7 @@ cd test
 go test -v ./... \
     -run <test> \
     -namespace=default \
-    -username=<gitpod_user_with_oauth_setup> \
+    -username=<nxpod_user_with_oauth_setup> \
     -enterprise=<true|false> \
     -gitlab=<true|false>
 ```

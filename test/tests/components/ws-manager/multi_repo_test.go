@@ -30,13 +30,13 @@ var repos = []struct {
 		RemoteUri:        "https://github.com/nxpkg/nxpod",
 		CloneTarget:      "main",
 		ExpectedBranch:   "main",
-		CheckoutLocation: "gitpod",
+		CheckoutLocation: "nxpod",
 	},
 	{
 		RemoteUri:        "https://github.com/nxpkg/nxpod",
 		CloneTarget:      "master",
 		ExpectedBranch:   "main",
-		CheckoutLocation: "gitpod",
+		CheckoutLocation: "nxpod",
 	},
 	{
 		RemoteUri:        "https://github.com/nxpkg/workspace-images",
@@ -104,7 +104,7 @@ func TestMultiRepoWorkspaceSuccess(t *testing.T) {
 					},
 				},
 			}
-			swr.Spec.WorkspaceLocation = "gitpod"
+			swr.Spec.WorkspaceLocation = "nxpod"
 			return nil
 		}
 

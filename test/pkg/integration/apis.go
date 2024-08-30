@@ -48,7 +48,7 @@ import (
 
 	"github.com/nxpkg/nxpod/common-go/log"
 	csapi "github.com/nxpkg/nxpod/content-service/api"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	imgbldr "github.com/nxpkg/nxpod/image-builder/api"
 	"github.com/nxpkg/nxpod/test/pkg/integration/common"
 	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
@@ -68,7 +68,7 @@ func NewComponentAPI(ctx context.Context, namespace string, kubeconfig string, c
 		imgbldStatusMu:         sync.Mutex{},
 
 		serverStatus: &serverStatus{
-			Client:     make(map[string]*gitpod.APIoverJSONRPC),
+			Client:     make(map[string]*nxpod.APIoverJSONRPC),
 			Token:      make(map[string]string),
 			PAPIClient: make(map[string]*PAPIClient),
 		},
@@ -77,7 +77,7 @@ func NewComponentAPI(ctx context.Context, namespace string, kubeconfig string, c
 
 type serverStatus struct {
 	Token      map[string]string
-	Client     map[string]*gitpod.APIoverJSONRPC
+	Client     map[string]*nxpod.APIoverJSONRPC
 	PAPIClient map[string]*PAPIClient
 }
 
@@ -170,7 +170,7 @@ func EncryptValue(value []byte, key []byte) (data string, iv string) {
 
 // Storage provides a url of the storage provider
 // it takes a url as input and creates a port forward if required
-// e.g. when minio running in gitpod cluster
+// e.g. when minio running in nxpod cluster
 // and modifies the url to refer to the localhost instead of dns name
 func (c *ComponentAPI) Storage(connUrl string) (string, error) {
 	u, err := url.Parse(connUrl)
@@ -235,16 +235,16 @@ func (c *ComponentAPI) Supervisor(instanceID string) (grpc.ClientConnInterface, 
 	return conn, nil
 }
 
-type gitpodServerOpts struct {
+type nxpodServerOpts struct {
 	User string
 }
 
 // NxpodServerOpt specificies Nxpod server access
-type NxpodServerOpt func(*gitpodServerOpts) error
+type NxpodServerOpt func(*nxpodServerOpts) error
 
 // WithNxpodUser specifies the user as which we want to access the API.
 func WithNxpodUser(name string) NxpodServerOpt {
-	return func(o *gitpodServerOpts) error {
+	return func(o *nxpodServerOpts) error {
 		o.User = name
 		return nil
 	}
@@ -259,12 +259,12 @@ func (c *ComponentAPI) CreateOAuth2Token(user string, scopes []string) (string, 
 }
 
 func (c *ComponentAPI) ClearNxpodServerClientCache() {
-	c.serverStatus.Client = map[string]*gitpod.APIoverJSONRPC{}
+	c.serverStatus.Client = map[string]*nxpod.APIoverJSONRPC{}
 }
 
 // NxpodServer provides access to the Nxpod server API
-func (c *ComponentAPI) NxpodServer(opts ...NxpodServerOpt) (gitpod.APIInterface, error) {
-	var options gitpodServerOpts
+func (c *ComponentAPI) NxpodServer(opts ...NxpodServerOpt) (nxpod.APIInterface, error) {
+	var options nxpodServerOpts
 	for _, o := range opts {
 		err := o(&options)
 		if err != nil {
@@ -276,7 +276,7 @@ func (c *ComponentAPI) NxpodServer(opts ...NxpodServerOpt) (gitpod.APIInterface,
 		return cl, nil
 	}
 
-	var res gitpod.APIInterface
+	var res nxpod.APIInterface
 	err := func() error {
 		tkn := c.serverStatus.Token[options.User]
 		if tkn == "" {
@@ -321,7 +321,7 @@ func (c *ComponentAPI) NxpodServer(opts ...NxpodServerOpt) (gitpod.APIInterface,
 		}
 		endpoint.Path = "/api/v1"
 
-		cl, err := gitpod.ConnectToServer(endpoint.String(), gitpod.ConnectToServerOpts{
+		cl, err := nxpod.ConnectToServer(endpoint.String(), nxpod.ConnectToServerOpts{
 			Token: tkn,
 			Log:   log.Log,
 		})
@@ -426,7 +426,7 @@ func (c *ComponentAPI) GetUserId(user string) (userId string, err error) {
 
 	var row *sql.Row
 	if user == "" {
-		row = db.QueryRow(`SELECT id FROM d_b_user WHERE NOT id = "` + gitpodBuiltinUserID + `" AND blocked = FALSE AND markedDeleted = FALSE`)
+		row = db.QueryRow(`SELECT id FROM d_b_user WHERE NOT id = "` + nxpodBuiltinUserID + `" AND blocked = FALSE AND markedDeleted = FALSE`)
 	} else {
 		row = db.QueryRow("SELECT id FROM d_b_user WHERE name = ? AND blocked != 1 and markedDeleted != 1", user)
 	}
@@ -584,14 +584,14 @@ func (c *ComponentAPI) createNxpodToken(user string, scopes []string) (tkn strin
 	hash.Write([]byte(tkn))
 	hashVal := fmt.Sprintf("%x", hash.Sum(nil))
 
-	// see https://github.com/nxpkg/nxpod/blob/master/components/gitpod-protocol/src/protocol.ts#L274
+	// see https://github.com/nxpkg/nxpod/blob/master/components/nxpod-protocol/src/protocol.ts#L274
 	const tokenTypeMachineAuthToken = 1
 
 	db, err := c.DB()
 	if err != nil {
 		return "", err
 	}
-	_, err = db.Exec("INSERT INTO d_b_gitpod_token (tokenHash, name, type, userId, scopes, created) VALUES (?, ?, ?, ?, ?, ?)",
+	_, err = db.Exec("INSERT INTO d_b_nxpod_token (tokenHash, name, type, userId, scopes, created) VALUES (?, ?, ?, ?, ?, ?)",
 		hashVal,
 		fmt.Sprintf("integration-test-%d", time.Now().UnixNano()),
 		tokenTypeMachineAuthToken,
@@ -604,7 +604,7 @@ func (c *ComponentAPI) createNxpodToken(user string, scopes []string) (tkn strin
 	}
 
 	c.appendCloser(func() error {
-		_, err := db.Exec("DELETE FROM d_b_gitpod_token WHERE tokenHash = ?", hashVal)
+		_, err := db.Exec("DELETE FROM d_b_nxpod_token WHERE tokenHash = ?", hashVal)
 		return err
 	})
 
@@ -815,7 +815,7 @@ var (
 // Callers must never close the DB.
 func (c *ComponentAPI) DB(options ...DBOpt) (*sql.DB, error) {
 	opts := dbOpts{
-		Database: "gitpod",
+		Database: "nxpod",
 	}
 	for _, o := range options {
 		o(&opts)
@@ -842,7 +842,7 @@ func (c *ComponentAPI) DB(options ...DBOpt) (*sql.DB, error) {
 		c.appendCloser(func() error { cancel(); return nil })
 	}
 
-	db, err := sql.Open("mysql", fmt.Sprintf("gitpod:%s@tcp(%s:%d)/%s", config.Password, config.Host, config.Port, opts.Database))
+	db, err := sql.Open("mysql", fmt.Sprintf("nxpod:%s@tcp(%s:%d)/%s", config.Password, config.Host, config.Port, opts.Database))
 	if err != nil {
 		return nil, err
 	}

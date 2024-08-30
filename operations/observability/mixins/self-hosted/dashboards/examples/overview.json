@@ -136,7 +136,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(gitpod_ws_manager_mk2_workspace_phase_total{phase=\"Running\"}) by (type)",
+          "expr": "sum(nxpod_ws_manager_mk2_workspace_phase_total{phase=\"Running\"}) by (type)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{ type }}",
@@ -149,7 +149,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(gitpod_ws_manager_mk2_workspace_activity_total{active=\"false\"})",
+          "expr": "sum(nxpod_ws_manager_mk2_workspace_activity_total{active=\"false\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Pending workspaces",
@@ -258,7 +258,7 @@
             "type": "prometheus",
             "uid": "$datasource"
           },
-          "expr": "sum(\n  rate(gitpod_ws_manager_mk2_workspace_stops_total{reason=\"failed\"}[5m])\n) by (cluster, type)\n",
+          "expr": "sum(\n  rate(nxpod_ws_manager_mk2_workspace_stops_total{reason=\"failed\"}[5m])\n) by (cluster, type)\n",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{type}}",
@@ -332,7 +332,7 @@
             "type": "prometheus",
             "uid": "$datasource"
           },
-          "expr": "sum(rate(gitpod_ws_manager_mk2_workspace_startup_seconds_bucket{type=\"Regular\"}[$__rate_interval])) by (le)",
+          "expr": "sum(rate(nxpod_ws_manager_mk2_workspace_startup_seconds_bucket{type=\"Regular\"}[$__rate_interval])) by (le)",
           "format": "heatmap",
           "intervalFactor": 2,
           "legendFormat": "{{le}}",
@@ -360,7 +360,7 @@
   "schemaVersion": 36,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [
@@ -414,7 +414,7 @@
   },
   "timezone": "utc",
   "title": "[Example] Nxpod Self-hosted / Overview",
-  "uid": "gitpod-selfhosted-overview-example",
+  "uid": "nxpod-selfhosted-overview-example",
   "version": 1,
   "weekStart": ""
 }

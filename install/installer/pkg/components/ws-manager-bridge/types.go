@@ -33,7 +33,7 @@ type Timeouts struct {
 	StoppingPhaseSeconds  int32 `json:"stoppingPhaseSeconds"`
 }
 
-// WorkspaceCluster from components/gitpod-protocol/src/workspace-cluster.ts
+// WorkspaceCluster from components/nxpod-protocol/src/workspace-cluster.ts
 type WorkspaceCluster struct {
 	Name                 string                `json:"name"`
 	URL                  string                `json:"url"`
@@ -54,7 +54,7 @@ type WorkspaceClusterTLS struct {
 	Key         string `json:"key"`
 }
 
-// WorkspaceClusterState from components/gitpod-protocol/src/workspace-cluster.ts
+// WorkspaceClusterState from components/nxpod-protocol/src/workspace-cluster.ts
 type WorkspaceClusterState string
 
 const (

@@ -45,7 +45,7 @@ func Process(input string, expression string) (*string, error) {
 		return nil, err
 	}
 
-	_, err = streamEvaluator.Evaluate("gitpod-installer.tmp.yaml", reader, node, printer, "", decoder)
+	_, err = streamEvaluator.Evaluate("nxpod-installer.tmp.yaml", reader, node, printer, "", decoder)
 	if err != nil {
 		return nil, err
 	}

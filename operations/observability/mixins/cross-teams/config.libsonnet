@@ -10,9 +10,9 @@
     showMultiCluster: true,
     clusterLabel: 'cluster',
 
-    gitpodURL: 'https://gitpod.io',
+    nxpodURL: 'https://nxpod.khulnasoft.com',
 
     dashboardNamePrefix: 'Nxpod / ',
-    dashboardTags: ['gitpod-mixin'],
+    dashboardTags: ['nxpod-mixin'],
   },
 }

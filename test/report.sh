@@ -19,7 +19,7 @@ tempdir=$(mktemp -d /tmp/report-"$d".XXXXX)
 
 exec {base}< <( \
   jq -r 'select( .Action | test("(pass|fail|skip)") ) | select( .Elapsed | . != 0) | select( .Test | . != null) | [.Package,.Test,.Action]|@csv' "$input_file" | \
-  sed 's/github.com\/nxpkg\/gitpod\/test\/tests\///' > "$tempdir"/base.csv
+  sed 's/github.com\/nxpkg\/nxpod\/test\/tests\///' > "$tempdir"/base.csv
 )
 
 jq -r 'select( .Action | test("(pass|fail|skip)") ) | select( .Elapsed | . != 0) | select( .Test | . != null).Test' "$input_file" > "$tempdir"/list.txt

@@ -321,7 +321,7 @@
   "schemaVersion": 38,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [
@@ -497,7 +497,7 @@
   "timepicker": {},
   "timezone": "utc",
   "title": "Meta Services",
-  "uid": "gitpod-services",
+  "uid": "nxpod-services",
   "version": 1,
   "weekStart": ""
 }

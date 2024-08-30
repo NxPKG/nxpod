@@ -3,16 +3,16 @@
 
 -- must be idempotent
 
--- @gitpodDB contains name of the DB the script manipulates, and is replaced by the file reader
+-- @nxpodDB contains name of the DB the script manipulates, and is replaced by the file reader
 SET
-@gitpodDB = IFNULL(@gitpodDB, '`__NXPOD_DB_NAME__`');
+@nxpodDB = IFNULL(@nxpodDB, '`__NXPOD_DB_NAME__`');
 
 SET
-@statementStr = CONCAT('DROP DATABASE IF EXISTS ', @gitpodDB);
+@statementStr = CONCAT('DROP DATABASE IF EXISTS ', @nxpodDB);
 PREPARE statement FROM @statementStr;
 EXECUTE statement;
 
 SET
-@statementStr = CONCAT('CREATE DATABASE ', @gitpodDB, ' CHARSET utf8mb4');
+@statementStr = CONCAT('CREATE DATABASE ', @nxpodDB, ' CHARSET utf8mb4');
 PREPARE statement FROM @statementStr;
 EXECUTE statement;

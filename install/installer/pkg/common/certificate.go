@@ -13,7 +13,7 @@ func CAVolume() corev1.Volume {
 		Name: "ca-certificates",
 		VolumeSource: corev1.VolumeSource{
 			ConfigMap: &corev1.ConfigMapVolumeSource{
-				LocalObjectReference: corev1.LocalObjectReference{Name: "gitpod-ca-bundle"},
+				LocalObjectReference: corev1.LocalObjectReference{Name: "nxpod-ca-bundle"},
 			},
 		},
 	}

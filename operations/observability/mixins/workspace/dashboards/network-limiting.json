@@ -111,7 +111,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(gitpod_ws_daemon_netlimit_connections_dropped_packets{node=~\"$node\", workspace=~\"$workspace\"}) by(node, workspace)",
+          "expr": "sum(nxpod_ws_daemon_netlimit_connections_dropped_packets{node=~\"$node\", workspace=~\"$workspace\"}) by(node, workspace)",
           "legendFormat": "{{workspace}}",
           "range": true,
           "refId": "A"
@@ -203,7 +203,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(gitpod_ws_daemon_netlimit_connections_dropped_bytes{node=~\"$node\", workspace=~\"$workspace\"}) by (node, workspace)",
+          "expr": "sum(nxpod_ws_daemon_netlimit_connections_dropped_bytes{node=~\"$node\", workspace=~\"$workspace\"}) by (node, workspace)",
           "legendFormat": "{{workspace}}",
           "range": true,
           "refId": "A"
@@ -295,7 +295,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(gitpod_ws_daemon_netlimit_connections_dropped_packets[1m])) by(workspace) != 0",
+          "expr": "sum(rate(nxpod_ws_daemon_netlimit_connections_dropped_packets[1m])) by(workspace) != 0",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -334,7 +334,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(gitpod_ws_daemon_netlimit_connections_dropped_bytes,node)",
+        "definition": "label_values(nxpod_ws_daemon_netlimit_connections_dropped_bytes,node)",
         "hide": 0,
         "includeAll": false,
         "label": "Node",
@@ -342,7 +342,7 @@
         "name": "node",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_ws_daemon_netlimit_connections_dropped_bytes,node)",
+          "query": "label_values(nxpod_ws_daemon_netlimit_connections_dropped_bytes,node)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
@@ -357,7 +357,7 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(gitpod_ws_daemon_netlimit_connections_dropped_bytes{node=\"$node\"},workspace)",
+        "definition": "label_values(nxpod_ws_daemon_netlimit_connections_dropped_bytes{node=\"$node\"},workspace)",
         "hide": 0,
         "includeAll": true,
         "label": "Workspace",
@@ -365,7 +365,7 @@
         "name": "workspace",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_ws_daemon_netlimit_connections_dropped_bytes{node=\"$node\"},workspace)",
+          "query": "label_values(nxpod_ws_daemon_netlimit_connections_dropped_bytes{node=\"$node\"},workspace)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,

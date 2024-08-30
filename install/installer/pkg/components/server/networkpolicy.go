@@ -7,7 +7,7 @@ package server
 import (
 	"github.com/nxpkg/nxpod/common-go/baseserver"
 	"github.com/nxpkg/nxpod/installer/pkg/common"
-	"github.com/nxpkg/nxpod/installer/pkg/components/gitpod"
+	"github.com/nxpkg/nxpod/installer/pkg/components/nxpod"
 
 	networkingv1 "k8s.io/api/networking/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -101,7 +101,7 @@ func Networkpolicy(ctx *common.RenderContext, component string) ([]runtime.Objec
 							{
 								PodSelector: &metav1.LabelSelector{
 									MatchLabels: map[string]string{
-										"component": gitpod.Component,
+										"component": nxpod.Component,
 									},
 								},
 							},
@@ -118,7 +118,7 @@ func Networkpolicy(ctx *common.RenderContext, component string) ([]runtime.Objec
 							{
 								PodSelector: &metav1.LabelSelector{
 									MatchLabels: map[string]string{
-										"app":       "gitpod",
+										"app":       "nxpod",
 										"component": common.PublicApiComponent,
 									},
 								},
@@ -136,7 +136,7 @@ func Networkpolicy(ctx *common.RenderContext, component string) ([]runtime.Objec
 							{
 								PodSelector: &metav1.LabelSelector{
 									MatchLabels: map[string]string{
-										"app":       "gitpod",
+										"app":       "nxpod",
 										"component": common.PublicApiComponent,
 									},
 								},
@@ -144,7 +144,7 @@ func Networkpolicy(ctx *common.RenderContext, component string) ([]runtime.Objec
 							{
 								PodSelector: &metav1.LabelSelector{
 									MatchLabels: map[string]string{
-										"app":       "gitpod",
+										"app":       "nxpod",
 										"component": common.UsageComponent,
 									},
 								},

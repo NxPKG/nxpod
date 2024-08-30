@@ -88,13 +88,13 @@ func Setup(ctx context.Context) (string, string, env.Environment, bool, string, 
 
 	defaultKubeConfig := os.Getenv("KUBE_CONFIG")
 	if defaultKubeConfig == "" {
-		defaultKubeConfig = "/home/gitpod/.kube/config"
+		defaultKubeConfig = "/home/nxpod/.kube/config"
 	}
 	flagset.StringVar(&username, "username", os.Getenv("USER_NAME"), "username to execute the tests with. Chooses one automatically if left blank.")
 	flagset.BoolVar(&enterprise, "enterprise", false, "whether to test enterprise features. requires enterprise lisence installed.")
 	flagset.BoolVar(&gitlab, "gitlab", false, "whether to test gitlab integration.")
 	flagset.BoolVar(&parallel, "parallel-features", false, "Run test features in parallel")
-	flagset.DurationVar(&waitNxpodReady, "wait-gitpod-timeout", 5*time.Minute, `wait time for Nxpod components before starting integration test`)
+	flagset.DurationVar(&waitNxpodReady, "wait-nxpod-timeout", 5*time.Minute, `wait time for Nxpod components before starting integration test`)
 	flagset.StringVar(&namespace, "namespace", "", "Kubernetes cluster namespaces to use")
 	flagset.StringVar(&kubeconfig, "kubeconfig", defaultKubeConfig, "The path to the kubeconfig file")
 	flagset.StringVar(&feature, "feature", "", "Regular expression that targets features to test")
@@ -216,7 +216,7 @@ func logNxpodStatus(t *testing.T, client klient.Client, namespace string) {
 	var allPods corev1.PodList
 	err := client.Resources(namespace).List(context.Background(), &allPods)
 	if err != nil {
-		t.Logf("failed to list pods to log gitpod status: %v", err)
+		t.Logf("failed to list pods to log nxpod status: %v", err)
 		return
 	}
 

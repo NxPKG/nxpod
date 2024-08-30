@@ -140,14 +140,14 @@ func (*DaemonAgent) VerifyRateLimitingRule(args *api.VerifyRateLimitingRuleReque
 		return fmt.Errorf("could not establish netlink connection for nft: %w", err)
 	}
 
-	gitpodTable := &nftables.Table{
-		Name:   "gitpod",
+	nxpodTable := &nftables.Table{
+		Name:   "nxpod",
 		Family: nftables.TableFamilyIPv4,
 	}
 
 	// Check if drop stats counter exists.
 	counterObject, err := nftconn.GetObject(&nftables.CounterObj{
-		Table: gitpodTable,
+		Table: nxpodTable,
 		Name:  "ws-connection-drop-stats",
 	})
 	if err != nil {
@@ -159,7 +159,7 @@ func (*DaemonAgent) VerifyRateLimitingRule(args *api.VerifyRateLimitingRuleReque
 	}
 
 	// Check if set exists.
-	_, err = nftconn.GetSetByName(gitpodTable, "ws-connections")
+	_, err = nftconn.GetSetByName(nxpodTable, "ws-connections")
 	if err != nil {
 		return fmt.Errorf("could not get set ws-connections: %w", err)
 	}

@@ -79,7 +79,7 @@ args=()
 if [ "${REPORT}" != "" ]; then
   args+=( "--json" )
 fi
-args+=( "-kubeconfig=${KUBECONFIG:-/home/gitpod/.kube/config}" )
+args+=( "-kubeconfig=${KUBECONFIG:-/home/nxpod/.kube/config}" )
 args+=( "-namespace=${NAMESPACE:-default}" )
 args+=( "-timeout=120m" )
 

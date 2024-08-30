@@ -36,7 +36,7 @@ func TestStartWorkspaceWithImageBuild(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			_, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "imagebuild/https://github.com/gitpod-integration-test/example", username, api)
+			_, stopWs, err := integration.LaunchWorkspaceFromContextURL(t, ctx, "imagebuild/https://github.com/nxpod-integration-test/example", username, api)
 			if err != nil {
 				t.Fatal(err)
 			}

@@ -23,6 +23,6 @@ spec:
         runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/VSCodeExtensionInstallFailuresRatioTooHigh.md
         summary: Open-VSX registry is possibly down
         description: Open-VSX registry or our openvsx-mirror is possibly down. Some user cannot install VSCode extensions.
-        dashboard_url: https://grafana.gitpod.io/d/oLzOteZ4z/vs-code-browser-overview
+        dashboard_url: https://grafana.nxpod.khulnasoft.com/d/oLzOteZ4z/vs-code-browser-overview
       expr: |
-          sum(rate(gitpod_vscode_extension_gallery_operation_total{status="failure",operation="install"}[2m]))/sum(rate(gitpod_vscode_extension_gallery_operation_total{operation="install"}[2m])) > 0.25
+          sum(rate(nxpod_vscode_extension_gallery_operation_total{status="failure",operation="install"}[2m]))/sum(rate(nxpod_vscode_extension_gallery_operation_total{operation="install"}[2m])) > 0.25

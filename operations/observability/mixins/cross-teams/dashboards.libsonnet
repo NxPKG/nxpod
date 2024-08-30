@@ -10,16 +10,16 @@
     // Import raw json files here.
     // Example:
     // 'my-new-dashboard.json': (import 'dashboards/components/new-component.json'),
-    'gitpod-cluster-autoscaler-k3s.json': (import 'dashboards/gitpod-cluster-autoscaler-k3s.json'),
-    'gitpod-node-resource-metrics.json': (import 'dashboards/gitpod-node-resource-metrics.json'),
-    'gitpod-grpc-server.json': (import 'dashboards/gitpod-grpc-server.json'),
-    'gitpod-grpc-client.json': (import 'dashboards/gitpod-grpc-client.json'),
-    'gitpod-connect-server.json': (import 'dashboards/gitpod-connect-server.json'),
-    'gitpod-overview.json': (import 'dashboards/gitpod-overview.json'),
-    'gitpod-nodes-overview.json': (import 'dashboards/gitpod-nodes-overview.json'),
-    'gitpod-admin-node.json': (import 'dashboards/gitpod-admin-node.json'),
-    'gitpod-admin-workspace.json': (import 'dashboards/gitpod-admin-workspace.json'),
-    'gitpod-applications.json': (import 'dashboards/gitpod-applications.json'),
+    'nxpod-cluster-autoscaler-k3s.json': (import 'dashboards/nxpod-cluster-autoscaler-k3s.json'),
+    'nxpod-node-resource-metrics.json': (import 'dashboards/nxpod-node-resource-metrics.json'),
+    'nxpod-grpc-server.json': (import 'dashboards/nxpod-grpc-server.json'),
+    'nxpod-grpc-client.json': (import 'dashboards/nxpod-grpc-client.json'),
+    'nxpod-connect-server.json': (import 'dashboards/nxpod-connect-server.json'),
+    'nxpod-overview.json': (import 'dashboards/nxpod-overview.json'),
+    'nxpod-nodes-overview.json': (import 'dashboards/nxpod-nodes-overview.json'),
+    'nxpod-admin-node.json': (import 'dashboards/nxpod-admin-node.json'),
+    'nxpod-admin-workspace.json': (import 'dashboards/nxpod-admin-workspace.json'),
+    'nxpod-applications.json': (import 'dashboards/nxpod-applications.json'),
     'redis.json': (import 'dashboards/redis.json')
   },
 }

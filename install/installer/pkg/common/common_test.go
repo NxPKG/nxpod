@@ -54,12 +54,12 @@ func TestPublicApiServerComponentWaiterContainer(t *testing.T) {
 	ctx, err := common.NewRenderContext(config.Config{}, versions.Manifest{}, "test_namespace")
 	require.NoError(t, err)
 
-	ctx.Config.Repository = "eu.gcr.io/gitpod-core-dev/testing/installer"
+	ctx.Config.Repository = "eu.gcr.io/nxpod-core-dev/testing/installer"
 	ctx.VersionManifest.Components.ServiceWaiter.Version = "test"
 	ctx.VersionManifest.Components.PublicAPIServer.Version = "happy_path_papi_image"
 	container := common.PublicApiServerComponentWaiterContainer(ctx)
 	labels := common.DefaultLabelSelector(common.PublicApiComponent)
-	require.Equal(t, labels, "app=gitpod,component=public-api-server")
+	require.Equal(t, labels, "app=nxpod,component=public-api-server")
 	require.Equal(t, []string{"-v", "component", "--namespace", "test_namespace", "--component", common.PublicApiComponent, "--labels", labels, "--image", ctx.Config.Repository + "/public-api-server:" + "happy_path_papi_image"}, container.Args)
 }
 
@@ -67,18 +67,18 @@ func TestServerComponentWaiterContainer(t *testing.T) {
 	ctx, err := common.NewRenderContext(config.Config{}, versions.Manifest{}, "test_namespace")
 	require.NoError(t, err)
 
-	ctx.Config.Repository = "eu.gcr.io/gitpod-core-dev/testing/installer"
+	ctx.Config.Repository = "eu.gcr.io/nxpod-core-dev/testing/installer"
 	ctx.VersionManifest.Components.ServiceWaiter.Version = "test"
 	ctx.VersionManifest.Components.Server.Version = "happy_path_server_image"
 	container := common.ServerComponentWaiterContainer(ctx)
 	labels := common.DefaultLabelSelector(common.ServerComponent)
-	require.Equal(t, labels, "app=gitpod,component=server")
+	require.Equal(t, labels, "app=nxpod,component=server")
 	require.Equal(t, []string{"-v", "component", "--namespace", "test_namespace", "--component", common.ServerComponent, "--labels", labels, "--image", ctx.Config.Repository + "/server:" + "happy_path_server_image"}, container.Args)
 }
 
 func TestConfigcatEnvOutOfCluster(t *testing.T) {
 	ctx, err := common.NewRenderContext(config.Config{
-		Domain: "gitpod.io",
+		Domain: "nxpod.khulnasoft.com",
 		Experimental: &experimental.Config{
 			WebApp: &experimental.WebAppConfig{
 				ConfigcatKey: "foo",
@@ -89,5 +89,5 @@ func TestConfigcatEnvOutOfCluster(t *testing.T) {
 
 	envVars := common.ConfigcatEnvOutOfCluster(ctx)
 	require.Equal(t, len(envVars), 2)
-	require.Equal(t, envVars, []v1.EnvVar([]v1.EnvVar{{Name: "CONFIGCAT_SDK_KEY", Value: "gitpod"}, {Name: "CONFIGCAT_BASE_URL", Value: "https://gitpod.io/configcat"}}))
+	require.Equal(t, envVars, []v1.EnvVar([]v1.EnvVar{{Name: "CONFIGCAT_SDK_KEY", Value: "nxpod"}, {Name: "CONFIGCAT_BASE_URL", Value: "https://nxpod.khulnasoft.com/configcat"}}))
 }

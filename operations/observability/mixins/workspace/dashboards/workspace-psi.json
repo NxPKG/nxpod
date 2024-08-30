@@ -113,7 +113,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(gitpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\", node=\"$node\", workspace=~\"$workspace\"}[10s]/1000000)",
+          "expr": "rate(nxpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\", node=\"$node\", workspace=~\"$workspace\"}[10s]/1000000)",
           "legendFormat": "{{workspace}}",
           "range": true,
           "refId": "A"
@@ -206,7 +206,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "rate(gitpod_ws_daemon_workspace_memory_psi_total_seconds{cluster=\"$cluster\", node=\"$node\", workspace=~\"$workspace\"}[10s]/1000000)",
+          "expr": "rate(nxpod_ws_daemon_workspace_memory_psi_total_seconds{cluster=\"$cluster\", node=\"$node\", workspace=~\"$workspace\"}[10s]/1000000)",
           "legendFormat": "{{workspace}}",
           "range": true,
           "refId": "A"
@@ -299,7 +299,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "rate(gitpod_ws_daemon_workspace_io_psi_total_seconds{cluster=\"$cluster\", node=\"$node\", workspace=~\"$workspace\"}[10s]/1000000)",
+          "expr": "rate(nxpod_ws_daemon_workspace_io_psi_total_seconds{cluster=\"$cluster\", node=\"$node\", workspace=~\"$workspace\"}[10s]/1000000)",
           "legendFormat": "{{workspace}}",
           "range": true,
           "refId": "A"
@@ -341,14 +341,14 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(gitpod_ws_daemon_workspace_cpu_psi_total_seconds,cluster)",
+        "definition": "label_values(nxpod_ws_daemon_workspace_cpu_psi_total_seconds,cluster)",
         "hide": 0,
         "includeAll": false,
         "multi": false,
         "name": "cluster",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_ws_daemon_workspace_cpu_psi_total_seconds,cluster)",
+          "query": "label_values(nxpod_ws_daemon_workspace_cpu_psi_total_seconds,cluster)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -367,14 +367,14 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(gitpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\"},node)",
+        "definition": "label_values(nxpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\"},node)",
         "hide": 0,
         "includeAll": false,
         "multi": false,
         "name": "node",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\"},node)",
+          "query": "label_values(nxpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\"},node)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -397,14 +397,14 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "label_values(gitpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\",node=\"$node\"},workspace)",
+        "definition": "label_values(nxpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\",node=\"$node\"},workspace)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "workspace",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\",node=\"$node\"},workspace)",
+          "query": "label_values(nxpod_ws_daemon_workspace_cpu_psi_total_seconds{cluster=\"$cluster\",node=\"$node\"},workspace)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,

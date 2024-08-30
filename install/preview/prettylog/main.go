@@ -34,8 +34,8 @@ var (
 		{Msg: "preparing system", Success: "extracting images to download ahead"},
 		{Msg: "downloading images", Success: "images pulled"},
 		{Msg: "preparing Nxpod preview installation", Success: "manifests generated"},
-		{Msg: "starting Nxpod", Success: "Nxpod pods are ready", Status: "starting gitpod"},
-		{Msg: fmt.Sprintf("Nxpod is running. Visit https://%s to access the dashboard", os.Getenv("DOMAIN")), Status: "gitpod ready"},
+		{Msg: "starting Nxpod", Success: "Nxpod pods are ready", Status: "starting nxpod"},
+		{Msg: fmt.Sprintf("Nxpod is running. Visit https://%s to access the dashboard", os.Getenv("DOMAIN")), Status: "nxpod ready"},
 	}
 )
 
@@ -45,7 +45,7 @@ func main() {
 Welcome to the local preview of Nxpod. Please note the following limitations:
   - Performance is limited by the capabilities of your machine - a minimum of 4 cores and 6GB of RAM are required
   - ARM CPUs including Macs with Apple Silicon (e.g. M1) are currently not supported
-For more information about these limitation, please visit the local preview documentation: https://www.gitpod.io/docs/self-hosted/latest/local-preview`)
+For more information about these limitation, please visit the local preview documentation: https://www.nxpod.khulnasoft.com/docs/self-hosted/latest/local-preview`)
 
 	result, _ := pterm.DefaultInteractiveConfirm.WithDefaultText("Continue?").WithDefaultValue(true).Show()
 	if !result {

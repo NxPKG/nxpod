@@ -19,10 +19,10 @@
             "path": "components/ee/agent-smith"
         },
         {
-            "path": "components/gitpod-cli"
+            "path": "components/nxpod-cli"
         },
         {
-            "path": "components/gitpod-protocol"
+            "path": "components/nxpod-protocol"
         },
         {
             "path": "components/ide-metrics"
@@ -82,7 +82,7 @@
             "path": "components/public-api/typescript"
         },
         {
-            "path": "components/gitpod-db"
+            "path": "components/nxpod-db"
         },
         {
             "path": "test"
@@ -125,7 +125,7 @@
         }
     ],
     "settings": {
-        "typescript.tsdk": "gitpod/node_modules/typescript/lib",
+        "typescript.tsdk": "nxpod/node_modules/typescript/lib",
         "[javascript]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.formatOnSave": true
@@ -160,6 +160,6 @@
         "gopls": {
             "allowModfileModifications": true
         },
-        "prettier.configPath": "/workspace/gitpod/.prettierrc.json"
+        "prettier.configPath": "/workspace/nxpod/.prettierrc.json"
     }
 }

@@ -21,9 +21,9 @@ func networkpolicy(ctx *common.RenderContext) ([]runtime.Object, error) {
 	labels := common.DefaultLabels(Component)
 
 	podSelectorLabels := map[string]string{
-		"app":                     "gitpod",
+		"app":                     "nxpod",
 		"component":               Component,
-		"gitpod.io/networkpolicy": "default",
+		"nxpod.khulnasoft.com/networkpolicy": "default",
 	}
 
 	return []runtime.Object{&networkingv1.NetworkPolicy{

@@ -13,7 +13,7 @@ resource "acme_registration" "letsencrypt" {
   count    = local.letsencrypt_enabled ? 1 : 0
 
   account_key_pem = tls_private_key.letsencrypt[0].private_key_pem
-  email_address   = "preview-environment-certificate-throwaway@nxpod.io"
+  email_address   = "preview-environment-certificate-throwaway@nxpod.khulnasoft.com"
 }
 
 resource "acme_certificate" "letsencrypt" {

@@ -243,18 +243,18 @@ func TestRepoName(t *testing.T) {
 		{
 			Name: "nxpkg/workspace-full",
 			Expectation: Expectation{
-				Result: "some.registry.com/gitpod/workspace-full",
+				Result: "some.registry.com/nxpod/workspace-full",
 			},
-			CfgRepo:       "some.registry.com/gitpod",
+			CfgRepo:       "some.registry.com/nxpod",
 			DropImageRepo: pointer.Bool(true),
 		},
 		{
 			Repo: "some-repo.com",
 			Name: "some-image",
 			Expectation: Expectation{
-				Result: "some.registry.com/gitpod/some-image",
+				Result: "some.registry.com/nxpod/some-image",
 			},
-			CfgRepo:       "some.registry.com/gitpod",
+			CfgRepo:       "some.registry.com/nxpod",
 			DropImageRepo: pointer.Bool(true),
 		},
 		{
@@ -263,7 +263,7 @@ func TestRepoName(t *testing.T) {
 			Expectation: Expectation{
 				Panics: true,
 			},
-			CfgRepo:       "some.registry.com/gitpod",
+			CfgRepo:       "some.registry.com/nxpod",
 			DropImageRepo: pointer.Bool(true),
 		},
 	}

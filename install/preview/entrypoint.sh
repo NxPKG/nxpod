@@ -7,9 +7,9 @@ set -e
 
 touch logs.txt
 
-# Set Domain to `preview.gitpod-self-hosted.com` if not set
+# Set Domain to `preview.nxpod-self-hosted.com` if not set
 if [ -z "${DOMAIN}" ]; then
-  export DOMAIN="preview.gitpod-self-hosted.com"
+  export DOMAIN="preview.nxpod-self-hosted.com"
 fi
 
 # Create a USER_ID to be used everywhere
@@ -50,13 +50,13 @@ fi
 
 mount --make-shared /sys/fs/cgroup
 mount --make-shared /proc
-mount --make-shared /var/gitpod
+mount --make-shared /var/nxpod
 
 # install in local store
 mkcert -install
 cat "${HOME}"/.local/share/mkcert/rootCA.pem >> /etc/ssl/certs/ca-certificates.crt
 # also send root cert into a volume
-cat "${HOME}"/.local/share/mkcert/rootCA.pem > /var/gitpod/gitpod-ca.crt
+cat "${HOME}"/.local/share/mkcert/rootCA.pem > /var/nxpod/nxpod-ca.crt
 
 FN_CACERT="./ca.pem"
 FN_SSLCERT="./ssl.crt"
@@ -65,48 +65,48 @@ FN_SSLKEY="./ssl.key"
 cat "${HOME}"/.local/share/mkcert/rootCA.pem > "$FN_CACERT"
 mkcert -cert-file "$FN_SSLCERT" \
   -key-file "$FN_SSLKEY" \
-  "*.ws.${DOMAIN}" "*.${DOMAIN}" "${DOMAIN}" "reg.${DOMAIN}" "registry.default.svc.cluster.local" "gitpod.default" "ws-manager.default.svc" "ws-manager" "ws-manager-dev" "registry-facade" "server" "ws-manager-bridge" "ws-proxy" "ws-manager" "ws-daemon.default.svc" "ws-daemon" "wsdaemon"
+  "*.ws.${DOMAIN}" "*.${DOMAIN}" "${DOMAIN}" "reg.${DOMAIN}" "registry.default.svc.cluster.local" "nxpod.default" "ws-manager.default.svc" "ws-manager" "ws-manager-dev" "registry-facade" "server" "ws-manager-bridge" "ws-proxy" "ws-manager" "ws-daemon.default.svc" "ws-daemon" "wsdaemon"
 
 CACERT=$(base64 -w0 < "$FN_CACERT")
 SSLCERT=$(base64 -w0 < "$FN_SSLCERT")
 SSLKEY=$(base64 -w0 < "$FN_SSLKEY")
 
-mkdir -p /var/lib/rancher/k3s/server/manifests/gitpod
+mkdir -p /var/lib/rancher/k3s/server/manifests/nxpod
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/customCA-cert.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/customCA-cert.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: ca-key-pair
   labels:
-    app: gitpod
+    app: nxpod
 data:
   ca.crt: $CACERT
 EOF
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/https-cert.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/https-cert.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: https-certificates
   labels:
-    app: gitpod
+    app: nxpod
 type: kubernetes.io/tls
 data:
   tls.crt: $SSLCERT
   tls.key: $SSLKEY
 EOF
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/builtin-registry-certs.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/builtin-registry-certs.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: builtin-registry-certs
   labels:
-    app: gitpod
+    app: nxpod
 type: kubernetes.io/tls
 data:
   ca.crt: $CACERT
@@ -114,14 +114,14 @@ data:
   tls.key: $SSLKEY
 EOF
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/ws-manager-tls.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/ws-manager-tls.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: ws-manager-tls
   labels:
-    app: gitpod
+    app: nxpod
 type: kubernetes.io/tls
 data:
   ca.crt: $CACERT
@@ -129,14 +129,14 @@ data:
   tls.key: $SSLKEY
 EOF
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/ws-manager-client-tls.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/ws-manager-client-tls.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: ws-manager-client-tls
   labels:
-    app: gitpod
+    app: nxpod
 type: kubernetes.io/tls
 data:
   ca.crt: $CACERT
@@ -144,14 +144,14 @@ data:
   tls.key: $SSLKEY
 EOF
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/ws-daemon-tls.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/ws-daemon-tls.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: ws-daemon-tls
   labels:
-    app: gitpod
+    app: nxpod
 type: kubernetes.io/tls
 data:
   ca.crt: $CACERT
@@ -159,14 +159,14 @@ data:
   tls.key: $SSLKEY
 EOF
 
-cat << EOF > /var/lib/rancher/k3s/server/manifests/gitpod/builtin-registry-facade-cert.yaml
+cat << EOF > /var/lib/rancher/k3s/server/manifests/nxpod/builtin-registry-facade-cert.yaml
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: builtin-registry-facade-cert
   labels:
-    app: gitpod
+    app: nxpod
 type: kubernetes.io/tls
 data:
   ca.crt: $CACERT
@@ -174,7 +174,7 @@ data:
   tls.key: $SSLKEY
 EOF
 
-/gitpod-installer init > config.yaml
+/nxpod-installer init > config.yaml
 yq e -i '.domain = "'"${DOMAIN}"'"' config.yaml
 yq e -i '.certificate.name = "https-certificates"' config.yaml
 yq e -i '.certificate.kind = "secret"' config.yaml
@@ -189,77 +189,77 @@ yq e -i '.workspace.resources.requests.cpu = "500m"' config.yaml
 yq e -i '.experimental.telemetry.data.platform = "local-preview"' config.yaml
 
 echo "extracting images to download ahead..."
-/gitpod-installer render --use-experimental-config --config config.yaml | grep 'image:' | sed 's/ *//g' | sed 's/image://g' | sed 's/\"//g' | sed 's/^-//g' | sort | uniq > /gitpod-images.txt
+/nxpod-installer render --use-experimental-config --config config.yaml | grep 'image:' | sed 's/ *//g' | sed 's/image://g' | sed 's/\"//g' | sed 's/^-//g' | sort | uniq > /nxpod-images.txt
 echo "downloading images..."
-while read -r image "$(cat /gitpod-images.txt)"; do
+while read -r image "$(cat /nxpod-images.txt)"; do
    # shellcheck disable=SC2154
    ctr images pull "$image" >/dev/null &
 done
 
-ctr images pull "docker.io/gitpod/workspace-full:latest" >/dev/null &
+ctr images pull "docker.io/nxpod/workspace-full:latest" >/dev/null &
 
 echo "images pulled"
-/gitpod-installer render --use-experimental-config --config config.yaml --output-split-files /var/lib/rancher/k3s/server/manifests/gitpod
+/nxpod-installer render --use-experimental-config --config config.yaml --output-split-files /var/lib/rancher/k3s/server/manifests/nxpod
 
-# store files in `gitpod.debug` for debugging purposes
-for f in /var/lib/rancher/k3s/server/manifests/gitpod/*.yaml; do (cat "$f"; echo) >> /var/lib/rancher/k3s/server/gitpod.debug; done
+# store files in `nxpod.debug` for debugging purposes
+for f in /var/lib/rancher/k3s/server/manifests/nxpod/*.yaml; do (cat "$f"; echo) >> /var/lib/rancher/k3s/server/nxpod.debug; done
 # remove unused resources
-rm /var/lib/rancher/k3s/server/manifests/gitpod/*NetworkPolicy*
-rm /var/lib/rancher/k3s/server/manifests/gitpod/*Certificate*
-rm /var/lib/rancher/k3s/server/manifests/gitpod/*Issuer*
+rm /var/lib/rancher/k3s/server/manifests/nxpod/*NetworkPolicy*
+rm /var/lib/rancher/k3s/server/manifests/nxpod/*Certificate*
+rm /var/lib/rancher/k3s/server/manifests/nxpod/*Issuer*
 # update PersistentVolumeClaim's to use k3s's `local-path` storage class
-for f in /var/lib/rancher/k3s/server/manifests/gitpod/*PersistentVolumeClaim*.yaml; do yq e -i '.spec.storageClassName="local-path"' "$f"; done
+for f in /var/lib/rancher/k3s/server/manifests/nxpod/*PersistentVolumeClaim*.yaml; do yq e -i '.spec.storageClassName="local-path"' "$f"; done
 # Set `volumeClassTemplate` so that each replica creates its own PVC
 # update Statefulset's to use k3s's `local-path` storage class
-for f in /var/lib/rancher/k3s/server/manifests/gitpod/*StatefulSet*.yaml; do yq e -i '.spec.volumeClaimTemplates[0].spec.storageClassName="local-path"' "$f"; done
+for f in /var/lib/rancher/k3s/server/manifests/nxpod/*StatefulSet*.yaml; do yq e -i '.spec.volumeClaimTemplates[0].spec.storageClassName="local-path"' "$f"; done
 
 # removing init container from ws-daemon (systemd and Ubuntu)
-yq eval-all -i 'del(.spec.template.spec.initContainers[0])' /var/lib/rancher/k3s/server/manifests/gitpod/*_DaemonSet_ws-daemon.yaml
+yq eval-all -i 'del(.spec.template.spec.initContainers[0])' /var/lib/rancher/k3s/server/manifests/nxpod/*_DaemonSet_ws-daemon.yaml
 
 # set lower requirements
-yq eval-all -i '.spec.template.spec.containers[0].resources.requests.memory="250Mi"' /var/lib/rancher/k3s/server/manifests/gitpod/*_DaemonSet_ws-daemon.yaml
-yq eval-all -i '.spec.template.spec.containers[0].resources.requests.cpu="250m"' /var/lib/rancher/k3s/server/manifests/gitpod/*_DaemonSet_ws-daemon.yaml
-yq eval-all -i '.spec.template.spec.containers[0].resources.requests.memory="250Mi"' /var/lib/rancher/k3s/server/manifests/gitpod/*_Deployment_minio.yaml
+yq eval-all -i '.spec.template.spec.containers[0].resources.requests.memory="250Mi"' /var/lib/rancher/k3s/server/manifests/nxpod/*_DaemonSet_ws-daemon.yaml
+yq eval-all -i '.spec.template.spec.containers[0].resources.requests.cpu="250m"' /var/lib/rancher/k3s/server/manifests/nxpod/*_DaemonSet_ws-daemon.yaml
+yq eval-all -i '.spec.template.spec.containers[0].resources.requests.memory="250Mi"' /var/lib/rancher/k3s/server/manifests/nxpod/*_Deployment_minio.yaml
 
 # set storage requests to be lower
-for f in /var/lib/rancher/k3s/server/manifests/gitpod/*PersistentVolumeClaim*.yaml; do
+for f in /var/lib/rancher/k3s/server/manifests/nxpod/*PersistentVolumeClaim*.yaml; do
     yq e -i '.spec.resources.requests.storage="1Gi"' "$f";
 done
 
-for f in /var/lib/rancher/k3s/server/manifests/gitpod/*StatefulSet*.yaml; do
+for f in /var/lib/rancher/k3s/server/manifests/nxpod/*StatefulSet*.yaml; do
     yq e -i '.spec.volumeClaimTemplates[0].spec.resources.requests.storage="1Gi"' "$f";
 done
 
 touch /var/lib/rancher/k3s/server/manifests/coredns.yaml.skip
 mv -f /app/manifests/coredns.yaml /var/lib/rancher/k3s/server/manifests/custom-coredns.yaml
 
-for f in /var/lib/rancher/k3s/server/manifests/gitpod/*.yaml; do (cat "$f"; echo) >> /var/lib/rancher/k3s/server/manifests/gitpod.yaml; done
-rm -rf /var/lib/rancher/k3s/server/manifests/gitpod
+for f in /var/lib/rancher/k3s/server/manifests/nxpod/*.yaml; do (cat "$f"; echo) >> /var/lib/rancher/k3s/server/manifests/nxpod.yaml; done
+rm -rf /var/lib/rancher/k3s/server/manifests/nxpod
 
 echo "manifests generated"
-# waits for gitpod pods to be ready, and manually runs the `gitpod-telemetry` cronjob
+# waits for nxpod pods to be ready, and manually runs the `nxpod-telemetry` cronjob
 run_telemetry(){
   # wait for the k3s cluster to be ready and Nxpod workloads are added
   sleep 100
   # indefinitely wait for Nxpod pods to be ready
-  kubectl wait --timeout=-1s --for=condition=ready pod -l app=gitpod,component!=migrations
+  kubectl wait --timeout=-1s --for=condition=ready pod -l app=nxpod,component!=migrations
   echo "Nxpod pods are ready"
   # honour DO_NOT_TRACK if set
   if [ -n "${DO_NOT_TRACK}" ] && [ "${DO_NOT_TRACK}" -eq 1 ]; then
     # suspend the cronjob
-    kubectl patch cronjobs gitpod-telemetry -p '{"spec" : {"suspend" : true }}'
+    kubectl patch cronjobs nxpod-telemetry -p '{"spec" : {"suspend" : true }}'
   else
     # manually run the cronjob
-    kubectl create job gitpod-telemetry-init --from=cronjob/gitpod-telemetry
+    kubectl create job nxpod-telemetry-init --from=cronjob/nxpod-telemetry
   fi
 }
 
 run_telemetry 2>&1 &
 
 /bin/k3s server --disable traefik \
-  --node-label gitpod.io/workload_meta=true \
-  --node-label gitpod.io/workload_ide=true \
-  --node-label gitpod.io/workload_workspace_services=true \
-  --node-label gitpod.io/workload_services=true \
-  --node-label gitpod.io/workload_workspace_regular=true \
-  --node-label gitpod.io/workload_workspace_headless=true
+  --node-label nxpod.khulnasoft.com/workload_meta=true \
+  --node-label nxpod.khulnasoft.com/workload_ide=true \
+  --node-label nxpod.khulnasoft.com/workload_workspace_services=true \
+  --node-label nxpod.khulnasoft.com/workload_services=true \
+  --node-label nxpod.khulnasoft.com/workload_workspace_regular=true \
+  --node-label nxpod.khulnasoft.com/workload_workspace_headless=true

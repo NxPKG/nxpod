@@ -19,7 +19,7 @@ import (
 	"golang.org/x/oauth2"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
 	"github.com/nxpkg/nxpod/test/pkg/integration"
@@ -28,17 +28,17 @@ import (
 )
 
 var testBaseConfig = map[string]struct{ ProductCode, Repo string }{
-	"goland":   {"GO", "https://github.com/gitpod-samples/template-golang-cli"},
+	"goland":   {"GO", "https://github.com/nxpod-samples/template-golang-cli"},
 	"intellij": {"IU", "https://github.com/jeanp413/spring-petclinic"},
-	"phpstorm": {"PS", "https://github.com/gitpod-samples/template-php-laravel-mysql"},
-	"pycharm":  {"PY", "https://github.com/gitpod-samples/template-python-django"},
+	"phpstorm": {"PS", "https://github.com/nxpod-samples/template-php-laravel-mysql"},
+	"pycharm":  {"PY", "https://github.com/nxpod-samples/template-python-django"},
 	// TODO: open comment after https://github.com/nxpkg/nxpod/issues/16302 resolved
-	// "rubymine":  {"RM", "https://github.com/gitpod-samples/template-ruby-on-rails-postgres"},
+	// "rubymine":  {"RM", "https://github.com/nxpod-samples/template-ruby-on-rails-postgres"},
 	"rubymine":  {"RM", "https://github.com/nxpkg/Nxpod-Ruby-On-Rails"},
-	"webstorm":  {"WS", "https://github.com/gitpod-samples/template-typescript-react"},
-	"rider":     {"RD", "https://github.com/gitpod-samples/template-dotnet-core-cli-csharp"},
-	"clion":     {"CL", "https://github.com/gitpod-samples/template-cpp"},
-	"rustrover": {"RR", "https://github.com/gitpod-samples/template-rust-cli"},
+	"webstorm":  {"WS", "https://github.com/nxpod-samples/template-typescript-react"},
+	"rider":     {"RD", "https://github.com/nxpod-samples/template-dotnet-core-cli-csharp"},
+	"clion":     {"CL", "https://github.com/nxpod-samples/template-cpp"},
+	"rustrover": {"RR", "https://github.com/nxpod-samples/template-rust-cli"},
 }
 
 var (
@@ -192,7 +192,7 @@ func JetBrainsIDETest(ctx context.Context, t *testing.T, cfg *envconf.Config, op
 		// Note: For manually trigger github action purpose
 		// t.Logf("secret_gateway_link %s\nsecret_access_token %s\nsecret_endpoint %s\njb_product %s\nuse_latest %v\nbuild_id %s\nbuild_url %s", gatewayLink, oauthToken, strings.TrimPrefix(info.LatestInstance.IdeURL, "https://"), option.IDE, useLatest, os.Getenv("TEST_BUILD_ID"), os.Getenv("TEST_BUILD_URL"))
 		// time.Sleep(30 * time.Minute)
-		_, err = githubClient.Actions.CreateWorkflowDispatchEventByFileName(ctx, "nxpkg", "gitpod", "jetbrains-integration-test.yml", github.CreateWorkflowDispatchEventRequest{
+		_, err = githubClient.Actions.CreateWorkflowDispatchEventByFileName(ctx, "nxpkg", "nxpod", "jetbrains-integration-test.yml", github.CreateWorkflowDispatchEventRequest{
 			Ref: os.Getenv("TEST_BUILD_REF"),
 			Inputs: map[string]interface{}{
 				"secret_gateway_link": gatewayLink,
@@ -209,7 +209,7 @@ func JetBrainsIDETest(ctx context.Context, t *testing.T, cfg *envconf.Config, op
 		}
 	}
 
-	checkUrl := fmt.Sprintf("https://63342-%s/codeWithMe/unattendedHostStatus?token=gitpod", strings.TrimPrefix(info.LatestInstance.IdeURL, "https://"))
+	checkUrl := fmt.Sprintf("https://63342-%s/codeWithMe/unattendedHostStatus?token=nxpod", strings.TrimPrefix(info.LatestInstance.IdeURL, "https://"))
 
 	t.Logf("waiting result")
 	testStatus := false
@@ -264,9 +264,9 @@ func JetBrainsIDETest(ctx context.Context, t *testing.T, cfg *envconf.Config, op
 			t.Fatal("idea.log file not found in the expected location")
 		}
 
-		pluginLoadedRegex := regexp.MustCompile(`Loaded custom plugins:.* (Nxpod Remote|gitpod-remote)`)
+		pluginLoadedRegex := regexp.MustCompile(`Loaded custom plugins:.* (Nxpod Remote|nxpod-remote)`)
 		pluginStartedRegex := regexp.MustCompile(`Nxpod gateway link`)
-		pluginIncompatibleRegex := regexp.MustCompile(`Plugin '(Nxpod Remote|gitpod-remote)' .* is not compatible`)
+		pluginIncompatibleRegex := regexp.MustCompile(`Plugin '(Nxpod Remote|nxpod-remote)' .* is not compatible`)
 
 		ideaLogs := []byte(resp.Stdout)
 		if pluginLoadedRegex.Match(ideaLogs) {
@@ -351,7 +351,7 @@ func getHttpContent(url string, ownerToken string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("x-gitpod-owner-token", ownerToken)
+	req.Header.Set("x-nxpod-owner-token", ownerToken)
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {

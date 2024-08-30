@@ -125,7 +125,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_server_workspaces_purged_total[1h]))",
+          "expr": "sum(increase(nxpod_server_workspaces_purged_total[1h]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -218,7 +218,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_server_workspace_instances_purged_total[1h]))",
+          "expr": "sum(increase(nxpod_server_workspace_instances_purged_total[1h]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -311,7 +311,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_server_prebuild_workspaces_purged_total[1h]))",
+          "expr": "sum(increase(nxpod_server_prebuild_workspaces_purged_total[1h]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -404,7 +404,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_server_prebuild_info_purged_total[1h]))",
+          "expr": "sum(increase(nxpod_server_prebuild_info_purged_total[1h]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -497,7 +497,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_server_prebuilt_workspace_updatable_purged_total[1h]))",
+          "expr": "sum(increase(nxpod_server_prebuilt_workspace_updatable_purged_total[1h]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"

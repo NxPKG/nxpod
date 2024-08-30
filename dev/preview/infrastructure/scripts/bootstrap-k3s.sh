@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-# inspired by https://github.com/nxpod-io/ops/blob/main/deploy/workspace/templates/bootstrap.sh
+# inspired by https://github.com/nxpkg/ops/blob/main/deploy/workspace/templates/bootstrap.sh
 
 # Install k3s
 export INSTALL_K3S_SKIP_DOWNLOAD=true
@@ -33,15 +33,15 @@ sleep 10
 # shellcheck disable=SC2154
 # shellcheck disable=SC2086
 kubectl label nodes ${vm_name} \
-  nxpod.io/workload_meta=true \
-  nxpod.io/workload_ide=true \
-  nxpod.io/workload_workspace_services=true \
-  nxpod.io/workload_services=true \
-  nxpod.io/workload_workspace_regular=true \
-  nxpod.io/workload_workspace_headless=true \
-  nxpod.io/workspace_0=true \
-  nxpod.io/workspace_1=true \
-  nxpod.io/workspace_2=true
+  nxpod.khulnasoft.com/workload_meta=true \
+  nxpod.khulnasoft.com/workload_ide=true \
+  nxpod.khulnasoft.com/workload_workspace_services=true \
+  nxpod.khulnasoft.com/workload_services=true \
+  nxpod.khulnasoft.com/workload_workspace_regular=true \
+  nxpod.khulnasoft.com/workload_workspace_headless=true \
+  nxpod.khulnasoft.com/workspace_0=true \
+  nxpod.khulnasoft.com/workspace_1=true \
+  nxpod.khulnasoft.com/workspace_2=true
 
 # apply fix from https://github.com/k3s-io/klipper-lb/issues/6 so we can use the klipper servicelb
 # this can be removed if https://github.com/nxpkg/nxpod-packer-gcp-image/pull/20 gets merged

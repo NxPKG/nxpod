@@ -21,7 +21,7 @@ import (
 
 func keypair(ctx *common.RenderContext) ([]runtime.Object, error) {
 	serverAltNames := []string{
-		fmt.Sprintf("gitpod.%s", ctx.Namespace),
+		fmt.Sprintf("nxpod.%s", ctx.Namespace),
 		fmt.Sprintf("%s.%s.svc", Component, ctx.Namespace),
 		Component,
 		fmt.Sprintf("%s-dev", Component),

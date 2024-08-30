@@ -16,7 +16,7 @@ database:
     serviceAccount:
       kind: secret
       name: gcp-db-service-account
-domain: gitpod.io
+domain: nxpod.khulnasoft.com
 metadata:
   region: gcp-region
 objectStorage:

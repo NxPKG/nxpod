@@ -247,7 +247,7 @@
       },
       "id": 86,
       "options": {
-        "content": "We have an SLO for preview starts in Honeycomb. You can see the SLO [here](https://ui.honeycomb.io/gitpod/datasets/werft/slo/zRm48xoKMXf/Preview-Start). Alternatively you can use [this query](https://ui.honeycomb.io/gitpod/datasets/werft/result/a64cNk4sArf) to dig into succesful and failed SLI events. The definition of the SLO can be found [here](https://www.notion.so/gitpod/Preview-Environment-Service-Level-Indicators-SLIs-55b649ad17774f279c142af55ad2fec7#f483f73aa4974ad3b8b6825fa2f251fa).",
+        "content": "We have an SLO for preview starts in Honeycomb. You can see the SLO [here](https://ui.honeycomb.io/nxpod/datasets/werft/slo/zRm48xoKMXf/Preview-Start). Alternatively you can use [this query](https://ui.honeycomb.io/nxpod/datasets/werft/result/a64cNk4sArf) to dig into succesful and failed SLI events. The definition of the SLO can be found [here](https://www.notion.so/nxpod/Preview-Environment-Service-Level-Indicators-SLIs-55b649ad17774f279c142af55ad2fec7#f483f73aa4974ad3b8b6825fa2f251fa).",
         "mode": "markdown"
       },
       "pluginVersion": "9.0.2",

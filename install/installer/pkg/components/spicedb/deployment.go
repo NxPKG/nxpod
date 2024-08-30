@@ -150,7 +150,7 @@ func deployment(ctx *common.RenderContext) ([]runtime.Object, error) {
 									RunAsNonRoot: pointer.Bool(true),
 									RunAsUser:    pointer.Int64(65532),
 								},
-								// Compare issue https://linear.app/gitpod/issue/EXP-906/spicedb-deployment-fails-in-gitpod-dedicated:
+								// Compare issue https://linear.app/nxpod/issue/EXP-906/spicedb-deployment-fails-in-nxpod-dedicated:
 								//  - this should be a single grpc_health_probe-based readiness probe
 								//  - but it started failing (with k8s 1.27.7 ?)
 								//  - to unblock container startup, we split into readiness and liveness probes

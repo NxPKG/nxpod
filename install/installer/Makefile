@@ -5,8 +5,8 @@ all: clean deps versionManifest compile
 
 build:
 	@echo "Building for ${GOOS}-${GOARCH}"
-	CGO_ENABLED=0 go build -tags embedVersion -o ${OUTPUT}/gitpod-installer-${GOOS}-${GOARCH}${EXT}
-	(cd ${OUTPUT} && sha256sum gitpod-installer-${GOOS}-${GOARCH} > gitpod-installer-${GOOS}-${GOARCH}.sha256)
+	CGO_ENABLED=0 go build -tags embedVersion -o ${OUTPUT}/nxpod-installer-${GOOS}-${GOARCH}${EXT}
+	(cd ${OUTPUT} && sha256sum nxpod-installer-${GOOS}-${GOARCH} > nxpod-installer-${GOOS}-${GOARCH}.sha256)
 .PHONY: build
 
 clean:
@@ -32,7 +32,7 @@ deps:
 
 versionManifest:
 	@echo "Downloading version manifest for ${VERSION}"
-	docker run -it --rm eu.gcr.io/gitpod-core-dev/build/versions:${VERSION} cat versions.yaml > ${VERSION_MANIFEST}
+	docker run -it --rm eu.gcr.io/nxpod-core-dev/build/versions:${VERSION} cat versions.yaml > ${VERSION_MANIFEST}
 .PHONY: versionManifest
 
 config-doc:

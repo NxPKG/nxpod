@@ -103,7 +103,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			},
 		},
 		{
-			Name: "gitpod_supervisor_frontend_error_total",
+			Name: "nxpod_supervisor_frontend_error_total",
 			Help: "Total count of supervisor frontend client errors",
 			Labels: []config.LabelAllowList{
 				{
@@ -125,7 +125,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			},
 		},
 		{
-			Name: "gitpod_vscode_web_load_total",
+			Name: "nxpod_vscode_web_load_total",
 			Help: "Total count of attempts to load VS Code Web workbench",
 			Labels: []config.LabelAllowList{
 				{
@@ -135,11 +135,11 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			},
 		},
 		{
-			Name: "gitpod_supervisor_frontend_client_total",
+			Name: "nxpod_supervisor_frontend_client_total",
 			Help: "Total count of supervisor frontend client",
 		},
 		{
-			Name: "gitpod_vscode_extension_gallery_operation_total",
+			Name: "nxpod_vscode_extension_gallery_operation_total",
 			Help: "Total count of extension operations",
 			Labels: []config.LabelAllowList{
 				{
@@ -160,7 +160,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			},
 		},
 		{
-			Name: "gitpod_vscode_extension_gallery_query_total",
+			Name: "nxpod_vscode_extension_gallery_query_total",
 			Help: "Total count of extension gallery queries",
 			Labels: []config.LabelAllowList{
 				{
@@ -311,7 +311,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			Labels: []config.LabelAllowList{
 				{
 					Name:         "origin",
-					AllowValues:  []string{"unknown", "workspace", "gitpod", "localhost"},
+					AllowValues:  []string{"unknown", "workspace", "nxpod", "localhost"},
 					DefaultValue: "unknown",
 				},
 				{
@@ -356,7 +356,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 
 	histogramMetrics := []config.HistogramMetricsConfiguration{
 		{
-			Name: "gitpod_vscode_extension_gallery_operation_duration_seconds",
+			Name: "nxpod_vscode_extension_gallery_operation_duration_seconds",
 			Help: "Duration of extension operations in seconds",
 			Labels: []config.LabelAllowList{
 				{
@@ -371,7 +371,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			},
 			Buckets: []float64{0.1, 0.5, 1, 5, 10, 15, 30},
 		}, {
-			Name: "gitpod_vscode_extension_gallery_query_duration_seconds",
+			Name: "nxpod_vscode_extension_gallery_query_duration_seconds",
 			Help: "Duration of extension gallery query in seconds",
 			Labels: []config.LabelAllowList{
 				{
@@ -475,9 +475,9 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			// "vscode-workbench",
 			// "vscode-server",
 			// "vscode-web",
-			"gitpod-cli",
-			"gitpod-web",
-			"gitpod-remote-ssh",
+			"nxpod-cli",
+			"nxpod-web",
+			"nxpod-remote-ssh",
 			"vscode-desktop-extension",
 			"dashboard",
 		},

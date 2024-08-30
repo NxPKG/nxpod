@@ -45,10 +45,10 @@ The output can then be used to iterate over each image. A script can
 be written to pull from the "original" path and then tag and push the
 image to the "target" repo`,
 	Example: `
-  gitpod-installer mirror list --config config.yaml > mirror.json
+  nxpod-installer mirror list --config config.yaml > mirror.json
 
   # Pull original and push to target
-  for row in $(gitpod-installer mirror list --config ./config.yaml | jq -c '.[]'); do
+  for row in $(nxpod-installer mirror list --config ./config.yaml | jq -c '.[]'); do
     original=$(echo $row | jq -r '.original')
     target=$(echo $row | jq -r '.target')
     docker pull $original
@@ -271,7 +271,7 @@ func generateMirrorList(cfgVersion string, cfg *configv1.Config) ([]mirrorListRe
 func getGenericImages(k8sObj string) []string {
 	var images []string
 
-	// Search for anything that matches docker.io or the Nxpod repo - docker.io needed for gitpod/workspace-full
+	// Search for anything that matches docker.io or the Nxpod repo - docker.io needed for nxpod/workspace-full
 	re := regexp.MustCompile(fmt.Sprintf("%s(.*)|%s(.*)", "docker.io", common.NxpodContainerRegistry))
 	img := re.FindAllString(k8sObj, -1)
 

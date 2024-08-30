@@ -11,7 +11,7 @@ import (
 	componentswebapp "github.com/nxpkg/nxpod/installer/pkg/components/components-webapp"
 	componentsworkspace "github.com/nxpkg/nxpod/installer/pkg/components/components-workspace"
 	dockerregistry "github.com/nxpkg/nxpod/installer/pkg/components/docker-registry"
-	"github.com/nxpkg/nxpod/installer/pkg/components/gitpod"
+	"github.com/nxpkg/nxpod/installer/pkg/components/nxpod"
 )
 
 var MetaObjects = common.CompositeRenderFunc(
@@ -61,7 +61,7 @@ var FullHelmDependencies = common.CompositeHelmFunc(
 var CommonObjects = common.CompositeRenderFunc(
 	dockerregistry.Objects,
 	cluster.Objects,
-	gitpod.Objects,
+	nxpod.Objects,
 )
 
 var CommonHelmDependencies = common.CompositeHelmFunc(

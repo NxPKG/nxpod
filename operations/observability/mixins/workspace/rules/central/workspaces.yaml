@@ -25,11 +25,11 @@ spec:
         description: '{{ printf "%.2f" $value }}% of Regular workspaces stopping in {{ $labels.cluster }} is too high.'
       expr: |
         sum(
-          gitpod_ws_manager_mk2_workspace_phase_total{type="Regular", phase="Stopping", cluster!~"ephemeral.*"}) / sum(gitpod_ws_manager_mk2_workspace_phase_total{type="Regular", cluster!~"ephemeral.*"}
+          nxpod_ws_manager_mk2_workspace_phase_total{type="Regular", phase="Stopping", cluster!~"ephemeral.*"}) / sum(nxpod_ws_manager_mk2_workspace_phase_total{type="Regular", cluster!~"ephemeral.*"}
         ) >= .2
         and
         sum(
-          gitpod_ws_manager_mk2_workspace_phase_total{type="Regular", phase="Stopping", cluster!~"ephemeral.*"}
+          nxpod_ws_manager_mk2_workspace_phase_total{type="Regular", phase="Stopping", cluster!~"ephemeral.*"}
         ) without(phase) > 15
 
     - alert: NxpodWorkspaceHighStartFailureRate
@@ -42,7 +42,7 @@ spec:
         description: For the last 15 minutes more than 20% of hew workspaces have failed to start
       for: 15m
       expr: |
-          sum(increase(gitpod_ws_manager_mk2_workspace_starts_failure_total{type="Regular", cluster!~"ephemeral.*"}[5m])) by (cluster) / sum(increase(gitpod_ws_manager_mk2_workspace_starts_total{type="Regular", cluster!~"ephemeral.*"}[5m])) by (cluster) > 0.2
+          sum(increase(nxpod_ws_manager_mk2_workspace_starts_failure_total{type="Regular", cluster!~"ephemeral.*"}[5m])) by (cluster) / sum(increase(nxpod_ws_manager_mk2_workspace_starts_total{type="Regular", cluster!~"ephemeral.*"}[5m])) by (cluster) > 0.2
 
     - alert: NxpodWorkspaceHighFailureRateMk2
       labels:
@@ -53,7 +53,7 @@ spec:
         summary: Workspaces are failing in cluster {{ $labels.cluster }}.
         description: Multiple workspaces are failing for the last 5 minutes
       expr: |
-          rate(gitpod_ws_manager_mk2_workspace_stops_total{reason="failed", type="Regular", cluster!~"ephemeral.*"}[5m]) >= 1
+          rate(nxpod_ws_manager_mk2_workspace_stops_total{reason="failed", type="Regular", cluster!~"ephemeral.*"}[5m]) >= 1
 
     - alert: NxpodWorkspaceStatusUpdatesCeased
       labels:
@@ -63,7 +63,7 @@ spec:
         summary: meta has not seen a workspace update in the last 10 minutes despite starting workspaces
         description: meta has not seen a workspace update in the last 10 minutes despite starting workspaces
       expr: |
-        sum(rate(gitpod_ws_manager_bridge_status_updates_total[1m])) == 0 AND sum(rate(grpc_client_handled_total{grpc_method="StartWorkspace", grpc_service="wsman.WorkspaceManager"}[1m])) != 0
+        sum(rate(nxpod_ws_manager_bridge_status_updates_total[1m])) == 0 AND sum(rate(grpc_client_handled_total{grpc_method="StartWorkspace", grpc_service="wsman.WorkspaceManager"}[1m])) != 0
 
     - alert: NxpodTooManyWorkspacesInPendingMk2
       labels:
@@ -75,7 +75,7 @@ spec:
         summary: workspaces are in pending phase
         description: regular workspaces are stuck in pending phase in cluster {{ $labels.cluster }}.
       expr: |
-        gitpod_ws_manager_mk2_workspace_phase_total{phase="Pending", type="Regular", cluster!~"ephemeral.*"} > 20
+        nxpod_ws_manager_mk2_workspace_phase_total{phase="Pending", type="Regular", cluster!~"ephemeral.*"} > 20
 
     - alert: NxpodTooManyPrebuildsInPendingMk2
       labels:
@@ -87,7 +87,7 @@ spec:
         summary: workspaces are in pending phase
         description: prebuilds are stuck in pending phase in cluster {{ $labels.cluster }}.
       expr: |
-        gitpod_ws_manager_mk2_workspace_phase_total{phase="Pending", type="Prebuild", cluster!~"ephemeral.*"} > 20
+        nxpod_ws_manager_mk2_workspace_phase_total{phase="Pending", type="Prebuild", cluster!~"ephemeral.*"} > 20
 
     - alert: NxpodWorkspaceTooLongTerminating
       labels:
@@ -109,4 +109,4 @@ spec:
         summary: imagebuilds done are failing at a high rate in cluster {{ $labels.cluster }}.
         description: imagebuilds are not reaching done at too high of a rate in cluster {{ $labels.cluster }}.
       expr: |
-        (1 - (sum(rate(gitpod_image_builder_builds_done_total{success="false", cluster!~"ephemeral.*"}[4h])) / sum(rate(gitpod_image_builder_builds_done_total{cluster!~"ephemeral.*"}[4h])))) < 0.60
+        (1 - (sum(rate(nxpod_image_builder_builds_done_total{success="false", cluster!~"ephemeral.*"}[4h])) / sum(rate(nxpod_image_builder_builds_done_total{cluster!~"ephemeral.*"}[4h])))) < 0.60

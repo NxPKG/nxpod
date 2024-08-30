@@ -28,7 +28,7 @@ type PAPIClient struct {
 
 // NxpodServer provides access to the Nxpod server API
 func (c *ComponentAPI) PublicApi(opts ...NxpodServerOpt) (*PAPIClient, error) {
-	var options gitpodServerOpts
+	var options nxpodServerOpts
 	for _, o := range opts {
 		err := o(&options)
 		if err != nil {
@@ -109,7 +109,7 @@ func (c *ComponentAPI) PublicApi(opts ...NxpodServerOpt) (*PAPIClient, error) {
 	return res, nil
 }
 
-func getPAPIConnSettings(gitpodHost, token string, useCookie bool) (*http.Client, []connect.ClientOption, string) {
+func getPAPIConnSettings(nxpodHost, token string, useCookie bool) (*http.Client, []connect.ClientOption, string) {
 	httpClient := &http.Client{
 		Transport: &authenticatedTransport{Token: token, T: http.DefaultTransport, UseCookie: useCookie},
 	}
@@ -129,7 +129,7 @@ func getPAPIConnSettings(gitpodHost, token string, useCookie bool) (*http.Client
 			}),
 		),
 	}
-	papiEndpoint := fmt.Sprintf("https://%s/public-api", gitpodHost)
+	papiEndpoint := fmt.Sprintf("https://%s/public-api", nxpodHost)
 	return httpClient, connOpts, papiEndpoint
 }
 

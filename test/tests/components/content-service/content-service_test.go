@@ -24,7 +24,7 @@ import (
 )
 
 var (
-	gitpodBuiltinUserID = "00000000-0000-0000-0000-000000000000"
+	nxpodBuiltinUserID = "00000000-0000-0000-0000-000000000000"
 )
 
 func hasErrorCode(err error, code codes.Code) bool {
@@ -41,7 +41,7 @@ func TestUploadUrl(t *testing.T) {
 	}{
 		{
 			Name:         "simple name",
-			InputOwnerID: gitpodBuiltinUserID,
+			InputOwnerID: nxpodBuiltinUserID,
 			InputName:    "test-blob",
 		},
 		{
@@ -51,13 +51,13 @@ func TestUploadUrl(t *testing.T) {
 		},
 		{
 			Name:              "name with whitespace",
-			InputOwnerID:      gitpodBuiltinUserID,
+			InputOwnerID:      nxpodBuiltinUserID,
 			InputName:         "whitespaces are not allowed",
 			ExpectedErrorCode: codes.InvalidArgument,
 		},
 		{
 			Name:              "name with invalid char",
-			InputOwnerID:      gitpodBuiltinUserID,
+			InputOwnerID:      nxpodBuiltinUserID,
 			InputName:         "ä-is-not-allowed",
 			ExpectedErrorCode: codes.InvalidArgument,
 		},
@@ -119,7 +119,7 @@ func TestDownloadUrl(t *testing.T) {
 	}{
 		{
 			Name:              "not existing download",
-			InputOwnerID:      gitpodBuiltinUserID,
+			InputOwnerID:      nxpodBuiltinUserID,
 			InputName:         "this-does-not-exist",
 			ExpectedErrorCode: codes.NotFound,
 		},
@@ -193,7 +193,7 @@ func TestUploadDownloadBlob(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			resp, err := bs.UploadUrl(ctx, &content_service_api.UploadUrlRequest{OwnerId: gitpodBuiltinUserID, Name: "test-blob"})
+			resp, err := bs.UploadUrl(ctx, &content_service_api.UploadUrlRequest{OwnerId: nxpodBuiltinUserID, Name: "test-blob"})
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -206,7 +206,7 @@ func TestUploadDownloadBlob(t *testing.T) {
 
 			uploadBlob(t, originalUrl, updatedUrl, blobContent)
 
-			resp2, err := bs.DownloadUrl(ctx, &content_service_api.DownloadUrlRequest{OwnerId: gitpodBuiltinUserID, Name: "test-blob"})
+			resp2, err := bs.DownloadUrl(ctx, &content_service_api.DownloadUrlRequest{OwnerId: nxpodBuiltinUserID, Name: "test-blob"})
 			if err != nil {
 				t.Fatal(err)
 			}

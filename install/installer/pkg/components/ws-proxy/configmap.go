@@ -27,15 +27,15 @@ import (
 func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 	header := HostHeader
 	blobServeHost := fmt.Sprintf("ide.%s", ctx.Config.Domain)
-	gitpodInstallationHostName := ctx.Config.Domain
+	nxpodInstallationHostName := ctx.Config.Domain
 
 	installationShortNameSuffix := ""
 	if ctx.Config.Metadata.InstallationShortname != "" && ctx.Config.Metadata.InstallationShortname != configv1.InstallationShortNameOldDefault {
 		installationShortNameSuffix = "-" + ctx.Config.Metadata.InstallationShortname
 	}
 
-	gitpodInstallationWorkspaceHostSuffix := fmt.Sprintf(".ws%s.%s", installationShortNameSuffix, ctx.Config.Domain)
-	gitpodInstallationWorkspaceHostSuffixRegex := fmt.Sprintf("\\.ws[^\\.]*\\.%s", ctx.Config.Domain)
+	nxpodInstallationWorkspaceHostSuffix := fmt.Sprintf(".ws%s.%s", installationShortNameSuffix, ctx.Config.Domain)
+	nxpodInstallationWorkspaceHostSuffixRegex := fmt.Sprintf("\\.ws[^\\.]*\\.%s", ctx.Config.Domain)
 
 	wsManagerConfig := &config.WorkspaceManagerConn{
 		Addr: fmt.Sprintf("ws-manager-mk2:%d", wsmanagermk2.RPCPort),
@@ -61,13 +61,13 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			blobServeHost = ucfg.Workspace.WSProxy.BlobServeHost
 		}
 		if ucfg.Workspace.WSProxy.NxpodInstallationHostName != "" {
-			gitpodInstallationHostName = ucfg.Workspace.WSProxy.NxpodInstallationHostName
+			nxpodInstallationHostName = ucfg.Workspace.WSProxy.NxpodInstallationHostName
 		}
 		if ucfg.Workspace.WSProxy.NxpodInstallationWorkspaceHostSuffix != "" {
-			gitpodInstallationWorkspaceHostSuffix = ucfg.Workspace.WSProxy.NxpodInstallationWorkspaceHostSuffix
+			nxpodInstallationWorkspaceHostSuffix = ucfg.Workspace.WSProxy.NxpodInstallationWorkspaceHostSuffix
 		}
 		if ucfg.Workspace.WSProxy.NxpodInstallationWorkspaceHostSuffixRegex != "" {
-			gitpodInstallationWorkspaceHostSuffixRegex = ucfg.Workspace.WSProxy.NxpodInstallationWorkspaceHostSuffixRegex
+			nxpodInstallationWorkspaceHostSuffixRegex = ucfg.Workspace.WSProxy.NxpodInstallationWorkspaceHostSuffixRegex
 		}
 
 		return nil
@@ -102,9 +102,9 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			},
 			NxpodInstallation: &proxy.NxpodInstallation{
 				Scheme:                   "https",
-				HostName:                 gitpodInstallationHostName,
-				WorkspaceHostSuffix:      gitpodInstallationWorkspaceHostSuffix,
-				WorkspaceHostSuffixRegex: gitpodInstallationWorkspaceHostSuffixRegex,
+				HostName:                 nxpodInstallationHostName,
+				WorkspaceHostSuffix:      nxpodInstallationWorkspaceHostSuffix,
+				WorkspaceHostSuffixRegex: nxpodInstallationWorkspaceHostSuffixRegex,
 			},
 			WorkspacePodConfig: &proxy.WorkspacePodConfig{
 				TheiaPort:               workspace.ContainerPort,

@@ -14,7 +14,7 @@ ADD https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_amd64 /bi
 RUN chmod +x /bin/yq
 
 COPY manifests/* /app/manifests/
-COPY install-installer--app/installer /gitpod-installer
+COPY install-installer--app/installer /nxpod-installer
 COPY install-preview-prettylog--app/prettylog /prettylog
 
 COPY entrypoint.sh /entrypoint.sh

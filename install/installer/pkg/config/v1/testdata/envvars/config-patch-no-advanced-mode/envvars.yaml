@@ -4,5 +4,5 @@
 
 envvars:
   # This will be ignored as advanced mode not enabled
-  CONFIG_PATCH: "domain: override.gitpod.io"
-  DOMAIN: gitpod.io
+  CONFIG_PATCH: "domain: override.nxpod.khulnasoft.com"
+  DOMAIN: nxpod.khulnasoft.com

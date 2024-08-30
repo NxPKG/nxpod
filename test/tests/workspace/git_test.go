@@ -37,7 +37,7 @@ func TestGitActions(t *testing.T) {
 		{
 			Name:          "create, add and commit",
 			ContextURL:    "github.com/nxpkg/nxpod-test-repo/tree/integration-test/commit",
-			WorkspaceRoot: "/workspace/gitpod-test-repo",
+			WorkspaceRoot: "/workspace/nxpod-test-repo",
 			Action: func(rsa *integration.RpcClient, git integration.GitClient, workspaceRoot string) (err error) {
 				var resp agent.ExecResponse
 				err = rsa.Call("WorkspaceAgent.Exec", &agent.ExecRequest{
@@ -83,7 +83,7 @@ func TestGitActions(t *testing.T) {
 			Skip:          true,
 			Name:          "create, add and commit and PUSH",
 			ContextURL:    "github.com/nxpkg/nxpod-test-repo/tree/integration-test/commit-and-push",
-			WorkspaceRoot: "/workspace/gitpod-test-repo",
+			WorkspaceRoot: "/workspace/nxpod-test-repo",
 			Action: func(rsa *integration.RpcClient, git integration.GitClient, workspaceRoot string) (err error) {
 				var resp agent.ExecResponse
 				err = rsa.Call("WorkspaceAgent.Exec", &agent.ExecRequest{

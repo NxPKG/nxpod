@@ -52,7 +52,7 @@ func TestConfigMap_ContainsSchedule(t *testing.T) {
            }
          }
        },
-	   "gitpodHost": "https://test.domain.everything.awesome.is"
+	   "nxpodHost": "https://test.domain.everything.awesome.is"
      }`,
 		cfgmap.Data[configJSONFilename],
 	)

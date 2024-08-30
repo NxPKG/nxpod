@@ -77,7 +77,7 @@ func init() {
 		log.WithError(err).Fatal("Failed to get working directory")
 	}
 
-	ideConfigmapCmd.PersistentFlags().StringVarP(&ideOpts.ConfigFN, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file, use - for stdin")
+	ideConfigmapCmd.PersistentFlags().StringVarP(&ideOpts.ConfigFN, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "nxpod.config.yaml")), "path to the config file, use - for stdin")
 	ideConfigmapCmd.PersistentFlags().StringVarP(&ideOpts.Namespace, "namespace", "n", getEnvvar("NAMESPACE", "default"), "namespace to deploy to")
 	ideConfigmapCmd.Flags().BoolVar(&ideOpts.UseExperimentalConfig, "use-experimental-config", false, "enable the use of experimental config that is prone to be changed")
 }

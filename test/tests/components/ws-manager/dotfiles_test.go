@@ -68,7 +68,7 @@ func TestDotfiles(t *testing.T) {
 					Name: "THEIA_SUPERVISOR_TOKENS",
 					Value: fmt.Sprintf(`[{
 						"token": "%v",
-						"kind": "gitpod",
+						"kind": "nxpod",
 						"host": "%v",
 						"scope": ["function:getToken", "function:openPort", "function:getOpenPorts", "function:guessGitTokenScopes", "function:getWorkspace", "function:trackEvent", "resource:token::*::get"],
 						"expiryDate": "2022-10-26T10:38:05.232Z",
@@ -157,7 +157,7 @@ func getHostUrl(ctx context.Context, t *testing.T, k8sClient klient.Client, name
 func assertDotfiles(t *testing.T, rsa *integration.RpcClient) error {
 	var ls agent.ListDirResponse
 	err := rsa.Call("WorkspaceAgent.ListDir", &agent.ListDirRequest{
-		Dir: "/home/gitpod/.dotfiles",
+		Dir: "/home/nxpod/.dotfiles",
 	}, &ls)
 
 	if err != nil {

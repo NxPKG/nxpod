@@ -32,12 +32,12 @@ flags:
   components-ee-agent-smith-app:
     paths:
       - components/ee/agent-smith/
-  components-gitpod-cli-app:
+  components-nxpod-cli-app:
     paths:
-      - components/gitpod-cli/
-  components-gitpod-protocol-go-lib:
+      - components/nxpod-cli/
+  components-nxpod-protocol-go-lib:
     paths:
-      - components/gitpod-protocol/go/
+      - components/nxpod-protocol/go/
   components-image-builder-app:
     paths:
       - components/image-builder/

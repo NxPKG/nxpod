@@ -3,8 +3,8 @@
 
 -- must be idempotent
 
-USE `gitpod-sessions`;
+USE `nxpod-sessions`;
 
 DROP TABLE IF EXISTS `sessions`;
 
-DROP DATABASE IF EXISTS `gitpod-sessions`;
+DROP DATABASE IF EXISTS `nxpod-sessions`;

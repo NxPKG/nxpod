@@ -110,7 +110,7 @@ func (v version) CheckDeprecated(rawCfg interface{}) (map[string]interface{}, []
 	return warnings, conflicts
 }
 
-// Config defines the v1 version structure of the gitpod config file
+// Config defines the v1 version structure of the nxpod config file
 type Config struct {
 	// Installation type to run - for most users, this will be Full
 	Kind InstallationKind `json:"kind" validate:"required,installation_kind"`
@@ -281,7 +281,7 @@ type ServiceAnnotations map[string]string
 
 type LogLevel string
 
-// Taken from github.com/nxpkg/nxpod/components/gitpod-protocol/src/util/logging.ts
+// Taken from github.com/nxpkg/nxpod/components/nxpod-protocol/src/util/logging.ts
 const (
 	LogLevelTrace   LogLevel = "trace"
 	LogLevelDebug   LogLevel = "debug"

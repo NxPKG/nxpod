@@ -32,7 +32,7 @@ spec:
         description: Service {{ $labels.package }}.{{ $labels.call }} has returned {{ printf "%.2f" $value }} server errors in the last 10 minutes.
 
     - alert: NxpodStripeWebhookFailures
-      expr: sum(increase(gitpod_http_request_duration_seconds_count{handler="/stripe/invoices/webhook", code=~"5.*"}[30m])) > 0
+      expr: sum(increase(nxpod_http_request_duration_seconds_count{handler="/stripe/invoices/webhook", code=~"5.*"}[30m])) > 0
       for: 10m
       labels:
         severity: warning

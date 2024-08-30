@@ -18,9 +18,9 @@ var (
 )
 
 const (
-	AppName                     = "gitpod"
+	AppName                     = "nxpod"
 	BlobServeServicePort        = 4000
-	CertManagerCAIssuer         = "gitpod-ca-issuer"
+	CertManagerCAIssuer         = "nxpod-ca-issuer"
 	DockerRegistryURL           = "docker.io"
 	DockerRegistryName          = "registry"
 	InClusterDbSecret           = "mysql"
@@ -61,7 +61,7 @@ const (
 	DBCaBasePath                = "/db-ssl"
 	DBCaPath                    = DBCaBasePath + "/" + DBCaFileName
 	WorkspaceSecretsNamespace   = "workspace-secrets"
-	AnnotationConfigChecksum    = "gitpod.io/checksum_config"
+	AnnotationConfigChecksum    = "nxpod.khulnasoft.com/checksum_config"
 	DatabaseConfigMountPath     = "/secrets/database-config"
 	AuthPKISecretName           = "auth-pki"
 	IDEServiceComponent         = "ide-service"

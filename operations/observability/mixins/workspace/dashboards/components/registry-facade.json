@@ -89,7 +89,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "exemplar": true,
-          "expr": "sum(rate(gitpod_registry_facade_registry_blob_req_total{cluster=~\"$cluster\"}[5m])) by (cluster)",
+          "expr": "sum(rate(nxpod_registry_facade_registry_blob_req_total{cluster=~\"$cluster\"}[5m])) by (cluster)",
           "interval": "",
           "legendFormat": "{{cluster}}",
           "queryType": "randomWalk",
@@ -179,7 +179,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "exemplar": true,
-          "expr": "sum(rate(gitpod_registry_facade_upstream_req_failed_total {cluster=~\"$cluster\"}[5m])) by (cluster, type)",
+          "expr": "sum(rate(nxpod_registry_facade_upstream_req_failed_total {cluster=~\"$cluster\"}[5m])) by (cluster, type)",
           "interval": "",
           "legendFormat": "{{cluster}}/{{type}}",
           "queryType": "randomWalk",
@@ -270,28 +270,28 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.99, \n  sum(\n    rate(gitpod_registry_facade_registry_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
+          "expr": "histogram_quantile(0.99, \n  sum(\n    rate(nxpod_registry_facade_registry_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
           "interval": "",
           "legendFormat": "{{cluster}} - 99th Percentile",
           "queryType": "randomWalk",
           "refId": "A"
         },
         {
-          "expr": "histogram_quantile(0.95, \n  sum(\n    rate(gitpod_registry_facade_registry_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
+          "expr": "histogram_quantile(0.95, \n  sum(\n    rate(nxpod_registry_facade_registry_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
           "interval": "",
           "legendFormat": "{{cluster}} - 95th Percentile",
           "queryType": "randomWalk",
           "refId": "B"
         },
         {
-          "expr": "histogram_quantile(0.50, \n  sum(\n    rate(gitpod_registry_facade_registry_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
+          "expr": "histogram_quantile(0.50, \n  sum(\n    rate(nxpod_registry_facade_registry_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
           "interval": "",
           "legendFormat": "{{cluster}} - 50th Percentile",
           "queryType": "randomWalk",
           "refId": "C"
         },
         {
-          "expr": "  sum(\n    rate(gitpod_registry_facade_registry_manifest_req_seconds_sum{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)\n  /\n    sum(\n    rate(gitpod_registry_facade_registry_manifest_req_seconds_count{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)",
+          "expr": "  sum(\n    rate(nxpod_registry_facade_registry_manifest_req_seconds_sum{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)\n  /\n    sum(\n    rate(nxpod_registry_facade_registry_manifest_req_seconds_count{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - avg",
@@ -374,7 +374,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(gitpod_registry_facade_downstream_blob_req_total{cluster=~\"$cluster\"}[5m])) by (cluster)",
+          "expr": "sum(rate(nxpod_registry_facade_downstream_blob_req_total{cluster=~\"$cluster\"}[5m])) by (cluster)",
           "interval": "",
           "legendFormat": "{{cluster}}",
           "queryType": "randomWalk",
@@ -464,7 +464,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "exemplar": true,
-          "expr": "sum(rate(gitpod_registry_facade_downstream_req_failed_total {cluster=~\"$cluster\"}[5m])) by (cluster, type)",
+          "expr": "sum(rate(nxpod_registry_facade_downstream_req_failed_total {cluster=~\"$cluster\"}[5m])) by (cluster, type)",
           "interval": "",
           "legendFormat": "{{cluster}}/{{type}}",
           "queryType": "randomWalk",
@@ -555,28 +555,28 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.99, \n  sum(\n    rate(gitpod_registry_facade_downstream_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
+          "expr": "histogram_quantile(0.99, \n  sum(\n    rate(nxpod_registry_facade_downstream_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
           "interval": "",
           "legendFormat": "{{cluster}} - 99th Percentile",
           "queryType": "randomWalk",
           "refId": "A"
         },
         {
-          "expr": "histogram_quantile(0.95, \n  sum(\n    rate(gitpod_registry_facade_downstream_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
+          "expr": "histogram_quantile(0.95, \n  sum(\n    rate(nxpod_registry_facade_downstream_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
           "interval": "",
           "legendFormat": "{{cluster}} - 95th Percentile",
           "queryType": "randomWalk",
           "refId": "B"
         },
         {
-          "expr": "histogram_quantile(0.50, \n  sum(\n    rate(gitpod_registry_facade_downstream_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
+          "expr": "histogram_quantile(0.50, \n  sum(\n    rate(nxpod_registry_facade_downstream_manifest_req_seconds_bucket{cluster=~\"$cluster\"}[1m])\n  ) by (cluster, le)\n)",
           "interval": "",
           "legendFormat": "{{cluster}} - 50th Percentile",
           "queryType": "randomWalk",
           "refId": "C"
         },
         {
-          "expr": "  sum(\n    rate(gitpod_registry_facade_downstream_manifest_req_seconds_sum{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)\n  /\n    sum(\n    rate(gitpod_registry_facade_downstream_manifest_req_seconds_count{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)",
+          "expr": "  sum(\n    rate(nxpod_registry_facade_downstream_manifest_req_seconds_sum{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)\n  /\n    sum(\n    rate(nxpod_registry_facade_downstream_manifest_req_seconds_count{cluster=~\"$cluster\"}[1m])\n  ) by (cluster)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - avg",
@@ -2529,7 +2529,7 @@
   "schemaVersion": 34,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

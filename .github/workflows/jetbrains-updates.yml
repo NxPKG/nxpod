@@ -60,7 +60,7 @@ jobs:
 
                       The following resources should help, in case something goes wrong (e.g. workspaces don't start):
 
-                      - https://www.nxpod.io/docs/troubleshooting#nxpod-logs-in-jetbrains-gateway
+                      - https://www.nxpod.khulnasoft.com/docs/troubleshooting#nxpod-logs-in-jetbrains-gateway
                       - https://docs.google.com/document/d/1K9PSB0G6NwX2Ns_SX_HEgMYTKYsgMJMY2wbh0p6t3lQ
                       </details>
 
@@ -85,8 +85,8 @@ jobs:
                   branch: "jetbrains/update-stable-ides"
                   labels: "team: IDE,editor: jetbrains"
                   token: ${{ secrets.ROBOQUAT_REPO_PAT }}
-                  committer: Robo Quat <roboquat@nxpod.io>
-                  author: Robo Quat <roboquat@nxpod.io>
+                  committer: Robo Quat <roboquat@nxpod.khulnasoft.com>
+                  author: Robo Quat <roboquat@nxpod.khulnasoft.com>
                   team-reviewers: |
                     team-experience
             - name: Get previous job's status

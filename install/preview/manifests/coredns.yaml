@@ -56,19 +56,19 @@ metadata:
   name: coredns
   namespace: kube-system
 data:
-  gitpod.db: |
-    ; preview.gitpod-self-hosted.com test file
-    preview.gitpod-self-hosted.com.       IN      SOA    sns.dns.icann.org. noc.dns.icann.org. 2015082541 7200 3600 1209600 3600
-    preview.gitpod-self-hosted.com.       IN      CNAME  proxy.default.svc.cluster.local.
-    *.preview.gitpod-self-hosted.com.     IN      CNAME  proxy.default.svc.cluster.local.
-    *.ws.preview.gitpod-self-hosted.com.  IN      CNAME  proxy.default.svc.cluster.local.
+  nxpod.db: |
+    ; preview.nxpod-self-hosted.com test file
+    preview.nxpod-self-hosted.com.       IN      SOA    sns.dns.icann.org. noc.dns.icann.org. 2015082541 7200 3600 1209600 3600
+    preview.nxpod-self-hosted.com.       IN      CNAME  proxy.default.svc.cluster.local.
+    *.preview.nxpod-self-hosted.com.     IN      CNAME  proxy.default.svc.cluster.local.
+    *.ws.preview.nxpod-self-hosted.com.  IN      CNAME  proxy.default.svc.cluster.local.
   Corefile: |
     .:53 {
         errors
         health
         ready
-        # extra configuration for `preview.gitpod-self-hosted.com`
-        file /etc/coredns/gitpod.db preview.gitpod-self-hosted.com
+        # extra configuration for `preview.nxpod-self-hosted.com`
+        file /etc/coredns/nxpod.db preview.nxpod-self-hosted.com
         kubernetes cluster.local in-addr.arpa ip6.arpa {
           pods insecure
           fallthrough in-addr.arpa ip6.arpa
@@ -180,8 +180,8 @@ spec:
           configMap:
             name: coredns
             items:
-            - key: gitpod.db
-              path: gitpod.db
+            - key: nxpod.db
+              path: nxpod.db
             - key: Corefile
               path: Corefile
             - key: NodeHosts

@@ -3,9 +3,9 @@
 
 -- must be idempotent
 
-CREATE DATABASE IF NOT EXISTS `gitpod-sessions` CHARSET utf8mb4;
+CREATE DATABASE IF NOT EXISTS `nxpod-sessions` CHARSET utf8mb4;
 
-USE `gitpod-sessions`;
+USE `nxpod-sessions`;
 
 -- This removed again in later migration -  in pkg/components/database/incluster/init/04-drop-sessions-db.sql
 CREATE TABLE IF NOT EXISTS sessions (
@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS sessions (
 );
 
 -- Grant privileges
-GRANT ALL ON `gitpod-sessions`.* TO "__NXPOD_USERNAME__"@"%";
+GRANT ALL ON `nxpod-sessions`.* TO "__NXPOD_USERNAME__"@"%";

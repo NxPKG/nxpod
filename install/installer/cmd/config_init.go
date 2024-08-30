@@ -24,7 +24,7 @@ var configInitCmd = &cobra.Command{
 This file contains all the credentials to install a Nxpod instance and
 be saved to a repository.`,
 	Example: `  # Save config to config.yaml.
-gitpod-installer config init -c ./gitpod.config.yaml`,
+nxpod-installer config init -c ./nxpod.config.yaml`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// Check file isn't present
 		exists, err := configFileExists()

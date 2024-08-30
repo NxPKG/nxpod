@@ -8,7 +8,7 @@ require (
 	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/content-service v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/ide-service-api v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/image-builder/api v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
@@ -212,7 +212,7 @@ replace github.com/nxpkg/nxpod/content-service => ../components/content-service 
 
 replace github.com/nxpkg/nxpod/content-service/api => ../components/content-service-api/go // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../components/gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../components/nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/ide-service-api => ../components/ide-service-api/go // leeway
 

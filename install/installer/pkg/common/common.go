@@ -56,7 +56,7 @@ func getProxyServerEnvvar(cfg *config.Config, envvarName string, key string) []c
 
 func DefaultLabels(component string) map[string]string {
 	return map[string]string{
-		"app":       "gitpod",
+		"app":       "nxpod",
 		"component": component,
 	}
 }
@@ -400,7 +400,7 @@ func ConfigcatEnv(ctx *RenderContext) []corev1.EnvVar {
 	return []corev1.EnvVar{
 		{
 			Name:  "CONFIGCAT_SDK_KEY",
-			Value: "gitpod",
+			Value: "nxpod",
 		},
 		{
 			Name:  "CONFIGCAT_BASE_URL",
@@ -413,7 +413,7 @@ func ConfigcatEnvOutOfCluster(ctx *RenderContext) []corev1.EnvVar {
 	return []corev1.EnvVar{
 		{
 			Name:  "CONFIGCAT_SDK_KEY",
-			Value: "gitpod",
+			Value: "nxpod",
 		},
 		{
 			Name:  "CONFIGCAT_BASE_URL",

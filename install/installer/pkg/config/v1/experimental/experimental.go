@@ -15,7 +15,7 @@ import (
 
 	agentSmith "github.com/nxpkg/nxpod/agent-smith/pkg/config"
 	"github.com/nxpkg/nxpod/common-go/grpc"
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/nxpkg/nxpod/ws-daemon/pkg/cpulimit"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -113,9 +113,9 @@ type WorkspaceConfig struct {
 	WSProxy struct {
 		IngressHeader                              string `json:"ingressHeader"`
 		BlobServeHost                              string `json:"blobServeHost"`
-		NxpodInstallationHostName                 string `json:"gitpodInstallationHostName"`
-		NxpodInstallationWorkspaceHostSuffix      string `json:"gitpodInstallationWorkspaceHostSuffix"`
-		NxpodInstallationWorkspaceHostSuffixRegex string `json:"gitpodInstallationWorkspaceHostSuffixRegex"`
+		NxpodInstallationHostName                 string `json:"nxpodInstallationHostName"`
+		NxpodInstallationWorkspaceHostSuffix      string `json:"nxpodInstallationWorkspaceHostSuffix"`
+		NxpodInstallationWorkspaceHostSuffixRegex string `json:"nxpodInstallationWorkspaceHostSuffixRegex"`
 	} `json:"wsProxy"`
 
 	ContentService struct {
@@ -196,7 +196,7 @@ type RedisConfig struct {
 type WebAppConfig struct {
 	PublicAPI *PublicAPIConfig `json:"publicApi,omitempty"`
 
-	// PublicURL lets you override the publically reachable endpoints of gitpod (currently only public api endpoint)
+	// PublicURL lets you override the publically reachable endpoints of nxpod (currently only public api endpoint)
 	// If not set, default will be api.${Domain}
 	PublicURL string `json:"publicUrl,omitempty"`
 
@@ -215,7 +215,7 @@ type WebAppConfig struct {
 	CertmanagerNamespaceOverride string                 `json:"certmanagerNamespaceOverride,omitempty"`
 	Redis                        *RedisConfig           `json:"redis"`
 
-	// ProxySettings is used if the gitpod cell uses some proxy for connectivity
+	// ProxySettings is used if the nxpod cell uses some proxy for connectivity
 	ProxySettings *ProxySettings `json:"proxySettings"`
 }
 

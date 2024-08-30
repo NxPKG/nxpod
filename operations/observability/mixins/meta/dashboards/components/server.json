@@ -118,9 +118,9 @@
                 "uid": "$datasource"
               },
               "exemplar": true,
-              "expr": "sum (gitpod_version_info{}) by (cluster, gitpod_version)",
+              "expr": "sum (nxpod_version_info{}) by (cluster, nxpod_version)",
               "interval": "",
-              "legendFormat": "{{ cluster }}: {{ gitpod_version }}",
+              "legendFormat": "{{ cluster }}: {{ nxpod_version }}",
               "refId": "A"
             }
           ],
@@ -238,7 +238,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(gitpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method)",
+          "expr": "sum(rate(nxpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method)",
           "interval": "",
           "legendFormat": "{{method}}",
           "queryType": "randomWalk",
@@ -339,7 +339,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.95, sum (rate(gitpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
+          "expr": "histogram_quantile(0.95, sum (rate(nxpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
           "format": "time_series",
           "hide": true,
           "interval": "",
@@ -354,7 +354,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.5, sum (rate(gitpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
+          "expr": "histogram_quantile(0.5, sum (rate(nxpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -452,7 +452,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n  rate(gitpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\", statusCode!~\"2.*|3.*|4.*\"}[5m])\n) by (method)",
+          "expr": "sum(\n  rate(nxpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\", statusCode!~\"2.*|3.*|4.*\"}[5m])\n) by (method)",
           "interval": "",
           "legendFormat": "{{method}}",
           "queryType": "randomWalk",
@@ -553,7 +553,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.95, sum (rate(gitpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
+          "expr": "histogram_quantile(0.95, sum (rate(nxpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -568,7 +568,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.5, sum (rate(gitpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
+          "expr": "histogram_quantile(0.5, sum (rate(nxpod_server_api_calls_duration_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\"}[5m])) by (method, le))",
           "format": "time_series",
           "hide": true,
           "interval": "",
@@ -664,7 +664,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n  rate(gitpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\", statusCode=~\"4.*\"}[5m])\n) by (method, statusCode)",
+          "expr": "sum(\n  rate(nxpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\", statusCode=~\"4.*\"}[5m])\n) by (method, statusCode)",
           "interval": "",
           "legendFormat": "{{method}} code: {{statusCode}}",
           "queryType": "randomWalk",
@@ -761,7 +761,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(gitpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\", statusCode=\"429\"}[5m])) by (method)",
+          "expr": "sum(rate(nxpod_server_api_calls_total{cluster=~\"$cluster\", pod=~\"$pod\", method=~\"$method\", statusCode=\"429\"}[5m])) by (method)",
           "interval": "",
           "legendFormat": "{{method}}",
           "queryType": "randomWalk",
@@ -1057,7 +1057,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(gitpod_server_api_connections_total{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_api_connections_total{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (cluster)",
               "interval": "",
               "legendFormat": "{{cluster}}",
               "range": true,
@@ -1151,7 +1151,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(rate(gitpod_server_api_connections_closed_total{cluster=~\"$cluster\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_api_connections_closed_total{cluster=~\"$cluster\"}[5m])) by (cluster)",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} {{pod}}",
@@ -1230,7 +1230,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "sum(rate(gitpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"2..\", route=~\"$http_route\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"2..\", route=~\"$http_route\"}[5m])) by (cluster)",
               "interval": "",
               "legendFormat": "{{cluster}} - 2xx",
               "queryType": "randomWalk",
@@ -1241,7 +1241,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "sum(rate(gitpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"3..\", route=~\"$http_route\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"3..\", route=~\"$http_route\"}[5m])) by (cluster)",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} - 3xx",
@@ -1253,7 +1253,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "sum(rate(gitpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"4..\", route=~\"$http_route\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"4..\", route=~\"$http_route\"}[5m])) by (cluster)",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} - 4xx",
@@ -1265,7 +1265,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "sum(rate(gitpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"5..\", route=~\"$http_route\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_http_requests_total{cluster=~\"$cluster\", statusCode=~\"5..\", route=~\"$http_route\"}[5m])) by (cluster)",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} - 5xx",
@@ -1350,7 +1350,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "histogram_quantile(0.99, \n  sum(rate(gitpod_server_http_request_duration_seconds_bucket{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster, le)\n )",
+              "expr": "histogram_quantile(0.99, \n  sum(rate(nxpod_server_http_request_duration_seconds_bucket{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster, le)\n )",
               "interval": "",
               "legendFormat": "{{cluster}} - 99th percentile",
               "queryType": "randomWalk",
@@ -1360,7 +1360,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "histogram_quantile(0.95, \n  sum(rate(gitpod_server_http_request_duration_seconds_bucket{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster, le)\n )",
+              "expr": "histogram_quantile(0.95, \n  sum(rate(nxpod_server_http_request_duration_seconds_bucket{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster, le)\n )",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} - 95th percentile",
@@ -1371,7 +1371,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "histogram_quantile(0.50, \n  sum(rate(gitpod_server_http_request_duration_seconds_bucket{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster, le)\n )",
+              "expr": "histogram_quantile(0.50, \n  sum(rate(nxpod_server_http_request_duration_seconds_bucket{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster, le)\n )",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} - 50th percentile",
@@ -1382,7 +1382,7 @@
               "datasource": {
                 "uid": "$datasource"
               },
-              "expr": "sum(rate(gitpod_server_http_request_duration_seconds_sum{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster)\n/\nsum(rate(gitpod_server_http_request_duration_seconds_count{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster)",
+              "expr": "sum(rate(nxpod_server_http_request_duration_seconds_sum{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster)\n/\nsum(rate(nxpod_server_http_request_duration_seconds_count{cluster=~\"$cluster\", route=~\"$http_route\"}[5m])) by (cluster)",
               "hide": false,
               "interval": "",
               "legendFormat": "{{cluster}} - avg",
@@ -1530,7 +1530,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_redis_updates_received_total{cluster=~\"$cluster\", pod=~\"$pod\"}[1m])) by (channel)",
+          "expr": "sum(increase(nxpod_redis_updates_received_total{cluster=~\"$cluster\", pod=~\"$pod\"}[1m])) by (channel)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1623,7 +1623,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_redis_updates_completed_total{cluster=~\"$cluster\", pod=~\"$pod\"}[1m])) by (channel, error)",
+          "expr": "sum(increase(nxpod_redis_updates_completed_total{cluster=~\"$cluster\", pod=~\"$pod\"}[1m])) by (channel, error)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1716,7 +1716,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "sum(gitpod_server_subscribers_registered{cluster=~\"$cluster\", pod=~\"$pod\"}) by (type)",
+          "expr": "sum(nxpod_server_subscribers_registered{cluster=~\"$cluster\", pod=~\"$pod\"}) by (type)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2126,7 +2126,7 @@
   "schemaVersion": 38,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [
@@ -2242,7 +2242,7 @@
         "datasource": {
           "uid": "$datasource"
         },
-        "definition": "label_values(gitpod_server_api_calls_total{cluster=~\"$cluster\"}, method)",
+        "definition": "label_values(nxpod_server_api_calls_total{cluster=~\"$cluster\"}, method)",
         "hide": 0,
         "includeAll": true,
         "label": "API Method",
@@ -2250,7 +2250,7 @@
         "name": "method",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_server_api_calls_total{cluster=~\"$cluster\"}, method)",
+          "query": "label_values(nxpod_server_api_calls_total{cluster=~\"$cluster\"}, method)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
@@ -2293,7 +2293,7 @@
         "datasource": {
           "uid": "$datasource"
         },
-        "definition": "label_values(gitpod_server_http_requests_total, route)",
+        "definition": "label_values(nxpod_server_http_requests_total, route)",
         "hide": 0,
         "includeAll": true,
         "label": "HTTP Route",
@@ -2301,7 +2301,7 @@
         "name": "http_route",
         "options": [],
         "query": {
-          "query": "label_values(gitpod_server_http_requests_total, route)",
+          "query": "label_values(nxpod_server_http_requests_total, route)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,

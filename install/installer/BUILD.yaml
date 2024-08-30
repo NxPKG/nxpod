@@ -19,11 +19,11 @@ packages:
     deps:
       - components/blobserve:lib
       - components/common-go:lib
-      - components/gitpod-db/go:lib
+      - components/nxpod-db/go:lib
       - components/content-service-api/go:lib
       - components/content-service:lib
       - components/ee/agent-smith:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/ide-metrics-api/go:lib
       - components/ide-service-api/go:lib
       - components/image-builder-api/go:lib
@@ -48,8 +48,8 @@ packages:
       - imageRepoBase
     prep:
       - ["sh", "-c", "ls -d third_party/charts/*/ | while read f; do echo \"cd $f && helm dep up && cd -\"; done | sh"]
-      - ["mv", "_deps/components-ws-manager-mk2--crd/workspace.gitpod.io_workspaces.yaml", "pkg/components/ws-manager-mk2/crd.yaml"]
-      - ["sh", "-c", "cat _deps/components-ws-manager-mk2--crd/workspace.gitpod.io_snapshots.yaml >> pkg/components/ws-manager-mk2/crd.yaml"]
+      - ["mv", "_deps/components-ws-manager-mk2--crd/workspace.nxpod.khulnasoft.com_workspaces.yaml", "pkg/components/ws-manager-mk2/crd.yaml"]
+      - ["sh", "-c", "cat _deps/components-ws-manager-mk2--crd/workspace.nxpod.khulnasoft.com_snapshots.yaml >> pkg/components/ws-manager-mk2/crd.yaml"]
     config:
       packaging: app
       buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/nxpkg/nxpod/installer/cmd.Version=commit-${__git_commit}' -X 'github.com/nxpkg/nxpod/installer/pkg/config.NxpodContainerRegistry=${imageRepoBase}'"]

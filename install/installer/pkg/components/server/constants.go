@@ -12,8 +12,8 @@ const (
 	Component                              = common.ServerComponent
 	ContainerPort                          = 3000
 	ContainerPortName                      = "http"
-	authProviderFilePath                   = "/gitpod/auth-providers"
-	licenseFilePath                        = "/gitpod/license"
+	authProviderFilePath                   = "/nxpod/auth-providers"
+	licenseFilePath                        = "/nxpod/license"
 	stripeSecretMountPath                  = "/stripe-secret"
 	linkedInSecretMountPath                = "/linkedin-secret"
 	githubAppCertSecret                    = "github-app-cert-secret"

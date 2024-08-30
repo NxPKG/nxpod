@@ -32,7 +32,7 @@ var controllerRules = []rbacv1.PolicyRule{
 		Resources: []string{"pod/status"},
 	},
 	{
-		APIGroups: []string{"workspace.gitpod.io"},
+		APIGroups: []string{"workspace.nxpod.khulnasoft.com"},
 		Resources: []string{"workspaces"},
 		Verbs: []string{
 			"create",
@@ -46,11 +46,11 @@ var controllerRules = []rbacv1.PolicyRule{
 	},
 	{
 		Verbs:     []string{"update"},
-		APIGroups: []string{"workspace.gitpod.io"},
+		APIGroups: []string{"workspace.nxpod.khulnasoft.com"},
 		Resources: []string{"workspaces/finalizers"},
 	},
 	{
-		APIGroups: []string{"workspace.gitpod.io"},
+		APIGroups: []string{"workspace.nxpod.khulnasoft.com"},
 		Resources: []string{"workspaces/status"},
 		Verbs: []string{
 			"get",
@@ -59,7 +59,7 @@ var controllerRules = []rbacv1.PolicyRule{
 		},
 	},
 	{
-		APIGroups: []string{"workspace.gitpod.io"},
+		APIGroups: []string{"workspace.nxpod.khulnasoft.com"},
 		Resources: []string{"snapshots"},
 		Verbs: []string{
 			"create",
@@ -70,7 +70,7 @@ var controllerRules = []rbacv1.PolicyRule{
 		},
 	},
 	{
-		APIGroups: []string{"workspace.gitpod.io"},
+		APIGroups: []string{"workspace.nxpod.khulnasoft.com"},
 		Resources: []string{"snapshots/status"},
 		Verbs: []string{
 			"get",

@@ -2,8 +2,8 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package gitpod
+package nxpod
 
 const (
-	Component = "gitpod"
+	Component = "nxpod"
 )

@@ -1,6 +1,6 @@
-image: eu.gcr.io/gitpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
-workspaceLocation: gitpod/gitpod-ws.code-workspace
-checkoutLocation: gitpod
+image: eu.gcr.io/nxpod-core-dev/dev/dev-environment:pd-test-new-preview-gha.24525
+workspaceLocation: nxpod/nxpod-ws.code-workspace
+checkoutLocation: nxpod
 ports:
   - port: 1337
     onOpen: open-preview
@@ -37,12 +37,12 @@ tasks:
   - name: Remove GCP_ADC_FILE
     command: |
       if [[ -n "${GCP_ADC_FILE}" ]]; then
-        echo "$GCP_ADC_FILE" > "/home/gitpod/.config/gcloud/application_default_credentials.json"
+        echo "$GCP_ADC_FILE" > "/home/nxpod/.config/gcloud/application_default_credentials.json"
         yes | gcloud auth application-default revoke
         gp env -u GCP_ADC_FILE
       fi
       exit 0
-  - name: Install `gitpod` CLI
+  - name: Install `nxpod` CLI
     command: |
       leeway run components/local-app:install-cli
       leeway run components/local-app:cli-completion
@@ -61,7 +61,7 @@ tasks:
       if [ -z "$RUN_GRADLE_TASK" ]; then
         read -r -p "Press enter to continue Java gradle task"
       fi
-      leeway exec --package components/supervisor-api/java:lib --package components/gitpod-protocol/java:lib -- ./gradlew build
+      leeway exec --package components/supervisor-api/java:lib --package components/nxpod-protocol/java:lib -- ./gradlew build
       leeway exec --package components/ide/jetbrains/backend-plugin:plugin-latest --package components/ide/jetbrains/gateway-plugin:publish-latest --parallel -- ./gradlew buildPlugin
   - name: TypeScript
     init: yarn --network-timeout 100000 && yarn build
@@ -71,7 +71,7 @@ tasks:
       exit 0
   - name: Go
     init: |
-      ./components/gitpod-protocol/go/scripts/generate-config.sh
+      ./components/nxpod-protocol/go/scripts/generate-config.sh
       leeway exec --filter-type go -v -- go mod verify
 vscode:
   extensions:
@@ -88,7 +88,7 @@ vscode:
     - fwcd.kotlin
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
-    - akosyakov.gitpod-monitor
+    - akosyakov.nxpod-monitor
     - hbenl.vscode-mocha-test-adapter
 jetbrains:
   intellij:

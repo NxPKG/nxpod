@@ -20,7 +20,7 @@ import (
 /*
 *
 export TEST_CREATE_TMP_TOKEN=true
-export NXPOD_HOST=hw-token-exp-1084.preview.gitpod-dev.com
+export NXPOD_HOST=hw-token-exp-1084.preview.nxpod-dev.com
 
 	export INSTALLATION_ADMIN_PAT=<admin_pat>
 	# PAT of a member or an owner or a collaborator
@@ -38,20 +38,20 @@ func TestCreateTemporaryAccessToken(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	newTargetToken := assertTemporaryAccessToken(ctx, t, gitpodHost, adminPAT, targetUserID, 60, "")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	newTargetToken := assertTemporaryAccessToken(ctx, t, nxpodHost, adminPAT, targetUserID, 60, "")
 	if newTargetToken == "" {
 		return
 	}
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	assertGetUser(ctx, t, gitpodHost, newTargetToken, targetUserID, "")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	assertGetUser(ctx, t, nxpodHost, newTargetToken, targetUserID, "")
 }
 
 func TestCreateTemporaryAccessTokenDeniedToCreateInstallationAdmin(t *testing.T) {
@@ -60,13 +60,13 @@ func TestCreateTemporaryAccessTokenDeniedToCreateInstallationAdmin(t *testing.T)
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	assertTemporaryAccessToken(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, 60, "permission_denied")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	assertTemporaryAccessToken(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, 60, "permission_denied")
 }
 
 func TestCreateTemporaryAccessTokenWithNotFoundUser(t *testing.T) {
@@ -74,13 +74,13 @@ func TestCreateTemporaryAccessTokenWithNotFoundUser(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	assertTemporaryAccessToken(ctx, t, gitpodHost, adminPAT, "00000000-0000-0000-0000-000000000000", 60, "not_found")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	assertTemporaryAccessToken(ctx, t, nxpodHost, adminPAT, "00000000-0000-0000-0000-000000000000", 60, "not_found")
 }
 
 func TestCreateTemporaryAccessTokenViaMember(t *testing.T) {
@@ -88,15 +88,15 @@ func TestCreateTemporaryAccessTokenViaMember(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	memberUserPAT, _ := os.LookupEnv("MEMBER_USER_PAT")
 	memberUserID, _ := os.LookupEnv("MEMBER_USER_ID")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	assertGetUser(ctx, t, gitpodHost, memberUserPAT, memberUserID, "")
-	assertTemporaryAccessToken(ctx, t, gitpodHost, memberUserPAT, targetUserID, 60, "permission_denied")
+	assertGetUser(ctx, t, nxpodHost, memberUserPAT, memberUserID, "")
+	assertTemporaryAccessToken(ctx, t, nxpodHost, memberUserPAT, targetUserID, 60, "permission_denied")
 }
 
 func TestCreateTemporaryAccessTokenExpiry(t *testing.T) {
@@ -104,23 +104,23 @@ func TestCreateTemporaryAccessTokenExpiry(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
 	defer cancel()
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	newTargetToken := assertTemporaryAccessToken(ctx, t, gitpodHost, adminPAT, targetUserID, 3, "")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	newTargetToken := assertTemporaryAccessToken(ctx, t, nxpodHost, adminPAT, targetUserID, 3, "")
 	if newTargetToken == "" {
 		return
 	}
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	assertGetUser(ctx, t, gitpodHost, newTargetToken, targetUserID, "")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	assertGetUser(ctx, t, nxpodHost, newTargetToken, targetUserID, "")
 
 	time.Sleep(time.Second * 3)
 
-	assertGetUser(ctx, t, gitpodHost, newTargetToken, targetUserID, "unauthenticated")
+	assertGetUser(ctx, t, nxpodHost, newTargetToken, targetUserID, "unauthenticated")
 }
 
 func TestCreateTemporaryAccessTokenCreateEnv(t *testing.T) {
@@ -128,27 +128,27 @@ func TestCreateTemporaryAccessTokenCreateEnv(t *testing.T) {
 		t.Skip("skip papi create temporary access token test")
 		return
 	}
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	adminPAT, _ := os.LookupEnv("INSTALLATION_ADMIN_PAT")
 	targetUserID, _ := os.LookupEnv("TARGET_USER_ID")
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	newTargetToken := assertTemporaryAccessToken(ctx, t, gitpodHost, adminPAT, targetUserID, 60, "")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	newTargetToken := assertTemporaryAccessToken(ctx, t, nxpodHost, adminPAT, targetUserID, 60, "")
 	if newTargetToken == "" {
 		return
 	}
 
-	assertGetUser(ctx, t, gitpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
-	assertGetUser(ctx, t, gitpodHost, newTargetToken, targetUserID, "")
+	assertGetUser(ctx, t, nxpodHost, adminPAT, BUILTIN_INSTLLATION_ADMIN_USER_ID, "")
+	assertGetUser(ctx, t, nxpodHost, newTargetToken, targetUserID, "")
 
-	assertCreateEnvVar(ctx, t, gitpodHost, newTargetToken, "foo", "boo")
+	assertCreateEnvVar(ctx, t, nxpodHost, newTargetToken, "foo", "boo")
 }
 
-func assertTemporaryAccessToken(ctx context.Context, t *testing.T, gitpodHost, userToken, targetUserID string, expirySeconds int32, wantedErrMsg string) string {
-	useCookie := !strings.HasPrefix(userToken, "gitpod_pat_")
-	v1Http, v1Opts, v1Host := getPAPIConnSettings(gitpodHost, userToken, useCookie, false)
+func assertTemporaryAccessToken(ctx context.Context, t *testing.T, nxpodHost, userToken, targetUserID string, expirySeconds int32, wantedErrMsg string) string {
+	useCookie := !strings.HasPrefix(userToken, "nxpod_pat_")
+	v1Http, v1Opts, v1Host := getPAPIConnSettings(nxpodHost, userToken, useCookie, false)
 	v1Client := v1connect.NewTokenServiceClient(v1Http, v1Host, v1Opts...)
 	targetInfo, err := v1Client.CreateTemporaryAccessToken(ctx, connect.NewRequest(&v1.CreateTemporaryAccessTokenRequest{
 		UserId:        targetUserID,
@@ -170,9 +170,9 @@ func assertTemporaryAccessToken(ctx context.Context, t *testing.T, gitpodHost, u
 	return fmt.Sprintf("%s=%s", targetInfo.Msg.CookieName, targetInfo.Msg.Token)
 }
 
-func assertGetUser(ctx context.Context, t *testing.T, gitpodHost, userToken string, wantedUser, wantedErrMsg string) {
-	useCookie := !strings.HasPrefix(userToken, "gitpod_pat_")
-	v1Http, v1Opts, v1Host := getPAPIConnSettings(gitpodHost, userToken, useCookie, false)
+func assertGetUser(ctx context.Context, t *testing.T, nxpodHost, userToken string, wantedUser, wantedErrMsg string) {
+	useCookie := !strings.HasPrefix(userToken, "nxpod_pat_")
+	v1Http, v1Opts, v1Host := getPAPIConnSettings(nxpodHost, userToken, useCookie, false)
 	v1Client := v1connect.NewUserServiceClient(v1Http, v1Host, v1Opts...)
 	user, err := v1Client.GetAuthenticatedUser(ctx, connect.NewRequest(&v1.GetAuthenticatedUserRequest{}))
 	if wantedErrMsg != "" {
@@ -194,9 +194,9 @@ func assertGetUser(ctx context.Context, t *testing.T, gitpodHost, userToken stri
 	}
 }
 
-func assertCreateEnvVar(ctx context.Context, t *testing.T, gitpodHost, userToken string, envVarName, envVarVal string) {
-	useCookie := !strings.HasPrefix(userToken, "gitpod_pat_")
-	v1Http, v1Opts, v1Host := getPAPIConnSettings(gitpodHost, userToken, useCookie, false)
+func assertCreateEnvVar(ctx context.Context, t *testing.T, nxpodHost, userToken string, envVarName, envVarVal string) {
+	useCookie := !strings.HasPrefix(userToken, "nxpod_pat_")
+	v1Http, v1Opts, v1Host := getPAPIConnSettings(nxpodHost, userToken, useCookie, false)
 	v1Client := v1connect.NewEnvironmentVariableServiceClient(v1Http, v1Host, v1Opts...)
 
 	list, err := v1Client.ListUserEnvironmentVariables(ctx, connect.NewRequest(&v1.ListUserEnvironmentVariablesRequest{}))

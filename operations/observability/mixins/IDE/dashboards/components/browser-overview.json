@@ -119,7 +119,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(gitpod_supervisor_frontend_error_total{cluster=~\"$cluster\"}[2m])) by (error, resource) / sum(rate(gitpod_supervisor_frontend_client_total{cluster=~\"$cluster\"}[2m]))",
+          "expr": "sum(rate(nxpod_supervisor_frontend_error_total{cluster=~\"$cluster\"}[2m])) by (error, resource) / sum(rate(nxpod_supervisor_frontend_client_total{cluster=~\"$cluster\"}[2m]))",
           "hide": false,
           "legendFormat": "{{error}} - {{resource}}",
           "range": true,

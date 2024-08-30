@@ -1776,7 +1776,7 @@
   "schemaVersion": 30,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

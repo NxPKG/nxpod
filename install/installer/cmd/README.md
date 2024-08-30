@@ -12,7 +12,7 @@ These are designed to manipulate configuration files and generate a configuratio
 
 > This replaces `init`, which is now deprecated
 
-This should be run first. This will generate a new `gitpod.config.yaml` file with the default values configured.
+This should be run first. This will generate a new `nxpod.config.yaml` file with the default values configured.
 
 #### build-from-envvars
 

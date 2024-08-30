@@ -39,19 +39,19 @@ func TestGitHubContexts(t *testing.T) {
 		{
 			Name:           "open branch",
 			ContextURL:     "github.com/nxpkg/nxpod-test-repo/tree/integration-test-1",
-			WorkspaceRoot:  "/workspace/gitpod-test-repo",
+			WorkspaceRoot:  "/workspace/nxpod-test-repo",
 			ExpectedBranch: "integration-test-1",
 		},
 		{
 			// Branch name decisions are not tested in the workspace as it is the server side logic
 			Name:          "open issue",
 			ContextURL:    "github.com/nxpkg/nxpod-test-repo/issues/88",
-			WorkspaceRoot: "/workspace/gitpod-test-repo",
+			WorkspaceRoot: "/workspace/nxpod-test-repo",
 		},
 		{
 			Name:           "open tag",
 			ContextURL:     "github.com/nxpkg/nxpod-test-repo/tree/integration-test-context-tag",
-			WorkspaceRoot:  "/workspace/gitpod-test-repo",
+			WorkspaceRoot:  "/workspace/nxpod-test-repo",
 			ExpectedBranch: "HEAD",
 		},
 		{

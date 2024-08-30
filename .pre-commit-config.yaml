@@ -37,7 +37,7 @@ repos:
     hooks:
       - id: prettier
         # Only enabled for WebApp components initially, to build consensus and incrementally onboard others
-        files: ^components\/(server|gitpod-protocol|gitpod-db|dashboard|ws-manager-bridge)\/.*\.ts(x?)$
+        files: ^components\/(server|nxpod-protocol|nxpod-db|dashboard|ws-manager-bridge)\/.*\.ts(x?)$
 
   - repo: https://github.com/dnephin/pre-commit-golang
     rev: "v0.5.0"

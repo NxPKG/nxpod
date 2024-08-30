@@ -16,7 +16,7 @@ Add it to your Kubernetes cluster like this:
 kubectl create secret generic ssh-gateway-host-key --from-file=host.key
 ```
 
-Add the following to your Nxpod config `gitpod.config.yaml`:
+Add the following to your Nxpod config `nxpod.config.yaml`:
 ```yaml
 sshGatewayHostKey:
   kind: secret

@@ -78,7 +78,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 	}
 
 	var schedulerName string
-	gitpodHostURL := "https://" + ctx.Config.Domain
+	nxpodHostURL := "https://" + ctx.Config.Domain
 	workspaceClusterHost := fmt.Sprintf("ws%s.%s", installationShortNameSuffix, ctx.Config.Domain)
 	workspaceURLTemplate := fmt.Sprintf("https://{{ .Prefix }}.ws%s.%s", installationShortNameSuffix, ctx.Config.Domain)
 	workspacePortURLTemplate := fmt.Sprintf("https://{{ .WorkspacePort }}-{{ .Prefix }}.ws%s.%s", installationShortNameSuffix, ctx.Config.Domain)
@@ -139,7 +139,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 
 		schedulerName = ucfg.Workspace.SchedulerName
 		if ucfg.Workspace.HostURL != "" {
-			gitpodHostURL = ucfg.Workspace.HostURL
+			nxpodHostURL = ucfg.Workspace.HostURL
 		}
 		if ucfg.Workspace.WorkspaceClusterHost != "" {
 			workspaceClusterHost = ucfg.Workspace.WorkspaceClusterHost
@@ -199,7 +199,7 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			WorkspaceClasses:        classes,
 			PreferredWorkspaceClass: preferredWorkspaceClass,
 			HeartbeatInterval:       util.Duration(30 * time.Second),
-			NxpodHostURL:           gitpodHostURL,
+			NxpodHostURL:           nxpodHostURL,
 			WorkspaceClusterHost:    workspaceClusterHost,
 			InitProbe: config.InitProbeConfiguration{
 				Timeout: (1 * time.Second).String(),

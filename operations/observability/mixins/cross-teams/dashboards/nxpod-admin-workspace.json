@@ -92,7 +92,7 @@
             {
               "targetBlank": true,
               "title": "See user in 'Nxpod Admin'",
-              "url": "https://gitpod.io/admin/users/${__field.labels.owner}"
+              "url": "https://nxpod.khulnasoft.com/admin/users/${__field.labels.owner}"
             }
           ],
           "mappings": [],
@@ -153,7 +153,7 @@
             {
               "targetBlank": true,
               "title": "See workspace in 'Nxpod Admin'",
-              "url": "https://gitpod.io/admin/workspaces/${__field.labels.metaID}"
+              "url": "https://nxpod.khulnasoft.com/admin/workspaces/${__field.labels.metaID}"
             }
           ],
           "mappings": [],
@@ -966,7 +966,7 @@
   "schemaVersion": 37,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [
@@ -1092,7 +1092,7 @@
   },
   "timezone": "utc",
   "title": "Nxpod / Admin / Workspace",
-  "uid": "gitpod-admin-workspaces",
+  "uid": "nxpod-admin-workspaces",
   "version": 1,
   "weekStart": ""
 }

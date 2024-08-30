@@ -35,7 +35,7 @@ spec:
 
     - alert: InstanceStartFailures
       # Reasoning: 10% failure rate over 5m
-      expr: sum(increase(gitpod_server_instance_starts_failed_total{reason!~"imageBuildFailed|imageBuildFailedUser|scmAccessFailed"}[5m])) / (sum(increase(gitpod_server_instance_starts_failed_total{reason!~"imageBuildFailed|imageBuildFailedUser|scmAccessFailed"}[5m])) + sum(increase(gitpod_server_instance_starts_success_total[5m]))) > 0.1
+      expr: sum(increase(nxpod_server_instance_starts_failed_total{reason!~"imageBuildFailed|imageBuildFailedUser|scmAccessFailed"}[5m])) / (sum(increase(nxpod_server_instance_starts_failed_total{reason!~"imageBuildFailed|imageBuildFailedUser|scmAccessFailed"}[5m])) + sum(increase(nxpod_server_instance_starts_success_total[5m]))) > 0.1
       for: 30s
       labels:
         severity: critical
@@ -46,7 +46,7 @@ spec:
 
     # Rollout alerts
     - alert: JsonRpcApiErrorRates
-      expr: sum(rate(gitpod_server_api_calls_total{statusCode!~"2.*|3.*|4.*|640"}[5m])) by (cluster) / sum(rate(gitpod_server_api_calls_total[5m])) by (cluster) > 0.04
+      expr: sum(rate(nxpod_server_api_calls_total{statusCode!~"2.*|3.*|4.*|640"}[5m])) by (cluster) / sum(rate(nxpod_server_api_calls_total[5m])) by (cluster) > 0.04
       for: 5m
       labels:
         severity: critical
@@ -58,7 +58,7 @@ spec:
         description: JSON RPC API error rate high
 
     - alert: NxpodV1APIServerErrors
-      expr: sum(rate(grpc_server_handled_total{grpc_code=~"Internal|Unknown|DataLoss", grpc_service=~"gitpod.v1.*"}[5m])) by (cluster) / sum(rate(grpc_server_handled_total{grpc_service=~"gitpod.v1.*"}[5m])) by (cluster) > 0.01
+      expr: sum(rate(grpc_server_handled_total{grpc_code=~"Internal|Unknown|DataLoss", grpc_service=~"nxpod.v1.*"}[5m])) by (cluster) / sum(rate(grpc_server_handled_total{grpc_service=~"nxpod.v1.*"}[5m])) by (cluster) > 0.01
       for: 5m
       labels:
         severity: critical
@@ -66,13 +66,13 @@ spec:
         dedicated: included
       annotations:
         runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodV1APIServerErrors.md
-        summary: gitpod.v1 API is returning higher number of errors on {{ $labels.cluster }}. Investigation required.
-        description: gitpod.v1 API is returning higher number of errors
+        summary: nxpod.v1 API is returning higher number of errors on {{ $labels.cluster }}. Investigation required.
+        description: nxpod.v1 API is returning higher number of errors
 
 
     - alert: WebsocketConnectionRateHigh
       # Reasoning: the values are taken from past data
-      expr: sum(rate(gitpod_server_api_connections_total[2m])) by (pod) > 5
+      expr: sum(rate(nxpod_server_api_connections_total[2m])) by (pod) > 5
       for: 10m
       labels:
         # sent to the team internal channel until we fine tuned it
@@ -95,7 +95,7 @@ spec:
         runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/WebAppServicesHighCPUUsage.md
         summary: Server has excessive CPU usage.
         description: Server is consumming too much CPU. Please investigate.
-        dashboard_url: https://grafana.gitpod.io/d/6581e46e4e5c7ba40a07646395ef7b23/kubernetes-compute-resources-pod?var-cluster={{ $labels.cluster }}&var-namespace=default
+        dashboard_url: https://grafana.nxpod.khulnasoft.com/d/6581e46e4e5c7ba40a07646395ef7b23/kubernetes-compute-resources-pod?var-cluster={{ $labels.cluster }}&var-namespace=default
 
     - alert: WebAppServicesCrashlooping
       # Reasoning: alert if any pod is stuck in crashlooping more than 5 minute.
@@ -127,7 +127,7 @@ spec:
         description: "FINE TUNE: Pod {{ $labels.namespace }}/{{ $labels.pod }} ({{ $labels.container }}) is stuck in crashlooping for at least 1 minute"
 
     - alert: StartWorkspace_InternalErrors
-      expr: sum(increase(gitpod_server_api_calls_total{method="startWorkspace", statusCode=~"5.*"}[1m])) by (cluster) > 5
+      expr: sum(increase(nxpod_server_api_calls_total{method="startWorkspace", statusCode=~"5.*"}[1m])) by (cluster) > 5
       for: 5m
       labels:
         severity: critical

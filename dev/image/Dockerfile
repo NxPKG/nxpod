@@ -51,13 +51,13 @@ ENV LEEWAY_WORKSPACE_ROOT=/workspace/nxpod
 ENV LEEWAY_REMOTE_CACHE_BUCKET=leeway-cache-dev-3ac8ef5
 ENV LEEWAY_CACHE_DIR=/workspace/.leeway/cache
 ENV LEEWAY_BUILD_DIR=/workspace/.leeway/build
-RUN cd /usr/bin && curl -fsSL https://github.com/nxpod-io/leeway/releases/download/v${LEEWAY_VERSION}/leeway_${LEEWAY_VERSION}_Linux_x86_64.tar.gz | tar xz
+RUN cd /usr/bin && curl -fsSL https://github.com/nxpkg/leeway/releases/download/v${LEEWAY_VERSION}/leeway_${LEEWAY_VERSION}_Linux_x86_64.tar.gz | tar xz
 
 # evans (gRPC client)
 RUN cd /usr/bin && curl -fsSL https://github.com/ktr0731/evans/releases/download/v0.10.6/evans_linux_amd64.tar.gz | tar xz evans
 
 # dazzle
-RUN cd /usr/bin && curl -fsSL https://github.com/nxpod-io/dazzle/releases/download/v0.1.12/dazzle_0.1.12_Linux_x86_64.tar.gz | tar xz
+RUN cd /usr/bin && curl -fsSL https://github.com/nxpkg/dazzle/releases/download/v0.1.12/dazzle_0.1.12_Linux_x86_64.tar.gz | tar xz
 
 # werft CLI
 ENV WERFT_CREDENTIAL_HELPER=/workspace/nxpod/dev/preview/werft-credential-helper.sh

@@ -27,7 +27,7 @@ func tlssecret(ctx *common.RenderContext) ([]runtime.Object, error) {
 				Duration:   common.InternalCertDuration,
 				SecretName: TLSSecretName,
 				DNSNames: []string{
-					fmt.Sprintf("gitpod.%s", ctx.Namespace),
+					fmt.Sprintf("nxpod.%s", ctx.Namespace),
 					fmt.Sprintf("%s.%s.svc", Component, ctx.Namespace),
 					Component,
 					"wsdaemon", // Seems this is hardcoded in WSManager

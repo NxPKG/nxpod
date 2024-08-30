@@ -363,7 +363,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_usage_scheduler_job_started_total{cluster=~\"$cluster\"}[1m])) by (job)",
+          "expr": "sum(increase(nxpod_usage_scheduler_job_started_total{cluster=~\"$cluster\"}[1m])) by (job)",
           "legendFormat": "{{job}} started",
           "range": true,
           "refId": "A"
@@ -375,7 +375,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(gitpod_usage_scheduler_job_completed_seconds_count{cluster=~\"$cluster\"}[1m])) by (job, outcome)",
+          "expr": "sum(increase(nxpod_usage_scheduler_job_completed_seconds_count{cluster=~\"$cluster\"}[1m])) by (job, outcome)",
           "hide": false,
           "instant": false,
           "legendFormat": "{{job}} completed: {{outcome}}",
@@ -472,7 +472,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.5, sum(rate(gitpod_usage_scheduler_job_completed_seconds_bucket{cluster=~\"$cluster\"}[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.5, sum(rate(nxpod_usage_scheduler_job_completed_seconds_bucket{cluster=~\"$cluster\"}[$__rate_interval])) by (le))",
           "legendFormat": "50th percentile",
           "range": true,
           "refId": "A"
@@ -483,7 +483,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum(rate(gitpod_usage_scheduler_job_completed_seconds_bucket{cluster=~\"$cluster\"}[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.9, sum(rate(nxpod_usage_scheduler_job_completed_seconds_bucket{cluster=~\"$cluster\"}[$__rate_interval])) by (le))",
           "hide": false,
           "legendFormat": "90th percentile",
           "range": true,
@@ -563,7 +563,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "time() - max_over_time(max(gitpod_usage_ledger_last_completed_time{outcome=\"success\"}[15m]))",
+          "expr": "time() - max_over_time(max(nxpod_usage_ledger_last_completed_time{outcome=\"success\"}[15m]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -656,7 +656,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_stripe_usage_records_updated_total[1m])) by (outcome)",
+          "expr": "sum(increase(nxpod_stripe_usage_records_updated_total[1m])) by (outcome)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"

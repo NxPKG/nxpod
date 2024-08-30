@@ -19,7 +19,7 @@ import (
 	experimentalv1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/v1"
 	v1connect "github.com/nxpkg/nxpod/components/public-api/go/v1/v1connect"
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
@@ -34,11 +34,11 @@ import (
 
 cd test
 export TEST_COLLABORATOR=true
-export NXPOD_HOST=hw-collaborator.preview.gitpod-dev.com
+export NXPOD_HOST=hw-collaborator.preview.nxpod-dev.com
 export ORG_ID=130d67cf-8b11-45e9-b8d2-33bf34ca4a4c
 export PROJECT_ID=699c6566-1049-469e-9e61-c8fe0db9d396
 
-# test with cookie, cookie should format like `_hw_collaborator_preview_gitpod_dev_com_jwt2_=xxx“
+# test with cookie, cookie should format like `_hw_collaborator_preview_nxpod_dev_com_jwt2_=xxx“
 export USE_COOKIE=true
 	export USER_TOKEN="<your_cookie>"
 go test -run "^TestMembers|TestProjects|TestGetProject$" github.com/nxpkg/nxpod/test/tests/smoke-test -v -count=1
@@ -63,15 +63,15 @@ func TestMembers(t *testing.T) {
 		return
 	}
 	userToken, _ := os.LookupEnv("USER_TOKEN")
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	orgID, _ := os.LookupEnv("ORG_ID")
 
-	serverConn, err0 := connectToServer(gitpodHost, userToken)
+	serverConn, err0 := connectToServer(nxpodHost, userToken)
 	if err0 != nil {
 		t.Errorf("failed getting server conn: %v", err0)
 	}
-	v1Http, v1Opts, v1Host := getPAPIConnSettings(gitpodHost, userToken, getUseCookie(), false)
-	ev1Http, ev1Opts, ev1Host := getPAPIConnSettings(gitpodHost, userToken, getUseCookie(), true)
+	v1Http, v1Opts, v1Host := getPAPIConnSettings(nxpodHost, userToken, getUseCookie(), false)
+	ev1Http, ev1Opts, ev1Host := getPAPIConnSettings(nxpodHost, userToken, getUseCookie(), true)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	client := experimentalv1connect.NewTeamsServiceClient(ev1Http, ev1Host, ev1Opts...)
@@ -110,15 +110,15 @@ func TestProjects(t *testing.T) {
 		return
 	}
 	userToken, _ := os.LookupEnv("USER_TOKEN")
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	orgID, _ := os.LookupEnv("ORG_ID")
 
-	serverConn, err0 := connectToServer(gitpodHost, userToken)
+	serverConn, err0 := connectToServer(nxpodHost, userToken)
 	if err0 != nil {
 		t.Errorf("failed getting server conn: %v", err0)
 	}
-	v1Http, v1Opts, v1Host := getPAPIConnSettings(gitpodHost, userToken, getUseCookie(), false)
-	ev1Http, ev1Opts, ev1Host := getPAPIConnSettings(gitpodHost, userToken, getUseCookie(), false)
+	v1Http, v1Opts, v1Host := getPAPIConnSettings(nxpodHost, userToken, getUseCookie(), false)
+	ev1Http, ev1Opts, ev1Host := getPAPIConnSettings(nxpodHost, userToken, getUseCookie(), false)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
@@ -161,13 +161,13 @@ func TestGetProject(t *testing.T) {
 		return
 	}
 	userToken, _ := os.LookupEnv("USER_TOKEN")
-	gitpodHost, _ := os.LookupEnv("NXPOD_HOST")
+	nxpodHost, _ := os.LookupEnv("NXPOD_HOST")
 	projectID, _ := os.LookupEnv("PROJECT_ID")
 
-	if _, err := connectToServer(gitpodHost, userToken); err != nil {
+	if _, err := connectToServer(nxpodHost, userToken); err != nil {
 		t.Errorf("failed getting server conn: %v", err)
 	}
-	v1Http, v1Opts, v1Host := getPAPIConnSettings(gitpodHost, userToken, getUseCookie(), false)
+	v1Http, v1Opts, v1Host := getPAPIConnSettings(nxpodHost, userToken, getUseCookie(), false)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
@@ -193,7 +193,7 @@ func getUseCookie() bool {
 	return useCookie == "true"
 }
 
-func connectToServer(gitpodHost, token string) (*serverapi.APIoverJSONRPC, error) {
+func connectToServer(nxpodHost, token string) (*serverapi.APIoverJSONRPC, error) {
 	supervisorConn, err := grpc.Dial(util.GetSupervisorAddress(), grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return nil, xerrors.Errorf("failed connecting to supervisor: %w", err)
@@ -203,13 +203,13 @@ func connectToServer(gitpodHost, token string) (*serverapi.APIoverJSONRPC, error
 		return nil, xerrors.Errorf("failed getting token from supervisor: %w", err)
 	}
 
-	endpoint := "wss://" + gitpodHost + "/api/gitpod"
+	endpoint := "wss://" + nxpodHost + "/api/nxpod"
 	useCookie := getUseCookie()
 	opts := serverapi.ConnectToServerOpts{
 		Context: context.Background(),
 		Log:     log.NewEntry(log.StandardLogger()),
 		ExtraHeaders: map[string]string{
-			"User-Agent":       "gitpod/cli",
+			"User-Agent":       "nxpod/cli",
 			"X-Client-Version": "0.0.1",
 		},
 	}
@@ -225,7 +225,7 @@ func connectToServer(gitpodHost, token string) (*serverapi.APIoverJSONRPC, error
 	return client, nil
 }
 
-func getPAPIConnSettings(gitpodHost, token string, useCookie, isExperimental bool) (*http.Client, []connect.ClientOption, string) {
+func getPAPIConnSettings(nxpodHost, token string, useCookie, isExperimental bool) (*http.Client, []connect.ClientOption, string) {
 	client := &http.Client{
 		Transport: &AuthenticatedTransport{Token: token, T: http.DefaultTransport, UseCookie: useCookie},
 	}
@@ -245,9 +245,9 @@ func getPAPIConnSettings(gitpodHost, token string, useCookie, isExperimental boo
 			}),
 		),
 	}
-	endpoint := fmt.Sprintf("https://%s/public-api", gitpodHost)
+	endpoint := fmt.Sprintf("https://%s/public-api", nxpodHost)
 	if isExperimental {
-		endpoint = fmt.Sprintf("https://api.%s", gitpodHost)
+		endpoint = fmt.Sprintf("https://api.%s", nxpodHost)
 	}
 	return client, opts, endpoint
 }

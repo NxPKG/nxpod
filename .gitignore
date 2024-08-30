@@ -48,7 +48,7 @@ venv/
 .helm-render
 
 # Decrypted secrets
-charts/gitpod_io/secrets/decrypted
+charts/nxpod_io/secrets/decrypted
 
 # Build artifacts
 components/ws-proxy/ws-proxy

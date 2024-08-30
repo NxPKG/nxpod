@@ -9,9 +9,9 @@ import "github.com/nxpkg/nxpod/common-go/baseserver"
 const (
 	Component               = "ws-daemon"
 	ServicePort             = 8080
-	HostWorkingAreaMk2      = "/var/gitpod/workspaces-mk2"
+	HostWorkingAreaMk2      = "/var/nxpod/workspaces-mk2"
 	ContainerWorkingAreaMk2 = "/mnt/workingarea-mk2"
-	HostBackupPath          = "/var/gitpod/tmp/backup"
+	HostBackupPath          = "/var/nxpod/tmp/backup"
 	TLSSecretName           = "ws-daemon-tls"
 	VolumeTLSCerts          = "ws-daemon-tls-certs"
 	ReadinessPort           = baseserver.BuiltinHealthPort

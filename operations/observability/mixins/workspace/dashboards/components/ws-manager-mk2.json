@@ -235,7 +235,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(gitpod_ws_manager_mk2_workspace_phase_total{cluster=~\"$cluster\"}) by (type, cluster, phase)",
+          "expr": "sum(nxpod_ws_manager_mk2_workspace_phase_total{cluster=~\"$cluster\"}) by (type, cluster, phase)",
           "interval": "",
           "legendFormat": "{{cluster}} - {{ type }} - {{phase}}",
           "queryType": "randomWalk",
@@ -355,7 +355,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n  rate(gitpod_ws_manager_mk2_workspace_startup_seconds_count{cluster=~\"$cluster\"}[1m])\n) by (cluster, type)",
+          "expr": "sum(\n  rate(nxpod_ws_manager_mk2_workspace_startup_seconds_count{cluster=~\"$cluster\"}[1m])\n) by (cluster, type)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - {{type}}",
@@ -368,7 +368,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(rate(gitpod_ws_manager_mk2_workspace_starts_failure_total{cluster=~\"$cluster\"}[1m])) by (cluster, type)",
+          "expr": "sum(rate(nxpod_ws_manager_mk2_workspace_starts_failure_total{cluster=~\"$cluster\"}[1m])) by (cluster, type)",
           "hide": false,
           "legendFormat": "Failures: {{cluster}} - {{type}}",
           "range": true,
@@ -502,7 +502,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n  rate(gitpod_ws_manager_mk2_workspace_stops_total{cluster=~\"$cluster\"}[$__rate_interval])\n) by (cluster, reason)",
+          "expr": "sum(\n  rate(nxpod_ws_manager_mk2_workspace_stops_total{cluster=~\"$cluster\"}[$__rate_interval])\n) by (cluster, reason)",
           "interval": "",
           "legendFormat": "{{cluster}} - {{reason}}",
           "range": true,
@@ -590,7 +590,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n    rate(gitpod_ws_manager_mk2_workspace_startup_seconds_bucket{cluster=~\"$cluster\", type=\"Regular\"}[$__rate_interval])\n  ) by (le)",
+          "expr": "sum(\n    rate(nxpod_ws_manager_mk2_workspace_startup_seconds_bucket{cluster=~\"$cluster\", type=\"Regular\"}[$__rate_interval])\n  ) by (le)",
           "format": "heatmap",
           "interval": "",
           "legendFormat": "{{le}}",
@@ -680,7 +680,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n    rate(gitpod_ws_manager_mk2_workspace_startup_seconds_bucket{cluster=~\"$cluster\", type=\"ImageBuild\"}[$__rate_interval])\n  ) by (le)",
+          "expr": "sum(\n    rate(nxpod_ws_manager_mk2_workspace_startup_seconds_bucket{cluster=~\"$cluster\", type=\"ImageBuild\"}[$__rate_interval])\n  ) by (le)",
           "format": "heatmap",
           "interval": "",
           "legendFormat": "{{le}}",
@@ -770,7 +770,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n    rate(gitpod_ws_manager_mk2_workspace_startup_seconds_bucket{cluster=~\"$cluster\", type=\"Prebuild\"}[$__rate_interval])\n  ) by (le)",
+          "expr": "sum(\n    rate(nxpod_ws_manager_mk2_workspace_startup_seconds_bucket{cluster=~\"$cluster\", type=\"Prebuild\"}[$__rate_interval])\n  ) by (le)",
           "format": "heatmap",
           "interval": "",
           "legendFormat": "{{le}}",
@@ -871,7 +871,7 @@
             "uid": "$datasource"
           },
           "editorMode": "code",
-          "expr": "sum(\n  rate(gitpod_ws_manager_mk2_workspace_failure_total{cluster=~\"$cluster\"}[$__rate_interval])\n) by (cluster)",
+          "expr": "sum(\n  rate(nxpod_ws_manager_mk2_workspace_failure_total{cluster=~\"$cluster\"}[$__rate_interval])\n) by (cluster)",
           "interval": "",
           "legendFormat": "{{cluster}}",
           "range": true,
@@ -3788,7 +3788,7 @@
   "schemaVersion": 38,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

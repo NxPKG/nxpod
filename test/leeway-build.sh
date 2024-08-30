@@ -10,7 +10,7 @@ mkdir -p bin
 for AGENT in pkg/agent/*; do
     echo "building agent $AGENT"
     base=$(basename "$AGENT")
-    go build -trimpath -ldflags="-buildid= -w -s" -o bin/gitpod-integration-test-"${base%_agent}"-agent ./"$AGENT"
+    go build -trimpath -ldflags="-buildid= -w -s" -o bin/nxpod-integration-test-"${base%_agent}"-agent ./"$AGENT"
 done
 
 for COMPONENT in tests/components/*; do

@@ -40,10 +40,10 @@ var renderCmd = &cobra.Command{
 
 A config file is required which can be generated with the init command.`,
 	Example: `  # Default install.
-  gitpod-installer render --config config.yaml | kubectl apply -f -
+  nxpod-installer render --config config.yaml | kubectl apply -f -
 
   # Install Nxpod into a non-default namespace.
-  gitpod-installer render --config config.yaml --namespace gitpod | kubectl apply -f -`,
+  nxpod-installer render --config config.yaml --namespace nxpod | kubectl apply -f -`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		yaml, err := renderFn()
 		if err != nil {
@@ -261,7 +261,7 @@ func init() {
 		log.WithError(err).Fatal("Failed to get working directory")
 	}
 
-	renderCmd.PersistentFlags().StringVarP(&renderOpts.ConfigFN, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file, use - for stdin")
+	renderCmd.PersistentFlags().StringVarP(&renderOpts.ConfigFN, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "nxpod.config.yaml")), "path to the config file, use - for stdin")
 	renderCmd.PersistentFlags().StringVarP(&renderOpts.Namespace, "namespace", "n", getEnvvar("NAMESPACE", "default"), "namespace to deploy to")
 	renderCmd.Flags().BoolVar(&renderOpts.ValidateConfigDisabled, "no-validation", false, "if set, the config will not be validated before running")
 	renderCmd.Flags().BoolVar(&renderOpts.UseExperimentalConfig, "use-experimental-config", false, "enable the use of experimental config that is prone to be changed")

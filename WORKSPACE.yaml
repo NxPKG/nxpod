@@ -1,7 +1,7 @@
 # this file makes this a leeway workspace
 defaultTarget: components:all
 defaultArgs:
-  imageRepoBase: "eu.gcr.io/gitpod-dev-artifact/build"
+  imageRepoBase: "eu.gcr.io/nxpod-dev-artifact/build"
   coreYarnLockBase: ../..
   npmPublishTrigger: "false"
   publishToNPM: true
@@ -24,7 +24,7 @@ defaultArgs:
   rustroverDownloadUrl: "https://download.jetbrains.com/rustrover/RustRover-2024.1.6.tar.gz"
   jbBackendVersion: "latest"
   dockerVersion: "20.10.24"
-  dockerComposeVersion: "2.27.0-gitpod.0"
+  dockerComposeVersion: "2.27.0-nxpod.0"
 provenance:
   enabled: true
   slsa: true

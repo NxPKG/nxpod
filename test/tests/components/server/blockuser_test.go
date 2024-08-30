@@ -14,7 +14,7 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 

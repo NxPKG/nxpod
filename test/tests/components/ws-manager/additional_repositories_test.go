@@ -54,7 +54,7 @@ func TestAdditionalRepositories(t *testing.T) {
 						api.Done(t)
 					})
 
-					testRepoName := "gitpod-test-repo"
+					testRepoName := "nxpod-test-repo"
 					ws, stopWs, err := integration.LaunchWorkspaceDirectly(t, ctx, api, integration.WithRequestModifier(func(req *wsmanapi.StartWorkspaceRequest) error {
 						req.Spec.WorkspaceLocation = testRepoName
 						req.Spec.Initializer = &csapi.WorkspaceInitializer{

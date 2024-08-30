@@ -36,7 +36,7 @@ func TestGitHooks(t *testing.T) {
 		{
 			Name:          "husky",
 			ContextURL:    "https://github.com/nxpkg/nxpod-test-repo/tree/husky",
-			WorkspaceRoot: "/workspace/gitpod-test-repo",
+			WorkspaceRoot: "/workspace/nxpod-test-repo",
 		},
 	}
 

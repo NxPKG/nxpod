@@ -16,7 +16,7 @@ func resourcequota(ctx *common.RenderContext) ([]runtime.Object, error) {
 	return []runtime.Object{&corev1.ResourceQuota{
 		TypeMeta: common.TypeMetaResourceQuota,
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      "gitpod-resource-quota",
+			Name:      "nxpod-resource-quota",
 			Namespace: ctx.Namespace,
 		},
 		Spec: corev1.ResourceQuotaSpec{

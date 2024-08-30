@@ -12,7 +12,7 @@ const (
 	Port              = 3306
 	SQLInitScripts    = "db-init-scripts"
 	SQLPasswordName   = "db-password"
-	Username          = "gitpod"
-	Database          = "gitpod"
+	Username          = "nxpod"
+	Database          = "nxpod"
 	initScriptDir     = "init"
 )

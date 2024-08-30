@@ -15,7 +15,7 @@ import (
 	"testing"
 	"time"
 
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
 	"github.com/nxpkg/nxpod/test/pkg/integration"
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
@@ -29,7 +29,7 @@ func TestRegularWorkspacePorts(t *testing.T) {
 
 	// This branch exposes a python server on port 3000 as part of the Nxpod tasks.
 	testRepo := "https://github.com/nxpkg/nxpod-test-repo/tree/integration-test/ports"
-	testRepoName := "gitpod-test-repo"
+	testRepoName := "nxpod-test-repo"
 	wsLoc := fmt.Sprintf("/workspace/%s", testRepoName)
 
 	f := features.New("ports").
@@ -58,7 +58,7 @@ func TestRegularWorkspacePorts(t *testing.T) {
 			}
 
 			// Must change supervisor address from localhost to 10.0.5.2.
-			err = server.SetEnvVar(ctx, &gitpod.UserEnvVarValue{
+			err = server.SetEnvVar(ctx, &nxpod.UserEnvVarValue{
 				Name:              "SUPERVISOR_ADDR",
 				Value:             `10.0.5.2:22999`,
 				RepositoryPattern: "nxpkg/" + testRepoName,
@@ -67,7 +67,7 @@ func TestRegularWorkspacePorts(t *testing.T) {
 				t.Fatal(err)
 			}
 			defer func() {
-				err := server.DeleteEnvVar(ctx, &gitpod.UserEnvVarValue{
+				err := server.DeleteEnvVar(ctx, &nxpod.UserEnvVarValue{
 					Name:              "SUPERVISOR_ADDR",
 					RepositoryPattern: "nxpkg/" + testRepoName,
 				})

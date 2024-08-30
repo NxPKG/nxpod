@@ -18,7 +18,7 @@ import (
 	"sigs.k8s.io/e2e-framework/pkg/envconf"
 	"sigs.k8s.io/e2e-framework/pkg/features"
 
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/test/pkg/integration"
 )
 
@@ -49,16 +49,16 @@ func TestSSHGatewayConnection(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			// This env var caused an incident https://www.gitpodstatus.com/incidents/26gwnhcpvqqx before
+			// This env var caused an incident https://www.nxpodstatus.com/incidents/26gwnhcpvqqx before
 			// Which was introduced by PR https://github.com/nxpkg/nxpod/pull/13822
 			// And fixed by PR https://github.com/nxpkg/nxpod/pull/13858
-			_ = server.SetEnvVar(ctx, &gitpod.UserEnvVarValue{
+			_ = server.SetEnvVar(ctx, &nxpod.UserEnvVarValue{
 				Name:              "TEST",
 				RepositoryPattern: "*/*",
 				Value:             "\\\"test space\\\"",
 			})
 
-			_ = server.SetEnvVar(ctx, &gitpod.UserEnvVarValue{
+			_ = server.SetEnvVar(ctx, &nxpod.UserEnvVarValue{
 				Name:              "TEST_MULTIPLE_LINES",
 				RepositoryPattern: "*/*",
 				Value: `Hello

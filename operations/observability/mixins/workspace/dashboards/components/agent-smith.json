@@ -113,14 +113,14 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_classifier_commandline_blocklist_hit_total{cluster=~\"$cluster\"})) by (cluster)",
+          "expr": "sum(rate(nxpod_agent_smith_classifier_commandline_blocklist_hit_total{cluster=~\"$cluster\"})) by (cluster)",
           "interval": "",
           "legendFormat": "{{cluster}} - Commandline Hits",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_classifier_signature_signature_hit_total{cluster=~\"$cluster\"})) by (cluster)",
+          "expr": "sum(rate(nxpod_agent_smith_classifier_signature_signature_hit_total{cluster=~\"$cluster\"})) by (cluster)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - Signature Hits",
@@ -222,7 +222,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_penalty_attempts_total{cluster=~\"$cluster\"}[5m])) by (cluster, penalty)",
+          "expr": "sum(rate(nxpod_agent_smith_penalty_attempts_total{cluster=~\"$cluster\"}[5m])) by (cluster, penalty)",
           "interval": "",
           "legendFormat": "{{cluster}} - {{penalty}}",
           "queryType": "randomWalk",
@@ -230,7 +230,7 @@
         },
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_penalty_attempts_failed_total{cluster=~\"$cluster\"})) by (cluster, penalty)",
+          "expr": "sum(rate(nxpod_agent_smith_penalty_attempts_failed_total{cluster=~\"$cluster\"})) by (cluster, penalty)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - failed ⚠️  {{penalty}}",
@@ -314,14 +314,14 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_classifier_signature_process_miss_total{cluster=~\"$cluster\"})) by (cluster, classifier_name)",
+          "expr": "sum(rate(nxpod_agent_smith_classifier_signature_process_miss_total{cluster=~\"$cluster\"})) by (cluster, classifier_name)",
           "interval": "",
           "legendFormat": "{{cluster}} - Signature Process Miss {{ classifier_name }}",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_classifier_commandline_allowlist_hit_total{cluster=~\"$cluster\"})) by (cluster, classifier_name)",
+          "expr": "sum(rate(nxpod_agent_smith_classifier_commandline_allowlist_hit_total{cluster=~\"$cluster\"})) by (cluster, classifier_name)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - Allowlist Hits {{ classifier_name }}",
@@ -431,7 +431,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "count by (severity,cluster) (gitpod_agent_smith_egress_violations_total)",
+          "expr": "count by (severity,cluster) (nxpod_agent_smith_egress_violations_total)",
           "interval": "",
           "legendFormat": "{{cluster}} - {{severity}}",
           "queryType": "randomWalk",
@@ -531,7 +531,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(gitpod_agent_smith_classification_backpressure_in_count{cluster=~\"$cluster\"}) by (cluster)",
+          "expr": "sum(nxpod_agent_smith_classification_backpressure_in_count{cluster=~\"$cluster\"}) by (cluster)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - In Pressure",
@@ -539,7 +539,7 @@
         },
         {
           "exemplar": true,
-          "expr": "sum(gitpod_agent_smith_classification_backpressure_out_count{cluster=~\"$cluster\"}) by (cluster)",
+          "expr": "sum(nxpod_agent_smith_classification_backpressure_out_count{cluster=~\"$cluster\"}) by (cluster)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - Out Pressure",
@@ -547,7 +547,7 @@
         },
         {
           "exemplar": true,
-          "expr": "sum(rate(gitpod_agent_smith_classification_backpressure_in_drop_total{cluster=~\"$cluster\"})) by (cluster)",
+          "expr": "sum(rate(nxpod_agent_smith_classification_backpressure_in_drop_total{cluster=~\"$cluster\"})) by (cluster)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{cluster}} - Classification Drop Rate",
@@ -629,7 +629,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(gitpod_agent_smith_procfs_detector_index_size{cluster=~\"$cluster\"}) by (cluster)",
+          "expr": "sum(nxpod_agent_smith_procfs_detector_index_size{cluster=~\"$cluster\"}) by (cluster)",
           "interval": "",
           "legendFormat": "{{cluster}}",
           "refId": "A"
@@ -711,7 +711,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "(sum(rate(gitpod_agent_smith_procfs_detector_cache_use_total{cluster=~\"$cluster\", use=\"miss\"}[5m])) by (cluster) / sum(rate(gitpod_agent_smith_procfs_detector_cache_use_total{cluster=~\"$cluster\"}[5m])) by (cluster)) * 100",
+          "expr": "(sum(rate(nxpod_agent_smith_procfs_detector_cache_use_total{cluster=~\"$cluster\", use=\"miss\"}[5m])) by (cluster) / sum(rate(nxpod_agent_smith_procfs_detector_cache_use_total{cluster=~\"$cluster\"}[5m])) by (cluster)) * 100",
           "interval": "",
           "legendFormat": "{{ cluster }}",
           "refId": "A"
@@ -800,7 +800,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "exemplar": true,
-          "expr": "sum(gitpod_ws_manager_mk2_workspace_phase_total{cluster=~\"()\", phase=\"Running\", type=\"Regular\"})  by (cluster) - on (cluster) sum(gitpod_agent_smith_procfs_detector_workspace_count{cluster=~\"()\"}) by (cluster)",
+          "expr": "sum(nxpod_ws_manager_mk2_workspace_phase_total{cluster=~\"()\", phase=\"Running\", type=\"Regular\"})  by (cluster) - on (cluster) sum(nxpod_agent_smith_procfs_detector_workspace_count{cluster=~\"()\"}) by (cluster)",
           "interval": "",
           "legendFormat": "Difference",
           "refId": "A"
@@ -2493,7 +2493,7 @@
   "schemaVersion": 31,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

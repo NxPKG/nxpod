@@ -884,7 +884,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "sum(increase (gitpod_spicedb_requests_check_total[$__rate_interval])) by (consistency)",
+          "expr": "sum(increase (nxpod_spicedb_requests_check_total[$__rate_interval])) by (consistency)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"

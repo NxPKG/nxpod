@@ -613,7 +613,7 @@
           "align": "auto",
           "link": true,
           "linkTargetBlank": true,
-          "linkUrl": "d/gitpod-admin-workspaces/gitpod-admin-workspaces?var-datasource=$datasource&var-cluster=$cluster&var-nodepool=$nodepool&var-node=$node&var-workspace=$__cell",
+          "linkUrl": "d/nxpod-admin-workspaces/nxpod-admin-workspaces?var-datasource=$datasource&var-cluster=$cluster&var-nodepool=$nodepool&var-node=$node&var-workspace=$__cell",
           "pattern": "pod"
         },
         {
@@ -672,7 +672,7 @@
           "align": "auto",
           "link": true,
           "linkTargetBlank": true,
-          "linkUrl": "d/gitpod-admin-workspaces/gitpod-admin-workspaces?var-datasource=$datasource&var-cluster=$cluster&var-nodepool=$nodepool&var-node=$node&var-workspace=$__cell",
+          "linkUrl": "d/nxpod-admin-workspaces/nxpod-admin-workspaces?var-datasource=$datasource&var-cluster=$cluster&var-nodepool=$nodepool&var-node=$node&var-workspace=$__cell",
           "pattern": "pod"
         },
         {
@@ -731,7 +731,7 @@
           "align": "auto",
           "link": true,
           "linkTargetBlank": true,
-          "linkUrl": "d/gitpod-admin-workspaces/gitpod-admin-workspaces?var-datasource=$datasource&var-cluster=$cluster&var-nodepool=$nodepool&var-node=$node&var-workspace=$__cell",
+          "linkUrl": "d/nxpod-admin-workspaces/nxpod-admin-workspaces?var-datasource=$datasource&var-cluster=$cluster&var-nodepool=$nodepool&var-node=$node&var-workspace=$__cell",
           "pattern": "pod"
         },
         {
@@ -1582,7 +1582,7 @@
   "schemaVersion": 37,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [
@@ -1708,7 +1708,7 @@
   },
   "timezone": "utc",
   "title": "Nxpod / Admin / Node",
-  "uid": "gitpod-admin-nodes",
+  "uid": "nxpod-admin-nodes",
   "version": 1,
   "weekStart": ""
 }

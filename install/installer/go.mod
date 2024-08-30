@@ -10,7 +10,7 @@ require (
 	github.com/nxpkg/nxpod/agent-smith v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/blobserve v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/nxpod-db/go v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/components/spicedb v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/content-service/api v0.0.0-00010101000000-000000000000
@@ -131,7 +131,7 @@ require (
 	github.com/fvbommel/sortorder v1.1.0 // indirect
 	github.com/nxpkg/nxpod/components/scrubber v0.0.0-00010101000000-000000000000 // indirect
 	github.com/nxpkg/nxpod/content-service v0.0.0-00010101000000-000000000000 // indirect
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000 // indirect
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000 // indirect
 	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000 // indirect
 	github.com/nxpkg/nxpod/usage-api v0.0.0-00010101000000-000000000000 // indirect
 	github.com/nxpkg/golang-crypto v0.0.0-20231122075959-de838e9cb174 // indirect
@@ -325,13 +325,13 @@ replace github.com/nxpkg/nxpod/common-go => ../../components/common-go // leeway
 
 replace github.com/nxpkg/nxpod/components/scrubber => ../../components/scrubber // leeway
 
-replace github.com/nxpkg/nxpod/components/gitpod-db/go => ../../components/gitpod-db/go // leeway
+replace github.com/nxpkg/nxpod/components/nxpod-db/go => ../../components/nxpod-db/go // leeway
 
 replace github.com/nxpkg/nxpod/content-service => ../../components/content-service // leeway
 
 replace github.com/nxpkg/nxpod/content-service/api => ../../components/content-service-api/go // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../../components/gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../../components/nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/ide-metrics-api => ../../components/ide-metrics-api/go // leeway
 

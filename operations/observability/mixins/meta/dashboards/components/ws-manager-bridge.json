@@ -137,7 +137,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_manager_bridge_workspace_instance_update_started_total{cluster=~\"$cluster\", pod=~\"$pod\"}[1m]))",
+          "expr": "sum(increase(nxpod_ws_manager_bridge_workspace_instance_update_started_total{cluster=~\"$cluster\", pod=~\"$pod\"}[1m]))",
           "legendFormat": "Events received",
           "range": true,
           "refId": "A"
@@ -148,7 +148,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{cluster=~\"$cluster\", pod=~\"$pod\"}[1m]))",
+          "expr": "sum(increase(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{cluster=~\"$cluster\", pod=~\"$pod\"}[1m]))",
           "hide": false,
           "legendFormat": "Events completed",
           "range": true,
@@ -244,7 +244,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_manager_bridge_workspace_instance_update_started_total{cluster=~\"$cluster\", pod=~\"$pod\"}[10m])) - sum(increase(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{cluster=~\"$cluster\", pod=~\"$pod\"}[10m]))",
+          "expr": "sum(increase(nxpod_ws_manager_bridge_workspace_instance_update_started_total{cluster=~\"$cluster\", pod=~\"$pod\"}[10m])) - sum(increase(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{cluster=~\"$cluster\", pod=~\"$pod\"}[10m]))",
           "legendFormat": "# of events received - # of events completed",
           "range": true,
           "refId": "A"
@@ -340,7 +340,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{outcome=\"success\"}[1m])) OR 0",
+          "expr": "sum(increase(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{outcome=\"success\"}[1m])) OR 0",
           "interval": "",
           "legendFormat": "success",
           "range": true,
@@ -352,7 +352,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{outcome=\"error\"}[1m])) OR 0",
+          "expr": "sum(increase(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_count{outcome=\"error\"}[1m])) OR 0",
           "hide": false,
           "interval": "",
           "legendFormat": "error",
@@ -450,7 +450,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_instances_marked_stopped_total[5m])) by (previous_phase)",
+          "expr": "sum(increase(nxpod_ws_instances_marked_stopped_total[5m])) by (previous_phase)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -559,7 +559,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "sum(increase(gitpod_ws_manager_bridge_updates_published_total[1m])) by (type)",
+          "expr": "sum(increase(nxpod_ws_manager_bridge_updates_published_total[1m])) by (type)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1716,7 +1716,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile(0.5, sum(rate(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (le))",
+              "expr": "histogram_quantile(0.5, sum(rate(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (le))",
               "legendFormat": "50th",
               "range": true,
               "refId": "A"
@@ -1727,7 +1727,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile(0.90, sum(rate(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (le))",
+              "expr": "histogram_quantile(0.90, sum(rate(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (le))",
               "hide": false,
               "legendFormat": "90th",
               "range": true,
@@ -1739,7 +1739,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile(0.99, sum(rate(gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds_bucket{cluster=~\"$cluster\", pod=~\"$pod\"}[5m])) by (le))",
               "hide": false,
               "legendFormat": "99th",
               "range": true,
@@ -2161,7 +2161,7 @@
   "refresh": "30s",
   "schemaVersion": 39,
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

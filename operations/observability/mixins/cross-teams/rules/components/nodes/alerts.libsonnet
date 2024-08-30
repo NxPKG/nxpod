@@ -8,7 +8,7 @@
   prometheusAlerts+:: {
     groups+: [
       {
-        name: 'gitpod-component-node-alerts',
+        name: 'nxpod-component-node-alerts',
         rules: [
           {
             alert: 'NxpodNodeRunningOutOfEphemeralStorage',

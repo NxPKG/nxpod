@@ -15,7 +15,7 @@ packages:
       - components/common-go:lib
       - components/content-service-api/go:lib
       - components/content-service:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/image-builder-api/go:lib
       - components/supervisor-api/go:lib
       - components/ws-manager-api/go:lib
@@ -71,7 +71,7 @@ scripts:
 
       echo "🚢 Starting intergration tests for IntelliJ $option..."
       if [ "$DEBUG" = "true" ]; then
-        TEST_USE_LATEST_VERSION=$useLatest TEST_IN_WORKSPACE=true ROBOQUAT_TOKEN=skip dlv test /workspace/gitpod/test/tests/ide/jetbrains --headless --listen=:32991 --api-version=2 -- -test.timeout=60m -test.v -test.run=^TestIntelliJWarmup -kubeconfig=$HOME/.kube/config -namespace=default -username=$USERNAME
+        TEST_USE_LATEST_VERSION=$useLatest TEST_IN_WORKSPACE=true ROBOQUAT_TOKEN=skip dlv test /workspace/nxpod/test/tests/ide/jetbrains --headless --listen=:32991 --api-version=2 -- -test.timeout=60m -test.v -test.run=^TestIntelliJWarmup -kubeconfig=$HOME/.kube/config -namespace=default -username=$USERNAME
       else
         TEST_USE_LATEST_VERSION=$useLatest TEST_IN_WORKSPACE=true ROBOQUAT_TOKEN=skip go test -timeout 60m -v -run ^TestGoLand ./tests/ide/jetbrains -kubeconfig=$HOME/.kube/config -namespace=default -username=$USERNAME
       fi

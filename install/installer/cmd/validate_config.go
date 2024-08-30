@@ -67,5 +67,5 @@ func init() {
 		log.WithError(err).Fatal("Failed to get working directory")
 	}
 
-	validateCmd.PersistentFlags().StringVarP(&validateConfigOpts.Config, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "gitpod.config.yaml")), "path to the config file")
+	validateCmd.PersistentFlags().StringVarP(&validateConfigOpts.Config, "config", "c", getEnvvar("NXPOD_INSTALLER_CONFIG", filepath.Join(dir, "nxpod.config.yaml")), "path to the config file")
 }

@@ -12,7 +12,7 @@ import (
 	"github.com/nxpkg/nxpod/usage/pkg/server"
 	"github.com/nxpkg/nxpod/usage/pkg/stripe"
 
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/nxpkg/nxpod/installer/pkg/common"
 	"github.com/nxpkg/nxpod/installer/pkg/components/redis"
 	"github.com/nxpkg/nxpod/installer/pkg/config/v1/experimental"

@@ -75,7 +75,7 @@ local runningWorkspacesGraph =
       prometheus.target(
           |||
             sum(
-              gitpod_ws_manager_mk2_workspace_phase_total{phase="Running"}
+              nxpod_ws_manager_mk2_workspace_phase_total{phase="Running"}
             ) by (type)
           |||, legendFormat='{{ type }}'
       )

@@ -143,7 +143,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "sum(rate(gitpod_image_builder_builds_done_total{cluster=~\"$cluster\"}[$__rate_interval])) by (success)",
+          "expr": "sum(rate(nxpod_image_builder_builds_done_total{cluster=~\"$cluster\"}[$__rate_interval])) by (success)",
           "legendFormat": "Success: {{success}}",
           "range": true,
           "refId": "A"
@@ -2215,7 +2215,7 @@
   "schemaVersion": 37,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

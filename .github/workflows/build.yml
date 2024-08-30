@@ -291,7 +291,7 @@ jobs:
           git push origin ${VERSION}
         env:
           GITHUB_USER: roboquat
-          GITHUB_EMAIL: roboquat@nxpod.io
+          GITHUB_EMAIL: roboquat@nxpod.khulnasoft.com
           VERSION: ${{ needs.configuration.outputs.version }}
 
   install-app:

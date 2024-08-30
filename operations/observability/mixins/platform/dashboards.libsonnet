@@ -9,6 +9,6 @@
     // Import raw json files here.
     // Example:
     // 'my-new-dashboard.json': (import 'dashboards/components/new-component.json'),
-    'gitpod-preview-envs-overview.json': (import 'dashboards/preview-environments/overview.json'),
+    'nxpod-preview-envs-overview.json': (import 'dashboards/preview-environments/overview.json'),
   },
 }

@@ -143,7 +143,7 @@
             "uid": "$datasource"
           },
           "exemplar": true,
-          "expr": "sum(rate(gitpod_server_api_calls_total{cluster=~\"$cluster\"}[5m])) by (cluster, method)",
+          "expr": "sum(rate(nxpod_server_api_calls_total{cluster=~\"$cluster\"}[5m])) by (cluster, method)",
           "interval": "",
           "legendFormat": "{{method}}",
           "queryType": "randomWalk",
@@ -244,7 +244,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(\n  rate(gitpod_server_api_calls_total{cluster=~\"$cluster\", statusCode!~\"2..|429\"}[5m])\n) by (method)",
+          "expr": "sum(\n  rate(nxpod_server_api_calls_total{cluster=~\"$cluster\", statusCode!~\"2..|429\"}[5m])\n) by (method)",
           "interval": "",
           "legendFormat": "{{method}}",
           "queryType": "randomWalk",
@@ -450,7 +450,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(rate(gitpod_server_api_calls_total{cluster=~\"$cluster\", method=~\"ts.*\"}[5m])) by (cluster, method) * 60",
+          "expr": "sum(rate(nxpod_server_api_calls_total{cluster=~\"$cluster\", method=~\"ts.*\"}[5m])) by (cluster, method) * 60",
           "interval": "",
           "legendFormat": "{{cluster}} {{method}}",
           "refId": "A"
@@ -560,7 +560,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum (irate(gitpod_server_instance_starts_success_total{cluster=~\"$cluster\"}[2m]))",
+          "expr": "sum (irate(nxpod_server_instance_starts_success_total{cluster=~\"$cluster\"}[2m]))",
           "interval": "",
           "legendFormat": "Success",
           "refId": "A"
@@ -571,7 +571,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum (irate(gitpod_server_instance_starts_failed_total{cluster=~\"$cluster\"}[2m])) by (reason)",
+          "expr": "sum (irate(nxpod_server_instance_starts_failed_total{cluster=~\"$cluster\"}[2m])) by (reason)",
           "hide": false,
           "interval": "",
           "legendFormat": "Failed because: {{ reason }}",
@@ -663,9 +663,9 @@
             "uid": "$datasource"
           },
           "exemplar": true,
-          "expr": "sum (gitpod_version_info{cluster=~\"$cluster\"}) by (cluster, gitpod_version)",
+          "expr": "sum (nxpod_version_info{cluster=~\"$cluster\"}) by (cluster, nxpod_version)",
           "interval": "",
-          "legendFormat": "{{ cluster }}: {{ gitpod_version }}",
+          "legendFormat": "{{ cluster }}: {{ nxpod_version }}",
           "refId": "A"
         }
       ],
@@ -781,7 +781,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "sum(\n  rate(gitpod_ws_manager_mk2_workspace_stops_total{cluster=~\"$cluster\", reason=\"failed\"}[5m])\n) by (cluster, type)\n",
+          "expr": "sum(\n  rate(nxpod_ws_manager_mk2_workspace_stops_total{cluster=~\"$cluster\", reason=\"failed\"}[5m])\n) by (cluster, type)\n",
           "interval": "",
           "legendFormat": "{{cluster}} {{type}}",
           "refId": "A"
@@ -795,7 +795,7 @@
   "schemaVersion": 38,
   "style": "dark",
   "tags": [
-    "gitpod-mixin"
+    "nxpod-mixin"
   ],
   "templating": {
     "list": [

@@ -2,15 +2,15 @@
 
 ## Mirror Nxpod Images
 
-You need a registry that is reachable in your network. Add the domain of your registry to the Nxpod config `gitpod.config.yaml` like this:
+You need a registry that is reachable in your network. Add the domain of your registry to the Nxpod config `nxpod.config.yaml` like this:
 ```yaml
 repository: your-registry.example.com
 ```
 
-The command `gitpod-installer mirror list` gives you a list of all images needed by Nxpod. You can run the following code to pull the needed images and push them to your registry:
+The command `nxpod-installer mirror list` gives you a list of all images needed by Nxpod. You can run the following code to pull the needed images and push them to your registry:
 
 ```
-for row in $(gitpod-installer mirror list --config gitpod.config.yaml | jq -c '.[]'); do
+for row in $(nxpod-installer mirror list --config nxpod.config.yaml | jq -c '.[]'); do
     original=$(echo $row | jq -r '.original')
     target=$(echo $row | jq -r '.target')
 
@@ -31,6 +31,6 @@ repository: your-registry.example.com
 That's it. Run the following commands as usual and Nxpod fetches the images from your registry and does not need internet access to operate:
 
 ```
-gitpod-installer render --config gitpod.config.yaml > gitpod.yaml
-kubectl apply -f gitpod.yaml
+nxpod-installer render --config nxpod.config.yaml > nxpod.yaml
+kubectl apply -f nxpod.yaml
 ```

@@ -14,7 +14,7 @@ fi
 TMP=$(mktemp -d)
 echo "workdir: $TMP"
 
-HOME="/home/gitpod"
+HOME="/home/nxpod"
 BIN="$HOME/bin"
 mkdir -p "$BIN"
 
@@ -32,7 +32,7 @@ fi
 
 echo "=== Gathering list of _all_ images for $VERSION"
 INSTALLER="$TMP/installer"
-"$OCI_TOOL" fetch file -o "$INSTALLER" --platform=linux-amd64 "eu.gcr.io/gitpod-core-dev/build/installer:${VERSION}" app/installer
+"$OCI_TOOL" fetch file -o "$INSTALLER" --platform=linux-amd64 "eu.gcr.io/nxpod-core-dev/build/installer:${VERSION}" app/installer
 echo ""
 chmod +x "$INSTALLER"
 # Extract list of images
@@ -58,7 +58,7 @@ while IFS= read -r IMAGE_REF; do
   TAG=$(echo "$IMAGE_REF" | cut -d ":" -f 2)
   echo "= Scanning $NAME : $TAG [$COUNTER / $TOTAL_IMAGES]"
   "$SCANNER" image evaluate "$NAME" "$TAG" \
-    --account-name gitpod \
+    --account-name nxpod \
     --access-token "$LW_ACCESS_TOKEN" \
     --build-id "$VERSION" \
     --ci-build=true \

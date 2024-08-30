@@ -29,11 +29,11 @@ func Load(fn string) (*Config, error) {
 func LoadMock() *Config {
 	return &Config{
 		Kind:   InstallationFull,
-		Domain: "gitpod-testing.com",
+		Domain: "nxpod-testing.com",
 		Metadata: Metadata{
 			Region: "eu-west1",
 		},
-		Repository: "eu.gcr.io/gitpod-core-dev/build",
+		Repository: "eu.gcr.io/nxpod-core-dev/build",
 		Observability: Observability{
 			LogLevel: "debug",
 		},

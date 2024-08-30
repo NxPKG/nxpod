@@ -11,11 +11,11 @@ import (
 
 // Valid characters for affinities are alphanumeric, -, _, . and one / as a subdomain prefix
 const (
-	AffinityLabelMeta               = "gitpod.io/workload_meta"
-	AffinityLabelIDE                = "gitpod.io/workload_ide"
-	AffinityLabelServices           = "gitpod.io/workload_services"
-	AffinityLabelWorkspacesRegular  = "gitpod.io/workload_workspace_regular"
-	AffinityLabelWorkspacesHeadless = "gitpod.io/workload_workspace_headless"
+	AffinityLabelMeta               = "nxpod.khulnasoft.com/workload_meta"
+	AffinityLabelIDE                = "nxpod.khulnasoft.com/workload_ide"
+	AffinityLabelServices           = "nxpod.khulnasoft.com/workload_services"
+	AffinityLabelWorkspacesRegular  = "nxpod.khulnasoft.com/workload_workspace_regular"
+	AffinityLabelWorkspacesHeadless = "nxpod.khulnasoft.com/workload_workspace_headless"
 
 	HostnameTopologyKey = "kubernetes.io/hostname"
 )
@@ -63,7 +63,7 @@ func WithPodAntiAffinityHostname(component string) *corev1.PodAntiAffinity {
 
 func defaultLabels(component string) map[string]string {
 	return map[string]string{
-		"app":       "gitpod",
+		"app":       "nxpod",
 		"component": component,
 	}
 }

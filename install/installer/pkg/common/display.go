@@ -84,7 +84,7 @@ func DependencySortingRenderFunc(objects []RuntimeObject) ([]RuntimeObject, erro
 
 func GenerateInstallationConfigMap(ctx *RenderContext, objects []RuntimeObject) ([]RuntimeObject, error) {
 	cfgMapData := make([]string, 0)
-	component := "gitpod-app"
+	component := "nxpod-app"
 
 	// Convert to a simplified object that allows us to access the objects
 	for _, c := range objects {

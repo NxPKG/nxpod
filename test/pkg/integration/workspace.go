@@ -21,14 +21,14 @@ import (
 
 	"github.com/nxpkg/nxpod/common-go/namegen"
 	csapi "github.com/nxpkg/nxpod/content-service/api"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	ide "github.com/nxpkg/nxpod/ide-service-api/config"
 	imgbldr "github.com/nxpkg/nxpod/image-builder/api"
 	wsmanapi "github.com/nxpkg/nxpod/ws-manager/api"
 )
 
 const (
-	gitpodBuiltinUserID             = "builtin-user-workspace-probe-0000000"
+	nxpodBuiltinUserID             = "builtin-user-workspace-probe-0000000"
 	perCallTimeout                  = 5 * time.Minute
 	ParallelLunchableWorkspaceLimit = 10
 )
@@ -111,7 +111,7 @@ type StopWorkspaceFunc = func(waitForStop bool, api *ComponentAPI) (*wsmanapi.Wo
 func LaunchWorkspaceDirectly(t *testing.T, ctx context.Context, api *ComponentAPI, opts ...LaunchWorkspaceDirectlyOpt) (*LaunchWorkspaceDirectlyResult, StopWorkspaceFunc, error) {
 	var stopWs StopWorkspaceFunc = nil
 	options := launchWorkspaceDirectlyOptions{
-		BaseImage: "docker.io/gitpod/workspace-full:latest",
+		BaseImage: "docker.io/nxpod/workspace-full:latest",
 	}
 	for _, o := range opts {
 		err := o(&options)
@@ -218,7 +218,7 @@ func LaunchWorkspaceDirectly(t *testing.T, ctx context.Context, api *ComponentAP
 		Id:            instanceID.String(),
 		ServicePrefix: workspaceID,
 		Metadata: &wsmanapi.WorkspaceMetadata{
-			Owner:  gitpodBuiltinUserID,
+			Owner:  nxpodBuiltinUserID,
 			MetaId: workspaceID,
 		},
 		Type: wsmanapi.WorkspaceType_REGULAR,
@@ -237,7 +237,7 @@ func LaunchWorkspaceDirectly(t *testing.T, ctx context.Context, api *ComponentAP
 			},
 			Git: &wsmanapi.GitSpec{
 				Username: "integration-test",
-				Email:    "integration-test@gitpod.io",
+				Email:    "integration-test@nxpod.khulnasoft.com",
 			},
 			Admission: wsmanapi.AdmissionLevel_ADMIT_OWNER_ONLY,
 			Envvars: []*wsmanapi.EnvironmentVariable{
@@ -245,7 +245,7 @@ func LaunchWorkspaceDirectly(t *testing.T, ctx context.Context, api *ComponentAP
 				// from ws-manager in these tests we need to set it here ourselves.
 				{
 					Name:  "VSX_REGISTRY_URL",
-					Value: "https://open-vsx.gitpod.io/",
+					Value: "https://open-vsx.nxpod.khulnasoft.com/",
 				},
 			},
 		},

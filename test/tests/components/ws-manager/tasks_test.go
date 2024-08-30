@@ -12,7 +12,7 @@ import (
 	"time"
 
 	csapi "github.com/nxpkg/nxpod/content-service/api"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	supervisorapi "github.com/nxpkg/nxpod/supervisor/api"
 	agent "github.com/nxpkg/nxpod/test/pkg/agent/workspace/api"
 	"github.com/nxpkg/nxpod/test/pkg/integration"
@@ -27,13 +27,13 @@ func TestRegularWorkspaceTasks(t *testing.T) {
 	wsLoc := fmt.Sprintf("/workspace/%s", testRepoName)
 	tests := []struct {
 		Name        string
-		Task        []gitpod.TasksItems
+		Task        []nxpod.TasksItems
 		LookForFile []string
 		FF          []wsmanapi.WorkspaceFeatureFlag
 	}{
 		{
 			Name: "classic",
-			Task: []gitpod.TasksItems{
+			Task: []nxpod.TasksItems{
 				{Init: fmt.Sprintf("touch %s/init-ran; exit", wsLoc)},
 				{Before: fmt.Sprintf("touch %s/before-ran; exit", wsLoc)},
 				{Command: fmt.Sprintf("touch %s/command-ran; exit", wsLoc)},

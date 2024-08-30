@@ -23,9 +23,9 @@ spec:
         runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodOpenVsxRegistryDown.md
         summary: Open-VSX registry is possibly down
         description: Open-VSX registry is possibly down. We cannot pull VSCode extensions we don't have in our caches
-        dashboard_url: https://grafana.gitpod.io/d/HNOvmGpxgd/openvsx-proxy?var-cluster={{ $labels.cluster }}
+        dashboard_url: https://grafana.nxpod.khulnasoft.com/d/HNOvmGpxgd/openvsx-proxy?var-cluster={{ $labels.cluster }}
       expr: |
-          sum(rate(gitpod_vscode_extension_gallery_query_total{status="failure",errorCode!="canceled"}[5m])) by(cluster) / sum(rate(gitpod_vscode_extension_gallery_query_total[5m])) by(cluster) > 0.01
+          sum(rate(nxpod_vscode_extension_gallery_query_total{status="failure",errorCode!="canceled"}[5m])) by(cluster) / sum(rate(nxpod_vscode_extension_gallery_query_total[5m])) by(cluster) > 0.01
 
     - alert: NxpodOpenVSXUpstreamDown
       labels:
@@ -35,7 +35,7 @@ spec:
         runbook_url: https://github.com/nxpkg/runbooks/blob/main/runbooks/NxpodOpenVSXUpstreamDown.md
         summary: Open-VSX upstream is possibly down
         description: Open-VSX upstream is possibly down.
-        dashboard_url: https://grafana.gitpod.io/d/WI_x6hN4k/openvsx-mirror?var-cluster=openvsx-mirror-us01&viewPanel=13
+        dashboard_url: https://grafana.nxpod.khulnasoft.com/d/WI_x6hN4k/openvsx-mirror?var-cluster=openvsx-mirror-us01&viewPanel=13
       expr: |
           sum(rate(http_client_requests_seconds_count{cluster="openvsx-mirror-us01",outcome!~"SUCCESS|REDIRECTION|CLIENT_ERROR"})[2m])/sum(rate(http_client_requests_seconds_count{cluster="openvsx-mirror-us01"})[2m]) > 0.01
 

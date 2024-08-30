@@ -24,10 +24,10 @@ spec:
         expr: |
           (
               (
-                  avg_over_time(gitpod_ws_manager_mk2_workspace_phase_total{phase="Running", type="ImageBuild", cluster!~"ephemeral.*"}[4h])
-                  - avg_over_time(gitpod_ws_manager_mk2_workspace_phase_total{phase="Running", type="ImageBuild", cluster!~"ephemeral.*"}[7d])
+                  avg_over_time(nxpod_ws_manager_mk2_workspace_phase_total{phase="Running", type="ImageBuild", cluster!~"ephemeral.*"}[4h])
+                  - avg_over_time(nxpod_ws_manager_mk2_workspace_phase_total{phase="Running", type="ImageBuild", cluster!~"ephemeral.*"}[7d])
               )
-              / stddev_over_time(gitpod_ws_manager_mk2_workspace_phase_total{phase="Running", type="ImageBuild", cluster!~"ephemeral.*"}[30d])
+              / stddev_over_time(nxpod_ws_manager_mk2_workspace_phase_total{phase="Running", type="ImageBuild", cluster!~"ephemeral.*"}[30d])
           ) > 2.5
       - alert: NxpodImageBuilderCrashlooping
         labels:

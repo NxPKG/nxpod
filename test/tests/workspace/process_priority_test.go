@@ -131,7 +131,7 @@ func determinePriority(process string) (int, error) {
 		return -10, nil
 	}
 
-	if strings.HasSuffix(process, "/ide/bin/gitpod-code") {
+	if strings.HasSuffix(process, "/ide/bin/nxpod-code") {
 		return -10, nil
 	}
 

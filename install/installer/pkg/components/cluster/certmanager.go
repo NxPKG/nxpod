@@ -20,10 +20,10 @@ import (
 )
 
 func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
-	issuerName := "gitpod-self-signed-issuer"
-	secretCAName := "gitpod-identity-trust-root"
+	issuerName := "nxpod-self-signed-issuer"
+	secretCAName := "nxpod-identity-trust-root"
 
-	gitpodCaBundleSources := []trust.BundleSource{
+	nxpodCaBundleSources := []trust.BundleSource{
 		{
 			UseDefaultCAs: pointer.Bool(true),
 		},
@@ -35,17 +35,17 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 		},
 	}
 
-	gitpodCustomCertificateBundleSource := []trust.BundleSource{}
+	nxpodCustomCertificateBundleSource := []trust.BundleSource{}
 
 	if ctx.Config.CustomCACert != nil {
-		gitpodCaBundleSources = append(gitpodCaBundleSources, trust.BundleSource{
+		nxpodCaBundleSources = append(nxpodCaBundleSources, trust.BundleSource{
 			Secret: &trust.SourceObjectKeySelector{
 				Name:        ctx.Config.CustomCACert.Name,
 				KeySelector: trust.KeySelector{Key: "ca.crt"},
 			},
 		})
 
-		gitpodCustomCertificateBundleSource = append(gitpodCustomCertificateBundleSource, trust.BundleSource{
+		nxpodCustomCertificateBundleSource = append(nxpodCustomCertificateBundleSource, trust.BundleSource{
 			Secret: &trust.SourceObjectKeySelector{
 				Name:        ctx.Config.CustomCACert.Name,
 				KeySelector: trust.KeySelector{Key: "ca.crt"},
@@ -79,14 +79,14 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 		&v1.Certificate{
 			TypeMeta: common.TypeMetaCertificate,
 			ObjectMeta: metav1.ObjectMeta{
-				Name:      "gitpod-trust-anchor",
+				Name:      "nxpod-trust-anchor",
 				Namespace: caCertificateNamespace,
 				Labels:    common.DefaultLabels(Component),
 			},
 			Spec: v1.CertificateSpec{
 				IsCA:       true,
 				Duration:   &metav1.Duration{Duration: time.Duration(8760 * time.Hour)}, // 365 days
-				CommonName: "root.gitpod.cluster.local",
+				CommonName: "root.nxpod.cluster.local",
 				SecretName: secretCAName,
 				PrivateKey: &v1.CertificatePrivateKey{
 					Algorithm: v1.ECDSAKeyAlgorithm,
@@ -130,7 +130,7 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 			Spec: v1.CertificateSpec{
 				IsCA:       true,
 				Duration:   &metav1.Duration{Duration: time.Duration(2190 * time.Hour)}, // 90 days
-				CommonName: "ca.gitpod.cluster.local",
+				CommonName: "ca.nxpod.cluster.local",
 				SecretName: fmt.Sprintf("%v-intermediate", secretCAName),
 				PrivateKey: &v1.CertificatePrivateKey{
 					Algorithm: v1.ECDSAKeyAlgorithm,
@@ -156,10 +156,10 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 		&trust.Bundle{
 			TypeMeta: common.TypeMetaBundle,
 			ObjectMeta: metav1.ObjectMeta{
-				Name: "gitpod-ca-bundle",
+				Name: "nxpod-ca-bundle",
 			},
 			Spec: trust.BundleSpec{
-				Sources: gitpodCaBundleSources,
+				Sources: nxpodCaBundleSources,
 				Target: trust.BundleTarget{
 					ConfigMap: &trust.KeySelector{
 						Key: "ca-certificates.crt",
@@ -167,11 +167,11 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 				},
 			},
 		},
-		// single gitpod Bundle (used by registry-facade)
+		// single nxpod Bundle (used by registry-facade)
 		&trust.Bundle{
 			TypeMeta: common.TypeMetaBundle,
 			ObjectMeta: metav1.ObjectMeta{
-				Name: "gitpod-ca",
+				Name: "nxpod-ca",
 			},
 			Spec: trust.BundleSpec{
 				Sources: []trust.BundleSource{
@@ -184,7 +184,7 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 				},
 				Target: trust.BundleTarget{
 					ConfigMap: &trust.KeySelector{
-						Key: "gitpod-ca.crt",
+						Key: "nxpod-ca.crt",
 					},
 				},
 			},
@@ -197,10 +197,10 @@ func certmanager(ctx *common.RenderContext) ([]runtime.Object, error) {
 			&trust.Bundle{
 				TypeMeta: common.TypeMetaBundle,
 				ObjectMeta: metav1.ObjectMeta{
-					Name: "gitpod-customer-certificate-bundle",
+					Name: "nxpod-customer-certificate-bundle",
 				},
 				Spec: trust.BundleSpec{
-					Sources: gitpodCustomCertificateBundleSource,
+					Sources: nxpodCustomCertificateBundleSource,
 					Target: trust.BundleTarget{
 						ConfigMap: &trust.KeySelector{
 							Key: "ca-certificates.crt",

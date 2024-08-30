@@ -5,10 +5,10 @@
 blockNewUsers:
   enabled: true
   passlist:
-    - gitpod.io
+    - nxpod.khulnasoft.com
     - domain.com
     - domain2.com
-domain: test.gitpod.io
+domain: test.nxpod.khulnasoft.com
 httpProxy:
   kind: secret
   name: http-proxy-settings
