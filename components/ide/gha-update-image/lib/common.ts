@@ -126,7 +126,7 @@ export const getLatestInstallerVersions = async (version?: string) => {
     const installationVersion = await getInstallerVersion(version);
     console.log("Fetching installer versions for", installationVersion);
     const versionData =
-        await $`docker run --rm eu.gcr.io/nxpod-core-dev/build/versions:${installationVersion} cat /versions.yaml`
+        await $`docker run --rm ghcr.io/nxpkg/build/versions:${installationVersion} cat /versions.yaml`
             .text()
             .catch((e) => {
                 throw new Error("Failed to get installer versions: " + e);
@@ -177,13 +177,13 @@ export const getLatestInstallerVersions = async (version?: string) => {
 
 export const renderInstallerIDEConfigMap = async (version?: string) => {
     const installationVersion = await getInstallerVersion(version);
-    await $`docker run --rm -v /tmp:/tmp eu.gcr.io/nxpod-core-dev/build/installer:${installationVersion} config init --overwrite --log-level=error -c /tmp/nxpod.config.yaml`.catch(
+    await $`docker run --rm -v /tmp:/tmp ghcr.io/nxpkg/build/installer:${installationVersion} config init --overwrite --log-level=error -c /tmp/nxpod.config.yaml`.catch(
         (e) => {
             throw new Error("Failed to render nxpod.config.yaml: " + e);
         },
     );
     const ideConfigMapStr =
-        await $`cat /tmp/nxpod.config.yaml | docker run -i --rm eu.gcr.io/nxpod-core-dev/build/installer:${installationVersion} ide-configmap -c -`
+        await $`cat /tmp/nxpod.config.yaml | docker run -i --rm ghcr.io/nxpod-core-dev/build/installer:${installationVersion} ide-configmap -c -`
             .text()
             .catch((e) => {
                 throw new Error(`Failed to render ide-configmap: ` + e);
