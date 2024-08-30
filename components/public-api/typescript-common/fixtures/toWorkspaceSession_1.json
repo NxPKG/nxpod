@@ -37,16 +37,16 @@
         }
       ],
       "_origin": "repo",
-      "image": "docker.io/gitpod/workspace-full:latest",
+      "image": "docker.io/nxpod/workspace-full:latest",
       "vscode": {
         "extensions": []
       }
     },
     "imageSource": {
-      "baseImageResolved": "docker.io/gitpod/workspace-full:latest"
+      "baseImageResolved": "docker.io/nxpod/workspace-full:latest"
     },
-    "imageNameResolved": "eu.gcr.io/gitpod-core-dev/build/workspace-images:d6d9404137cc976d4da4d450474cb515bc0512281a3649c1cab9309ba7caee65",
-    "baseImageNameResolved": "docker.io/gitpod/workspace-full@sha256:10d6ab95512fe70bf6274976b19f94327570559e3d29f4b1cb01735b6fe534bb",
+    "imageNameResolved": "eu.gcr.io/nxpod-core-dev/build/workspace-images:d6d9404137cc976d4da4d450474cb515bc0512281a3649c1cab9309ba7caee65",
+    "baseImageNameResolved": "docker.io/nxpod/workspace-full@sha256:10d6ab95512fe70bf6274976b19f94327570559e3d29f4b1cb01735b6fe534bb",
     "shareable": false,
     "type": "regular",
     "softDeleted": null,
@@ -61,7 +61,7 @@
     "startedTime": "2023-10-16T20:18:26.923Z",
     "stoppingTime": "2023-10-16T20:28:24.923Z",
     "stoppedTime": "2023-10-16T20:28:44.923Z",
-    "ideUrl": "https://akosyakov-parceldemo-4crqn25qlwi.ws-dev.ak-public-26583c8c5c.preview.gitpod-dev.com",
+    "ideUrl": "https://akosyakov-parceldemo-4crqn25qlwi.ws-dev.ak-public-26583c8c5c.preview.nxpod-dev.com",
     "status": {
       "phase": "stopped",
       "message": "",
@@ -81,12 +81,12 @@
     "phasePersisted": "creating",
     "deleted": false,
     "configuration": {
-      "ideImage": "eu.gcr.io/gitpod-core-dev/build/ide/code:commit-e77f3a07ea76bbb404d3f6bf4af36269afc45df1",
+      "ideImage": "eu.gcr.io/nxpod-core-dev/build/ide/code:commit-e77f3a07ea76bbb404d3f6bf4af36269afc45df1",
       "ideImageLayers": [
-        "eu.gcr.io/gitpod-core-dev/build/ide/gitpod-code-web:commit-49bb715b599dce2356dd02a6ede7ae8cf10d8d12",
-        "eu.gcr.io/gitpod-core-dev/build/ide/code-codehelper:commit-18a48e2ccb779a268355d2b58a167c73de023547"
+        "eu.gcr.io/nxpod-core-dev/build/ide/nxpod-code-web:commit-49bb715b599dce2356dd02a6ede7ae8cf10d8d12",
+        "eu.gcr.io/nxpod-core-dev/build/ide/code-codehelper:commit-18a48e2ccb779a268355d2b58a167c73de023547"
       ],
-      "supervisorImage": "eu.gcr.io/gitpod-core-dev/build/supervisor:commit-cda78d5706672b9a41e15d84a128cdb24357ad87",
+      "supervisorImage": "eu.gcr.io/nxpod-core-dev/build/supervisor:commit-cda78d5706672b9a41e15d84a128cdb24357ad87",
       "ideConfig": {
         "useLatest": false,
         "ide": "code"

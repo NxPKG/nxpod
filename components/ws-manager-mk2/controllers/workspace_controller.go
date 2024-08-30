@@ -77,9 +77,9 @@ type WorkspaceReconciler struct {
 	Recorder    record.EventRecorder
 }
 
-//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=workspace.nxpod.io,resources=workspaces/finalizers,verbs=update
+//+kubebuilder:rbac:groups=workspace.nxpod.khulnasoft.com,resources=workspaces,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=workspace.nxpod.khulnasoft.com,resources=workspaces/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=workspace.nxpod.khulnasoft.com,resources=workspaces/finalizers,verbs=update
 //+kubebuilder:rbac:groups=core,resources=pod,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=core,resources=pod/status,verbs=get
 

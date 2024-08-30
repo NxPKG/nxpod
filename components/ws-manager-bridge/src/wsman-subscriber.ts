@@ -10,11 +10,11 @@ import {
     SubscribeResponse,
     GetWorkspacesRequest,
     PromisifiedWorkspaceManagerClient,
-} from "@gitpod/ws-manager/lib";
-import { Disposable } from "@gitpod/gitpod-protocol";
+} from "@nxpod/ws-manager/lib";
+import { Disposable } from "@nxpod/nxpod-protocol";
 import { ClientReadableStream } from "@grpc/grpc-js";
-import { log, LogPayload } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { log, LogPayload } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import * as opentracing from "opentracing";
 
 export type ClientProvider = () => Promise<PromisifiedWorkspaceManagerClient>;

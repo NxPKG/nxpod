@@ -8,7 +8,7 @@
 import { toPlainMessage, Duration } from "@bufbuild/protobuf";
 import { expect } from "chai";
 import { PublicAPIConverter } from "./public-api-converter";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { InvalidNxpodYMLError, RepositoryNotFoundError, UnauthorizedRepositoryAccessError } from "./public-api-errors";
 import { Code, ConnectError } from "@connectrpc/connect";
 import {
@@ -23,18 +23,18 @@ import {
     InvalidCostCenterError,
     ImageBuildLogsNotYetAvailableError,
     TooManyRunningWorkspacesError,
-} from "@gitpod/public-api/lib/gitpod/v1/error_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/error_pb";
 import { startFixtureTest } from "./fixtures.spec";
-import { OrganizationRole } from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
-import { BranchMatchingStrategy } from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
-import { AuthProviderType } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
-import { Workspace, WorkspacePhase_Phase } from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
-import { WorkspaceAndInstance } from "@gitpod/gitpod-protocol";
+import { OrganizationRole } from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
+import { BranchMatchingStrategy } from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
+import { AuthProviderType } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
+import { Workspace, WorkspacePhase_Phase } from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
+import { WorkspaceAndInstance } from "@nxpod/nxpod-protocol";
 
 describe("PublicAPIConverter", () => {
     const converter = new PublicAPIConverter();
 
-    const testNxpodHost = "https://gitpod-test.preview.gitpod-dev.com/";
+    const testNxpodHost = "https://nxpod-test.preview.nxpod-dev.com/";
 
     describe("golden tests", () => {
         it("toWorkspaceSnapshot", async () => {
@@ -325,7 +325,7 @@ describe("PublicAPIConverter", () => {
                 }),
             );
             expect(connectError.code).to.equal(Code.FailedPrecondition);
-            expect(connectError.rawMessage).to.equal('Invalid gitpod.yml: Invalid value: "": must not be empty');
+            expect(connectError.rawMessage).to.equal('Invalid nxpod.yml: Invalid value: "": must not be empty');
 
             const details = connectError.findDetails(FailedPreconditionDetails)[0];
             expect(details).to.not.be.undefined;
@@ -338,7 +338,7 @@ describe("PublicAPIConverter", () => {
             const appError = converter.fromError(connectError);
             expect(appError).to.be.instanceOf(InvalidNxpodYMLError);
             expect(appError.code).to.equal(ErrorCodes.INVALID_NXPOD_YML);
-            expect(appError.message).to.equal('Invalid gitpod.yml: Invalid value: "": must not be empty');
+            expect(appError.message).to.equal('Invalid nxpod.yml: Invalid value: "": must not be empty');
 
             violations = (appError as InvalidNxpodYMLError).info.violations;
             expect(violations).to.deep.equal(['Invalid value: "": must not be empty']);
@@ -351,7 +351,7 @@ describe("PublicAPIConverter", () => {
                     lastUpdate: "2021-06-28T10:48:28Z",
                     owner: "akosyakov",
                     userIsOwner: true,
-                    repoName: "gitpod",
+                    repoName: "nxpod",
                     errorMessage: "Repository not found.",
                     userScopes: ["repo"],
                 }),

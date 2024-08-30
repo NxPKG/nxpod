@@ -1,4 +1,4 @@
 {
   "context": "{\"isFile\":false,\"path\":\"\",\"title\":\"nxpkg/empty \",\"revision\":\"\",\"repository\":{\"cloneUrl\":\"https://github.com/nxpkg/empty.git\",\"host\":\"github.com\",\"name\":\"empty\",\"owner\":\"nxpkg\",\"private\":false},\"normalizedContextURL\":\"https://github.com/nxpkg/empty\",\"checkoutLocation\":\"empty\",\"referrer\":\"jetbrains-gateway\",\"referrerIde\":\"invalid\"}",
-  "workspace_config": "{\"ports\":[],\"tasks\":[],\"image\":\"docker.io/gitpod/workspace-full:latest\",\"_origin\":\"default\"}"
+  "workspace_config": "{\"ports\":[],\"tasks\":[],\"image\":\"docker.io/nxpod/workspace-full:latest\",\"_origin\":\"default\"}"
 }

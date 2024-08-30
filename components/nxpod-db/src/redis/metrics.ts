@@ -13,7 +13,7 @@ export function redisMetricsRegistry(): client.Registry {
 }
 
 export const updatesPublishedTotal = new client.Counter({
-    name: "gitpod_redis_updates_published_total",
+    name: "nxpod_redis_updates_published_total",
     help: "Counter of events published to Redis by type and error",
     labelNames: ["type", "error"],
     registers: [registry],

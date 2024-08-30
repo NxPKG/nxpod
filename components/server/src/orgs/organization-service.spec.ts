@@ -49,7 +49,7 @@ describe("OrganizationService", async () => {
                                 orderKey: "00",
                                 title: "VS Code",
                                 type: "browser",
-                                logo: "https://ide.nxpod.io/image/ide-logo/vscode.svg",
+                                logo: "https://ide.nxpod.khulnasoft.com/image/ide-logo/vscode.svg",
                                 label: "Browser",
                                 image: "bar",
                                 latestImage: "baz",

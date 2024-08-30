@@ -29,7 +29,7 @@ var workspaceListCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 		defer cancel()
 
-		gitpod, err := getNxpodClient(ctx)
+		nxpod, err := getNxpodClient(ctx)
 		if err != nil {
 			return err
 		}
@@ -41,7 +41,7 @@ var workspaceListCmd = &cobra.Command{
 		}
 		orgId := gpctx.OrganizationID
 
-		workspaces, err := gitpod.Workspaces.ListWorkspaces(ctx, connect.NewRequest(&v1.ListWorkspacesRequest{
+		workspaces, err := nxpod.Workspaces.ListWorkspaces(ctx, connect.NewRequest(&v1.ListWorkspacesRequest{
 			OrganizationId: orgId,
 		}))
 		if err != nil {

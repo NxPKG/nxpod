@@ -15,7 +15,7 @@ Provides integrations within a Nxpod workspace.
 
 The ideal setup to develop this plugin is using IntelliJ in Nxpod.
 
-1. Choose IntelliJ as your editor in [gitpod.io/preferences](https://gitpod.io/preferences)
+1. Choose IntelliJ as your editor in [nxpod.khulnasoft.com/preferences](https://nxpod.khulnasoft.com/preferences)
 2. Start a workspace for this repository
 
 If you experience any issues with JetBrains remote dev make sure to report issues [here](https://youtrack.jetbrains.com/issues?q=project:%20CWM) under remote development subsystem.
@@ -34,7 +34,7 @@ There are a set of flags available in the script:
 -p # Specify a debug port (useful if used in combination with the Remote JVM debugger in IntelliJ)
 ```
 
-To use the script, from your gitpod's workspace:
+To use the script, from your nxpod's workspace:
 
 1. Launch the script:
   ```bash
@@ -45,12 +45,12 @@ To use the script, from your gitpod's workspace:
   ```console
   *********************************************************
 
-  Nxpod gateway link: jetbrains-gateway://connect#gitpodHost=ak-jb-backend-debug-flow.staging.gitpod-dev.com&workspaceId=gitpodio-gitpod-rvg0x7havor&backendPort=63343
+  Nxpod gateway link: jetbrains-gateway://connect#nxpodHost=ak-jb-backend-debug-flow.staging.nxpod-dev.com&workspaceId=nxpodio-nxpod-rvg0x7havor&backendPort=63343
 
   *********************************************************
   ```
 
-By default, the test-repository is [gitpod-samples/spring-petclinic](https://github.com/gitpod-samples/spring-petclinic). You can specify a different test repo using the `-r` argument, e.g:
+By default, the test-repository is [nxpod-samples/spring-petclinic](https://github.com/nxpod-samples/spring-petclinic). You can specify a different test repo using the `-r` argument, e.g:
 
 ```bash
 ./launch-dev-server.sh -r https://github.com/nxpkg/empty

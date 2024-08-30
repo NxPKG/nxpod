@@ -5,8 +5,8 @@
 package db_test
 
 import (
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
-	"github.com/nxpkg/nxpod/components/gitpod-db/go/dbtest"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
 	"github.com/stretchr/testify/require"
 	"testing"
 )

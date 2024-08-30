@@ -3,7 +3,7 @@ packages:
     type: go
     deps:
       - components/common-go:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/ide-service-api/go:lib
     srcs:
       - "**/*.go"

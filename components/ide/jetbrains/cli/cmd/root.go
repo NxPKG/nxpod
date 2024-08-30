@@ -31,7 +31,7 @@ func getCliApiUrl() *url.URL {
 	if _, fileStatError := os.Stat("/ide-desktop/bin/idea-cli-dev"); !errors.Is(fileStatError, os.ErrNotExist) {
 		backendPort = backendPort + 1
 	}
-	parsedUrl, urlParseError := url.Parse("http://localhost:" + strconv.Itoa(backendPort) + "/api/gitpod/cli")
+	parsedUrl, urlParseError := url.Parse("http://localhost:" + strconv.Itoa(backendPort) + "/api/nxpod/cli")
 	if urlParseError != nil {
 		log.Fatal(urlParseError)
 	}

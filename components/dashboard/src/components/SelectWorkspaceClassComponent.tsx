@@ -52,7 +52,7 @@ export default function SelectWorkspaceClassComponent({
                         <span>Need more classes? </span>
                         <a
                             className="text-sm gp-link"
-                            href="https://www.nxpod.io/docs/enterprise"
+                            href="https://www.nxpod.khulnasoft.com/docs/enterprise"
                             target="_blank"
                             rel="noreferrer"
                         >

@@ -9,7 +9,7 @@ import (
 )
 
 // URL of the Nxpod documentation
-const DocsUrl = "https://www.gitpod.io/docs"
+const DocsUrl = "https://www.nxpod.khulnasoft.com/docs"
 
 var docsCmd = &cobra.Command{
 	Use:   "docs",

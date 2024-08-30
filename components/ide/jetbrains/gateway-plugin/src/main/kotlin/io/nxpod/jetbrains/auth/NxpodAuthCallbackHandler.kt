@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.auth
+package io.nxpod.jetbrains.auth
 
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.wm.IdeFocusManager

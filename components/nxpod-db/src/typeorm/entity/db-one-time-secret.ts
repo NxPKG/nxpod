@@ -6,9 +6,9 @@
 
 import { PrimaryColumn, Column, Entity } from "typeorm";
 import { TypeORM } from "../typeorm";
-import { OneTimeSecret } from "@gitpod/gitpod-protocol";
+import { OneTimeSecret } from "@nxpod/nxpod-protocol";
 import { Transformer } from "../transformer";
-import { getGlobalEncryptionService } from "@gitpod/gitpod-protocol/lib/encryption/encryption-service";
+import { getGlobalEncryptionService } from "@nxpod/nxpod-protocol/lib/encryption/encryption-service";
 
 @Entity()
 // on DB but not Typeorm: @Index("ind_lastModified", ["_lastModified"])   // DBSync

@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/projects.proto
+// source: nxpod/experimental/v1/projects.proto
 
 package v1
 
@@ -46,7 +46,7 @@ func NewProjectsServiceClient(cc grpc.ClientConnInterface) ProjectsServiceClient
 
 func (c *projectsServiceClient) CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
 	out := new(CreateProjectResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.ProjectsService/CreateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.ProjectsService/CreateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func (c *projectsServiceClient) CreateProject(ctx context.Context, in *CreatePro
 
 func (c *projectsServiceClient) GetProject(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error) {
 	out := new(GetProjectResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.ProjectsService/GetProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.ProjectsService/GetProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (c *projectsServiceClient) GetProject(ctx context.Context, in *GetProjectRe
 
 func (c *projectsServiceClient) ListProjects(ctx context.Context, in *ListProjectsRequest, opts ...grpc.CallOption) (*ListProjectsResponse, error) {
 	out := new(ListProjectsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.ProjectsService/ListProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.ProjectsService/ListProjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func (c *projectsServiceClient) ListProjects(ctx context.Context, in *ListProjec
 
 func (c *projectsServiceClient) DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error) {
 	out := new(DeleteProjectResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.ProjectsService/DeleteProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.ProjectsService/DeleteProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -134,7 +134,7 @@ func _ProjectsService_CreateProject_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.ProjectsService/CreateProject",
+		FullMethod: "/nxpod.experimental.v1.ProjectsService/CreateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProjectsServiceServer).CreateProject(ctx, req.(*CreateProjectRequest))
@@ -152,7 +152,7 @@ func _ProjectsService_GetProject_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.ProjectsService/GetProject",
+		FullMethod: "/nxpod.experimental.v1.ProjectsService/GetProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProjectsServiceServer).GetProject(ctx, req.(*GetProjectRequest))
@@ -170,7 +170,7 @@ func _ProjectsService_ListProjects_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.ProjectsService/ListProjects",
+		FullMethod: "/nxpod.experimental.v1.ProjectsService/ListProjects",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProjectsServiceServer).ListProjects(ctx, req.(*ListProjectsRequest))
@@ -188,7 +188,7 @@ func _ProjectsService_DeleteProject_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.ProjectsService/DeleteProject",
+		FullMethod: "/nxpod.experimental.v1.ProjectsService/DeleteProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProjectsServiceServer).DeleteProject(ctx, req.(*DeleteProjectRequest))
@@ -200,7 +200,7 @@ func _ProjectsService_DeleteProject_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ProjectsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.ProjectsService",
+	ServiceName: "nxpod.experimental.v1.ProjectsService",
 	HandlerType: (*ProjectsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -221,5 +221,5 @@ var ProjectsService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/projects.proto",
+	Metadata: "nxpod/experimental/v1/projects.proto",
 }

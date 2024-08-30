@@ -1,5 +1,5 @@
 {
-  "gitpodServiceUrl": "wss://main.preview.gitpod-dev.com/api/v1",
+  "nxpodServiceUrl": "wss://main.preview.nxpod-dev.com/api/v1",
   "server": {
     "services": {
       "grpc": {

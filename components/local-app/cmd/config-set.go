@@ -20,16 +20,16 @@ var configSetCmd = &cobra.Command{
 
 Example:
   # Disable telemetry
-  gitpod config set --telemetry=false
+  nxpod config set --telemetry=false
 
   # Disable autoupdate
-  gitpod config set --autoupdate=false
+  nxpod config set --autoupdate=false
 
   # Enable telemetry and autoupdate
-  gitpod config set --telemetry=true --autoupdate=true
+  nxpod config set --telemetry=true --autoupdate=true
 
   # Set your current context's organization
-  gitpod config set --organization-id=your-org-id
+  nxpod config set --organization-id=your-org-id
 `,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cmd.SilenceUsage = true

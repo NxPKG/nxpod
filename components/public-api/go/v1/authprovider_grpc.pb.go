@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/authprovider.proto
+// source: nxpod/v1/authprovider.proto
 
 package v1
 
@@ -51,7 +51,7 @@ func NewAuthProviderServiceClient(cc grpc.ClientConnInterface) AuthProviderServi
 
 func (c *authProviderServiceClient) CreateAuthProvider(ctx context.Context, in *CreateAuthProviderRequest, opts ...grpc.CallOption) (*CreateAuthProviderResponse, error) {
 	out := new(CreateAuthProviderResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuthProviderService/CreateAuthProvider", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuthProviderService/CreateAuthProvider", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func (c *authProviderServiceClient) CreateAuthProvider(ctx context.Context, in *
 
 func (c *authProviderServiceClient) GetAuthProvider(ctx context.Context, in *GetAuthProviderRequest, opts ...grpc.CallOption) (*GetAuthProviderResponse, error) {
 	out := new(GetAuthProviderResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuthProviderService/GetAuthProvider", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuthProviderService/GetAuthProvider", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func (c *authProviderServiceClient) GetAuthProvider(ctx context.Context, in *Get
 
 func (c *authProviderServiceClient) ListAuthProviders(ctx context.Context, in *ListAuthProvidersRequest, opts ...grpc.CallOption) (*ListAuthProvidersResponse, error) {
 	out := new(ListAuthProvidersResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuthProviderService/ListAuthProviders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuthProviderService/ListAuthProviders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +78,7 @@ func (c *authProviderServiceClient) ListAuthProviders(ctx context.Context, in *L
 
 func (c *authProviderServiceClient) ListAuthProviderDescriptions(ctx context.Context, in *ListAuthProviderDescriptionsRequest, opts ...grpc.CallOption) (*ListAuthProviderDescriptionsResponse, error) {
 	out := new(ListAuthProviderDescriptionsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuthProviderService/ListAuthProviderDescriptions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuthProviderService/ListAuthProviderDescriptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +87,7 @@ func (c *authProviderServiceClient) ListAuthProviderDescriptions(ctx context.Con
 
 func (c *authProviderServiceClient) UpdateAuthProvider(ctx context.Context, in *UpdateAuthProviderRequest, opts ...grpc.CallOption) (*UpdateAuthProviderResponse, error) {
 	out := new(UpdateAuthProviderResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuthProviderService/UpdateAuthProvider", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuthProviderService/UpdateAuthProvider", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +96,7 @@ func (c *authProviderServiceClient) UpdateAuthProvider(ctx context.Context, in *
 
 func (c *authProviderServiceClient) DeleteAuthProvider(ctx context.Context, in *DeleteAuthProviderRequest, opts ...grpc.CallOption) (*DeleteAuthProviderResponse, error) {
 	out := new(DeleteAuthProviderResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuthProviderService/DeleteAuthProvider", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuthProviderService/DeleteAuthProvider", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -168,7 +168,7 @@ func _AuthProviderService_CreateAuthProvider_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuthProviderService/CreateAuthProvider",
+		FullMethod: "/nxpod.v1.AuthProviderService/CreateAuthProvider",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthProviderServiceServer).CreateAuthProvider(ctx, req.(*CreateAuthProviderRequest))
@@ -186,7 +186,7 @@ func _AuthProviderService_GetAuthProvider_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuthProviderService/GetAuthProvider",
+		FullMethod: "/nxpod.v1.AuthProviderService/GetAuthProvider",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthProviderServiceServer).GetAuthProvider(ctx, req.(*GetAuthProviderRequest))
@@ -204,7 +204,7 @@ func _AuthProviderService_ListAuthProviders_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuthProviderService/ListAuthProviders",
+		FullMethod: "/nxpod.v1.AuthProviderService/ListAuthProviders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthProviderServiceServer).ListAuthProviders(ctx, req.(*ListAuthProvidersRequest))
@@ -222,7 +222,7 @@ func _AuthProviderService_ListAuthProviderDescriptions_Handler(srv interface{}, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuthProviderService/ListAuthProviderDescriptions",
+		FullMethod: "/nxpod.v1.AuthProviderService/ListAuthProviderDescriptions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthProviderServiceServer).ListAuthProviderDescriptions(ctx, req.(*ListAuthProviderDescriptionsRequest))
@@ -240,7 +240,7 @@ func _AuthProviderService_UpdateAuthProvider_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuthProviderService/UpdateAuthProvider",
+		FullMethod: "/nxpod.v1.AuthProviderService/UpdateAuthProvider",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthProviderServiceServer).UpdateAuthProvider(ctx, req.(*UpdateAuthProviderRequest))
@@ -258,7 +258,7 @@ func _AuthProviderService_DeleteAuthProvider_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuthProviderService/DeleteAuthProvider",
+		FullMethod: "/nxpod.v1.AuthProviderService/DeleteAuthProvider",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuthProviderServiceServer).DeleteAuthProvider(ctx, req.(*DeleteAuthProviderRequest))
@@ -270,7 +270,7 @@ func _AuthProviderService_DeleteAuthProvider_Handler(srv interface{}, ctx contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AuthProviderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.AuthProviderService",
+	ServiceName: "nxpod.v1.AuthProviderService",
 	HandlerType: (*AuthProviderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -299,5 +299,5 @@ var AuthProviderService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/authprovider.proto",
+	Metadata: "nxpod/v1/authprovider.proto",
 }

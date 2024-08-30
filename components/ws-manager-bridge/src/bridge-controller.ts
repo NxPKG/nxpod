@@ -7,16 +7,16 @@
 import { inject, injectable, interfaces } from "inversify";
 import { WorkspaceClusterInfo, WorkspaceManagerBridge, WorkspaceManagerBridgeFactory } from "./bridge";
 import { Configuration } from "./config";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
-import { WorkspaceManagerClientProviderSource } from "@gitpod/ws-manager/lib/client-provider-source";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TLSConfig, WorkspaceClusterWoTLS } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { WorkspaceCluster } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { Queue } from "@gitpod/gitpod-protocol";
-import { defaultGRPCOptions } from "@gitpod/gitpod-protocol/lib/util/grpc";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
+import { WorkspaceManagerClientProviderSource } from "@nxpod/ws-manager/lib/client-provider-source";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TLSConfig, WorkspaceClusterWoTLS } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { WorkspaceCluster } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { Queue } from "@nxpod/nxpod-protocol";
+import { defaultGRPCOptions } from "@nxpod/nxpod-protocol/lib/util/grpc";
 import * as grpc from "@grpc/grpc-js";
 import { Metrics } from "./metrics";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
 
 @injectable()
 export class BridgeController {

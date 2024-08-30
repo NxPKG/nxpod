@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 
-	"github.com/nxpkg/nxpod/components/gitpod-db/go/dbtest"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc/codes"
@@ -456,7 +456,7 @@ func TestCostCenterManager_ResetUsage(t *testing.T) {
 		createIdentity := func(t *testing.T, aUserID string, email string) {
 			identityID := uuid.New().String()
 			db := conn.Exec(`INSERT INTO d_b_identity (authProviderID, authId, authName, userid, primaryemail) VALUES (?, ?, ?, ?, ?)`,
-				"gitpod", identityID, "gitpod", aUserID, email)
+				"nxpod", identityID, "nxpod", aUserID, email)
 			require.NoError(t, db.Error)
 			t.Cleanup(func() {
 				conn.Exec(`DELETE FROM d_b_identity WHERE authId = ?`, identityID)
@@ -469,7 +469,7 @@ func TestCostCenterManager_ResetUsage(t *testing.T) {
 		t.Cleanup(func() {
 			conn.Exec(`DELETE FROM d_b_free_credits WHERE userId = ?`, userID)
 		})
-		createIdentity(t, userID, "foo@gitpod.io")
+		createIdentity(t, userID, "foo@nxpod.khulnasoft.com")
 		createMembership(t, orgID, userID)
 		createMembership(t, orgID2, userID)
 		cc1, err := mnr.GetOrCreateCostCenter(context.Background(), db.NewTeamAttributionID(orgID))
@@ -505,7 +505,7 @@ func TestCostCenterManager_ResetUsage(t *testing.T) {
 		createIdentity := func(t *testing.T, aUserID string, email string) {
 			identityID := uuid.New().String()
 			db := conn.Exec(`INSERT INTO d_b_identity (authProviderID, authId, authName, userid, primaryemail) VALUES (?, ?, ?, ?, ?)`,
-				"gitpod", identityID, "gitpod", aUserID, email)
+				"nxpod", identityID, "nxpod", aUserID, email)
 			require.NoError(t, db.Error)
 			t.Cleanup(func() {
 				conn.Exec(`DELETE FROM d_b_identity WHERE authId = ?`, identityID)

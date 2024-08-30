@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.stable
+package io.nxpod.jetbrains.remote.stable
 
 import com.jetbrains.ide.model.uiautomation.BeControl
 import com.jetbrains.ide.model.uiautomation.BeMargin
@@ -13,7 +13,7 @@ import com.jetbrains.rd.ui.bedsl.dsl.util.BeMarginsBuilder
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.util.reactive.Property
 import com.jetbrains.rdserver.unattendedHost.customization.controlCenter.performance.createProgressRow
-import io.gitpod.jetbrains.remote.AbstractNxpodMetricControlProvider
+import io.nxpod.jetbrains.remote.AbstractNxpodMetricControlProvider
 
 class NxpodMetricControlProvider: AbstractNxpodMetricControlProvider() {
     override fun setMargin(element: BeControl, left: Int, top: Int, right: Int, bottom: Int): BeControl {

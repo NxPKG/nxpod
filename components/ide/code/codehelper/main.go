@@ -22,7 +22,7 @@ import (
 
 	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/nxpkg/nxpod/common-go/util"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/sirupsen/logrus"
 )
@@ -35,7 +35,7 @@ var (
 )
 
 const (
-	Code                     = "/ide/bin/gitpod-code"
+	Code                     = "/ide/bin/nxpod-code"
 	ProductJsonLocation      = "/ide/product.json"
 	WebWorkbenchMainLocation = "/ide/out/vs/workbench/workbench.web.main.js"
 	ServerMainLocation       = "/ide/out/vs/server/node/server.main.js"
@@ -87,7 +87,7 @@ func main() {
 		}
 	}
 
-	args = append(args, "--install-builtin-extension", "gitpod.gitpod-theme")
+	args = append(args, "--install-builtin-extension", "nxpod.nxpod-theme")
 
 	wsContextUrl := wsInfo.GetWorkspaceContextUrl()
 	if ctxUrl, err := url.Parse(wsContextUrl); err == nil {
@@ -124,7 +124,7 @@ func main() {
 	args = append(args, "--start-server")
 	cmdEnv := append(os.Environ(), fmt.Sprintf("NXPOD_CODE_HOST=%s", domain))
 	log.WithField("cost", time.Now().Local().Sub(startTime).Milliseconds()).Info("starting server")
-	if err := syscall.Exec(Code, append([]string{"gitpod-code"}, args...), cmdEnv); err != nil {
+	if err := syscall.Exec(Code, append([]string{"nxpod-code"}, args...), cmdEnv); err != nil {
 		log.WithError(err).Error("install ext and start code server failed")
 	}
 }
@@ -169,19 +169,19 @@ func getExtensions(repoRoot string) (extensions []Extension, err error) {
 		err = errors.New("repoRoot is empty")
 		return
 	}
-	data, err := os.ReadFile(filepath.Join(repoRoot, ".gitpod.yml"))
+	data, err := os.ReadFile(filepath.Join(repoRoot, ".nxpod.yml"))
 	if err != nil {
-		// .gitpod.yml not exist is ok
+		// .nxpod.yml not exist is ok
 		if errors.Is(err, os.ErrNotExist) {
 			err = nil
 			return
 		}
-		err = errors.New("read .gitpod.yml file failed: " + err.Error())
+		err = errors.New("read .nxpod.yml file failed: " + err.Error())
 		return
 	}
-	var config *gitpod.NxpodConfig
+	var config *nxpod.NxpodConfig
 	if err = yaml.Unmarshal(data, &config); err != nil {
-		err = errors.New("unmarshal .gitpod.yml file failed" + err.Error())
+		err = errors.New("unmarshal .nxpod.yml file failed" + err.Error())
 		return
 	}
 	if config == nil || config.Vscode == nil {

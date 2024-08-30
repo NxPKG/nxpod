@@ -10,10 +10,10 @@ const expect = chai.expect;
 
 describe("express-util", function () {
     describe("isAllowedWebsocketDomain for dev-staging", function () {
-        const HOSTURL_HOSTNAME = "gpl-2732-ws-csrf.staging.nxpod.io";
+        const HOSTURL_HOSTNAME = "gpl-2732-ws-csrf.staging.nxpod.khulnasoft.com";
         it("should return false for workspace-port locations", function () {
             const result = isAllowedWebsocketDomain(
-                "http://3000-moccasin-ferret-155799b3.ws-eu.gpl-2732-ws-csrf.staging.nxpod.io",
+                "http://3000-moccasin-ferret-155799b3.ws-eu.gpl-2732-ws-csrf.staging.nxpod.khulnasoft.com",
                 HOSTURL_HOSTNAME,
             );
             expect(result).to.be.false;
@@ -21,29 +21,29 @@ describe("express-util", function () {
 
         it("should return true for workspace locations", function () {
             const result = isAllowedWebsocketDomain(
-                "http://moccasin-ferret-155799b3.ws-eu.gpl-2732-ws-csrf.staging.nxpod.io",
+                "http://moccasin-ferret-155799b3.ws-eu.gpl-2732-ws-csrf.staging.nxpod.khulnasoft.com",
                 HOSTURL_HOSTNAME,
             );
             expect(result).to.be.false;
         });
 
         it("should return true for dashboard", function () {
-            const result = isAllowedWebsocketDomain("http://gpl-2732-ws-csrf.staging.nxpod.io", HOSTURL_HOSTNAME);
+            const result = isAllowedWebsocketDomain("http://gpl-2732-ws-csrf.staging.nxpod.khulnasoft.com", HOSTURL_HOSTNAME);
             expect(result).to.be.true;
         });
     });
-    describe("isAllowedWebsocketDomain for nxpod.io", function () {
-        const HOSTURL_HOSTNAME = "nxpod.io";
+    describe("isAllowedWebsocketDomain for nxpod.khulnasoft.com", function () {
+        const HOSTURL_HOSTNAME = "nxpod.khulnasoft.com";
         it("should return false for workspace-port locations", function () {
             const result = isAllowedWebsocketDomain(
-                "https://8000-black-capybara-dy6e3fgz.ws-eu08.nxpod.io",
+                "https://8000-black-capybara-dy6e3fgz.ws-eu08.nxpod.khulnasoft.com",
                 HOSTURL_HOSTNAME,
             );
             expect(result).to.be.false;
         });
 
         it("should return true for workspace locations", function () {
-            const result = isAllowedWebsocketDomain("https://bronze-bird-p2q226d8.ws-eu08.nxpod.io", HOSTURL_HOSTNAME);
+            const result = isAllowedWebsocketDomain("https://bronze-bird-p2q226d8.ws-eu08.nxpod.khulnasoft.com", HOSTURL_HOSTNAME);
             expect(result).to.be.false;
         });
     });

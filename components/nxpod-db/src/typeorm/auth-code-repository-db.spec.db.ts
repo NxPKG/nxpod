@@ -11,7 +11,7 @@ import { UserDB } from "../user-db";
 import { DBOAuthAuthCodeEntry } from "./entity/db-oauth-auth-code";
 import { TypeORM } from "./typeorm";
 import * as chai from "chai";
-import { User } from "@gitpod/gitpod-protocol";
+import { User } from "@nxpod/nxpod-protocol";
 import { resetDB } from "../test/reset-db";
 const expect = chai.expect;
 

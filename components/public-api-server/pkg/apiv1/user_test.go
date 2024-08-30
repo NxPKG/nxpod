@@ -14,7 +14,7 @@ import (
 	"github.com/nxpkg/nxpod/components/public-api/go/config"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"

@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/user.proto
+// source: nxpod/v1/user.proto
 
 package v1
 
@@ -87,11 +87,11 @@ func (x RoleOrPermission) String() string {
 }
 
 func (RoleOrPermission) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_user_proto_enumTypes[0].Descriptor()
+	return file_nxpod_v1_user_proto_enumTypes[0].Descriptor()
 }
 
 func (RoleOrPermission) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_user_proto_enumTypes[0]
+	return &file_nxpod_v1_user_proto_enumTypes[0]
 }
 
 func (x RoleOrPermission) Number() protoreflect.EnumNumber {
@@ -100,7 +100,7 @@ func (x RoleOrPermission) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RoleOrPermission.Descriptor instead.
 func (RoleOrPermission) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 type User_UserFeatureFlag int32
@@ -142,11 +142,11 @@ func (x User_UserFeatureFlag) String() string {
 }
 
 func (User_UserFeatureFlag) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_user_proto_enumTypes[1].Descriptor()
+	return file_nxpod_v1_user_proto_enumTypes[1].Descriptor()
 }
 
 func (User_UserFeatureFlag) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_user_proto_enumTypes[1]
+	return &file_nxpod_v1_user_proto_enumTypes[1]
 }
 
 func (x User_UserFeatureFlag) Number() protoreflect.EnumNumber {
@@ -155,7 +155,7 @@ func (x User_UserFeatureFlag) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use User_UserFeatureFlag.Descriptor instead.
 func (User_UserFeatureFlag) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{18, 0}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{18, 0}
 }
 
 type GetAuthenticatedUserRequest struct {
@@ -167,7 +167,7 @@ type GetAuthenticatedUserRequest struct {
 func (x *GetAuthenticatedUserRequest) Reset() {
 	*x = GetAuthenticatedUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[0]
+		mi := &file_nxpod_v1_user_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -180,7 +180,7 @@ func (x *GetAuthenticatedUserRequest) String() string {
 func (*GetAuthenticatedUserRequest) ProtoMessage() {}
 
 func (x *GetAuthenticatedUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[0]
+	mi := &file_nxpod_v1_user_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -193,7 +193,7 @@ func (x *GetAuthenticatedUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthenticatedUserRequest.ProtoReflect.Descriptor instead.
 func (*GetAuthenticatedUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 type GetAuthenticatedUserResponse struct {
@@ -207,7 +207,7 @@ type GetAuthenticatedUserResponse struct {
 func (x *GetAuthenticatedUserResponse) Reset() {
 	*x = GetAuthenticatedUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[1]
+		mi := &file_nxpod_v1_user_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -220,7 +220,7 @@ func (x *GetAuthenticatedUserResponse) String() string {
 func (*GetAuthenticatedUserResponse) ProtoMessage() {}
 
 func (x *GetAuthenticatedUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[1]
+	mi := &file_nxpod_v1_user_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -233,7 +233,7 @@ func (x *GetAuthenticatedUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthenticatedUserResponse.ProtoReflect.Descriptor instead.
 func (*GetAuthenticatedUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetAuthenticatedUserResponse) GetUser() *User {
@@ -255,7 +255,7 @@ type SetWorkspaceAutoStartOptionsRequest struct {
 func (x *SetWorkspaceAutoStartOptionsRequest) Reset() {
 	*x = SetWorkspaceAutoStartOptionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[2]
+		mi := &file_nxpod_v1_user_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -268,7 +268,7 @@ func (x *SetWorkspaceAutoStartOptionsRequest) String() string {
 func (*SetWorkspaceAutoStartOptionsRequest) ProtoMessage() {}
 
 func (x *SetWorkspaceAutoStartOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[2]
+	mi := &file_nxpod_v1_user_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -281,7 +281,7 @@ func (x *SetWorkspaceAutoStartOptionsRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetWorkspaceAutoStartOptionsRequest.ProtoReflect.Descriptor instead.
 func (*SetWorkspaceAutoStartOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *SetWorkspaceAutoStartOptionsRequest) GetUserId() string {
@@ -307,7 +307,7 @@ type SetWorkspaceAutoStartOptionsResponse struct {
 func (x *SetWorkspaceAutoStartOptionsResponse) Reset() {
 	*x = SetWorkspaceAutoStartOptionsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[3]
+		mi := &file_nxpod_v1_user_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -320,7 +320,7 @@ func (x *SetWorkspaceAutoStartOptionsResponse) String() string {
 func (*SetWorkspaceAutoStartOptionsResponse) ProtoMessage() {}
 
 func (x *SetWorkspaceAutoStartOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[3]
+	mi := &file_nxpod_v1_user_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -333,7 +333,7 @@ func (x *SetWorkspaceAutoStartOptionsResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetWorkspaceAutoStartOptionsResponse.ProtoReflect.Descriptor instead.
 func (*SetWorkspaceAutoStartOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{3}
 }
 
 type UpdateUserRequest struct {
@@ -355,7 +355,7 @@ type UpdateUserRequest struct {
 func (x *UpdateUserRequest) Reset() {
 	*x = UpdateUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[4]
+		mi := &file_nxpod_v1_user_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -368,7 +368,7 @@ func (x *UpdateUserRequest) String() string {
 func (*UpdateUserRequest) ProtoMessage() {}
 
 func (x *UpdateUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[4]
+	mi := &file_nxpod_v1_user_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +381,7 @@ func (x *UpdateUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserRequest.ProtoReflect.Descriptor instead.
 func (*UpdateUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateUserRequest) GetUserId() string {
@@ -458,7 +458,7 @@ type UpdateUserResponse struct {
 func (x *UpdateUserResponse) Reset() {
 	*x = UpdateUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[5]
+		mi := &file_nxpod_v1_user_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -471,7 +471,7 @@ func (x *UpdateUserResponse) String() string {
 func (*UpdateUserResponse) ProtoMessage() {}
 
 func (x *UpdateUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[5]
+	mi := &file_nxpod_v1_user_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -484,7 +484,7 @@ func (x *UpdateUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserResponse.ProtoReflect.Descriptor instead.
 func (*UpdateUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateUserResponse) GetUser() *User {
@@ -505,7 +505,7 @@ type DeleteUserRequest struct {
 func (x *DeleteUserRequest) Reset() {
 	*x = DeleteUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[6]
+		mi := &file_nxpod_v1_user_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -518,7 +518,7 @@ func (x *DeleteUserRequest) String() string {
 func (*DeleteUserRequest) ProtoMessage() {}
 
 func (x *DeleteUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[6]
+	mi := &file_nxpod_v1_user_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -531,7 +531,7 @@ func (x *DeleteUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteUserRequest) GetUserId() string {
@@ -550,7 +550,7 @@ type DeleteUserResponse struct {
 func (x *DeleteUserResponse) Reset() {
 	*x = DeleteUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[7]
+		mi := &file_nxpod_v1_user_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -563,7 +563,7 @@ func (x *DeleteUserResponse) String() string {
 func (*DeleteUserResponse) ProtoMessage() {}
 
 func (x *DeleteUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[7]
+	mi := &file_nxpod_v1_user_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -576,7 +576,7 @@ func (x *DeleteUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserResponse.ProtoReflect.Descriptor instead.
 func (*DeleteUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{7}
 }
 
 type VerifyUserRequest struct {
@@ -590,7 +590,7 @@ type VerifyUserRequest struct {
 func (x *VerifyUserRequest) Reset() {
 	*x = VerifyUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[8]
+		mi := &file_nxpod_v1_user_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -603,7 +603,7 @@ func (x *VerifyUserRequest) String() string {
 func (*VerifyUserRequest) ProtoMessage() {}
 
 func (x *VerifyUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[8]
+	mi := &file_nxpod_v1_user_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -616,7 +616,7 @@ func (x *VerifyUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyUserRequest.ProtoReflect.Descriptor instead.
 func (*VerifyUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *VerifyUserRequest) GetUserId() string {
@@ -637,7 +637,7 @@ type VerifyUserResponse struct {
 func (x *VerifyUserResponse) Reset() {
 	*x = VerifyUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[9]
+		mi := &file_nxpod_v1_user_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -650,7 +650,7 @@ func (x *VerifyUserResponse) String() string {
 func (*VerifyUserResponse) ProtoMessage() {}
 
 func (x *VerifyUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[9]
+	mi := &file_nxpod_v1_user_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -663,7 +663,7 @@ func (x *VerifyUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerifyUserResponse.ProtoReflect.Descriptor instead.
 func (*VerifyUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *VerifyUserResponse) GetUser() *User {
@@ -685,7 +685,7 @@ type BlockUserRequest struct {
 func (x *BlockUserRequest) Reset() {
 	*x = BlockUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[10]
+		mi := &file_nxpod_v1_user_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -698,7 +698,7 @@ func (x *BlockUserRequest) String() string {
 func (*BlockUserRequest) ProtoMessage() {}
 
 func (x *BlockUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[10]
+	mi := &file_nxpod_v1_user_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -711,7 +711,7 @@ func (x *BlockUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockUserRequest.ProtoReflect.Descriptor instead.
 func (*BlockUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *BlockUserRequest) GetUserId() string {
@@ -739,7 +739,7 @@ type BlockUserResponse struct {
 func (x *BlockUserResponse) Reset() {
 	*x = BlockUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[11]
+		mi := &file_nxpod_v1_user_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -752,7 +752,7 @@ func (x *BlockUserResponse) String() string {
 func (*BlockUserResponse) ProtoMessage() {}
 
 func (x *BlockUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[11]
+	mi := &file_nxpod_v1_user_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -765,7 +765,7 @@ func (x *BlockUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockUserResponse.ProtoReflect.Descriptor instead.
 func (*BlockUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *BlockUserResponse) GetUser() *User {
@@ -789,7 +789,7 @@ type ListUsersRequest struct {
 func (x *ListUsersRequest) Reset() {
 	*x = ListUsersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[12]
+		mi := &file_nxpod_v1_user_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -802,7 +802,7 @@ func (x *ListUsersRequest) String() string {
 func (*ListUsersRequest) ProtoMessage() {}
 
 func (x *ListUsersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[12]
+	mi := &file_nxpod_v1_user_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -815,7 +815,7 @@ func (x *ListUsersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListUsersRequest.ProtoReflect.Descriptor instead.
 func (*ListUsersRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ListUsersRequest) GetSearchTerm() string {
@@ -851,7 +851,7 @@ type ListUsersResponse struct {
 func (x *ListUsersResponse) Reset() {
 	*x = ListUsersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[13]
+		mi := &file_nxpod_v1_user_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -864,7 +864,7 @@ func (x *ListUsersResponse) String() string {
 func (*ListUsersResponse) ProtoMessage() {}
 
 func (x *ListUsersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[13]
+	mi := &file_nxpod_v1_user_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -877,7 +877,7 @@ func (x *ListUsersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListUsersResponse.ProtoReflect.Descriptor instead.
 func (*ListUsersResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ListUsersResponse) GetUsers() []*User {
@@ -905,7 +905,7 @@ type GetUserRequest struct {
 func (x *GetUserRequest) Reset() {
 	*x = GetUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[14]
+		mi := &file_nxpod_v1_user_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -918,7 +918,7 @@ func (x *GetUserRequest) String() string {
 func (*GetUserRequest) ProtoMessage() {}
 
 func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[14]
+	mi := &file_nxpod_v1_user_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -931,7 +931,7 @@ func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserRequest.ProtoReflect.Descriptor instead.
 func (*GetUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetUserRequest) GetUserId() string {
@@ -952,7 +952,7 @@ type GetUserResponse struct {
 func (x *GetUserResponse) Reset() {
 	*x = GetUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[15]
+		mi := &file_nxpod_v1_user_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -965,7 +965,7 @@ func (x *GetUserResponse) String() string {
 func (*GetUserResponse) ProtoMessage() {}
 
 func (x *GetUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[15]
+	mi := &file_nxpod_v1_user_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -978,7 +978,7 @@ func (x *GetUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserResponse.ProtoReflect.Descriptor instead.
 func (*GetUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetUserResponse) GetUser() *User {
@@ -994,14 +994,14 @@ type SetRolesOrPermissionsRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	UserId             string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	RolesOrPermissions []RoleOrPermission     `protobuf:"varint,2,rep,packed,name=roles_or_permissions,json=rolesOrPermissions,proto3,enum=gitpod.v1.RoleOrPermission" json:"roles_or_permissions,omitempty"`
+	RolesOrPermissions []RoleOrPermission     `protobuf:"varint,2,rep,packed,name=roles_or_permissions,json=rolesOrPermissions,proto3,enum=nxpod.v1.RoleOrPermission" json:"roles_or_permissions,omitempty"`
 	ResetMask          *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=reset_mask,json=resetMask,proto3" json:"reset_mask,omitempty"`
 }
 
 func (x *SetRolesOrPermissionsRequest) Reset() {
 	*x = SetRolesOrPermissionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[16]
+		mi := &file_nxpod_v1_user_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1014,7 +1014,7 @@ func (x *SetRolesOrPermissionsRequest) String() string {
 func (*SetRolesOrPermissionsRequest) ProtoMessage() {}
 
 func (x *SetRolesOrPermissionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[16]
+	mi := &file_nxpod_v1_user_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1027,7 +1027,7 @@ func (x *SetRolesOrPermissionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRolesOrPermissionsRequest.ProtoReflect.Descriptor instead.
 func (*SetRolesOrPermissionsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *SetRolesOrPermissionsRequest) GetUserId() string {
@@ -1062,7 +1062,7 @@ type SetRolesOrPermissionsResponse struct {
 func (x *SetRolesOrPermissionsResponse) Reset() {
 	*x = SetRolesOrPermissionsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[17]
+		mi := &file_nxpod_v1_user_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1075,7 +1075,7 @@ func (x *SetRolesOrPermissionsResponse) String() string {
 func (*SetRolesOrPermissionsResponse) ProtoMessage() {}
 
 func (x *SetRolesOrPermissionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[17]
+	mi := &file_nxpod_v1_user_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1088,7 +1088,7 @@ func (x *SetRolesOrPermissionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRolesOrPermissionsResponse.ProtoReflect.Descriptor instead.
 func (*SetRolesOrPermissionsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{17}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *SetRolesOrPermissionsResponse) GetUser() *User {
@@ -1152,15 +1152,15 @@ type User struct {
 	// user's workspace usage is attributed to, e.g. for billing purposes
 	UsageAttributionId string `protobuf:"bytes,17,opt,name=usage_attribution_id,json=usageAttributionId,proto3" json:"usage_attribution_id,omitempty"`
 	// per-user settings to control workspace behavior
-	WorkspaceFeatureFlags []User_UserFeatureFlag `protobuf:"varint,18,rep,packed,name=workspace_feature_flags,json=workspaceFeatureFlags,proto3,enum=gitpod.v1.User_UserFeatureFlag" json:"workspace_feature_flags,omitempty"`
+	WorkspaceFeatureFlags []User_UserFeatureFlag `protobuf:"varint,18,rep,packed,name=workspace_feature_flags,json=workspaceFeatureFlags,proto3,enum=nxpod.v1.User_UserFeatureFlag" json:"workspace_feature_flags,omitempty"`
 	// specifies the permissions and/or roles the user has
-	RolesOrPermissions []RoleOrPermission `protobuf:"varint,19,rep,packed,name=roles_or_permissions,json=rolesOrPermissions,proto3,enum=gitpod.v1.RoleOrPermission" json:"roles_or_permissions,omitempty"`
+	RolesOrPermissions []RoleOrPermission `protobuf:"varint,19,rep,packed,name=roles_or_permissions,json=rolesOrPermissions,proto3,enum=nxpod.v1.RoleOrPermission" json:"roles_or_permissions,omitempty"`
 }
 
 func (x *User) Reset() {
 	*x = User{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[18]
+		mi := &file_nxpod_v1_user_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1173,7 +1173,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[18]
+	mi := &file_nxpod_v1_user_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1186,7 +1186,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{18}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *User) GetId() string {
@@ -1344,7 +1344,7 @@ type Identity struct {
 func (x *Identity) Reset() {
 	*x = Identity{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[19]
+		mi := &file_nxpod_v1_user_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1357,7 +1357,7 @@ func (x *Identity) String() string {
 func (*Identity) ProtoMessage() {}
 
 func (x *Identity) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[19]
+	mi := &file_nxpod_v1_user_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1370,7 +1370,7 @@ func (x *Identity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Identity.ProtoReflect.Descriptor instead.
 func (*Identity) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{19}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *Identity) GetAuthProviderId() string {
@@ -1423,7 +1423,7 @@ type SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption struct {
 func (x *SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) Reset() {
 	*x = SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[20]
+		mi := &file_nxpod_v1_user_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1436,7 +1436,7 @@ func (x *SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) String() 
 func (*SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) ProtoMessage() {}
 
 func (x *SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[20]
+	mi := &file_nxpod_v1_user_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1449,7 +1449,7 @@ func (x *SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) ProtoRefl
 
 // Deprecated: Use SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption.ProtoReflect.Descriptor instead.
 func (*SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{2, 0}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{2, 0}
 }
 
 func (x *SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption) GetCloneUrl() string {
@@ -1509,7 +1509,7 @@ type UpdateUserRequest_ProfileDetails struct {
 func (x *UpdateUserRequest_ProfileDetails) Reset() {
 	*x = UpdateUserRequest_ProfileDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[21]
+		mi := &file_nxpod_v1_user_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1522,7 +1522,7 @@ func (x *UpdateUserRequest_ProfileDetails) String() string {
 func (*UpdateUserRequest_ProfileDetails) ProtoMessage() {}
 
 func (x *UpdateUserRequest_ProfileDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[21]
+	mi := &file_nxpod_v1_user_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1535,7 +1535,7 @@ func (x *UpdateUserRequest_ProfileDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserRequest_ProfileDetails.ProtoReflect.Descriptor instead.
 func (*UpdateUserRequest_ProfileDetails) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{4, 0}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{4, 0}
 }
 
 func (x *UpdateUserRequest_ProfileDetails) GetLastUpdatedDetailsNudge() string {
@@ -1635,7 +1635,7 @@ type UpdateUserRequest_EmailNotificationSettings struct {
 func (x *UpdateUserRequest_EmailNotificationSettings) Reset() {
 	*x = UpdateUserRequest_EmailNotificationSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[22]
+		mi := &file_nxpod_v1_user_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1648,7 +1648,7 @@ func (x *UpdateUserRequest_EmailNotificationSettings) String() string {
 func (*UpdateUserRequest_EmailNotificationSettings) ProtoMessage() {}
 
 func (x *UpdateUserRequest_EmailNotificationSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[22]
+	mi := &file_nxpod_v1_user_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1661,7 +1661,7 @@ func (x *UpdateUserRequest_EmailNotificationSettings) ProtoReflect() protoreflec
 
 // Deprecated: Use UpdateUserRequest_EmailNotificationSettings.ProtoReflect.Descriptor instead.
 func (*UpdateUserRequest_EmailNotificationSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{4, 1}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{4, 1}
 }
 
 func (x *UpdateUserRequest_EmailNotificationSettings) GetAllowsChangelogMail() bool {
@@ -1697,7 +1697,7 @@ type UpdateUserRequest_WorkspaceTimeoutSettings struct {
 func (x *UpdateUserRequest_WorkspaceTimeoutSettings) Reset() {
 	*x = UpdateUserRequest_WorkspaceTimeoutSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[23]
+		mi := &file_nxpod_v1_user_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1710,7 +1710,7 @@ func (x *UpdateUserRequest_WorkspaceTimeoutSettings) String() string {
 func (*UpdateUserRequest_WorkspaceTimeoutSettings) ProtoMessage() {}
 
 func (x *UpdateUserRequest_WorkspaceTimeoutSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[23]
+	mi := &file_nxpod_v1_user_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1723,7 +1723,7 @@ func (x *UpdateUserRequest_WorkspaceTimeoutSettings) ProtoReflect() protoreflect
 
 // Deprecated: Use UpdateUserRequest_WorkspaceTimeoutSettings.ProtoReflect.Descriptor instead.
 func (*UpdateUserRequest_WorkspaceTimeoutSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{4, 2}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{4, 2}
 }
 
 func (x *UpdateUserRequest_WorkspaceTimeoutSettings) GetInactivity() *durationpb.Duration {
@@ -1756,7 +1756,7 @@ type User_WorkspaceTimeoutSettings struct {
 func (x *User_WorkspaceTimeoutSettings) Reset() {
 	*x = User_WorkspaceTimeoutSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[25]
+		mi := &file_nxpod_v1_user_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1769,7 +1769,7 @@ func (x *User_WorkspaceTimeoutSettings) String() string {
 func (*User_WorkspaceTimeoutSettings) ProtoMessage() {}
 
 func (x *User_WorkspaceTimeoutSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[25]
+	mi := &file_nxpod_v1_user_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1782,7 +1782,7 @@ func (x *User_WorkspaceTimeoutSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User_WorkspaceTimeoutSettings.ProtoReflect.Descriptor instead.
 func (*User_WorkspaceTimeoutSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{18, 0}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{18, 0}
 }
 
 func (x *User_WorkspaceTimeoutSettings) GetInactivity() *durationpb.Duration {
@@ -1815,7 +1815,7 @@ type User_EmailNotificationSettings struct {
 func (x *User_EmailNotificationSettings) Reset() {
 	*x = User_EmailNotificationSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[26]
+		mi := &file_nxpod_v1_user_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1828,7 +1828,7 @@ func (x *User_EmailNotificationSettings) String() string {
 func (*User_EmailNotificationSettings) ProtoMessage() {}
 
 func (x *User_EmailNotificationSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[26]
+	mi := &file_nxpod_v1_user_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1841,7 +1841,7 @@ func (x *User_EmailNotificationSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User_EmailNotificationSettings.ProtoReflect.Descriptor instead.
 func (*User_EmailNotificationSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{18, 1}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{18, 1}
 }
 
 func (x *User_EmailNotificationSettings) GetAllowsChangelogMail() bool {
@@ -1923,7 +1923,7 @@ type User_ProfileDetails struct {
 func (x *User_ProfileDetails) Reset() {
 	*x = User_ProfileDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[27]
+		mi := &file_nxpod_v1_user_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1936,7 +1936,7 @@ func (x *User_ProfileDetails) String() string {
 func (*User_ProfileDetails) ProtoMessage() {}
 
 func (x *User_ProfileDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[27]
+	mi := &file_nxpod_v1_user_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1949,7 +1949,7 @@ func (x *User_ProfileDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User_ProfileDetails.ProtoReflect.Descriptor instead.
 func (*User_ProfileDetails) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{18, 2}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{18, 2}
 }
 
 func (x *User_ProfileDetails) GetLastUpdatedDetailsNudge() string {
@@ -2053,7 +2053,7 @@ type User_WorkspaceAutostartOption struct {
 func (x *User_WorkspaceAutostartOption) Reset() {
 	*x = User_WorkspaceAutostartOption{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_user_proto_msgTypes[28]
+		mi := &file_nxpod_v1_user_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2066,7 +2066,7 @@ func (x *User_WorkspaceAutostartOption) String() string {
 func (*User_WorkspaceAutostartOption) ProtoMessage() {}
 
 func (x *User_WorkspaceAutostartOption) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_user_proto_msgTypes[28]
+	mi := &file_nxpod_v1_user_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2079,7 +2079,7 @@ func (x *User_WorkspaceAutostartOption) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User_WorkspaceAutostartOption.ProtoReflect.Descriptor instead.
 func (*User_WorkspaceAutostartOption) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_user_proto_rawDescGZIP(), []int{18, 3}
+	return file_nxpod_v1_user_proto_rawDescGZIP(), []int{18, 3}
 }
 
 func (x *User_WorkspaceAutostartOption) GetCloneUrl() string {
@@ -2117,9 +2117,9 @@ func (x *User_WorkspaceAutostartOption) GetRegion() string {
 	return ""
 }
 
-var File_gitpod_v1_user_proto protoreflect.FileDescriptor
+var File_nxpod_v1_user_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_user_proto_rawDesc = []byte{
+var file_nxpod_v1_user_proto_rawDesc = []byte{
 	0x0a, 0x14, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73, 0x65, 0x72,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x76,
 	0x31, 0x1a, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x64, 0x69,
@@ -2638,113 +2638,113 @@ var file_gitpod_v1_user_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_user_proto_rawDescOnce sync.Once
-	file_gitpod_v1_user_proto_rawDescData = file_gitpod_v1_user_proto_rawDesc
+	file_nxpod_v1_user_proto_rawDescOnce sync.Once
+	file_nxpod_v1_user_proto_rawDescData = file_nxpod_v1_user_proto_rawDesc
 )
 
-func file_gitpod_v1_user_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_user_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_user_proto_rawDescData)
+func file_nxpod_v1_user_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_user_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_user_proto_rawDescData)
 	})
-	return file_gitpod_v1_user_proto_rawDescData
+	return file_nxpod_v1_user_proto_rawDescData
 }
 
-var file_gitpod_v1_user_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_gitpod_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
-var file_gitpod_v1_user_proto_goTypes = []interface{}{
-	(RoleOrPermission)(0),                        // 0: gitpod.v1.RoleOrPermission
-	(User_UserFeatureFlag)(0),                    // 1: gitpod.v1.User.UserFeatureFlag
-	(*GetAuthenticatedUserRequest)(nil),          // 2: gitpod.v1.GetAuthenticatedUserRequest
-	(*GetAuthenticatedUserResponse)(nil),         // 3: gitpod.v1.GetAuthenticatedUserResponse
-	(*SetWorkspaceAutoStartOptionsRequest)(nil),  // 4: gitpod.v1.SetWorkspaceAutoStartOptionsRequest
-	(*SetWorkspaceAutoStartOptionsResponse)(nil), // 5: gitpod.v1.SetWorkspaceAutoStartOptionsResponse
-	(*UpdateUserRequest)(nil),                    // 6: gitpod.v1.UpdateUserRequest
-	(*UpdateUserResponse)(nil),                   // 7: gitpod.v1.UpdateUserResponse
-	(*DeleteUserRequest)(nil),                    // 8: gitpod.v1.DeleteUserRequest
-	(*DeleteUserResponse)(nil),                   // 9: gitpod.v1.DeleteUserResponse
-	(*VerifyUserRequest)(nil),                    // 10: gitpod.v1.VerifyUserRequest
-	(*VerifyUserResponse)(nil),                   // 11: gitpod.v1.VerifyUserResponse
-	(*BlockUserRequest)(nil),                     // 12: gitpod.v1.BlockUserRequest
-	(*BlockUserResponse)(nil),                    // 13: gitpod.v1.BlockUserResponse
-	(*ListUsersRequest)(nil),                     // 14: gitpod.v1.ListUsersRequest
-	(*ListUsersResponse)(nil),                    // 15: gitpod.v1.ListUsersResponse
-	(*GetUserRequest)(nil),                       // 16: gitpod.v1.GetUserRequest
-	(*GetUserResponse)(nil),                      // 17: gitpod.v1.GetUserResponse
-	(*SetRolesOrPermissionsRequest)(nil),         // 18: gitpod.v1.SetRolesOrPermissionsRequest
-	(*SetRolesOrPermissionsResponse)(nil),        // 19: gitpod.v1.SetRolesOrPermissionsResponse
-	(*User)(nil),                                 // 20: gitpod.v1.User
-	(*Identity)(nil),                             // 21: gitpod.v1.Identity
-	(*SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption)(nil), // 22: gitpod.v1.SetWorkspaceAutoStartOptionsRequest.WorkspaceAutostartOption
-	(*UpdateUserRequest_ProfileDetails)(nil),                             // 23: gitpod.v1.UpdateUserRequest.ProfileDetails
-	(*UpdateUserRequest_EmailNotificationSettings)(nil),                  // 24: gitpod.v1.UpdateUserRequest.EmailNotificationSettings
-	(*UpdateUserRequest_WorkspaceTimeoutSettings)(nil),                   // 25: gitpod.v1.UpdateUserRequest.WorkspaceTimeoutSettings
-	nil,                                    // 26: gitpod.v1.UpdateUserRequest.ProfileDetails.CoachmarksDismissalsEntry
-	(*User_WorkspaceTimeoutSettings)(nil),  // 27: gitpod.v1.User.WorkspaceTimeoutSettings
-	(*User_EmailNotificationSettings)(nil), // 28: gitpod.v1.User.EmailNotificationSettings
-	(*User_ProfileDetails)(nil),            // 29: gitpod.v1.User.ProfileDetails
-	(*User_WorkspaceAutostartOption)(nil),  // 30: gitpod.v1.User.WorkspaceAutostartOption
-	nil,                                    // 31: gitpod.v1.User.ProfileDetails.CoachmarksDismissalsEntry
-	(*EditorReference)(nil),                // 32: gitpod.v1.EditorReference
-	(*PaginationRequest)(nil),              // 33: gitpod.v1.PaginationRequest
-	(*Sort)(nil),                           // 34: gitpod.v1.Sort
-	(*PaginationResponse)(nil),             // 35: gitpod.v1.PaginationResponse
+var file_nxpod_v1_user_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_nxpod_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_nxpod_v1_user_proto_goTypes = []interface{}{
+	(RoleOrPermission)(0),                        // 0: nxpod.v1.RoleOrPermission
+	(User_UserFeatureFlag)(0),                    // 1: nxpod.v1.User.UserFeatureFlag
+	(*GetAuthenticatedUserRequest)(nil),          // 2: nxpod.v1.GetAuthenticatedUserRequest
+	(*GetAuthenticatedUserResponse)(nil),         // 3: nxpod.v1.GetAuthenticatedUserResponse
+	(*SetWorkspaceAutoStartOptionsRequest)(nil),  // 4: nxpod.v1.SetWorkspaceAutoStartOptionsRequest
+	(*SetWorkspaceAutoStartOptionsResponse)(nil), // 5: nxpod.v1.SetWorkspaceAutoStartOptionsResponse
+	(*UpdateUserRequest)(nil),                    // 6: nxpod.v1.UpdateUserRequest
+	(*UpdateUserResponse)(nil),                   // 7: nxpod.v1.UpdateUserResponse
+	(*DeleteUserRequest)(nil),                    // 8: nxpod.v1.DeleteUserRequest
+	(*DeleteUserResponse)(nil),                   // 9: nxpod.v1.DeleteUserResponse
+	(*VerifyUserRequest)(nil),                    // 10: nxpod.v1.VerifyUserRequest
+	(*VerifyUserResponse)(nil),                   // 11: nxpod.v1.VerifyUserResponse
+	(*BlockUserRequest)(nil),                     // 12: nxpod.v1.BlockUserRequest
+	(*BlockUserResponse)(nil),                    // 13: nxpod.v1.BlockUserResponse
+	(*ListUsersRequest)(nil),                     // 14: nxpod.v1.ListUsersRequest
+	(*ListUsersResponse)(nil),                    // 15: nxpod.v1.ListUsersResponse
+	(*GetUserRequest)(nil),                       // 16: nxpod.v1.GetUserRequest
+	(*GetUserResponse)(nil),                      // 17: nxpod.v1.GetUserResponse
+	(*SetRolesOrPermissionsRequest)(nil),         // 18: nxpod.v1.SetRolesOrPermissionsRequest
+	(*SetRolesOrPermissionsResponse)(nil),        // 19: nxpod.v1.SetRolesOrPermissionsResponse
+	(*User)(nil),                                 // 20: nxpod.v1.User
+	(*Identity)(nil),                             // 21: nxpod.v1.Identity
+	(*SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption)(nil), // 22: nxpod.v1.SetWorkspaceAutoStartOptionsRequest.WorkspaceAutostartOption
+	(*UpdateUserRequest_ProfileDetails)(nil),                             // 23: nxpod.v1.UpdateUserRequest.ProfileDetails
+	(*UpdateUserRequest_EmailNotificationSettings)(nil),                  // 24: nxpod.v1.UpdateUserRequest.EmailNotificationSettings
+	(*UpdateUserRequest_WorkspaceTimeoutSettings)(nil),                   // 25: nxpod.v1.UpdateUserRequest.WorkspaceTimeoutSettings
+	nil,                                    // 26: nxpod.v1.UpdateUserRequest.ProfileDetails.CoachmarksDismissalsEntry
+	(*User_WorkspaceTimeoutSettings)(nil),  // 27: nxpod.v1.User.WorkspaceTimeoutSettings
+	(*User_EmailNotificationSettings)(nil), // 28: nxpod.v1.User.EmailNotificationSettings
+	(*User_ProfileDetails)(nil),            // 29: nxpod.v1.User.ProfileDetails
+	(*User_WorkspaceAutostartOption)(nil),  // 30: nxpod.v1.User.WorkspaceAutostartOption
+	nil,                                    // 31: nxpod.v1.User.ProfileDetails.CoachmarksDismissalsEntry
+	(*EditorReference)(nil),                // 32: nxpod.v1.EditorReference
+	(*PaginationRequest)(nil),              // 33: nxpod.v1.PaginationRequest
+	(*Sort)(nil),                           // 34: nxpod.v1.Sort
+	(*PaginationResponse)(nil),             // 35: nxpod.v1.PaginationResponse
 	(*fieldmaskpb.FieldMask)(nil),          // 36: google.protobuf.FieldMask
 	(*timestamppb.Timestamp)(nil),          // 37: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),            // 38: google.protobuf.Duration
 }
-var file_gitpod_v1_user_proto_depIdxs = []int32{
-	20, // 0: gitpod.v1.GetAuthenticatedUserResponse.user:type_name -> gitpod.v1.User
-	22, // 1: gitpod.v1.SetWorkspaceAutoStartOptionsRequest.workspace_autostart_options:type_name -> gitpod.v1.SetWorkspaceAutoStartOptionsRequest.WorkspaceAutostartOption
-	23, // 2: gitpod.v1.UpdateUserRequest.profile:type_name -> gitpod.v1.UpdateUserRequest.ProfileDetails
-	32, // 3: gitpod.v1.UpdateUserRequest.editor_settings:type_name -> gitpod.v1.EditorReference
-	24, // 4: gitpod.v1.UpdateUserRequest.email_notification_settings:type_name -> gitpod.v1.UpdateUserRequest.EmailNotificationSettings
-	25, // 5: gitpod.v1.UpdateUserRequest.workspace_timeout_settings:type_name -> gitpod.v1.UpdateUserRequest.WorkspaceTimeoutSettings
-	20, // 6: gitpod.v1.UpdateUserResponse.user:type_name -> gitpod.v1.User
-	20, // 7: gitpod.v1.VerifyUserResponse.user:type_name -> gitpod.v1.User
-	20, // 8: gitpod.v1.BlockUserResponse.user:type_name -> gitpod.v1.User
-	33, // 9: gitpod.v1.ListUsersRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	34, // 10: gitpod.v1.ListUsersRequest.sort:type_name -> gitpod.v1.Sort
-	20, // 11: gitpod.v1.ListUsersResponse.users:type_name -> gitpod.v1.User
-	35, // 12: gitpod.v1.ListUsersResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	20, // 13: gitpod.v1.GetUserResponse.user:type_name -> gitpod.v1.User
-	0,  // 14: gitpod.v1.SetRolesOrPermissionsRequest.roles_or_permissions:type_name -> gitpod.v1.RoleOrPermission
-	36, // 15: gitpod.v1.SetRolesOrPermissionsRequest.reset_mask:type_name -> google.protobuf.FieldMask
-	20, // 16: gitpod.v1.SetRolesOrPermissionsResponse.user:type_name -> gitpod.v1.User
-	37, // 17: gitpod.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	21, // 18: gitpod.v1.User.identities:type_name -> gitpod.v1.Identity
-	37, // 19: gitpod.v1.User.last_verification_time:type_name -> google.protobuf.Timestamp
-	27, // 20: gitpod.v1.User.workspace_timeout_settings:type_name -> gitpod.v1.User.WorkspaceTimeoutSettings
-	28, // 21: gitpod.v1.User.email_notification_settings:type_name -> gitpod.v1.User.EmailNotificationSettings
-	32, // 22: gitpod.v1.User.editor_settings:type_name -> gitpod.v1.EditorReference
-	29, // 23: gitpod.v1.User.profile:type_name -> gitpod.v1.User.ProfileDetails
-	30, // 24: gitpod.v1.User.workspace_autostart_options:type_name -> gitpod.v1.User.WorkspaceAutostartOption
-	1,  // 25: gitpod.v1.User.workspace_feature_flags:type_name -> gitpod.v1.User.UserFeatureFlag
-	0,  // 26: gitpod.v1.User.roles_or_permissions:type_name -> gitpod.v1.RoleOrPermission
-	37, // 27: gitpod.v1.Identity.last_signin_time:type_name -> google.protobuf.Timestamp
-	32, // 28: gitpod.v1.SetWorkspaceAutoStartOptionsRequest.WorkspaceAutostartOption.editor_settings:type_name -> gitpod.v1.EditorReference
-	26, // 29: gitpod.v1.UpdateUserRequest.ProfileDetails.coachmarks_dismissals:type_name -> gitpod.v1.UpdateUserRequest.ProfileDetails.CoachmarksDismissalsEntry
-	38, // 30: gitpod.v1.UpdateUserRequest.WorkspaceTimeoutSettings.inactivity:type_name -> google.protobuf.Duration
-	38, // 31: gitpod.v1.User.WorkspaceTimeoutSettings.inactivity:type_name -> google.protobuf.Duration
-	31, // 32: gitpod.v1.User.ProfileDetails.coachmarks_dismissals:type_name -> gitpod.v1.User.ProfileDetails.CoachmarksDismissalsEntry
-	32, // 33: gitpod.v1.User.WorkspaceAutostartOption.editor_settings:type_name -> gitpod.v1.EditorReference
-	2,  // 34: gitpod.v1.UserService.GetAuthenticatedUser:input_type -> gitpod.v1.GetAuthenticatedUserRequest
-	6,  // 35: gitpod.v1.UserService.UpdateUser:input_type -> gitpod.v1.UpdateUserRequest
-	4,  // 36: gitpod.v1.UserService.SetWorkspaceAutoStartOptions:input_type -> gitpod.v1.SetWorkspaceAutoStartOptionsRequest
-	8,  // 37: gitpod.v1.UserService.DeleteUser:input_type -> gitpod.v1.DeleteUserRequest
-	10, // 38: gitpod.v1.UserService.VerifyUser:input_type -> gitpod.v1.VerifyUserRequest
-	12, // 39: gitpod.v1.UserService.BlockUser:input_type -> gitpod.v1.BlockUserRequest
-	14, // 40: gitpod.v1.UserService.ListUsers:input_type -> gitpod.v1.ListUsersRequest
-	16, // 41: gitpod.v1.UserService.GetUser:input_type -> gitpod.v1.GetUserRequest
-	18, // 42: gitpod.v1.UserService.SetRolesOrPermissions:input_type -> gitpod.v1.SetRolesOrPermissionsRequest
-	3,  // 43: gitpod.v1.UserService.GetAuthenticatedUser:output_type -> gitpod.v1.GetAuthenticatedUserResponse
-	7,  // 44: gitpod.v1.UserService.UpdateUser:output_type -> gitpod.v1.UpdateUserResponse
-	5,  // 45: gitpod.v1.UserService.SetWorkspaceAutoStartOptions:output_type -> gitpod.v1.SetWorkspaceAutoStartOptionsResponse
-	9,  // 46: gitpod.v1.UserService.DeleteUser:output_type -> gitpod.v1.DeleteUserResponse
-	11, // 47: gitpod.v1.UserService.VerifyUser:output_type -> gitpod.v1.VerifyUserResponse
-	13, // 48: gitpod.v1.UserService.BlockUser:output_type -> gitpod.v1.BlockUserResponse
-	15, // 49: gitpod.v1.UserService.ListUsers:output_type -> gitpod.v1.ListUsersResponse
-	17, // 50: gitpod.v1.UserService.GetUser:output_type -> gitpod.v1.GetUserResponse
-	19, // 51: gitpod.v1.UserService.SetRolesOrPermissions:output_type -> gitpod.v1.SetRolesOrPermissionsResponse
+var file_nxpod_v1_user_proto_depIdxs = []int32{
+	20, // 0: nxpod.v1.GetAuthenticatedUserResponse.user:type_name -> nxpod.v1.User
+	22, // 1: nxpod.v1.SetWorkspaceAutoStartOptionsRequest.workspace_autostart_options:type_name -> nxpod.v1.SetWorkspaceAutoStartOptionsRequest.WorkspaceAutostartOption
+	23, // 2: nxpod.v1.UpdateUserRequest.profile:type_name -> nxpod.v1.UpdateUserRequest.ProfileDetails
+	32, // 3: nxpod.v1.UpdateUserRequest.editor_settings:type_name -> nxpod.v1.EditorReference
+	24, // 4: nxpod.v1.UpdateUserRequest.email_notification_settings:type_name -> nxpod.v1.UpdateUserRequest.EmailNotificationSettings
+	25, // 5: nxpod.v1.UpdateUserRequest.workspace_timeout_settings:type_name -> nxpod.v1.UpdateUserRequest.WorkspaceTimeoutSettings
+	20, // 6: nxpod.v1.UpdateUserResponse.user:type_name -> nxpod.v1.User
+	20, // 7: nxpod.v1.VerifyUserResponse.user:type_name -> nxpod.v1.User
+	20, // 8: nxpod.v1.BlockUserResponse.user:type_name -> nxpod.v1.User
+	33, // 9: nxpod.v1.ListUsersRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	34, // 10: nxpod.v1.ListUsersRequest.sort:type_name -> nxpod.v1.Sort
+	20, // 11: nxpod.v1.ListUsersResponse.users:type_name -> nxpod.v1.User
+	35, // 12: nxpod.v1.ListUsersResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	20, // 13: nxpod.v1.GetUserResponse.user:type_name -> nxpod.v1.User
+	0,  // 14: nxpod.v1.SetRolesOrPermissionsRequest.roles_or_permissions:type_name -> nxpod.v1.RoleOrPermission
+	36, // 15: nxpod.v1.SetRolesOrPermissionsRequest.reset_mask:type_name -> google.protobuf.FieldMask
+	20, // 16: nxpod.v1.SetRolesOrPermissionsResponse.user:type_name -> nxpod.v1.User
+	37, // 17: nxpod.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	21, // 18: nxpod.v1.User.identities:type_name -> nxpod.v1.Identity
+	37, // 19: nxpod.v1.User.last_verification_time:type_name -> google.protobuf.Timestamp
+	27, // 20: nxpod.v1.User.workspace_timeout_settings:type_name -> nxpod.v1.User.WorkspaceTimeoutSettings
+	28, // 21: nxpod.v1.User.email_notification_settings:type_name -> nxpod.v1.User.EmailNotificationSettings
+	32, // 22: nxpod.v1.User.editor_settings:type_name -> nxpod.v1.EditorReference
+	29, // 23: nxpod.v1.User.profile:type_name -> nxpod.v1.User.ProfileDetails
+	30, // 24: nxpod.v1.User.workspace_autostart_options:type_name -> nxpod.v1.User.WorkspaceAutostartOption
+	1,  // 25: nxpod.v1.User.workspace_feature_flags:type_name -> nxpod.v1.User.UserFeatureFlag
+	0,  // 26: nxpod.v1.User.roles_or_permissions:type_name -> nxpod.v1.RoleOrPermission
+	37, // 27: nxpod.v1.Identity.last_signin_time:type_name -> google.protobuf.Timestamp
+	32, // 28: nxpod.v1.SetWorkspaceAutoStartOptionsRequest.WorkspaceAutostartOption.editor_settings:type_name -> nxpod.v1.EditorReference
+	26, // 29: nxpod.v1.UpdateUserRequest.ProfileDetails.coachmarks_dismissals:type_name -> nxpod.v1.UpdateUserRequest.ProfileDetails.CoachmarksDismissalsEntry
+	38, // 30: nxpod.v1.UpdateUserRequest.WorkspaceTimeoutSettings.inactivity:type_name -> google.protobuf.Duration
+	38, // 31: nxpod.v1.User.WorkspaceTimeoutSettings.inactivity:type_name -> google.protobuf.Duration
+	31, // 32: nxpod.v1.User.ProfileDetails.coachmarks_dismissals:type_name -> nxpod.v1.User.ProfileDetails.CoachmarksDismissalsEntry
+	32, // 33: nxpod.v1.User.WorkspaceAutostartOption.editor_settings:type_name -> nxpod.v1.EditorReference
+	2,  // 34: nxpod.v1.UserService.GetAuthenticatedUser:input_type -> nxpod.v1.GetAuthenticatedUserRequest
+	6,  // 35: nxpod.v1.UserService.UpdateUser:input_type -> nxpod.v1.UpdateUserRequest
+	4,  // 36: nxpod.v1.UserService.SetWorkspaceAutoStartOptions:input_type -> nxpod.v1.SetWorkspaceAutoStartOptionsRequest
+	8,  // 37: nxpod.v1.UserService.DeleteUser:input_type -> nxpod.v1.DeleteUserRequest
+	10, // 38: nxpod.v1.UserService.VerifyUser:input_type -> nxpod.v1.VerifyUserRequest
+	12, // 39: nxpod.v1.UserService.BlockUser:input_type -> nxpod.v1.BlockUserRequest
+	14, // 40: nxpod.v1.UserService.ListUsers:input_type -> nxpod.v1.ListUsersRequest
+	16, // 41: nxpod.v1.UserService.GetUser:input_type -> nxpod.v1.GetUserRequest
+	18, // 42: nxpod.v1.UserService.SetRolesOrPermissions:input_type -> nxpod.v1.SetRolesOrPermissionsRequest
+	3,  // 43: nxpod.v1.UserService.GetAuthenticatedUser:output_type -> nxpod.v1.GetAuthenticatedUserResponse
+	7,  // 44: nxpod.v1.UserService.UpdateUser:output_type -> nxpod.v1.UpdateUserResponse
+	5,  // 45: nxpod.v1.UserService.SetWorkspaceAutoStartOptions:output_type -> nxpod.v1.SetWorkspaceAutoStartOptionsResponse
+	9,  // 46: nxpod.v1.UserService.DeleteUser:output_type -> nxpod.v1.DeleteUserResponse
+	11, // 47: nxpod.v1.UserService.VerifyUser:output_type -> nxpod.v1.VerifyUserResponse
+	13, // 48: nxpod.v1.UserService.BlockUser:output_type -> nxpod.v1.BlockUserResponse
+	15, // 49: nxpod.v1.UserService.ListUsers:output_type -> nxpod.v1.ListUsersResponse
+	17, // 50: nxpod.v1.UserService.GetUser:output_type -> nxpod.v1.GetUserResponse
+	19, // 51: nxpod.v1.UserService.SetRolesOrPermissions:output_type -> nxpod.v1.SetRolesOrPermissionsResponse
 	43, // [43:52] is the sub-list for method output_type
 	34, // [34:43] is the sub-list for method input_type
 	34, // [34:34] is the sub-list for extension type_name
@@ -2752,16 +2752,16 @@ var file_gitpod_v1_user_proto_depIdxs = []int32{
 	0,  // [0:34] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_user_proto_init() }
-func file_gitpod_v1_user_proto_init() {
-	if File_gitpod_v1_user_proto != nil {
+func init() { file_nxpod_v1_user_proto_init() }
+func file_nxpod_v1_user_proto_init() {
+	if File_nxpod_v1_user_proto != nil {
 		return
 	}
-	file_gitpod_v1_editor_proto_init()
-	file_gitpod_v1_pagination_proto_init()
-	file_gitpod_v1_sorting_proto_init()
+	file_nxpod_v1_editor_proto_init()
+	file_nxpod_v1_pagination_proto_init()
+	file_nxpod_v1_sorting_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetAuthenticatedUserRequest); i {
 			case 0:
 				return &v.state
@@ -2773,7 +2773,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetAuthenticatedUserResponse); i {
 			case 0:
 				return &v.state
@@ -2785,7 +2785,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetWorkspaceAutoStartOptionsRequest); i {
 			case 0:
 				return &v.state
@@ -2797,7 +2797,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetWorkspaceAutoStartOptionsResponse); i {
 			case 0:
 				return &v.state
@@ -2809,7 +2809,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserRequest); i {
 			case 0:
 				return &v.state
@@ -2821,7 +2821,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserResponse); i {
 			case 0:
 				return &v.state
@@ -2833,7 +2833,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteUserRequest); i {
 			case 0:
 				return &v.state
@@ -2845,7 +2845,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteUserResponse); i {
 			case 0:
 				return &v.state
@@ -2857,7 +2857,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VerifyUserRequest); i {
 			case 0:
 				return &v.state
@@ -2869,7 +2869,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VerifyUserResponse); i {
 			case 0:
 				return &v.state
@@ -2881,7 +2881,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BlockUserRequest); i {
 			case 0:
 				return &v.state
@@ -2893,7 +2893,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BlockUserResponse); i {
 			case 0:
 				return &v.state
@@ -2905,7 +2905,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListUsersRequest); i {
 			case 0:
 				return &v.state
@@ -2917,7 +2917,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListUsersResponse); i {
 			case 0:
 				return &v.state
@@ -2929,7 +2929,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetUserRequest); i {
 			case 0:
 				return &v.state
@@ -2941,7 +2941,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetUserResponse); i {
 			case 0:
 				return &v.state
@@ -2953,7 +2953,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetRolesOrPermissionsRequest); i {
 			case 0:
 				return &v.state
@@ -2965,7 +2965,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetRolesOrPermissionsResponse); i {
 			case 0:
 				return &v.state
@@ -2977,7 +2977,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*User); i {
 			case 0:
 				return &v.state
@@ -2989,7 +2989,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Identity); i {
 			case 0:
 				return &v.state
@@ -3001,7 +3001,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetWorkspaceAutoStartOptionsRequest_WorkspaceAutostartOption); i {
 			case 0:
 				return &v.state
@@ -3013,7 +3013,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserRequest_ProfileDetails); i {
 			case 0:
 				return &v.state
@@ -3025,7 +3025,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserRequest_EmailNotificationSettings); i {
 			case 0:
 				return &v.state
@@ -3037,7 +3037,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserRequest_WorkspaceTimeoutSettings); i {
 			case 0:
 				return &v.state
@@ -3049,7 +3049,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*User_WorkspaceTimeoutSettings); i {
 			case 0:
 				return &v.state
@@ -3061,7 +3061,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*User_EmailNotificationSettings); i {
 			case 0:
 				return &v.state
@@ -3073,7 +3073,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*User_ProfileDetails); i {
 			case 0:
 				return &v.state
@@ -3085,7 +3085,7 @@ func file_gitpod_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_user_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_user_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*User_WorkspaceAutostartOption); i {
 			case 0:
 				return &v.state
@@ -3098,28 +3098,28 @@ func file_gitpod_v1_user_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_user_proto_msgTypes[4].OneofWrappers = []interface{}{}
-	file_gitpod_v1_user_proto_msgTypes[20].OneofWrappers = []interface{}{}
-	file_gitpod_v1_user_proto_msgTypes[21].OneofWrappers = []interface{}{}
-	file_gitpod_v1_user_proto_msgTypes[22].OneofWrappers = []interface{}{}
-	file_gitpod_v1_user_proto_msgTypes[23].OneofWrappers = []interface{}{}
+	file_nxpod_v1_user_proto_msgTypes[4].OneofWrappers = []interface{}{}
+	file_nxpod_v1_user_proto_msgTypes[20].OneofWrappers = []interface{}{}
+	file_nxpod_v1_user_proto_msgTypes[21].OneofWrappers = []interface{}{}
+	file_nxpod_v1_user_proto_msgTypes[22].OneofWrappers = []interface{}{}
+	file_nxpod_v1_user_proto_msgTypes[23].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_user_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_user_proto_rawDesc,
 			NumEnums:      2,
 			NumMessages:   30,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_user_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_user_proto_depIdxs,
-		EnumInfos:         file_gitpod_v1_user_proto_enumTypes,
-		MessageInfos:      file_gitpod_v1_user_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_user_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_user_proto_depIdxs,
+		EnumInfos:         file_nxpod_v1_user_proto_enumTypes,
+		MessageInfos:      file_nxpod_v1_user_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_user_proto = out.File
-	file_gitpod_v1_user_proto_rawDesc = nil
-	file_gitpod_v1_user_proto_goTypes = nil
-	file_gitpod_v1_user_proto_depIdxs = nil
+	File_nxpod_v1_user_proto = out.File
+	file_nxpod_v1_user_proto_rawDesc = nil
+	file_nxpod_v1_user_proto_goTypes = nil
+	file_nxpod_v1_user_proto_depIdxs = nil
 }

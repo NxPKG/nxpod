@@ -31,12 +31,12 @@ If you want to open a real workspace in the dev build, follow these steps:
     curl http://localhost:24000/gatewayLink
 
     # This will output something like:
-    # jetbrains-gateway://connect#gitpodHost=gitpod.io&workspaceId=andreafalze-gitpodexper-4xasfqb42zr&backendPort=63342
+    # jetbrains-gateway://connect#nxpodHost=nxpod.khulnasoft.com&workspaceId=andreafalze-nxpodexper-4xasfqb42zr&backendPort=63342
     ```
 3. Copy the output value
 4. Go to your local terminal and run:
     ```console
-    ./gradlew runIde --args="jetbrains-gateway://connect#gitpodHost=gitpod.io&workspaceId=andreafalze-gitpodexper-4xasfqb42zr&backendPort=63342"
+    ./gradlew runIde --args="jetbrains-gateway://connect#nxpodHost=nxpod.khulnasoft.com&workspaceId=andreafalze-nxpodexper-4xasfqb42zr&backendPort=63342"
     ```
 
 For executing the tests and the static analysis validations, run:
@@ -50,7 +50,7 @@ For executing the tests and the static analysis validations, run:
 ## How to test from a Pull Request
 
 - Ensure you have the latest JetBrains Gateway installed: https://www.jetbrains.com/remote-development/gateway/
-- Download this Gateway Plugin build, from Nxpod's Plugin Dev Channel: https://plugins.jetbrains.com/plugin/18438-gitpod-gateway/versions/dev
+- Download this Gateway Plugin build, from Nxpod's Plugin Dev Channel: https://plugins.jetbrains.com/plugin/18438-nxpod-gateway/versions/dev
 - Install it on the Gateway following these instructions: https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk
 - Do the checks requested by the pull request creator or do a full manual test as instructed below.
 

@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote
+package io.nxpod.jetbrains.remote
 
 import com.intellij.codeWithMe.ClientId
 import com.intellij.ide.BrowserUtil
@@ -21,7 +21,7 @@ import com.intellij.util.withFragment
 import com.intellij.util.withPath
 import com.intellij.util.withQuery
 import com.jetbrains.rd.util.URI
-import io.gitpod.jetbrains.remote.utils.LocalHostUri
+import io.nxpod.jetbrains.remote.utils.LocalHostUri
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.http.FullHttpRequest
@@ -48,8 +48,8 @@ class NxpodCLIService : RestService() {
             return "not supported in headless mode"
         }
         /**
-         * prod: curl http://localhost:63342/api/gitpod/cli?op=metrics
-         * dev:  curl http://localhost:63343/api/gitpod/cli?op=metrics
+         * prod: curl http://localhost:63342/api/nxpod/cli?op=metrics
+         * dev:  curl http://localhost:63343/api/nxpod/cli?op=metrics
          *
          * We will use this endpoint in JetBrains launcher to check if backend-plugin is ready.
          * Please make sure this operation:metrics to respond 200
@@ -84,13 +84,13 @@ class NxpodCLIService : RestService() {
                 var resolvedUrl = url
                 val uri = URI.create(url)
                 val localHostUriMetadata = LocalHostUri.extractLocalHostUriMetaDataForPortMapping(uri)
-                val gitpodPortForwardingService = serviceOrNull<NxpodPortForwardingService>()
+                val nxpodPortForwardingService = serviceOrNull<NxpodPortForwardingService>()
 
-                if (localHostUriMetadata.isPresent && gitpodPortForwardingService != null) {
+                if (localHostUriMetadata.isPresent && nxpodPortForwardingService != null) {
                     var localHostUriFromPort = Optional.empty<URI>()
 
                     application.invokeAndWait {
-                        localHostUriFromPort = gitpodPortForwardingService
+                        localHostUriFromPort = nxpodPortForwardingService
                                 .getLocalHostUriFromHostPort(localHostUriMetadata.get().port)
                     }
 
@@ -148,12 +148,12 @@ class NxpodCLIService : RestService() {
             }
             file.normalize()
         } catch (e: InvalidPathException) {
-            thisLogger().warn("gitpod cli: failed to parse file path:", e)
+            thisLogger().warn("nxpod cli: failed to parse file path:", e)
             null
         }
     }
 
     companion object {
-        const val SERVICE_NAME = "gitpod/cli"
+        const val SERVICE_NAME = "nxpod/cli"
     }
 }

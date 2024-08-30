@@ -122,7 +122,7 @@ export default function Preferences() {
                     Choose your default editor.{" "}
                     <a
                         className="gp-link"
-                        href="https://www.nxpod.io/docs/references/ides-and-editors"
+                        href="https://www.nxpod.khulnasoft.com/docs/references/ides-and-editors"
                         target="_blank"
                         rel="noreferrer"
                     >

@@ -28,7 +28,7 @@ rules:
   verbs:
   - get
 - apiGroups:
-  - workspace.nxpod.io
+  - workspace.nxpod.khulnasoft.com
   resources:
   - workspaces
   verbs:
@@ -40,13 +40,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - workspace.nxpod.io
+  - workspace.nxpod.khulnasoft.com
   resources:
   - workspaces/finalizers
   verbs:
   - update
 - apiGroups:
-  - workspace.nxpod.io
+  - workspace.nxpod.khulnasoft.com
   resources:
   - workspaces/status
   verbs:

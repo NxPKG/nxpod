@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.DeserializationFeature
@@ -42,8 +42,8 @@ import com.jetbrains.rd.util.ConcurrentHashMap
 import com.jetbrains.rd.util.URI
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.util.lifetime.LifetimeDefinition
-import io.gitpod.gitpodprotocol.api.entities.WorkspaceInstance
-import io.gitpod.jetbrains.icons.NxpodIcons
+import io.nxpod.nxpodprotocol.api.entities.WorkspaceInstance
+import io.nxpod.jetbrains.icons.NxpodIcons
 import kotlinx.coroutines.*
 import java.net.URL
 import java.net.http.HttpClient
@@ -59,7 +59,7 @@ import kotlin.io.path.writeText
 @Suppress("UnstableApiUsage", "OPT_IN_USAGE")
 class NxpodConnectionProvider : GatewayConnectionProvider {
     private val activeConnections = ConcurrentHashMap<String, LifetimeDefinition>()
-    private val gitpod = service<NxpodConnectionService>()
+    private val nxpod = service<NxpodConnectionService>()
     private val connectionHandleFactory = service<NxpodConnectionHandleFactory>()
     private val settings = service<NxpodSettingsState>()
 
@@ -74,21 +74,21 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
             parameters: Map<String, String>,
             requestor: ConnectionRequestor
     ): GatewayConnectionHandle {
-        if (parameters["gitpodHost"] == null) {
-            throw IllegalArgumentException("bad gitpodHost parameter")
+        if (parameters["nxpodHost"] == null) {
+            throw IllegalArgumentException("bad nxpodHost parameter")
         }
         if (parameters["workspaceId"] == null) {
             throw IllegalArgumentException("bad workspaceId parameter")
         }
         val connectParams = ConnectParams(
-                parameters["gitpodHost"]!!,
+                parameters["nxpodHost"]!!,
                 parameters["workspaceId"]!!,
                 parameters["backendPort"],
                 parameters["debugWorkspace"] == "true"
         )
 
         var connectionKeyId =
-                "${connectParams.gitpodHost}-${connectParams.resolvedWorkspaceId}-${connectParams.backendPort}"
+                "${connectParams.nxpodHost}-${connectParams.resolvedWorkspaceId}-${connectParams.backendPort}"
 
         var found = true
         val connectionLifetime = activeConnections.computeIfAbsent(connectionKeyId) {
@@ -114,7 +114,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
             }
         }
 
-        val client = gitpod.obtainClient(connectParams.gitpodHost)
+        val client = nxpod.obtainClient(connectParams.nxpodHost)
         val updates = client.listenToWorkspace(connectionLifetime, connectParams.actualWorkspaceId)
         val workspace = client.syncWorkspace(connectParams.actualWorkspaceId).workspace
 
@@ -280,7 +280,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                                         )
                                     }
                                     if (credentials == null) {
-                                        setErrorMessage("${connectParams.gitpodHost} installation does not allow SSH access")
+                                        setErrorMessage("${connectParams.nxpodHost} installation does not allow SSH access")
                                         return@thinClientJob
                                     }
 
@@ -323,7 +323,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                                                         return@backendStatusJob
                                                     }
                                                     thisLogger().error(
-                                                            "${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to reconnect:",
+                                                            "${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to reconnect:",
                                                             t
                                                     )
                                                 }
@@ -339,7 +339,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                                         throw t
                                     }
                                     thisLogger().error(
-                                            "${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to connect:",
+                                            "${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to connect:",
                                             t
                                     )
                                     setErrorMessage("" + t.message)
@@ -348,7 +348,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                         }
                     } catch (e: Throwable) {
                         thisLogger().error(
-                                "${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to process workspace update:",
+                                "${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to process workspace update:",
                                 e
                         )
                     }
@@ -356,7 +356,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                 connectionLifetime.terminate()
             } catch (t: Throwable) {
                 thisLogger().error(
-                        "${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to process workspace updates:",
+                        "${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to process workspace updates:",
                         t
                 )
                 setErrorMessage("failed to process workspace updates ${t.message}")
@@ -403,7 +403,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
 
             var userName = keyPair.userName
             if (userName.isNullOrBlank()) {
-                userName = "gitpod"
+                userName = "nxpod"
             }
 
             return resolveCredentials(
@@ -416,7 +416,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
             )
         } catch (t: Throwable) {
             thisLogger().error(
-                    "${connectParams.gitpodHost}: web socket tunnel: failed to connect:",
+                    "${connectParams.nxpodHost}: web socket tunnel: failed to connect:",
                     t
             )
             return null
@@ -433,7 +433,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
         }
         val hostKeys = resolveHostKeys(ideUrl, connectParams)
         if (hostKeys.isNullOrEmpty()) {
-            thisLogger().error("${connectParams.gitpodHost}: direct SSH: failed to resolve host keys for")
+            thisLogger().error("${connectParams.nxpodHost}: direct SSH: failed to resolve host keys for")
             return null
         }
 
@@ -455,7 +455,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
             )
         } catch (t: Throwable) {
             thisLogger().error(
-                    "${connectParams.gitpodHost}: direct SSH: failed to resolve credentials",
+                    "${connectParams.nxpodHost}: direct SSH: failed to resolve credentials",
                     t
             )
             return null
@@ -640,7 +640,7 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                         .GET()
                         .timeout(Duration.ofMillis(requestTimeout))
                 if (!ownerToken.isNullOrBlank()) {
-                    httpRequestBuilder = httpRequestBuilder.header("x-gitpod-owner-token", ownerToken)
+                    httpRequestBuilder = httpRequestBuilder.header("x-nxpod-owner-token", ownerToken)
                 }
                 val httpRequest = httpRequestBuilder.build()
                 val response =
@@ -649,16 +649,16 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
                     return response.body()
                 }
                 if (response.statusCode() < 500) {
-                    thisLogger().error("${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to fetch '$endpointUrl': ${response.statusCode()}")
+                    thisLogger().error("${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to fetch '$endpointUrl': ${response.statusCode()}")
                     return null
                 }
-                thisLogger().warn("${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to fetch '$endpointUrl', trying again...: ${response.statusCode()}")
+                thisLogger().warn("${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to fetch '$endpointUrl', trying again...: ${response.statusCode()}")
             } catch (t: Throwable) {
                 if (t is CancellationException) {
                     throw t
                 }
                 thisLogger().warn(
-                        "${connectParams.gitpodHost}: ${connectParams.resolvedWorkspaceId}: failed to fetch '$endpointUrl', trying again...:",
+                        "${connectParams.nxpodHost}: ${connectParams.resolvedWorkspaceId}: failed to fetch '$endpointUrl', trying again...:",
                         t
                 )
             }
@@ -670,16 +670,16 @@ class NxpodConnectionProvider : GatewayConnectionProvider {
     }
 
     override fun isApplicable(parameters: Map<String, String>): Boolean =
-            parameters.containsKey("gitpodHost")
+            parameters.containsKey("nxpodHost")
 
     data class ConnectParams(
-            val gitpodHost: String,
+            val nxpodHost: String,
             val actualWorkspaceId: String,
             val backendPort: String?,
             val debugWorkspace: Boolean,
     ) {
         val resolvedWorkspaceId = "${if (debugWorkspace) "debug-" else ""}$actualWorkspaceId"
-        val title = "$resolvedWorkspaceId ($gitpodHost)"
+        val title = "$resolvedWorkspaceId ($nxpodHost)"
     }
 
     private data class SSHHostKey(val type: String, val hostKey: String)

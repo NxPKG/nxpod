@@ -14,7 +14,7 @@ import (
 	"github.com/nxpkg/nxpod/components/public-api/go/config"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
@@ -297,7 +297,7 @@ func TestTeamToAPIResponse(t *testing.T) {
 		{
 			UserId:       uuid.New().String(),
 			FullName:     "First Last",
-			PrimaryEmail: "email1@gitpod.io",
+			PrimaryEmail: "email1@nxpod.khulnasoft.com",
 			AvatarUrl:    "https://avatars.com/foo",
 			Role:         protocol.TeamMember_Member,
 			MemberSince:  "2022-09-09T09:09:09.000Z",
@@ -305,7 +305,7 @@ func TestTeamToAPIResponse(t *testing.T) {
 		{
 			UserId:       uuid.New().String(),
 			FullName:     "Second Last",
-			PrimaryEmail: "email2@gitpod.io",
+			PrimaryEmail: "email2@nxpod.khulnasoft.com",
 			AvatarUrl:    "https://avatars.com/bar",
 			Role:         protocol.TeamMember_Owner,
 			MemberSince:  "2022-09-09T09:09:09.000Z",
@@ -317,7 +317,7 @@ func TestTeamToAPIResponse(t *testing.T) {
 		Role:             protocol.TeamMember_Member,
 		CreationTime:     "2022-08-08T08:08:08.000Z",
 		InvalidationTime: "2022-11-11T11:11:11.000Z",
-		InvitedEmail:     "nope@gitpod.io",
+		InvitedEmail:     "nope@nxpod.khulnasoft.com",
 	}
 
 	response := teamToAPIResponse(team, members, invite)
@@ -625,7 +625,7 @@ func newTeamMember(m *protocol.TeamMemberInfo) *protocol.TeamMemberInfo {
 	result := &protocol.TeamMemberInfo{
 		UserId:       uuid.New().String(),
 		FullName:     "First Last",
-		PrimaryEmail: "email@gitpod.io",
+		PrimaryEmail: "email@nxpod.khulnasoft.com",
 		AvatarUrl:    "https://avatars.yolo/first.png",
 		Role:         protocol.TeamMember_Member,
 		MemberSince:  "2022-09-09T09:09:09.000Z",

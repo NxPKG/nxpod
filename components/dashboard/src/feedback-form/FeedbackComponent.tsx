@@ -125,7 +125,7 @@ function FeedbackComponent(props: {
                         <p className="text-gray-500">
                             {" "}
                             By submitting this form you acknowledge that you have read and understood our{" "}
-                            <a className="gp-link" target="nxpod-privacy" href="https://www.nxpod.io/privacy/">
+                            <a className="gp-link" target="nxpod-privacy" href="https://www.nxpod.khulnasoft.com/privacy/">
                                 privacy policy
                             </a>
                             .

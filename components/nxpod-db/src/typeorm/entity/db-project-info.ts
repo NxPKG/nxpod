@@ -5,7 +5,7 @@
  */
 
 import { Entity, Column, PrimaryColumn } from "typeorm";
-import { Project } from "@gitpod/gitpod-protocol";
+import { Project } from "@nxpod/nxpod-protocol";
 
 import { TypeORM } from "../../typeorm/typeorm";
 

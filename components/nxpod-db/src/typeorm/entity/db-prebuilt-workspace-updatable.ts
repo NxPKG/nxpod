@@ -6,7 +6,7 @@
 
 import { PrimaryColumn, Column, Entity, Index } from "typeorm";
 
-import { PrebuiltWorkspaceUpdatable } from "@gitpod/gitpod-protocol";
+import { PrebuiltWorkspaceUpdatable } from "@nxpod/nxpod-protocol";
 import { TypeORM } from "../typeorm";
 import { Transformer } from "../transformer";
 

@@ -11,7 +11,7 @@ import (
 
 const (
 	// ContentTypeManifest manifest is the content type for a JSON serialized WorkspaceContentManifest
-	ContentTypeManifest = "application/vnd.gitpod.ws.manifest.v1+json"
+	ContentTypeManifest = "application/vnd.nxpod.ws.manifest.v1+json"
 
 	// MediaTypeUncompressedLayer is a valid OCIv1 media type for uncompressed layer archives
 	MediaTypeUncompressedLayer = ociv1.MediaTypeImageLayer

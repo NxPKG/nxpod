@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AuthProviderType } from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
+import { AuthProviderType } from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
 
 export namespace GitLabScope {
     export const READ_USER = "read_user";

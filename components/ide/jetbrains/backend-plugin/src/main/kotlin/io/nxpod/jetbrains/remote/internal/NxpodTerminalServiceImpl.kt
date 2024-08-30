@@ -2,14 +2,14 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.internal
+package io.nxpod.jetbrains.remote.internal
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.util.threading.coroutines.launch
 import com.jetbrains.rdserver.terminal.BackendTerminalManager
-import io.gitpod.jetbrains.remote.AbstractNxpodTerminalService
+import io.nxpod.jetbrains.remote.AbstractNxpodTerminalService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import org.jetbrains.plugins.terminal.ShellTerminalWidget

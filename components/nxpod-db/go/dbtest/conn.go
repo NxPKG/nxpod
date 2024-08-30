@@ -10,7 +10,7 @@ import (
 	"sync"
 	"testing"
 
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/stretchr/testify/require"
 	"gorm.io/gorm"
 )
@@ -30,16 +30,16 @@ func ConnectForTests(t *testing.T) *gorm.DB {
 		return conn
 	}
 
-	// These are static connection details for tests, started by `leeway build components/gitpod-db/go:init-testdb`.
+	// These are static connection details for tests, started by `leeway build components/nxpod-db/go:init-testdb`.
 	// We use the same static credentials for CI & local instance of MySQL Server.
 	var err error
 	conn, err = db.Connect(db.ConnectionParams{
 		User:     "root",
 		Password: "test",
 		Host:     net.JoinHostPort(os.Getenv("DB_HOST"), "23306"),
-		Database: "gitpod",
+		Database: "nxpod",
 	})
-	require.NoError(t, err, "Failed to establish connection to  In a workspace, run `leeway run components/gitpod-db:init-testdb` once to bootstrap the db")
+	require.NoError(t, err, "Failed to establish connection to  In a workspace, run `leeway run components/nxpod-db:init-testdb` once to bootstrap the db")
 
 	return conn
 }

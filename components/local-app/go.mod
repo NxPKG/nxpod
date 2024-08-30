@@ -5,7 +5,7 @@ go 1.22
 require (
 	github.com/desertbit/timer v0.0.0-20180107155436-c41aec40b27f // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/local-app/api v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	github.com/golang/mock v1.6.0
@@ -102,7 +102,7 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230920204549-e6e6cdab5c13 // indirect
 )
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/local-app/api => ../local-app-api/go // leeway
 

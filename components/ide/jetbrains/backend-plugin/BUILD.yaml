@@ -68,7 +68,7 @@ packages:
       - noVerifyJBPlugin
     deps:
       - components/supervisor-api/java:lib
-      - components/gitpod-protocol/java:lib
+      - components/nxpod-protocol/java:lib
     srcs:
       - "**/*.kt"
       - "build.gradle-stable.kts"
@@ -93,7 +93,7 @@ packages:
       - noVerifyJBPlugin
     deps:
       - components/supervisor-api/java:lib
-      - components/gitpod-protocol/java:lib
+      - components/nxpod-protocol/java:lib
     srcs:
       - "**/*.kt"
       - "build.gradle-latest.kts"
@@ -109,7 +109,7 @@ packages:
       - JB_QUALIFIER=latest
       - NO_VERIFY_JB_PLUGIN=${noVerifyJBPlugin}
       # TODO(hw): remove after `2024.2.*` is stable
-      - SDKMAN_DIR=/home/gitpod/.sdkman
+      - SDKMAN_DIR=/home/nxpod/.sdkman
     config:
       commands:
         # TODO(hw): remove after 2024.2.* is stable
@@ -127,7 +127,7 @@ packages:
       - noVerifyJBPlugin
     deps:
       - components/supervisor-api/java:lib
-      - components/gitpod-protocol/java:lib
+      - components/nxpod-protocol/java:lib
     srcs:
       - "**/*.kt"
       - "build.gradle-stable.kts"
@@ -153,7 +153,7 @@ packages:
       - noVerifyJBPlugin
     deps:
       - components/supervisor-api/java:lib
-      - components/gitpod-protocol/java:lib
+      - components/nxpod-protocol/java:lib
     srcs:
       - "**/*.kt"
       - "build.gradle-latest.kts"
@@ -173,7 +173,7 @@ packages:
       - JB_QUALIFIER=latest
       - NO_VERIFY_JB_PLUGIN=${noVerifyJBPlugin}
       # TODO(hw): remove after `2024.2.*` is stable
-      - SDKMAN_DIR=/home/gitpod/.sdkman
+      - SDKMAN_DIR=/home/nxpod/.sdkman
     config:
       commands:
         # TODO(hw): remove after 2024.2.* is stable

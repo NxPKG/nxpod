@@ -359,7 +359,7 @@ func BenchmarkParseNxpodEnvironP1(b *testing.B) {
 func BenchmarkParseNxpodEnvironP2(b *testing.B) {
 	benchmarkParseNxpodEnviron("NXPOD_INSTANCE_ID=foobar\000NXPOD_INSTANCE_ID=foobar\000", b)
 }
-func BenchmarkParseGitPodEnvironP4(b *testing.B) {
+func BenchmarkParseNxPodEnvironP4(b *testing.B) {
 	benchmarkParseNxpodEnviron("NXPOD_INSTANCE_ID=foobar\000NXPOD_INSTANCE_ID=foobar\000NXPOD_INSTANCE_ID=foobar\000NXPOD_INSTANCE_ID=foobar\000", b)
 }
 func BenchmarkParseNxpodEnvironP8(b *testing.B) {

@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/ide_client.proto
+// source: nxpod/experimental/v1/ide_client.proto
 
 package v1
 
@@ -44,7 +44,7 @@ func NewIDEClientServiceClient(cc grpc.ClientConnInterface) IDEClientServiceClie
 
 func (c *iDEClientServiceClient) SendHeartbeat(ctx context.Context, in *SendHeartbeatRequest, opts ...grpc.CallOption) (*SendHeartbeatResponse, error) {
 	out := new(SendHeartbeatResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.IDEClientService/SendHeartbeat", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.IDEClientService/SendHeartbeat", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func (c *iDEClientServiceClient) SendHeartbeat(ctx context.Context, in *SendHear
 
 func (c *iDEClientServiceClient) SendDidClose(ctx context.Context, in *SendDidCloseRequest, opts ...grpc.CallOption) (*SendDidCloseResponse, error) {
 	out := new(SendDidCloseResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.IDEClientService/SendDidClose", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.IDEClientService/SendDidClose", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (c *iDEClientServiceClient) SendDidClose(ctx context.Context, in *SendDidCl
 
 func (c *iDEClientServiceClient) UpdateGitStatus(ctx context.Context, in *UpdateGitStatusRequest, opts ...grpc.CallOption) (*UpdateGitStatusResponse, error) {
 	out := new(UpdateGitStatusResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.IDEClientService/UpdateGitStatus", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.IDEClientService/UpdateGitStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -118,7 +118,7 @@ func _IDEClientService_SendHeartbeat_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.IDEClientService/SendHeartbeat",
+		FullMethod: "/nxpod.experimental.v1.IDEClientService/SendHeartbeat",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(IDEClientServiceServer).SendHeartbeat(ctx, req.(*SendHeartbeatRequest))
@@ -136,7 +136,7 @@ func _IDEClientService_SendDidClose_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.IDEClientService/SendDidClose",
+		FullMethod: "/nxpod.experimental.v1.IDEClientService/SendDidClose",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(IDEClientServiceServer).SendDidClose(ctx, req.(*SendDidCloseRequest))
@@ -154,7 +154,7 @@ func _IDEClientService_UpdateGitStatus_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.IDEClientService/UpdateGitStatus",
+		FullMethod: "/nxpod.experimental.v1.IDEClientService/UpdateGitStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(IDEClientServiceServer).UpdateGitStatus(ctx, req.(*UpdateGitStatusRequest))
@@ -166,7 +166,7 @@ func _IDEClientService_UpdateGitStatus_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var IDEClientService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.IDEClientService",
+	ServiceName: "nxpod.experimental.v1.IDEClientService",
 	HandlerType: (*IDEClientServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -183,5 +183,5 @@ var IDEClientService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/ide_client.proto",
+	Metadata: "nxpod/experimental/v1/ide_client.proto",
 }

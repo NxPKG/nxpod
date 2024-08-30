@@ -28,11 +28,11 @@ import { UserContextProvider } from "./user-context";
 import { getURLHash, isNxpodIo, isWebsiteSlug } from "./utils";
 
 const bootApp = () => {
-    // nxpod.io specific boot logic
+    // nxpod.khulnasoft.com specific boot logic
     if (isNxpodIo()) {
         // Redirect to www website for any website slugs
         if (isWebsiteSlug(window.location.pathname)) {
-            window.location.host = "www.nxpod.io";
+            window.location.host = "www.nxpod.khulnasoft.com";
             return;
         }
     }

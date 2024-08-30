@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/configuration.proto
+// source: nxpod/v1/configuration.proto
 
 package v1
 
@@ -57,11 +57,11 @@ func (x PrebuildTriggerStrategy) String() string {
 }
 
 func (PrebuildTriggerStrategy) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_configuration_proto_enumTypes[0].Descriptor()
+	return file_nxpod_v1_configuration_proto_enumTypes[0].Descriptor()
 }
 
 func (PrebuildTriggerStrategy) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_configuration_proto_enumTypes[0]
+	return &file_nxpod_v1_configuration_proto_enumTypes[0]
 }
 
 func (x PrebuildTriggerStrategy) Number() protoreflect.EnumNumber {
@@ -70,7 +70,7 @@ func (x PrebuildTriggerStrategy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PrebuildTriggerStrategy.Descriptor instead.
 func (PrebuildTriggerStrategy) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{0}
 }
 
 type BranchMatchingStrategy int32
@@ -109,11 +109,11 @@ func (x BranchMatchingStrategy) String() string {
 }
 
 func (BranchMatchingStrategy) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_configuration_proto_enumTypes[1].Descriptor()
+	return file_nxpod_v1_configuration_proto_enumTypes[1].Descriptor()
 }
 
 func (BranchMatchingStrategy) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_configuration_proto_enumTypes[1]
+	return &file_nxpod_v1_configuration_proto_enumTypes[1]
 }
 
 func (x BranchMatchingStrategy) Number() protoreflect.EnumNumber {
@@ -122,7 +122,7 @@ func (x BranchMatchingStrategy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BranchMatchingStrategy.Descriptor instead.
 func (BranchMatchingStrategy) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{1}
 }
 
 type Configuration struct {
@@ -142,7 +142,7 @@ type Configuration struct {
 func (x *Configuration) Reset() {
 	*x = Configuration{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[0]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -155,7 +155,7 @@ func (x *Configuration) String() string {
 func (*Configuration) ProtoMessage() {}
 
 func (x *Configuration) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[0]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -168,7 +168,7 @@ func (x *Configuration) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Configuration.ProtoReflect.Descriptor instead.
 func (*Configuration) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Configuration) GetId() string {
@@ -227,16 +227,16 @@ type PrebuildSettings struct {
 
 	Enabled               bool                    `protobuf:"varint,1,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	BranchMatchingPattern string                  `protobuf:"bytes,2,opt,name=branch_matching_pattern,json=branchMatchingPattern,proto3" json:"branch_matching_pattern,omitempty"`
-	BranchStrategy        BranchMatchingStrategy  `protobuf:"varint,3,opt,name=branch_strategy,json=branchStrategy,proto3,enum=gitpod.v1.BranchMatchingStrategy" json:"branch_strategy,omitempty"`
+	BranchStrategy        BranchMatchingStrategy  `protobuf:"varint,3,opt,name=branch_strategy,json=branchStrategy,proto3,enum=nxpod.v1.BranchMatchingStrategy" json:"branch_strategy,omitempty"`
 	PrebuildInterval      int32                   `protobuf:"varint,4,opt,name=prebuild_interval,json=prebuildInterval,proto3" json:"prebuild_interval,omitempty"`
 	WorkspaceClass        string                  `protobuf:"bytes,5,opt,name=workspace_class,json=workspaceClass,proto3" json:"workspace_class,omitempty"`
-	TriggerStrategy       PrebuildTriggerStrategy `protobuf:"varint,6,opt,name=trigger_strategy,json=triggerStrategy,proto3,enum=gitpod.v1.PrebuildTriggerStrategy" json:"trigger_strategy,omitempty"`
+	TriggerStrategy       PrebuildTriggerStrategy `protobuf:"varint,6,opt,name=trigger_strategy,json=triggerStrategy,proto3,enum=nxpod.v1.PrebuildTriggerStrategy" json:"trigger_strategy,omitempty"`
 }
 
 func (x *PrebuildSettings) Reset() {
 	*x = PrebuildSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[1]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -249,7 +249,7 @@ func (x *PrebuildSettings) String() string {
 func (*PrebuildSettings) ProtoMessage() {}
 
 func (x *PrebuildSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[1]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -262,7 +262,7 @@ func (x *PrebuildSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrebuildSettings.ProtoReflect.Descriptor instead.
 func (*PrebuildSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *PrebuildSettings) GetEnabled() bool {
@@ -320,7 +320,7 @@ type WorkspaceSettings struct {
 func (x *WorkspaceSettings) Reset() {
 	*x = WorkspaceSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[2]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -333,7 +333,7 @@ func (x *WorkspaceSettings) String() string {
 func (*WorkspaceSettings) ProtoMessage() {}
 
 func (x *WorkspaceSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[2]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -346,7 +346,7 @@ func (x *WorkspaceSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceSettings.ProtoReflect.Descriptor instead.
 func (*WorkspaceSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *WorkspaceSettings) GetWorkspaceClass() string {
@@ -383,7 +383,7 @@ type CreateConfigurationRequest struct {
 func (x *CreateConfigurationRequest) Reset() {
 	*x = CreateConfigurationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[3]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -396,7 +396,7 @@ func (x *CreateConfigurationRequest) String() string {
 func (*CreateConfigurationRequest) ProtoMessage() {}
 
 func (x *CreateConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[3]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -409,7 +409,7 @@ func (x *CreateConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*CreateConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateConfigurationRequest) GetOrganizationId() string {
@@ -444,7 +444,7 @@ type CreateConfigurationResponse struct {
 func (x *CreateConfigurationResponse) Reset() {
 	*x = CreateConfigurationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[4]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -457,7 +457,7 @@ func (x *CreateConfigurationResponse) String() string {
 func (*CreateConfigurationResponse) ProtoMessage() {}
 
 func (x *CreateConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[4]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -470,7 +470,7 @@ func (x *CreateConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*CreateConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CreateConfigurationResponse) GetConfiguration() *Configuration {
@@ -491,7 +491,7 @@ type GetConfigurationRequest struct {
 func (x *GetConfigurationRequest) Reset() {
 	*x = GetConfigurationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[5]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -504,7 +504,7 @@ func (x *GetConfigurationRequest) String() string {
 func (*GetConfigurationRequest) ProtoMessage() {}
 
 func (x *GetConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[5]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -517,7 +517,7 @@ func (x *GetConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*GetConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetConfigurationRequest) GetConfigurationId() string {
@@ -538,7 +538,7 @@ type GetConfigurationResponse struct {
 func (x *GetConfigurationResponse) Reset() {
 	*x = GetConfigurationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[6]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -551,7 +551,7 @@ func (x *GetConfigurationResponse) String() string {
 func (*GetConfigurationResponse) ProtoMessage() {}
 
 func (x *GetConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[6]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -564,7 +564,7 @@ func (x *GetConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*GetConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetConfigurationResponse) GetConfiguration() *Configuration {
@@ -591,7 +591,7 @@ type ListConfigurationsRequest struct {
 func (x *ListConfigurationsRequest) Reset() {
 	*x = ListConfigurationsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[7]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -604,7 +604,7 @@ func (x *ListConfigurationsRequest) String() string {
 func (*ListConfigurationsRequest) ProtoMessage() {}
 
 func (x *ListConfigurationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[7]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -617,7 +617,7 @@ func (x *ListConfigurationsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListConfigurationsRequest.ProtoReflect.Descriptor instead.
 func (*ListConfigurationsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ListConfigurationsRequest) GetOrganizationId() string {
@@ -667,7 +667,7 @@ type ListConfigurationsResponse struct {
 func (x *ListConfigurationsResponse) Reset() {
 	*x = ListConfigurationsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[8]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -680,7 +680,7 @@ func (x *ListConfigurationsResponse) String() string {
 func (*ListConfigurationsResponse) ProtoMessage() {}
 
 func (x *ListConfigurationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[8]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +693,7 @@ func (x *ListConfigurationsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListConfigurationsResponse.ProtoReflect.Descriptor instead.
 func (*ListConfigurationsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListConfigurationsResponse) GetConfigurations() []*Configuration {
@@ -724,7 +724,7 @@ type UpdateConfigurationRequest struct {
 func (x *UpdateConfigurationRequest) Reset() {
 	*x = UpdateConfigurationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[9]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -737,7 +737,7 @@ func (x *UpdateConfigurationRequest) String() string {
 func (*UpdateConfigurationRequest) ProtoMessage() {}
 
 func (x *UpdateConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[9]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -750,7 +750,7 @@ func (x *UpdateConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateConfigurationRequest) GetConfigurationId() string {
@@ -792,7 +792,7 @@ type UpdateConfigurationResponse struct {
 func (x *UpdateConfigurationResponse) Reset() {
 	*x = UpdateConfigurationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[10]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -805,7 +805,7 @@ func (x *UpdateConfigurationResponse) String() string {
 func (*UpdateConfigurationResponse) ProtoMessage() {}
 
 func (x *UpdateConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[10]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -818,7 +818,7 @@ func (x *UpdateConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*UpdateConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UpdateConfigurationResponse) GetConfiguration() *Configuration {
@@ -839,7 +839,7 @@ type DeleteConfigurationRequest struct {
 func (x *DeleteConfigurationRequest) Reset() {
 	*x = DeleteConfigurationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[11]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -852,7 +852,7 @@ func (x *DeleteConfigurationRequest) String() string {
 func (*DeleteConfigurationRequest) ProtoMessage() {}
 
 func (x *DeleteConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[11]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -865,7 +865,7 @@ func (x *DeleteConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*DeleteConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeleteConfigurationRequest) GetConfigurationId() string {
@@ -884,7 +884,7 @@ type DeleteConfigurationResponse struct {
 func (x *DeleteConfigurationResponse) Reset() {
 	*x = DeleteConfigurationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[12]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -897,7 +897,7 @@ func (x *DeleteConfigurationResponse) String() string {
 func (*DeleteConfigurationResponse) ProtoMessage() {}
 
 func (x *DeleteConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[12]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -910,7 +910,7 @@ func (x *DeleteConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*DeleteConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{12}
 }
 
 type UpdateConfigurationRequest_PrebuildSettings struct {
@@ -920,16 +920,16 @@ type UpdateConfigurationRequest_PrebuildSettings struct {
 
 	Enabled               *bool                    `protobuf:"varint,1,opt,name=enabled,proto3,oneof" json:"enabled,omitempty"`
 	BranchMatchingPattern *string                  `protobuf:"bytes,2,opt,name=branch_matching_pattern,json=branchMatchingPattern,proto3,oneof" json:"branch_matching_pattern,omitempty"`
-	BranchStrategy        *BranchMatchingStrategy  `protobuf:"varint,3,opt,name=branch_strategy,json=branchStrategy,proto3,enum=gitpod.v1.BranchMatchingStrategy,oneof" json:"branch_strategy,omitempty"`
+	BranchStrategy        *BranchMatchingStrategy  `protobuf:"varint,3,opt,name=branch_strategy,json=branchStrategy,proto3,enum=nxpod.v1.BranchMatchingStrategy,oneof" json:"branch_strategy,omitempty"`
 	PrebuildInterval      *int32                   `protobuf:"varint,4,opt,name=prebuild_interval,json=prebuildInterval,proto3,oneof" json:"prebuild_interval,omitempty"`
 	WorkspaceClass        *string                  `protobuf:"bytes,5,opt,name=workspace_class,json=workspaceClass,proto3,oneof" json:"workspace_class,omitempty"`
-	TriggerStrategy       *PrebuildTriggerStrategy `protobuf:"varint,6,opt,name=trigger_strategy,json=triggerStrategy,proto3,enum=gitpod.v1.PrebuildTriggerStrategy,oneof" json:"trigger_strategy,omitempty"`
+	TriggerStrategy       *PrebuildTriggerStrategy `protobuf:"varint,6,opt,name=trigger_strategy,json=triggerStrategy,proto3,enum=nxpod.v1.PrebuildTriggerStrategy,oneof" json:"trigger_strategy,omitempty"`
 }
 
 func (x *UpdateConfigurationRequest_PrebuildSettings) Reset() {
 	*x = UpdateConfigurationRequest_PrebuildSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[13]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -942,7 +942,7 @@ func (x *UpdateConfigurationRequest_PrebuildSettings) String() string {
 func (*UpdateConfigurationRequest_PrebuildSettings) ProtoMessage() {}
 
 func (x *UpdateConfigurationRequest_PrebuildSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[13]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -955,7 +955,7 @@ func (x *UpdateConfigurationRequest_PrebuildSettings) ProtoReflect() protoreflec
 
 // Deprecated: Use UpdateConfigurationRequest_PrebuildSettings.ProtoReflect.Descriptor instead.
 func (*UpdateConfigurationRequest_PrebuildSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{9, 0}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{9, 0}
 }
 
 func (x *UpdateConfigurationRequest_PrebuildSettings) GetEnabled() bool {
@@ -1023,7 +1023,7 @@ type UpdateConfigurationRequest_WorkspaceSettings struct {
 func (x *UpdateConfigurationRequest_WorkspaceSettings) Reset() {
 	*x = UpdateConfigurationRequest_WorkspaceSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_configuration_proto_msgTypes[14]
+		mi := &file_nxpod_v1_configuration_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1036,7 +1036,7 @@ func (x *UpdateConfigurationRequest_WorkspaceSettings) String() string {
 func (*UpdateConfigurationRequest_WorkspaceSettings) ProtoMessage() {}
 
 func (x *UpdateConfigurationRequest_WorkspaceSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_configuration_proto_msgTypes[14]
+	mi := &file_nxpod_v1_configuration_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1049,7 +1049,7 @@ func (x *UpdateConfigurationRequest_WorkspaceSettings) ProtoReflect() protorefle
 
 // Deprecated: Use UpdateConfigurationRequest_WorkspaceSettings.ProtoReflect.Descriptor instead.
 func (*UpdateConfigurationRequest_WorkspaceSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_configuration_proto_rawDescGZIP(), []int{9, 1}
+	return file_nxpod_v1_configuration_proto_rawDescGZIP(), []int{9, 1}
 }
 
 func (x *UpdateConfigurationRequest_WorkspaceSettings) GetWorkspaceClass() string {
@@ -1087,9 +1087,9 @@ func (x *UpdateConfigurationRequest_WorkspaceSettings) GetUpdateRestrictedEditor
 	return false
 }
 
-var File_gitpod_v1_configuration_proto protoreflect.FileDescriptor
+var File_nxpod_v1_configuration_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_configuration_proto_rawDesc = []byte{
+var file_nxpod_v1_configuration_proto_rawDesc = []byte{
 	0x0a, 0x1d, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x66,
 	0x69, 0x67, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
 	0x09, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70,
@@ -1360,69 +1360,69 @@ var file_gitpod_v1_configuration_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_configuration_proto_rawDescOnce sync.Once
-	file_gitpod_v1_configuration_proto_rawDescData = file_gitpod_v1_configuration_proto_rawDesc
+	file_nxpod_v1_configuration_proto_rawDescOnce sync.Once
+	file_nxpod_v1_configuration_proto_rawDescData = file_nxpod_v1_configuration_proto_rawDesc
 )
 
-func file_gitpod_v1_configuration_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_configuration_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_configuration_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_configuration_proto_rawDescData)
+func file_nxpod_v1_configuration_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_configuration_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_configuration_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_configuration_proto_rawDescData)
 	})
-	return file_gitpod_v1_configuration_proto_rawDescData
+	return file_nxpod_v1_configuration_proto_rawDescData
 }
 
-var file_gitpod_v1_configuration_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_gitpod_v1_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
-var file_gitpod_v1_configuration_proto_goTypes = []interface{}{
-	(PrebuildTriggerStrategy)(0),                         // 0: gitpod.v1.PrebuildTriggerStrategy
-	(BranchMatchingStrategy)(0),                          // 1: gitpod.v1.BranchMatchingStrategy
-	(*Configuration)(nil),                                // 2: gitpod.v1.Configuration
-	(*PrebuildSettings)(nil),                             // 3: gitpod.v1.PrebuildSettings
-	(*WorkspaceSettings)(nil),                            // 4: gitpod.v1.WorkspaceSettings
-	(*CreateConfigurationRequest)(nil),                   // 5: gitpod.v1.CreateConfigurationRequest
-	(*CreateConfigurationResponse)(nil),                  // 6: gitpod.v1.CreateConfigurationResponse
-	(*GetConfigurationRequest)(nil),                      // 7: gitpod.v1.GetConfigurationRequest
-	(*GetConfigurationResponse)(nil),                     // 8: gitpod.v1.GetConfigurationResponse
-	(*ListConfigurationsRequest)(nil),                    // 9: gitpod.v1.ListConfigurationsRequest
-	(*ListConfigurationsResponse)(nil),                   // 10: gitpod.v1.ListConfigurationsResponse
-	(*UpdateConfigurationRequest)(nil),                   // 11: gitpod.v1.UpdateConfigurationRequest
-	(*UpdateConfigurationResponse)(nil),                  // 12: gitpod.v1.UpdateConfigurationResponse
-	(*DeleteConfigurationRequest)(nil),                   // 13: gitpod.v1.DeleteConfigurationRequest
-	(*DeleteConfigurationResponse)(nil),                  // 14: gitpod.v1.DeleteConfigurationResponse
-	(*UpdateConfigurationRequest_PrebuildSettings)(nil),  // 15: gitpod.v1.UpdateConfigurationRequest.PrebuildSettings
-	(*UpdateConfigurationRequest_WorkspaceSettings)(nil), // 16: gitpod.v1.UpdateConfigurationRequest.WorkspaceSettings
+var file_nxpod_v1_configuration_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_nxpod_v1_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_nxpod_v1_configuration_proto_goTypes = []interface{}{
+	(PrebuildTriggerStrategy)(0),                         // 0: nxpod.v1.PrebuildTriggerStrategy
+	(BranchMatchingStrategy)(0),                          // 1: nxpod.v1.BranchMatchingStrategy
+	(*Configuration)(nil),                                // 2: nxpod.v1.Configuration
+	(*PrebuildSettings)(nil),                             // 3: nxpod.v1.PrebuildSettings
+	(*WorkspaceSettings)(nil),                            // 4: nxpod.v1.WorkspaceSettings
+	(*CreateConfigurationRequest)(nil),                   // 5: nxpod.v1.CreateConfigurationRequest
+	(*CreateConfigurationResponse)(nil),                  // 6: nxpod.v1.CreateConfigurationResponse
+	(*GetConfigurationRequest)(nil),                      // 7: nxpod.v1.GetConfigurationRequest
+	(*GetConfigurationResponse)(nil),                     // 8: nxpod.v1.GetConfigurationResponse
+	(*ListConfigurationsRequest)(nil),                    // 9: nxpod.v1.ListConfigurationsRequest
+	(*ListConfigurationsResponse)(nil),                   // 10: nxpod.v1.ListConfigurationsResponse
+	(*UpdateConfigurationRequest)(nil),                   // 11: nxpod.v1.UpdateConfigurationRequest
+	(*UpdateConfigurationResponse)(nil),                  // 12: nxpod.v1.UpdateConfigurationResponse
+	(*DeleteConfigurationRequest)(nil),                   // 13: nxpod.v1.DeleteConfigurationRequest
+	(*DeleteConfigurationResponse)(nil),                  // 14: nxpod.v1.DeleteConfigurationResponse
+	(*UpdateConfigurationRequest_PrebuildSettings)(nil),  // 15: nxpod.v1.UpdateConfigurationRequest.PrebuildSettings
+	(*UpdateConfigurationRequest_WorkspaceSettings)(nil), // 16: nxpod.v1.UpdateConfigurationRequest.WorkspaceSettings
 	(*timestamppb.Timestamp)(nil),                        // 17: google.protobuf.Timestamp
-	(*PaginationRequest)(nil),                            // 18: gitpod.v1.PaginationRequest
-	(*Sort)(nil),                                         // 19: gitpod.v1.Sort
-	(*PaginationResponse)(nil),                           // 20: gitpod.v1.PaginationResponse
+	(*PaginationRequest)(nil),                            // 18: nxpod.v1.PaginationRequest
+	(*Sort)(nil),                                         // 19: nxpod.v1.Sort
+	(*PaginationResponse)(nil),                           // 20: nxpod.v1.PaginationResponse
 }
-var file_gitpod_v1_configuration_proto_depIdxs = []int32{
-	17, // 0: gitpod.v1.Configuration.creation_time:type_name -> google.protobuf.Timestamp
-	3,  // 1: gitpod.v1.Configuration.prebuild_settings:type_name -> gitpod.v1.PrebuildSettings
-	4,  // 2: gitpod.v1.Configuration.workspace_settings:type_name -> gitpod.v1.WorkspaceSettings
-	1,  // 3: gitpod.v1.PrebuildSettings.branch_strategy:type_name -> gitpod.v1.BranchMatchingStrategy
-	0,  // 4: gitpod.v1.PrebuildSettings.trigger_strategy:type_name -> gitpod.v1.PrebuildTriggerStrategy
-	2,  // 5: gitpod.v1.CreateConfigurationResponse.configuration:type_name -> gitpod.v1.Configuration
-	2,  // 6: gitpod.v1.GetConfigurationResponse.configuration:type_name -> gitpod.v1.Configuration
-	18, // 7: gitpod.v1.ListConfigurationsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	19, // 8: gitpod.v1.ListConfigurationsRequest.sort:type_name -> gitpod.v1.Sort
-	2,  // 9: gitpod.v1.ListConfigurationsResponse.configurations:type_name -> gitpod.v1.Configuration
-	20, // 10: gitpod.v1.ListConfigurationsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	15, // 11: gitpod.v1.UpdateConfigurationRequest.prebuild_settings:type_name -> gitpod.v1.UpdateConfigurationRequest.PrebuildSettings
-	16, // 12: gitpod.v1.UpdateConfigurationRequest.workspace_settings:type_name -> gitpod.v1.UpdateConfigurationRequest.WorkspaceSettings
-	2,  // 13: gitpod.v1.UpdateConfigurationResponse.configuration:type_name -> gitpod.v1.Configuration
-	1,  // 14: gitpod.v1.UpdateConfigurationRequest.PrebuildSettings.branch_strategy:type_name -> gitpod.v1.BranchMatchingStrategy
-	0,  // 15: gitpod.v1.UpdateConfigurationRequest.PrebuildSettings.trigger_strategy:type_name -> gitpod.v1.PrebuildTriggerStrategy
-	5,  // 16: gitpod.v1.ConfigurationService.CreateConfiguration:input_type -> gitpod.v1.CreateConfigurationRequest
-	7,  // 17: gitpod.v1.ConfigurationService.GetConfiguration:input_type -> gitpod.v1.GetConfigurationRequest
-	9,  // 18: gitpod.v1.ConfigurationService.ListConfigurations:input_type -> gitpod.v1.ListConfigurationsRequest
-	11, // 19: gitpod.v1.ConfigurationService.UpdateConfiguration:input_type -> gitpod.v1.UpdateConfigurationRequest
-	13, // 20: gitpod.v1.ConfigurationService.DeleteConfiguration:input_type -> gitpod.v1.DeleteConfigurationRequest
-	6,  // 21: gitpod.v1.ConfigurationService.CreateConfiguration:output_type -> gitpod.v1.CreateConfigurationResponse
-	8,  // 22: gitpod.v1.ConfigurationService.GetConfiguration:output_type -> gitpod.v1.GetConfigurationResponse
-	10, // 23: gitpod.v1.ConfigurationService.ListConfigurations:output_type -> gitpod.v1.ListConfigurationsResponse
-	12, // 24: gitpod.v1.ConfigurationService.UpdateConfiguration:output_type -> gitpod.v1.UpdateConfigurationResponse
-	14, // 25: gitpod.v1.ConfigurationService.DeleteConfiguration:output_type -> gitpod.v1.DeleteConfigurationResponse
+var file_nxpod_v1_configuration_proto_depIdxs = []int32{
+	17, // 0: nxpod.v1.Configuration.creation_time:type_name -> google.protobuf.Timestamp
+	3,  // 1: nxpod.v1.Configuration.prebuild_settings:type_name -> nxpod.v1.PrebuildSettings
+	4,  // 2: nxpod.v1.Configuration.workspace_settings:type_name -> nxpod.v1.WorkspaceSettings
+	1,  // 3: nxpod.v1.PrebuildSettings.branch_strategy:type_name -> nxpod.v1.BranchMatchingStrategy
+	0,  // 4: nxpod.v1.PrebuildSettings.trigger_strategy:type_name -> nxpod.v1.PrebuildTriggerStrategy
+	2,  // 5: nxpod.v1.CreateConfigurationResponse.configuration:type_name -> nxpod.v1.Configuration
+	2,  // 6: nxpod.v1.GetConfigurationResponse.configuration:type_name -> nxpod.v1.Configuration
+	18, // 7: nxpod.v1.ListConfigurationsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	19, // 8: nxpod.v1.ListConfigurationsRequest.sort:type_name -> nxpod.v1.Sort
+	2,  // 9: nxpod.v1.ListConfigurationsResponse.configurations:type_name -> nxpod.v1.Configuration
+	20, // 10: nxpod.v1.ListConfigurationsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	15, // 11: nxpod.v1.UpdateConfigurationRequest.prebuild_settings:type_name -> nxpod.v1.UpdateConfigurationRequest.PrebuildSettings
+	16, // 12: nxpod.v1.UpdateConfigurationRequest.workspace_settings:type_name -> nxpod.v1.UpdateConfigurationRequest.WorkspaceSettings
+	2,  // 13: nxpod.v1.UpdateConfigurationResponse.configuration:type_name -> nxpod.v1.Configuration
+	1,  // 14: nxpod.v1.UpdateConfigurationRequest.PrebuildSettings.branch_strategy:type_name -> nxpod.v1.BranchMatchingStrategy
+	0,  // 15: nxpod.v1.UpdateConfigurationRequest.PrebuildSettings.trigger_strategy:type_name -> nxpod.v1.PrebuildTriggerStrategy
+	5,  // 16: nxpod.v1.ConfigurationService.CreateConfiguration:input_type -> nxpod.v1.CreateConfigurationRequest
+	7,  // 17: nxpod.v1.ConfigurationService.GetConfiguration:input_type -> nxpod.v1.GetConfigurationRequest
+	9,  // 18: nxpod.v1.ConfigurationService.ListConfigurations:input_type -> nxpod.v1.ListConfigurationsRequest
+	11, // 19: nxpod.v1.ConfigurationService.UpdateConfiguration:input_type -> nxpod.v1.UpdateConfigurationRequest
+	13, // 20: nxpod.v1.ConfigurationService.DeleteConfiguration:input_type -> nxpod.v1.DeleteConfigurationRequest
+	6,  // 21: nxpod.v1.ConfigurationService.CreateConfiguration:output_type -> nxpod.v1.CreateConfigurationResponse
+	8,  // 22: nxpod.v1.ConfigurationService.GetConfiguration:output_type -> nxpod.v1.GetConfigurationResponse
+	10, // 23: nxpod.v1.ConfigurationService.ListConfigurations:output_type -> nxpod.v1.ListConfigurationsResponse
+	12, // 24: nxpod.v1.ConfigurationService.UpdateConfiguration:output_type -> nxpod.v1.UpdateConfigurationResponse
+	14, // 25: nxpod.v1.ConfigurationService.DeleteConfiguration:output_type -> nxpod.v1.DeleteConfigurationResponse
 	21, // [21:26] is the sub-list for method output_type
 	16, // [16:21] is the sub-list for method input_type
 	16, // [16:16] is the sub-list for extension type_name
@@ -1430,15 +1430,15 @@ var file_gitpod_v1_configuration_proto_depIdxs = []int32{
 	0,  // [0:16] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_configuration_proto_init() }
-func file_gitpod_v1_configuration_proto_init() {
-	if File_gitpod_v1_configuration_proto != nil {
+func init() { file_nxpod_v1_configuration_proto_init() }
+func file_nxpod_v1_configuration_proto_init() {
+	if File_nxpod_v1_configuration_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
-	file_gitpod_v1_sorting_proto_init()
+	file_nxpod_v1_pagination_proto_init()
+	file_nxpod_v1_sorting_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_configuration_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Configuration); i {
 			case 0:
 				return &v.state
@@ -1450,7 +1450,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PrebuildSettings); i {
 			case 0:
 				return &v.state
@@ -1462,7 +1462,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceSettings); i {
 			case 0:
 				return &v.state
@@ -1474,7 +1474,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateConfigurationRequest); i {
 			case 0:
 				return &v.state
@@ -1486,7 +1486,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateConfigurationResponse); i {
 			case 0:
 				return &v.state
@@ -1498,7 +1498,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetConfigurationRequest); i {
 			case 0:
 				return &v.state
@@ -1510,7 +1510,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetConfigurationResponse); i {
 			case 0:
 				return &v.state
@@ -1522,7 +1522,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListConfigurationsRequest); i {
 			case 0:
 				return &v.state
@@ -1534,7 +1534,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListConfigurationsResponse); i {
 			case 0:
 				return &v.state
@@ -1546,7 +1546,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateConfigurationRequest); i {
 			case 0:
 				return &v.state
@@ -1558,7 +1558,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateConfigurationResponse); i {
 			case 0:
 				return &v.state
@@ -1570,7 +1570,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteConfigurationRequest); i {
 			case 0:
 				return &v.state
@@ -1582,7 +1582,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteConfigurationResponse); i {
 			case 0:
 				return &v.state
@@ -1594,7 +1594,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateConfigurationRequest_PrebuildSettings); i {
 			case 0:
 				return &v.state
@@ -1606,7 +1606,7 @@ func file_gitpod_v1_configuration_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_configuration_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_configuration_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateConfigurationRequest_WorkspaceSettings); i {
 			case 0:
 				return &v.state
@@ -1619,27 +1619,27 @@ func file_gitpod_v1_configuration_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_configuration_proto_msgTypes[7].OneofWrappers = []interface{}{}
-	file_gitpod_v1_configuration_proto_msgTypes[9].OneofWrappers = []interface{}{}
-	file_gitpod_v1_configuration_proto_msgTypes[13].OneofWrappers = []interface{}{}
-	file_gitpod_v1_configuration_proto_msgTypes[14].OneofWrappers = []interface{}{}
+	file_nxpod_v1_configuration_proto_msgTypes[7].OneofWrappers = []interface{}{}
+	file_nxpod_v1_configuration_proto_msgTypes[9].OneofWrappers = []interface{}{}
+	file_nxpod_v1_configuration_proto_msgTypes[13].OneofWrappers = []interface{}{}
+	file_nxpod_v1_configuration_proto_msgTypes[14].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_configuration_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_configuration_proto_rawDesc,
 			NumEnums:      2,
 			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_configuration_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_configuration_proto_depIdxs,
-		EnumInfos:         file_gitpod_v1_configuration_proto_enumTypes,
-		MessageInfos:      file_gitpod_v1_configuration_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_configuration_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_configuration_proto_depIdxs,
+		EnumInfos:         file_nxpod_v1_configuration_proto_enumTypes,
+		MessageInfos:      file_nxpod_v1_configuration_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_configuration_proto = out.File
-	file_gitpod_v1_configuration_proto_rawDesc = nil
-	file_gitpod_v1_configuration_proto_goTypes = nil
-	file_gitpod_v1_configuration_proto_depIdxs = nil
+	File_nxpod_v1_configuration_proto = out.File
+	file_nxpod_v1_configuration_proto_rawDesc = nil
+	file_nxpod_v1_configuration_proto_goTypes = nil
+	file_nxpod_v1_configuration_proto_depIdxs = nil
 }

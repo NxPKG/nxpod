@@ -528,7 +528,7 @@ type GitConfig struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// custom config values to be set on clone provided through `.gitpod.yml`
+	// custom config values to be set on clone provided through `.nxpod.yml`
 	CustomConfig map[string]string `protobuf:"bytes,1,rep,name=custom_config,json=customConfig,proto3" json:"custom_config,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// authentication method
 	Authentication GitAuthMethod `protobuf:"varint,2,opt,name=authentication,proto3,enum=contentservice.GitAuthMethod" json:"authentication,omitempty"`

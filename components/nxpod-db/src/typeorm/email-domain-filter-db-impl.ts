@@ -7,7 +7,7 @@
 import { injectable, inject } from "inversify";
 import { EntityManager, Repository } from "typeorm";
 
-import { EmailDomainFilterEntry } from "@gitpod/gitpod-protocol";
+import { EmailDomainFilterEntry } from "@nxpod/nxpod-protocol";
 import { TypeORM } from "../typeorm/typeorm";
 import { EmailDomainFilterDB } from "../email-domain-filter-db";
 import { DBEmailDomainFilterEntry } from "./entity/db-email-domain-filter-entry";

@@ -16,7 +16,7 @@ import (
 	"regexp"
 	"strings"
 
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	appapi "github.com/nxpkg/nxpod/local-app/api"
 	"github.com/nxpkg/local-app/pkg/auth"
 	"github.com/nxpkg/local-app/pkg/bastion"
@@ -32,23 +32,23 @@ func main() {
 	// maintain compatibility with old keyring
 	sshConfig := os.Getenv("NXPOD_LCA_SSH_CONFIG")
 	if sshConfig == "" {
-		sshConfig = filepath.Join(os.TempDir(), "gitpod_ssh_config")
+		sshConfig = filepath.Join(os.TempDir(), "nxpod_ssh_config")
 	}
 
 	app := cli.App{
-		Name:                 "gitpod-local-companion",
+		Name:                 "nxpod-local-companion",
 		Usage:                "connect your Nxpod workspaces",
 		Action:               DefaultCommand("run"),
 		EnableBashCompletion: true,
 		Version:              constants.Version.String(),
 		Flags: []cli.Flag{
 			&cli.StringFlag{
-				Name:  "gitpod-host",
+				Name:  "nxpod-host",
 				Usage: "URL of the Nxpod installation to connect to",
 				EnvVars: []string{
 					"NXPOD_HOST",
 				},
-				Value: "https://gitpod.io",
+				Value: "https://nxpod.khulnasoft.com",
 			},
 			&cli.BoolFlag{
 				Name:  "mock-keyring",
@@ -113,7 +113,7 @@ func main() {
 						keyring.MockInit()
 					}
 					return run(runOptions{
-						origin:            c.String("gitpod-host"),
+						origin:            c.String("nxpod-host"),
 						sshConfigPath:     c.String("ssh_config"),
 						apiPort:           c.Int("api-port"),
 						allowCORSFromPort: c.Bool("allow-cors-from-port"),
@@ -236,8 +236,8 @@ func run(opts runOptions) error {
 	return b.Run()
 }
 
-func connectToServer(loginOpts auth.LoginOpts, reconnectionHandler func(), closeHandler func(error)) (*gitpod.APIoverJSONRPC, error) {
-	var client *gitpod.APIoverJSONRPC
+func connectToServer(loginOpts auth.LoginOpts, reconnectionHandler func(), closeHandler func(error)) (*nxpod.APIoverJSONRPC, error) {
+	var client *nxpod.APIoverJSONRPC
 	onClose := func(closeErr error) {
 		if client != nil {
 			closeHandler(closeErr)
@@ -270,19 +270,19 @@ func connectToServer(loginOpts auth.LoginOpts, reconnectionHandler func(), close
 	return client, err
 }
 
-func tryConnectToServer(gitpodUrl string, tkn string, reconnectionHandler func(), closeHandler func(error)) (*gitpod.APIoverJSONRPC, error) {
-	wshost := gitpodUrl
+func tryConnectToServer(nxpodUrl string, tkn string, reconnectionHandler func(), closeHandler func(error)) (*nxpod.APIoverJSONRPC, error) {
+	wshost := nxpodUrl
 	wshost = strings.ReplaceAll(wshost, "https://", "wss://")
 	wshost = strings.ReplaceAll(wshost, "http://", "ws://")
 	wshost += "/api/v1"
-	client, err := gitpod.ConnectToServer(wshost, gitpod.ConnectToServerOpts{
+	client, err := nxpod.ConnectToServer(wshost, nxpod.ConnectToServerOpts{
 		Context:             context.Background(),
 		Token:               tkn,
 		Log:                 logrus.NewEntry(logrus.StandardLogger()),
 		ReconnectionHandler: reconnectionHandler,
 		CloseHandler:        closeHandler,
 		ExtraHeaders: map[string]string{
-			"User-Agent":       "gitpod/local-companion",
+			"User-Agent":       "nxpod/local-companion",
 			"X-Client-Version": constants.Version.String(),
 		},
 	})
@@ -297,12 +297,12 @@ func tryConnectToServer(gitpodUrl string, tkn string, reconnectionHandler func()
 
 	closeErr := client.Close()
 	if closeErr != nil {
-		logrus.WithError(closeErr).WithField("origin", gitpodUrl).Warn("failed to close connection to gitpod server")
+		logrus.WithError(closeErr).WithField("origin", nxpodUrl).Warn("failed to close connection to nxpod server")
 	}
 
-	deleteErr := auth.DeleteToken(gitpodUrl)
+	deleteErr := auth.DeleteToken(nxpodUrl)
 	if deleteErr != nil {
-		logrus.WithError(deleteErr).WithField("origin", gitpodUrl).Warn("failed to delete gitpod token")
+		logrus.WithError(deleteErr).WithField("origin", nxpodUrl).Warn("failed to delete nxpod token")
 	}
 
 	return nil, err

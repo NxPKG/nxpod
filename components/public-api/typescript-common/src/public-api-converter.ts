@@ -8,11 +8,11 @@ import "reflect-metadata";
 
 import { Duration, PartialMessage, Timestamp, toPlainMessage } from "@bufbuild/protobuf";
 import { Code, ConnectError } from "@connectrpc/connect";
-import { NxpodServer } from "@gitpod/gitpod-protocol";
-import { BlockedRepository as ProtocolBlockedRepository } from "@gitpod/gitpod-protocol/lib/blocked-repositories-protocol";
-import { ContextURL } from "@gitpod/gitpod-protocol/lib/context-url";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
-import { RoleOrPermission as ProtocolRoleOrPermission } from "@gitpod/gitpod-protocol/lib/permission";
+import { NxpodServer } from "@nxpod/nxpod-protocol";
+import { BlockedRepository as ProtocolBlockedRepository } from "@nxpod/nxpod-protocol/lib/blocked-repositories-protocol";
+import { ContextURL } from "@nxpod/nxpod-protocol/lib/context-url";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
+import { RoleOrPermission as ProtocolRoleOrPermission } from "@nxpod/nxpod-protocol/lib/permission";
 import {
     AuthProviderInfo,
     AuthProviderEntry as AuthProviderProtocol,
@@ -39,8 +39,8 @@ import {
     WorkspaceContext,
     WorkspaceInfo,
     WorkspaceSession as WorkspaceSessionProtocol,
-} from "@gitpod/gitpod-protocol/lib/protocol";
-import { AuditLog as AuditLogProtocol } from "@gitpod/gitpod-protocol/lib/audit-log";
+} from "@nxpod/nxpod-protocol/lib/protocol";
+import { AuditLog as AuditLogProtocol } from "@nxpod/nxpod-protocol/lib/audit-log";
 import {
     OrgMemberInfo,
     OrgMemberRole,
@@ -51,11 +51,11 @@ import {
     Project,
     ProjectSettings,
     Organization as ProtocolOrganization,
-} from "@gitpod/gitpod-protocol/lib/teams-projects-protocol";
-import type { DeepPartial } from "@gitpod/gitpod-protocol/lib/util/deep-partial";
-import { parseGoDurationToMs } from "@gitpod/gitpod-protocol/lib/util/timeutil";
-import { SupportedWorkspaceClass } from "@gitpod/gitpod-protocol/lib/workspace-class";
-import { isWorkspaceRegion } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+} from "@nxpod/nxpod-protocol/lib/teams-projects-protocol";
+import type { DeepPartial } from "@nxpod/nxpod-protocol/lib/util/deep-partial";
+import { parseGoDurationToMs } from "@nxpod/nxpod-protocol/lib/util/timeutil";
+import { SupportedWorkspaceClass } from "@nxpod/nxpod-protocol/lib/workspace-class";
+import { isWorkspaceRegion } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 import {
     ConfigurationIdeConfig,
     PortProtocol,
@@ -63,28 +63,28 @@ import {
     WorkspaceInstanceConditions,
     WorkspaceInstancePhase,
     WorkspaceInstancePort,
-} from "@gitpod/gitpod-protocol/lib/workspace-instance";
+} from "@nxpod/nxpod-protocol/lib/workspace-instance";
 import {
     AuthProvider,
     AuthProviderDescription,
     AuthProviderType,
     OAuth2Config,
-} from "@gitpod/public-api/lib/gitpod/v1/authprovider_pb";
-import { AuditLog } from "@gitpod/public-api/lib/gitpod/v1/auditlogs_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/authprovider_pb";
+import { AuditLog } from "@nxpod/public-api/lib/nxpod/v1/auditlogs_pb";
 import {
     BranchMatchingStrategy,
     Configuration,
     PrebuildTriggerStrategy,
     PrebuildSettings,
     WorkspaceSettings,
-} from "@gitpod/public-api/lib/gitpod/v1/configuration_pb";
-import { EditorReference } from "@gitpod/public-api/lib/gitpod/v1/editor_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/configuration_pb";
+import { EditorReference } from "@nxpod/public-api/lib/nxpod/v1/editor_pb";
 import {
     ConfigurationEnvironmentVariable,
     EnvironmentVariable,
     EnvironmentVariableAdmission,
     UserEnvironmentVariable,
-} from "@gitpod/public-api/lib/gitpod/v1/envvar_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/envvar_pb";
 import {
     FailedPreconditionDetails,
     ImageBuildLogsNotYetAvailableError,
@@ -97,18 +97,18 @@ import {
     RepositoryUnauthorizedError as RepositoryUnauthorizedErrorData,
     TooManyRunningWorkspacesError,
     UserBlockedError,
-} from "@gitpod/public-api/lib/gitpod/v1/error_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/error_pb";
 import {
     BlockedEmailDomain,
     BlockedRepository,
     OnboardingState,
-} from "@gitpod/public-api/lib/gitpod/v1/installation_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/installation_pb";
 import {
     Organization,
     OrganizationMember,
     OrganizationRole,
     OrganizationSettings,
-} from "@gitpod/public-api/lib/gitpod/v1/organization_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/organization_pb";
 import {
     Prebuild,
     ListOrganizationPrebuildsRequest_Filter_State as PrebuildFilterState,
@@ -116,10 +116,10 @@ import {
     PrebuildPhase_Phase,
     PrebuildStatus,
     TaskLog,
-} from "@gitpod/public-api/lib/gitpod/v1/prebuild_pb";
-import { Author, Commit, SCMToken, SuggestedRepository } from "@gitpod/public-api/lib/gitpod/v1/scm_pb";
-import { Sort, SortOrder } from "@gitpod/public-api/lib/gitpod/v1/sorting_pb";
-import { SSHPublicKey } from "@gitpod/public-api/lib/gitpod/v1/ssh_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/prebuild_pb";
+import { Author, Commit, SCMToken, SuggestedRepository } from "@nxpod/public-api/lib/nxpod/v1/scm_pb";
+import { Sort, SortOrder } from "@nxpod/public-api/lib/nxpod/v1/sorting_pb";
+import { SSHPublicKey } from "@nxpod/public-api/lib/nxpod/v1/ssh_pb";
 import {
     Identity,
     RoleOrPermission,
@@ -129,7 +129,7 @@ import {
     User_UserFeatureFlag,
     User_WorkspaceAutostartOption,
     User_WorkspaceTimeoutSettings,
-} from "@gitpod/public-api/lib/gitpod/v1/user_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/user_pb";
 import {
     AdmissionLevel,
     CreateAndStartWorkspaceRequest,
@@ -158,8 +158,8 @@ import {
     WorkspaceStatus,
     WorkspaceStatus_PrebuildResult,
     WorkspaceStatus_WorkspaceConditions,
-} from "@gitpod/public-api/lib/gitpod/v1/workspace_pb";
-import { BigIntToJson } from "@gitpod/gitpod-protocol/lib/util/stringify";
+} from "@nxpod/public-api/lib/nxpod/v1/workspace_pb";
+import { BigIntToJson } from "@nxpod/nxpod-protocol/lib/util/stringify";
 import { getPrebuildLogPath } from "./prebuild-utils";
 import { InvalidNxpodYMLError, RepositoryNotFoundError, UnauthorizedRepositoryAccessError } from "./public-api-errors";
 const URL = require("url").URL || window.URL;
@@ -1189,11 +1189,11 @@ export class PublicAPIConverter {
         }
     }
 
-    toPrebuilds(gitpodHost: string, prebuilds: PrebuildWithStatus[]): Prebuild[] {
-        return prebuilds.map((prebuild) => this.toPrebuild(gitpodHost, prebuild));
+    toPrebuilds(nxpodHost: string, prebuilds: PrebuildWithStatus[]): Prebuild[] {
+        return prebuilds.map((prebuild) => this.toPrebuild(nxpodHost, prebuild));
     }
 
-    toPrebuild(gitpodHost: string, prebuild: PrebuildWithStatus): Prebuild {
+    toPrebuild(nxpodHost: string, prebuild: PrebuildWithStatus): Prebuild {
         return new Prebuild({
             id: prebuild.info.id,
             workspaceId: prebuild.info.buildWorkspaceId,
@@ -1214,11 +1214,11 @@ export class PublicAPIConverter {
             }),
             contextUrl: prebuild.info.changeUrl,
 
-            status: this.toPrebuildStatus(gitpodHost, prebuild),
+            status: this.toPrebuildStatus(nxpodHost, prebuild),
         });
     }
 
-    toPrebuildStatus(gitpodHost: string, prebuild: PrebuildWithStatus): PrebuildStatus {
+    toPrebuildStatus(nxpodHost: string, prebuild: PrebuildWithStatus): PrebuildStatus {
         const tasks: TaskLog[] = [];
         let taskIndex = 0;
         if (prebuild.workspace?.config?.tasks) {
@@ -1233,7 +1233,7 @@ export class PublicAPIConverter {
                         logUrl:
                             // if it has a prebuild task it has logs
                             task.before || task.init || task.prebuild
-                                ? new URL(getPrebuildLogPath(prebuild.info.id, `${i}`), gitpodHost).toString()
+                                ? new URL(getPrebuildLogPath(prebuild.info.id, `${i}`), nxpodHost).toString()
                                 : undefined,
                     }),
                 );
@@ -1261,7 +1261,7 @@ export class PublicAPIConverter {
                             taskLabel: `JetBrains ${capitalize(ide)} warmup (stable)`,
                             logUrl: new URL(
                                 getPrebuildLogPath(prebuild.info.id, `${++taskIndex}`),
-                                gitpodHost,
+                                nxpodHost,
                             ).toString(),
                         }),
                     );
@@ -1273,7 +1273,7 @@ export class PublicAPIConverter {
                             taskLabel: `JetBrains ${capitalize(ide)} warmup (latest)`,
                             logUrl: new URL(
                                 getPrebuildLogPath(prebuild.info.id, `${++taskIndex}`),
-                                gitpodHost,
+                                nxpodHost,
                             ).toString(),
                         }),
                     );
@@ -1293,9 +1293,9 @@ export class PublicAPIConverter {
             startTime: Timestamp.fromDate(new Date(prebuild.info.startedAt)),
             stopTime,
             message: prebuild.error,
-            logUrl: new URL(getPrebuildLogPath(prebuild.info.id), gitpodHost).toString(),
+            logUrl: new URL(getPrebuildLogPath(prebuild.info.id), nxpodHost).toString(),
             taskLogs: tasks,
-            imageBuildLogUrl: new URL(getPrebuildLogPath(prebuild.workspace.id, "image-build"), gitpodHost).toString(),
+            imageBuildLogUrl: new URL(getPrebuildLogPath(prebuild.workspace.id, "image-build"), nxpodHost).toString(),
         });
     }
 

@@ -20,7 +20,7 @@ func TestConnectionParamsFromEnv(t *testing.T) {
 		User:     "username",
 		Password: "pass",
 		Host:     "dbhost:dbport",
-		Database: "gitpod",
+		Database: "nxpod",
 		CaCert:   "cacert",
 	}, ConnectionParamsFromEnv())
 }

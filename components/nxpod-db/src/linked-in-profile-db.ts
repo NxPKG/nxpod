@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { LinkedInProfile } from "@gitpod/gitpod-protocol";
+import { LinkedInProfile } from "@nxpod/nxpod-protocol";
 
 export const LinkedInProfileDB = Symbol("LinkedInProfileDB");
 export interface LinkedInProfileDB {

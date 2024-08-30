@@ -21,7 +21,7 @@ clusterHost=$(kubectl exec -it "$podName" -- printenv NXPOD_WORKSPACE_CLUSTER_HO
 echo "Cluster Host: $clusterHost"
 
 # prepare ssh
-ownerToken=$(kubectl get pod "$podName" -o=json | jq ".metadata.annotations.\"gitpod\/ownerToken\"" -r)
+ownerToken=$(kubectl get pod "$podName" -o=json | jq ".metadata.annotations.\"nxpod\/ownerToken\"" -r)
 sshConfig=$(mktemp)
 echo "Host $workspaceId" > "$sshConfig"
 echo "    Hostname \"$workspaceId.ssh.$clusterHost\"" >> "$sshConfig"
@@ -34,7 +34,7 @@ echo "$component built"
 # upload
 uploadDest="/.supervisor/$component"
 echo "Upload Dest: $uploadDest"
-ssh -F "$sshConfig" "$workspaceId" "sudo chown -R gitpod:gitpod /.supervisor && rm $uploadDest 2> /dev/null"
+ssh -F "$sshConfig" "$workspaceId" "sudo chown -R nxpod:nxpod /.supervisor && rm $uploadDest 2> /dev/null"
 echo "Permissions granted"
 scp -F "$sshConfig" -r "./$component" "$workspaceId":"$uploadDest"
 echo "Swap complete"

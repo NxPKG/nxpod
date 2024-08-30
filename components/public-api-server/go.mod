@@ -7,9 +7,9 @@ require (
 	github.com/bufbuild/connect-go v1.10.0
 	github.com/coreos/go-oidc/v3 v3.5.0
 	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/components/gitpod-db/go v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/components/nxpod-db/go v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/usage-api v0.0.0-00010101000000-000000000000
 	github.com/go-chi/chi/v5 v5.0.8
 	github.com/golang-jwt/jwt/v5 v5.0.0
@@ -106,13 +106,13 @@ require (
 
 replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
-replace github.com/nxpkg/nxpod/components/gitpod-db/go => ../gitpod-db/go // leeway
+replace github.com/nxpkg/nxpod/components/nxpod-db/go => ../nxpod-db/go // leeway
 
 replace github.com/nxpkg/nxpod/components/public-api/go => ../public-api/go // leeway
 
 replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/usage-api => ../usage-api/go // leeway
 

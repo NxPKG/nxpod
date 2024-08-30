@@ -2,11 +2,11 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.util
+package io.nxpod.jetbrains.remote.util
 
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
-import io.gitpod.jetbrains.remote.utils.LocalHostUri
-import io.gitpod.jetbrains.remote.utils.LocalHostUri.LocalHostUriMetadata
+import io.nxpod.jetbrains.remote.utils.LocalHostUri
+import io.nxpod.jetbrains.remote.utils.LocalHostUri.LocalHostUriMetadata
 import java.net.URI
 
 class LocalHostUriTest : BasePlatformTestCase() {

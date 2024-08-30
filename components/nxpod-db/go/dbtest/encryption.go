@@ -6,7 +6,7 @@ package dbtest
 
 import (
 	"encoding/base64"
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
@@ -14,7 +14,7 @@ import (
 func GetTestCipher(t *testing.T) (*db.AES256CBC, db.CipherMetadata) {
 	t.Helper()
 
-	// This is a test key also used in server tests - see components/gitpod-protocol/src/encryption/encryption-engine.spec.ts
+	// This is a test key also used in server tests - see components/nxpod-protocol/src/encryption/encryption-engine.spec.ts
 	key, err := base64.StdEncoding.DecodeString("ZMaTPrF7s9gkLbY45zP59O0LTpLvDd/cgqPE9Ptghh8=")
 	require.NoError(t, err)
 

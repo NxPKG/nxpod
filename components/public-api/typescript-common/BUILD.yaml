@@ -7,7 +7,7 @@ packages:
       - package.json
       - tsconfig.json
     deps:
-      - components/gitpod-protocol:lib
+      - components/nxpod-protocol:lib
       - components/public-api/typescript:lib
     config:
       packaging: library

@@ -6,7 +6,7 @@
 
 import { Entity, Column, PrimaryColumn, Index } from "typeorm";
 import { TypeORM } from "../typeorm";
-import { Project, ProjectSettings } from "@gitpod/gitpod-protocol";
+import { Project, ProjectSettings } from "@nxpod/nxpod-protocol";
 import { Transformer } from "../transformer";
 
 @Entity()

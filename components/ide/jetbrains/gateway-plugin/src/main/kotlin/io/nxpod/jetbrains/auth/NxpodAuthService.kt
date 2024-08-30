@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.auth
+package io.nxpod.jetbrains.auth
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
@@ -43,8 +43,8 @@ internal class NxpodAuthService : OAuthServiceBase<Credentials>() {
     override val name: String
         get() = SERVICE_NAME
 
-    fun authorize(gitpodHost: String): CompletableFuture<Credentials> {
-        return authorize(NxpodAuthRequest(gitpodHost))
+    fun authorize(nxpodHost: String): CompletableFuture<Credentials> {
+        return authorize(NxpodAuthRequest(nxpodHost))
     }
 
     override fun revokeToken(token: String) {
@@ -62,10 +62,10 @@ internal class NxpodAuthService : OAuthServiceBase<Credentials>() {
 
         override val authUrlWithParameters: Url
 
-        constructor(gitpodHost: String) {
+        constructor(nxpodHost: String) {
             val codeVerifier = generateCodeVerifier()
             val codeChallenge = generateCodeChallenge(codeVerifier)
-            val serviceUrl = newFromEncoded("https://$gitpodHost/api/oauth")
+            val serviceUrl = newFromEncoded("https://$nxpodHost/api/oauth")
             credentialsAcquirer = NxpodAuthCredentialsAcquirer(
                 serviceUrl.resolve("token"), mapOf(
                     "grant_type" to "authorization_code",
@@ -151,8 +151,8 @@ internal class NxpodAuthService : OAuthServiceBase<Credentials>() {
     companion object {
         val instance: NxpodAuthService = service()
 
-        private const val SERVICE_NAME = "gitpod/oauth"
-        private const val CLIENT_ID = "jetbrains-gateway-gitpod-plugin"
+        private const val SERVICE_NAME = "nxpod/oauth"
+        private const val CLIENT_ID = "jetbrains-gateway-nxpod-plugin"
         val scopes = arrayOf(
             "function:getNxpodTokenScopes",
             "function:getIDEOptions",
@@ -165,25 +165,25 @@ internal class NxpodAuthService : OAuthServiceBase<Credentials>() {
         private val jacksonMapper = jacksonObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 
-        fun hasAccessToken(gitpodHost: String) =
-            getAccessToken(gitpodHost) != null
+        fun hasAccessToken(nxpodHost: String) =
+            getAccessToken(nxpodHost) != null
 
-        fun getAccessToken(gitpodHost: String) =
-            System.getenv("NXPOD_TEST_ACCESSTOKEN") ?: PasswordSafe.instance.getPassword(getAccessTokenCredentialAttributes(gitpodHost))
+        fun getAccessToken(nxpodHost: String) =
+            System.getenv("NXPOD_TEST_ACCESSTOKEN") ?: PasswordSafe.instance.getPassword(getAccessTokenCredentialAttributes(nxpodHost))
 
-        fun setAccessToken(gitpodHost: String, accessToken: String?) {
-            PasswordSafe.instance.setPassword(getAccessTokenCredentialAttributes(gitpodHost), accessToken)
+        fun setAccessToken(nxpodHost: String, accessToken: String?) {
+            PasswordSafe.instance.setPassword(getAccessTokenCredentialAttributes(nxpodHost), accessToken)
             dispatcher.multicaster.didChange()
         }
 
-        suspend fun authorize(gitpodHost: String): String {
-            val accessToken = instance.authorize(gitpodHost).await().accessToken
-            setAccessToken(gitpodHost, accessToken!!)
+        suspend fun authorize(nxpodHost: String): String {
+            val accessToken = instance.authorize(nxpodHost).await().accessToken
+            setAccessToken(nxpodHost, accessToken!!)
             return accessToken
         }
 
-        private fun getAccessTokenCredentialAttributes(gitpodHost: String) =
-            CredentialAttributes(generateServiceName("Nxpod", gitpodHost))
+        private fun getAccessTokenCredentialAttributes(nxpodHost: String) =
+            CredentialAttributes(generateServiceName("Nxpod", nxpodHost))
 
         private interface Listener : EventListener {
             fun didChange()

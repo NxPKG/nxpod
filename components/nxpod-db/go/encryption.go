@@ -109,7 +109,7 @@ type CipherMetadata struct {
 
 // EncryptedData represents the data stored in an encrypted entry
 // The JSON fields must match the existing implementation on server, in
-// components/gitpod-protocol/src/encryption/encryption-engine.ts
+// components/nxpod-protocol/src/encryption/encryption-engine.ts
 type EncryptedData struct {
 	// EncodedData is base64 encoded
 	EncodedData string `json:"data"`

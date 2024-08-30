@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package gitpod
+package nxpod
 
 import (
 	"context"
@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	"github.com/nxpkg/nxpod/common-go/util"
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
 
@@ -43,7 +43,7 @@ func ConnectToServer(ctx context.Context, wsInfo *supervisor.WorkspaceInfoRespon
 	defer supervisorConn.Close()
 	clientToken, err := supervisor.NewTokenServiceClient(supervisorConn).GetToken(ctx, &supervisor.GetTokenRequest{
 		Host:  wsInfo.NxpodApi.Host,
-		Kind:  "gitpod",
+		Kind:  "nxpod",
 		Scope: scope,
 	})
 	if err != nil {
@@ -55,7 +55,7 @@ func ConnectToServer(ctx context.Context, wsInfo *supervisor.WorkspaceInfoRespon
 		Context: ctx,
 		Log:     log.NewEntry(log.StandardLogger()),
 		ExtraHeaders: map[string]string{
-			"User-Agent":       "gitpod/cli",
+			"User-Agent":       "nxpod/cli",
 			"X-Client-Version": Version,
 		},
 	})

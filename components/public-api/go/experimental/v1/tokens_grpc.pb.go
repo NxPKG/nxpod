@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/tokens.proto
+// source: nxpod/experimental/v1/tokens.proto
 
 package v1
 
@@ -50,7 +50,7 @@ func NewTokensServiceClient(cc grpc.ClientConnInterface) TokensServiceClient {
 
 func (c *tokensServiceClient) CreatePersonalAccessToken(ctx context.Context, in *CreatePersonalAccessTokenRequest, opts ...grpc.CallOption) (*CreatePersonalAccessTokenResponse, error) {
 	out := new(CreatePersonalAccessTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TokensService/CreatePersonalAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TokensService/CreatePersonalAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *tokensServiceClient) CreatePersonalAccessToken(ctx context.Context, in 
 
 func (c *tokensServiceClient) GetPersonalAccessToken(ctx context.Context, in *GetPersonalAccessTokenRequest, opts ...grpc.CallOption) (*GetPersonalAccessTokenResponse, error) {
 	out := new(GetPersonalAccessTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TokensService/GetPersonalAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TokensService/GetPersonalAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func (c *tokensServiceClient) GetPersonalAccessToken(ctx context.Context, in *Ge
 
 func (c *tokensServiceClient) ListPersonalAccessTokens(ctx context.Context, in *ListPersonalAccessTokensRequest, opts ...grpc.CallOption) (*ListPersonalAccessTokensResponse, error) {
 	out := new(ListPersonalAccessTokensResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TokensService/ListPersonalAccessTokens", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TokensService/ListPersonalAccessTokens", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (c *tokensServiceClient) ListPersonalAccessTokens(ctx context.Context, in *
 
 func (c *tokensServiceClient) RegeneratePersonalAccessToken(ctx context.Context, in *RegeneratePersonalAccessTokenRequest, opts ...grpc.CallOption) (*RegeneratePersonalAccessTokenResponse, error) {
 	out := new(RegeneratePersonalAccessTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TokensService/RegeneratePersonalAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TokensService/RegeneratePersonalAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func (c *tokensServiceClient) RegeneratePersonalAccessToken(ctx context.Context,
 
 func (c *tokensServiceClient) UpdatePersonalAccessToken(ctx context.Context, in *UpdatePersonalAccessTokenRequest, opts ...grpc.CallOption) (*UpdatePersonalAccessTokenResponse, error) {
 	out := new(UpdatePersonalAccessTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TokensService/UpdatePersonalAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TokensService/UpdatePersonalAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (c *tokensServiceClient) UpdatePersonalAccessToken(ctx context.Context, in 
 
 func (c *tokensServiceClient) DeletePersonalAccessToken(ctx context.Context, in *DeletePersonalAccessTokenRequest, opts ...grpc.CallOption) (*DeletePersonalAccessTokenResponse, error) {
 	out := new(DeletePersonalAccessTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TokensService/DeletePersonalAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TokensService/DeletePersonalAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,7 +166,7 @@ func _TokensService_CreatePersonalAccessToken_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TokensService/CreatePersonalAccessToken",
+		FullMethod: "/nxpod.experimental.v1.TokensService/CreatePersonalAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServiceServer).CreatePersonalAccessToken(ctx, req.(*CreatePersonalAccessTokenRequest))
@@ -184,7 +184,7 @@ func _TokensService_GetPersonalAccessToken_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TokensService/GetPersonalAccessToken",
+		FullMethod: "/nxpod.experimental.v1.TokensService/GetPersonalAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServiceServer).GetPersonalAccessToken(ctx, req.(*GetPersonalAccessTokenRequest))
@@ -202,7 +202,7 @@ func _TokensService_ListPersonalAccessTokens_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TokensService/ListPersonalAccessTokens",
+		FullMethod: "/nxpod.experimental.v1.TokensService/ListPersonalAccessTokens",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServiceServer).ListPersonalAccessTokens(ctx, req.(*ListPersonalAccessTokensRequest))
@@ -220,7 +220,7 @@ func _TokensService_RegeneratePersonalAccessToken_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TokensService/RegeneratePersonalAccessToken",
+		FullMethod: "/nxpod.experimental.v1.TokensService/RegeneratePersonalAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServiceServer).RegeneratePersonalAccessToken(ctx, req.(*RegeneratePersonalAccessTokenRequest))
@@ -238,7 +238,7 @@ func _TokensService_UpdatePersonalAccessToken_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TokensService/UpdatePersonalAccessToken",
+		FullMethod: "/nxpod.experimental.v1.TokensService/UpdatePersonalAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServiceServer).UpdatePersonalAccessToken(ctx, req.(*UpdatePersonalAccessTokenRequest))
@@ -256,7 +256,7 @@ func _TokensService_DeletePersonalAccessToken_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TokensService/DeletePersonalAccessToken",
+		FullMethod: "/nxpod.experimental.v1.TokensService/DeletePersonalAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServiceServer).DeletePersonalAccessToken(ctx, req.(*DeletePersonalAccessTokenRequest))
@@ -268,7 +268,7 @@ func _TokensService_DeletePersonalAccessToken_Handler(srv interface{}, ctx conte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TokensService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.TokensService",
+	ServiceName: "nxpod.experimental.v1.TokensService",
 	HandlerType: (*TokensServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -297,5 +297,5 @@ var TokensService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/tokens.proto",
+	Metadata: "nxpod/experimental/v1/tokens.proto",
 }

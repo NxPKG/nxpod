@@ -9,9 +9,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.10.0
   creationTimestamp: null
-  name: workspaces.workspace.nxpod.io
+  name: workspaces.workspace.nxpod.khulnasoft.com
 spec:
-  group: workspace.nxpod.io
+  group: workspace.nxpod.khulnasoft.com
   names:
     kind: Workspace
     listKind: WorkspaceList

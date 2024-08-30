@@ -2,9 +2,9 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.internal
+package io.nxpod.jetbrains.remote.internal
 
-import io.gitpod.jetbrains.remote.NxpodIgnoredPortsForNotificationService
+import io.nxpod.jetbrains.remote.NxpodIgnoredPortsForNotificationService
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.ide.BuiltInServerManager

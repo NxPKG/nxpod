@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/prebuild.proto
+// source: nxpod/v1/prebuild.proto
 
 package v1
 
@@ -45,7 +45,7 @@ func NewPrebuildServiceClient(cc grpc.ClientConnInterface) PrebuildServiceClient
 
 func (c *prebuildServiceClient) StartPrebuild(ctx context.Context, in *StartPrebuildRequest, opts ...grpc.CallOption) (*StartPrebuildResponse, error) {
 	out := new(StartPrebuildResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.PrebuildService/StartPrebuild", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.PrebuildService/StartPrebuild", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func (c *prebuildServiceClient) StartPrebuild(ctx context.Context, in *StartPreb
 
 func (c *prebuildServiceClient) CancelPrebuild(ctx context.Context, in *CancelPrebuildRequest, opts ...grpc.CallOption) (*CancelPrebuildResponse, error) {
 	out := new(CancelPrebuildResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.PrebuildService/CancelPrebuild", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.PrebuildService/CancelPrebuild", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func (c *prebuildServiceClient) CancelPrebuild(ctx context.Context, in *CancelPr
 
 func (c *prebuildServiceClient) GetPrebuild(ctx context.Context, in *GetPrebuildRequest, opts ...grpc.CallOption) (*GetPrebuildResponse, error) {
 	out := new(GetPrebuildResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.PrebuildService/GetPrebuild", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.PrebuildService/GetPrebuild", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +72,7 @@ func (c *prebuildServiceClient) GetPrebuild(ctx context.Context, in *GetPrebuild
 
 func (c *prebuildServiceClient) ListPrebuilds(ctx context.Context, in *ListPrebuildsRequest, opts ...grpc.CallOption) (*ListPrebuildsResponse, error) {
 	out := new(ListPrebuildsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.PrebuildService/ListPrebuilds", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.PrebuildService/ListPrebuilds", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *prebuildServiceClient) ListPrebuilds(ctx context.Context, in *ListPrebu
 }
 
 func (c *prebuildServiceClient) WatchPrebuild(ctx context.Context, in *WatchPrebuildRequest, opts ...grpc.CallOption) (PrebuildService_WatchPrebuildClient, error) {
-	stream, err := c.cc.NewStream(ctx, &PrebuildService_ServiceDesc.Streams[0], "/gitpod.v1.PrebuildService/WatchPrebuild", opts...)
+	stream, err := c.cc.NewStream(ctx, &PrebuildService_ServiceDesc.Streams[0], "/nxpod.v1.PrebuildService/WatchPrebuild", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +113,7 @@ func (x *prebuildServiceWatchPrebuildClient) Recv() (*WatchPrebuildResponse, err
 
 func (c *prebuildServiceClient) ListOrganizationPrebuilds(ctx context.Context, in *ListOrganizationPrebuildsRequest, opts ...grpc.CallOption) (*ListOrganizationPrebuildsResponse, error) {
 	out := new(ListOrganizationPrebuildsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.PrebuildService/ListOrganizationPrebuilds", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.PrebuildService/ListOrganizationPrebuilds", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -179,7 +179,7 @@ func _PrebuildService_StartPrebuild_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.PrebuildService/StartPrebuild",
+		FullMethod: "/nxpod.v1.PrebuildService/StartPrebuild",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PrebuildServiceServer).StartPrebuild(ctx, req.(*StartPrebuildRequest))
@@ -197,7 +197,7 @@ func _PrebuildService_CancelPrebuild_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.PrebuildService/CancelPrebuild",
+		FullMethod: "/nxpod.v1.PrebuildService/CancelPrebuild",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PrebuildServiceServer).CancelPrebuild(ctx, req.(*CancelPrebuildRequest))
@@ -215,7 +215,7 @@ func _PrebuildService_GetPrebuild_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.PrebuildService/GetPrebuild",
+		FullMethod: "/nxpod.v1.PrebuildService/GetPrebuild",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PrebuildServiceServer).GetPrebuild(ctx, req.(*GetPrebuildRequest))
@@ -233,7 +233,7 @@ func _PrebuildService_ListPrebuilds_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.PrebuildService/ListPrebuilds",
+		FullMethod: "/nxpod.v1.PrebuildService/ListPrebuilds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PrebuildServiceServer).ListPrebuilds(ctx, req.(*ListPrebuildsRequest))
@@ -272,7 +272,7 @@ func _PrebuildService_ListOrganizationPrebuilds_Handler(srv interface{}, ctx con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.PrebuildService/ListOrganizationPrebuilds",
+		FullMethod: "/nxpod.v1.PrebuildService/ListOrganizationPrebuilds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PrebuildServiceServer).ListOrganizationPrebuilds(ctx, req.(*ListOrganizationPrebuildsRequest))
@@ -284,7 +284,7 @@ func _PrebuildService_ListOrganizationPrebuilds_Handler(srv interface{}, ctx con
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var PrebuildService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.PrebuildService",
+	ServiceName: "nxpod.v1.PrebuildService",
 	HandlerType: (*PrebuildServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -315,5 +315,5 @@ var PrebuildService_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "gitpod/v1/prebuild.proto",
+	Metadata: "nxpod/v1/prebuild.proto",
 }

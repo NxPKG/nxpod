@@ -176,7 +176,7 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
                                             <span className="text-sm font-bold">Need SSO? </span>
                                             <a
                                                 className="text-sm gp-link"
-                                                href="https://www.nxpod.io/docs/enterprise"
+                                                href="https://www.nxpod.khulnasoft.com/docs/enterprise"
                                                 target="_blank"
                                                 rel="noreferrer"
                                             >
@@ -201,7 +201,7 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
                                 <a
                                     className="gp-link hover:text-gray-600"
                                     target="nxpod-terms"
-                                    href="https://www.nxpod.io/terms/"
+                                    href="https://www.nxpod.khulnasoft.com/terms/"
                                 >
                                     terms of service
                                 </a>{" "}
@@ -209,7 +209,7 @@ export const Login: FC<LoginProps> = ({ onLoggedIn }) => {
                                 <a
                                     className="gp-link hover:text-gray-600"
                                     target="nxpod-privacy"
-                                    href="https://www.nxpod.io/privacy/"
+                                    href="https://www.nxpod.khulnasoft.com/privacy/"
                                 >
                                     privacy policy
                                 </a>

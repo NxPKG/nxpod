@@ -4,4 +4,4 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-export * as experimental from "./gitpod/experimental/v1";
+export * as experimental from "./nxpod/experimental/v1";

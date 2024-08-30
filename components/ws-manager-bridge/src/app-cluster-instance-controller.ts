@@ -4,11 +4,11 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
-import { Disposable, DisposableCollection } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { repeat } from "@gitpod/gitpod-protocol/lib/util/repeat";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
+import { Disposable, DisposableCollection } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { repeat } from "@nxpod/nxpod-protocol/lib/util/repeat";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { inject, injectable } from "inversify";
 import { Configuration } from "./config";
 import { WorkspaceInstanceController } from "./workspace-instance-controller";
@@ -16,7 +16,7 @@ import { WorkspaceInstanceController } from "./workspace-instance-controller";
 /**
  * The WorkspaceInstance lifecycle is split between application clusters and workspace clusters on the transition from
  * pending/building -> starting (cmp. WorkspacePhases here:
- * https://github.com/nxpkg/nxpod/blob/008ea3fadc89d4817cf3effc8a5b30eaf469fb1c/components/gitpod-protocol/src/workspace-instance.ts#L111).
+ * https://github.com/nxpkg/nxpod/blob/008ea3fadc89d4817cf3effc8a5b30eaf469fb1c/components/nxpod-protocol/src/workspace-instance.ts#L111).
  *
  * Before the transition, WorkspaceInstances belong to the respective app cluster, denoted by "instance.region === 'eu02'", for exmaple.
  * After a WorkspaceInstance has been moved over to a workspace cluster, that moved "ownership" is reflected in said field.

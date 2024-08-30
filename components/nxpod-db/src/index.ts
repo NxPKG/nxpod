@@ -10,7 +10,7 @@ export * from "./typeorm/entity/db-user";
 export * from "./typeorm/entity/db-identity";
 export * from "./typeorm/entity/db-workspace-instance";
 export * from "./typeorm/entity/db-workspace";
-export * from "./typeorm/entity/db-gitpod-token";
+export * from "./typeorm/entity/db-nxpod-token";
 export * from "./typeorm/entity/db-code-sync-resource";
 export * from "./typeorm/transformer";
 export * from "./typeorm/typeorm";

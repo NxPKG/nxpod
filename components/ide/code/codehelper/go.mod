@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	github.com/sirupsen/logrus v1.9.3
 	google.golang.org/grpc v1.52.3
@@ -43,7 +43,7 @@ replace github.com/nxpkg/nxpod/common-go => ../../../common-go // leeway
 
 replace github.com/nxpkg/nxpod/components/scrubber => ../../../scrubber // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../../../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../../../nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/supervisor/api => ../../../supervisor-api/go // leeway
 

@@ -16,7 +16,7 @@ metadata:
   name: snapshot-viewer-role
 rules:
 - apiGroups:
-  - workspace.nxpod.io
+  - workspace.nxpod.khulnasoft.com
   resources:
   - snapshots
   verbs:
@@ -24,7 +24,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - workspace.nxpod.io
+  - workspace.nxpod.khulnasoft.com
   resources:
   - snapshots/status
   verbs:

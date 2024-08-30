@@ -10,9 +10,9 @@ import (
 
 var (
 	loginCompletedTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Name:      "login_completed_total",
-		Help:      "Total number of logins completed into gitpod, by status",
+		Help:      "Total number of logins completed into nxpod, by status",
 	}, []string{"status", "type"})
 )
 

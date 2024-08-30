@@ -21,7 +21,7 @@ packages:
       - npmPublishTrigger
     deps:
       - :lib
-      - components/gitpod-protocol:scripts
+      - components/nxpod-protocol:scripts
     config:
       commands:
-        - ["node", "components-gitpod-protocol--scripts/publish.js", "${version}", "components-public-api-typescript--lib/package"]
+        - ["node", "components-nxpod-protocol--scripts/publish.js", "${version}", "components-public-api-typescript--lib/package"]

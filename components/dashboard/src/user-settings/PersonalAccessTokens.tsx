@@ -167,7 +167,7 @@ function ListAccessTokensView() {
                         Create or regenerate access tokens.{" "}
                         <a
                             className="gp-link"
-                            href="https://www.nxpod.io/docs/configure/user-settings/access-tokens"
+                            href="https://www.nxpod.khulnasoft.com/docs/configure/user-settings/access-tokens"
                             target="_blank"
                             rel="noreferrer"
                         >

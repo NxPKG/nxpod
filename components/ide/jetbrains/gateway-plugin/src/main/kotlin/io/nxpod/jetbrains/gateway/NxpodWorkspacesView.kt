@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.BrowserUtil
@@ -24,11 +24,11 @@ import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.util.lifetime.LifetimeDefinition
 import com.jetbrains.rd.util.lifetime.isAlive
 import com.jetbrains.rd.util.lifetime.isNotAlive
-import io.gitpod.gitpodprotocol.api.entities.GetWorkspacesOptions
-import io.gitpod.gitpodprotocol.api.entities.WorkspaceInstance
-import io.gitpod.gitpodprotocol.api.entities.WorkspaceType
-import io.gitpod.jetbrains.auth.NxpodAuthService
-import io.gitpod.jetbrains.icons.NxpodIcons
+import io.nxpod.nxpodprotocol.api.entities.GetWorkspacesOptions
+import io.nxpod.nxpodprotocol.api.entities.WorkspaceInstance
+import io.nxpod.nxpodprotocol.api.entities.WorkspaceType
+import io.nxpod.jetbrains.auth.NxpodAuthService
+import io.nxpod.jetbrains.icons.NxpodIcons
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.actor
@@ -57,7 +57,7 @@ class NxpodWorkspacesView(
         }
 
         override fun invoke(): Boolean {
-            return NxpodAuthService.hasAccessToken(settings.gitpodHost)
+            return NxpodAuthService.hasAccessToken(settings.nxpodHost)
         }
     }
 
@@ -94,12 +94,12 @@ class NxpodWorkspacesView(
                         }.align(AlignX.CENTER)
                     }
                     row {
-                        browserLink("Explore Nxpod", "https://www.gitpod.io").align(AlignX.CENTER)
+                        browserLink("Explore Nxpod", "https://www.nxpod.khulnasoft.com").align(AlignX.CENTER)
                     }.bottomGap(BottomGap.MEDIUM)
                     row {
                         button("Connect in Browser") {
                             GlobalScope.launch {
-                                NxpodAuthService.authorize(settings.gitpodHost)
+                                NxpodAuthService.authorize(settings.nxpodHost)
                             }
                         }.align(AlignX.CENTER)
                     }
@@ -116,15 +116,15 @@ class NxpodWorkspacesView(
                     actionsButton(object :
                         DumbAwareAction("Dashboard", "Dashboard", AllIcons.Nodes.Servlet) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            BrowserUtil.browse("https://${settings.gitpodHost}")
+                            BrowserUtil.browse("https://${settings.nxpodHost}")
                         }
                     }, object : DumbAwareAction("Usage", "Usage", AllIcons.Actions.DynamicUsages) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            BrowserUtil.browse("https://${settings.gitpodHost}/usage")
+                            BrowserUtil.browse("https://${settings.nxpodHost}/usage")
                         }
                     }, object : DumbAwareAction("Documentation", "Documentation", AllIcons.Toolwindows.Documentation) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            BrowserUtil.browse("https://www.gitpod.io/docs/integrations/jetbrains-gateway")
+                            BrowserUtil.browse("https://www.nxpod.khulnasoft.com/docs/integrations/jetbrains-gateway")
                         }
                     }, object : DumbAwareAction("Feedback", "Feedback", AllIcons.Actions.IntentionBulb) {
                         override fun actionPerformed(e: AnActionEvent) {
@@ -132,11 +132,11 @@ class NxpodWorkspacesView(
                         }
                     }, object : DumbAwareAction("Help", "Help", AllIcons.Actions.Help) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            BrowserUtil.browse("https://www.gitpod.io/contact/support?subject=technical%20support")
+                            BrowserUtil.browse("https://www.nxpod.khulnasoft.com/contact/support?subject=technical%20support")
                         }
                     }, object : DumbAwareAction("Log Out", "Log out", AllIcons.Actions.Exit) {
                         override fun actionPerformed(e: AnActionEvent) {
-                            NxpodAuthService.setAccessToken(settings.gitpodHost, null)
+                            NxpodAuthService.setAccessToken(settings.nxpodHost, null)
                         }
                     })
                     cell()
@@ -215,8 +215,8 @@ class NxpodWorkspacesView(
     }
 
     private fun doUpdate(updateLifetime: Lifetime, workspacesPane: JBScrollPane) {
-        val gitpodHost = settings.gitpodHost
-        if (!NxpodAuthService.hasAccessToken(gitpodHost)) {
+        val nxpodHost = settings.nxpodHost
+        if (!NxpodAuthService.hasAccessToken(nxpodHost)) {
             ApplicationManager.getApplication().invokeLater {
                 if (updateLifetime.isAlive) {
                     workspacesPane.viewport.view = panel {
@@ -229,7 +229,7 @@ class NxpodWorkspacesView(
             return
         }
         val job = GlobalScope.launch {
-            val client = service<NxpodConnectionService>().obtainClient(gitpodHost)
+            val client = service<NxpodConnectionService>().obtainClient(nxpodHost)
             val workspaces = client.server.getWorkspaces(GetWorkspacesOptions().apply {
                 this.limit = 20
             }).await()
@@ -247,7 +247,7 @@ class NxpodWorkspacesView(
                                 }
                             } catch (e: Throwable) {
                                 thisLogger().error(
-                                    "$gitpodHost: ${it.workspace.id}: failed to parse creation time",
+                                    "$nxpodHost: ${it.workspace.id}: failed to parse creation time",
                                     e
                                 )
                                 null
@@ -308,7 +308,7 @@ class NxpodWorkspacesView(
                                     if (!canConnect) {
                                         val startUrl = URIBuilder()
                                                 .setScheme("https")
-                                                .setHost(gitpodHost)
+                                                .setHost(nxpodHost)
                                                 .setPath("start")
                                                 .setFragment(info.workspace.id)
                                                 .build()
@@ -317,7 +317,7 @@ class NxpodWorkspacesView(
                                     } else {
                                         GatewayUI.getInstance().connect(
                                             mapOf(
-                                                "gitpodHost" to gitpodHost,
+                                                "nxpodHost" to nxpodHost,
                                                 "workspaceId" to info.workspace.id
                                             )
                                         )
@@ -345,7 +345,7 @@ class NxpodWorkspacesView(
                     try {
                         info = client.syncWorkspace(update.workspaceId)
                     } catch (t: Throwable) {
-                        thisLogger().error("$gitpodHost: ${update.workspaceId}: failed to sync", t)
+                        thisLogger().error("$nxpodHost: ${update.workspaceId}: failed to sync", t)
                         continue
                     }
                     if (info.workspace.type == WorkspaceType.regular) {

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/stretchr/testify/assert"
@@ -31,11 +31,11 @@ func TestGetProductConfig(t *testing.T) {
 }
 
 func TestParseNxpodConfig(t *testing.T) {
-	gitpodConfig, _ := parseNxpodConfig("testdata")
-	assert.Equal(t, 1, len(gitpodConfig.Jetbrains.Intellij.Plugins))
-	assert.Equal(t, "both", gitpodConfig.Jetbrains.Intellij.Prebuilds.Version)
-	assert.Equal(t, "-Xmx3g", gitpodConfig.Jetbrains.Intellij.Vmoptions)
-	assert.Equal(t, "-Xmx4096m -XX:MaxRAMPercentage=75", gitpodConfig.Jetbrains.Goland.Vmoptions)
+	nxpodConfig, _ := parseNxpodConfig("testdata")
+	assert.Equal(t, 1, len(nxpodConfig.Jetbrains.Intellij.Plugins))
+	assert.Equal(t, "both", nxpodConfig.Jetbrains.Intellij.Prebuilds.Version)
+	assert.Equal(t, "-Xmx3g", nxpodConfig.Jetbrains.Intellij.Vmoptions)
+	assert.Equal(t, "-Xmx4096m -XX:MaxRAMPercentage=75", nxpodConfig.Jetbrains.Goland.Vmoptions)
 }
 
 func TestUpdateVMOptions(t *testing.T) {

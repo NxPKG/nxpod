@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/scm.proto
+// source: nxpod/experimental/v1/scm.proto
 
 package v1
 
@@ -41,7 +41,7 @@ func NewSCMServiceClient(cc grpc.ClientConnInterface) SCMServiceClient {
 
 func (c *sCMServiceClient) GetSuggestedRepoURLs(ctx context.Context, in *GetSuggestedRepoURLsRequest, opts ...grpc.CallOption) (*GetSuggestedRepoURLsResponse, error) {
 	out := new(GetSuggestedRepoURLsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.SCMService/GetSuggestedRepoURLs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.SCMService/GetSuggestedRepoURLs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +88,7 @@ func _SCMService_GetSuggestedRepoURLs_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.SCMService/GetSuggestedRepoURLs",
+		FullMethod: "/nxpod.experimental.v1.SCMService/GetSuggestedRepoURLs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SCMServiceServer).GetSuggestedRepoURLs(ctx, req.(*GetSuggestedRepoURLsRequest))
@@ -100,7 +100,7 @@ func _SCMService_GetSuggestedRepoURLs_Handler(srv interface{}, ctx context.Conte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SCMService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.SCMService",
+	ServiceName: "nxpod.experimental.v1.SCMService",
 	HandlerType: (*SCMServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -109,5 +109,5 @@ var SCMService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/scm.proto",
+	Metadata: "nxpod/experimental/v1/scm.proto",
 }

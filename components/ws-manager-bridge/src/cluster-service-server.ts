@@ -4,9 +4,9 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
-import { Queue } from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
+import { Queue } from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import {
     WorkspaceCluster,
     WorkspaceClusterDB,
@@ -16,7 +16,7 @@ import {
     AdmissionConstraintHasPermission,
     WorkspaceClusterWoTLS,
     WorkspaceClass,
-} from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+} from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 import {
     ClusterServiceService,
     ClusterState,
@@ -32,19 +32,19 @@ import {
     UpdateRequest,
     UpdateResponse,
     AdmissionConstraint as GRPCAdmissionConstraint,
-} from "@gitpod/ws-manager-bridge-api/lib";
-import { WorkspaceManagerClientProvider } from "@gitpod/ws-manager/lib/client-provider";
+} from "@nxpod/ws-manager-bridge-api/lib";
+import { WorkspaceManagerClientProvider } from "@nxpod/ws-manager/lib/client-provider";
 import {
     WorkspaceManagerClientProviderCompositeSource,
     WorkspaceManagerClientProviderSource,
-} from "@gitpod/ws-manager/lib/client-provider-source";
+} from "@nxpod/ws-manager/lib/client-provider-source";
 import * as grpc from "@grpc/grpc-js";
 import { inject, injectable } from "inversify";
 import { BridgeController } from "./bridge-controller";
 import { Configuration } from "./config";
 import { GRPCError } from "./rpc";
-import { isWorkspaceRegion } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { DescribeClusterRequest, DescribeClusterResponse, WorkspaceManagerClient } from "@gitpod/ws-manager/lib";
+import { isWorkspaceRegion } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { DescribeClusterRequest, DescribeClusterResponse, WorkspaceManagerClient } from "@nxpod/ws-manager/lib";
 
 export interface ClusterServiceServerOptions {
     port: number;

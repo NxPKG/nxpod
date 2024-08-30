@@ -14,7 +14,7 @@ import (
 	"github.com/nxpkg/nxpod/common-go/util"
 	"github.com/nxpkg/nxpod/components/public-api/go/client"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/spf13/cobra"
@@ -68,7 +68,7 @@ var idpTokenCmd = &cobra.Command{
 }
 
 func idpToken(ctx context.Context, audience []string, scope string) (idToken string, err error) {
-	wsInfo, err := gitpod.GetWSInfo(ctx)
+	wsInfo, err := nxpod.GetWSInfo(ctx)
 	if err != nil {
 		return "", err
 	}
@@ -79,7 +79,7 @@ func idpToken(ctx context.Context, audience []string, scope string) (idToken str
 	defer supervisorConn.Close()
 	clientToken, err := supervisor.NewTokenServiceClient(supervisorConn).GetToken(ctx, &supervisor.GetTokenRequest{
 		Host: wsInfo.NxpodApi.Host,
-		Kind: "gitpod",
+		Kind: "nxpod",
 		Scope: []string{
 			"function:getWorkspace",
 		},

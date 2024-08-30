@@ -30,7 +30,7 @@ export const TableDescriptionProvider = Symbol("TableDescriptionProvider");
 
 @injectable()
 export class NxpodTableDescriptionProvider implements TableDescriptionProvider {
-    readonly name = "gitpod";
+    readonly name = "nxpod";
     protected readonly tables: TableDescription[] = [
         {
             name: "d_b_workspace_cluster",

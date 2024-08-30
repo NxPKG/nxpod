@@ -13,9 +13,9 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 )
 
 var gitTrackCommandOpts struct {
@@ -33,7 +33,7 @@ var gitTrackCommand = &cobra.Command{
 		utils.TrackCommandUsageEvent.Command = nil
 
 		log.SetOutput(io.Discard)
-		f, err := os.OpenFile(os.TempDir()+"/gitpod-git-credential-helper.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+		f, err := os.OpenFile(os.TempDir()+"/nxpod-git-credential-helper.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 		if err == nil {
 			defer f.Close()
 			log.SetOutput(f)
@@ -43,12 +43,12 @@ var gitTrackCommand = &cobra.Command{
 
 		ctx, cancel := context.WithTimeout(cmd.Context(), 1*time.Minute)
 		defer cancel()
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return err
 		}
 
-		client, err := gitpod.ConnectToServer(ctx, wsInfo, []string{"function:trackEvent"})
+		client, err := nxpod.ConnectToServer(ctx, wsInfo, []string{"function:trackEvent"})
 
 		if err != nil {
 			log.WithError(err).Fatal("error connecting to supervisor")

@@ -29,5 +29,5 @@ protoc \
     --ts_out="service=grpc-web:lib" \
     "$PROTO_DIR"/*.proto
 
-sed -i 's/\.\/supervisor-api/\@gitpod\/supervisor-api-grpcweb\/lib/g' lib/*.js
-sed -i 's/\.\/supervisor-api/\@gitpod\/supervisor-api-grpcweb\/lib/g' lib/*.d.ts
+sed -i 's/\.\/supervisor-api/\@nxpod\/supervisor-api-grpcweb\/lib/g' lib/*.js
+sed -i 's/\.\/supervisor-api/\@nxpod\/supervisor-api-grpcweb\/lib/g' lib/*.d.ts

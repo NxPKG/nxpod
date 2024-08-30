@@ -43,10 +43,10 @@ const (
 	ServiceTypeLabel = "serviceType"
 
 	// WorkspaceManaged indicates which component is responsible for managing the workspace
-	WorkspaceManagedByLabel = "nxpod.io/managed-by"
+	WorkspaceManagedByLabel = "nxpod.khulnasoft.com/managed-by"
 
 	// CPULimitAnnotation enforces a strict CPU limit on a workspace by virtue of ws-daemon
-	CPULimitAnnotation = "nxpod.io/cpuLimit"
+	CPULimitAnnotation = "nxpod.khulnasoft.com/cpuLimit"
 
 	// WorkspaceURLAnnotation is the annotation on the WS pod which contains the public workspace URL.
 	WorkspaceURLAnnotation = "nxpod/url"
@@ -65,22 +65,22 @@ const (
 	WorkspaceExposedPorts = "nxpod/exposedPorts"
 
 	// WorkspaceSSHPublicKeys contains all authorized ssh public keys that can be connected to the workspace
-	WorkspaceSSHPublicKeys = "nxpod.io/sshPublicKeys"
+	WorkspaceSSHPublicKeys = "nxpod.khulnasoft.com/sshPublicKeys"
 
 	// workspaceCpuMinLimitAnnotation denotes the minimum cpu limit of a workspace i.e. the minimum amount of resources it is guaranteed to get
-	WorkspaceCpuMinLimitAnnotation = "nxpod.io/cpuMinLimit"
+	WorkspaceCpuMinLimitAnnotation = "nxpod.khulnasoft.com/cpuMinLimit"
 
 	// workspaceCpuBurstLimit denotes the cpu burst limit of a workspace
-	WorkspaceCpuBurstLimitAnnotation = "nxpod.io/cpuBurstLimit"
+	WorkspaceCpuBurstLimitAnnotation = "nxpod.khulnasoft.com/cpuBurstLimit"
 
 	// workspaceNetConnLimit denotes the maximum number of connections a workspace can make per minute
-	WorkspaceNetConnLimitAnnotation = "nxpod.io/netConnLimitPerMinute"
+	WorkspaceNetConnLimitAnnotation = "nxpod.khulnasoft.com/netConnLimitPerMinute"
 
 	// workspacePressureStallInfo indicates if pressure stall information should be retrieved for the workspace
-	WorkspacePressureStallInfoAnnotation = "nxpod.io/psi"
+	WorkspacePressureStallInfoAnnotation = "nxpod.khulnasoft.com/psi"
 
 	// ImageNameAnnotation indicates the original format of the main image of the pod
-	ImageNameAnnotation = "nxpod.io/image_name"
+	ImageNameAnnotation = "nxpod.khulnasoft.com/image_name"
 )
 
 // GetOWIFromObject finds the owner, workspace and instance information on a Kubernetes object using labels

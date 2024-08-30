@@ -28,12 +28,12 @@ var workspaceListEditors = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 		defer cancel()
 
-		gitpod, err := getNxpodClient(ctx)
+		nxpod, err := getNxpodClient(ctx)
 		if err != nil {
 			return err
 		}
 
-		editors, err := gitpod.Editors.ListEditorOptions(ctx, connect.NewRequest(&v1.ListEditorOptionsRequest{}))
+		editors, err := nxpod.Editors.ListEditorOptions(ctx, connect.NewRequest(&v1.ListEditorOptionsRequest{}))
 		if err != nil {
 			return err
 		}

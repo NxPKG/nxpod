@@ -145,7 +145,7 @@ func newWorkspace(name, namespace string, phase workspacev1.WorkspacePhase) *wor
 
 	return &workspacev1.Workspace{
 		TypeMeta: metav1.TypeMeta{
-			APIVersion: "workspace.nxpod.io/v1",
+			APIVersion: "workspace.nxpod.khulnasoft.com/v1",
 			Kind:       "Workspace",
 		},
 		ObjectMeta: metav1.ObjectMeta{

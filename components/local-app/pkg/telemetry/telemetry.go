@@ -127,7 +127,7 @@ func RecordCommand(cmd *cobra.Command) {
 	}
 	slices.Reverse(command)
 
-	track("gitpodcli_command", defaultProperties().
+	track("nxpodcli_command", defaultProperties().
 		Set("command", strings.Join(command, " ")))
 }
 
@@ -138,7 +138,7 @@ func RecordError(err error) {
 		return
 	}
 
-	track("gitpodcli_exception", defaultProperties().
+	track("nxpodcli_exception", defaultProperties().
 		Set("context", exception.Context).
 		Set("error", exception.Err.Error()))
 }

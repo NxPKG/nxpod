@@ -27,7 +27,7 @@ import (
 	"github.com/gorilla/handlers"
 
 	"github.com/nxpkg/nxpod/common-go/baseserver"
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/nxpkg/nxpod/public-api-server/middleware"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/apiv1"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
@@ -44,12 +44,12 @@ import (
 func Start(logger *logrus.Entry, version string, cfg *config.Configuration) error {
 	logger.WithField("config", cfg).Info("Starting public-api.")
 
-	gitpodAPI, err := url.Parse(cfg.NxpodServiceURL)
+	nxpodAPI, err := url.Parse(cfg.NxpodServiceURL)
 	if err != nil {
 		return fmt.Errorf("failed to parse Nxpod API URL: %w", err)
 	}
 
-	connPool, err := proxy.NewConnectionPool(gitpodAPI, 500)
+	connPool, err := proxy.NewConnectionPool(nxpodAPI, 500)
 	if err != nil {
 		return fmt.Errorf("failed to setup connection pool: %w", err)
 	}

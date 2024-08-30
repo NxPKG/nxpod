@@ -39,7 +39,7 @@ if (environmentName.isNotBlank()) {
 project(":") {
     kotlin {
         val excludedPackage = if (environmentName == "latest") "stable" else "latest"
-        sourceSets["main"].kotlin.exclude("io/gitpod/jetbrains/gateway/${excludedPackage}/**")
+        sourceSets["main"].kotlin.exclude("io/nxpod/jetbrains/gateway/${excludedPackage}/**")
     }
 
     sourceSets {
@@ -57,7 +57,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":gitpod-protocol")) {
+    implementation(project(":nxpod-protocol")) {
         artifact {
             type = "jar"
         }

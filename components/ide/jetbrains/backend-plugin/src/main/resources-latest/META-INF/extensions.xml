@@ -6,10 +6,10 @@
 <!--suppress PluginXmlValidity -->
 <idea-plugin>
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceInterface="io.gitpod.jetbrains.remote.NxpodPortForwardingService"
-                            serviceImplementation="io.gitpod.jetbrains.remote.latest.NxpodPortForwardingServiceImpl"
+        <applicationService serviceInterface="io.nxpod.jetbrains.remote.NxpodPortForwardingService"
+                            serviceImplementation="io.nxpod.jetbrains.remote.latest.NxpodPortForwardingServiceImpl"
                             client="controller" preload="true"/>
-        <gateway.customization.performance id="gitpodMetricsControl" order="before cpuControl"
-                                           implementation="io.gitpod.jetbrains.remote.latest.NxpodMetricControlProvider"/>
+        <gateway.customization.performance id="nxpodMetricsControl" order="before cpuControl"
+                                           implementation="io.nxpod.jetbrains.remote.latest.NxpodMetricControlProvider"/>
     </extensions>
 </idea-plugin>

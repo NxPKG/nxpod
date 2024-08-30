@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/tokens.proto
+// source: nxpod/experimental/v1/tokens.proto
 
 package v1
 
@@ -56,7 +56,7 @@ type PersonalAccessToken struct {
 func (x *PersonalAccessToken) Reset() {
 	*x = PersonalAccessToken{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -69,7 +69,7 @@ func (x *PersonalAccessToken) String() string {
 func (*PersonalAccessToken) ProtoMessage() {}
 
 func (x *PersonalAccessToken) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -82,7 +82,7 @@ func (x *PersonalAccessToken) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PersonalAccessToken.ProtoReflect.Descriptor instead.
 func (*PersonalAccessToken) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *PersonalAccessToken) GetId() string {
@@ -138,7 +138,7 @@ type CreatePersonalAccessTokenRequest struct {
 func (x *CreatePersonalAccessTokenRequest) Reset() {
 	*x = CreatePersonalAccessTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -151,7 +151,7 @@ func (x *CreatePersonalAccessTokenRequest) String() string {
 func (*CreatePersonalAccessTokenRequest) ProtoMessage() {}
 
 func (x *CreatePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -164,7 +164,7 @@ func (x *CreatePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePersonalAccessTokenRequest.ProtoReflect.Descriptor instead.
 func (*CreatePersonalAccessTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreatePersonalAccessTokenRequest) GetToken() *PersonalAccessToken {
@@ -185,7 +185,7 @@ type CreatePersonalAccessTokenResponse struct {
 func (x *CreatePersonalAccessTokenResponse) Reset() {
 	*x = CreatePersonalAccessTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -198,7 +198,7 @@ func (x *CreatePersonalAccessTokenResponse) String() string {
 func (*CreatePersonalAccessTokenResponse) ProtoMessage() {}
 
 func (x *CreatePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -211,7 +211,7 @@ func (x *CreatePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CreatePersonalAccessTokenResponse.ProtoReflect.Descriptor instead.
 func (*CreatePersonalAccessTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreatePersonalAccessTokenResponse) GetToken() *PersonalAccessToken {
@@ -232,7 +232,7 @@ type GetPersonalAccessTokenRequest struct {
 func (x *GetPersonalAccessTokenRequest) Reset() {
 	*x = GetPersonalAccessTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -245,7 +245,7 @@ func (x *GetPersonalAccessTokenRequest) String() string {
 func (*GetPersonalAccessTokenRequest) ProtoMessage() {}
 
 func (x *GetPersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -258,7 +258,7 @@ func (x *GetPersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPersonalAccessTokenRequest.ProtoReflect.Descriptor instead.
 func (*GetPersonalAccessTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetPersonalAccessTokenRequest) GetId() string {
@@ -279,7 +279,7 @@ type GetPersonalAccessTokenResponse struct {
 func (x *GetPersonalAccessTokenResponse) Reset() {
 	*x = GetPersonalAccessTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -292,7 +292,7 @@ func (x *GetPersonalAccessTokenResponse) String() string {
 func (*GetPersonalAccessTokenResponse) ProtoMessage() {}
 
 func (x *GetPersonalAccessTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -305,7 +305,7 @@ func (x *GetPersonalAccessTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPersonalAccessTokenResponse.ProtoReflect.Descriptor instead.
 func (*GetPersonalAccessTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetPersonalAccessTokenResponse) GetToken() *PersonalAccessToken {
@@ -327,7 +327,7 @@ type ListPersonalAccessTokensRequest struct {
 func (x *ListPersonalAccessTokensRequest) Reset() {
 	*x = ListPersonalAccessTokensRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -340,7 +340,7 @@ func (x *ListPersonalAccessTokensRequest) String() string {
 func (*ListPersonalAccessTokensRequest) ProtoMessage() {}
 
 func (x *ListPersonalAccessTokensRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -353,7 +353,7 @@ func (x *ListPersonalAccessTokensRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPersonalAccessTokensRequest.ProtoReflect.Descriptor instead.
 func (*ListPersonalAccessTokensRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListPersonalAccessTokensRequest) GetPagination() *Pagination {
@@ -375,7 +375,7 @@ type ListPersonalAccessTokensResponse struct {
 func (x *ListPersonalAccessTokensResponse) Reset() {
 	*x = ListPersonalAccessTokensResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[6]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -388,7 +388,7 @@ func (x *ListPersonalAccessTokensResponse) String() string {
 func (*ListPersonalAccessTokensResponse) ProtoMessage() {}
 
 func (x *ListPersonalAccessTokensResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[6]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -401,7 +401,7 @@ func (x *ListPersonalAccessTokensResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPersonalAccessTokensResponse.ProtoReflect.Descriptor instead.
 func (*ListPersonalAccessTokensResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ListPersonalAccessTokensResponse) GetTokens() []*PersonalAccessToken {
@@ -432,7 +432,7 @@ type RegeneratePersonalAccessTokenRequest struct {
 func (x *RegeneratePersonalAccessTokenRequest) Reset() {
 	*x = RegeneratePersonalAccessTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[7]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -445,7 +445,7 @@ func (x *RegeneratePersonalAccessTokenRequest) String() string {
 func (*RegeneratePersonalAccessTokenRequest) ProtoMessage() {}
 
 func (x *RegeneratePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[7]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -458,7 +458,7 @@ func (x *RegeneratePersonalAccessTokenRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use RegeneratePersonalAccessTokenRequest.ProtoReflect.Descriptor instead.
 func (*RegeneratePersonalAccessTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *RegeneratePersonalAccessTokenRequest) GetId() string {
@@ -486,7 +486,7 @@ type RegeneratePersonalAccessTokenResponse struct {
 func (x *RegeneratePersonalAccessTokenResponse) Reset() {
 	*x = RegeneratePersonalAccessTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[8]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -499,7 +499,7 @@ func (x *RegeneratePersonalAccessTokenResponse) String() string {
 func (*RegeneratePersonalAccessTokenResponse) ProtoMessage() {}
 
 func (x *RegeneratePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[8]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -512,7 +512,7 @@ func (x *RegeneratePersonalAccessTokenResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegeneratePersonalAccessTokenResponse.ProtoReflect.Descriptor instead.
 func (*RegeneratePersonalAccessTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *RegeneratePersonalAccessTokenResponse) GetToken() *PersonalAccessToken {
@@ -534,7 +534,7 @@ type UpdatePersonalAccessTokenRequest struct {
 func (x *UpdatePersonalAccessTokenRequest) Reset() {
 	*x = UpdatePersonalAccessTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[9]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -547,7 +547,7 @@ func (x *UpdatePersonalAccessTokenRequest) String() string {
 func (*UpdatePersonalAccessTokenRequest) ProtoMessage() {}
 
 func (x *UpdatePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[9]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -560,7 +560,7 @@ func (x *UpdatePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePersonalAccessTokenRequest.ProtoReflect.Descriptor instead.
 func (*UpdatePersonalAccessTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdatePersonalAccessTokenRequest) GetToken() *PersonalAccessToken {
@@ -588,7 +588,7 @@ type UpdatePersonalAccessTokenResponse struct {
 func (x *UpdatePersonalAccessTokenResponse) Reset() {
 	*x = UpdatePersonalAccessTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[10]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -601,7 +601,7 @@ func (x *UpdatePersonalAccessTokenResponse) String() string {
 func (*UpdatePersonalAccessTokenResponse) ProtoMessage() {}
 
 func (x *UpdatePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[10]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -614,7 +614,7 @@ func (x *UpdatePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UpdatePersonalAccessTokenResponse.ProtoReflect.Descriptor instead.
 func (*UpdatePersonalAccessTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UpdatePersonalAccessTokenResponse) GetToken() *PersonalAccessToken {
@@ -635,7 +635,7 @@ type DeletePersonalAccessTokenRequest struct {
 func (x *DeletePersonalAccessTokenRequest) Reset() {
 	*x = DeletePersonalAccessTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[11]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -648,7 +648,7 @@ func (x *DeletePersonalAccessTokenRequest) String() string {
 func (*DeletePersonalAccessTokenRequest) ProtoMessage() {}
 
 func (x *DeletePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[11]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +661,7 @@ func (x *DeletePersonalAccessTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeletePersonalAccessTokenRequest.ProtoReflect.Descriptor instead.
 func (*DeletePersonalAccessTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeletePersonalAccessTokenRequest) GetId() string {
@@ -680,7 +680,7 @@ type DeletePersonalAccessTokenResponse struct {
 func (x *DeletePersonalAccessTokenResponse) Reset() {
 	*x = DeletePersonalAccessTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[12]
+		mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -693,7 +693,7 @@ func (x *DeletePersonalAccessTokenResponse) String() string {
 func (*DeletePersonalAccessTokenResponse) ProtoMessage() {}
 
 func (x *DeletePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_tokens_proto_msgTypes[12]
+	mi := &file_nxpod_experimental_v1_tokens_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -706,12 +706,12 @@ func (x *DeletePersonalAccessTokenResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use DeletePersonalAccessTokenResponse.ProtoReflect.Descriptor instead.
 func (*DeletePersonalAccessTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_experimental_v1_tokens_proto_rawDescGZIP(), []int{12}
 }
 
-var File_gitpod_experimental_v1_tokens_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_tokens_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_tokens_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_tokens_proto_rawDesc = []byte{
 	0x0a, 0x23, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x73, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x65, 0x78,
@@ -880,61 +880,61 @@ var file_gitpod_experimental_v1_tokens_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_tokens_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_tokens_proto_rawDescData = file_gitpod_experimental_v1_tokens_proto_rawDesc
+	file_nxpod_experimental_v1_tokens_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_tokens_proto_rawDescData = file_nxpod_experimental_v1_tokens_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_tokens_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_tokens_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_tokens_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_tokens_proto_rawDescData)
+func file_nxpod_experimental_v1_tokens_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_tokens_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_tokens_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_tokens_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_tokens_proto_rawDescData
+	return file_nxpod_experimental_v1_tokens_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_tokens_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
-var file_gitpod_experimental_v1_tokens_proto_goTypes = []interface{}{
-	(*PersonalAccessToken)(nil),                   // 0: gitpod.experimental.v1.PersonalAccessToken
-	(*CreatePersonalAccessTokenRequest)(nil),      // 1: gitpod.experimental.v1.CreatePersonalAccessTokenRequest
-	(*CreatePersonalAccessTokenResponse)(nil),     // 2: gitpod.experimental.v1.CreatePersonalAccessTokenResponse
-	(*GetPersonalAccessTokenRequest)(nil),         // 3: gitpod.experimental.v1.GetPersonalAccessTokenRequest
-	(*GetPersonalAccessTokenResponse)(nil),        // 4: gitpod.experimental.v1.GetPersonalAccessTokenResponse
-	(*ListPersonalAccessTokensRequest)(nil),       // 5: gitpod.experimental.v1.ListPersonalAccessTokensRequest
-	(*ListPersonalAccessTokensResponse)(nil),      // 6: gitpod.experimental.v1.ListPersonalAccessTokensResponse
-	(*RegeneratePersonalAccessTokenRequest)(nil),  // 7: gitpod.experimental.v1.RegeneratePersonalAccessTokenRequest
-	(*RegeneratePersonalAccessTokenResponse)(nil), // 8: gitpod.experimental.v1.RegeneratePersonalAccessTokenResponse
-	(*UpdatePersonalAccessTokenRequest)(nil),      // 9: gitpod.experimental.v1.UpdatePersonalAccessTokenRequest
-	(*UpdatePersonalAccessTokenResponse)(nil),     // 10: gitpod.experimental.v1.UpdatePersonalAccessTokenResponse
-	(*DeletePersonalAccessTokenRequest)(nil),      // 11: gitpod.experimental.v1.DeletePersonalAccessTokenRequest
-	(*DeletePersonalAccessTokenResponse)(nil),     // 12: gitpod.experimental.v1.DeletePersonalAccessTokenResponse
+var file_nxpod_experimental_v1_tokens_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_nxpod_experimental_v1_tokens_proto_goTypes = []interface{}{
+	(*PersonalAccessToken)(nil),                   // 0: nxpod.experimental.v1.PersonalAccessToken
+	(*CreatePersonalAccessTokenRequest)(nil),      // 1: nxpod.experimental.v1.CreatePersonalAccessTokenRequest
+	(*CreatePersonalAccessTokenResponse)(nil),     // 2: nxpod.experimental.v1.CreatePersonalAccessTokenResponse
+	(*GetPersonalAccessTokenRequest)(nil),         // 3: nxpod.experimental.v1.GetPersonalAccessTokenRequest
+	(*GetPersonalAccessTokenResponse)(nil),        // 4: nxpod.experimental.v1.GetPersonalAccessTokenResponse
+	(*ListPersonalAccessTokensRequest)(nil),       // 5: nxpod.experimental.v1.ListPersonalAccessTokensRequest
+	(*ListPersonalAccessTokensResponse)(nil),      // 6: nxpod.experimental.v1.ListPersonalAccessTokensResponse
+	(*RegeneratePersonalAccessTokenRequest)(nil),  // 7: nxpod.experimental.v1.RegeneratePersonalAccessTokenRequest
+	(*RegeneratePersonalAccessTokenResponse)(nil), // 8: nxpod.experimental.v1.RegeneratePersonalAccessTokenResponse
+	(*UpdatePersonalAccessTokenRequest)(nil),      // 9: nxpod.experimental.v1.UpdatePersonalAccessTokenRequest
+	(*UpdatePersonalAccessTokenResponse)(nil),     // 10: nxpod.experimental.v1.UpdatePersonalAccessTokenResponse
+	(*DeletePersonalAccessTokenRequest)(nil),      // 11: nxpod.experimental.v1.DeletePersonalAccessTokenRequest
+	(*DeletePersonalAccessTokenResponse)(nil),     // 12: nxpod.experimental.v1.DeletePersonalAccessTokenResponse
 	(*timestamppb.Timestamp)(nil),                 // 13: google.protobuf.Timestamp
-	(*Pagination)(nil),                            // 14: gitpod.experimental.v1.Pagination
+	(*Pagination)(nil),                            // 14: nxpod.experimental.v1.Pagination
 	(*fieldmaskpb.FieldMask)(nil),                 // 15: google.protobuf.FieldMask
 }
-var file_gitpod_experimental_v1_tokens_proto_depIdxs = []int32{
-	13, // 0: gitpod.experimental.v1.PersonalAccessToken.expiration_time:type_name -> google.protobuf.Timestamp
-	13, // 1: gitpod.experimental.v1.PersonalAccessToken.created_at:type_name -> google.protobuf.Timestamp
-	0,  // 2: gitpod.experimental.v1.CreatePersonalAccessTokenRequest.token:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	0,  // 3: gitpod.experimental.v1.CreatePersonalAccessTokenResponse.token:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	0,  // 4: gitpod.experimental.v1.GetPersonalAccessTokenResponse.token:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	14, // 5: gitpod.experimental.v1.ListPersonalAccessTokensRequest.pagination:type_name -> gitpod.experimental.v1.Pagination
-	0,  // 6: gitpod.experimental.v1.ListPersonalAccessTokensResponse.tokens:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	13, // 7: gitpod.experimental.v1.RegeneratePersonalAccessTokenRequest.expiration_time:type_name -> google.protobuf.Timestamp
-	0,  // 8: gitpod.experimental.v1.RegeneratePersonalAccessTokenResponse.token:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	0,  // 9: gitpod.experimental.v1.UpdatePersonalAccessTokenRequest.token:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	15, // 10: gitpod.experimental.v1.UpdatePersonalAccessTokenRequest.update_mask:type_name -> google.protobuf.FieldMask
-	0,  // 11: gitpod.experimental.v1.UpdatePersonalAccessTokenResponse.token:type_name -> gitpod.experimental.v1.PersonalAccessToken
-	1,  // 12: gitpod.experimental.v1.TokensService.CreatePersonalAccessToken:input_type -> gitpod.experimental.v1.CreatePersonalAccessTokenRequest
-	3,  // 13: gitpod.experimental.v1.TokensService.GetPersonalAccessToken:input_type -> gitpod.experimental.v1.GetPersonalAccessTokenRequest
-	5,  // 14: gitpod.experimental.v1.TokensService.ListPersonalAccessTokens:input_type -> gitpod.experimental.v1.ListPersonalAccessTokensRequest
-	7,  // 15: gitpod.experimental.v1.TokensService.RegeneratePersonalAccessToken:input_type -> gitpod.experimental.v1.RegeneratePersonalAccessTokenRequest
-	9,  // 16: gitpod.experimental.v1.TokensService.UpdatePersonalAccessToken:input_type -> gitpod.experimental.v1.UpdatePersonalAccessTokenRequest
-	11, // 17: gitpod.experimental.v1.TokensService.DeletePersonalAccessToken:input_type -> gitpod.experimental.v1.DeletePersonalAccessTokenRequest
-	2,  // 18: gitpod.experimental.v1.TokensService.CreatePersonalAccessToken:output_type -> gitpod.experimental.v1.CreatePersonalAccessTokenResponse
-	4,  // 19: gitpod.experimental.v1.TokensService.GetPersonalAccessToken:output_type -> gitpod.experimental.v1.GetPersonalAccessTokenResponse
-	6,  // 20: gitpod.experimental.v1.TokensService.ListPersonalAccessTokens:output_type -> gitpod.experimental.v1.ListPersonalAccessTokensResponse
-	8,  // 21: gitpod.experimental.v1.TokensService.RegeneratePersonalAccessToken:output_type -> gitpod.experimental.v1.RegeneratePersonalAccessTokenResponse
-	10, // 22: gitpod.experimental.v1.TokensService.UpdatePersonalAccessToken:output_type -> gitpod.experimental.v1.UpdatePersonalAccessTokenResponse
-	12, // 23: gitpod.experimental.v1.TokensService.DeletePersonalAccessToken:output_type -> gitpod.experimental.v1.DeletePersonalAccessTokenResponse
+var file_nxpod_experimental_v1_tokens_proto_depIdxs = []int32{
+	13, // 0: nxpod.experimental.v1.PersonalAccessToken.expiration_time:type_name -> google.protobuf.Timestamp
+	13, // 1: nxpod.experimental.v1.PersonalAccessToken.created_at:type_name -> google.protobuf.Timestamp
+	0,  // 2: nxpod.experimental.v1.CreatePersonalAccessTokenRequest.token:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	0,  // 3: nxpod.experimental.v1.CreatePersonalAccessTokenResponse.token:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	0,  // 4: nxpod.experimental.v1.GetPersonalAccessTokenResponse.token:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	14, // 5: nxpod.experimental.v1.ListPersonalAccessTokensRequest.pagination:type_name -> nxpod.experimental.v1.Pagination
+	0,  // 6: nxpod.experimental.v1.ListPersonalAccessTokensResponse.tokens:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	13, // 7: nxpod.experimental.v1.RegeneratePersonalAccessTokenRequest.expiration_time:type_name -> google.protobuf.Timestamp
+	0,  // 8: nxpod.experimental.v1.RegeneratePersonalAccessTokenResponse.token:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	0,  // 9: nxpod.experimental.v1.UpdatePersonalAccessTokenRequest.token:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	15, // 10: nxpod.experimental.v1.UpdatePersonalAccessTokenRequest.update_mask:type_name -> google.protobuf.FieldMask
+	0,  // 11: nxpod.experimental.v1.UpdatePersonalAccessTokenResponse.token:type_name -> nxpod.experimental.v1.PersonalAccessToken
+	1,  // 12: nxpod.experimental.v1.TokensService.CreatePersonalAccessToken:input_type -> nxpod.experimental.v1.CreatePersonalAccessTokenRequest
+	3,  // 13: nxpod.experimental.v1.TokensService.GetPersonalAccessToken:input_type -> nxpod.experimental.v1.GetPersonalAccessTokenRequest
+	5,  // 14: nxpod.experimental.v1.TokensService.ListPersonalAccessTokens:input_type -> nxpod.experimental.v1.ListPersonalAccessTokensRequest
+	7,  // 15: nxpod.experimental.v1.TokensService.RegeneratePersonalAccessToken:input_type -> nxpod.experimental.v1.RegeneratePersonalAccessTokenRequest
+	9,  // 16: nxpod.experimental.v1.TokensService.UpdatePersonalAccessToken:input_type -> nxpod.experimental.v1.UpdatePersonalAccessTokenRequest
+	11, // 17: nxpod.experimental.v1.TokensService.DeletePersonalAccessToken:input_type -> nxpod.experimental.v1.DeletePersonalAccessTokenRequest
+	2,  // 18: nxpod.experimental.v1.TokensService.CreatePersonalAccessToken:output_type -> nxpod.experimental.v1.CreatePersonalAccessTokenResponse
+	4,  // 19: nxpod.experimental.v1.TokensService.GetPersonalAccessToken:output_type -> nxpod.experimental.v1.GetPersonalAccessTokenResponse
+	6,  // 20: nxpod.experimental.v1.TokensService.ListPersonalAccessTokens:output_type -> nxpod.experimental.v1.ListPersonalAccessTokensResponse
+	8,  // 21: nxpod.experimental.v1.TokensService.RegeneratePersonalAccessToken:output_type -> nxpod.experimental.v1.RegeneratePersonalAccessTokenResponse
+	10, // 22: nxpod.experimental.v1.TokensService.UpdatePersonalAccessToken:output_type -> nxpod.experimental.v1.UpdatePersonalAccessTokenResponse
+	12, // 23: nxpod.experimental.v1.TokensService.DeletePersonalAccessToken:output_type -> nxpod.experimental.v1.DeletePersonalAccessTokenResponse
 	18, // [18:24] is the sub-list for method output_type
 	12, // [12:18] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name
@@ -942,14 +942,14 @@ var file_gitpod_experimental_v1_tokens_proto_depIdxs = []int32{
 	0,  // [0:12] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_tokens_proto_init() }
-func file_gitpod_experimental_v1_tokens_proto_init() {
-	if File_gitpod_experimental_v1_tokens_proto != nil {
+func init() { file_nxpod_experimental_v1_tokens_proto_init() }
+func file_nxpod_experimental_v1_tokens_proto_init() {
+	if File_nxpod_experimental_v1_tokens_proto != nil {
 		return
 	}
-	file_gitpod_experimental_v1_pagination_proto_init()
+	file_nxpod_experimental_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PersonalAccessToken); i {
 			case 0:
 				return &v.state
@@ -961,7 +961,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreatePersonalAccessTokenRequest); i {
 			case 0:
 				return &v.state
@@ -973,7 +973,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreatePersonalAccessTokenResponse); i {
 			case 0:
 				return &v.state
@@ -985,7 +985,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPersonalAccessTokenRequest); i {
 			case 0:
 				return &v.state
@@ -997,7 +997,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPersonalAccessTokenResponse); i {
 			case 0:
 				return &v.state
@@ -1009,7 +1009,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListPersonalAccessTokensRequest); i {
 			case 0:
 				return &v.state
@@ -1021,7 +1021,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListPersonalAccessTokensResponse); i {
 			case 0:
 				return &v.state
@@ -1033,7 +1033,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RegeneratePersonalAccessTokenRequest); i {
 			case 0:
 				return &v.state
@@ -1045,7 +1045,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RegeneratePersonalAccessTokenResponse); i {
 			case 0:
 				return &v.state
@@ -1057,7 +1057,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdatePersonalAccessTokenRequest); i {
 			case 0:
 				return &v.state
@@ -1069,7 +1069,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdatePersonalAccessTokenResponse); i {
 			case 0:
 				return &v.state
@@ -1081,7 +1081,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeletePersonalAccessTokenRequest); i {
 			case 0:
 				return &v.state
@@ -1093,7 +1093,7 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_tokens_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_tokens_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeletePersonalAccessTokenResponse); i {
 			case 0:
 				return &v.state
@@ -1110,18 +1110,18 @@ func file_gitpod_experimental_v1_tokens_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_tokens_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_tokens_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_tokens_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_tokens_proto_depIdxs,
-		MessageInfos:      file_gitpod_experimental_v1_tokens_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_tokens_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_tokens_proto_depIdxs,
+		MessageInfos:      file_nxpod_experimental_v1_tokens_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_tokens_proto = out.File
-	file_gitpod_experimental_v1_tokens_proto_rawDesc = nil
-	file_gitpod_experimental_v1_tokens_proto_goTypes = nil
-	file_gitpod_experimental_v1_tokens_proto_depIdxs = nil
+	File_nxpod_experimental_v1_tokens_proto = out.File
+	file_nxpod_experimental_v1_tokens_proto_rawDesc = nil
+	file_nxpod_experimental_v1_tokens_proto_goTypes = nil
+	file_nxpod_experimental_v1_tokens_proto_depIdxs = nil
 }

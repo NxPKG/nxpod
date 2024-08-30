@@ -148,7 +148,7 @@ export const PrebuildSettingsForm: FC<Props> = ({ configuration }) => {
                     <a
                         className="gp-link"
                         target="_blank"
-                        href="https://www.nxpod.io/changelog/activity-based-prebuilds"
+                        href="https://www.nxpod.khulnasoft.com/changelog/activity-based-prebuilds"
                         rel="noreferrer"
                     >
                         Learn more

@@ -18,7 +18,7 @@ import (
 	"github.com/nxpkg/nxpod/components/public-api/go/config"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
@@ -31,7 +31,7 @@ import (
 )
 
 func TestGetIDToken(t *testing.T) {
-	const workspaceID = "gitpodio-gitpod-te23l4bjejv"
+	const workspaceID = "nxpodio-nxpod-te23l4bjejv"
 	type Expectation struct {
 		Error    string
 		Response *v1.GetIDTokenResponse
@@ -48,7 +48,7 @@ func TestGetIDToken(t *testing.T) {
 			Name: "org-owned user",
 			TokenSource: func(t *testing.T) IDTokenSource {
 				return functionIDTokenSource(func(ctx context.Context, org string, audience []string, userInfo oidc.UserInfo) (string, error) {
-					require.Equal(t, "correct@gitpod.io", userInfo.GetEmail())
+					require.Equal(t, "correct@nxpod.khulnasoft.com", userInfo.GetEmail())
 					require.True(t, userInfo.IsEmailVerified())
 
 					return "foobar", nil
@@ -75,8 +75,8 @@ func TestGetIDToken(t *testing.T) {
 						Name: "foobar",
 						Identities: []*protocol.Identity{
 							nil,
-							{Deleted: true, PrimaryEmail: "nonsense@gitpod.io"},
-							{Deleted: false, PrimaryEmail: "correct@gitpod.io"},
+							{Deleted: true, PrimaryEmail: "nonsense@nxpod.khulnasoft.com"},
+							{Deleted: false, PrimaryEmail: "correct@nxpod.khulnasoft.com"},
 						},
 						OrganizationId: "test",
 					},
@@ -97,7 +97,7 @@ func TestGetIDToken(t *testing.T) {
 			Name: "none org-owned user",
 			TokenSource: func(t *testing.T) IDTokenSource {
 				return functionIDTokenSource(func(ctx context.Context, org string, audience []string, userInfo oidc.UserInfo) (string, error) {
-					require.Equal(t, "correct@gitpod.io", userInfo.GetEmail())
+					require.Equal(t, "correct@nxpod.khulnasoft.com", userInfo.GetEmail())
 					require.False(t, userInfo.IsEmailVerified())
 
 					return "foobar", nil
@@ -124,8 +124,8 @@ func TestGetIDToken(t *testing.T) {
 						Name: "foobar",
 						Identities: []*protocol.Identity{
 							nil,
-							{Deleted: true, PrimaryEmail: "nonsense@gitpod.io"},
-							{Deleted: false, PrimaryEmail: "correct@gitpod.io"},
+							{Deleted: true, PrimaryEmail: "nonsense@nxpod.khulnasoft.com"},
+							{Deleted: false, PrimaryEmail: "correct@nxpod.khulnasoft.com"},
 						},
 					},
 					nil,
@@ -214,7 +214,7 @@ func TestGetIDToken(t *testing.T) {
 			Name: "include scope",
 			TokenSource: func(t *testing.T) IDTokenSource {
 				return functionIDTokenSource(func(ctx context.Context, org string, audience []string, userInfo oidc.UserInfo) (string, error) {
-					require.Equal(t, "correct@gitpod.io", userInfo.GetEmail())
+					require.Equal(t, "correct@nxpod.khulnasoft.com", userInfo.GetEmail())
 					require.True(t, userInfo.IsEmailVerified())
 					require.Equal(t, "foo", userInfo.GetClaim("scope"))
 
@@ -242,8 +242,8 @@ func TestGetIDToken(t *testing.T) {
 						Name: "foobar",
 						Identities: []*protocol.Identity{
 							nil,
-							{Deleted: true, PrimaryEmail: "nonsense@gitpod.io"},
-							{Deleted: false, PrimaryEmail: "correct@gitpod.io"},
+							{Deleted: true, PrimaryEmail: "nonsense@nxpod.khulnasoft.com"},
+							{Deleted: false, PrimaryEmail: "correct@nxpod.khulnasoft.com"},
 						},
 						OrganizationId: "test",
 					},

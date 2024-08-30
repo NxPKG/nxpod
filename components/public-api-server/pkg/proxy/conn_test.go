@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"testing"
 
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/origin"
 	"github.com/golang/mock/gomock"
@@ -20,13 +20,13 @@ import (
 func TestConnectionPool(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	srv := gitpod.NewMockAPIInterface(ctrl)
+	srv := nxpod.NewMockAPIInterface(ctrl)
 
 	cache, err := lru.New(2)
 	require.NoError(t, err)
 	pool := &ConnectionPool{
 		cache: cache,
-		connConstructor: func(ctx context.Context, token auth.Token) (gitpod.APIInterface, error) {
+		connConstructor: func(ctx context.Context, token auth.Token) (nxpod.APIInterface, error) {
 			return srv, nil
 		},
 	}
@@ -53,13 +53,13 @@ func TestConnectionPool(t *testing.T) {
 func TestConnectionPool_ByDistinctOrigins(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	srv := gitpod.NewMockAPIInterface(ctrl)
+	srv := nxpod.NewMockAPIInterface(ctrl)
 
 	cache, err := lru.New(2)
 	require.NoError(t, err)
 	pool := &ConnectionPool{
 		cache: cache,
-		connConstructor: func(ctx context.Context, token auth.Token) (gitpod.APIInterface, error) {
+		connConstructor: func(ctx context.Context, token auth.Token) (nxpod.APIInterface, error) {
 			return srv, nil
 		},
 	}
@@ -88,5 +88,5 @@ func TestEndpointBasedOnToken(t *testing.T) {
 
 	endpointForCookie, err := getEndpointBasedOnToken(auth.NewCookieToken("foo"), u)
 	require.NoError(t, err)
-	require.Equal(t, "wss://server:3000/gitpod", endpointForCookie)
+	require.Equal(t, "wss://server:3000/nxpod", endpointForCookie)
 }

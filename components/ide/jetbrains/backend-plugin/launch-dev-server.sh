@@ -9,7 +9,7 @@ set -o pipefail
 # Default Options
 DEBUG_PORT=44444
 JB_QUALIFIER="latest"
-TEST_REPO=https://github.com/gitpod-samples/spring-petclinic
+TEST_REPO=https://github.com/nxpod-samples/spring-petclinic
 RUN_FROM="release"
 
 # Parsing Custom Options
@@ -54,14 +54,14 @@ if [ ! -d "$TEST_BACKEND_DIR" ]; then
 fi
 
 TEST_PLUGINS_DIR="$TEST_BACKEND_DIR/plugins"
-TEST_PLUGIN_DIR="$TEST_PLUGINS_DIR/gitpod-remote"
+TEST_PLUGIN_DIR="$TEST_PLUGINS_DIR/nxpod-remote"
 rm -rf $TEST_PLUGIN_DIR
 
-NXPOD_PLUGIN_DIR=/workspace/gitpod/components/ide/jetbrains/backend-plugin
+NXPOD_PLUGIN_DIR=/workspace/nxpod/components/ide/jetbrains/backend-plugin
 $NXPOD_PLUGIN_DIR/gradlew -PenvironmentName="$JB_QUALIFIER" buildPlugin
 
 # TODO(ak) actually should be gradle task to make use of output
-NXPOD_PLUGIN_DIST="$NXPOD_PLUGIN_DIR/build/distributions/gitpod-remote.zip"
+NXPOD_PLUGIN_DIST="$NXPOD_PLUGIN_DIR/build/distributions/nxpod-remote.zip"
 unzip $NXPOD_PLUGIN_DIST -d $TEST_PLUGINS_DIR
 rm -rf "$TEST_PLUGINS_DIR/plugin-classpath.txt"
 
@@ -79,7 +79,7 @@ export IJ_HOST_CONFIG_BASE_DIR=/workspace/.config/JetBrains
 export IJ_HOST_SYSTEM_BASE_DIR=/workspace/.cache/JetBrains
 
 # Enable host status endpoint
-export CWM_HOST_STATUS_OVER_HTTP_TOKEN=gitpod
+export CWM_HOST_STATUS_OVER_HTTP_TOKEN=nxpod
 
 # Build and move idea-cli, then overwrite environment variables initially defined by `components/ide/jetbrains/image/leeway.Dockerfile`
 # Note: IDEA_CLI_DEV_PATH path needs to be the same string used in components/ide/jetbrains/cli/cmd/root.go

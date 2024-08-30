@@ -40,12 +40,12 @@
     }
   },
   "definitions": {
-    "WorkspaceInfoResponseGitpodAPI": {
+    "WorkspaceInfoResponseNxpodAPI": {
       "type": "object",
       "properties": {
         "endpoint": {
           "type": "string",
-          "title": "endpoint is the websocket URL on which the token-accessible Gitpod API is served on"
+          "title": "endpoint is the websocket URL on which the token-accessible Nxpod API is served on"
         },
         "host": {
           "type": "string",
@@ -124,12 +124,12 @@
           "description": "user_home is the path to the user's home."
         },
         "nxpodApi": {
-          "$ref": "#/definitions/WorkspaceInfoResponseGitpodAPI",
-          "description": "GitpodAPI provides information to reach the Gitpod server API."
+          "$ref": "#/definitions/WorkspaceInfoResponseNxpodAPI",
+          "description": "NxpodAPI provides information to reach the Nxpod server API."
         },
         "nxpodHost": {
           "type": "string",
-          "description": "nxpod_host provides Gitpod host URL."
+          "description": "nxpod_host provides Nxpod host URL."
         },
         "workspaceContextUrl": {
           "type": "string",

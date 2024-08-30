@@ -2,4 +2,4 @@
 -- Licensed under the GNU Affero General Public License (AGPL). See License.AGPL.txt in the project root for license information.
 
 -- Grant privileges
-GRANT ALL ON `gitpod%`.* TO "gitpod"@"%";
+GRANT ALL ON `nxpod%`.* TO "nxpod"@"%";

@@ -1,6 +1,6 @@
 # TypeORM DB Migrations
 
-To create a new migration file, run this command in the `gitpod-db` component directory:
+To create a new migration file, run this command in the `nxpod-db` component directory:
 
 ```
 yarn typeorm migration:create -n NameOfYourMigration

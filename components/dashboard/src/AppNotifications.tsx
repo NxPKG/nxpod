@@ -55,7 +55,7 @@ const UPDATED_PRIVACY_POLICY = (updateUser: (user: Partial<UserProtocol>) => Pro
         message: (
             <span className="text-md">
                 We've updated our Privacy Policy. You can review it{" "}
-                <a className="gp-link" href="https://www.nxpod.io/privacy" target="_blank" rel="noreferrer">
+                <a className="gp-link" href="https://www.nxpod.khulnasoft.com/privacy" target="_blank" rel="noreferrer">
                     here
                 </a>
                 .

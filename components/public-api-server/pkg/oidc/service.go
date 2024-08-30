@@ -18,7 +18,7 @@ import (
 	"github.com/coreos/go-oidc/v3/oidc"
 	goidc "github.com/coreos/go-oidc/v3/oidc"
 	"github.com/nxpkg/nxpod/common-go/log"
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/cel-go/cel"

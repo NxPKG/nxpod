@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	corsOriginModule = "gitpod.cors_origin"
+	corsOriginModule = "nxpod.cors_origin"
 )
 
 func init() {
@@ -37,7 +37,7 @@ type CorsOrigin struct {
 // CaddyModule returns the Caddy module information.
 func (CorsOrigin) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "http.handlers.gitpod_cors_origin",
+		ID:  "http.handlers.nxpod_cors_origin",
 		New: func() caddy.Module { return new(CorsOrigin) },
 	}
 }

@@ -5,16 +5,16 @@
  */
 
 import { inject, injectable } from "inversify";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { WorkspaceStatus, WorkspaceType } from "@gitpod/ws-manager/lib";
-import { HeadlessWorkspaceEventType, WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { WorkspaceStatus, WorkspaceType } from "@nxpod/ws-manager/lib";
+import { HeadlessWorkspaceEventType, WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { PrebuildStateMapper } from "./prebuild-state-mapper";
-import { DBWithTracing, TracedWorkspaceDB } from "@gitpod/gitpod-db/lib/traced-db";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
+import { DBWithTracing, TracedWorkspaceDB } from "@nxpod/nxpod-db/lib/traced-db";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
 import { Metrics } from "./metrics";
 import { filterStatus } from "./bridge";
-import { RedisPublisher } from "@gitpod/gitpod-db/lib";
+import { RedisPublisher } from "@nxpod/nxpod-db/lib";
 
 @injectable()
 export class PrebuildUpdater {

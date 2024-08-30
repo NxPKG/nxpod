@@ -14,9 +14,9 @@ import java.util.Collections;
 
 public class TestClient {
     public static void main(String[] args) throws Exception {
-        String uri = "wss://nxpod.io/api/v1";
+        String uri = "wss://nxpod.khulnasoft.com/api/v1";
         String token = "CHANGE-ME";
-        String origin = "https://CHANGE-ME.nxpod.io/";
+        String origin = "https://CHANGE-ME.nxpod.khulnasoft.com/";
 
         NxpodClient client = new NxpodClient();
         NxpodServerLauncher.create(client).listen(uri, origin, token, "Test", "Test", Collections.emptyList(), null);

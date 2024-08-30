@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/supervisor"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/supervisor"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	"github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"

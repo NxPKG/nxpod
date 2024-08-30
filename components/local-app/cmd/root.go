@@ -33,19 +33,19 @@ var rootOpts struct {
 }
 
 var rootCmd = &cobra.Command{
-	Use:   "gitpod",
+	Use:   "nxpod",
 	Short: "Nxpod: Always ready to code.",
 	Long: color.Sprint(`
 <fg=ff971d>      .-+*#+           </>      <b>Nxpod: Always ready to code.</>
 <fg=ff971d>   :=*#####*.          </>      Try the following commands to get started:
 <fg=ff971d>  .=*####*+-.    .--:  </>
-<fg=ff971d>  +****=:     :=*####+ </>      gitpod login              <lightgray>Login to Nxpod</>
-<fg=ff971d>  ****:   .-+*########.</>      gitpod whoami             <lightgray>Show information about the currently logged in user</>
+<fg=ff971d>  +****=:     :=*####+ </>      nxpod login              <lightgray>Login to Nxpod</>
+<fg=ff971d>  ****:   .-+*########.</>      nxpod whoami             <lightgray>Show information about the currently logged in user</>
 <fg=ff971d>  +***:   *****+--####.</>
-<fg=ff971d>  +***:   .-=:.  .#*##.</>      gitpod workspace list     <lightgray>List your workspaces</>
-<fg=ff971d>  +***+-.      .-+**** </>      gitpod workspace create   <lightgray>Create a new workspace</>
-<fg=ff971d>  .=*****+=::-+*****+: </>      gitpod workspace open     <lightgray>Open a running workspace</>
-<fg=ff971d>  .:=+*********=-.     </>      gitpod workspace stop     <lightgray>Stop a running workspace</>
+<fg=ff971d>  +***:   .-=:.  .#*##.</>      nxpod workspace list     <lightgray>List your workspaces</>
+<fg=ff971d>  +***+-.      .-+**** </>      nxpod workspace create   <lightgray>Create a new workspace</>
+<fg=ff971d>  .=*****+=::-+*****+: </>      nxpod workspace open     <lightgray>Open a running workspace</>
+<fg=ff971d>  .:=+*********=-.     </>      nxpod workspace stop     <lightgray>Stop a running workspace</>
 <fg=ff971d>      .-++++=:         </>
 
 	`),
@@ -92,7 +92,7 @@ var rootCmd = &cobra.Command{
 		}
 		cmd.SetContext(config.ToContext(context.Background(), cfg))
 
-		host := "https://gitpod.io"
+		host := "https://nxpod.khulnasoft.com"
 		telemetryEnabled := !telemetry.DoNotTrack()
 		telemetryEnabled = telemetryEnabled && cfg.Telemetry.Enabled
 		gpctx, err := cfg.GetActiveContext()
@@ -163,9 +163,9 @@ func getNxpodClient(ctx context.Context) (*client.Nxpod, error) {
 	host := gpctx.Host
 	if host == nil {
 		return nil, prettyprint.AddResolution(fmt.Errorf("active context has no host configured"),
-			"set a host using `gitpod config set-context --current --host <host>`",
-			"login again using `gitpod login`",
-			"change to a different context using `gitpod config use-context <context>`",
+			"set a host using `nxpod config set-context --current --host <host>`",
+			"login again using `nxpod login`",
+			"change to a different context using `nxpod config use-context <context>`",
 		)
 	}
 
@@ -187,9 +187,9 @@ func getNxpodClient(ctx context.Context) (*client.Nxpod, error) {
 	if token == "" {
 		return nil, prettyprint.AddResolution(fmt.Errorf("no token found for active context"),
 			"provide a token by setting the NXPOD_TOKEN environment variable",
-			"login again using `gitpod login`",
-			"change to a different context using `gitpod config use-context <context>`",
-			"set a token explicitly using `gitpod config set-context --current --token <token>`",
+			"login again using `nxpod login`",
+			"change to a different context using `nxpod config use-context <context>`",
+			"set a token explicitly using `nxpod config set-context --current --token <token>`",
 		)
 	}
 

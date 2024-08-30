@@ -250,7 +250,7 @@ export const AppRoutes = () => {
                                 render={(_match) => {
                                     // delegate to our website to handle the request
                                     if (isNxpodIo()) {
-                                        window.location.host = "www.nxpod.io";
+                                        window.location.host = "www.nxpod.khulnasoft.com";
                                     }
 
                                     return (

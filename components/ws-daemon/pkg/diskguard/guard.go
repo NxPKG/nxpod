@@ -21,7 +21,7 @@ import (
 const (
 	// LabelDiskPressure is set on a node if any of the guarded disks have
 	// too little space available.
-	LabelDiskPressure = "nxpod.io/diskPressure"
+	LabelDiskPressure = "nxpod.khulnasoft.com/diskPressure"
 )
 
 // Config configures the disk guard

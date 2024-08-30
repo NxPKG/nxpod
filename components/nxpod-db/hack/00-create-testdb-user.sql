@@ -3,10 +3,10 @@
 
 
 -- create test DB user
-SET @gitpodDbPassword = IFNULL(@gitpodDbPassword, 'test');
+SET @nxpodDbPassword = IFNULL(@nxpodDbPassword, 'test');
 
 SET @statementStr = CONCAT(
-    'CREATE USER IF NOT EXISTS "gitpod"@"%" IDENTIFIED BY "', @gitpodDbPassword, '";'
+    'CREATE USER IF NOT EXISTS "nxpod"@"%" IDENTIFIED BY "', @nxpodDbPassword, '";'
 );
 SELECT @statementStr ;
 PREPARE stmt FROM @statementStr; EXECUTE stmt; DEALLOCATE PREPARE stmt;

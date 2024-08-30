@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/envvar.proto
+// source: nxpod/v1/envvar.proto
 
 package v1
 
@@ -63,7 +63,7 @@ func NewEnvironmentVariableServiceClient(cc grpc.ClientConnInterface) Environmen
 
 func (c *environmentVariableServiceClient) ListUserEnvironmentVariables(ctx context.Context, in *ListUserEnvironmentVariablesRequest, opts ...grpc.CallOption) (*ListUserEnvironmentVariablesResponse, error) {
 	out := new(ListUserEnvironmentVariablesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/ListUserEnvironmentVariables", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/ListUserEnvironmentVariables", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +72,7 @@ func (c *environmentVariableServiceClient) ListUserEnvironmentVariables(ctx cont
 
 func (c *environmentVariableServiceClient) UpdateUserEnvironmentVariable(ctx context.Context, in *UpdateUserEnvironmentVariableRequest, opts ...grpc.CallOption) (*UpdateUserEnvironmentVariableResponse, error) {
 	out := new(UpdateUserEnvironmentVariableResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/UpdateUserEnvironmentVariable", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/UpdateUserEnvironmentVariable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func (c *environmentVariableServiceClient) UpdateUserEnvironmentVariable(ctx con
 
 func (c *environmentVariableServiceClient) CreateUserEnvironmentVariable(ctx context.Context, in *CreateUserEnvironmentVariableRequest, opts ...grpc.CallOption) (*CreateUserEnvironmentVariableResponse, error) {
 	out := new(CreateUserEnvironmentVariableResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/CreateUserEnvironmentVariable", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/CreateUserEnvironmentVariable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func (c *environmentVariableServiceClient) CreateUserEnvironmentVariable(ctx con
 
 func (c *environmentVariableServiceClient) DeleteUserEnvironmentVariable(ctx context.Context, in *DeleteUserEnvironmentVariableRequest, opts ...grpc.CallOption) (*DeleteUserEnvironmentVariableResponse, error) {
 	out := new(DeleteUserEnvironmentVariableResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/DeleteUserEnvironmentVariable", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/DeleteUserEnvironmentVariable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ func (c *environmentVariableServiceClient) DeleteUserEnvironmentVariable(ctx con
 
 func (c *environmentVariableServiceClient) ListConfigurationEnvironmentVariables(ctx context.Context, in *ListConfigurationEnvironmentVariablesRequest, opts ...grpc.CallOption) (*ListConfigurationEnvironmentVariablesResponse, error) {
 	out := new(ListConfigurationEnvironmentVariablesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/ListConfigurationEnvironmentVariables", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/ListConfigurationEnvironmentVariables", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +108,7 @@ func (c *environmentVariableServiceClient) ListConfigurationEnvironmentVariables
 
 func (c *environmentVariableServiceClient) UpdateConfigurationEnvironmentVariable(ctx context.Context, in *UpdateConfigurationEnvironmentVariableRequest, opts ...grpc.CallOption) (*UpdateConfigurationEnvironmentVariableResponse, error) {
 	out := new(UpdateConfigurationEnvironmentVariableResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/UpdateConfigurationEnvironmentVariable", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/UpdateConfigurationEnvironmentVariable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -117,7 +117,7 @@ func (c *environmentVariableServiceClient) UpdateConfigurationEnvironmentVariabl
 
 func (c *environmentVariableServiceClient) CreateConfigurationEnvironmentVariable(ctx context.Context, in *CreateConfigurationEnvironmentVariableRequest, opts ...grpc.CallOption) (*CreateConfigurationEnvironmentVariableResponse, error) {
 	out := new(CreateConfigurationEnvironmentVariableResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/CreateConfigurationEnvironmentVariable", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/CreateConfigurationEnvironmentVariable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +126,7 @@ func (c *environmentVariableServiceClient) CreateConfigurationEnvironmentVariabl
 
 func (c *environmentVariableServiceClient) DeleteConfigurationEnvironmentVariable(ctx context.Context, in *DeleteConfigurationEnvironmentVariableRequest, opts ...grpc.CallOption) (*DeleteConfigurationEnvironmentVariableResponse, error) {
 	out := new(DeleteConfigurationEnvironmentVariableResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/DeleteConfigurationEnvironmentVariable", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/DeleteConfigurationEnvironmentVariable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -135,7 +135,7 @@ func (c *environmentVariableServiceClient) DeleteConfigurationEnvironmentVariabl
 
 func (c *environmentVariableServiceClient) ResolveWorkspaceEnvironmentVariables(ctx context.Context, in *ResolveWorkspaceEnvironmentVariablesRequest, opts ...grpc.CallOption) (*ResolveWorkspaceEnvironmentVariablesResponse, error) {
 	out := new(ResolveWorkspaceEnvironmentVariablesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.EnvironmentVariableService/ResolveWorkspaceEnvironmentVariables", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.EnvironmentVariableService/ResolveWorkspaceEnvironmentVariables", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -229,7 +229,7 @@ func _EnvironmentVariableService_ListUserEnvironmentVariables_Handler(srv interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/ListUserEnvironmentVariables",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/ListUserEnvironmentVariables",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).ListUserEnvironmentVariables(ctx, req.(*ListUserEnvironmentVariablesRequest))
@@ -247,7 +247,7 @@ func _EnvironmentVariableService_UpdateUserEnvironmentVariable_Handler(srv inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/UpdateUserEnvironmentVariable",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/UpdateUserEnvironmentVariable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).UpdateUserEnvironmentVariable(ctx, req.(*UpdateUserEnvironmentVariableRequest))
@@ -265,7 +265,7 @@ func _EnvironmentVariableService_CreateUserEnvironmentVariable_Handler(srv inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/CreateUserEnvironmentVariable",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/CreateUserEnvironmentVariable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).CreateUserEnvironmentVariable(ctx, req.(*CreateUserEnvironmentVariableRequest))
@@ -283,7 +283,7 @@ func _EnvironmentVariableService_DeleteUserEnvironmentVariable_Handler(srv inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/DeleteUserEnvironmentVariable",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/DeleteUserEnvironmentVariable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).DeleteUserEnvironmentVariable(ctx, req.(*DeleteUserEnvironmentVariableRequest))
@@ -301,7 +301,7 @@ func _EnvironmentVariableService_ListConfigurationEnvironmentVariables_Handler(s
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/ListConfigurationEnvironmentVariables",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/ListConfigurationEnvironmentVariables",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).ListConfigurationEnvironmentVariables(ctx, req.(*ListConfigurationEnvironmentVariablesRequest))
@@ -319,7 +319,7 @@ func _EnvironmentVariableService_UpdateConfigurationEnvironmentVariable_Handler(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/UpdateConfigurationEnvironmentVariable",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/UpdateConfigurationEnvironmentVariable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).UpdateConfigurationEnvironmentVariable(ctx, req.(*UpdateConfigurationEnvironmentVariableRequest))
@@ -337,7 +337,7 @@ func _EnvironmentVariableService_CreateConfigurationEnvironmentVariable_Handler(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/CreateConfigurationEnvironmentVariable",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/CreateConfigurationEnvironmentVariable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).CreateConfigurationEnvironmentVariable(ctx, req.(*CreateConfigurationEnvironmentVariableRequest))
@@ -355,7 +355,7 @@ func _EnvironmentVariableService_DeleteConfigurationEnvironmentVariable_Handler(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/DeleteConfigurationEnvironmentVariable",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/DeleteConfigurationEnvironmentVariable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).DeleteConfigurationEnvironmentVariable(ctx, req.(*DeleteConfigurationEnvironmentVariableRequest))
@@ -373,7 +373,7 @@ func _EnvironmentVariableService_ResolveWorkspaceEnvironmentVariables_Handler(sr
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.EnvironmentVariableService/ResolveWorkspaceEnvironmentVariables",
+		FullMethod: "/nxpod.v1.EnvironmentVariableService/ResolveWorkspaceEnvironmentVariables",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EnvironmentVariableServiceServer).ResolveWorkspaceEnvironmentVariables(ctx, req.(*ResolveWorkspaceEnvironmentVariablesRequest))
@@ -385,7 +385,7 @@ func _EnvironmentVariableService_ResolveWorkspaceEnvironmentVariables_Handler(sr
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var EnvironmentVariableService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.EnvironmentVariableService",
+	ServiceName: "nxpod.v1.EnvironmentVariableService",
 	HandlerType: (*EnvironmentVariableServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -426,5 +426,5 @@ var EnvironmentVariableService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/envvar.proto",
+	Metadata: "nxpod/v1/envvar.proto",
 }

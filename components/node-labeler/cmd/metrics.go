@@ -7,7 +7,7 @@ package cmd
 import "github.com/prometheus/client_golang/prometheus"
 
 const (
-	metricsNamespace          = "gitpod"
+	metricsNamespace          = "nxpod"
 	metricsWorkspaceSubsystem = "node_labeler"
 )
 

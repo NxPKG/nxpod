@@ -17,7 +17,7 @@ import (
 
 const (
 	secWebsocketKeyHeader = "Sec-WebSocket-Key"
-	secWebsocketKeyModule = "gitpod.sec_websocket_key"
+	secWebsocketKeyModule = "nxpod.sec_websocket_key"
 )
 
 func init() {
@@ -34,7 +34,7 @@ type SecWebsocketKey struct {
 // CaddyModule returns the Caddy module information.
 func (SecWebsocketKey) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "http.handlers.gitpod_sec_websocket_key",
+		ID:  "http.handlers.nxpod_sec_websocket_key",
 		New: func() caddy.Module { return new(SecWebsocketKey) },
 	}
 }

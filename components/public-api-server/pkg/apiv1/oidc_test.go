@@ -14,8 +14,8 @@ import (
 
 	"gorm.io/gorm"
 
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
-	"github.com/nxpkg/nxpod/components/gitpod-db/go/dbtest"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/google/uuid"
@@ -26,7 +26,7 @@ import (
 	"github.com/nxpkg/nxpod/components/public-api/go/config"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"

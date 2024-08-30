@@ -977,7 +977,7 @@ func servePortNotFoundPage(config *Config) (http.Handler, error) {
 	if err != nil {
 		return nil, err
 	}
-	page = bytes.ReplaceAll(page, []byte("https://nxpod.io"), []byte(fmt.Sprintf("%s://%s", config.NxpodInstallation.Scheme, config.NxpodInstallation.HostName)))
+	page = bytes.ReplaceAll(page, []byte("https://nxpod.khulnasoft.com"), []byte(fmt.Sprintf("%s://%s", config.NxpodInstallation.Scheme, config.NxpodInstallation.HostName)))
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)

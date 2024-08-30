@@ -1,7 +1,7 @@
 # Copyright (c) 2020 Nxpod GmbH. All rights reserved.
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
-FROM gitpod/openvscode-server-linux-build-agent:centos7-devtoolset8-x64 as dependencies_builder
+FROM nxpod/openvscode-server-linux-build-agent:centos7-devtoolset8-x64 as dependencies_builder
 
 ENV TRIGGER_REBUILD 1
 
@@ -20,7 +20,7 @@ ENV DISABLE_V8_COMPILE_CACHE=1
 
 RUN yarn --cwd remote --frozen-lockfile --network-timeout 180000
 
-FROM gitpod/openvscode-server-linux-build-agent:focal-x64 as code_builder
+FROM nxpod/openvscode-server-linux-build-agent:focal-x64 as code_builder
 
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
@@ -100,14 +100,14 @@ RUN yarn gulp compile-build \
 # config for first layer needed by blobserve
 # this custom urls will be then replaced by blobserve.
 # Check pkg/blobserve/blobserve.go, `inlineVars` method
-RUN cp /vscode-web/out/vs/gitpod/browser/workbench/workbench.html /vscode-web/index.html \
-    && cp /vscode-web/out/vs/gitpod/browser/workbench/callback.html /vscode-web/callback.html \
+RUN cp /vscode-web/out/vs/nxpod/browser/workbench/workbench.html /vscode-web/index.html \
+    && cp /vscode-web/out/vs/nxpod/browser/workbench/callback.html /vscode-web/callback.html \
     && sed -i -e "s/{{VERSION}}/$CODE_QUALITY-$CODE_COMMIT/g" /vscode-web/index.html
 
-# cli config: alises to gitpod-code
-RUN cp /vscode-reh-linux-x64/bin/remote-cli/gitpod-code /vscode-reh-linux-x64/bin/remote-cli/code \
-    && cp /vscode-reh-linux-x64/bin/remote-cli/gitpod-code /vscode-reh-linux-x64/bin/remote-cli/gp-code \
-    && cp /vscode-reh-linux-x64/bin/remote-cli/gitpod-code /vscode-reh-linux-x64/bin/remote-cli/open
+# cli config: alises to nxpod-code
+RUN cp /vscode-reh-linux-x64/bin/remote-cli/nxpod-code /vscode-reh-linux-x64/bin/remote-cli/code \
+    && cp /vscode-reh-linux-x64/bin/remote-cli/nxpod-code /vscode-reh-linux-x64/bin/remote-cli/gp-code \
+    && cp /vscode-reh-linux-x64/bin/remote-cli/nxpod-code /vscode-reh-linux-x64/bin/remote-cli/open
 
 # grant write permissions for built-in extensions
 RUN chmod -R ugo+w /vscode-reh-linux-x64/extensions
@@ -119,5 +119,5 @@ COPY --from=code_builder --chown=33333:33333 /vscode-reh-linux-x64/ /ide/
 
 ARG CODE_VERSION
 ARG CODE_COMMIT
-LABEL "io.gitpod.ide.version"=$CODE_VERSION
-LABEL "io.gitpod.ide.commit"=$CODE_COMMIT
+LABEL "io.nxpod.ide.version"=$CODE_VERSION
+LABEL "io.nxpod.ide.commit"=$CODE_COMMIT

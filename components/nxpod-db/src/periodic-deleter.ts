@@ -5,7 +5,7 @@
  */
 
 import { inject, injectable } from "inversify";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 import { NxpodTableDescriptionProvider, TableDescription } from "./tables";
 import { TypeORM } from "./typeorm/typeorm";

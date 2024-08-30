@@ -4,11 +4,11 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ApplicationError, ErrorCode, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCode, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 
 /**
  * new entry for the stream prebuild logs, contains logs of imageBuild (if it has) and prebuild tasks(first task only for now) logs
- * will be respond by public api gitpod.v1 PrebuildService.GetPrebuildLogUrl
+ * will be respond by public api nxpod.v1 PrebuildService.GetPrebuildLogUrl
  */
 export const PREBUILD_LOGS_PATH_PREFIX = "/prebuild-logs";
 

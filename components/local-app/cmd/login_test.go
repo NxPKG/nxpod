@@ -12,7 +12,7 @@ import (
 
 	"github.com/bufbuild/connect-go"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
-	gitpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	nxpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
 	"github.com/nxpkg/local-app/pkg/config"
 )
 
@@ -25,7 +25,7 @@ func TestLoginCmd(t *testing.T) {
 				ActiveContext: "test",
 			},
 			PrepServer: func(mux *http.ServeMux) {
-				mux.Handle(gitpod_experimental_v1connect.NewTeamsServiceHandler(&testLoginCmdSrv{
+				mux.Handle(nxpod_experimental_v1connect.NewTeamsServiceHandler(&testLoginCmdSrv{
 					Err: connect.NewError(connect.CodeUnauthenticated, fmt.Errorf("cannot establish caller identity")),
 				}))
 			},
@@ -39,7 +39,7 @@ func TestLoginCmd(t *testing.T) {
 
 type testLoginCmdSrv struct {
 	Err error
-	gitpod_experimental_v1connect.UnimplementedTeamsServiceHandler
+	nxpod_experimental_v1connect.UnimplementedTeamsServiceHandler
 }
 
 func (srv testLoginCmdSrv) ListTeams(context.Context, *connect.Request[v1.ListTeamsRequest]) (*connect.Response[v1.ListTeamsResponse], error) {

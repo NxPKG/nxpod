@@ -50,7 +50,7 @@ func main() {
 		type Query struct {
 			InstanceId     string `json:"instanceId"`
 			WorkspaceId    string `json:"workspaceId"`
-			NxpodHost     string `json:"gitpodHost"`
+			NxpodHost     string `json:"nxpodHost"`
 			DebugWorkspace bool   `json:"debugWorkspace"`
 		}
 		debugWorkspace := false
@@ -77,7 +77,7 @@ func main() {
 
 		link := url.URL{
 			Scheme:   schema,
-			Host:     "gitpod.gitpod-desktop",
+			Host:     "nxpod.nxpod-desktop",
 			Path:     workspaceLocation,
 			RawQuery: url.QueryEscape(queryString),
 		}

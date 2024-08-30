@@ -6,7 +6,7 @@
 
 import { Entity, Column, PrimaryColumn, ManyToOne, Index } from "typeorm";
 
-import { Identity } from "@gitpod/gitpod-protocol";
+import { Identity } from "@nxpod/nxpod-protocol";
 import { DBUser } from "./db-user";
 import { Transformer } from "../transformer";
 

@@ -12,7 +12,7 @@ import (
 	"os"
 
 	"github.com/32leaves/bel"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/theialib"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/theialib"
 	"github.com/iancoleman/strcase"
 )
 
@@ -49,7 +49,7 @@ func main() {
 	}
 
 	err = bel.Render(ts,
-		bel.GenerateAdditionalPreamble("\n// re-generate using `cd devops/images/workspace-image-builder/gitpod-cli && go generate ./...`\n"),
+		bel.GenerateAdditionalPreamble("\n// re-generate using `cd devops/images/workspace-image-builder/nxpod-cli && go generate ./...`\n"),
 		bel.GenerateAdditionalPreamble("\nexport const TheiaCLIService = Symbol('TheiaCLIService');\n"),
 		bel.GenerateAdditionalPreamble("export const SERVICE_PATH = '/services/cli';\n"),
 		bel.GenerateOutputTo(out),

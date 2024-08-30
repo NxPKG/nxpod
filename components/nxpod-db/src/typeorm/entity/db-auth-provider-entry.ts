@@ -6,9 +6,9 @@
 
 import { PrimaryColumn, Column, Entity, Index } from "typeorm";
 import { TypeORM } from "../typeorm";
-import { AuthProviderEntry, OAuth2Config } from "@gitpod/gitpod-protocol";
+import { AuthProviderEntry, OAuth2Config } from "@nxpod/nxpod-protocol";
 import { Transformer } from "../transformer";
-import { getGlobalEncryptionService } from "@gitpod/gitpod-protocol/lib/encryption/encryption-service";
+import { getGlobalEncryptionService } from "@nxpod/nxpod-protocol/lib/encryption/encryption-service";
 
 @Entity()
 export class DBAuthProviderEntry implements AuthProviderEntry {

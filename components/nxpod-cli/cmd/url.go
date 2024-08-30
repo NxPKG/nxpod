@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	"github.com/spf13/cobra"
 	"golang.org/x/xerrors"
 )

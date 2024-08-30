@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { EmailDomainFilterEntry } from "@gitpod/gitpod-protocol";
+import { EmailDomainFilterEntry } from "@nxpod/nxpod-protocol";
 
 export const EmailDomainFilterDB = Symbol("EmailDomainFilterDB");
 export interface EmailDomainFilterDB {

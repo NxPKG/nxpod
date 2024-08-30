@@ -88,7 +88,7 @@ export const SSOSetupStep: FC<Props> = ({ config, onComplete, progressCurrent, p
                 <Subheading>
                     Enable single sign-on for your organization using the OpenID Connect (OIDC) standard.{" "}
                     <a
-                        href="https://www.nxpod.io/docs/enterprise/setup-nxpod/configure-sso"
+                        href="https://www.nxpod.khulnasoft.com/docs/enterprise/setup-nxpod/configure-sso"
                         target="_blank"
                         rel="noreferrer noopener"
                         className="gp-link"

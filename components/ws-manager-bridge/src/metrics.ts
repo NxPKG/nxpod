@@ -6,9 +6,9 @@
 
 import * as prom from "prom-client";
 import { injectable } from "inversify";
-import { WorkspaceInstance } from "@gitpod/gitpod-protocol";
-import { WorkspaceClusterWoTLS } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
-import { WorkspaceType } from "@gitpod/gitpod-protocol";
+import { WorkspaceInstance } from "@nxpod/nxpod-protocol";
+import { WorkspaceClusterWoTLS } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
+import { WorkspaceType } from "@nxpod/nxpod-protocol";
 
 @injectable()
 export class Metrics {
@@ -43,50 +43,50 @@ export class Metrics {
             buckets: prom.exponentialBuckets(2, 2, 10),
         });
         this.clusterScore = new prom.Gauge({
-            name: "gitpod_ws_manager_bridge_cluster_score",
+            name: "nxpod_ws_manager_bridge_cluster_score",
             help: "Score of the individual registered workspace cluster",
             labelNames: ["workspace_cluster"],
         });
         this.clusterCordoned = new prom.Gauge({
-            name: "gitpod_ws_manager_bridge_cluster_cordoned",
+            name: "nxpod_ws_manager_bridge_cluster_cordoned",
             help: "Cordoned status of the individual registered workspace cluster",
             labelNames: ["workspace_cluster"],
         });
         this.statusUpdatesTotal = new prom.Counter({
-            name: "gitpod_ws_manager_bridge_status_updates_total",
+            name: "nxpod_ws_manager_bridge_status_updates_total",
             help: "Total workspace status updates received",
             labelNames: ["workspace_cluster", "known_instance"],
         });
         this.staleStatusUpdatesTotal = new prom.Counter({
-            name: "gitpod_ws_manager_bridge_stale_status_updates_total",
+            name: "nxpod_ws_manager_bridge_stale_status_updates_total",
             help: "Total count of stale status updates received by workspace manager bridge",
         });
         this.stalePrebuildEventsTotal = new prom.Counter({
-            name: "gitpod_ws_manager_bridge_stale_prebuild_events_total",
+            name: "nxpod_ws_manager_bridge_stale_prebuild_events_total",
             help: "Total count of stale prebuild events received by workspace manager bridge",
         });
 
         this.workspaceInstanceUpdateStartedTotal = new prom.Counter({
-            name: "gitpod_ws_manager_bridge_workspace_instance_update_started_total",
+            name: "nxpod_ws_manager_bridge_workspace_instance_update_started_total",
             help: "Total number of workspace instance updates that started processing",
             labelNames: ["workspace_cluster", "workspace_instance_type"],
         });
 
         this.workspaceInstanceUpdateCompletedSeconds = new prom.Histogram({
-            name: "gitpod_ws_manager_bridge_workspace_instance_update_completed_seconds",
+            name: "nxpod_ws_manager_bridge_workspace_instance_update_completed_seconds",
             help: "Histogram of completed workspace instance updates, by outcome",
             labelNames: ["workspace_cluster", "workspace_instance_type", "outcome"],
             buckets: prom.exponentialBuckets(0.05, 2, 8),
         });
 
         this.prebuildsCompletedTotal = new prom.Counter({
-            name: "gitpod_prebuilds_completed_total",
+            name: "nxpod_prebuilds_completed_total",
             help: "Counter of total prebuilds ended.",
             labelNames: ["state"],
         });
 
         this.instanceMarkedStoppedTotal = new prom.Counter({
-            name: "gitpod_ws_instances_marked_stopped_total",
+            name: "nxpod_ws_instances_marked_stopped_total",
             help: "Counter of total instances marked stopped by the ws-manager-bridge",
             labelNames: ["previous_phase"],
         });

@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/identityprovider.proto
+// source: nxpod/experimental/v1/identityprovider.proto
 
 package v1
 
@@ -40,7 +40,7 @@ func NewIdentityProviderServiceClient(cc grpc.ClientConnInterface) IdentityProvi
 
 func (c *identityProviderServiceClient) GetIDToken(ctx context.Context, in *GetIDTokenRequest, opts ...grpc.CallOption) (*GetIDTokenResponse, error) {
 	out := new(GetIDTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.IdentityProviderService/GetIDToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.IdentityProviderService/GetIDToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +87,7 @@ func _IdentityProviderService_GetIDToken_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.IdentityProviderService/GetIDToken",
+		FullMethod: "/nxpod.experimental.v1.IdentityProviderService/GetIDToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(IdentityProviderServiceServer).GetIDToken(ctx, req.(*GetIDTokenRequest))
@@ -99,7 +99,7 @@ func _IdentityProviderService_GetIDToken_Handler(srv interface{}, ctx context.Co
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var IdentityProviderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.IdentityProviderService",
+	ServiceName: "nxpod.experimental.v1.IdentityProviderService",
 	HandlerType: (*IdentityProviderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -108,5 +108,5 @@ var IdentityProviderService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/identityprovider.proto",
+	Metadata: "nxpod/experimental/v1/identityprovider.proto",
 }

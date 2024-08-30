@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/installation.proto
+// source: nxpod/v1/installation.proto
 
 package v1
 
@@ -34,7 +34,7 @@ type GetOnboardingStateRequest struct {
 func (x *GetOnboardingStateRequest) Reset() {
 	*x = GetOnboardingStateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[0]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -47,7 +47,7 @@ func (x *GetOnboardingStateRequest) String() string {
 func (*GetOnboardingStateRequest) ProtoMessage() {}
 
 func (x *GetOnboardingStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[0]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *GetOnboardingStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOnboardingStateRequest.ProtoReflect.Descriptor instead.
 func (*GetOnboardingStateRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{0}
 }
 
 type GetOnboardingStateResponse struct {
@@ -74,7 +74,7 @@ type GetOnboardingStateResponse struct {
 func (x *GetOnboardingStateResponse) Reset() {
 	*x = GetOnboardingStateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[1]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -87,7 +87,7 @@ func (x *GetOnboardingStateResponse) String() string {
 func (*GetOnboardingStateResponse) ProtoMessage() {}
 
 func (x *GetOnboardingStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[1]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +100,7 @@ func (x *GetOnboardingStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOnboardingStateResponse.ProtoReflect.Descriptor instead.
 func (*GetOnboardingStateResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetOnboardingStateResponse) GetOnboardingState() *OnboardingState {
@@ -121,7 +121,7 @@ type OnboardingState struct {
 func (x *OnboardingState) Reset() {
 	*x = OnboardingState{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[2]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -134,7 +134,7 @@ func (x *OnboardingState) String() string {
 func (*OnboardingState) ProtoMessage() {}
 
 func (x *OnboardingState) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[2]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -147,7 +147,7 @@ func (x *OnboardingState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnboardingState.ProtoReflect.Descriptor instead.
 func (*OnboardingState) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *OnboardingState) GetCompleted() bool {
@@ -166,7 +166,7 @@ type GetInstallationWorkspaceDefaultImageRequest struct {
 func (x *GetInstallationWorkspaceDefaultImageRequest) Reset() {
 	*x = GetInstallationWorkspaceDefaultImageRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[3]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -179,7 +179,7 @@ func (x *GetInstallationWorkspaceDefaultImageRequest) String() string {
 func (*GetInstallationWorkspaceDefaultImageRequest) ProtoMessage() {}
 
 func (x *GetInstallationWorkspaceDefaultImageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[3]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -192,7 +192,7 @@ func (x *GetInstallationWorkspaceDefaultImageRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use GetInstallationWorkspaceDefaultImageRequest.ProtoReflect.Descriptor instead.
 func (*GetInstallationWorkspaceDefaultImageRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{3}
 }
 
 type GetInstallationWorkspaceDefaultImageResponse struct {
@@ -206,7 +206,7 @@ type GetInstallationWorkspaceDefaultImageResponse struct {
 func (x *GetInstallationWorkspaceDefaultImageResponse) Reset() {
 	*x = GetInstallationWorkspaceDefaultImageResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[4]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -219,7 +219,7 @@ func (x *GetInstallationWorkspaceDefaultImageResponse) String() string {
 func (*GetInstallationWorkspaceDefaultImageResponse) ProtoMessage() {}
 
 func (x *GetInstallationWorkspaceDefaultImageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[4]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -232,7 +232,7 @@ func (x *GetInstallationWorkspaceDefaultImageResponse) ProtoReflect() protorefle
 
 // Deprecated: Use GetInstallationWorkspaceDefaultImageResponse.ProtoReflect.Descriptor instead.
 func (*GetInstallationWorkspaceDefaultImageResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetInstallationWorkspaceDefaultImageResponse) GetDefaultWorkspaceImage() string {
@@ -259,7 +259,7 @@ type ListBlockedRepositoriesRequest struct {
 func (x *ListBlockedRepositoriesRequest) Reset() {
 	*x = ListBlockedRepositoriesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[5]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -272,7 +272,7 @@ func (x *ListBlockedRepositoriesRequest) String() string {
 func (*ListBlockedRepositoriesRequest) ProtoMessage() {}
 
 func (x *ListBlockedRepositoriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[5]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,7 +285,7 @@ func (x *ListBlockedRepositoriesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBlockedRepositoriesRequest.ProtoReflect.Descriptor instead.
 func (*ListBlockedRepositoriesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListBlockedRepositoriesRequest) GetPagination() *PaginationRequest {
@@ -323,7 +323,7 @@ type ListBlockedRepositoriesResponse struct {
 func (x *ListBlockedRepositoriesResponse) Reset() {
 	*x = ListBlockedRepositoriesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[6]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -336,7 +336,7 @@ func (x *ListBlockedRepositoriesResponse) String() string {
 func (*ListBlockedRepositoriesResponse) ProtoMessage() {}
 
 func (x *ListBlockedRepositoriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[6]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -349,7 +349,7 @@ func (x *ListBlockedRepositoriesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBlockedRepositoriesResponse.ProtoReflect.Descriptor instead.
 func (*ListBlockedRepositoriesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ListBlockedRepositoriesResponse) GetPagination() *PaginationResponse {
@@ -383,7 +383,7 @@ type CreateBlockedRepositoryRequest struct {
 func (x *CreateBlockedRepositoryRequest) Reset() {
 	*x = CreateBlockedRepositoryRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[7]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -396,7 +396,7 @@ func (x *CreateBlockedRepositoryRequest) String() string {
 func (*CreateBlockedRepositoryRequest) ProtoMessage() {}
 
 func (x *CreateBlockedRepositoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[7]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -409,7 +409,7 @@ func (x *CreateBlockedRepositoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateBlockedRepositoryRequest.ProtoReflect.Descriptor instead.
 func (*CreateBlockedRepositoryRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateBlockedRepositoryRequest) GetUrlRegexp() string {
@@ -444,7 +444,7 @@ type CreateBlockedRepositoryResponse struct {
 func (x *CreateBlockedRepositoryResponse) Reset() {
 	*x = CreateBlockedRepositoryResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[8]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -457,7 +457,7 @@ func (x *CreateBlockedRepositoryResponse) String() string {
 func (*CreateBlockedRepositoryResponse) ProtoMessage() {}
 
 func (x *CreateBlockedRepositoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[8]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -470,7 +470,7 @@ func (x *CreateBlockedRepositoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateBlockedRepositoryResponse.ProtoReflect.Descriptor instead.
 func (*CreateBlockedRepositoryResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateBlockedRepositoryResponse) GetBlockedRepository() *BlockedRepository {
@@ -492,7 +492,7 @@ type DeleteBlockedRepositoryRequest struct {
 func (x *DeleteBlockedRepositoryRequest) Reset() {
 	*x = DeleteBlockedRepositoryRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[9]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -505,7 +505,7 @@ func (x *DeleteBlockedRepositoryRequest) String() string {
 func (*DeleteBlockedRepositoryRequest) ProtoMessage() {}
 
 func (x *DeleteBlockedRepositoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[9]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -518,7 +518,7 @@ func (x *DeleteBlockedRepositoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBlockedRepositoryRequest.ProtoReflect.Descriptor instead.
 func (*DeleteBlockedRepositoryRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteBlockedRepositoryRequest) GetBlockedRepositoryId() uint32 {
@@ -537,7 +537,7 @@ type DeleteBlockedRepositoryResponse struct {
 func (x *DeleteBlockedRepositoryResponse) Reset() {
 	*x = DeleteBlockedRepositoryResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[10]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -550,7 +550,7 @@ func (x *DeleteBlockedRepositoryResponse) String() string {
 func (*DeleteBlockedRepositoryResponse) ProtoMessage() {}
 
 func (x *DeleteBlockedRepositoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[10]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -563,7 +563,7 @@ func (x *DeleteBlockedRepositoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBlockedRepositoryResponse.ProtoReflect.Descriptor instead.
 func (*DeleteBlockedRepositoryResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{10}
 }
 
 type ListBlockedEmailDomainsRequest struct {
@@ -579,7 +579,7 @@ type ListBlockedEmailDomainsRequest struct {
 func (x *ListBlockedEmailDomainsRequest) Reset() {
 	*x = ListBlockedEmailDomainsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[11]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -592,7 +592,7 @@ func (x *ListBlockedEmailDomainsRequest) String() string {
 func (*ListBlockedEmailDomainsRequest) ProtoMessage() {}
 
 func (x *ListBlockedEmailDomainsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[11]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -605,7 +605,7 @@ func (x *ListBlockedEmailDomainsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBlockedEmailDomainsRequest.ProtoReflect.Descriptor instead.
 func (*ListBlockedEmailDomainsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ListBlockedEmailDomainsRequest) GetPagination() *PaginationRequest {
@@ -630,7 +630,7 @@ type ListBlockedEmailDomainsResponse struct {
 func (x *ListBlockedEmailDomainsResponse) Reset() {
 	*x = ListBlockedEmailDomainsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[12]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -643,7 +643,7 @@ func (x *ListBlockedEmailDomainsResponse) String() string {
 func (*ListBlockedEmailDomainsResponse) ProtoMessage() {}
 
 func (x *ListBlockedEmailDomainsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[12]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -656,7 +656,7 @@ func (x *ListBlockedEmailDomainsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBlockedEmailDomainsResponse.ProtoReflect.Descriptor instead.
 func (*ListBlockedEmailDomainsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ListBlockedEmailDomainsResponse) GetPagination() *PaginationResponse {
@@ -686,7 +686,7 @@ type CreateBlockedEmailDomainRequest struct {
 func (x *CreateBlockedEmailDomainRequest) Reset() {
 	*x = CreateBlockedEmailDomainRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[13]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -699,7 +699,7 @@ func (x *CreateBlockedEmailDomainRequest) String() string {
 func (*CreateBlockedEmailDomainRequest) ProtoMessage() {}
 
 func (x *CreateBlockedEmailDomainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[13]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -712,7 +712,7 @@ func (x *CreateBlockedEmailDomainRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateBlockedEmailDomainRequest.ProtoReflect.Descriptor instead.
 func (*CreateBlockedEmailDomainRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreateBlockedEmailDomainRequest) GetDomain() string {
@@ -740,7 +740,7 @@ type CreateBlockedEmailDomainResponse struct {
 func (x *CreateBlockedEmailDomainResponse) Reset() {
 	*x = CreateBlockedEmailDomainResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[14]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -753,7 +753,7 @@ func (x *CreateBlockedEmailDomainResponse) String() string {
 func (*CreateBlockedEmailDomainResponse) ProtoMessage() {}
 
 func (x *CreateBlockedEmailDomainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[14]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -766,7 +766,7 @@ func (x *CreateBlockedEmailDomainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateBlockedEmailDomainResponse.ProtoReflect.Descriptor instead.
 func (*CreateBlockedEmailDomainResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CreateBlockedEmailDomainResponse) GetBlockedEmailDomain() *BlockedEmailDomain {
@@ -797,7 +797,7 @@ type BlockedRepository struct {
 func (x *BlockedRepository) Reset() {
 	*x = BlockedRepository{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[15]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -810,7 +810,7 @@ func (x *BlockedRepository) String() string {
 func (*BlockedRepository) ProtoMessage() {}
 
 func (x *BlockedRepository) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[15]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -823,7 +823,7 @@ func (x *BlockedRepository) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockedRepository.ProtoReflect.Descriptor instead.
 func (*BlockedRepository) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *BlockedRepository) GetId() uint32 {
@@ -883,7 +883,7 @@ type BlockedEmailDomain struct {
 func (x *BlockedEmailDomain) Reset() {
 	*x = BlockedEmailDomain{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_installation_proto_msgTypes[16]
+		mi := &file_nxpod_v1_installation_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -896,7 +896,7 @@ func (x *BlockedEmailDomain) String() string {
 func (*BlockedEmailDomain) ProtoMessage() {}
 
 func (x *BlockedEmailDomain) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_installation_proto_msgTypes[16]
+	mi := &file_nxpod_v1_installation_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -909,7 +909,7 @@ func (x *BlockedEmailDomain) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockedEmailDomain.ProtoReflect.Descriptor instead.
 func (*BlockedEmailDomain) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_installation_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_v1_installation_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *BlockedEmailDomain) GetId() string {
@@ -933,9 +933,9 @@ func (x *BlockedEmailDomain) GetNegative() bool {
 	return false
 }
 
-var File_gitpod_v1_installation_proto protoreflect.FileDescriptor
+var File_nxpod_v1_installation_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_installation_proto_rawDesc = []byte{
+var file_nxpod_v1_installation_proto_rawDesc = []byte{
 	0x0a, 0x1c, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x69, 0x6e, 0x73, 0x74,
 	0x61, 0x6c, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09,
 	0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f,
@@ -1125,68 +1125,68 @@ var file_gitpod_v1_installation_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_installation_proto_rawDescOnce sync.Once
-	file_gitpod_v1_installation_proto_rawDescData = file_gitpod_v1_installation_proto_rawDesc
+	file_nxpod_v1_installation_proto_rawDescOnce sync.Once
+	file_nxpod_v1_installation_proto_rawDescData = file_nxpod_v1_installation_proto_rawDesc
 )
 
-func file_gitpod_v1_installation_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_installation_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_installation_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_installation_proto_rawDescData)
+func file_nxpod_v1_installation_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_installation_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_installation_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_installation_proto_rawDescData)
 	})
-	return file_gitpod_v1_installation_proto_rawDescData
+	return file_nxpod_v1_installation_proto_rawDescData
 }
 
-var file_gitpod_v1_installation_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
-var file_gitpod_v1_installation_proto_goTypes = []interface{}{
-	(*GetOnboardingStateRequest)(nil),                    // 0: gitpod.v1.GetOnboardingStateRequest
-	(*GetOnboardingStateResponse)(nil),                   // 1: gitpod.v1.GetOnboardingStateResponse
-	(*OnboardingState)(nil),                              // 2: gitpod.v1.OnboardingState
-	(*GetInstallationWorkspaceDefaultImageRequest)(nil),  // 3: gitpod.v1.GetInstallationWorkspaceDefaultImageRequest
-	(*GetInstallationWorkspaceDefaultImageResponse)(nil), // 4: gitpod.v1.GetInstallationWorkspaceDefaultImageResponse
-	(*ListBlockedRepositoriesRequest)(nil),               // 5: gitpod.v1.ListBlockedRepositoriesRequest
-	(*ListBlockedRepositoriesResponse)(nil),              // 6: gitpod.v1.ListBlockedRepositoriesResponse
-	(*CreateBlockedRepositoryRequest)(nil),               // 7: gitpod.v1.CreateBlockedRepositoryRequest
-	(*CreateBlockedRepositoryResponse)(nil),              // 8: gitpod.v1.CreateBlockedRepositoryResponse
-	(*DeleteBlockedRepositoryRequest)(nil),               // 9: gitpod.v1.DeleteBlockedRepositoryRequest
-	(*DeleteBlockedRepositoryResponse)(nil),              // 10: gitpod.v1.DeleteBlockedRepositoryResponse
-	(*ListBlockedEmailDomainsRequest)(nil),               // 11: gitpod.v1.ListBlockedEmailDomainsRequest
-	(*ListBlockedEmailDomainsResponse)(nil),              // 12: gitpod.v1.ListBlockedEmailDomainsResponse
-	(*CreateBlockedEmailDomainRequest)(nil),              // 13: gitpod.v1.CreateBlockedEmailDomainRequest
-	(*CreateBlockedEmailDomainResponse)(nil),             // 14: gitpod.v1.CreateBlockedEmailDomainResponse
-	(*BlockedRepository)(nil),                            // 15: gitpod.v1.BlockedRepository
-	(*BlockedEmailDomain)(nil),                           // 16: gitpod.v1.BlockedEmailDomain
-	(*PaginationRequest)(nil),                            // 17: gitpod.v1.PaginationRequest
-	(*Sort)(nil),                                         // 18: gitpod.v1.Sort
-	(*PaginationResponse)(nil),                           // 19: gitpod.v1.PaginationResponse
+var file_nxpod_v1_installation_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_nxpod_v1_installation_proto_goTypes = []interface{}{
+	(*GetOnboardingStateRequest)(nil),                    // 0: nxpod.v1.GetOnboardingStateRequest
+	(*GetOnboardingStateResponse)(nil),                   // 1: nxpod.v1.GetOnboardingStateResponse
+	(*OnboardingState)(nil),                              // 2: nxpod.v1.OnboardingState
+	(*GetInstallationWorkspaceDefaultImageRequest)(nil),  // 3: nxpod.v1.GetInstallationWorkspaceDefaultImageRequest
+	(*GetInstallationWorkspaceDefaultImageResponse)(nil), // 4: nxpod.v1.GetInstallationWorkspaceDefaultImageResponse
+	(*ListBlockedRepositoriesRequest)(nil),               // 5: nxpod.v1.ListBlockedRepositoriesRequest
+	(*ListBlockedRepositoriesResponse)(nil),              // 6: nxpod.v1.ListBlockedRepositoriesResponse
+	(*CreateBlockedRepositoryRequest)(nil),               // 7: nxpod.v1.CreateBlockedRepositoryRequest
+	(*CreateBlockedRepositoryResponse)(nil),              // 8: nxpod.v1.CreateBlockedRepositoryResponse
+	(*DeleteBlockedRepositoryRequest)(nil),               // 9: nxpod.v1.DeleteBlockedRepositoryRequest
+	(*DeleteBlockedRepositoryResponse)(nil),              // 10: nxpod.v1.DeleteBlockedRepositoryResponse
+	(*ListBlockedEmailDomainsRequest)(nil),               // 11: nxpod.v1.ListBlockedEmailDomainsRequest
+	(*ListBlockedEmailDomainsResponse)(nil),              // 12: nxpod.v1.ListBlockedEmailDomainsResponse
+	(*CreateBlockedEmailDomainRequest)(nil),              // 13: nxpod.v1.CreateBlockedEmailDomainRequest
+	(*CreateBlockedEmailDomainResponse)(nil),             // 14: nxpod.v1.CreateBlockedEmailDomainResponse
+	(*BlockedRepository)(nil),                            // 15: nxpod.v1.BlockedRepository
+	(*BlockedEmailDomain)(nil),                           // 16: nxpod.v1.BlockedEmailDomain
+	(*PaginationRequest)(nil),                            // 17: nxpod.v1.PaginationRequest
+	(*Sort)(nil),                                         // 18: nxpod.v1.Sort
+	(*PaginationResponse)(nil),                           // 19: nxpod.v1.PaginationResponse
 	(*timestamppb.Timestamp)(nil),                        // 20: google.protobuf.Timestamp
 }
-var file_gitpod_v1_installation_proto_depIdxs = []int32{
-	2,  // 0: gitpod.v1.GetOnboardingStateResponse.onboarding_state:type_name -> gitpod.v1.OnboardingState
-	17, // 1: gitpod.v1.ListBlockedRepositoriesRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	18, // 2: gitpod.v1.ListBlockedRepositoriesRequest.sort:type_name -> gitpod.v1.Sort
-	19, // 3: gitpod.v1.ListBlockedRepositoriesResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	15, // 4: gitpod.v1.ListBlockedRepositoriesResponse.blocked_repositories:type_name -> gitpod.v1.BlockedRepository
-	15, // 5: gitpod.v1.CreateBlockedRepositoryResponse.blocked_repository:type_name -> gitpod.v1.BlockedRepository
-	17, // 6: gitpod.v1.ListBlockedEmailDomainsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	19, // 7: gitpod.v1.ListBlockedEmailDomainsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	16, // 8: gitpod.v1.ListBlockedEmailDomainsResponse.blocked_email_domains:type_name -> gitpod.v1.BlockedEmailDomain
-	16, // 9: gitpod.v1.CreateBlockedEmailDomainResponse.blocked_email_domain:type_name -> gitpod.v1.BlockedEmailDomain
-	20, // 10: gitpod.v1.BlockedRepository.creation_time:type_name -> google.protobuf.Timestamp
-	20, // 11: gitpod.v1.BlockedRepository.update_time:type_name -> google.protobuf.Timestamp
-	3,  // 12: gitpod.v1.InstallationService.GetInstallationWorkspaceDefaultImage:input_type -> gitpod.v1.GetInstallationWorkspaceDefaultImageRequest
-	5,  // 13: gitpod.v1.InstallationService.ListBlockedRepositories:input_type -> gitpod.v1.ListBlockedRepositoriesRequest
-	7,  // 14: gitpod.v1.InstallationService.CreateBlockedRepository:input_type -> gitpod.v1.CreateBlockedRepositoryRequest
-	9,  // 15: gitpod.v1.InstallationService.DeleteBlockedRepository:input_type -> gitpod.v1.DeleteBlockedRepositoryRequest
-	11, // 16: gitpod.v1.InstallationService.ListBlockedEmailDomains:input_type -> gitpod.v1.ListBlockedEmailDomainsRequest
-	13, // 17: gitpod.v1.InstallationService.CreateBlockedEmailDomain:input_type -> gitpod.v1.CreateBlockedEmailDomainRequest
-	0,  // 18: gitpod.v1.InstallationService.GetOnboardingState:input_type -> gitpod.v1.GetOnboardingStateRequest
-	4,  // 19: gitpod.v1.InstallationService.GetInstallationWorkspaceDefaultImage:output_type -> gitpod.v1.GetInstallationWorkspaceDefaultImageResponse
-	6,  // 20: gitpod.v1.InstallationService.ListBlockedRepositories:output_type -> gitpod.v1.ListBlockedRepositoriesResponse
-	8,  // 21: gitpod.v1.InstallationService.CreateBlockedRepository:output_type -> gitpod.v1.CreateBlockedRepositoryResponse
-	10, // 22: gitpod.v1.InstallationService.DeleteBlockedRepository:output_type -> gitpod.v1.DeleteBlockedRepositoryResponse
-	12, // 23: gitpod.v1.InstallationService.ListBlockedEmailDomains:output_type -> gitpod.v1.ListBlockedEmailDomainsResponse
-	14, // 24: gitpod.v1.InstallationService.CreateBlockedEmailDomain:output_type -> gitpod.v1.CreateBlockedEmailDomainResponse
-	1,  // 25: gitpod.v1.InstallationService.GetOnboardingState:output_type -> gitpod.v1.GetOnboardingStateResponse
+var file_nxpod_v1_installation_proto_depIdxs = []int32{
+	2,  // 0: nxpod.v1.GetOnboardingStateResponse.onboarding_state:type_name -> nxpod.v1.OnboardingState
+	17, // 1: nxpod.v1.ListBlockedRepositoriesRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	18, // 2: nxpod.v1.ListBlockedRepositoriesRequest.sort:type_name -> nxpod.v1.Sort
+	19, // 3: nxpod.v1.ListBlockedRepositoriesResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	15, // 4: nxpod.v1.ListBlockedRepositoriesResponse.blocked_repositories:type_name -> nxpod.v1.BlockedRepository
+	15, // 5: nxpod.v1.CreateBlockedRepositoryResponse.blocked_repository:type_name -> nxpod.v1.BlockedRepository
+	17, // 6: nxpod.v1.ListBlockedEmailDomainsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	19, // 7: nxpod.v1.ListBlockedEmailDomainsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	16, // 8: nxpod.v1.ListBlockedEmailDomainsResponse.blocked_email_domains:type_name -> nxpod.v1.BlockedEmailDomain
+	16, // 9: nxpod.v1.CreateBlockedEmailDomainResponse.blocked_email_domain:type_name -> nxpod.v1.BlockedEmailDomain
+	20, // 10: nxpod.v1.BlockedRepository.creation_time:type_name -> google.protobuf.Timestamp
+	20, // 11: nxpod.v1.BlockedRepository.update_time:type_name -> google.protobuf.Timestamp
+	3,  // 12: nxpod.v1.InstallationService.GetInstallationWorkspaceDefaultImage:input_type -> nxpod.v1.GetInstallationWorkspaceDefaultImageRequest
+	5,  // 13: nxpod.v1.InstallationService.ListBlockedRepositories:input_type -> nxpod.v1.ListBlockedRepositoriesRequest
+	7,  // 14: nxpod.v1.InstallationService.CreateBlockedRepository:input_type -> nxpod.v1.CreateBlockedRepositoryRequest
+	9,  // 15: nxpod.v1.InstallationService.DeleteBlockedRepository:input_type -> nxpod.v1.DeleteBlockedRepositoryRequest
+	11, // 16: nxpod.v1.InstallationService.ListBlockedEmailDomains:input_type -> nxpod.v1.ListBlockedEmailDomainsRequest
+	13, // 17: nxpod.v1.InstallationService.CreateBlockedEmailDomain:input_type -> nxpod.v1.CreateBlockedEmailDomainRequest
+	0,  // 18: nxpod.v1.InstallationService.GetOnboardingState:input_type -> nxpod.v1.GetOnboardingStateRequest
+	4,  // 19: nxpod.v1.InstallationService.GetInstallationWorkspaceDefaultImage:output_type -> nxpod.v1.GetInstallationWorkspaceDefaultImageResponse
+	6,  // 20: nxpod.v1.InstallationService.ListBlockedRepositories:output_type -> nxpod.v1.ListBlockedRepositoriesResponse
+	8,  // 21: nxpod.v1.InstallationService.CreateBlockedRepository:output_type -> nxpod.v1.CreateBlockedRepositoryResponse
+	10, // 22: nxpod.v1.InstallationService.DeleteBlockedRepository:output_type -> nxpod.v1.DeleteBlockedRepositoryResponse
+	12, // 23: nxpod.v1.InstallationService.ListBlockedEmailDomains:output_type -> nxpod.v1.ListBlockedEmailDomainsResponse
+	14, // 24: nxpod.v1.InstallationService.CreateBlockedEmailDomain:output_type -> nxpod.v1.CreateBlockedEmailDomainResponse
+	1,  // 25: nxpod.v1.InstallationService.GetOnboardingState:output_type -> nxpod.v1.GetOnboardingStateResponse
 	19, // [19:26] is the sub-list for method output_type
 	12, // [12:19] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name
@@ -1194,15 +1194,15 @@ var file_gitpod_v1_installation_proto_depIdxs = []int32{
 	0,  // [0:12] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_installation_proto_init() }
-func file_gitpod_v1_installation_proto_init() {
-	if File_gitpod_v1_installation_proto != nil {
+func init() { file_nxpod_v1_installation_proto_init() }
+func file_nxpod_v1_installation_proto_init() {
+	if File_nxpod_v1_installation_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
-	file_gitpod_v1_sorting_proto_init()
+	file_nxpod_v1_pagination_proto_init()
+	file_nxpod_v1_sorting_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_installation_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOnboardingStateRequest); i {
 			case 0:
 				return &v.state
@@ -1214,7 +1214,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOnboardingStateResponse); i {
 			case 0:
 				return &v.state
@@ -1226,7 +1226,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OnboardingState); i {
 			case 0:
 				return &v.state
@@ -1238,7 +1238,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetInstallationWorkspaceDefaultImageRequest); i {
 			case 0:
 				return &v.state
@@ -1250,7 +1250,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetInstallationWorkspaceDefaultImageResponse); i {
 			case 0:
 				return &v.state
@@ -1262,7 +1262,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListBlockedRepositoriesRequest); i {
 			case 0:
 				return &v.state
@@ -1274,7 +1274,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListBlockedRepositoriesResponse); i {
 			case 0:
 				return &v.state
@@ -1286,7 +1286,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateBlockedRepositoryRequest); i {
 			case 0:
 				return &v.state
@@ -1298,7 +1298,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateBlockedRepositoryResponse); i {
 			case 0:
 				return &v.state
@@ -1310,7 +1310,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteBlockedRepositoryRequest); i {
 			case 0:
 				return &v.state
@@ -1322,7 +1322,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteBlockedRepositoryResponse); i {
 			case 0:
 				return &v.state
@@ -1334,7 +1334,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListBlockedEmailDomainsRequest); i {
 			case 0:
 				return &v.state
@@ -1346,7 +1346,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListBlockedEmailDomainsResponse); i {
 			case 0:
 				return &v.state
@@ -1358,7 +1358,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateBlockedEmailDomainRequest); i {
 			case 0:
 				return &v.state
@@ -1370,7 +1370,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateBlockedEmailDomainResponse); i {
 			case 0:
 				return &v.state
@@ -1382,7 +1382,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BlockedRepository); i {
 			case 0:
 				return &v.state
@@ -1394,7 +1394,7 @@ func file_gitpod_v1_installation_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_installation_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_installation_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BlockedEmailDomain); i {
 			case 0:
 				return &v.state
@@ -1411,18 +1411,18 @@ func file_gitpod_v1_installation_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_installation_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_installation_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_installation_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_installation_proto_depIdxs,
-		MessageInfos:      file_gitpod_v1_installation_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_installation_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_installation_proto_depIdxs,
+		MessageInfos:      file_nxpod_v1_installation_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_installation_proto = out.File
-	file_gitpod_v1_installation_proto_rawDesc = nil
-	file_gitpod_v1_installation_proto_goTypes = nil
-	file_gitpod_v1_installation_proto_depIdxs = nil
+	File_nxpod_v1_installation_proto = out.File
+	file_nxpod_v1_installation_proto_rawDesc = nil
+	file_nxpod_v1_installation_proto_goTypes = nil
+	file_nxpod_v1_installation_proto_depIdxs = nil
 }

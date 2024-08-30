@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/auditlogs.proto
+// source: nxpod/v1/auditlogs.proto
 
 package v1
 
@@ -40,7 +40,7 @@ func NewAuditLogServiceClient(cc grpc.ClientConnInterface) AuditLogServiceClient
 
 func (c *auditLogServiceClient) ListAuditLogs(ctx context.Context, in *ListAuditLogsRequest, opts ...grpc.CallOption) (*ListAuditLogsResponse, error) {
 	out := new(ListAuditLogsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.AuditLogService/ListAuditLogs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.AuditLogService/ListAuditLogs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func _AuditLogService_ListAuditLogs_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.AuditLogService/ListAuditLogs",
+		FullMethod: "/nxpod.v1.AuditLogService/ListAuditLogs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AuditLogServiceServer).ListAuditLogs(ctx, req.(*ListAuditLogsRequest))
@@ -98,7 +98,7 @@ func _AuditLogService_ListAuditLogs_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AuditLogService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.AuditLogService",
+	ServiceName: "nxpod.v1.AuditLogService",
 	HandlerType: (*AuditLogServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -107,5 +107,5 @@ var AuditLogService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/auditlogs.proto",
+	Metadata: "nxpod/v1/auditlogs.proto",
 }

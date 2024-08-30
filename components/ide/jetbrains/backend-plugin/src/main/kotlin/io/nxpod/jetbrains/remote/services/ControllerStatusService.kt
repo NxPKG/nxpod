@@ -2,12 +2,12 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.services
+package io.nxpod.jetbrains.remote.services
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import io.gitpod.jetbrains.remote.utils.Retrier.retry
+import io.nxpod.jetbrains.remote.utils.Retrier.retry
 import org.jetbrains.ide.BuiltInServerManager
 import java.io.IOException
 import java.net.URI
@@ -40,7 +40,7 @@ object ControllerStatusService {
                 .build()
             val response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString())
             if (response.statusCode() != 200) {
-                throw IOException("gitpod: failed to retrieve controller status: ${response.statusCode()}")
+                throw IOException("nxpod: failed to retrieve controller status: ${response.statusCode()}")
             }
             val status = with(jacksonMapper) {
                 propertyNamingStrategy = PropertyNamingStrategies.LowerCamelCaseStrategy()

@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/editor.proto
+// source: nxpod/v1/editor.proto
 
 package v1
 
@@ -39,7 +39,7 @@ type EditorReference struct {
 func (x *EditorReference) Reset() {
 	*x = EditorReference{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_editor_proto_msgTypes[0]
+		mi := &file_nxpod_v1_editor_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -52,7 +52,7 @@ func (x *EditorReference) String() string {
 func (*EditorReference) ProtoMessage() {}
 
 func (x *EditorReference) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_editor_proto_msgTypes[0]
+	mi := &file_nxpod_v1_editor_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -65,7 +65,7 @@ func (x *EditorReference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EditorReference.ProtoReflect.Descriptor instead.
 func (*EditorReference) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_editor_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_editor_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *EditorReference) GetName() string {
@@ -89,9 +89,9 @@ func (x *EditorReference) GetPreferToolbox() bool {
 	return false
 }
 
-var File_gitpod_v1_editor_proto protoreflect.FileDescriptor
+var File_nxpod_v1_editor_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_editor_proto_rawDesc = []byte{
+var file_nxpod_v1_editor_proto_rawDesc = []byte{
 	0x0a, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x64, 0x69, 0x74,
 	0x6f, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64,
 	0x2e, 0x76, 0x31, 0x22, 0x66, 0x0a, 0x0f, 0x45, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x66,
@@ -110,22 +110,22 @@ var file_gitpod_v1_editor_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_editor_proto_rawDescOnce sync.Once
-	file_gitpod_v1_editor_proto_rawDescData = file_gitpod_v1_editor_proto_rawDesc
+	file_nxpod_v1_editor_proto_rawDescOnce sync.Once
+	file_nxpod_v1_editor_proto_rawDescData = file_nxpod_v1_editor_proto_rawDesc
 )
 
-func file_gitpod_v1_editor_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_editor_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_editor_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_editor_proto_rawDescData)
+func file_nxpod_v1_editor_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_editor_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_editor_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_editor_proto_rawDescData)
 	})
-	return file_gitpod_v1_editor_proto_rawDescData
+	return file_nxpod_v1_editor_proto_rawDescData
 }
 
-var file_gitpod_v1_editor_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_gitpod_v1_editor_proto_goTypes = []interface{}{
-	(*EditorReference)(nil), // 0: gitpod.v1.EditorReference
+var file_nxpod_v1_editor_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_nxpod_v1_editor_proto_goTypes = []interface{}{
+	(*EditorReference)(nil), // 0: nxpod.v1.EditorReference
 }
-var file_gitpod_v1_editor_proto_depIdxs = []int32{
+var file_nxpod_v1_editor_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -133,13 +133,13 @@ var file_gitpod_v1_editor_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_editor_proto_init() }
-func file_gitpod_v1_editor_proto_init() {
-	if File_gitpod_v1_editor_proto != nil {
+func init() { file_nxpod_v1_editor_proto_init() }
+func file_nxpod_v1_editor_proto_init() {
+	if File_nxpod_v1_editor_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_editor_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_editor_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EditorReference); i {
 			case 0:
 				return &v.state
@@ -156,18 +156,18 @@ func file_gitpod_v1_editor_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_editor_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_editor_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_gitpod_v1_editor_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_editor_proto_depIdxs,
-		MessageInfos:      file_gitpod_v1_editor_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_editor_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_editor_proto_depIdxs,
+		MessageInfos:      file_nxpod_v1_editor_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_editor_proto = out.File
-	file_gitpod_v1_editor_proto_rawDesc = nil
-	file_gitpod_v1_editor_proto_goTypes = nil
-	file_gitpod_v1_editor_proto_depIdxs = nil
+	File_nxpod_v1_editor_proto = out.File
+	file_nxpod_v1_editor_proto_rawDesc = nil
+	file_nxpod_v1_editor_proto_goTypes = nil
+	file_nxpod_v1_editor_proto_depIdxs = nil
 }

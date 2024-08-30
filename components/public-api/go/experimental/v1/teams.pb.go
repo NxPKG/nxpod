@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/teams.proto
+// source: nxpod/experimental/v1/teams.proto
 
 package v1
 
@@ -62,11 +62,11 @@ func (x TeamRole) String() string {
 }
 
 func (TeamRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_teams_proto_enumTypes[0].Descriptor()
+	return file_nxpod_experimental_v1_teams_proto_enumTypes[0].Descriptor()
 }
 
 func (TeamRole) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_teams_proto_enumTypes[0]
+	return &file_nxpod_experimental_v1_teams_proto_enumTypes[0]
 }
 
 func (x TeamRole) Number() protoreflect.EnumNumber {
@@ -75,7 +75,7 @@ func (x TeamRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TeamRole.Descriptor instead.
 func (TeamRole) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{0}
 }
 
 type Team struct {
@@ -98,7 +98,7 @@ type Team struct {
 func (x *Team) Reset() {
 	*x = Team{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -111,7 +111,7 @@ func (x *Team) String() string {
 func (*Team) ProtoMessage() {}
 
 func (x *Team) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -124,7 +124,7 @@ func (x *Team) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Team.ProtoReflect.Descriptor instead.
 func (*Team) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Team) GetId() string {
@@ -170,7 +170,7 @@ type TeamMember struct {
 	// user_id is the identifier of the user
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// role is the role this member is assigned
-	Role TeamRole `protobuf:"varint,2,opt,name=role,proto3,enum=gitpod.experimental.v1.TeamRole" json:"role,omitempty"`
+	Role TeamRole `protobuf:"varint,2,opt,name=role,proto3,enum=nxpod.experimental.v1.TeamRole" json:"role,omitempty"`
 	// member_since is the timestamp when the member joined the team
 	MemberSince *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=member_since,json=memberSince,proto3" json:"member_since,omitempty"`
 	// avatar_url is the URL for the TeamMember
@@ -186,7 +186,7 @@ type TeamMember struct {
 func (x *TeamMember) Reset() {
 	*x = TeamMember{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -199,7 +199,7 @@ func (x *TeamMember) String() string {
 func (*TeamMember) ProtoMessage() {}
 
 func (x *TeamMember) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -212,7 +212,7 @@ func (x *TeamMember) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TeamMember.ProtoReflect.Descriptor instead.
 func (*TeamMember) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *TeamMember) GetUserId() string {
@@ -276,7 +276,7 @@ type TeamInvitation struct {
 func (x *TeamInvitation) Reset() {
 	*x = TeamInvitation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -289,7 +289,7 @@ func (x *TeamInvitation) String() string {
 func (*TeamInvitation) ProtoMessage() {}
 
 func (x *TeamInvitation) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -302,7 +302,7 @@ func (x *TeamInvitation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TeamInvitation.ProtoReflect.Descriptor instead.
 func (*TeamInvitation) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *TeamInvitation) GetId() string {
@@ -324,7 +324,7 @@ type CreateTeamRequest struct {
 func (x *CreateTeamRequest) Reset() {
 	*x = CreateTeamRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -337,7 +337,7 @@ func (x *CreateTeamRequest) String() string {
 func (*CreateTeamRequest) ProtoMessage() {}
 
 func (x *CreateTeamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -350,7 +350,7 @@ func (x *CreateTeamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTeamRequest.ProtoReflect.Descriptor instead.
 func (*CreateTeamRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateTeamRequest) GetName() string {
@@ -371,7 +371,7 @@ type CreateTeamResponse struct {
 func (x *CreateTeamResponse) Reset() {
 	*x = CreateTeamResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -384,7 +384,7 @@ func (x *CreateTeamResponse) String() string {
 func (*CreateTeamResponse) ProtoMessage() {}
 
 func (x *CreateTeamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -397,7 +397,7 @@ func (x *CreateTeamResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTeamResponse.ProtoReflect.Descriptor instead.
 func (*CreateTeamResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CreateTeamResponse) GetTeam() *Team {
@@ -419,7 +419,7 @@ type GetTeamRequest struct {
 func (x *GetTeamRequest) Reset() {
 	*x = GetTeamRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -432,7 +432,7 @@ func (x *GetTeamRequest) String() string {
 func (*GetTeamRequest) ProtoMessage() {}
 
 func (x *GetTeamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,7 +445,7 @@ func (x *GetTeamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTeamRequest.ProtoReflect.Descriptor instead.
 func (*GetTeamRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetTeamRequest) GetTeamId() string {
@@ -466,7 +466,7 @@ type GetTeamResponse struct {
 func (x *GetTeamResponse) Reset() {
 	*x = GetTeamResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[6]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -479,7 +479,7 @@ func (x *GetTeamResponse) String() string {
 func (*GetTeamResponse) ProtoMessage() {}
 
 func (x *GetTeamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[6]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -492,7 +492,7 @@ func (x *GetTeamResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTeamResponse.ProtoReflect.Descriptor instead.
 func (*GetTeamResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetTeamResponse) GetTeam() *Team {
@@ -511,7 +511,7 @@ type ListTeamsRequest struct {
 func (x *ListTeamsRequest) Reset() {
 	*x = ListTeamsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[7]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -524,7 +524,7 @@ func (x *ListTeamsRequest) String() string {
 func (*ListTeamsRequest) ProtoMessage() {}
 
 func (x *ListTeamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[7]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -537,7 +537,7 @@ func (x *ListTeamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTeamsRequest.ProtoReflect.Descriptor instead.
 func (*ListTeamsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{7}
 }
 
 type ListTeamsResponse struct {
@@ -551,7 +551,7 @@ type ListTeamsResponse struct {
 func (x *ListTeamsResponse) Reset() {
 	*x = ListTeamsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[8]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -564,7 +564,7 @@ func (x *ListTeamsResponse) String() string {
 func (*ListTeamsResponse) ProtoMessage() {}
 
 func (x *ListTeamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[8]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -577,7 +577,7 @@ func (x *ListTeamsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTeamsResponse.ProtoReflect.Descriptor instead.
 func (*ListTeamsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListTeamsResponse) GetTeams() []*Team {
@@ -599,7 +599,7 @@ type DeleteTeamRequest struct {
 func (x *DeleteTeamRequest) Reset() {
 	*x = DeleteTeamRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[9]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -612,7 +612,7 @@ func (x *DeleteTeamRequest) String() string {
 func (*DeleteTeamRequest) ProtoMessage() {}
 
 func (x *DeleteTeamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[9]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -625,7 +625,7 @@ func (x *DeleteTeamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTeamRequest.ProtoReflect.Descriptor instead.
 func (*DeleteTeamRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteTeamRequest) GetTeamId() string {
@@ -644,7 +644,7 @@ type DeleteTeamResponse struct {
 func (x *DeleteTeamResponse) Reset() {
 	*x = DeleteTeamResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[10]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -657,7 +657,7 @@ func (x *DeleteTeamResponse) String() string {
 func (*DeleteTeamResponse) ProtoMessage() {}
 
 func (x *DeleteTeamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[10]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -670,7 +670,7 @@ func (x *DeleteTeamResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTeamResponse.ProtoReflect.Descriptor instead.
 func (*DeleteTeamResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{10}
 }
 
 type GetTeamInvitationRequest struct {
@@ -684,7 +684,7 @@ type GetTeamInvitationRequest struct {
 func (x *GetTeamInvitationRequest) Reset() {
 	*x = GetTeamInvitationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[11]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -697,7 +697,7 @@ func (x *GetTeamInvitationRequest) String() string {
 func (*GetTeamInvitationRequest) ProtoMessage() {}
 
 func (x *GetTeamInvitationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[11]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -710,7 +710,7 @@ func (x *GetTeamInvitationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTeamInvitationRequest.ProtoReflect.Descriptor instead.
 func (*GetTeamInvitationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetTeamInvitationRequest) GetTeamId() string {
@@ -732,7 +732,7 @@ type GetTeamInvitationResponse struct {
 func (x *GetTeamInvitationResponse) Reset() {
 	*x = GetTeamInvitationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[12]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -745,7 +745,7 @@ func (x *GetTeamInvitationResponse) String() string {
 func (*GetTeamInvitationResponse) ProtoMessage() {}
 
 func (x *GetTeamInvitationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[12]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -758,7 +758,7 @@ func (x *GetTeamInvitationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTeamInvitationResponse.ProtoReflect.Descriptor instead.
 func (*GetTeamInvitationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetTeamInvitationResponse) GetTeamInvitation() *TeamInvitation {
@@ -780,7 +780,7 @@ type JoinTeamRequest struct {
 func (x *JoinTeamRequest) Reset() {
 	*x = JoinTeamRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[13]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -793,7 +793,7 @@ func (x *JoinTeamRequest) String() string {
 func (*JoinTeamRequest) ProtoMessage() {}
 
 func (x *JoinTeamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[13]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -806,7 +806,7 @@ func (x *JoinTeamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinTeamRequest.ProtoReflect.Descriptor instead.
 func (*JoinTeamRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *JoinTeamRequest) GetInvitationId() string {
@@ -828,7 +828,7 @@ type JoinTeamResponse struct {
 func (x *JoinTeamResponse) Reset() {
 	*x = JoinTeamResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[14]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -841,7 +841,7 @@ func (x *JoinTeamResponse) String() string {
 func (*JoinTeamResponse) ProtoMessage() {}
 
 func (x *JoinTeamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[14]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -854,7 +854,7 @@ func (x *JoinTeamResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinTeamResponse.ProtoReflect.Descriptor instead.
 func (*JoinTeamResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *JoinTeamResponse) GetTeam() *Team {
@@ -875,7 +875,7 @@ type ResetTeamInvitationRequest struct {
 func (x *ResetTeamInvitationRequest) Reset() {
 	*x = ResetTeamInvitationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[15]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -888,7 +888,7 @@ func (x *ResetTeamInvitationRequest) String() string {
 func (*ResetTeamInvitationRequest) ProtoMessage() {}
 
 func (x *ResetTeamInvitationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[15]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -901,7 +901,7 @@ func (x *ResetTeamInvitationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetTeamInvitationRequest.ProtoReflect.Descriptor instead.
 func (*ResetTeamInvitationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *ResetTeamInvitationRequest) GetTeamId() string {
@@ -923,7 +923,7 @@ type ResetTeamInvitationResponse struct {
 func (x *ResetTeamInvitationResponse) Reset() {
 	*x = ResetTeamInvitationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[16]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -936,7 +936,7 @@ func (x *ResetTeamInvitationResponse) String() string {
 func (*ResetTeamInvitationResponse) ProtoMessage() {}
 
 func (x *ResetTeamInvitationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[16]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -949,7 +949,7 @@ func (x *ResetTeamInvitationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetTeamInvitationResponse.ProtoReflect.Descriptor instead.
 func (*ResetTeamInvitationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ResetTeamInvitationResponse) GetTeamInvitation() *TeamInvitation {
@@ -971,7 +971,7 @@ type ListTeamMembersRequest struct {
 func (x *ListTeamMembersRequest) Reset() {
 	*x = ListTeamMembersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[17]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -984,7 +984,7 @@ func (x *ListTeamMembersRequest) String() string {
 func (*ListTeamMembersRequest) ProtoMessage() {}
 
 func (x *ListTeamMembersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[17]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -997,7 +997,7 @@ func (x *ListTeamMembersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTeamMembersRequest.ProtoReflect.Descriptor instead.
 func (*ListTeamMembersRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{17}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ListTeamMembersRequest) GetTeamId() string {
@@ -1019,7 +1019,7 @@ type ListTeamMembersResponse struct {
 func (x *ListTeamMembersResponse) Reset() {
 	*x = ListTeamMembersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[18]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1032,7 +1032,7 @@ func (x *ListTeamMembersResponse) String() string {
 func (*ListTeamMembersResponse) ProtoMessage() {}
 
 func (x *ListTeamMembersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[18]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1045,7 +1045,7 @@ func (x *ListTeamMembersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTeamMembersResponse.ProtoReflect.Descriptor instead.
 func (*ListTeamMembersResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{18}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ListTeamMembersResponse) GetMembers() []*TeamMember {
@@ -1069,7 +1069,7 @@ type UpdateTeamMemberRequest struct {
 func (x *UpdateTeamMemberRequest) Reset() {
 	*x = UpdateTeamMemberRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[19]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1082,7 +1082,7 @@ func (x *UpdateTeamMemberRequest) String() string {
 func (*UpdateTeamMemberRequest) ProtoMessage() {}
 
 func (x *UpdateTeamMemberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[19]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1095,7 +1095,7 @@ func (x *UpdateTeamMemberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTeamMemberRequest.ProtoReflect.Descriptor instead.
 func (*UpdateTeamMemberRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{19}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *UpdateTeamMemberRequest) GetTeamId() string {
@@ -1123,7 +1123,7 @@ type UpdateTeamMemberResponse struct {
 func (x *UpdateTeamMemberResponse) Reset() {
 	*x = UpdateTeamMemberResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[20]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1136,7 +1136,7 @@ func (x *UpdateTeamMemberResponse) String() string {
 func (*UpdateTeamMemberResponse) ProtoMessage() {}
 
 func (x *UpdateTeamMemberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[20]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1149,7 +1149,7 @@ func (x *UpdateTeamMemberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTeamMemberResponse.ProtoReflect.Descriptor instead.
 func (*UpdateTeamMemberResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{20}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *UpdateTeamMemberResponse) GetTeamMember() *TeamMember {
@@ -1173,7 +1173,7 @@ type DeleteTeamMemberRequest struct {
 func (x *DeleteTeamMemberRequest) Reset() {
 	*x = DeleteTeamMemberRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[21]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1186,7 +1186,7 @@ func (x *DeleteTeamMemberRequest) String() string {
 func (*DeleteTeamMemberRequest) ProtoMessage() {}
 
 func (x *DeleteTeamMemberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[21]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1199,7 +1199,7 @@ func (x *DeleteTeamMemberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTeamMemberRequest.ProtoReflect.Descriptor instead.
 func (*DeleteTeamMemberRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{21}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DeleteTeamMemberRequest) GetTeamId() string {
@@ -1225,7 +1225,7 @@ type DeleteTeamMemberResponse struct {
 func (x *DeleteTeamMemberResponse) Reset() {
 	*x = DeleteTeamMemberResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[22]
+		mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1238,7 +1238,7 @@ func (x *DeleteTeamMemberResponse) String() string {
 func (*DeleteTeamMemberResponse) ProtoMessage() {}
 
 func (x *DeleteTeamMemberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_teams_proto_msgTypes[22]
+	mi := &file_nxpod_experimental_v1_teams_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1251,12 +1251,12 @@ func (x *DeleteTeamMemberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTeamMemberResponse.ProtoReflect.Descriptor instead.
 func (*DeleteTeamMemberResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_teams_proto_rawDescGZIP(), []int{22}
+	return file_nxpod_experimental_v1_teams_proto_rawDescGZIP(), []int{22}
 }
 
-var File_gitpod_experimental_v1_teams_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_teams_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_teams_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_teams_proto_rawDesc = []byte{
 	0x0a, 0x22, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x65, 0x61, 0x6d, 0x73, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x65, 0x78, 0x70,
@@ -1466,80 +1466,80 @@ var file_gitpod_experimental_v1_teams_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_teams_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_teams_proto_rawDescData = file_gitpod_experimental_v1_teams_proto_rawDesc
+	file_nxpod_experimental_v1_teams_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_teams_proto_rawDescData = file_nxpod_experimental_v1_teams_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_teams_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_teams_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_teams_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_teams_proto_rawDescData)
+func file_nxpod_experimental_v1_teams_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_teams_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_teams_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_teams_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_teams_proto_rawDescData
+	return file_nxpod_experimental_v1_teams_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_teams_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_gitpod_experimental_v1_teams_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
-var file_gitpod_experimental_v1_teams_proto_goTypes = []interface{}{
-	(TeamRole)(0),                       // 0: gitpod.experimental.v1.TeamRole
-	(*Team)(nil),                        // 1: gitpod.experimental.v1.Team
-	(*TeamMember)(nil),                  // 2: gitpod.experimental.v1.TeamMember
-	(*TeamInvitation)(nil),              // 3: gitpod.experimental.v1.TeamInvitation
-	(*CreateTeamRequest)(nil),           // 4: gitpod.experimental.v1.CreateTeamRequest
-	(*CreateTeamResponse)(nil),          // 5: gitpod.experimental.v1.CreateTeamResponse
-	(*GetTeamRequest)(nil),              // 6: gitpod.experimental.v1.GetTeamRequest
-	(*GetTeamResponse)(nil),             // 7: gitpod.experimental.v1.GetTeamResponse
-	(*ListTeamsRequest)(nil),            // 8: gitpod.experimental.v1.ListTeamsRequest
-	(*ListTeamsResponse)(nil),           // 9: gitpod.experimental.v1.ListTeamsResponse
-	(*DeleteTeamRequest)(nil),           // 10: gitpod.experimental.v1.DeleteTeamRequest
-	(*DeleteTeamResponse)(nil),          // 11: gitpod.experimental.v1.DeleteTeamResponse
-	(*GetTeamInvitationRequest)(nil),    // 12: gitpod.experimental.v1.GetTeamInvitationRequest
-	(*GetTeamInvitationResponse)(nil),   // 13: gitpod.experimental.v1.GetTeamInvitationResponse
-	(*JoinTeamRequest)(nil),             // 14: gitpod.experimental.v1.JoinTeamRequest
-	(*JoinTeamResponse)(nil),            // 15: gitpod.experimental.v1.JoinTeamResponse
-	(*ResetTeamInvitationRequest)(nil),  // 16: gitpod.experimental.v1.ResetTeamInvitationRequest
-	(*ResetTeamInvitationResponse)(nil), // 17: gitpod.experimental.v1.ResetTeamInvitationResponse
-	(*ListTeamMembersRequest)(nil),      // 18: gitpod.experimental.v1.ListTeamMembersRequest
-	(*ListTeamMembersResponse)(nil),     // 19: gitpod.experimental.v1.ListTeamMembersResponse
-	(*UpdateTeamMemberRequest)(nil),     // 20: gitpod.experimental.v1.UpdateTeamMemberRequest
-	(*UpdateTeamMemberResponse)(nil),    // 21: gitpod.experimental.v1.UpdateTeamMemberResponse
-	(*DeleteTeamMemberRequest)(nil),     // 22: gitpod.experimental.v1.DeleteTeamMemberRequest
-	(*DeleteTeamMemberResponse)(nil),    // 23: gitpod.experimental.v1.DeleteTeamMemberResponse
+var file_nxpod_experimental_v1_teams_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_nxpod_experimental_v1_teams_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
+var file_nxpod_experimental_v1_teams_proto_goTypes = []interface{}{
+	(TeamRole)(0),                       // 0: nxpod.experimental.v1.TeamRole
+	(*Team)(nil),                        // 1: nxpod.experimental.v1.Team
+	(*TeamMember)(nil),                  // 2: nxpod.experimental.v1.TeamMember
+	(*TeamInvitation)(nil),              // 3: nxpod.experimental.v1.TeamInvitation
+	(*CreateTeamRequest)(nil),           // 4: nxpod.experimental.v1.CreateTeamRequest
+	(*CreateTeamResponse)(nil),          // 5: nxpod.experimental.v1.CreateTeamResponse
+	(*GetTeamRequest)(nil),              // 6: nxpod.experimental.v1.GetTeamRequest
+	(*GetTeamResponse)(nil),             // 7: nxpod.experimental.v1.GetTeamResponse
+	(*ListTeamsRequest)(nil),            // 8: nxpod.experimental.v1.ListTeamsRequest
+	(*ListTeamsResponse)(nil),           // 9: nxpod.experimental.v1.ListTeamsResponse
+	(*DeleteTeamRequest)(nil),           // 10: nxpod.experimental.v1.DeleteTeamRequest
+	(*DeleteTeamResponse)(nil),          // 11: nxpod.experimental.v1.DeleteTeamResponse
+	(*GetTeamInvitationRequest)(nil),    // 12: nxpod.experimental.v1.GetTeamInvitationRequest
+	(*GetTeamInvitationResponse)(nil),   // 13: nxpod.experimental.v1.GetTeamInvitationResponse
+	(*JoinTeamRequest)(nil),             // 14: nxpod.experimental.v1.JoinTeamRequest
+	(*JoinTeamResponse)(nil),            // 15: nxpod.experimental.v1.JoinTeamResponse
+	(*ResetTeamInvitationRequest)(nil),  // 16: nxpod.experimental.v1.ResetTeamInvitationRequest
+	(*ResetTeamInvitationResponse)(nil), // 17: nxpod.experimental.v1.ResetTeamInvitationResponse
+	(*ListTeamMembersRequest)(nil),      // 18: nxpod.experimental.v1.ListTeamMembersRequest
+	(*ListTeamMembersResponse)(nil),     // 19: nxpod.experimental.v1.ListTeamMembersResponse
+	(*UpdateTeamMemberRequest)(nil),     // 20: nxpod.experimental.v1.UpdateTeamMemberRequest
+	(*UpdateTeamMemberResponse)(nil),    // 21: nxpod.experimental.v1.UpdateTeamMemberResponse
+	(*DeleteTeamMemberRequest)(nil),     // 22: nxpod.experimental.v1.DeleteTeamMemberRequest
+	(*DeleteTeamMemberResponse)(nil),    // 23: nxpod.experimental.v1.DeleteTeamMemberResponse
 	(*timestamppb.Timestamp)(nil),       // 24: google.protobuf.Timestamp
 }
-var file_gitpod_experimental_v1_teams_proto_depIdxs = []int32{
-	2,  // 0: gitpod.experimental.v1.Team.members:type_name -> gitpod.experimental.v1.TeamMember
-	3,  // 1: gitpod.experimental.v1.Team.team_invitation:type_name -> gitpod.experimental.v1.TeamInvitation
-	0,  // 2: gitpod.experimental.v1.TeamMember.role:type_name -> gitpod.experimental.v1.TeamRole
-	24, // 3: gitpod.experimental.v1.TeamMember.member_since:type_name -> google.protobuf.Timestamp
-	1,  // 4: gitpod.experimental.v1.CreateTeamResponse.team:type_name -> gitpod.experimental.v1.Team
-	1,  // 5: gitpod.experimental.v1.GetTeamResponse.team:type_name -> gitpod.experimental.v1.Team
-	1,  // 6: gitpod.experimental.v1.ListTeamsResponse.teams:type_name -> gitpod.experimental.v1.Team
-	3,  // 7: gitpod.experimental.v1.GetTeamInvitationResponse.team_invitation:type_name -> gitpod.experimental.v1.TeamInvitation
-	1,  // 8: gitpod.experimental.v1.JoinTeamResponse.team:type_name -> gitpod.experimental.v1.Team
-	3,  // 9: gitpod.experimental.v1.ResetTeamInvitationResponse.team_invitation:type_name -> gitpod.experimental.v1.TeamInvitation
-	2,  // 10: gitpod.experimental.v1.ListTeamMembersResponse.members:type_name -> gitpod.experimental.v1.TeamMember
-	2,  // 11: gitpod.experimental.v1.UpdateTeamMemberRequest.team_member:type_name -> gitpod.experimental.v1.TeamMember
-	2,  // 12: gitpod.experimental.v1.UpdateTeamMemberResponse.team_member:type_name -> gitpod.experimental.v1.TeamMember
-	4,  // 13: gitpod.experimental.v1.TeamsService.CreateTeam:input_type -> gitpod.experimental.v1.CreateTeamRequest
-	6,  // 14: gitpod.experimental.v1.TeamsService.GetTeam:input_type -> gitpod.experimental.v1.GetTeamRequest
-	8,  // 15: gitpod.experimental.v1.TeamsService.ListTeams:input_type -> gitpod.experimental.v1.ListTeamsRequest
-	10, // 16: gitpod.experimental.v1.TeamsService.DeleteTeam:input_type -> gitpod.experimental.v1.DeleteTeamRequest
-	12, // 17: gitpod.experimental.v1.TeamsService.GetTeamInvitation:input_type -> gitpod.experimental.v1.GetTeamInvitationRequest
-	14, // 18: gitpod.experimental.v1.TeamsService.JoinTeam:input_type -> gitpod.experimental.v1.JoinTeamRequest
-	16, // 19: gitpod.experimental.v1.TeamsService.ResetTeamInvitation:input_type -> gitpod.experimental.v1.ResetTeamInvitationRequest
-	18, // 20: gitpod.experimental.v1.TeamsService.ListTeamMembers:input_type -> gitpod.experimental.v1.ListTeamMembersRequest
-	20, // 21: gitpod.experimental.v1.TeamsService.UpdateTeamMember:input_type -> gitpod.experimental.v1.UpdateTeamMemberRequest
-	22, // 22: gitpod.experimental.v1.TeamsService.DeleteTeamMember:input_type -> gitpod.experimental.v1.DeleteTeamMemberRequest
-	5,  // 23: gitpod.experimental.v1.TeamsService.CreateTeam:output_type -> gitpod.experimental.v1.CreateTeamResponse
-	7,  // 24: gitpod.experimental.v1.TeamsService.GetTeam:output_type -> gitpod.experimental.v1.GetTeamResponse
-	9,  // 25: gitpod.experimental.v1.TeamsService.ListTeams:output_type -> gitpod.experimental.v1.ListTeamsResponse
-	11, // 26: gitpod.experimental.v1.TeamsService.DeleteTeam:output_type -> gitpod.experimental.v1.DeleteTeamResponse
-	13, // 27: gitpod.experimental.v1.TeamsService.GetTeamInvitation:output_type -> gitpod.experimental.v1.GetTeamInvitationResponse
-	15, // 28: gitpod.experimental.v1.TeamsService.JoinTeam:output_type -> gitpod.experimental.v1.JoinTeamResponse
-	17, // 29: gitpod.experimental.v1.TeamsService.ResetTeamInvitation:output_type -> gitpod.experimental.v1.ResetTeamInvitationResponse
-	19, // 30: gitpod.experimental.v1.TeamsService.ListTeamMembers:output_type -> gitpod.experimental.v1.ListTeamMembersResponse
-	21, // 31: gitpod.experimental.v1.TeamsService.UpdateTeamMember:output_type -> gitpod.experimental.v1.UpdateTeamMemberResponse
-	23, // 32: gitpod.experimental.v1.TeamsService.DeleteTeamMember:output_type -> gitpod.experimental.v1.DeleteTeamMemberResponse
+var file_nxpod_experimental_v1_teams_proto_depIdxs = []int32{
+	2,  // 0: nxpod.experimental.v1.Team.members:type_name -> nxpod.experimental.v1.TeamMember
+	3,  // 1: nxpod.experimental.v1.Team.team_invitation:type_name -> nxpod.experimental.v1.TeamInvitation
+	0,  // 2: nxpod.experimental.v1.TeamMember.role:type_name -> nxpod.experimental.v1.TeamRole
+	24, // 3: nxpod.experimental.v1.TeamMember.member_since:type_name -> google.protobuf.Timestamp
+	1,  // 4: nxpod.experimental.v1.CreateTeamResponse.team:type_name -> nxpod.experimental.v1.Team
+	1,  // 5: nxpod.experimental.v1.GetTeamResponse.team:type_name -> nxpod.experimental.v1.Team
+	1,  // 6: nxpod.experimental.v1.ListTeamsResponse.teams:type_name -> nxpod.experimental.v1.Team
+	3,  // 7: nxpod.experimental.v1.GetTeamInvitationResponse.team_invitation:type_name -> nxpod.experimental.v1.TeamInvitation
+	1,  // 8: nxpod.experimental.v1.JoinTeamResponse.team:type_name -> nxpod.experimental.v1.Team
+	3,  // 9: nxpod.experimental.v1.ResetTeamInvitationResponse.team_invitation:type_name -> nxpod.experimental.v1.TeamInvitation
+	2,  // 10: nxpod.experimental.v1.ListTeamMembersResponse.members:type_name -> nxpod.experimental.v1.TeamMember
+	2,  // 11: nxpod.experimental.v1.UpdateTeamMemberRequest.team_member:type_name -> nxpod.experimental.v1.TeamMember
+	2,  // 12: nxpod.experimental.v1.UpdateTeamMemberResponse.team_member:type_name -> nxpod.experimental.v1.TeamMember
+	4,  // 13: nxpod.experimental.v1.TeamsService.CreateTeam:input_type -> nxpod.experimental.v1.CreateTeamRequest
+	6,  // 14: nxpod.experimental.v1.TeamsService.GetTeam:input_type -> nxpod.experimental.v1.GetTeamRequest
+	8,  // 15: nxpod.experimental.v1.TeamsService.ListTeams:input_type -> nxpod.experimental.v1.ListTeamsRequest
+	10, // 16: nxpod.experimental.v1.TeamsService.DeleteTeam:input_type -> nxpod.experimental.v1.DeleteTeamRequest
+	12, // 17: nxpod.experimental.v1.TeamsService.GetTeamInvitation:input_type -> nxpod.experimental.v1.GetTeamInvitationRequest
+	14, // 18: nxpod.experimental.v1.TeamsService.JoinTeam:input_type -> nxpod.experimental.v1.JoinTeamRequest
+	16, // 19: nxpod.experimental.v1.TeamsService.ResetTeamInvitation:input_type -> nxpod.experimental.v1.ResetTeamInvitationRequest
+	18, // 20: nxpod.experimental.v1.TeamsService.ListTeamMembers:input_type -> nxpod.experimental.v1.ListTeamMembersRequest
+	20, // 21: nxpod.experimental.v1.TeamsService.UpdateTeamMember:input_type -> nxpod.experimental.v1.UpdateTeamMemberRequest
+	22, // 22: nxpod.experimental.v1.TeamsService.DeleteTeamMember:input_type -> nxpod.experimental.v1.DeleteTeamMemberRequest
+	5,  // 23: nxpod.experimental.v1.TeamsService.CreateTeam:output_type -> nxpod.experimental.v1.CreateTeamResponse
+	7,  // 24: nxpod.experimental.v1.TeamsService.GetTeam:output_type -> nxpod.experimental.v1.GetTeamResponse
+	9,  // 25: nxpod.experimental.v1.TeamsService.ListTeams:output_type -> nxpod.experimental.v1.ListTeamsResponse
+	11, // 26: nxpod.experimental.v1.TeamsService.DeleteTeam:output_type -> nxpod.experimental.v1.DeleteTeamResponse
+	13, // 27: nxpod.experimental.v1.TeamsService.GetTeamInvitation:output_type -> nxpod.experimental.v1.GetTeamInvitationResponse
+	15, // 28: nxpod.experimental.v1.TeamsService.JoinTeam:output_type -> nxpod.experimental.v1.JoinTeamResponse
+	17, // 29: nxpod.experimental.v1.TeamsService.ResetTeamInvitation:output_type -> nxpod.experimental.v1.ResetTeamInvitationResponse
+	19, // 30: nxpod.experimental.v1.TeamsService.ListTeamMembers:output_type -> nxpod.experimental.v1.ListTeamMembersResponse
+	21, // 31: nxpod.experimental.v1.TeamsService.UpdateTeamMember:output_type -> nxpod.experimental.v1.UpdateTeamMemberResponse
+	23, // 32: nxpod.experimental.v1.TeamsService.DeleteTeamMember:output_type -> nxpod.experimental.v1.DeleteTeamMemberResponse
 	23, // [23:33] is the sub-list for method output_type
 	13, // [13:23] is the sub-list for method input_type
 	13, // [13:13] is the sub-list for extension type_name
@@ -1547,13 +1547,13 @@ var file_gitpod_experimental_v1_teams_proto_depIdxs = []int32{
 	0,  // [0:13] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_teams_proto_init() }
-func file_gitpod_experimental_v1_teams_proto_init() {
-	if File_gitpod_experimental_v1_teams_proto != nil {
+func init() { file_nxpod_experimental_v1_teams_proto_init() }
+func file_nxpod_experimental_v1_teams_proto_init() {
+	if File_nxpod_experimental_v1_teams_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_teams_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Team); i {
 			case 0:
 				return &v.state
@@ -1565,7 +1565,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TeamMember); i {
 			case 0:
 				return &v.state
@@ -1577,7 +1577,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TeamInvitation); i {
 			case 0:
 				return &v.state
@@ -1589,7 +1589,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateTeamRequest); i {
 			case 0:
 				return &v.state
@@ -1601,7 +1601,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateTeamResponse); i {
 			case 0:
 				return &v.state
@@ -1613,7 +1613,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTeamRequest); i {
 			case 0:
 				return &v.state
@@ -1625,7 +1625,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTeamResponse); i {
 			case 0:
 				return &v.state
@@ -1637,7 +1637,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListTeamsRequest); i {
 			case 0:
 				return &v.state
@@ -1649,7 +1649,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListTeamsResponse); i {
 			case 0:
 				return &v.state
@@ -1661,7 +1661,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteTeamRequest); i {
 			case 0:
 				return &v.state
@@ -1673,7 +1673,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteTeamResponse); i {
 			case 0:
 				return &v.state
@@ -1685,7 +1685,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTeamInvitationRequest); i {
 			case 0:
 				return &v.state
@@ -1697,7 +1697,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTeamInvitationResponse); i {
 			case 0:
 				return &v.state
@@ -1709,7 +1709,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*JoinTeamRequest); i {
 			case 0:
 				return &v.state
@@ -1721,7 +1721,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*JoinTeamResponse); i {
 			case 0:
 				return &v.state
@@ -1733,7 +1733,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResetTeamInvitationRequest); i {
 			case 0:
 				return &v.state
@@ -1745,7 +1745,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResetTeamInvitationResponse); i {
 			case 0:
 				return &v.state
@@ -1757,7 +1757,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListTeamMembersRequest); i {
 			case 0:
 				return &v.state
@@ -1769,7 +1769,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListTeamMembersResponse); i {
 			case 0:
 				return &v.state
@@ -1781,7 +1781,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateTeamMemberRequest); i {
 			case 0:
 				return &v.state
@@ -1793,7 +1793,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateTeamMemberResponse); i {
 			case 0:
 				return &v.state
@@ -1805,7 +1805,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteTeamMemberRequest); i {
 			case 0:
 				return &v.state
@@ -1817,7 +1817,7 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_teams_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_teams_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteTeamMemberResponse); i {
 			case 0:
 				return &v.state
@@ -1834,19 +1834,19 @@ func file_gitpod_experimental_v1_teams_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_teams_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_teams_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_teams_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_teams_proto_depIdxs,
-		EnumInfos:         file_gitpod_experimental_v1_teams_proto_enumTypes,
-		MessageInfos:      file_gitpod_experimental_v1_teams_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_teams_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_teams_proto_depIdxs,
+		EnumInfos:         file_nxpod_experimental_v1_teams_proto_enumTypes,
+		MessageInfos:      file_nxpod_experimental_v1_teams_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_teams_proto = out.File
-	file_gitpod_experimental_v1_teams_proto_rawDesc = nil
-	file_gitpod_experimental_v1_teams_proto_goTypes = nil
-	file_gitpod_experimental_v1_teams_proto_depIdxs = nil
+	File_nxpod_experimental_v1_teams_proto = out.File
+	file_nxpod_experimental_v1_teams_proto_rawDesc = nil
+	file_nxpod_experimental_v1_teams_proto_goTypes = nil
+	file_nxpod_experimental_v1_teams_proto_depIdxs = nil
 }

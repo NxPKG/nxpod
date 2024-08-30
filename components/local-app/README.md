@@ -1,27 +1,27 @@
 # local-app
 
-## gitpod-cli
+## nxpod-cli
 
-All of the accessible commands can be listed with `gitpod --help` .
+All of the accessible commands can be listed with `nxpod --help` .
 
 ### Installing
 
 1. Download the CLI for your platform and make it executable:
 
 ```bash
-wget -O gitpod https://gitpod.io/static/bin/gitpod-cli-darwin-arm64
-chmod u+x gitpod
+wget -O nxpod https://nxpod.khulnasoft.com/static/bin/nxpod-cli-darwin-arm64
+chmod u+x nxpod
 ```
 
 2. Optionally, make it available globally. On macOS:
 
 ```bash
-sudo mv gitpod /usr/local/bin/
+sudo mv nxpod /usr/local/bin/
 ```
 
 ### Usage
 
-Start by logging in with `gitpod login`, which will also create a default context in the configuration file (`~/.gitpod/config.yaml`).
+Start by logging in with `nxpod login`, which will also create a default context in the configuration file (`~/.nxpod/config.yaml`).
 
 ### Development
 
@@ -29,12 +29,12 @@ To develop the CLI with Nxpod, you can run it just like locally, but in Nxpod wo
 
 #### In a Nxpod workspace
 
-[![Open in Nxpod](https://www.gitpod.io/svg/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/nxpkg/nxpod)
+[![Open in Nxpod](https://www.nxpod.khulnasoft.com/svg/open-in-nxpod.svg)](https://nxpod.khulnasoft.com/#https://github.com/nxpkg/nxpod)
 
-You will have gitpod-cli ready as `gitpod` on any Workspace based on `https://github.com/nxpkg/nxpod`.
+You will have nxpod-cli ready as `nxpod` on any Workspace based on `https://github.com/nxpkg/nxpod`.
 
 ```
-# Reinstall `gitpod`
+# Reinstall `nxpod`
 leeway run components/local-app:install-cli
 
 # Reinstall completion
@@ -53,7 +53,7 @@ To create a new version that existing clients will consume increment the number 
 ### How to install
 
 ```
-docker run --rm -it -v /tmp/dest:/out eu.gcr.io/gitpod-core-dev/build/local-app:<version>
+docker run --rm -it -v /tmp/dest:/out eu.gcr.io/nxpod-core-dev/build/local-app:<version>
 ```
 
 ### How to run

@@ -107,7 +107,7 @@ type Configuration struct {
 	WorkspaceHostPath string `json:"workspaceHostPath"`
 	// HeartbeatInterval is the time in seconds in which Theia sends a heartbeat if the user is active
 	HeartbeatInterval util.Duration `json:"heartbeatInterval"`
-	// Is the URL under which Nxpod is installed (e.g. https://nxpod.io)
+	// Is the URL under which Nxpod is installed (e.g. https://nxpod.khulnasoft.com)
 	NxpodHostURL string `json:"hostURL"`
 	// EventTraceLog is a path to file where we'll write the monitor event trace log to
 	EventTraceLog string `json:"eventTraceLog,omitempty"`
@@ -119,7 +119,7 @@ type Configuration struct {
 	WorkspaceDaemon WorkspaceDaemonConfiguration `json:"wsdaemon"`
 	// RegistryFacadeHost is the host (possibly including port) on which the registry facade resolves
 	RegistryFacadeHost string `json:"registryFacadeHost"`
-	// Cluster host under which workspaces are served, e.g. ws-eu11.nxpod.io
+	// Cluster host under which workspaces are served, e.g. ws-eu11.nxpod.khulnasoft.com
 	WorkspaceClusterHost string `json:"workspaceClusterHost"`
 	// WorkspaceClasses provide different resource classes for workspaces
 	WorkspaceClasses map[string]*WorkspaceClass `json:"workspaceClass"`
@@ -289,7 +289,7 @@ var validWorkspaceURLTemplate = ozzo.By(func(o interface{}) error {
 		return xerrors.Errorf("field should be string")
 	}
 
-	wsurl, err := RenderWorkspaceURL(s, "foo", "bar", "nxpod.io")
+	wsurl, err := RenderWorkspaceURL(s, "foo", "bar", "nxpod.khulnasoft.com")
 	if err != nil {
 		return xerrors.Errorf("cannot render URL: %w", err)
 	}

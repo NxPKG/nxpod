@@ -39,12 +39,12 @@ var organizationGetCmd = &cobra.Command{
 			ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 			defer cancel()
 
-			gitpod, err := getNxpodClient(ctx)
+			nxpod, err := getNxpodClient(ctx)
 			if err != nil {
 				return err
 			}
 
-			orgs, err := gitpod.Teams.GetTeam(ctx, connect.NewRequest(&v1.GetTeamRequest{TeamId: orgId}))
+			orgs, err := nxpod.Teams.GetTeam(ctx, connect.NewRequest(&v1.GetTeamRequest{TeamId: orgId}))
 			if err != nil {
 				return err
 			}

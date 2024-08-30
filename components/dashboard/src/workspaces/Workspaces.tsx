@@ -141,7 +141,7 @@ const WorkspacesPage: FunctionComponent = () => {
                                                             target="_blank"
                                                             rel="noreferrer"
                                                             className="gp-link"
-                                                            href="https://www.nxpod.io/docs/configure/workspaces/workspace-lifecycle#workspace-deletion"
+                                                            href="https://www.nxpod.khulnasoft.com/docs/configure/workspaces/workspace-lifecycle#workspace-deletion"
                                                             onClick={(evt) => evt.stopPropagation()}
                                                         >
                                                             Learn more
@@ -184,7 +184,7 @@ const WorkspacesPage: FunctionComponent = () => {
                                         <h3 className="text-lg font-semibold text-pk-content-primary">Documentation</h3>
                                         <div className="flex flex-col gap-1 w-fit">
                                             <a
-                                                href="https://www.nxpod.io/docs"
+                                                href="https://www.nxpod.khulnasoft.com/docs"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-sm text-pk-content-primary items-center gap-x-2 flex flex-row"
@@ -195,7 +195,7 @@ const WorkspacesPage: FunctionComponent = () => {
                                                 </span>
                                             </a>
                                             <a
-                                                href="https://www.nxpod.io/docs/configure/workspaces"
+                                                href="https://www.nxpod.khulnasoft.com/docs/configure/workspaces"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-sm text-pk-content-primary items-center gap-x-2 flex flex-row"
@@ -206,7 +206,7 @@ const WorkspacesPage: FunctionComponent = () => {
                                                 </span>
                                             </a>
                                             <a
-                                                href="https://www.nxpod.io/docs/references/nxpod-yml"
+                                                href="https://www.nxpod.khulnasoft.com/docs/references/nxpod-yml"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-sm text-pk-content-primary items-center gap-x-2 flex flex-row"

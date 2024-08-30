@@ -24,12 +24,12 @@ import (
 )
 
 const (
-	configCatModule = "gitpod.configcat"
+	configCatModule = "nxpod.configcat"
 )
 
 var (
 	DefaultConfig = []byte("{}")
-	pathRegex     = regexp.MustCompile(`^/configcat/configuration-files/gitpod/config_v\d+\.json$`)
+	pathRegex     = regexp.MustCompile(`^/configcat/configuration-files/nxpod/config_v\d+\.json$`)
 )
 
 func init() {
@@ -62,7 +62,7 @@ type ConfigCat struct {
 // CaddyModule returns the Caddy module information.
 func (ConfigCat) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "http.handlers.gitpod_configcat",
+		ID:  "http.handlers.nxpod_configcat",
 		New: func() caddy.Module { return new(ConfigCat) },
 	}
 }

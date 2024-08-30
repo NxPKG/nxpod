@@ -18,5 +18,5 @@ packages:
   - name: init-testdb
     type: generic
     deps:
-      - components/gitpod-db:dbtest-init
+      - components/nxpod-db:dbtest-init
     ephemeral: true

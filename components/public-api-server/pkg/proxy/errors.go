@@ -10,7 +10,7 @@ import (
 	"fmt"
 
 	"github.com/bufbuild/connect-go"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/sourcegraph/jsonrpc2"
 )
 
@@ -31,16 +31,16 @@ func categorizeRPCError(err error) *connect.Error {
 		switch rpcErr.Code {
 		case 400:
 			return connect.NewError(connect.CodeInvalidArgument, fmt.Errorf(rpcErr.Message))
-		// components/gitpod-protocol/src/messaging/error.ts
+		// components/nxpod-protocol/src/messaging/error.ts
 		case 401:
 			return connect.NewError(connect.CodeUnauthenticated, fmt.Errorf(rpcErr.Message))
-		// components/gitpod-protocol/src/messaging/error.ts
+		// components/nxpod-protocol/src/messaging/error.ts
 		case 403:
 			return connect.NewError(connect.CodePermissionDenied, fmt.Errorf(rpcErr.Message))
-		// components/gitpod-protocol/src/messaging/error.ts
+		// components/nxpod-protocol/src/messaging/error.ts
 		case 404:
 			return connect.NewError(connect.CodeNotFound, fmt.Errorf(rpcErr.Message))
-		// components/gitpod-protocol/src/messaging/error.ts
+		// components/nxpod-protocol/src/messaging/error.ts
 		case 409:
 			return connect.NewError(connect.CodeAlreadyExists, fmt.Errorf(rpcErr.Message))
 		case 412:
@@ -52,7 +52,7 @@ func categorizeRPCError(err error) *connect.Error {
 		case -32603:
 			return connect.NewError(connect.CodeInternal, fmt.Errorf(rpcErr.Message))
 		}
-		// components/gitpod-protocol/src/messaging/error.ts - user errors
+		// components/nxpod-protocol/src/messaging/error.ts - user errors
 		if rpcErr.Code >= 400 && rpcErr.Code < 500 {
 			return connect.NewError(connect.CodeInvalidArgument, fmt.Errorf(rpcErr.Message))
 		}

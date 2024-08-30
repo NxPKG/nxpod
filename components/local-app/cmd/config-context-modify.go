@@ -15,7 +15,7 @@ import (
 
 var configContextModifyCmd = &cobra.Command{
 	Use:     "modify <name | --current>",
-	Short:   "Modifies a context entry in the gitpod CLI config",
+	Short:   "Modifies a context entry in the nxpod CLI config",
 	Aliases: []string{"add-context"},
 	Args:    cobra.MaximumNArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -26,16 +26,16 @@ var configContextModifyCmd = &cobra.Command{
 		if configContextModifyOpts.Current {
 			if len(args) > 0 {
 				return prettyprint.AddResolution(fmt.Errorf("cannot use --current and specify a context name"),
-					"modify current context with `{gitpod} config set-context --current`",
-					"modify/create a different context with `{gitpod} config set-context <name>`",
+					"modify current context with `{nxpod} config set-context --current`",
+					"modify/create a different context with `{nxpod} config set-context <name>`",
 				)
 			}
 			targetContext = cfg.ActiveContext
 		} else {
 			if len(args) == 0 {
 				return prettyprint.AddResolution(fmt.Errorf("must specify a context name or use --current"),
-					"modify current context with `{gitpod} config set-context --current`",
-					"modify/create a different context with `{gitpod} config set-context <name>`",
+					"modify current context with `{nxpod} config set-context --current`",
+					"modify/create a different context with `{nxpod} config set-context <name>`",
 				)
 			}
 			targetContext = args[0]

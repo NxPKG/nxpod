@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/editor_service.proto
+// source: nxpod/experimental/v1/editor_service.proto
 
 package v1
 
@@ -39,7 +39,7 @@ func NewEditorServiceClient(cc grpc.ClientConnInterface) EditorServiceClient {
 
 func (c *editorServiceClient) ListEditorOptions(ctx context.Context, in *ListEditorOptionsRequest, opts ...grpc.CallOption) (*ListEditorOptionsResponse, error) {
 	out := new(ListEditorOptionsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.EditorService/ListEditorOptions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.EditorService/ListEditorOptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func _EditorService_ListEditorOptions_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.EditorService/ListEditorOptions",
+		FullMethod: "/nxpod.experimental.v1.EditorService/ListEditorOptions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EditorServiceServer).ListEditorOptions(ctx, req.(*ListEditorOptionsRequest))
@@ -96,7 +96,7 @@ func _EditorService_ListEditorOptions_Handler(srv interface{}, ctx context.Conte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var EditorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.EditorService",
+	ServiceName: "nxpod.experimental.v1.EditorService",
 	HandlerType: (*EditorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -105,5 +105,5 @@ var EditorService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/editor_service.proto",
+	Metadata: "nxpod/experimental/v1/editor_service.proto",
 }

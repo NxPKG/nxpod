@@ -79,7 +79,7 @@ enum CloneTargetMode {
 }
 
 message GitConfig {
-    // custom config values to be set on clone provided through `.gitpod.yml`
+    // custom config values to be set on clone provided through `.nxpod.yml`
 	map<string, string> custom_config = 1;
 
 	// authentication method

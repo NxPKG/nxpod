@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AuditLog } from "@gitpod/gitpod-protocol/lib/audit-log";
+import { AuditLog } from "@nxpod/nxpod-protocol/lib/audit-log";
 
 export const AuditLogDB = Symbol("AuditLogDB");
 

@@ -7,7 +7,7 @@
 import { inject, injectable } from "inversify";
 import { TypeORM } from "./typeorm";
 
-import { AuditLog } from "@gitpod/gitpod-protocol/lib/audit-log";
+import { AuditLog } from "@nxpod/nxpod-protocol/lib/audit-log";
 import { Between, FindConditions, LessThan, Repository } from "typeorm";
 import { AuditLogDB } from "../audit-log-db";
 import { DBAuditLog } from "./entity/db-audit-log";

@@ -7,7 +7,7 @@ require (
 	github.com/docker/cli v25.0.1+incompatible
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/ide-service-api v0.0.0-00010101000000-000000000000
 	github.com/heptiolabs/healthcheck v0.0.0-20211123025425-613501dd5deb
 	github.com/opencontainers/image-spec v1.1.0-rc2.0.20221005185240-3a7f492d3f1b
@@ -85,7 +85,7 @@ replace github.com/nxpkg/nxpod/common-go => ../common-go // leeway
 
 replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/ide-service-api => ../ide-service-api/go // leeway
 

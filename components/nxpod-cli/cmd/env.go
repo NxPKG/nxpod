@@ -18,9 +18,9 @@ import (
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/xerrors"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/supervisor"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/supervisor"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/supervisor/api"
 	supervisorapi "github.com/nxpkg/nxpod/supervisor/api"
 )
@@ -126,7 +126,7 @@ func connectToServer(ctx context.Context, options *connectToServerOptions) (*con
 	var useDeprecatedGetEnvVar bool
 	clientToken, err := supervisorClient.Token.GetToken(ctx, &supervisorapi.GetTokenRequest{
 		Host: wsinfo.NxpodApi.Host,
-		Kind: "gitpod",
+		Kind: "nxpod",
 		Scope: []string{
 			"function:getWorkspaceEnvVars",
 			"function:setEnvVar",
@@ -138,7 +138,7 @@ func connectToServer(ctx context.Context, options *connectToServerOptions) (*con
 		// TODO remove then GetWorkspaceEnvVars is deployed
 		clientToken, err = supervisorClient.Token.GetToken(ctx, &supervisorapi.GetTokenRequest{
 			Host: wsinfo.NxpodApi.Host,
-			Kind: "gitpod",
+			Kind: "nxpod",
 			Scope: []string{
 				"function:getEnvVars", // TODO remove then getWorkspaceEnvVars is deployed
 				"function:setEnvVar",

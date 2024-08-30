@@ -2,21 +2,21 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote
+package io.nxpod.jetbrains.remote
 
 import com.intellij.openapi.components.service
 import com.jetbrains.rd.platform.codeWithMe.unattendedHost.metrics.Metric
 import com.jetbrains.rd.platform.codeWithMe.unattendedHost.metrics.MetricType
 import com.jetbrains.rd.platform.codeWithMe.unattendedHost.metrics.MetricsStatus
 import com.jetbrains.rd.platform.codeWithMe.unattendedHost.metrics.providers.MetricProvider
-import io.gitpod.supervisor.api.Info.WorkspaceInfoResponse.WorkspaceClass
-import io.gitpod.supervisor.api.Status.ResourceStatusSeverity
+import io.nxpod.supervisor.api.Info.WorkspaceInfoResponse.WorkspaceClass
+import io.nxpod.supervisor.api.Status.ResourceStatusSeverity
 import kotlin.math.roundToInt
 
 class NxpodMetricProvider: MetricProvider {
     private val manager = service<NxpodManager>()
 
-    override val id: String = "gitpodMetricsProvider"
+    override val id: String = "nxpodMetricsProvider"
     override fun getMetrics(): Map<String, Metric> {
         val resourceStatus = manager.resourceStatus
         val info = manager.infoResponse
@@ -36,13 +36,13 @@ class NxpodMetricProvider: MetricProvider {
         val workspaceClass = formatWorkspaceClass(info?.workspaceClass)
 
         return mapOf(
-                "gitpod_workspace_cpu_used" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(cpuUsed, 0)),
-                "gitpod_workspace_cpu_total" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(cpuTotal, 0)),
-                "gitpod_workspace_cpu_percentage" to Metric(MetricType.PERFORMANCE, cpuStatus, (cpuPercentage * 1000.0).roundToInt() / 1000.0),
-                "gitpod_workspace_memory_used" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(memoryUsed, 2)),
-                "gitpod_workspace_memory_total" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(memoryTotal, 2)),
-                "gitpod_workspace_memory_percentage" to Metric(MetricType.PERFORMANCE, memoryStatus, (memoryPercentage * 1000.0).roundToInt() / 1000.0),
-                "gitpod_workspace_class" to Metric(MetricType.OTHER, MetricsStatus.NORMAL, workspaceClass)
+                "nxpod_workspace_cpu_used" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(cpuUsed, 0)),
+                "nxpod_workspace_cpu_total" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(cpuTotal, 0)),
+                "nxpod_workspace_cpu_percentage" to Metric(MetricType.PERFORMANCE, cpuStatus, (cpuPercentage * 1000.0).roundToInt() / 1000.0),
+                "nxpod_workspace_memory_used" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(memoryUsed, 2)),
+                "nxpod_workspace_memory_total" to Metric(MetricType.PERFORMANCE, MetricsStatus.NORMAL, roundTo(memoryTotal, 2)),
+                "nxpod_workspace_memory_percentage" to Metric(MetricType.PERFORMANCE, memoryStatus, (memoryPercentage * 1000.0).roundToInt() / 1000.0),
+                "nxpod_workspace_class" to Metric(MetricType.OTHER, MetricsStatus.NORMAL, workspaceClass)
         )
     }
 

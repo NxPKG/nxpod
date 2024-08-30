@@ -14,7 +14,7 @@ import (
 	"github.com/bufbuild/connect-go"
 	"github.com/nxpkg/nxpod/components/public-api/go/client"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
-	gitpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	nxpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
 	"github.com/nxpkg/local-app/pkg/prettyprint"
 	"github.com/google/go-cmp/cmp"
 )
@@ -47,7 +47,7 @@ func TestObserveWorkspaceUntilStarted(t *testing.T) {
 		{
 			Name: "stream retry",
 			PrepServer: func(mux *http.ServeMux) {
-				mux.Handle(gitpod_experimental_v1connect.NewWorkspacesServiceHandler(&TestWorkspaceService{
+				mux.Handle(nxpod_experimental_v1connect.NewWorkspacesServiceHandler(&TestWorkspaceService{
 					Workspaces: []*v1.Workspace{
 						workspaceWithStatus("workspaceID", v1.WorkspaceInstanceStatus_PHASE_PENDING),
 						workspaceWithStatus("workspaceID", v1.WorkspaceInstanceStatus_PHASE_CREATING),
@@ -60,7 +60,7 @@ func TestObserveWorkspaceUntilStarted(t *testing.T) {
 		{
 			Name: "stream ends early",
 			PrepServer: func(mux *http.ServeMux) {
-				mux.Handle(gitpod_experimental_v1connect.NewWorkspacesServiceHandler(&TestWorkspaceService{
+				mux.Handle(nxpod_experimental_v1connect.NewWorkspacesServiceHandler(&TestWorkspaceService{
 					Workspaces: []*v1.Workspace{
 						workspaceWithStatus("workspaceID", v1.WorkspaceInstanceStatus_PHASE_CREATING),
 					},
@@ -74,7 +74,7 @@ func TestObserveWorkspaceUntilStarted(t *testing.T) {
 		{
 			Name: "workspace starts",
 			PrepServer: func(mux *http.ServeMux) {
-				mux.Handle(gitpod_experimental_v1connect.NewWorkspacesServiceHandler(&TestWorkspaceService{
+				mux.Handle(nxpod_experimental_v1connect.NewWorkspacesServiceHandler(&TestWorkspaceService{
 					Workspaces: []*v1.Workspace{
 						workspaceWithStatus("workspaceID", v1.WorkspaceInstanceStatus_PHASE_PENDING),
 						workspaceWithStatus("workspaceID", v1.WorkspaceInstanceStatus_PHASE_CREATING),
@@ -116,7 +116,7 @@ func TestObserveWorkspaceUntilStarted(t *testing.T) {
 }
 
 type TestWorkspaceService struct {
-	gitpod_experimental_v1connect.WorkspacesServiceHandler
+	nxpod_experimental_v1connect.WorkspacesServiceHandler
 
 	Workspaces []*v1.Workspace
 	Pos        int

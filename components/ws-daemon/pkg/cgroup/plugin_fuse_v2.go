@@ -29,7 +29,7 @@ func (c *FuseDeviceEnablerV2) Name() string  { return "fuse-device-enabler-v2" }
 func (c *FuseDeviceEnablerV2) Type() Version { return Version2 }
 
 func (c *FuseDeviceEnablerV2) Apply(ctx context.Context, opts *PluginOptions) error {
-	if val, ok := opts.Annotations["nxpod.io/fuse-device"]; ok && val == "false" {
+	if val, ok := opts.Annotations["nxpod.khulnasoft.com/fuse-device"]; ok && val == "false" {
 		return nil
 	}
 

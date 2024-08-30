@@ -15,12 +15,12 @@
       "cloneUrl": "https://github.com/nxpkg/empty.git",
       "host": "github.com",
       "name": "empty",
-      "owner": "gitpod.io",
+      "owner": "nxpod.khulnasoft.com",
       "private": false
     }
   },
   "config": {
-    "image": "gitpod/workspace-base",
+    "image": "nxpod/workspace-base",
     "ports": [
       {
         "port": 8080,
@@ -55,10 +55,10 @@
     }
   },
   "imageSource": {
-    "baseImageResolved": "gitpod/workspace-base"
+    "baseImageResolved": "nxpod/workspace-base"
   },
-  "imageNameResolved": "gitpod/workspace-base",
-  "baseImageNameResolved": "gitpod/workspace-base",
+  "imageNameResolved": "nxpod/workspace-base",
+  "baseImageNameResolved": "nxpod/workspace-base",
   "shareable": false,
   "type": "regular",
   "softDeleted": null,
@@ -71,8 +71,8 @@
   "startedTime": "2019-12-12T18:38:38.625Z",
   "deployedTime": "2019-12-12T18:38:21.501Z",
   "stoppedTime": "2019-12-12T19:20:11.821Z",
-  "ideUrl": "https://longlong-650a-413a-b5ed-aaaaa.ws-us02.gitpod.io",
-  "workspaceImage": "gitpod/workspace-base",
+  "ideUrl": "https://longlong-650a-413a-b5ed-aaaaa.ws-us02.nxpod.khulnasoft.com",
+  "workspaceImage": "nxpod/workspace-base",
   "status": {
     "repo": {
       "branch": "master",

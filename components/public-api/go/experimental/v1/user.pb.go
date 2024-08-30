@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/user.proto
+// source: nxpod/experimental/v1/user.proto
 
 package v1
 
@@ -43,7 +43,7 @@ type User struct {
 func (x *User) Reset() {
 	*x = User{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -56,7 +56,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -69,7 +69,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *User) GetId() string {
@@ -118,7 +118,7 @@ type SSHKey struct {
 func (x *SSHKey) Reset() {
 	*x = SSHKey{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -131,7 +131,7 @@ func (x *SSHKey) String() string {
 func (*SSHKey) ProtoMessage() {}
 
 func (x *SSHKey) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -144,7 +144,7 @@ func (x *SSHKey) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SSHKey.ProtoReflect.Descriptor instead.
 func (*SSHKey) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SSHKey) GetId() string {
@@ -184,7 +184,7 @@ type GetAuthenticatedUserRequest struct {
 func (x *GetAuthenticatedUserRequest) Reset() {
 	*x = GetAuthenticatedUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -197,7 +197,7 @@ func (x *GetAuthenticatedUserRequest) String() string {
 func (*GetAuthenticatedUserRequest) ProtoMessage() {}
 
 func (x *GetAuthenticatedUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -210,7 +210,7 @@ func (x *GetAuthenticatedUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthenticatedUserRequest.ProtoReflect.Descriptor instead.
 func (*GetAuthenticatedUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{2}
 }
 
 type GetAuthenticatedUserResponse struct {
@@ -224,7 +224,7 @@ type GetAuthenticatedUserResponse struct {
 func (x *GetAuthenticatedUserResponse) Reset() {
 	*x = GetAuthenticatedUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -237,7 +237,7 @@ func (x *GetAuthenticatedUserResponse) String() string {
 func (*GetAuthenticatedUserResponse) ProtoMessage() {}
 
 func (x *GetAuthenticatedUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -250,7 +250,7 @@ func (x *GetAuthenticatedUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthenticatedUserResponse.ProtoReflect.Descriptor instead.
 func (*GetAuthenticatedUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetAuthenticatedUserResponse) GetUser() *User {
@@ -269,7 +269,7 @@ type ListSSHKeysRequest struct {
 func (x *ListSSHKeysRequest) Reset() {
 	*x = ListSSHKeysRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -282,7 +282,7 @@ func (x *ListSSHKeysRequest) String() string {
 func (*ListSSHKeysRequest) ProtoMessage() {}
 
 func (x *ListSSHKeysRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -295,7 +295,7 @@ func (x *ListSSHKeysRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSSHKeysRequest.ProtoReflect.Descriptor instead.
 func (*ListSSHKeysRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{4}
 }
 
 type ListSSHKeysResponse struct {
@@ -309,7 +309,7 @@ type ListSSHKeysResponse struct {
 func (x *ListSSHKeysResponse) Reset() {
 	*x = ListSSHKeysResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -322,7 +322,7 @@ func (x *ListSSHKeysResponse) String() string {
 func (*ListSSHKeysResponse) ProtoMessage() {}
 
 func (x *ListSSHKeysResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -335,7 +335,7 @@ func (x *ListSSHKeysResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSSHKeysResponse.ProtoReflect.Descriptor instead.
 func (*ListSSHKeysResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListSSHKeysResponse) GetKeys() []*SSHKey {
@@ -359,7 +359,7 @@ type CreateSSHKeyRequest struct {
 func (x *CreateSSHKeyRequest) Reset() {
 	*x = CreateSSHKeyRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[6]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -372,7 +372,7 @@ func (x *CreateSSHKeyRequest) String() string {
 func (*CreateSSHKeyRequest) ProtoMessage() {}
 
 func (x *CreateSSHKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[6]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -385,7 +385,7 @@ func (x *CreateSSHKeyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSSHKeyRequest.ProtoReflect.Descriptor instead.
 func (*CreateSSHKeyRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateSSHKeyRequest) GetName() string {
@@ -413,7 +413,7 @@ type CreateSSHKeyResponse struct {
 func (x *CreateSSHKeyResponse) Reset() {
 	*x = CreateSSHKeyResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[7]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -426,7 +426,7 @@ func (x *CreateSSHKeyResponse) String() string {
 func (*CreateSSHKeyResponse) ProtoMessage() {}
 
 func (x *CreateSSHKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[7]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -439,7 +439,7 @@ func (x *CreateSSHKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSSHKeyResponse.ProtoReflect.Descriptor instead.
 func (*CreateSSHKeyResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateSSHKeyResponse) GetKey() *SSHKey {
@@ -461,7 +461,7 @@ type GetSSHKeyRequest struct {
 func (x *GetSSHKeyRequest) Reset() {
 	*x = GetSSHKeyRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[8]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -474,7 +474,7 @@ func (x *GetSSHKeyRequest) String() string {
 func (*GetSSHKeyRequest) ProtoMessage() {}
 
 func (x *GetSSHKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[8]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -487,7 +487,7 @@ func (x *GetSSHKeyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSSHKeyRequest.ProtoReflect.Descriptor instead.
 func (*GetSSHKeyRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetSSHKeyRequest) GetKeyId() string {
@@ -508,7 +508,7 @@ type GetSSHKeyResponse struct {
 func (x *GetSSHKeyResponse) Reset() {
 	*x = GetSSHKeyResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[9]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -521,7 +521,7 @@ func (x *GetSSHKeyResponse) String() string {
 func (*GetSSHKeyResponse) ProtoMessage() {}
 
 func (x *GetSSHKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[9]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -534,7 +534,7 @@ func (x *GetSSHKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSSHKeyResponse.ProtoReflect.Descriptor instead.
 func (*GetSSHKeyResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetSSHKeyResponse) GetKey() *SSHKey {
@@ -556,7 +556,7 @@ type DeleteSSHKeyRequest struct {
 func (x *DeleteSSHKeyRequest) Reset() {
 	*x = DeleteSSHKeyRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[10]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -569,7 +569,7 @@ func (x *DeleteSSHKeyRequest) String() string {
 func (*DeleteSSHKeyRequest) ProtoMessage() {}
 
 func (x *DeleteSSHKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[10]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -582,7 +582,7 @@ func (x *DeleteSSHKeyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteSSHKeyRequest.ProtoReflect.Descriptor instead.
 func (*DeleteSSHKeyRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteSSHKeyRequest) GetKeyId() string {
@@ -601,7 +601,7 @@ type DeleteSSHKeyResponse struct {
 func (x *DeleteSSHKeyResponse) Reset() {
 	*x = DeleteSSHKeyResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[11]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -614,7 +614,7 @@ func (x *DeleteSSHKeyResponse) String() string {
 func (*DeleteSSHKeyResponse) ProtoMessage() {}
 
 func (x *DeleteSSHKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[11]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -627,7 +627,7 @@ func (x *DeleteSSHKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteSSHKeyResponse.ProtoReflect.Descriptor instead.
 func (*DeleteSSHKeyResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{11}
 }
 
 type GetGitTokenRequest struct {
@@ -641,7 +641,7 @@ type GetGitTokenRequest struct {
 func (x *GetGitTokenRequest) Reset() {
 	*x = GetGitTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[12]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -654,7 +654,7 @@ func (x *GetGitTokenRequest) String() string {
 func (*GetGitTokenRequest) ProtoMessage() {}
 
 func (x *GetGitTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[12]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -667,7 +667,7 @@ func (x *GetGitTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGitTokenRequest.ProtoReflect.Descriptor instead.
 func (*GetGitTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetGitTokenRequest) GetHost() string {
@@ -688,7 +688,7 @@ type GetGitTokenResponse struct {
 func (x *GetGitTokenResponse) Reset() {
 	*x = GetGitTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[13]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -701,7 +701,7 @@ func (x *GetGitTokenResponse) String() string {
 func (*GetGitTokenResponse) ProtoMessage() {}
 
 func (x *GetGitTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[13]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -714,7 +714,7 @@ func (x *GetGitTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGitTokenResponse.ProtoReflect.Descriptor instead.
 func (*GetGitTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetGitTokenResponse) GetToken() *GitToken {
@@ -748,7 +748,7 @@ type GitToken struct {
 func (x *GitToken) Reset() {
 	*x = GitToken{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[14]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -761,7 +761,7 @@ func (x *GitToken) String() string {
 func (*GitToken) ProtoMessage() {}
 
 func (x *GitToken) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[14]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -774,7 +774,7 @@ func (x *GitToken) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GitToken.ProtoReflect.Descriptor instead.
 func (*GitToken) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GitToken) GetExpiryDate() string {
@@ -840,7 +840,7 @@ type BlockUserRequest struct {
 func (x *BlockUserRequest) Reset() {
 	*x = BlockUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[15]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -853,7 +853,7 @@ func (x *BlockUserRequest) String() string {
 func (*BlockUserRequest) ProtoMessage() {}
 
 func (x *BlockUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[15]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -866,7 +866,7 @@ func (x *BlockUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockUserRequest.ProtoReflect.Descriptor instead.
 func (*BlockUserRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *BlockUserRequest) GetUserId() string {
@@ -892,7 +892,7 @@ type BlockUserResponse struct {
 func (x *BlockUserResponse) Reset() {
 	*x = BlockUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_user_proto_msgTypes[16]
+		mi := &file_nxpod_experimental_v1_user_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -905,7 +905,7 @@ func (x *BlockUserResponse) String() string {
 func (*BlockUserResponse) ProtoMessage() {}
 
 func (x *BlockUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_user_proto_msgTypes[16]
+	mi := &file_nxpod_experimental_v1_user_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -918,12 +918,12 @@ func (x *BlockUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockUserResponse.ProtoReflect.Descriptor instead.
 func (*BlockUserResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_user_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_experimental_v1_user_proto_rawDescGZIP(), []int{16}
 }
 
-var File_gitpod_experimental_v1_user_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_user_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_user_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_user_proto_rawDesc = []byte{
 	0x0a, 0x21, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x65, 0x78, 0x70, 0x65,
@@ -1065,60 +1065,60 @@ var file_gitpod_experimental_v1_user_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_user_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_user_proto_rawDescData = file_gitpod_experimental_v1_user_proto_rawDesc
+	file_nxpod_experimental_v1_user_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_user_proto_rawDescData = file_nxpod_experimental_v1_user_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_user_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_user_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_user_proto_rawDescData)
+func file_nxpod_experimental_v1_user_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_user_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_user_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_user_proto_rawDescData
+	return file_nxpod_experimental_v1_user_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
-var file_gitpod_experimental_v1_user_proto_goTypes = []interface{}{
-	(*User)(nil),                         // 0: gitpod.experimental.v1.User
-	(*SSHKey)(nil),                       // 1: gitpod.experimental.v1.SSHKey
-	(*GetAuthenticatedUserRequest)(nil),  // 2: gitpod.experimental.v1.GetAuthenticatedUserRequest
-	(*GetAuthenticatedUserResponse)(nil), // 3: gitpod.experimental.v1.GetAuthenticatedUserResponse
-	(*ListSSHKeysRequest)(nil),           // 4: gitpod.experimental.v1.ListSSHKeysRequest
-	(*ListSSHKeysResponse)(nil),          // 5: gitpod.experimental.v1.ListSSHKeysResponse
-	(*CreateSSHKeyRequest)(nil),          // 6: gitpod.experimental.v1.CreateSSHKeyRequest
-	(*CreateSSHKeyResponse)(nil),         // 7: gitpod.experimental.v1.CreateSSHKeyResponse
-	(*GetSSHKeyRequest)(nil),             // 8: gitpod.experimental.v1.GetSSHKeyRequest
-	(*GetSSHKeyResponse)(nil),            // 9: gitpod.experimental.v1.GetSSHKeyResponse
-	(*DeleteSSHKeyRequest)(nil),          // 10: gitpod.experimental.v1.DeleteSSHKeyRequest
-	(*DeleteSSHKeyResponse)(nil),         // 11: gitpod.experimental.v1.DeleteSSHKeyResponse
-	(*GetGitTokenRequest)(nil),           // 12: gitpod.experimental.v1.GetGitTokenRequest
-	(*GetGitTokenResponse)(nil),          // 13: gitpod.experimental.v1.GetGitTokenResponse
-	(*GitToken)(nil),                     // 14: gitpod.experimental.v1.GitToken
-	(*BlockUserRequest)(nil),             // 15: gitpod.experimental.v1.BlockUserRequest
-	(*BlockUserResponse)(nil),            // 16: gitpod.experimental.v1.BlockUserResponse
+var file_nxpod_experimental_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_nxpod_experimental_v1_user_proto_goTypes = []interface{}{
+	(*User)(nil),                         // 0: nxpod.experimental.v1.User
+	(*SSHKey)(nil),                       // 1: nxpod.experimental.v1.SSHKey
+	(*GetAuthenticatedUserRequest)(nil),  // 2: nxpod.experimental.v1.GetAuthenticatedUserRequest
+	(*GetAuthenticatedUserResponse)(nil), // 3: nxpod.experimental.v1.GetAuthenticatedUserResponse
+	(*ListSSHKeysRequest)(nil),           // 4: nxpod.experimental.v1.ListSSHKeysRequest
+	(*ListSSHKeysResponse)(nil),          // 5: nxpod.experimental.v1.ListSSHKeysResponse
+	(*CreateSSHKeyRequest)(nil),          // 6: nxpod.experimental.v1.CreateSSHKeyRequest
+	(*CreateSSHKeyResponse)(nil),         // 7: nxpod.experimental.v1.CreateSSHKeyResponse
+	(*GetSSHKeyRequest)(nil),             // 8: nxpod.experimental.v1.GetSSHKeyRequest
+	(*GetSSHKeyResponse)(nil),            // 9: nxpod.experimental.v1.GetSSHKeyResponse
+	(*DeleteSSHKeyRequest)(nil),          // 10: nxpod.experimental.v1.DeleteSSHKeyRequest
+	(*DeleteSSHKeyResponse)(nil),         // 11: nxpod.experimental.v1.DeleteSSHKeyResponse
+	(*GetGitTokenRequest)(nil),           // 12: nxpod.experimental.v1.GetGitTokenRequest
+	(*GetGitTokenResponse)(nil),          // 13: nxpod.experimental.v1.GetGitTokenResponse
+	(*GitToken)(nil),                     // 14: nxpod.experimental.v1.GitToken
+	(*BlockUserRequest)(nil),             // 15: nxpod.experimental.v1.BlockUserRequest
+	(*BlockUserResponse)(nil),            // 16: nxpod.experimental.v1.BlockUserResponse
 	(*timestamppb.Timestamp)(nil),        // 17: google.protobuf.Timestamp
 }
-var file_gitpod_experimental_v1_user_proto_depIdxs = []int32{
-	17, // 0: gitpod.experimental.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	17, // 1: gitpod.experimental.v1.SSHKey.created_at:type_name -> google.protobuf.Timestamp
-	0,  // 2: gitpod.experimental.v1.GetAuthenticatedUserResponse.user:type_name -> gitpod.experimental.v1.User
-	1,  // 3: gitpod.experimental.v1.ListSSHKeysResponse.keys:type_name -> gitpod.experimental.v1.SSHKey
-	1,  // 4: gitpod.experimental.v1.CreateSSHKeyResponse.key:type_name -> gitpod.experimental.v1.SSHKey
-	1,  // 5: gitpod.experimental.v1.GetSSHKeyResponse.key:type_name -> gitpod.experimental.v1.SSHKey
-	14, // 6: gitpod.experimental.v1.GetGitTokenResponse.token:type_name -> gitpod.experimental.v1.GitToken
-	2,  // 7: gitpod.experimental.v1.UserService.GetAuthenticatedUser:input_type -> gitpod.experimental.v1.GetAuthenticatedUserRequest
-	4,  // 8: gitpod.experimental.v1.UserService.ListSSHKeys:input_type -> gitpod.experimental.v1.ListSSHKeysRequest
-	6,  // 9: gitpod.experimental.v1.UserService.CreateSSHKey:input_type -> gitpod.experimental.v1.CreateSSHKeyRequest
-	8,  // 10: gitpod.experimental.v1.UserService.GetSSHKey:input_type -> gitpod.experimental.v1.GetSSHKeyRequest
-	10, // 11: gitpod.experimental.v1.UserService.DeleteSSHKey:input_type -> gitpod.experimental.v1.DeleteSSHKeyRequest
-	12, // 12: gitpod.experimental.v1.UserService.GetGitToken:input_type -> gitpod.experimental.v1.GetGitTokenRequest
-	15, // 13: gitpod.experimental.v1.UserService.BlockUser:input_type -> gitpod.experimental.v1.BlockUserRequest
-	3,  // 14: gitpod.experimental.v1.UserService.GetAuthenticatedUser:output_type -> gitpod.experimental.v1.GetAuthenticatedUserResponse
-	5,  // 15: gitpod.experimental.v1.UserService.ListSSHKeys:output_type -> gitpod.experimental.v1.ListSSHKeysResponse
-	7,  // 16: gitpod.experimental.v1.UserService.CreateSSHKey:output_type -> gitpod.experimental.v1.CreateSSHKeyResponse
-	9,  // 17: gitpod.experimental.v1.UserService.GetSSHKey:output_type -> gitpod.experimental.v1.GetSSHKeyResponse
-	11, // 18: gitpod.experimental.v1.UserService.DeleteSSHKey:output_type -> gitpod.experimental.v1.DeleteSSHKeyResponse
-	13, // 19: gitpod.experimental.v1.UserService.GetGitToken:output_type -> gitpod.experimental.v1.GetGitTokenResponse
-	16, // 20: gitpod.experimental.v1.UserService.BlockUser:output_type -> gitpod.experimental.v1.BlockUserResponse
+var file_nxpod_experimental_v1_user_proto_depIdxs = []int32{
+	17, // 0: nxpod.experimental.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	17, // 1: nxpod.experimental.v1.SSHKey.created_at:type_name -> google.protobuf.Timestamp
+	0,  // 2: nxpod.experimental.v1.GetAuthenticatedUserResponse.user:type_name -> nxpod.experimental.v1.User
+	1,  // 3: nxpod.experimental.v1.ListSSHKeysResponse.keys:type_name -> nxpod.experimental.v1.SSHKey
+	1,  // 4: nxpod.experimental.v1.CreateSSHKeyResponse.key:type_name -> nxpod.experimental.v1.SSHKey
+	1,  // 5: nxpod.experimental.v1.GetSSHKeyResponse.key:type_name -> nxpod.experimental.v1.SSHKey
+	14, // 6: nxpod.experimental.v1.GetGitTokenResponse.token:type_name -> nxpod.experimental.v1.GitToken
+	2,  // 7: nxpod.experimental.v1.UserService.GetAuthenticatedUser:input_type -> nxpod.experimental.v1.GetAuthenticatedUserRequest
+	4,  // 8: nxpod.experimental.v1.UserService.ListSSHKeys:input_type -> nxpod.experimental.v1.ListSSHKeysRequest
+	6,  // 9: nxpod.experimental.v1.UserService.CreateSSHKey:input_type -> nxpod.experimental.v1.CreateSSHKeyRequest
+	8,  // 10: nxpod.experimental.v1.UserService.GetSSHKey:input_type -> nxpod.experimental.v1.GetSSHKeyRequest
+	10, // 11: nxpod.experimental.v1.UserService.DeleteSSHKey:input_type -> nxpod.experimental.v1.DeleteSSHKeyRequest
+	12, // 12: nxpod.experimental.v1.UserService.GetGitToken:input_type -> nxpod.experimental.v1.GetGitTokenRequest
+	15, // 13: nxpod.experimental.v1.UserService.BlockUser:input_type -> nxpod.experimental.v1.BlockUserRequest
+	3,  // 14: nxpod.experimental.v1.UserService.GetAuthenticatedUser:output_type -> nxpod.experimental.v1.GetAuthenticatedUserResponse
+	5,  // 15: nxpod.experimental.v1.UserService.ListSSHKeys:output_type -> nxpod.experimental.v1.ListSSHKeysResponse
+	7,  // 16: nxpod.experimental.v1.UserService.CreateSSHKey:output_type -> nxpod.experimental.v1.CreateSSHKeyResponse
+	9,  // 17: nxpod.experimental.v1.UserService.GetSSHKey:output_type -> nxpod.experimental.v1.GetSSHKeyResponse
+	11, // 18: nxpod.experimental.v1.UserService.DeleteSSHKey:output_type -> nxpod.experimental.v1.DeleteSSHKeyResponse
+	13, // 19: nxpod.experimental.v1.UserService.GetGitToken:output_type -> nxpod.experimental.v1.GetGitTokenResponse
+	16, // 20: nxpod.experimental.v1.UserService.BlockUser:output_type -> nxpod.experimental.v1.BlockUserResponse
 	14, // [14:21] is the sub-list for method output_type
 	7,  // [7:14] is the sub-list for method input_type
 	7,  // [7:7] is the sub-list for extension type_name
@@ -1126,13 +1126,13 @@ var file_gitpod_experimental_v1_user_proto_depIdxs = []int32{
 	0,  // [0:7] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_user_proto_init() }
-func file_gitpod_experimental_v1_user_proto_init() {
-	if File_gitpod_experimental_v1_user_proto != nil {
+func init() { file_nxpod_experimental_v1_user_proto_init() }
+func file_nxpod_experimental_v1_user_proto_init() {
+	if File_nxpod_experimental_v1_user_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*User); i {
 			case 0:
 				return &v.state
@@ -1144,7 +1144,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SSHKey); i {
 			case 0:
 				return &v.state
@@ -1156,7 +1156,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetAuthenticatedUserRequest); i {
 			case 0:
 				return &v.state
@@ -1168,7 +1168,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetAuthenticatedUserResponse); i {
 			case 0:
 				return &v.state
@@ -1180,7 +1180,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListSSHKeysRequest); i {
 			case 0:
 				return &v.state
@@ -1192,7 +1192,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListSSHKeysResponse); i {
 			case 0:
 				return &v.state
@@ -1204,7 +1204,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateSSHKeyRequest); i {
 			case 0:
 				return &v.state
@@ -1216,7 +1216,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateSSHKeyResponse); i {
 			case 0:
 				return &v.state
@@ -1228,7 +1228,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetSSHKeyRequest); i {
 			case 0:
 				return &v.state
@@ -1240,7 +1240,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetSSHKeyResponse); i {
 			case 0:
 				return &v.state
@@ -1252,7 +1252,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteSSHKeyRequest); i {
 			case 0:
 				return &v.state
@@ -1264,7 +1264,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteSSHKeyResponse); i {
 			case 0:
 				return &v.state
@@ -1276,7 +1276,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetGitTokenRequest); i {
 			case 0:
 				return &v.state
@@ -1288,7 +1288,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetGitTokenResponse); i {
 			case 0:
 				return &v.state
@@ -1300,7 +1300,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GitToken); i {
 			case 0:
 				return &v.state
@@ -1312,7 +1312,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BlockUserRequest); i {
 			case 0:
 				return &v.state
@@ -1324,7 +1324,7 @@ func file_gitpod_experimental_v1_user_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_user_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_user_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BlockUserResponse); i {
 			case 0:
 				return &v.state
@@ -1341,18 +1341,18 @@ func file_gitpod_experimental_v1_user_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_user_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_user_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_user_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_user_proto_depIdxs,
-		MessageInfos:      file_gitpod_experimental_v1_user_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_user_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_user_proto_depIdxs,
+		MessageInfos:      file_nxpod_experimental_v1_user_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_user_proto = out.File
-	file_gitpod_experimental_v1_user_proto_rawDesc = nil
-	file_gitpod_experimental_v1_user_proto_goTypes = nil
-	file_gitpod_experimental_v1_user_proto_depIdxs = nil
+	File_nxpod_experimental_v1_user_proto = out.File
+	file_nxpod_experimental_v1_user_proto_rawDesc = nil
+	file_nxpod_experimental_v1_user_proto_goTypes = nil
+	file_nxpod_experimental_v1_user_proto_depIdxs = nil
 }

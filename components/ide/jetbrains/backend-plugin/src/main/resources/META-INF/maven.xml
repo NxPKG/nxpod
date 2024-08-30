@@ -5,6 +5,6 @@
 -->
 <idea-plugin>
     <extensions defaultExtensionNs="com.intellij">
-        <backgroundPostStartupActivity implementation="io.gitpod.jetbrains.remote.optional.NxpodForceUpdateMavenProjectsActivity"/>
+        <backgroundPostStartupActivity implementation="io.nxpod.jetbrains.remote.optional.NxpodForceUpdateMavenProjectsActivity"/>
     </extensions>
 </idea-plugin>

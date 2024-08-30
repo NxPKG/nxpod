@@ -2413,7 +2413,7 @@ export class NxpodServerImpl implements NxpodServerWithTracing, Disposable {
         return this.workspaceService.getSupportedWorkspaceClasses(user);
     }
 
-    //#region nxpod.io concerns
+    //#region nxpod.khulnasoft.com concerns
     async getLinkedInClientId(ctx: TraceContextWithSpan): Promise<string> {
         traceAPIParams(ctx, {});
         await this.checkAndBlockUser("getLinkedInClientID");

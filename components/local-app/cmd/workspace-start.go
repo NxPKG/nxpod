@@ -28,13 +28,13 @@ var workspaceStartCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Minute)
 		defer cancel()
 
-		gitpod, err := getNxpodClient(ctx)
+		nxpod, err := getNxpodClient(ctx)
 		if err != nil {
 			return err
 		}
 
 		slog.Info("starting workspace...")
-		wsInfo, err := gitpod.Workspaces.StartWorkspace(ctx, connect.NewRequest(&v1.StartWorkspaceRequest{WorkspaceId: workspaceID}))
+		wsInfo, err := nxpod.Workspaces.StartWorkspace(ctx, connect.NewRequest(&v1.StartWorkspaceRequest{WorkspaceId: workspaceID}))
 		if err != nil {
 			return err
 		}
@@ -49,16 +49,16 @@ var workspaceStartCmd = &cobra.Command{
 			return nil
 		}
 
-		_, err = helper.ObserveWorkspaceUntilStarted(ctx, gitpod, workspaceID)
+		_, err = helper.ObserveWorkspaceUntilStarted(ctx, nxpod, workspaceID)
 		if err != nil {
 			return err
 		}
 
 		switch {
 		case workspaceStartOpts.OpenSSH:
-			return helper.SSHConnectToWorkspace(ctx, gitpod, workspaceID, false)
+			return helper.SSHConnectToWorkspace(ctx, nxpod, workspaceID, false)
 		case workspaceStartOpts.OpenEditor:
-			return helper.OpenWorkspaceInPreferredEditor(ctx, gitpod, workspaceID)
+			return helper.OpenWorkspaceInPreferredEditor(ctx, nxpod, workspaceID)
 		}
 
 		return nil

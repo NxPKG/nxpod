@@ -8,8 +8,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -24,11 +24,11 @@ var stopWorkspaceCmd = &cobra.Command{
 
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 		defer cancel()
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return err
 		}
-		client, err := gitpod.ConnectToServer(ctx, wsInfo, []string{
+		client, err := nxpod.ConnectToServer(ctx, wsInfo, []string{
 			"function:stopWorkspace",
 			"resource:workspace::" + wsInfo.WorkspaceId + "::get/update",
 		})

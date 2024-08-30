@@ -101,7 +101,7 @@ func ResolveIDEVersion(ctx context.Context, res remotes.Resolver, ref string) (s
 type ManifestJSON struct {
 	Config struct {
 		Labels struct {
-			Version string `json:"io.gitpod.ide.version"`
+			Version string `json:"io.nxpod.ide.version"`
 		} `json:"Labels"`
 	} `json:"config"`
 }

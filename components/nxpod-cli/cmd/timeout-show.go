@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 	"github.com/spf13/cobra"
 )
 
@@ -20,11 +20,11 @@ var showTimeoutCommand = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 		defer cancel()
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return err
 		}
-		client, err := gitpod.ConnectToServer(ctx, wsInfo, []string{
+		client, err := nxpod.ConnectToServer(ctx, wsInfo, []string{
 			"function:getWorkspaceTimeout",
 			"resource:workspace::" + wsInfo.WorkspaceId + "::get/update",
 		})

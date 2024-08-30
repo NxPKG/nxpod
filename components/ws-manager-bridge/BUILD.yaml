@@ -8,8 +8,8 @@ packages:
       - mocha.opts
     deps:
       - components/content-service-api/typescript:lib
-      - components/gitpod-db:lib
-      - components/gitpod-protocol:lib
+      - components/nxpod-db:lib
+      - components/nxpod-protocol:lib
       - components/ws-daemon-api/typescript:lib
       - components/ws-manager-api/typescript:lib
       - components/ws-manager-bridge-api/typescript:lib

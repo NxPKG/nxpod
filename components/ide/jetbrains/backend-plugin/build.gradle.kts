@@ -26,7 +26,7 @@ plugins {
 
 group = properties("pluginGroup")
 val environmentName = properties("environmentName")
-var pluginVersion = "${properties("pluginVersion")}-${properties("gitpodVersion")}"
+var pluginVersion = "${properties("pluginVersion")}-${properties("nxpodVersion")}"
 
 if (environmentName.isNotBlank()) {
     pluginVersion += "-$environmentName"
@@ -35,7 +35,7 @@ if (environmentName.isNotBlank()) {
 project(":") {
     kotlin {
         val excludedPackage = if (environmentName == "latest") "stable" else "latest"
-        sourceSets["main"].kotlin.exclude("io/gitpod/jetbrains/remote/${excludedPackage}/**")
+        sourceSets["main"].kotlin.exclude("io/nxpod/jetbrains/remote/${excludedPackage}/**")
 
         if (properties("platformType") == "RD") {
             print("Rider: exclude unnecessary files")
@@ -71,7 +71,7 @@ dependencies {
             type = "jar"
         }
     }
-    implementation(project(":gitpod-protocol")) {
+    implementation(project(":nxpod-protocol")) {
         artifact {
             type = "jar"
         }

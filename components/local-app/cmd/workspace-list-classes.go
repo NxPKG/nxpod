@@ -24,12 +24,12 @@ var workspaceListClassesCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 		defer cancel()
 
-		gitpod, err := getNxpodClient(ctx)
+		nxpod, err := getNxpodClient(ctx)
 		if err != nil {
 			return err
 		}
 
-		classes, err := gitpod.Workspaces.ListWorkspaceClasses(ctx, connect.NewRequest(&v1.ListWorkspaceClassesRequest{}))
+		classes, err := nxpod.Workspaces.ListWorkspaceClasses(ctx, connect.NewRequest(&v1.ListWorkspaceClassesRequest{}))
 		if err != nil {
 			return err
 		}

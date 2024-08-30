@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/configuration.proto
+// source: nxpod/v1/configuration.proto
 
 package v1
 
@@ -48,7 +48,7 @@ func NewConfigurationServiceClient(cc grpc.ClientConnInterface) ConfigurationSer
 
 func (c *configurationServiceClient) CreateConfiguration(ctx context.Context, in *CreateConfigurationRequest, opts ...grpc.CallOption) (*CreateConfigurationResponse, error) {
 	out := new(CreateConfigurationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.ConfigurationService/CreateConfiguration", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.ConfigurationService/CreateConfiguration", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func (c *configurationServiceClient) CreateConfiguration(ctx context.Context, in
 
 func (c *configurationServiceClient) GetConfiguration(ctx context.Context, in *GetConfigurationRequest, opts ...grpc.CallOption) (*GetConfigurationResponse, error) {
 	out := new(GetConfigurationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.ConfigurationService/GetConfiguration", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.ConfigurationService/GetConfiguration", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (c *configurationServiceClient) GetConfiguration(ctx context.Context, in *G
 
 func (c *configurationServiceClient) ListConfigurations(ctx context.Context, in *ListConfigurationsRequest, opts ...grpc.CallOption) (*ListConfigurationsResponse, error) {
 	out := new(ListConfigurationsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.ConfigurationService/ListConfigurations", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.ConfigurationService/ListConfigurations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ func (c *configurationServiceClient) ListConfigurations(ctx context.Context, in 
 
 func (c *configurationServiceClient) UpdateConfiguration(ctx context.Context, in *UpdateConfigurationRequest, opts ...grpc.CallOption) (*UpdateConfigurationResponse, error) {
 	out := new(UpdateConfigurationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.ConfigurationService/UpdateConfiguration", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.ConfigurationService/UpdateConfiguration", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func (c *configurationServiceClient) UpdateConfiguration(ctx context.Context, in
 
 func (c *configurationServiceClient) DeleteConfiguration(ctx context.Context, in *DeleteConfigurationRequest, opts ...grpc.CallOption) (*DeleteConfigurationResponse, error) {
 	out := new(DeleteConfigurationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.ConfigurationService/DeleteConfiguration", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.ConfigurationService/DeleteConfiguration", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -150,7 +150,7 @@ func _ConfigurationService_CreateConfiguration_Handler(srv interface{}, ctx cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.ConfigurationService/CreateConfiguration",
+		FullMethod: "/nxpod.v1.ConfigurationService/CreateConfiguration",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ConfigurationServiceServer).CreateConfiguration(ctx, req.(*CreateConfigurationRequest))
@@ -168,7 +168,7 @@ func _ConfigurationService_GetConfiguration_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.ConfigurationService/GetConfiguration",
+		FullMethod: "/nxpod.v1.ConfigurationService/GetConfiguration",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ConfigurationServiceServer).GetConfiguration(ctx, req.(*GetConfigurationRequest))
@@ -186,7 +186,7 @@ func _ConfigurationService_ListConfigurations_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.ConfigurationService/ListConfigurations",
+		FullMethod: "/nxpod.v1.ConfigurationService/ListConfigurations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ConfigurationServiceServer).ListConfigurations(ctx, req.(*ListConfigurationsRequest))
@@ -204,7 +204,7 @@ func _ConfigurationService_UpdateConfiguration_Handler(srv interface{}, ctx cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.ConfigurationService/UpdateConfiguration",
+		FullMethod: "/nxpod.v1.ConfigurationService/UpdateConfiguration",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ConfigurationServiceServer).UpdateConfiguration(ctx, req.(*UpdateConfigurationRequest))
@@ -222,7 +222,7 @@ func _ConfigurationService_DeleteConfiguration_Handler(srv interface{}, ctx cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.ConfigurationService/DeleteConfiguration",
+		FullMethod: "/nxpod.v1.ConfigurationService/DeleteConfiguration",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ConfigurationServiceServer).DeleteConfiguration(ctx, req.(*DeleteConfigurationRequest))
@@ -234,7 +234,7 @@ func _ConfigurationService_DeleteConfiguration_Handler(srv interface{}, ctx cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ConfigurationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.ConfigurationService",
+	ServiceName: "nxpod.v1.ConfigurationService",
 	HandlerType: (*ConfigurationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -259,5 +259,5 @@ var ConfigurationService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/configuration.proto",
+	Metadata: "nxpod/v1/configuration.proto",
 }

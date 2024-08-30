@@ -2,14 +2,14 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.AlignY
 import com.intellij.ui.dsl.builder.panel
 import com.jetbrains.gateway.api.GatewayRecentConnections
 import com.jetbrains.rd.util.lifetime.Lifetime
-import io.gitpod.jetbrains.icons.NxpodIcons
+import io.nxpod.jetbrains.icons.NxpodIcons
 import javax.swing.JComponent
 
 class NxpodRecentConnections : GatewayRecentConnections {

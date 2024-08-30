@@ -10,7 +10,7 @@ import {
     TeamMemberRole,
     TeamMembershipInvite,
     OrganizationSettings,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { DBTeamMembership } from "./typeorm/entity/db-team-membership";
 import { TransactionalDB } from "./typeorm/transactional-db-impl";
 

@@ -326,16 +326,16 @@ const RedirectUrlDescription: FunctionComponent<RedirectUrlDescriptionProps> = (
     let docsUrl = ``;
     switch (type) {
         case AuthProviderType.GITHUB:
-            docsUrl = `https://www.nxpod.io/docs/configure/authentication/github-enterprise`;
+            docsUrl = `https://www.nxpod.khulnasoft.com/docs/configure/authentication/github-enterprise`;
             break;
         case AuthProviderType.GITLAB:
-            docsUrl = `https://www.nxpod.io/docs/configure/authentication/gitlab#registering-a-self-hosted-gitlab-installation`;
+            docsUrl = `https://www.nxpod.khulnasoft.com/docs/configure/authentication/gitlab#registering-a-self-hosted-gitlab-installation`;
             break;
         case AuthProviderType.BITBUCKET:
-            docsUrl = `https://www.nxpod.io/docs/configure/authentication`;
+            docsUrl = `https://www.nxpod.khulnasoft.com/docs/configure/authentication`;
             break;
         case AuthProviderType.BITBUCKET_SERVER:
-            docsUrl = "https://www.nxpod.io/docs/configure/authentication/bitbucket-server";
+            docsUrl = "https://www.nxpod.khulnasoft.com/docs/configure/authentication/bitbucket-server";
             break;
         default:
             return null;

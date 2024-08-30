@@ -215,7 +215,7 @@ func ReplaceSelf(ctx context.Context, manifest *Manifest) error {
 	if err != nil && strings.Contains(err.Error(), "permission denied") && runtime.GOOS != "windows" {
 		cfgfn := config.FromContext(ctx).Filename
 		err = prettyprint.AddResolution(err,
-			fmt.Sprintf("run `sudo {gitpod} --config %s version update`", cfgfn),
+			fmt.Sprintf("run `sudo {nxpod} --config %s version update`", cfgfn),
 		)
 	}
 	return err

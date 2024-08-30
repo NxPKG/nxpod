@@ -16,15 +16,15 @@ import (
 	"strings"
 )
 
-const PersonalAccessTokenPrefix = "gitpod_pat_"
+const PersonalAccessTokenPrefix = "nxpod_pat_"
 
 // PersonalAccessToken token is an Access Token for individuals. Any action taken with this token will act on behalf of the token creator.
-// The PersonalAccessToken, in string form, takes the following shape: gitpod_pat_<signature>.<value>
-// E.g. gitpod_pat_ko8KC1tJ-GkqIwqNliwF4tBUk2Jd5nEe9qOWqYfobtY.6ZDQVanpaTKj9hQuji0thCe8KFCcmEDGpsaTkSSb
+// The PersonalAccessToken, in string form, takes the following shape: nxpod_pat_<signature>.<value>
+// E.g. nxpod_pat_ko8KC1tJ-GkqIwqNliwF4tBUk2Jd5nEe9qOWqYfobtY.6ZDQVanpaTKj9hQuji0thCe8KFCcmEDGpsaTkSSb
 type PersonalAccessToken struct {
 	// prefix is the human readable prefix for the token used to identify which type of token it is,
 	// but also for code-scanning of leaked credentials.
-	// e.g. `gitpod_pat_`
+	// e.g. `nxpod_pat_`
 	prefix string
 
 	// value is the secret value of the token
@@ -77,13 +77,13 @@ func ParsePersonalAccessToken(token string, signer Signer) (PersonalAccessToken,
 	if token == "" {
 		return PersonalAccessToken{}, errors.New("empty personal access")
 	}
-	// Assume we start with the following token: gitpod_pat_ko8KC1tJ-GkqIwqNliwF4tBUk2Jd5nEe9qOWqYfobtY.6ZDQVanpaTKj9hQuji0thCe8KFCcmEDGpsaTkSSb
+	// Assume we start with the following token: nxpod_pat_ko8KC1tJ-GkqIwqNliwF4tBUk2Jd5nEe9qOWqYfobtY.6ZDQVanpaTKj9hQuji0thCe8KFCcmEDGpsaTkSSb
 	// First, we identify if the token contains the required prefix
 	if !strings.HasPrefix(token, PersonalAccessTokenPrefix) {
 		return PersonalAccessToken{}, fmt.Errorf("personal access token does not have %s prefix", PersonalAccessTokenPrefix)
 	}
 
-	// Remove the gitpod_pat_ prefix
+	// Remove the nxpod_pat_ prefix
 	token = strings.TrimPrefix(token, PersonalAccessTokenPrefix)
 
 	// We now have the token in the following form:

@@ -36,7 +36,7 @@ require (
 
 require (
 	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/uuid v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.3 // indirect
@@ -55,7 +55,7 @@ replace github.com/nxpkg/nxpod/common-go => ../../../common-go // leeway
 
 replace github.com/nxpkg/nxpod/components/scrubber => ../../../scrubber // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../../../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../../../nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/supervisor/api => ../../../supervisor-api/go // leeway
 

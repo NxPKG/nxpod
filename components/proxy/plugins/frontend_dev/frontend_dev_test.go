@@ -53,21 +53,21 @@ func Test_MatchAndRewriteRootRequest(t *testing.T) {
 				},
 				Body: ioutil.NopCloser(strings.NewReader(index_html)),
 			},
-			newBaseUrl: "https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io",
+			newBaseUrl: "https://3000-nxpodio-nxpod-hk3453q4csi.ws-eu108.nxpod.khulnasoft.com",
 			expectedBody: `<!doctype html>
 <html lang="en">
 
 <head>
 <meta charset="utf-8" />
-<link rel="icon" href="https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io/favicon256.png" />
+<link rel="icon" href="https://3000-nxpodio-nxpod-hk3453q4csi.ws-eu108.nxpod.khulnasoft.com/favicon256.png" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#000000" />
 <meta name="robots" content="noindex">
 <meta name="Nxpod" content="Always Ready-to-Code" />
-<link rel="apple-touch-icon" href="https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io/favicon192.png" />
-<link rel="manifest" href="https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io/manifest.json" />
+<link rel="apple-touch-icon" href="https://3000-nxpodio-nxpod-hk3453q4csi.ws-eu108.nxpod.khulnasoft.com/favicon192.png" />
+<link rel="manifest" href="https://3000-nxpodio-nxpod-hk3453q4csi.ws-eu108.nxpod.khulnasoft.com/manifest.json" />
 <title>Dashboard</title>
-<script defer="defer" src="https://3000-gitpodio-gitpod-hk3453q4csi.ws-eu108.gitpod.io/static/js/main.js"></script>
+<script defer="defer" src="https://3000-nxpodio-nxpod-hk3453q4csi.ws-eu108.nxpod.khulnasoft.com/static/js/main.js"></script>
 
 </head>
 

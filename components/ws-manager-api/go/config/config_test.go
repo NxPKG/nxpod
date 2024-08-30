@@ -15,7 +15,7 @@ func BenchmarkRenderWorkspacePortURL(b *testing.B) {
 	b.ReportAllocs()
 
 	for n := 0; n < b.N; n++ {
-		RenderWorkspaceURL("{{.Port}}-{{.Prefix}}.{{.Host}}", "foo", "bar", "nxpod.io")
+		RenderWorkspaceURL("{{.Port}}-{{.Prefix}}.{{.Host}}", "foo", "bar", "nxpod.khulnasoft.com")
 	}
 }
 
@@ -37,9 +37,9 @@ func TestValidate(t *testing.T) {
 				DefaultWorkspaceClass: {},
 			},
 			HeartbeatInterval:    util.Duration(10 * time.Second),
-			NxpodHostURL:        "https://nxpod.io",
+			NxpodHostURL:        "https://nxpod.khulnasoft.com",
 			ReconnectionInterval: util.Duration(10 * time.Second),
-			WorkspaceURLTemplate: "https://nxpod.io/foobar",
+			WorkspaceURLTemplate: "https://nxpod.khulnasoft.com/foobar",
 			WorkspaceHostPath:    "/mnt/data",
 		}
 		mod(res)

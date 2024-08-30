@@ -47,9 +47,9 @@ const useOnboardingState = () => {
     );
 };
 
-// TODO: This is a temporary safety-guard against this flow showing up on nxpod.io
+// TODO: This is a temporary safety-guard against this flow showing up on nxpod.khulnasoft.com
 // We can remove this once we've ensured we're distinguishing different installation types for this
 export const isCurrentHostExcludedFromSetup = () => {
     // Purposely not using isNxpodIo() check here to avoid disabling on preview environments too.
-    return ["nxpod.io", "nxpod-staging.com"].includes(window.location.hostname);
+    return ["nxpod.khulnasoft.com", "nxpod-staging.com"].includes(window.location.hostname);
 };

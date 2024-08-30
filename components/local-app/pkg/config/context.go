@@ -27,9 +27,9 @@ func (c *Config) GetActiveContext() (*ConnectionContext, error) {
 }
 
 var ErrNoContext = prettyprint.AddResolution(fmt.Errorf("no active context"),
-	"sign in using `{gitpod} login`",
-	"select an existing context using `{gitpod} config use-context`",
-	"create a new context using `{gitpod} config add-context`",
+	"sign in using `{nxpod} login`",
+	"select an existing context using `{nxpod} config use-context`",
+	"create a new context using `{nxpod} config add-context`",
 )
 
 type ConnectionContext struct {

@@ -24,7 +24,7 @@ import (
 	"github.com/nxpkg/nxpod/common-go/experiments"
 	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/nxpkg/nxpod/common-go/watch"
-	gitpodapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpodapi "github.com/nxpkg/nxpod/nxpod-protocol"
 	api "github.com/nxpkg/nxpod/ide-service-api"
 	"github.com/nxpkg/nxpod/ide-service-api/config"
 	"github.com/heptiolabs/healthcheck"
@@ -379,7 +379,7 @@ func (s *IDEServiceServer) ResolveWorkspaceConfig(ctx context.Context, req *api.
 		})
 	}
 
-	var wsConfig *gitpodapi.NxpodConfig
+	var wsConfig *nxpodapi.NxpodConfig
 
 	if req.WorkspaceConfig != "" {
 		if err := json.Unmarshal([]byte(req.WorkspaceConfig), &wsConfig); err != nil {
@@ -567,7 +567,7 @@ func (s *IDEServiceServer) ResolveWorkspaceConfig(ctx context.Context, req *api.
 	return
 }
 
-func getPrebuilds(config *gitpodapi.NxpodConfig, alias string) *gitpodapi.Prebuilds {
+func getPrebuilds(config *nxpodapi.NxpodConfig, alias string) *nxpodapi.Prebuilds {
 	if config == nil || config.Jetbrains == nil {
 		return nil
 	}
@@ -578,7 +578,7 @@ func getPrebuilds(config *gitpodapi.NxpodConfig, alias string) *gitpodapi.Prebui
 	return productConfig.Prebuilds
 }
 
-func getProductConfig(config *gitpodapi.NxpodConfig, alias string) *gitpodapi.JetbrainsProduct {
+func getProductConfig(config *nxpodapi.NxpodConfig, alias string) *nxpodapi.JetbrainsProduct {
 	defer func() {
 		if err := recover(); err != nil {
 			log.WithField("error", err).WithField("alias", alias).Error("failed to extract JB product config")
@@ -587,7 +587,7 @@ func getProductConfig(config *gitpodapi.NxpodConfig, alias string) *gitpodapi.Je
 	v := reflect.ValueOf(*config.Jetbrains).FieldByNameFunc(func(s string) bool {
 		return strings.ToLower(s) == alias
 	}).Interface()
-	productConfig, ok := v.(*gitpodapi.JetbrainsProduct)
+	productConfig, ok := v.(*nxpodapi.JetbrainsProduct)
 	if !ok {
 		return nil
 	}

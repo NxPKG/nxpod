@@ -817,7 +817,7 @@ function ImageBuildView(props: ImageBuildViewProps) {
                             💡 You can use the <code>gp validate</code> command to validate the workspace configuration
                             from the editor terminal. &nbsp;
                             <a
-                                href="https://www.nxpod.io/docs/configure/workspaces/workspace-image#trying-out-changes-to-your-dockerfile"
+                                href="https://www.nxpod.khulnasoft.com/docs/configure/workspaces/workspace-image#trying-out-changes-to-your-dockerfile"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="gp-link"

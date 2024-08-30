@@ -14,7 +14,7 @@ import (
 
 const (
 	// NxpodFinalizerName is the name of the finalizer we use on workspaces and their pods.
-	NxpodFinalizerName = "nxpod.io/finalizer"
+	NxpodFinalizerName = "nxpod.khulnasoft.com/finalizer"
 
 	// ReasonInitializationSuccess is a Reason for the WorkspaceConditionContentReady condition,
 	// incidating content init succeeded.

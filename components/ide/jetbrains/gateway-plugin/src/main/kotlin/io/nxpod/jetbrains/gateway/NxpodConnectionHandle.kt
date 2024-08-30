@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.openapi.components.Service
 import com.jetbrains.gateway.api.CustomConnectionFrameComponentProvider
@@ -12,7 +12,7 @@ import com.jetbrains.gateway.ssh.ClientOverSshTunnelConnector
 import com.jetbrains.gateway.ssh.HostTunnelConnector
 import com.jetbrains.gateway.thinClientLink.ThinClientHandle
 import com.jetbrains.rd.util.lifetime.Lifetime
-import io.gitpod.jetbrains.gateway.NxpodConnectionProvider.ConnectParams
+import io.nxpod.jetbrains.gateway.NxpodConnectionProvider.ConnectParams
 import java.net.URI
 import javax.swing.JComponent
 

@@ -13,7 +13,7 @@ import {
     WorkspaceCluster,
     WorkspaceClusterFilter,
     WorkspaceClusterWoTLS,
-} from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+} from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 
 @injectable()
 export class WorkspaceClusterDBImpl implements WorkspaceClusterDB {

@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/editor_service.proto
+// source: nxpod/experimental/v1/editor_service.proto
 
 package v1
 
@@ -58,11 +58,11 @@ func (x EditorOption_Type) String() string {
 }
 
 func (EditorOption_Type) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_editor_service_proto_enumTypes[0].Descriptor()
+	return file_nxpod_experimental_v1_editor_service_proto_enumTypes[0].Descriptor()
 }
 
 func (EditorOption_Type) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_editor_service_proto_enumTypes[0]
+	return &file_nxpod_experimental_v1_editor_service_proto_enumTypes[0]
 }
 
 func (x EditorOption_Type) Number() protoreflect.EnumNumber {
@@ -71,7 +71,7 @@ func (x EditorOption_Type) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EditorOption_Type.Descriptor instead.
 func (EditorOption_Type) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{2, 0}
+	return file_nxpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{2, 0}
 }
 
 type ListEditorOptionsRequest struct {
@@ -83,7 +83,7 @@ type ListEditorOptionsRequest struct {
 func (x *ListEditorOptionsRequest) Reset() {
 	*x = ListEditorOptionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -96,7 +96,7 @@ func (x *ListEditorOptionsRequest) String() string {
 func (*ListEditorOptionsRequest) ProtoMessage() {}
 
 func (x *ListEditorOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +109,7 @@ func (x *ListEditorOptionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListEditorOptionsRequest.ProtoReflect.Descriptor instead.
 func (*ListEditorOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{0}
 }
 
 type ListEditorOptionsResponse struct {
@@ -123,7 +123,7 @@ type ListEditorOptionsResponse struct {
 func (x *ListEditorOptionsResponse) Reset() {
 	*x = ListEditorOptionsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -136,7 +136,7 @@ func (x *ListEditorOptionsResponse) String() string {
 func (*ListEditorOptionsResponse) ProtoMessage() {}
 
 func (x *ListEditorOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -149,7 +149,7 @@ func (x *ListEditorOptionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListEditorOptionsResponse.ProtoReflect.Descriptor instead.
 func (*ListEditorOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ListEditorOptionsResponse) GetResult() []*EditorOption {
@@ -168,7 +168,7 @@ type EditorOption struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Human readable title text of the editor (plain text only).
 	Title string            `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	Type  EditorOption_Type `protobuf:"varint,3,opt,name=type,proto3,enum=gitpod.experimental.v1.EditorOption_Type" json:"type,omitempty"`
+	Type  EditorOption_Type `protobuf:"varint,3,opt,name=type,proto3,enum=nxpod.experimental.v1.EditorOption_Type" json:"type,omitempty"`
 	// The logo for the editor
 	Logo string `protobuf:"bytes,4,opt,name=logo,proto3" json:"logo,omitempty"`
 	// Text of an optional label next to the editor option like “Insiders” (plain
@@ -181,7 +181,7 @@ type EditorOption struct {
 func (x *EditorOption) Reset() {
 	*x = EditorOption{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -194,7 +194,7 @@ func (x *EditorOption) String() string {
 func (*EditorOption) ProtoMessage() {}
 
 func (x *EditorOption) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -207,7 +207,7 @@ func (x *EditorOption) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EditorOption.ProtoReflect.Descriptor instead.
 func (*EditorOption) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *EditorOption) GetId() string {
@@ -271,7 +271,7 @@ type EditorOption_Kind struct {
 func (x *EditorOption_Kind) Reset() {
 	*x = EditorOption_Kind{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -284,7 +284,7 @@ func (x *EditorOption_Kind) String() string {
 func (*EditorOption_Kind) ProtoMessage() {}
 
 func (x *EditorOption_Kind) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_editor_service_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_editor_service_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -297,7 +297,7 @@ func (x *EditorOption_Kind) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EditorOption_Kind.ProtoReflect.Descriptor instead.
 func (*EditorOption_Kind) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{2, 0}
+	return file_nxpod_experimental_v1_editor_service_proto_rawDescGZIP(), []int{2, 0}
 }
 
 func (x *EditorOption_Kind) GetVersion() string {
@@ -307,9 +307,9 @@ func (x *EditorOption_Kind) GetVersion() string {
 	return ""
 }
 
-var File_gitpod_experimental_v1_editor_service_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_editor_service_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_editor_service_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_editor_service_proto_rawDesc = []byte{
 	0x0a, 0x2b, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x5f,
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67,
@@ -366,33 +366,33 @@ var file_gitpod_experimental_v1_editor_service_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_editor_service_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_editor_service_proto_rawDescData = file_gitpod_experimental_v1_editor_service_proto_rawDesc
+	file_nxpod_experimental_v1_editor_service_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_editor_service_proto_rawDescData = file_nxpod_experimental_v1_editor_service_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_editor_service_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_editor_service_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_editor_service_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_editor_service_proto_rawDescData)
+func file_nxpod_experimental_v1_editor_service_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_editor_service_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_editor_service_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_editor_service_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_editor_service_proto_rawDescData
+	return file_nxpod_experimental_v1_editor_service_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_editor_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_gitpod_experimental_v1_editor_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_gitpod_experimental_v1_editor_service_proto_goTypes = []interface{}{
-	(EditorOption_Type)(0),            // 0: gitpod.experimental.v1.EditorOption.Type
-	(*ListEditorOptionsRequest)(nil),  // 1: gitpod.experimental.v1.ListEditorOptionsRequest
-	(*ListEditorOptionsResponse)(nil), // 2: gitpod.experimental.v1.ListEditorOptionsResponse
-	(*EditorOption)(nil),              // 3: gitpod.experimental.v1.EditorOption
-	(*EditorOption_Kind)(nil),         // 4: gitpod.experimental.v1.EditorOption.Kind
+var file_nxpod_experimental_v1_editor_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_nxpod_experimental_v1_editor_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_nxpod_experimental_v1_editor_service_proto_goTypes = []interface{}{
+	(EditorOption_Type)(0),            // 0: nxpod.experimental.v1.EditorOption.Type
+	(*ListEditorOptionsRequest)(nil),  // 1: nxpod.experimental.v1.ListEditorOptionsRequest
+	(*ListEditorOptionsResponse)(nil), // 2: nxpod.experimental.v1.ListEditorOptionsResponse
+	(*EditorOption)(nil),              // 3: nxpod.experimental.v1.EditorOption
+	(*EditorOption_Kind)(nil),         // 4: nxpod.experimental.v1.EditorOption.Kind
 }
-var file_gitpod_experimental_v1_editor_service_proto_depIdxs = []int32{
-	3, // 0: gitpod.experimental.v1.ListEditorOptionsResponse.result:type_name -> gitpod.experimental.v1.EditorOption
-	0, // 1: gitpod.experimental.v1.EditorOption.type:type_name -> gitpod.experimental.v1.EditorOption.Type
-	4, // 2: gitpod.experimental.v1.EditorOption.stable:type_name -> gitpod.experimental.v1.EditorOption.Kind
-	4, // 3: gitpod.experimental.v1.EditorOption.latest:type_name -> gitpod.experimental.v1.EditorOption.Kind
-	1, // 4: gitpod.experimental.v1.EditorService.ListEditorOptions:input_type -> gitpod.experimental.v1.ListEditorOptionsRequest
-	2, // 5: gitpod.experimental.v1.EditorService.ListEditorOptions:output_type -> gitpod.experimental.v1.ListEditorOptionsResponse
+var file_nxpod_experimental_v1_editor_service_proto_depIdxs = []int32{
+	3, // 0: nxpod.experimental.v1.ListEditorOptionsResponse.result:type_name -> nxpod.experimental.v1.EditorOption
+	0, // 1: nxpod.experimental.v1.EditorOption.type:type_name -> nxpod.experimental.v1.EditorOption.Type
+	4, // 2: nxpod.experimental.v1.EditorOption.stable:type_name -> nxpod.experimental.v1.EditorOption.Kind
+	4, // 3: nxpod.experimental.v1.EditorOption.latest:type_name -> nxpod.experimental.v1.EditorOption.Kind
+	1, // 4: nxpod.experimental.v1.EditorService.ListEditorOptions:input_type -> nxpod.experimental.v1.ListEditorOptionsRequest
+	2, // 5: nxpod.experimental.v1.EditorService.ListEditorOptions:output_type -> nxpod.experimental.v1.ListEditorOptionsResponse
 	5, // [5:6] is the sub-list for method output_type
 	4, // [4:5] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -400,13 +400,13 @@ var file_gitpod_experimental_v1_editor_service_proto_depIdxs = []int32{
 	0, // [0:4] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_editor_service_proto_init() }
-func file_gitpod_experimental_v1_editor_service_proto_init() {
-	if File_gitpod_experimental_v1_editor_service_proto != nil {
+func init() { file_nxpod_experimental_v1_editor_service_proto_init() }
+func file_nxpod_experimental_v1_editor_service_proto_init() {
+	if File_nxpod_experimental_v1_editor_service_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_editor_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_editor_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListEditorOptionsRequest); i {
 			case 0:
 				return &v.state
@@ -418,7 +418,7 @@ func file_gitpod_experimental_v1_editor_service_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_editor_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_editor_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListEditorOptionsResponse); i {
 			case 0:
 				return &v.state
@@ -430,7 +430,7 @@ func file_gitpod_experimental_v1_editor_service_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_editor_service_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_editor_service_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EditorOption); i {
 			case 0:
 				return &v.state
@@ -442,7 +442,7 @@ func file_gitpod_experimental_v1_editor_service_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_editor_service_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_editor_service_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EditorOption_Kind); i {
 			case 0:
 				return &v.state
@@ -459,19 +459,19 @@ func file_gitpod_experimental_v1_editor_service_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_editor_service_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_editor_service_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_editor_service_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_editor_service_proto_depIdxs,
-		EnumInfos:         file_gitpod_experimental_v1_editor_service_proto_enumTypes,
-		MessageInfos:      file_gitpod_experimental_v1_editor_service_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_editor_service_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_editor_service_proto_depIdxs,
+		EnumInfos:         file_nxpod_experimental_v1_editor_service_proto_enumTypes,
+		MessageInfos:      file_nxpod_experimental_v1_editor_service_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_editor_service_proto = out.File
-	file_gitpod_experimental_v1_editor_service_proto_rawDesc = nil
-	file_gitpod_experimental_v1_editor_service_proto_goTypes = nil
-	file_gitpod_experimental_v1_editor_service_proto_depIdxs = nil
+	File_nxpod_experimental_v1_editor_service_proto = out.File
+	file_nxpod_experimental_v1_editor_service_proto_rawDesc = nil
+	file_nxpod_experimental_v1_editor_service_proto_goTypes = nil
+	file_nxpod_experimental_v1_editor_service_proto_depIdxs = nil
 }

@@ -72,7 +72,7 @@ func (p *Prometheus) Start(cfg *Config) {
 }
 
 func (p *Prometheus) createMetrics() {
-	namespace := "gitpod"
+	namespace := "nxpod"
 	subsystem := "openvsx_proxy"
 	p.BackupCacheHitCounter = prometheus.NewCounter(prometheus.CounterOpts{
 		Namespace: namespace,

@@ -20,9 +20,9 @@ import (
 )
 
 const (
-	REQUEST_CACHE_KEY_CTX = "gitpod-cache-key"
-	REQUEST_ID_CTX        = "gitpod-request-id"
-	UPSTREAM_CTX          = "gitpod-upstream"
+	REQUEST_CACHE_KEY_CTX = "nxpod-cache-key"
+	REQUEST_ID_CTX        = "nxpod-request-id"
+	UPSTREAM_CTX          = "nxpod-upstream"
 	LOG_FIELD_REQUEST_ID  = "request_id"
 	LOG_FIELD_REQUEST     = "request"
 	LOG_FIELD_FUNC        = "func"

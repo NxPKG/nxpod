@@ -23,7 +23,7 @@ packages:
     srcs:
       - "scripts/*"
     deps:
-      - components/gitpod-protocol:scripts
+      - components/nxpod-protocol:scripts
     config:
       commands:
         - ["sh", "-c", "mv scripts/* ."]

@@ -13,7 +13,7 @@ import {
     WorkspaceImageSource,
     WorkspaceType,
     WorkspaceSoftDeletion,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { TypeORM } from "../typeorm";
 import { Transformer } from "../transformer";
 import * as IndexWorkspaceIdDeleted1647333804782 from "../migration/1647333804782-IndexWorkspaceIdDeleted";

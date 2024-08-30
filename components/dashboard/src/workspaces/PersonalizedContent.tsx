@@ -24,7 +24,7 @@ type ContentItem = {
 
 const contentList: ContentItem[] = [
     {
-        url: "https://www.nxpod.io/blog/writing-software-with-chopsticks-an-intro-to-vdi",
+        url: "https://www.nxpod.khulnasoft.com/blog/writing-software-with-chopsticks-an-intro-to-vdi",
         title: "Why replace a VDI with Nxpod",
         label: "vdi-replacement",
         priority: 1,
@@ -34,7 +34,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/customers/luminus",
+        url: "https://www.nxpod.khulnasoft.com/customers/luminus",
         title: "Solve python dependency issues with Nxpod",
         label: "luminus-case-study",
         priority: 2,
@@ -43,7 +43,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/blog/how-to-use-vdis-and-cdes-together",
+        url: "https://www.nxpod.khulnasoft.com/blog/how-to-use-vdis-and-cdes-together",
         title: "Using VDIs and Nxpod together",
         label: "vdi-and-cde",
         priority: 3,
@@ -53,7 +53,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/blog/onboard-contractors-securely-and-quickly-using-nxpod",
+        url: "https://www.nxpod.khulnasoft.com/blog/onboard-contractors-securely-and-quickly-using-nxpod",
         title: "Onboard contractors securely with Nxpod",
         label: "onboard-contractors",
         priority: 4,
@@ -63,7 +63,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/solutions/onboarding",
+        url: "https://www.nxpod.khulnasoft.com/solutions/onboarding",
         title: "Onboard developers in one click with Nxpod",
         label: "onboarding-solutions",
         priority: 5,
@@ -72,7 +72,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/customers/kingland",
+        url: "https://www.nxpod.khulnasoft.com/customers/kingland",
         title: "The impact of Nxpod on supply-chain security",
         label: "kingland-case-study",
         priority: 6,
@@ -81,7 +81,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/blog/improve-security-using-ephemeral-development-environments",
+        url: "https://www.nxpod.khulnasoft.com/blog/improve-security-using-ephemeral-development-environments",
         title: "Improve security with ephemeral environments",
         label: "ephemeral-security",
         priority: 7,
@@ -90,7 +90,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/blog/using-a-cde-roi-calculator",
+        url: "https://www.nxpod.khulnasoft.com/blog/using-a-cde-roi-calculator",
         title: "What is the business case for a CDE",
         label: "cde-roi-calculator",
         priority: 8,
@@ -101,7 +101,7 @@ const contentList: ContentItem[] = [
         },
     },
     {
-        url: "https://www.nxpod.io/blog/whats-a-cloud-development-environment",
+        url: "https://www.nxpod.khulnasoft.com/blog/whats-a-cloud-development-environment",
         title: "What is a cloud development environment",
         label: "what-is-cde",
         priority: 9,
@@ -113,17 +113,17 @@ const contentList: ContentItem[] = [
 
 const defaultContent: ContentItem[] = [
     {
-        url: "https://www.nxpod.io/blog/whats-a-cloud-development-environment",
+        url: "https://www.nxpod.khulnasoft.com/blog/whats-a-cloud-development-environment",
         title: "What's a CDE",
         label: "what-is-cde",
     },
     {
-        url: "https://www.nxpod.io/solutions/onboarding",
+        url: "https://www.nxpod.khulnasoft.com/solutions/onboarding",
         title: "Onboarding developers in one click",
         label: "onboarding-solutions",
     },
     {
-        url: "https://www.nxpod.io/blog/using-a-cde-roi-calculator",
+        url: "https://www.nxpod.khulnasoft.com/blog/using-a-cde-roi-calculator",
         title: "Building a business case for Nxpod",
         label: "cde-roi-calculator",
     },

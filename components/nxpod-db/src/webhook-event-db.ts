@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { WebhookEvent } from "@gitpod/gitpod-protocol";
+import { WebhookEvent } from "@nxpod/nxpod-protocol";
 
 export const WebhookEventDB = Symbol("WebhookEventDB");
 export interface WebhookEventDB {

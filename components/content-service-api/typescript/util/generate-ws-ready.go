@@ -1,4 +1,4 @@
-//go:generate sh -c "go run generate-ws-ready.go > ../../../gitpod-protocol/src/wsready.ts"
+//go:generate sh -c "go run generate-ws-ready.go > ../../../nxpod-protocol/src/wsready.ts"
 
 package main
 

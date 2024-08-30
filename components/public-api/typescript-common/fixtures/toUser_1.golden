@@ -10,7 +10,7 @@
                 "authProviderId": "Public-GitHub",
                 "authId": "37021919",
                 "authName": "NxpodTester",
-                "primaryEmail": "tester@gitpod.io"
+                "primaryEmail": "tester@nxpod.khulnasoft.com"
             }
         ],
         "blocked": false,
@@ -30,13 +30,13 @@
             "version": "latest",
             "preferToolbox": true
         },
-        "dotfileRepo": "https://github.com/gitpod-samples/demo-dotfiles-with-gitpod",
+        "dotfileRepo": "https://github.com/nxpod-samples/demo-dotfiles-with-nxpod",
         "workspaceClass": "XXXL",
         "profile": {
             "lastUpdatedDetailsNudge": "2023-12-04T08:54:34.831Z",
             "acceptedPrivacyPolicyDate": "2023-12-04T08:54:31.700Z",
             "companyName": "",
-            "emailAddress": "tester@gitpod.io",
+            "emailAddress": "tester@nxpod.khulnasoft.com",
             "jobRole": "other",
             "jobRoleOther": "",
             "explorationReasons": [

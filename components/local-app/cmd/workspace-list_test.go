@@ -11,7 +11,7 @@ import (
 
 	"github.com/bufbuild/connect-go"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
-	gitpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	nxpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
 	"github.com/nxpkg/local-app/pkg/config"
 )
 
@@ -32,7 +32,7 @@ func TestWorkspaceListCmd(t *testing.T) {
 				ActiveContext: "test",
 			},
 			PrepServer: func(mux *http.ServeMux) {
-				mux.Handle(gitpod_experimental_v1connect.NewWorkspacesServiceHandler(&testWorkspaceListCmdWorkspaceSrv{
+				mux.Handle(nxpod_experimental_v1connect.NewWorkspacesServiceHandler(&testWorkspaceListCmdWorkspaceSrv{
 					Resp: &v1.ListWorkspacesResponse{
 						Result: []*v1.Workspace{fixtureWorkspace()},
 					},
@@ -49,7 +49,7 @@ func TestWorkspaceListCmd(t *testing.T) {
 				ActiveContext: "test",
 			},
 			PrepServer: func(mux *http.ServeMux) {
-				mux.Handle(gitpod_experimental_v1connect.NewWorkspacesServiceHandler(&testWorkspaceListCmdWorkspaceSrv{
+				mux.Handle(nxpod_experimental_v1connect.NewWorkspacesServiceHandler(&testWorkspaceListCmdWorkspaceSrv{
 					Resp: &v1.ListWorkspacesResponse{
 						Result: []*v1.Workspace{},
 					},
@@ -65,7 +65,7 @@ func TestWorkspaceListCmd(t *testing.T) {
 type testWorkspaceListCmdWorkspaceSrv struct {
 	Resp *v1.ListWorkspacesResponse
 	Err  error
-	gitpod_experimental_v1connect.UnimplementedWorkspacesServiceHandler
+	nxpod_experimental_v1connect.UnimplementedWorkspacesServiceHandler
 }
 
 func (srv testWorkspaceListCmdWorkspaceSrv) ListWorkspaces(context.Context, *connect.Request[v1.ListWorkspacesRequest]) (*connect.Response[v1.ListWorkspacesResponse], error) {

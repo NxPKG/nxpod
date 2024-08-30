@@ -7,15 +7,15 @@
 import { Container } from "inversify";
 import * as express from "express";
 import * as prometheusClient from "prom-client";
-import { log, LogrusLogLevel } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { installLogCountMetric } from "@gitpod/gitpod-protocol/lib/util/logging-node";
-import { DebugApp } from "@gitpod/gitpod-protocol/lib/util/debug-app";
-import { TypeORM } from "@gitpod/gitpod-db/lib/typeorm/typeorm";
-import { TracingManager } from "@gitpod/gitpod-protocol/lib/util/tracing";
+import { log, LogrusLogLevel } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { installLogCountMetric } from "@nxpod/nxpod-protocol/lib/util/logging-node";
+import { DebugApp } from "@nxpod/nxpod-protocol/lib/util/debug-app";
+import { TypeORM } from "@nxpod/nxpod-db/lib/typeorm/typeorm";
+import { TracingManager } from "@nxpod/nxpod-protocol/lib/util/tracing";
 import { ClusterServiceServer } from "./cluster-service-server";
 import { BridgeController } from "./bridge-controller";
 import { AppClusterWorkspaceInstancesController } from "./app-cluster-instance-controller";
-import { redisMetricsRegistry } from "@gitpod/gitpod-db/lib";
+import { redisMetricsRegistry } from "@nxpod/nxpod-db/lib";
 import { health, startHealthEndpoint } from "./healthz";
 
 log.enableJSONLogging("ws-manager-bridge", undefined, LogrusLogLevel.getFromEnv());

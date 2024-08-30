@@ -4,8 +4,8 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { User } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
-import { User as UserProtocol } from "@gitpod/gitpod-protocol/lib/protocol";
+import { User } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
+import { User as UserProtocol } from "@nxpod/nxpod-protocol/lib/protocol";
 import { Timestamp } from "@bufbuild/protobuf";
 
 /**

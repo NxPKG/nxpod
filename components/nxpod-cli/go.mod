@@ -1,4 +1,4 @@
-module github.com/nxpkg/nxpod/gitpod-cli
+module github.com/nxpkg/nxpod/nxpod-cli
 
 go 1.22
 
@@ -7,7 +7,7 @@ require (
 	github.com/creack/pty v1.1.17
 	github.com/nxpkg/nxpod/common-go v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/components/public-api/go v0.0.0-20230220133850-852f5cd5b180
-	github.com/nxpkg/nxpod/gitpod-protocol v0.0.0-00010101000000-000000000000
+	github.com/nxpkg/nxpod/nxpod-protocol v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/ide-metrics-api v0.0.0-00010101000000-000000000000
 	github.com/nxpkg/nxpod/supervisor/api v0.0.0-00010101000000-000000000000
 	github.com/go-errors/errors v1.4.2
@@ -76,7 +76,7 @@ replace github.com/nxpkg/nxpod/components/public-api/go => ../public-api/go // l
 
 replace github.com/nxpkg/nxpod/components/scrubber => ../scrubber // leeway
 
-replace github.com/nxpkg/nxpod/gitpod-protocol => ../gitpod-protocol/go // leeway
+replace github.com/nxpkg/nxpod/nxpod-protocol => ../nxpod-protocol/go // leeway
 
 replace github.com/nxpkg/nxpod/ide-metrics-api => ../ide-metrics-api/go // leeway
 

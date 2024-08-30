@@ -50,8 +50,8 @@ export async function updateCodeIDEConfigMapJson() {
     newJson.ideOptions.options.code = updateImages(newJson.ideOptions.options.code);
 
     // try append new pin versions
-    const previousCodeVersion = await getIDEVersionOfImage("eu.gcr.io/gitpod-core-dev/build/" + ideConfigmapJson.ideOptions.options.code.image.replace("{{.Repository}}/", ""));
-    const installationCodeVersion = await getIDEVersionOfImage("eu.gcr.io/gitpod-core-dev/build/" + newJson.ideOptions.options.code.image.replace("{{.Repository}}/", ""));
+    const previousCodeVersion = await getIDEVersionOfImage("eu.gcr.io/nxpod-core-dev/build/" + ideConfigmapJson.ideOptions.options.code.image.replace("{{.Repository}}/", ""));
+    const installationCodeVersion = await getIDEVersionOfImage("eu.gcr.io/nxpod-core-dev/build/" + newJson.ideOptions.options.code.image.replace("{{.Repository}}/", ""));
     if (installationCodeVersion.trim() === "" || previousCodeVersion.trim() === "") {
         throw new Error("installation or previous code version can't be empty");
     }

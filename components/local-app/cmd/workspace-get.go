@@ -29,13 +29,13 @@ var workspaceGetCmd = &cobra.Command{
 			ctx, cancel := context.WithTimeout(cmd.Context(), 30*time.Second)
 			defer cancel()
 
-			gitpod, err := getNxpodClient(ctx)
+			nxpod, err := getNxpodClient(ctx)
 			if err != nil {
 				return err
 			}
 
 			slog.Debug("Attempting to retrieve workspace info...", "workspaceID", workspaceID)
-			ws, err := gitpod.Workspaces.GetWorkspace(ctx, connect.NewRequest(&v1.GetWorkspaceRequest{WorkspaceId: workspaceID}))
+			ws, err := nxpod.Workspaces.GetWorkspace(ctx, connect.NewRequest(&v1.GetWorkspaceRequest{WorkspaceId: workspaceID}))
 			if err != nil {
 				return err
 			}

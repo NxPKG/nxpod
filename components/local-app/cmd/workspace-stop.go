@@ -29,13 +29,13 @@ var workspaceStopCommand = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Minute)
 		defer cancel()
 
-		gitpod, err := getNxpodClient(ctx)
+		nxpod, err := getNxpodClient(ctx)
 		if err != nil {
 			return err
 		}
 
 		slog.Debug("stopping workspace...")
-		wsInfo, err := gitpod.Workspaces.StopWorkspace(ctx, connect.NewRequest(&v1.StopWorkspaceRequest{WorkspaceId: workspaceID}))
+		wsInfo, err := nxpod.Workspaces.StopWorkspace(ctx, connect.NewRequest(&v1.StopWorkspaceRequest{WorkspaceId: workspaceID}))
 		if err != nil {
 			return err
 		}
@@ -55,7 +55,7 @@ var workspaceStopCommand = &cobra.Command{
 			return nil
 		}
 
-		stream, err := gitpod.Workspaces.StreamWorkspaceStatus(ctx, connect.NewRequest(&v1.StreamWorkspaceStatusRequest{WorkspaceId: workspaceID}))
+		stream, err := nxpod.Workspaces.StreamWorkspaceStatus(ctx, connect.NewRequest(&v1.StreamWorkspaceStatusRequest{WorkspaceId: workspaceID}))
 		if err != nil {
 			return err
 		}

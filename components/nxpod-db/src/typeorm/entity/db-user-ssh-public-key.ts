@@ -6,9 +6,9 @@
 
 import { PrimaryColumn, Column, Entity, Index } from "typeorm";
 import { TypeORM } from "../typeorm";
-import { UserSSHPublicKey } from "@gitpod/gitpod-protocol";
+import { UserSSHPublicKey } from "@nxpod/nxpod-protocol";
 import { Transformer } from "../transformer";
-import { getGlobalEncryptionService } from "@gitpod/gitpod-protocol/lib/encryption/encryption-service";
+import { getGlobalEncryptionService } from "@nxpod/nxpod-protocol/lib/encryption/encryption-service";
 
 @Entity("d_b_user_ssh_public_key")
 export class DBUserSshPublicKey implements UserSSHPublicKey {

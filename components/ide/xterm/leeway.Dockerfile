@@ -35,5 +35,5 @@ COPY --chown=33333:33333 --from=ide_installer /build/supervisor-ide-config.json 
 
 ARG XTERM_COMMIT
 ARG XTERM_VERSION
-LABEL "io.gitpod.ide.commit"=$XTERM_COMMIT
-LABEL "io.gitpod.ide.version"=$XTERM_VERSION
+LABEL "io.nxpod.ide.commit"=$XTERM_COMMIT
+LABEL "io.nxpod.ide.version"=$XTERM_VERSION

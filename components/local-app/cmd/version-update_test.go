@@ -29,7 +29,7 @@ func TestVersionUpdateCmd(t *testing.T) {
 						Version: semver.MustParse("v9999.0"),
 						Binaries: []selfupdate.Binary{
 							{
-								Filename: "gitpod",
+								Filename: "nxpod",
 								OS:       runtime.GOOS,
 								Arch:     runtime.GOARCH,
 								Digest:   digest.FromBytes(newBinary),
@@ -41,7 +41,7 @@ func TestVersionUpdateCmd(t *testing.T) {
 					}
 					_, _ = w.Write(mf)
 				})
-				mux.HandleFunc(selfupdate.NxpodCLIBasePath+"/gitpod", func(w http.ResponseWriter, r *http.Request) {
+				mux.HandleFunc(selfupdate.NxpodCLIBasePath+"/nxpod", func(w http.ResponseWriter, r *http.Request) {
 					_, _ = w.Write(newBinary)
 				})
 			},

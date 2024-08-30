@@ -13,14 +13,14 @@ describe("stableVersion", () => {
             productId: "intellij",
             productCode: "IIU",
             productType: "release",
-            exampleRepo: "https://github.com/gitpod-samples/spring-petclinic",
+            exampleRepo: "https://github.com/nxpod-samples/spring-petclinic",
         },
         {
             productName: "GoLand",
             productId: "goland",
             productCode: "GO",
             productType: "release",
-            exampleRepo: "https://github.com/gitpod-samples/template-golang-cli",
+            exampleRepo: "https://github.com/nxpod-samples/template-golang-cli",
         },
     ];
 

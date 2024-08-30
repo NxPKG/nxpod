@@ -189,7 +189,7 @@ export default function UsageBasedBillingConfig({ hideSubheading = false }: Prop
                 setErrorMessage(
                     `Could not subscribe: ${
                         error?.message || String(error)
-                    } Contact support@nxpod.io if you believe this is a system error.`,
+                    } Contact support@nxpod.khulnasoft.com if you believe this is a system error.`,
                 );
             }
         },

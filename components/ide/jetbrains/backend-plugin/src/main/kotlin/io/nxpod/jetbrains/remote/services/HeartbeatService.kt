@@ -2,15 +2,15 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.services
+package io.nxpod.jetbrains.remote.services
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
-import io.gitpod.gitpodprotocol.api.entities.SendHeartBeatOptions
-import io.gitpod.jetbrains.remote.NxpodManager
-import io.gitpod.jetbrains.remote.services.ControllerStatusService.ControllerStatus
+import io.nxpod.nxpodprotocol.api.entities.SendHeartBeatOptions
+import io.nxpod.jetbrains.remote.NxpodManager
+import io.nxpod.jetbrains.remote.services.ControllerStatusService.ControllerStatus
 import kotlinx.coroutines.*
 import kotlinx.coroutines.future.await
 import kotlin.random.Random.Default.nextInt
@@ -48,7 +48,7 @@ class HeartbeatService : Disposable {
                     }
                 }
             } catch (t: Throwable) {
-                thisLogger().error("gitpod: failed to check activity:", t)
+                thisLogger().error("nxpod: failed to check activity:", t)
             }
             delay(intervalInSeconds * 1000L)
         }

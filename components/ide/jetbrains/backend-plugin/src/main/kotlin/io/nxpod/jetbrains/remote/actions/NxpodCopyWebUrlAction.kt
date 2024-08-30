@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.actions
+package io.nxpod.jetbrains.remote.actions
 
 import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.ActionUpdateThread
@@ -13,7 +13,7 @@ import com.intellij.openapi.ide.CopyPasteManager
 import com.jetbrains.rd.platform.codeWithMe.portForwarding.PerClientPortForwardingManager
 import com.jetbrains.rd.platform.codeWithMe.portForwarding.PortConfiguration
 import com.jetbrains.rd.platform.codeWithMe.portForwarding.PortForwardingDataKeys
-import io.gitpod.jetbrains.remote.AbstractNxpodPortForwardingService
+import io.nxpod.jetbrains.remote.AbstractNxpodPortForwardingService
 import java.awt.datatransfer.StringSelection
 
 @Suppress("ComponentNotRegistered", "UnstableApiUsage")

@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote
+package io.nxpod.jetbrains.remote
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.diagnostic.thisLogger
@@ -13,10 +13,10 @@ import com.intellij.util.application
 import com.jediterm.terminal.ui.TerminalWidget
 import com.jediterm.terminal.ui.TerminalWidgetListener
 import com.jetbrains.rd.util.lifetime.Lifetime
-import io.gitpod.supervisor.api.Status
-import io.gitpod.supervisor.api.StatusServiceGrpc
-import io.gitpod.supervisor.api.TerminalOuterClass
-import io.gitpod.supervisor.api.TerminalServiceGrpc
+import io.nxpod.supervisor.api.Status
+import io.nxpod.supervisor.api.StatusServiceGrpc
+import io.nxpod.supervisor.api.TerminalOuterClass
+import io.nxpod.supervisor.api.TerminalServiceGrpc
 import io.grpc.StatusRuntimeException
 import io.grpc.stub.ClientCallStreamObserver
 import io.grpc.stub.ClientResponseObserver
@@ -48,19 +48,19 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
             try {
                 val terminals = withTimeout(20000L) { getSupervisorTerminalsList() }
                 val tasks = withTimeout(20000L) { getSupervisorTasksList() }
-                thisLogger().info("gitpod: attaching tasks ${tasks.size}, terminals ${terminals.size}")
+                thisLogger().info("nxpod: attaching tasks ${tasks.size}, terminals ${terminals.size}")
                 if (tasks.isEmpty() && terminals.isEmpty()) {
                     return@runJob
                 }
-                // see internal chat https://gitpod.slack.com/archives/C02BRJLGPGF/p1716540080028119
+                // see internal chat https://nxpod.slack.com/archives/C02BRJLGPGF/p1716540080028119
                 delay(5000L)
                 application.invokeLater {
                     createTerminalsAttachedToTasks(terminals, tasks)
                 }
             } catch (e: TimeoutCancellationException) {
-                thisLogger().error("gitpod: timeout while fetching tasks or terminals", e)
+                thisLogger().error("nxpod: timeout while fetching tasks or terminals", e)
             } catch (e: Exception) {
-                thisLogger().error("gitpod: error while attaching tasks", e)
+                thisLogger().error("nxpod: error while attaching tasks", e)
             }
         }
     }
@@ -85,13 +85,13 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
             val terminal = aliasToTerminalMap[terminalAlias]
 
             if (terminal == null) {
-                thisLogger().warn("gitpod: found no terminal for task ${task.id}, expecting ${task.terminal}")
+                thisLogger().warn("nxpod: found no terminal for task ${task.id}, expecting ${task.terminal}")
                 return@forEachIndexed
             }
             val title = terminal.title.takeIf { !it.isNullOrBlank() } ?: "Nxpod Task ${index + 1}"
-            thisLogger().info("gitpod: attaching task ${terminal.title} (${task.terminal}) with title $title")
+            thisLogger().info("nxpod: attaching task ${terminal.title} (${task.terminal}) with title $title")
             createAttachedSharedTerminal(title, terminal)
-            thisLogger().info("gitpod: attached task ${terminal.title} (${task.terminal})")
+            thisLogger().info("nxpod: attached task ${terminal.title} (${task.terminal})")
         }
     }
 
@@ -131,7 +131,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
             }
 
             thisLogger().error(
-                "gitpod: Got an error while trying to get tasks list from Supervisor. Trying again in one second.",
+                "nxpod: Got an error while trying to get tasks list from Supervisor. Trying again in one second.",
                 throwable
             )
         }
@@ -159,7 +159,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
             }
 
             thisLogger().error(
-                "gitpod: Got an error while trying to get terminals list from Supervisor. Trying again in one second.",
+                "nxpod: Got an error while trying to get terminals list from Supervisor. Trying again in one second.",
                 throwable
             )
         }
@@ -199,7 +199,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
                         shellTerminalWidget.addListener(object : TerminalWidgetListener {
                             override fun allSessionsClosed(widget: TerminalWidget) {
                                 hasOpenSessions = false
-                                request.cancel("gitpod: Terminal closed on the client.", null)
+                                request.cancel("nxpod: Terminal closed on the client.", null)
                             }
                         })
                     }
@@ -240,7 +240,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
                 }
 
                 thisLogger().error(
-                    "gitpod: got an error while listening to '${supervisorTerminal.title}' terminal. Trying again in one second.",
+                    "nxpod: got an error while listening to '${supervisorTerminal.title}' terminal. Trying again in one second.",
                     throwable
                 )
             }
@@ -258,7 +258,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
                 runJob(lifetime) {
                     delay(5000)
                     try {
-                        thisLogger().info("gitpod: shutdown task ${supervisorTerminal.title} (${supervisorTerminal.alias})")
+                        thisLogger().info("nxpod: shutdown task ${supervisorTerminal.title} (${supervisorTerminal.alias})")
                         terminalServiceFutureStub.shutdown(
                             TerminalOuterClass.ShutdownTerminalRequest.newBuilder()
                                 .setAlias(supervisorTerminal.alias)
@@ -266,7 +266,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
                         ).await()
                     } catch (throwable: Throwable) {
                         thisLogger().error(
-                            "gitpod: got an error while shutting down '${supervisorTerminal.title}' terminal.",
+                            "nxpod: got an error while shutting down '${supervisorTerminal.title}' terminal.",
                             throwable
                         )
                     }
@@ -281,7 +281,7 @@ abstract class AbstractNxpodTerminalService(project: Project) : Disposable {
     ) {
         @Suppress("UnstableApiUsage")
         lifetime.onTerminationOrNow {
-            thisLogger().debug("gitpod: closing task terminal service ${supervisorTerminal.title} (${supervisorTerminal.alias})")
+            thisLogger().debug("nxpod: closing task terminal service ${supervisorTerminal.title} (${supervisorTerminal.alias})")
             shellTerminalWidget.close()
         }
     }

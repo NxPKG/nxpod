@@ -28,4 +28,4 @@ COPY --from=base_builder --chown=33333:33333 /ide-desktop/ /ide-desktop/
 COPY --chown=33333:33333 components-ide-jetbrains-image--download-${JETBRAINS_DOWNLOAD_QUALIFIER}/backend /ide-desktop/${JETBRAINS_DOWNLOAD_QUALIFIER}/backend
 COPY --chown=33333:33333 components-ide-jetbrains-cli--app/cli /ide-desktop/${JETBRAINS_DOWNLOAD_QUALIFIER}/bin/idea-cli
 
-LABEL "io.gitpod.ide.version"=$JETBRAINS_BACKEND_VERSION
+LABEL "io.nxpod.ide.version"=$JETBRAINS_BACKEND_VERSION

@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/sourcegraph/jsonrpc2"
 	"github.com/spf13/cobra"
 )
@@ -30,11 +30,11 @@ var snapshotCmd = &cobra.Command{
 		ctx, cancel := context.WithCancel(cmd.Context())
 		defer cancel()
 
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return err
 		}
-		client, err := gitpod.ConnectToServer(ctx, wsInfo, []string{
+		client, err := nxpod.ConnectToServer(ctx, wsInfo, []string{
 			"function:takeSnapshot",
 			"function:waitForSnapshot",
 			"resource:workspace::" + wsInfo.WorkspaceId + "::get/update",

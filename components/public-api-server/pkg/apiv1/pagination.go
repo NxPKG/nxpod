@@ -5,7 +5,7 @@
 package apiv1
 
 import (
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 )
 

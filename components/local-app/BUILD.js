@@ -10,7 +10,7 @@ const generatePackage = function (goos, goarch, binaryName, mainFile) {
         srcs: ["go.mod", "go.sum", "**/*.go", "version.txt"],
         deps: [
             "components/supervisor-api/go:lib",
-            "components/gitpod-protocol/go:lib",
+            "components/nxpod-protocol/go:lib",
             "components/local-app-api/go:lib",
             "components/public-api/go:lib",
         ],
@@ -31,7 +31,7 @@ const generatePackage = function (goos, goarch, binaryName, mainFile) {
 };
 
 const packages = [];
-for (binaryName of ["gitpod-local-companion", "gitpod-cli"]) {
+for (binaryName of ["nxpod-local-companion", "nxpod-cli"]) {
     for (goos of ["linux", "darwin", "windows"]) {
         for (goarch of ["amd64", "arm64"]) {
             packages.push(generatePackage(goos, goarch, binaryName, "main/" + binaryName + "/main.go"));

@@ -1,7 +1,7 @@
 {
     "result": {
         "url": "https://github.com/nxpkg/nxpod",
-        "repoName": "gitpod",
+        "repoName": "nxpod",
         "configurationId": "123",
         "configurationName": "Nxpod"
     },

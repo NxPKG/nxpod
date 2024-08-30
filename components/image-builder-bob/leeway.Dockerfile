@@ -2,14 +2,14 @@
 # Licensed under the GNU Affero General Public License (AGPL).
 # See License.AGPL.txt in the project root for license information.
 
-FROM eu.gcr.io/gitpod-core-dev/build/buildkit:v0.12.5-gitpod.0
+FROM eu.gcr.io/nxpod-core-dev/build/buildkit:v0.12.5-nxpod.0
 
 USER root
 RUN apk --no-cache add sudo bash \
-    && addgroup -g 33333 gitpod \
-    && adduser -D -h /home/gitpod -s /bin/sh -u 33333 -G gitpod gitpod \
-    && echo "gitpod ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/gitpod \
-    && chmod 0440 /etc/sudoers.d/gitpod
+    && addgroup -g 33333 nxpod \
+    && adduser -D -h /home/nxpod -s /bin/sh -u 33333 -G nxpod nxpod \
+    && echo "nxpod ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nxpod \
+    && chmod 0440 /etc/sudoers.d/nxpod
 
 COPY components-image-builder-bob--runc-facade/bob /app/runc-facade
 RUN chmod 4755 /app/runc-facade \

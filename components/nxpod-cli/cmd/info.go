@@ -11,7 +11,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 	"github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
@@ -30,7 +30,7 @@ var infoCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 5*time.Second)
 		defer cancel()
 
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return err
 		}

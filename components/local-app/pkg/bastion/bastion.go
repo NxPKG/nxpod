@@ -32,7 +32,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/proto"
 
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	app "github.com/nxpkg/nxpod/local-app/api"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
@@ -150,7 +150,7 @@ func (s *SSHConfigWritingCallback) InstanceUpdate(w *Workspace) {
 			Patterns: []*ssh_config.Pattern{p},
 			Nodes: []ssh_config.Node{
 				&ssh_config.KV{Key: "HostName", Value: host},
-				&ssh_config.KV{Key: "User", Value: "gitpod"},
+				&ssh_config.KV{Key: "User", Value: "nxpod"},
 				&ssh_config.KV{Key: "Port", Value: port},
 				&ssh_config.KV{Key: "IdentityFile", Value: ws.SSHPrivateFN},
 				&ssh_config.KV{Key: "IdentitiesOnly", Value: "yes"},
@@ -165,7 +165,7 @@ func (s *SSHConfigWritingCallback) InstanceUpdate(w *Workspace) {
 	}
 }
 
-func New(client gitpod.APIInterface, localAppTimeout time.Duration, cb Callbacks) *Bastion {
+func New(client nxpod.APIInterface, localAppTimeout time.Duration, cb Callbacks) *Bastion {
 	ctx, cancel := context.WithCancel(context.Background())
 	return &Bastion{
 		Client:                 client,
@@ -181,7 +181,7 @@ func New(client gitpod.APIInterface, localAppTimeout time.Duration, cb Callbacks
 }
 
 type WorkspaceUpdateRequest struct {
-	instance *gitpod.WorkspaceInstance
+	instance *nxpod.WorkspaceInstance
 	done     chan *Workspace
 }
 
@@ -189,7 +189,7 @@ type Bastion struct {
 	id      string
 	updates chan *WorkspaceUpdateRequest
 
-	Client    gitpod.APIInterface
+	Client    nxpod.APIInterface
 	Callbacks Callbacks
 
 	workspacesMu sync.RWMutex
@@ -249,7 +249,7 @@ func (b *Bastion) Run() error {
 }
 
 func (b *Bastion) FullUpdate() {
-	wss, err := b.Client.GetWorkspaces(b.ctx, &gitpod.GetWorkspacesOptions{Limit: float64(100)})
+	wss, err := b.Client.GetWorkspaces(b.ctx, &nxpod.GetWorkspacesOptions{Limit: float64(100)})
 	if err != nil {
 		logrus.WithError(err).Warn("cannot get workspaces")
 	} else {
@@ -406,10 +406,10 @@ func (b *Bastion) handleUpdate(ur *WorkspaceUpdateRequest) {
 }
 
 func generateSSHKeys(instanceID string) (privateKeyFN string, publicKey string, err error) {
-	privateKeyFN = filepath.Join(os.TempDir(), fmt.Sprintf("gitpod_%s_id_rsa", instanceID))
+	privateKeyFN = filepath.Join(os.TempDir(), fmt.Sprintf("nxpod_%s_id_rsa", instanceID))
 	useRrandomFile := func() {
 		var tmpf *os.File
-		tmpf, err = ioutil.TempFile("", "gitpod_*_id_rsa")
+		tmpf, err = ioutil.TempFile("", "nxpod_*_id_rsa")
 		if err != nil {
 			return
 		}
@@ -479,8 +479,8 @@ func (b *Bastion) connectTunnelClient(ctx context.Context, ws *Workspace) error 
 	tunnelURL = strings.ReplaceAll(tunnelURL, "http://", "ws://")
 	tunnelURL += "/_supervisor/tunnel"
 	h := make(http.Header)
-	h.Set("x-gitpod-owner-token", ws.OwnerToken)
-	webSocket := gitpod.NewReconnectingWebsocket(tunnelURL, h, logrus.WithField("workspace", ws.WorkspaceID))
+	h.Set("x-nxpod-owner-token", ws.OwnerToken)
+	webSocket := nxpod.NewReconnectingWebsocket(tunnelURL, h, logrus.WithField("workspace", ws.WorkspaceID))
 	go webSocket.Dial(ctx)
 	go func() {
 		var (
@@ -515,9 +515,9 @@ func (b *Bastion) connectTunnelClient(ctx context.Context, ws *Workspace) error 
 	return nil
 }
 
-func newTunnelClient(ctx context.Context, ws *Workspace, reconnecting *gitpod.ReconnectingWebsocket) (client *TunnelClient, closed chan struct{}, err error) {
+func newTunnelClient(ctx context.Context, ws *Workspace, reconnecting *nxpod.ReconnectingWebsocket) (client *TunnelClient, closed chan struct{}, err error) {
 	logrus.WithField("workspace", ws.WorkspaceID).Info("tunnel: trying to connect ssh client...")
-	err = reconnecting.EnsureConnection(func(conn *gitpod.WebsocketConnection) (bool, error) {
+	err = reconnecting.EnsureConnection(func(conn *nxpod.WebsocketConnection) (bool, error) {
 		id, err := uuid.NewRandom()
 		if err != nil {
 			return false, err

@@ -23,7 +23,7 @@ import (
 )
 
 const (
-	moduleName = "gitpod.analytics"
+	moduleName = "nxpod.analytics"
 	// static key for untrusted segment requests
 	dummyUntrustedSegmentKey = "untrusted-dummy-key"
 )
@@ -42,7 +42,7 @@ type Analytics struct {
 // CaddyModule returns the Caddy module information.
 func (Analytics) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "http.handlers.gitpod_analytics",
+		ID:  "http.handlers.nxpod_analytics",
 		New: func() caddy.Module { return new(Analytics) },
 	}
 }

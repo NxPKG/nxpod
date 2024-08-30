@@ -310,7 +310,7 @@ func configureSSHMessageOfTheDay() {
 	gp stop               Stop current workspace
 	gp help               To learn about the gp CLI commands
 
-For more information, see the Nxpod documentation: https://nxpod.io/docs
+For more information, see the Nxpod documentation: https://nxpod.khulnasoft.com/docs
 `)
 
 	if err := ioutil.WriteFile("/etc/motd", msg, 0o644); err != nil {

@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/supervisor"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/supervisor"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/spf13/cobra"
 	"golang.org/x/xerrors"
@@ -60,11 +60,11 @@ var portsProtocolCmd = &cobra.Command{
 				break
 			}
 		}
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return xerrors.Errorf("cannot get workspace info, %w", err)
 		}
-		client, err := gitpod.ConnectToServer(ctx, wsInfo, []string{
+		client, err := nxpod.ConnectToServer(ctx, wsInfo, []string{
 			"function:openPort",
 			"resource:workspace::" + wsInfo.WorkspaceId + "::get/update",
 		})

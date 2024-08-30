@@ -24,7 +24,7 @@ packages:
       - CGO_ENABLED=0
       - GOOS=linux
     deps:
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/supervisor-api/go:lib
       - components/common-go:lib
     config:

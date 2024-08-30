@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/stats.proto
+// source: nxpod/experimental/v1/stats.proto
 
 package v1
 
@@ -40,7 +40,7 @@ func NewStatsServiceClient(cc grpc.ClientConnInterface) StatsServiceClient {
 
 func (c *statsServiceClient) GetUserStats(ctx context.Context, in *GetUserStatsRequest, opts ...grpc.CallOption) (*GetUserStatsResponse, error) {
 	out := new(GetUserStatsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.StatsService/GetUserStats", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.StatsService/GetUserStats", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func _StatsService_GetUserStats_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.StatsService/GetUserStats",
+		FullMethod: "/nxpod.experimental.v1.StatsService/GetUserStats",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(StatsServiceServer).GetUserStats(ctx, req.(*GetUserStatsRequest))
@@ -98,7 +98,7 @@ func _StatsService_GetUserStats_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var StatsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.StatsService",
+	ServiceName: "nxpod.experimental.v1.StatsService",
 	HandlerType: (*StatsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -107,5 +107,5 @@ var StatsService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/stats.proto",
+	Metadata: "nxpod/experimental/v1/stats.proto",
 }

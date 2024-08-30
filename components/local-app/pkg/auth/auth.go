@@ -20,7 +20,7 @@ import (
 	"time"
 
 	jwt "github.com/dgrijalva/jwt-go"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/local-app/pkg/prettyprint"
 	"github.com/skratchdot/open-golang/open"
 	keyring "github.com/zalando/go-keyring"
@@ -39,7 +39,7 @@ var authScopesLocalCompanion = []string{
 }
 
 func fetchValidCLIScopes(ctx context.Context, serviceURL string) ([]string, error) {
-	const clientId = "gitpod-cli"
+	const clientId = "nxpod-cli"
 
 	endpoint := serviceURL + "/api/oauth/inspect?client=" + clientId
 
@@ -73,15 +73,15 @@ type ErrInvalidNxpodToken struct {
 }
 
 func (e *ErrInvalidNxpodToken) Error() string {
-	return "invalid gitpod token: " + e.cause.Error()
+	return "invalid nxpod token: " + e.cause.Error()
 }
 
-// ValidateToken validates the given tkn against the given gitpod service
-func ValidateToken(client gitpod.APIInterface, tkn string) error {
+// ValidateToken validates the given tkn against the given nxpod service
+func ValidateToken(client nxpod.APIInterface, tkn string) error {
 	hash := sha256.Sum256([]byte(tkn))
 	tokenHash := hex.EncodeToString(hash[:])
 	tknScopes, err := client.GetNxpodTokenScopes(context.Background(), tokenHash)
-	if e, ok := err.(*gitpod.ErrBadHandshake); ok && e.Resp.StatusCode == 401 {
+	if e, ok := err.(*nxpod.ErrBadHandshake); ok && e.Resp.StatusCode == 401 {
 		return &ErrInvalidNxpodToken{err}
 	}
 	if err != nil && strings.Contains(err.Error(), "jsonrpc2: code 403") {
@@ -200,7 +200,7 @@ func Login(ctx context.Context, opts LoginOpts) (token string, err error) {
 
 	baseURL := opts.NxpodURL
 	if baseURL == "" {
-		baseURL = "https://gitpod.io"
+		baseURL = "https://nxpod.khulnasoft.com"
 	}
 	reqURL, err := url.Parse(baseURL)
 	if err != nil {
@@ -226,8 +226,8 @@ func Login(ctx context.Context, opts LoginOpts) (token string, err error) {
 		}
 		slog.Debug("Using CLI scopes", "scopes", authScopesLocalCompanion)
 		conf = &oauth2.Config{
-			ClientID:     "gitpod-cli",
-			ClientSecret: "gitpod-cli-secret",
+			ClientID:     "nxpod-cli",
+			ClientSecret: "nxpod-cli-secret",
 			Scopes:       authScopesLocalCompanion,
 			Endpoint: oauth2.Endpoint{
 				AuthURL:  authURL.String(),
@@ -290,8 +290,8 @@ func Login(ctx context.Context, opts LoginOpts) (token string, err error) {
 		return "", err
 	}
 
-	gitpodToken := claims["jti"].(string)
-	return gitpodToken, nil
+	nxpodToken := claims["jti"].(string)
+	return nxpodToken, nil
 }
 
 func findOpenPortInRange(start, end int) (net.Listener, int, error) {

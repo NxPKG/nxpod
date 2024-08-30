@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.icons
+package io.nxpod.jetbrains.icons
 
 import com.intellij.openapi.util.IconLoader
 

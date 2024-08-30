@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/projects.proto
+// source: nxpod/experimental/v1/projects.proto
 
 package v1
 
@@ -52,7 +52,7 @@ type Project struct {
 func (x *Project) Reset() {
 	*x = Project{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -65,7 +65,7 @@ func (x *Project) String() string {
 func (*Project) ProtoMessage() {}
 
 func (x *Project) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -78,7 +78,7 @@ func (x *Project) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Project.ProtoReflect.Descriptor instead.
 func (*Project) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Project) GetId() string {
@@ -135,7 +135,7 @@ type ProjectSettings struct {
 func (x *ProjectSettings) Reset() {
 	*x = ProjectSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -148,7 +148,7 @@ func (x *ProjectSettings) String() string {
 func (*ProjectSettings) ProtoMessage() {}
 
 func (x *ProjectSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -161,7 +161,7 @@ func (x *ProjectSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProjectSettings.ProtoReflect.Descriptor instead.
 func (*ProjectSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ProjectSettings) GetPrebuild() *PrebuildSettings {
@@ -193,7 +193,7 @@ type PrebuildSettings struct {
 func (x *PrebuildSettings) Reset() {
 	*x = PrebuildSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -206,7 +206,7 @@ func (x *PrebuildSettings) String() string {
 func (*PrebuildSettings) ProtoMessage() {}
 
 func (x *PrebuildSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -219,7 +219,7 @@ func (x *PrebuildSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrebuildSettings.ProtoReflect.Descriptor instead.
 func (*PrebuildSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *PrebuildSettings) GetEnablePrebuilds() bool {
@@ -271,7 +271,7 @@ type WorkspaceSettings struct {
 func (x *WorkspaceSettings) Reset() {
 	*x = WorkspaceSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -284,7 +284,7 @@ func (x *WorkspaceSettings) String() string {
 func (*WorkspaceSettings) ProtoMessage() {}
 
 func (x *WorkspaceSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -297,7 +297,7 @@ func (x *WorkspaceSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceSettings.ProtoReflect.Descriptor instead.
 func (*WorkspaceSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *WorkspaceSettings) GetEnablePersistentVolumeClaim() bool {
@@ -340,7 +340,7 @@ type WorkspaceClassSettings struct {
 func (x *WorkspaceClassSettings) Reset() {
 	*x = WorkspaceClassSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -353,7 +353,7 @@ func (x *WorkspaceClassSettings) String() string {
 func (*WorkspaceClassSettings) ProtoMessage() {}
 
 func (x *WorkspaceClassSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -366,7 +366,7 @@ func (x *WorkspaceClassSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceClassSettings.ProtoReflect.Descriptor instead.
 func (*WorkspaceClassSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *WorkspaceClassSettings) GetRegular() string {
@@ -394,7 +394,7 @@ type CreateProjectRequest struct {
 func (x *CreateProjectRequest) Reset() {
 	*x = CreateProjectRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -407,7 +407,7 @@ func (x *CreateProjectRequest) String() string {
 func (*CreateProjectRequest) ProtoMessage() {}
 
 func (x *CreateProjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -420,7 +420,7 @@ func (x *CreateProjectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateProjectRequest.ProtoReflect.Descriptor instead.
 func (*CreateProjectRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CreateProjectRequest) GetProject() *Project {
@@ -441,7 +441,7 @@ type CreateProjectResponse struct {
 func (x *CreateProjectResponse) Reset() {
 	*x = CreateProjectResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[6]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -454,7 +454,7 @@ func (x *CreateProjectResponse) String() string {
 func (*CreateProjectResponse) ProtoMessage() {}
 
 func (x *CreateProjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[6]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -467,7 +467,7 @@ func (x *CreateProjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateProjectResponse.ProtoReflect.Descriptor instead.
 func (*CreateProjectResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateProjectResponse) GetProject() *Project {
@@ -488,7 +488,7 @@ type GetProjectRequest struct {
 func (x *GetProjectRequest) Reset() {
 	*x = GetProjectRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[7]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -501,7 +501,7 @@ func (x *GetProjectRequest) String() string {
 func (*GetProjectRequest) ProtoMessage() {}
 
 func (x *GetProjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[7]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -514,7 +514,7 @@ func (x *GetProjectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProjectRequest.ProtoReflect.Descriptor instead.
 func (*GetProjectRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetProjectRequest) GetProjectId() string {
@@ -535,7 +535,7 @@ type GetProjectResponse struct {
 func (x *GetProjectResponse) Reset() {
 	*x = GetProjectResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[8]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -548,7 +548,7 @@ func (x *GetProjectResponse) String() string {
 func (*GetProjectResponse) ProtoMessage() {}
 
 func (x *GetProjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[8]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -561,7 +561,7 @@ func (x *GetProjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProjectResponse.ProtoReflect.Descriptor instead.
 func (*GetProjectResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetProjectResponse) GetProject() *Project {
@@ -585,7 +585,7 @@ type ListProjectsRequest struct {
 func (x *ListProjectsRequest) Reset() {
 	*x = ListProjectsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[9]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -598,7 +598,7 @@ func (x *ListProjectsRequest) String() string {
 func (*ListProjectsRequest) ProtoMessage() {}
 
 func (x *ListProjectsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[9]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -611,7 +611,7 @@ func (x *ListProjectsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListProjectsRequest.ProtoReflect.Descriptor instead.
 func (*ListProjectsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ListProjectsRequest) GetTeamId() string {
@@ -640,7 +640,7 @@ type ListProjectsResponse struct {
 func (x *ListProjectsResponse) Reset() {
 	*x = ListProjectsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[10]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -653,7 +653,7 @@ func (x *ListProjectsResponse) String() string {
 func (*ListProjectsResponse) ProtoMessage() {}
 
 func (x *ListProjectsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[10]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -666,7 +666,7 @@ func (x *ListProjectsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListProjectsResponse.ProtoReflect.Descriptor instead.
 func (*ListProjectsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListProjectsResponse) GetProjects() []*Project {
@@ -694,7 +694,7 @@ type DeleteProjectRequest struct {
 func (x *DeleteProjectRequest) Reset() {
 	*x = DeleteProjectRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[11]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -707,7 +707,7 @@ func (x *DeleteProjectRequest) String() string {
 func (*DeleteProjectRequest) ProtoMessage() {}
 
 func (x *DeleteProjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[11]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -720,7 +720,7 @@ func (x *DeleteProjectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteProjectRequest.ProtoReflect.Descriptor instead.
 func (*DeleteProjectRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeleteProjectRequest) GetProjectId() string {
@@ -739,7 +739,7 @@ type DeleteProjectResponse struct {
 func (x *DeleteProjectResponse) Reset() {
 	*x = DeleteProjectResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[12]
+		mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -752,7 +752,7 @@ func (x *DeleteProjectResponse) String() string {
 func (*DeleteProjectResponse) ProtoMessage() {}
 
 func (x *DeleteProjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_projects_proto_msgTypes[12]
+	mi := &file_nxpod_experimental_v1_projects_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -765,12 +765,12 @@ func (x *DeleteProjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteProjectResponse.ProtoReflect.Descriptor instead.
 func (*DeleteProjectResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_projects_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_experimental_v1_projects_proto_rawDescGZIP(), []int{12}
 }
 
-var File_gitpod_experimental_v1_projects_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_projects_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_projects_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_projects_proto_rawDesc = []byte{
 	0x0a, 0x25, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74,
 	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e,
@@ -933,54 +933,54 @@ var file_gitpod_experimental_v1_projects_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_projects_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_projects_proto_rawDescData = file_gitpod_experimental_v1_projects_proto_rawDesc
+	file_nxpod_experimental_v1_projects_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_projects_proto_rawDescData = file_nxpod_experimental_v1_projects_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_projects_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_projects_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_projects_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_projects_proto_rawDescData)
+func file_nxpod_experimental_v1_projects_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_projects_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_projects_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_projects_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_projects_proto_rawDescData
+	return file_nxpod_experimental_v1_projects_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_projects_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
-var file_gitpod_experimental_v1_projects_proto_goTypes = []interface{}{
-	(*Project)(nil),                // 0: gitpod.experimental.v1.Project
-	(*ProjectSettings)(nil),        // 1: gitpod.experimental.v1.ProjectSettings
-	(*PrebuildSettings)(nil),       // 2: gitpod.experimental.v1.PrebuildSettings
-	(*WorkspaceSettings)(nil),      // 3: gitpod.experimental.v1.WorkspaceSettings
-	(*WorkspaceClassSettings)(nil), // 4: gitpod.experimental.v1.WorkspaceClassSettings
-	(*CreateProjectRequest)(nil),   // 5: gitpod.experimental.v1.CreateProjectRequest
-	(*CreateProjectResponse)(nil),  // 6: gitpod.experimental.v1.CreateProjectResponse
-	(*GetProjectRequest)(nil),      // 7: gitpod.experimental.v1.GetProjectRequest
-	(*GetProjectResponse)(nil),     // 8: gitpod.experimental.v1.GetProjectResponse
-	(*ListProjectsRequest)(nil),    // 9: gitpod.experimental.v1.ListProjectsRequest
-	(*ListProjectsResponse)(nil),   // 10: gitpod.experimental.v1.ListProjectsResponse
-	(*DeleteProjectRequest)(nil),   // 11: gitpod.experimental.v1.DeleteProjectRequest
-	(*DeleteProjectResponse)(nil),  // 12: gitpod.experimental.v1.DeleteProjectResponse
+var file_nxpod_experimental_v1_projects_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_nxpod_experimental_v1_projects_proto_goTypes = []interface{}{
+	(*Project)(nil),                // 0: nxpod.experimental.v1.Project
+	(*ProjectSettings)(nil),        // 1: nxpod.experimental.v1.ProjectSettings
+	(*PrebuildSettings)(nil),       // 2: nxpod.experimental.v1.PrebuildSettings
+	(*WorkspaceSettings)(nil),      // 3: nxpod.experimental.v1.WorkspaceSettings
+	(*WorkspaceClassSettings)(nil), // 4: nxpod.experimental.v1.WorkspaceClassSettings
+	(*CreateProjectRequest)(nil),   // 5: nxpod.experimental.v1.CreateProjectRequest
+	(*CreateProjectResponse)(nil),  // 6: nxpod.experimental.v1.CreateProjectResponse
+	(*GetProjectRequest)(nil),      // 7: nxpod.experimental.v1.GetProjectRequest
+	(*GetProjectResponse)(nil),     // 8: nxpod.experimental.v1.GetProjectResponse
+	(*ListProjectsRequest)(nil),    // 9: nxpod.experimental.v1.ListProjectsRequest
+	(*ListProjectsResponse)(nil),   // 10: nxpod.experimental.v1.ListProjectsResponse
+	(*DeleteProjectRequest)(nil),   // 11: nxpod.experimental.v1.DeleteProjectRequest
+	(*DeleteProjectResponse)(nil),  // 12: nxpod.experimental.v1.DeleteProjectResponse
 	(*timestamppb.Timestamp)(nil),  // 13: google.protobuf.Timestamp
-	(*Pagination)(nil),             // 14: gitpod.experimental.v1.Pagination
+	(*Pagination)(nil),             // 14: nxpod.experimental.v1.Pagination
 }
-var file_gitpod_experimental_v1_projects_proto_depIdxs = []int32{
-	13, // 0: gitpod.experimental.v1.Project.creation_time:type_name -> google.protobuf.Timestamp
-	1,  // 1: gitpod.experimental.v1.Project.settings:type_name -> gitpod.experimental.v1.ProjectSettings
-	2,  // 2: gitpod.experimental.v1.ProjectSettings.prebuild:type_name -> gitpod.experimental.v1.PrebuildSettings
-	3,  // 3: gitpod.experimental.v1.ProjectSettings.workspace:type_name -> gitpod.experimental.v1.WorkspaceSettings
-	4,  // 4: gitpod.experimental.v1.WorkspaceSettings.workspace_class:type_name -> gitpod.experimental.v1.WorkspaceClassSettings
-	0,  // 5: gitpod.experimental.v1.CreateProjectRequest.project:type_name -> gitpod.experimental.v1.Project
-	0,  // 6: gitpod.experimental.v1.CreateProjectResponse.project:type_name -> gitpod.experimental.v1.Project
-	0,  // 7: gitpod.experimental.v1.GetProjectResponse.project:type_name -> gitpod.experimental.v1.Project
-	14, // 8: gitpod.experimental.v1.ListProjectsRequest.pagination:type_name -> gitpod.experimental.v1.Pagination
-	0,  // 9: gitpod.experimental.v1.ListProjectsResponse.projects:type_name -> gitpod.experimental.v1.Project
-	5,  // 10: gitpod.experimental.v1.ProjectsService.CreateProject:input_type -> gitpod.experimental.v1.CreateProjectRequest
-	7,  // 11: gitpod.experimental.v1.ProjectsService.GetProject:input_type -> gitpod.experimental.v1.GetProjectRequest
-	9,  // 12: gitpod.experimental.v1.ProjectsService.ListProjects:input_type -> gitpod.experimental.v1.ListProjectsRequest
-	11, // 13: gitpod.experimental.v1.ProjectsService.DeleteProject:input_type -> gitpod.experimental.v1.DeleteProjectRequest
-	6,  // 14: gitpod.experimental.v1.ProjectsService.CreateProject:output_type -> gitpod.experimental.v1.CreateProjectResponse
-	8,  // 15: gitpod.experimental.v1.ProjectsService.GetProject:output_type -> gitpod.experimental.v1.GetProjectResponse
-	10, // 16: gitpod.experimental.v1.ProjectsService.ListProjects:output_type -> gitpod.experimental.v1.ListProjectsResponse
-	12, // 17: gitpod.experimental.v1.ProjectsService.DeleteProject:output_type -> gitpod.experimental.v1.DeleteProjectResponse
+var file_nxpod_experimental_v1_projects_proto_depIdxs = []int32{
+	13, // 0: nxpod.experimental.v1.Project.creation_time:type_name -> google.protobuf.Timestamp
+	1,  // 1: nxpod.experimental.v1.Project.settings:type_name -> nxpod.experimental.v1.ProjectSettings
+	2,  // 2: nxpod.experimental.v1.ProjectSettings.prebuild:type_name -> nxpod.experimental.v1.PrebuildSettings
+	3,  // 3: nxpod.experimental.v1.ProjectSettings.workspace:type_name -> nxpod.experimental.v1.WorkspaceSettings
+	4,  // 4: nxpod.experimental.v1.WorkspaceSettings.workspace_class:type_name -> nxpod.experimental.v1.WorkspaceClassSettings
+	0,  // 5: nxpod.experimental.v1.CreateProjectRequest.project:type_name -> nxpod.experimental.v1.Project
+	0,  // 6: nxpod.experimental.v1.CreateProjectResponse.project:type_name -> nxpod.experimental.v1.Project
+	0,  // 7: nxpod.experimental.v1.GetProjectResponse.project:type_name -> nxpod.experimental.v1.Project
+	14, // 8: nxpod.experimental.v1.ListProjectsRequest.pagination:type_name -> nxpod.experimental.v1.Pagination
+	0,  // 9: nxpod.experimental.v1.ListProjectsResponse.projects:type_name -> nxpod.experimental.v1.Project
+	5,  // 10: nxpod.experimental.v1.ProjectsService.CreateProject:input_type -> nxpod.experimental.v1.CreateProjectRequest
+	7,  // 11: nxpod.experimental.v1.ProjectsService.GetProject:input_type -> nxpod.experimental.v1.GetProjectRequest
+	9,  // 12: nxpod.experimental.v1.ProjectsService.ListProjects:input_type -> nxpod.experimental.v1.ListProjectsRequest
+	11, // 13: nxpod.experimental.v1.ProjectsService.DeleteProject:input_type -> nxpod.experimental.v1.DeleteProjectRequest
+	6,  // 14: nxpod.experimental.v1.ProjectsService.CreateProject:output_type -> nxpod.experimental.v1.CreateProjectResponse
+	8,  // 15: nxpod.experimental.v1.ProjectsService.GetProject:output_type -> nxpod.experimental.v1.GetProjectResponse
+	10, // 16: nxpod.experimental.v1.ProjectsService.ListProjects:output_type -> nxpod.experimental.v1.ListProjectsResponse
+	12, // 17: nxpod.experimental.v1.ProjectsService.DeleteProject:output_type -> nxpod.experimental.v1.DeleteProjectResponse
 	14, // [14:18] is the sub-list for method output_type
 	10, // [10:14] is the sub-list for method input_type
 	10, // [10:10] is the sub-list for extension type_name
@@ -988,14 +988,14 @@ var file_gitpod_experimental_v1_projects_proto_depIdxs = []int32{
 	0,  // [0:10] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_projects_proto_init() }
-func file_gitpod_experimental_v1_projects_proto_init() {
-	if File_gitpod_experimental_v1_projects_proto != nil {
+func init() { file_nxpod_experimental_v1_projects_proto_init() }
+func file_nxpod_experimental_v1_projects_proto_init() {
+	if File_nxpod_experimental_v1_projects_proto != nil {
 		return
 	}
-	file_gitpod_experimental_v1_pagination_proto_init()
+	file_nxpod_experimental_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_projects_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Project); i {
 			case 0:
 				return &v.state
@@ -1007,7 +1007,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ProjectSettings); i {
 			case 0:
 				return &v.state
@@ -1019,7 +1019,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PrebuildSettings); i {
 			case 0:
 				return &v.state
@@ -1031,7 +1031,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceSettings); i {
 			case 0:
 				return &v.state
@@ -1043,7 +1043,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceClassSettings); i {
 			case 0:
 				return &v.state
@@ -1055,7 +1055,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateProjectRequest); i {
 			case 0:
 				return &v.state
@@ -1067,7 +1067,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateProjectResponse); i {
 			case 0:
 				return &v.state
@@ -1079,7 +1079,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetProjectRequest); i {
 			case 0:
 				return &v.state
@@ -1091,7 +1091,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetProjectResponse); i {
 			case 0:
 				return &v.state
@@ -1103,7 +1103,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListProjectsRequest); i {
 			case 0:
 				return &v.state
@@ -1115,7 +1115,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListProjectsResponse); i {
 			case 0:
 				return &v.state
@@ -1127,7 +1127,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteProjectRequest); i {
 			case 0:
 				return &v.state
@@ -1139,7 +1139,7 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_projects_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_projects_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteProjectResponse); i {
 			case 0:
 				return &v.state
@@ -1152,23 +1152,23 @@ func file_gitpod_experimental_v1_projects_proto_init() {
 			}
 		}
 	}
-	file_gitpod_experimental_v1_projects_proto_msgTypes[2].OneofWrappers = []interface{}{}
+	file_nxpod_experimental_v1_projects_proto_msgTypes[2].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_projects_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_projects_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_projects_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_projects_proto_depIdxs,
-		MessageInfos:      file_gitpod_experimental_v1_projects_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_projects_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_projects_proto_depIdxs,
+		MessageInfos:      file_nxpod_experimental_v1_projects_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_projects_proto = out.File
-	file_gitpod_experimental_v1_projects_proto_rawDesc = nil
-	file_gitpod_experimental_v1_projects_proto_goTypes = nil
-	file_gitpod_experimental_v1_projects_proto_depIdxs = nil
+	File_nxpod_experimental_v1_projects_proto = out.File
+	file_nxpod_experimental_v1_projects_proto_rawDesc = nil
+	file_nxpod_experimental_v1_projects_proto_goTypes = nil
+	file_nxpod_experimental_v1_projects_proto_depIdxs = nil
 }

@@ -20,5 +20,5 @@ The public API will initially be offered as a gRPC service. Clients for various 
 
 
 ## Architecture
-* The API will be exposed on `api.gitpod.io` or `api.<domain>` for Dedicated installations.
-* The API is structured into services with definitions available in [components/public-api/gitpod/](../public-api/gitpod) as protobuf definitions.
+* The API will be exposed on `api.nxpod.khulnasoft.com` or `api.<domain>` for Dedicated installations.
+* The API is structured into services with definitions available in [components/public-api/nxpod/](../public-api/nxpod) as protobuf definitions.

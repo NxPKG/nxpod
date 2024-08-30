@@ -18,7 +18,7 @@ import (
 	"github.com/nxpkg/nxpod/components/public-api/go/config"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
@@ -89,7 +89,7 @@ func TestWorkspaceService_GetWorkspace(t *testing.T) {
 		wsInfo.Workspace = nil
 		wsWorkspace := *workspaceTestData[0].Protocol.Workspace
 		wsWorkspace.Config = &protocol.WorkspaceConfig{
-			WorkspaceLocation: "gitpod/gitpod-ws.code-workspace",
+			WorkspaceLocation: "nxpod/nxpod-ws.code-workspace",
 		}
 		wsInfo.Workspace = &wsWorkspace
 
@@ -107,7 +107,7 @@ func TestWorkspaceService_GetWorkspace(t *testing.T) {
 		expectedInstance := *workspaceTestData[0].API.Status.Instance
 		expectedInstance.Status = nil
 		expectedInstanceStatus := *workspaceTestData[0].API.Status.Instance.Status
-		expectedInstanceStatus.RecentFolders = []string{"/workspace/gitpod/gitpod-ws.code-workspace"}
+		expectedInstanceStatus.RecentFolders = []string{"/workspace/nxpod/nxpod-ws.code-workspace"}
 		expectedInstance.Status = &expectedInstanceStatus
 		expectedWsStatus.Instance = &expectedInstance
 		expectedWs.Status = &expectedWsStatus
@@ -651,7 +651,7 @@ var workspaceTestData = []workspaceTestDataEntry{
 		Protocol: protocol.WorkspaceInfo{
 			Workspace: &protocol.Workspace{
 				BaseImageNameResolved: "foo:bar",
-				ID:                    "gitpodio-gitpod-isq6xj458lj",
+				ID:                    "nxpodio-nxpod-isq6xj458lj",
 				OwnerID:               "fake-owner-id",
 				ContextURL:            "open-prebuild/126ac54a-5922-4a45-9a18-670b057bf540/https://github.com/nxpkg/nxpod/pull/18291",
 				Context: &protocol.WorkspaceContext{
@@ -659,16 +659,16 @@ var workspaceTestData = []workspaceTestDataEntry{
 					Title:                "tes ttitle",
 					Repository: &protocol.Repository{
 						Host: "github.com",
-						Name: "gitpod",
+						Name: "nxpod",
 					},
 				},
 				Description: "test description",
 			},
 			LatestInstance: &protocol.WorkspaceInstance{
 				ID:           "f2effcfd-3ddb-4187-b584-256e88a42442",
-				IdeURL:       "https://gitpodio-gitpod-isq6xj458lj.ws-eu53.protocol.io/",
+				IdeURL:       "https://nxpodio-nxpod-isq6xj458lj.ws-eu53.protocol.io/",
 				CreationTime: "2022-07-12T10:04:49+0000",
-				WorkspaceID:  "gitpodio-gitpod-isq6xj458lj",
+				WorkspaceID:  "nxpodio-nxpod-isq6xj458lj",
 				Status: &protocol.WorkspaceInstanceStatus{
 					Conditions: &protocol.WorkspaceInstanceConditions{
 						Failed:            "nope",
@@ -681,13 +681,13 @@ var workspaceTestData = []workspaceTestDataEntry{
 					ExposedPorts: []*protocol.WorkspaceInstancePort{
 						{
 							Port:       9000,
-							URL:        "https://9000-gitpodio-gitpod-isq6xj458lj.ws-eu53.protocol.io",
+							URL:        "https://9000-nxpodio-nxpod-isq6xj458lj.ws-eu53.protocol.io",
 							Visibility: protocol.PortVisibilityPublic,
 							Protocol:   protocol.PortProtocolHTTP,
 						},
 						{
 							Port:       9001,
-							URL:        "https://9001-gitpodio-gitpod-isq6xj458lj.ws-eu53.protocol.io",
+							URL:        "https://9001-nxpodio-nxpod-isq6xj458lj.ws-eu53.protocol.io",
 							Visibility: protocol.PortVisibilityPrivate,
 							Protocol:   protocol.PortProtocolHTTPS,
 						},
@@ -696,7 +696,7 @@ var workspaceTestData = []workspaceTestDataEntry{
 			},
 		},
 		API: &v1.Workspace{
-			WorkspaceId: "gitpodio-gitpod-isq6xj458lj",
+			WorkspaceId: "nxpodio-nxpod-isq6xj458lj",
 			OwnerId:     "fake-owner-id",
 			Context: &v1.WorkspaceContext{
 				ContextUrl: "open-prebuild/126ac54a-5922-4a45-9a18-670b057bf540/https://github.com/nxpkg/nxpod/pull/18291",
@@ -704,7 +704,7 @@ var workspaceTestData = []workspaceTestDataEntry{
 					Git: &v1.WorkspaceContext_Git{
 						NormalizedContextUrl: "https://github.com/nxpkg/nxpod/pull/18291",
 						Repository: &v1.WorkspaceContext_Repository{
-							Name: "gitpod",
+							Name: "nxpod",
 						},
 					},
 				},
@@ -713,7 +713,7 @@ var workspaceTestData = []workspaceTestDataEntry{
 			Status: &v1.WorkspaceStatus{
 				Instance: &v1.WorkspaceInstance{
 					InstanceId:  "f2effcfd-3ddb-4187-b584-256e88a42442",
-					WorkspaceId: "gitpodio-gitpod-isq6xj458lj",
+					WorkspaceId: "nxpodio-nxpod-isq6xj458lj",
 					CreatedAt:   timestamppb.New(must(time.Parse(time.RFC3339, "2022-07-12T10:04:49Z"))),
 					Status: &v1.WorkspaceInstanceStatus{
 						StatusVersion: 42,
@@ -724,23 +724,23 @@ var workspaceTestData = []workspaceTestDataEntry{
 							FirstUserActivity: timestamppb.New(must(time.Parse(time.RFC3339, "2022-07-12T10:04:49Z"))),
 						},
 						Message:   "has no message",
-						Url:       "https://gitpodio-gitpod-isq6xj458lj.ws-eu53.protocol.io/",
+						Url:       "https://nxpodio-nxpod-isq6xj458lj.ws-eu53.protocol.io/",
 						Admission: v1.AdmissionLevel_ADMISSION_LEVEL_OWNER_ONLY,
 						Ports: []*v1.Port{
 							{
 								Port:     9000,
 								Policy:   v1.PortPolicy_PORT_POLICY_PUBLIC,
-								Url:      "https://9000-gitpodio-gitpod-isq6xj458lj.ws-eu53.protocol.io",
+								Url:      "https://9000-nxpodio-nxpod-isq6xj458lj.ws-eu53.protocol.io",
 								Protocol: v1.PortProtocol_PORT_PROTOCOL_HTTP,
 							},
 							{
 								Port:     9001,
 								Policy:   v1.PortPolicy_PORT_POLICY_PRIVATE,
-								Url:      "https://9001-gitpodio-gitpod-isq6xj458lj.ws-eu53.protocol.io",
+								Url:      "https://9001-nxpodio-nxpod-isq6xj458lj.ws-eu53.protocol.io",
 								Protocol: v1.PortProtocol_PORT_PROTOCOL_HTTPS,
 							},
 						},
-						RecentFolders: []string{"/workspace/gitpod"},
+						RecentFolders: []string{"/workspace/nxpod"},
 					},
 				},
 			},

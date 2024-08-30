@@ -315,7 +315,7 @@ type WorkspaceConfig struct {
 	// WorkspaceContext is a context for this workspace
 	WorkspaceContext string `env:"NXPOD_WORKSPACE_CONTEXT"`
 
-	// WorkspaceClusterHost is a host under which this workspace is served, e.g. ws-eu11.nxpod.io
+	// WorkspaceClusterHost is a host under which this workspace is served, e.g. ws-eu11.nxpod.khulnasoft.com
 	WorkspaceClusterHost string `env:"NXPOD_WORKSPACE_CLUSTER_HOST"`
 
 	// DotfileRepo is a user-configurable repository which contains their dotfiles to customise

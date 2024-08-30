@@ -17,8 +17,8 @@ import {
     UserEnvVar,
     UserEnvVarValue,
     UserSSHPublicKey,
-} from "@gitpod/gitpod-protocol";
-import { EncryptionService } from "@gitpod/gitpod-protocol/lib/encryption/encryption-service";
+} from "@nxpod/nxpod-protocol";
+import { EncryptionService } from "@nxpod/nxpod-protocol/lib/encryption/encryption-service";
 import {
     DateInterval,
     ExtraAccessTokenFields,
@@ -40,17 +40,17 @@ import {
     UserDB,
     isBuiltinUser,
 } from "../user-db";
-import { DBNxpodToken } from "./entity/db-gitpod-token";
+import { DBNxpodToken } from "./entity/db-nxpod-token";
 import { DBIdentity } from "./entity/db-identity";
 import { DBTokenEntry } from "./entity/db-token-entry";
 import { DBUser } from "./entity/db-user";
 import { DBUserEnvVar } from "./entity/db-user-env-vars";
 import { DBUserSshPublicKey } from "./entity/db-user-ssh-public-key";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { DataCache } from "../data-cache";
 import { TransactionalDBImpl } from "./transactional-db-impl";
 import { TypeORM } from "./typeorm";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { filter } from "../utils";
 
 // OAuth token expiry
@@ -218,14 +218,14 @@ export class TypeORMUserDBImpl extends TransactionalDBImpl<UserDB> implements Us
         tokenType?: NxpodTokenType,
     ): Promise<{ user: User; token: NxpodToken } | undefined> {
         const repo = await this.getNxpodTokenRepo();
-        const qBuilder = repo.createQueryBuilder("gitpodToken");
+        const qBuilder = repo.createQueryBuilder("nxpodToken");
         if (!!tokenType) {
-            qBuilder.where("gitpodToken.tokenHash = :tokenHash AND gitpodToken.type = :tokenType", {
+            qBuilder.where("nxpodToken.tokenHash = :tokenHash AND nxpodToken.type = :tokenType", {
                 tokenHash,
                 tokenType,
             });
         } else {
-            qBuilder.where("gitpodToken.tokenHash = :tokenHash", { tokenHash });
+            qBuilder.where("nxpodToken.tokenHash = :tokenHash", { tokenHash });
         }
         const token = await qBuilder.getOne();
         if (!token) {
@@ -241,14 +241,14 @@ export class TypeORMUserDBImpl extends TransactionalDBImpl<UserDB> implements Us
 
     public async findNxpodTokensOfUser(userId: string, tokenHash: string): Promise<NxpodToken | undefined> {
         const repo = await this.getNxpodTokenRepo();
-        const qBuilder = repo.createQueryBuilder("gitpodToken");
-        qBuilder.where("userId = :userId AND gitpodToken.tokenHash = :tokenHash", { userId, tokenHash });
+        const qBuilder = repo.createQueryBuilder("nxpodToken");
+        qBuilder.where("userId = :userId AND nxpodToken.tokenHash = :tokenHash", { userId, tokenHash });
         return qBuilder.getOne();
     }
 
     public async findAllNxpodTokensOfUser(userId: string): Promise<NxpodToken[]> {
         const repo = await this.getNxpodTokenRepo();
-        const qBuilder = repo.createQueryBuilder("gitpodToken");
+        const qBuilder = repo.createQueryBuilder("nxpodToken");
         qBuilder.where("userId = :userId", { userId });
         return qBuilder.getMany();
     }

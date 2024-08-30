@@ -22,7 +22,7 @@ import (
 )
 
 const (
-	frontendDevModule            = "gitpod.frontend_dev"
+	frontendDevModule            = "nxpod.frontend_dev"
 	devURLHeaderName             = "X-Frontend-Dev-URL"
 	frontendDevEnabledEnvVarName = "FRONTEND_DEV_ENABLED"
 )
@@ -32,7 +32,7 @@ func init() {
 	httpcaddyfile.RegisterHandlerDirective(frontendDevModule, parseCaddyfile)
 }
 
-// FrontendDev implements an HTTP handler that extracts gitpod headers
+// FrontendDev implements an HTTP handler that extracts nxpod headers
 type FrontendDev struct {
 	Upstream    string `json:"upstream,omitempty"`
 	UpstreamUrl *url.URL

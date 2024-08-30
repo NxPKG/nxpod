@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/user.proto
+// source: nxpod/experimental/v1/user.proto
 
 package v1
 
@@ -50,7 +50,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 
 func (c *userServiceClient) GetAuthenticatedUser(ctx context.Context, in *GetAuthenticatedUserRequest, opts ...grpc.CallOption) (*GetAuthenticatedUserResponse, error) {
 	out := new(GetAuthenticatedUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/GetAuthenticatedUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/GetAuthenticatedUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *userServiceClient) GetAuthenticatedUser(ctx context.Context, in *GetAut
 
 func (c *userServiceClient) ListSSHKeys(ctx context.Context, in *ListSSHKeysRequest, opts ...grpc.CallOption) (*ListSSHKeysResponse, error) {
 	out := new(ListSSHKeysResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/ListSSHKeys", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/ListSSHKeys", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func (c *userServiceClient) ListSSHKeys(ctx context.Context, in *ListSSHKeysRequ
 
 func (c *userServiceClient) CreateSSHKey(ctx context.Context, in *CreateSSHKeyRequest, opts ...grpc.CallOption) (*CreateSSHKeyResponse, error) {
 	out := new(CreateSSHKeyResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/CreateSSHKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/CreateSSHKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (c *userServiceClient) CreateSSHKey(ctx context.Context, in *CreateSSHKeyRe
 
 func (c *userServiceClient) GetSSHKey(ctx context.Context, in *GetSSHKeyRequest, opts ...grpc.CallOption) (*GetSSHKeyResponse, error) {
 	out := new(GetSSHKeyResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/GetSSHKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/GetSSHKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func (c *userServiceClient) GetSSHKey(ctx context.Context, in *GetSSHKeyRequest,
 
 func (c *userServiceClient) DeleteSSHKey(ctx context.Context, in *DeleteSSHKeyRequest, opts ...grpc.CallOption) (*DeleteSSHKeyResponse, error) {
 	out := new(DeleteSSHKeyResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/DeleteSSHKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/DeleteSSHKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (c *userServiceClient) DeleteSSHKey(ctx context.Context, in *DeleteSSHKeyRe
 
 func (c *userServiceClient) GetGitToken(ctx context.Context, in *GetGitTokenRequest, opts ...grpc.CallOption) (*GetGitTokenResponse, error) {
 	out := new(GetGitTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/GetGitToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/GetGitToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +104,7 @@ func (c *userServiceClient) GetGitToken(ctx context.Context, in *GetGitTokenRequ
 
 func (c *userServiceClient) BlockUser(ctx context.Context, in *BlockUserRequest, opts ...grpc.CallOption) (*BlockUserResponse, error) {
 	out := new(BlockUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.UserService/BlockUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.UserService/BlockUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -178,7 +178,7 @@ func _UserService_GetAuthenticatedUser_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/GetAuthenticatedUser",
+		FullMethod: "/nxpod.experimental.v1.UserService/GetAuthenticatedUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetAuthenticatedUser(ctx, req.(*GetAuthenticatedUserRequest))
@@ -196,7 +196,7 @@ func _UserService_ListSSHKeys_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/ListSSHKeys",
+		FullMethod: "/nxpod.experimental.v1.UserService/ListSSHKeys",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).ListSSHKeys(ctx, req.(*ListSSHKeysRequest))
@@ -214,7 +214,7 @@ func _UserService_CreateSSHKey_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/CreateSSHKey",
+		FullMethod: "/nxpod.experimental.v1.UserService/CreateSSHKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).CreateSSHKey(ctx, req.(*CreateSSHKeyRequest))
@@ -232,7 +232,7 @@ func _UserService_GetSSHKey_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/GetSSHKey",
+		FullMethod: "/nxpod.experimental.v1.UserService/GetSSHKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetSSHKey(ctx, req.(*GetSSHKeyRequest))
@@ -250,7 +250,7 @@ func _UserService_DeleteSSHKey_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/DeleteSSHKey",
+		FullMethod: "/nxpod.experimental.v1.UserService/DeleteSSHKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).DeleteSSHKey(ctx, req.(*DeleteSSHKeyRequest))
@@ -268,7 +268,7 @@ func _UserService_GetGitToken_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/GetGitToken",
+		FullMethod: "/nxpod.experimental.v1.UserService/GetGitToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetGitToken(ctx, req.(*GetGitTokenRequest))
@@ -286,7 +286,7 @@ func _UserService_BlockUser_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.UserService/BlockUser",
+		FullMethod: "/nxpod.experimental.v1.UserService/BlockUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).BlockUser(ctx, req.(*BlockUserRequest))
@@ -298,7 +298,7 @@ func _UserService_BlockUser_Handler(srv interface{}, ctx context.Context, dec fu
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.UserService",
+	ServiceName: "nxpod.experimental.v1.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -331,5 +331,5 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/user.proto",
+	Metadata: "nxpod/experimental/v1/user.proto",
 }

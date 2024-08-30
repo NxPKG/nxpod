@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote
+package io.nxpod.jetbrains.remote
 
 import com.jetbrains.ide.model.uiautomation.BeControl
 import com.jetbrains.ide.model.uiautomation.BeMargin
@@ -17,7 +17,7 @@ import com.jetbrains.rdserver.unattendedHost.customization.controlCenter.perform
 import com.jetbrains.rdserver.unattendedHost.customization.controlCenter.performance.createProgressBar
 
 abstract class AbstractNxpodMetricControlProvider : MetricControlProvider {
-    override val id: String = "gitpodMetricsControl"
+    override val id: String = "nxpodMetricsControl"
 
     abstract fun setMargin(element: BeControl, left: Int, top: Int, right: Int, bottom: Int): BeControl;
 
@@ -52,7 +52,7 @@ abstract class AbstractNxpodMetricControlProvider : MetricControlProvider {
     private fun createWorkspaceHeaderRow(ctx: VerticalGridBuilder, backendDiagnosticsService: BackendDiagnosticsService, lifetime: Lifetime) {
         val labelProperty = Property("")
 
-        val workspaceClassMetric = backendDiagnosticsService.getMetric("gitpod_workspace_class")
+        val workspaceClassMetric = backendDiagnosticsService.getMetric("nxpod_workspace_class")
         val workspaceClass = workspaceClassMetric.toString()
 
         fun updateLabel() {
@@ -79,9 +79,9 @@ abstract class AbstractNxpodMetricControlProvider : MetricControlProvider {
     }
 
     private fun createCpuControl(ctx: VerticalGridBuilder, backendDiagnosticsService: BackendDiagnosticsService, lifetime: Lifetime) {
-        val cpuUsed = backendDiagnosticsService.getMetric("gitpod_workspace_cpu_used")
-        val cpuTotal = backendDiagnosticsService.getMetric("gitpod_workspace_cpu_total")
-        val cpuPercentage = backendDiagnosticsService.getMetric("gitpod_workspace_cpu_percentage")
+        val cpuUsed = backendDiagnosticsService.getMetric("nxpod_workspace_cpu_used")
+        val cpuTotal = backendDiagnosticsService.getMetric("nxpod_workspace_cpu_total")
+        val cpuPercentage = backendDiagnosticsService.getMetric("nxpod_workspace_cpu_percentage")
         val cpuPercentageProperty = Property("$cpuPercentage %")
         val label = "CPU"
         val progressBar = createProgressBar(lifetime, cpuPercentage.valueProperty, cpuPercentageProperty)
@@ -101,9 +101,9 @@ abstract class AbstractNxpodMetricControlProvider : MetricControlProvider {
     }
 
     private fun createMemoryControl(ctx: VerticalGridBuilder, backendDiagnosticsService: BackendDiagnosticsService, lifetime: Lifetime) {
-        val memoryUsed = backendDiagnosticsService.getMetric("gitpod_workspace_memory_used")
-        val memoryTotal = backendDiagnosticsService.getMetric("gitpod_workspace_memory_total")
-        val memoryPercentage = backendDiagnosticsService.getMetric("gitpod_workspace_memory_percentage")
+        val memoryUsed = backendDiagnosticsService.getMetric("nxpod_workspace_memory_used")
+        val memoryTotal = backendDiagnosticsService.getMetric("nxpod_workspace_memory_total")
+        val memoryPercentage = backendDiagnosticsService.getMetric("nxpod_workspace_memory_percentage")
         val memoryPercentageProperty = Property("$memoryPercentage %")
         val label = "Memory"
         val progressBar = createProgressBar(lifetime, memoryPercentage.valueProperty, memoryPercentageProperty)

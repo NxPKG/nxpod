@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/oidc.proto
+// source: nxpod/experimental/v1/oidc.proto
 
 package v1
 
@@ -50,7 +50,7 @@ func NewOIDCServiceClient(cc grpc.ClientConnInterface) OIDCServiceClient {
 
 func (c *oIDCServiceClient) CreateClientConfig(ctx context.Context, in *CreateClientConfigRequest, opts ...grpc.CallOption) (*CreateClientConfigResponse, error) {
 	out := new(CreateClientConfigResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.OIDCService/CreateClientConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.OIDCService/CreateClientConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *oIDCServiceClient) CreateClientConfig(ctx context.Context, in *CreateCl
 
 func (c *oIDCServiceClient) GetClientConfig(ctx context.Context, in *GetClientConfigRequest, opts ...grpc.CallOption) (*GetClientConfigResponse, error) {
 	out := new(GetClientConfigResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.OIDCService/GetClientConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.OIDCService/GetClientConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func (c *oIDCServiceClient) GetClientConfig(ctx context.Context, in *GetClientCo
 
 func (c *oIDCServiceClient) ListClientConfigs(ctx context.Context, in *ListClientConfigsRequest, opts ...grpc.CallOption) (*ListClientConfigsResponse, error) {
 	out := new(ListClientConfigsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.OIDCService/ListClientConfigs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.OIDCService/ListClientConfigs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (c *oIDCServiceClient) ListClientConfigs(ctx context.Context, in *ListClien
 
 func (c *oIDCServiceClient) UpdateClientConfig(ctx context.Context, in *UpdateClientConfigRequest, opts ...grpc.CallOption) (*UpdateClientConfigResponse, error) {
 	out := new(UpdateClientConfigResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.OIDCService/UpdateClientConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.OIDCService/UpdateClientConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func (c *oIDCServiceClient) UpdateClientConfig(ctx context.Context, in *UpdateCl
 
 func (c *oIDCServiceClient) DeleteClientConfig(ctx context.Context, in *DeleteClientConfigRequest, opts ...grpc.CallOption) (*DeleteClientConfigResponse, error) {
 	out := new(DeleteClientConfigResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.OIDCService/DeleteClientConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.OIDCService/DeleteClientConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (c *oIDCServiceClient) DeleteClientConfig(ctx context.Context, in *DeleteCl
 
 func (c *oIDCServiceClient) SetClientConfigActivation(ctx context.Context, in *SetClientConfigActivationRequest, opts ...grpc.CallOption) (*SetClientConfigActivationResponse, error) {
 	out := new(SetClientConfigActivationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.OIDCService/SetClientConfigActivation", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.OIDCService/SetClientConfigActivation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,7 +166,7 @@ func _OIDCService_CreateClientConfig_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.OIDCService/CreateClientConfig",
+		FullMethod: "/nxpod.experimental.v1.OIDCService/CreateClientConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OIDCServiceServer).CreateClientConfig(ctx, req.(*CreateClientConfigRequest))
@@ -184,7 +184,7 @@ func _OIDCService_GetClientConfig_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.OIDCService/GetClientConfig",
+		FullMethod: "/nxpod.experimental.v1.OIDCService/GetClientConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OIDCServiceServer).GetClientConfig(ctx, req.(*GetClientConfigRequest))
@@ -202,7 +202,7 @@ func _OIDCService_ListClientConfigs_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.OIDCService/ListClientConfigs",
+		FullMethod: "/nxpod.experimental.v1.OIDCService/ListClientConfigs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OIDCServiceServer).ListClientConfigs(ctx, req.(*ListClientConfigsRequest))
@@ -220,7 +220,7 @@ func _OIDCService_UpdateClientConfig_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.OIDCService/UpdateClientConfig",
+		FullMethod: "/nxpod.experimental.v1.OIDCService/UpdateClientConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OIDCServiceServer).UpdateClientConfig(ctx, req.(*UpdateClientConfigRequest))
@@ -238,7 +238,7 @@ func _OIDCService_DeleteClientConfig_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.OIDCService/DeleteClientConfig",
+		FullMethod: "/nxpod.experimental.v1.OIDCService/DeleteClientConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OIDCServiceServer).DeleteClientConfig(ctx, req.(*DeleteClientConfigRequest))
@@ -256,7 +256,7 @@ func _OIDCService_SetClientConfigActivation_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.OIDCService/SetClientConfigActivation",
+		FullMethod: "/nxpod.experimental.v1.OIDCService/SetClientConfigActivation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OIDCServiceServer).SetClientConfigActivation(ctx, req.(*SetClientConfigActivationRequest))
@@ -268,7 +268,7 @@ func _OIDCService_SetClientConfigActivation_Handler(srv interface{}, ctx context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var OIDCService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.OIDCService",
+	ServiceName: "nxpod.experimental.v1.OIDCService",
 	HandlerType: (*OIDCServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -297,5 +297,5 @@ var OIDCService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/oidc.proto",
+	Metadata: "nxpod/experimental/v1/oidc.proto",
 }

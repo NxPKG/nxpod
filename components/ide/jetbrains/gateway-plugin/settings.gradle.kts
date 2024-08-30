@@ -2,8 +2,8 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-rootProject.name = "jetbrains-gateway-gitpod-plugin"
+rootProject.name = "jetbrains-gateway-nxpod-plugin"
 
-include(":gitpod-protocol")
-val gitpodProtocolProjectPath: String by settings
-project(":gitpod-protocol").projectDir = File(gitpodProtocolProjectPath)
+include(":nxpod-protocol")
+val nxpodProtocolProjectPath: String by settings
+project(":nxpod-protocol").projectDir = File(nxpodProtocolProjectPath)

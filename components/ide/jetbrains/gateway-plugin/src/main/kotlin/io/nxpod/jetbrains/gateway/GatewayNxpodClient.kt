@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.remoteDev.util.onTerminationOrNow
@@ -10,9 +10,9 @@ import com.jetbrains.rd.util.CopyOnWriteArrayList
 import com.jetbrains.rd.util.concurrentMapOf
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.util.lifetime.LifetimeDefinition
-import io.gitpod.gitpodprotocol.api.NxpodClient
-import io.gitpod.gitpodprotocol.api.entities.WorkspaceInfo
-import io.gitpod.gitpodprotocol.api.entities.WorkspaceInstance
+import io.nxpod.nxpodprotocol.api.NxpodClient
+import io.nxpod.nxpodprotocol.api.entities.WorkspaceInfo
+import io.nxpod.nxpodprotocol.api.entities.WorkspaceInstance
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
@@ -22,7 +22,7 @@ import kotlinx.coroutines.sync.withLock
 
 class GatewayNxpodClient(
     private val lifetimeDefinition: LifetimeDefinition,
-    private val gitpodHost: String
+    private val nxpodHost: String
 ) : NxpodClient() {
 
     private val mutex = Mutex()
@@ -45,7 +45,7 @@ class GatewayNxpodClient(
             return
         }
         timeoutJob = GlobalScope.launch {
-            thisLogger().info("$gitpodHost: connection times out in $timeoutDelayInMinutes minutes: $reason")
+            thisLogger().info("$nxpodHost: connection times out in $timeoutDelayInMinutes minutes: $reason")
             delay(timeoutDelayInMinutes * 60 * 1000L)
             if (isActive) {
                 lifetimeDefinition.terminate()
@@ -55,7 +55,7 @@ class GatewayNxpodClient(
 
     private fun cancelTimeout(reason: String) {
         if (timeoutJob?.isActive == true) {
-            thisLogger().info("$gitpodHost: canceled connection timeout: $reason")
+            thisLogger().info("$nxpodHost: canceled connection timeout: $reason")
             timeoutJob!!.cancel()
         }
     }
@@ -72,7 +72,7 @@ class GatewayNxpodClient(
                 try {
                     syncWorkspace(id)
                 } catch (t: Throwable) {
-                    thisLogger().error("$gitpodHost: $id: failed to sync", t)
+                    thisLogger().error("$nxpodHost: $id: failed to sync", t)
                 }
             }
         }

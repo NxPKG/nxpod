@@ -5,4 +5,4 @@
 
 set -Eeuo pipefail
 
-source /workspace/gitpod/scripts/ws-deploy.sh deployment node-labeler false
+source /workspace/nxpod/scripts/ws-deploy.sh deployment node-labeler false

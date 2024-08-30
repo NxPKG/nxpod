@@ -5,7 +5,7 @@
  */
 
 import { ValueTransformer } from "typeorm/decorator/options/ValueTransformer";
-import { EncryptionService } from "@gitpod/gitpod-protocol/lib/encryption/encryption-service";
+import { EncryptionService } from "@nxpod/nxpod-protocol/lib/encryption/encryption-service";
 
 export namespace Transformer {
     export const MAP_EMPTY_STR_TO_UNDEFINED: ValueTransformer = {

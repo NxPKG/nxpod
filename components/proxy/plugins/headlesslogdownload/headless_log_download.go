@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	headlessLogDownloadModule = "gitpod.headless_log_download"
+	headlessLogDownloadModule = "nxpod.headless_log_download"
 )
 
 func init() {
@@ -25,7 +25,7 @@ func init() {
 	httpcaddyfile.RegisterHandlerDirective(headlessLogDownloadModule, parseCaddyfile)
 }
 
-// HeadlessLogDownload implements an HTTP handler that extracts gitpod headers
+// HeadlessLogDownload implements an HTTP handler that extracts nxpod headers
 type HeadlessLogDownload struct {
 	Service string `json:"service,omitempty"`
 }
@@ -33,7 +33,7 @@ type HeadlessLogDownload struct {
 // CaddyModule returns the Caddy module information.
 func (HeadlessLogDownload) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "http.handlers.gitpod_headless_log_download",
+		ID:  "http.handlers.nxpod_headless_log_download",
 		New: func() caddy.Module { return new(HeadlessLogDownload) },
 	}
 }

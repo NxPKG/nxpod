@@ -272,7 +272,7 @@ export default function MembersPage() {
                                 <span className="text-sm font-bold">Need SSO? </span>
                                 <a
                                     className="text-sm gp-link"
-                                    href="https://www.nxpod.io/docs/enterprise"
+                                    href="https://www.nxpod.khulnasoft.com/docs/enterprise"
                                     target="_blank"
                                     rel="noreferrer"
                                 >

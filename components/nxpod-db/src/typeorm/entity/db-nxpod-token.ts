@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { NxpodToken, NxpodTokenType } from "@gitpod/gitpod-protocol";
+import { NxpodToken, NxpodTokenType } from "@nxpod/nxpod-protocol";
 import { Column, Entity, PrimaryColumn } from "typeorm";
 import { Transformer } from "../transformer";
 import { TypeORM } from "../typeorm";

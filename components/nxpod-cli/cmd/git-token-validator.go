@@ -19,8 +19,8 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	"github.com/nxpkg/nxpod/common-go/util"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
 
@@ -44,7 +44,7 @@ var gitTokenValidator = &cobra.Command{
 		utils.TrackCommandUsageEvent.Command = nil
 
 		log.SetOutput(io.Discard)
-		f, err := os.OpenFile(os.TempDir()+"/gitpod-git-credential-helper.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+		f, err := os.OpenFile(os.TempDir()+"/nxpod-git-credential-helper.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 		if err == nil {
 			defer f.Close()
 			log.SetOutput(f)
@@ -65,7 +65,7 @@ var gitTokenValidator = &cobra.Command{
 		}
 		clientToken, err := supervisor.NewTokenServiceClient(supervisorConn).GetToken(ctx, &supervisor.GetTokenRequest{
 			Host: wsinfo.NxpodApi.Host,
-			Kind: "gitpod",
+			Kind: "nxpod",
 			Scope: []string{
 				"function:guessGitTokenScopes",
 			},

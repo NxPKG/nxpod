@@ -55,7 +55,7 @@ class TestBitbucketServerRepositoryProvider {
                     createNxpodToken: async () => ({ token: { value: "foobar123-token" } }),
                 } as any);
                 bind(Config).toConstantValue({
-                    hostUrl: new NxpodHostUrl("https://nxpod.io"),
+                    hostUrl: new NxpodHostUrl("https://nxpod.khulnasoft.com"),
                 });
                 bind(TokenProvider).toConstantValue(<TokenProvider>{
                     getTokenForHost: async () => {
@@ -127,7 +127,7 @@ class TestBitbucketServerRepositoryProvider {
     @test async test_getUserRepos_ok() {
         const result = await this.service.getUserRepos(this.user);
         expect(result).to.contain({
-            url: "https://7990-alextugarev-bbs-6v0gqcpgvj7.ws-eu102.nxpod.io/scm/~alex.tugarev/user.repo.git",
+            url: "https://7990-alextugarev-bbs-6v0gqcpgvj7.ws-eu102.nxpod.khulnasoft.com/scm/~alex.tugarev/user.repo.git",
             name: "user.repo",
         });
     }

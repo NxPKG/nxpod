@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.components.Service
@@ -15,8 +15,8 @@ import com.intellij.util.net.ssl.CertificateManager
 import com.intellij.util.proxy.CommonProxy
 import com.jetbrains.rd.util.concurrentMapOf
 import com.jetbrains.rd.util.lifetime.Lifetime
-import io.gitpod.gitpodprotocol.api.NxpodServerLauncher
-import io.gitpod.jetbrains.auth.NxpodAuthService
+import io.nxpod.nxpodprotocol.api.NxpodServerLauncher
+import io.nxpod.jetbrains.auth.NxpodAuthService
 import kotlinx.coroutines.*
 import kotlinx.coroutines.future.await
 import org.eclipse.jetty.websocket.api.UpgradeException
@@ -28,28 +28,28 @@ class NxpodConnectionService {
 
     private val clients = concurrentMapOf<String, GatewayNxpodClient>()
 
-    fun obtainClient(gitpodHost: String): GatewayNxpodClient {
-        return clients.getOrPut(gitpodHost) {
+    fun obtainClient(nxpodHost: String): GatewayNxpodClient {
+        return clients.getOrPut(nxpodHost) {
             val lifetime = Lifetime.Eternal.createNested()
-            val client = GatewayNxpodClient(lifetime, gitpodHost)
+            val client = GatewayNxpodClient(lifetime, nxpodHost)
             val launcher = NxpodServerLauncher.create(client)
             val job = GlobalScope.launch {
-                var accessToken = NxpodAuthService.getAccessToken(gitpodHost)
+                var accessToken = NxpodAuthService.getAccessToken(nxpodHost)
                 val authorize = suspend {
                     ensureActive()
-                    accessToken = NxpodAuthService.authorize(gitpodHost)
+                    accessToken = NxpodAuthService.authorize(nxpodHost)
                 }
                 if (accessToken == null) {
                     authorize()
                 }
 
-                val plugin = PluginManagerCore.getPlugin(PluginId.getId("io.gitpod.jetbrains.gateway"))!!
+                val plugin = PluginManagerCore.getPlugin(PluginId.getId("io.nxpod.jetbrains.gateway"))!!
                 val connect = suspend {
                     ensureActive()
 
                     val originalClassLoader = Thread.currentThread().contextClassLoader
                     val connection = try {
-                        val origin = "https://$gitpodHost/"
+                        val origin = "https://$nxpodHost/"
                         val proxies = CommonProxy.getInstance().select(URL(origin))
                         val sslContext = CertificateManager.getInstance().sslContext
 
@@ -57,7 +57,7 @@ class NxpodConnectionService {
                         Thread.currentThread().contextClassLoader = NxpodConnectionProvider::class.java.classLoader
 
                         launcher.listen(
-                                "wss://$gitpodHost/api/v1",
+                                "wss://$nxpodHost/api/v1",
                                 origin,
                                 plugin.pluginId.idString,
                                 plugin.version,
@@ -95,26 +95,26 @@ class NxpodConnectionService {
                             connect()
                         } catch (t: Throwable) {
                             val e = ExceptionUtil.findCause(t, InvalidTokenException::class.java) ?: throw t
-                            thisLogger().warn("$gitpodHost: invalid token, authorizing again and reconnecting:", e)
+                            thisLogger().warn("$nxpodHost: invalid token, authorizing again and reconnecting:", e)
                             authorize()
                             connect()
                         }
                         reconnectionDelay = minReconnectionDelay
-                        thisLogger().info("$gitpodHost: connected")
+                        thisLogger().info("$nxpodHost: connected")
                         val reason = connection.await()
                         if (isActive) {
-                            thisLogger().warn("$gitpodHost: connection closed, reconnecting after $reconnectionDelay milliseconds: $reason")
+                            thisLogger().warn("$nxpodHost: connection closed, reconnecting after $reconnectionDelay milliseconds: $reason")
                         } else {
-                            thisLogger().info("$gitpodHost: connection permanently closed: $reason")
+                            thisLogger().info("$nxpodHost: connection permanently closed: $reason")
                         }
                     } catch (t: Throwable) {
                         if (isActive) {
                             thisLogger().warn(
-                                    "$gitpodHost: failed to connect, trying again after $reconnectionDelay milliseconds:",
+                                    "$nxpodHost: failed to connect, trying again after $reconnectionDelay milliseconds:",
                                     t
                             )
                         } else {
-                            thisLogger().error("$gitpodHost: connection permanently closed:", t)
+                            thisLogger().error("$nxpodHost: connection permanently closed:", t)
                         }
                     }
                     delay(reconnectionDelay)
@@ -125,7 +125,7 @@ class NxpodConnectionService {
                 }
             }
             lifetime.onTerminationOrNow {
-                clients.remove(gitpodHost)
+                clients.remove(nxpodHost)
                 job.cancel()
             }
             return@getOrPut client

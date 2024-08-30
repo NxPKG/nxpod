@@ -1,4 +1,4 @@
-module github.com/nxpkg/nxpod/components/gitpod-db/go
+module github.com/nxpkg/nxpod/components/nxpod-db/go
 
 go 1.22
 

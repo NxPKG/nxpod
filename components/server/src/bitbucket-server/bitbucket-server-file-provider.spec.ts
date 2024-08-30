@@ -55,7 +55,7 @@ class TestBitbucketServerFileProvider {
                     createNxpodToken: async () => ({ token: { value: "foobar123-token" } }),
                 } as any);
                 bind(Config).toConstantValue({
-                    hostUrl: new NxpodHostUrl("https://nxpod.io"),
+                    hostUrl: new NxpodHostUrl("https://nxpod.khulnasoft.com"),
                 });
                 bind(TokenProvider).toConstantValue(<TokenProvider>{
                     getTokenForHost: async () => {

@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/error.proto
+// source: nxpod/v1/error.proto
 
 package v1
 
@@ -41,7 +41,7 @@ type PermissionDeniedDetails struct {
 func (x *PermissionDeniedDetails) Reset() {
 	*x = PermissionDeniedDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[0]
+		mi := &file_nxpod_v1_error_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -54,7 +54,7 @@ func (x *PermissionDeniedDetails) String() string {
 func (*PermissionDeniedDetails) ProtoMessage() {}
 
 func (x *PermissionDeniedDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[0]
+	mi := &file_nxpod_v1_error_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -67,7 +67,7 @@ func (x *PermissionDeniedDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PermissionDeniedDetails.ProtoReflect.Descriptor instead.
 func (*PermissionDeniedDetails) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{0}
 }
 
 func (m *PermissionDeniedDetails) GetReason() isPermissionDeniedDetails_Reason {
@@ -116,7 +116,7 @@ type UserBlockedError struct {
 func (x *UserBlockedError) Reset() {
 	*x = UserBlockedError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[1]
+		mi := &file_nxpod_v1_error_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -129,7 +129,7 @@ func (x *UserBlockedError) String() string {
 func (*UserBlockedError) ProtoMessage() {}
 
 func (x *UserBlockedError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[1]
+	mi := &file_nxpod_v1_error_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -142,7 +142,7 @@ func (x *UserBlockedError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserBlockedError.ProtoReflect.Descriptor instead.
 func (*UserBlockedError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{1}
 }
 
 type NeedsVerificationError struct {
@@ -154,7 +154,7 @@ type NeedsVerificationError struct {
 func (x *NeedsVerificationError) Reset() {
 	*x = NeedsVerificationError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[2]
+		mi := &file_nxpod_v1_error_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -167,7 +167,7 @@ func (x *NeedsVerificationError) String() string {
 func (*NeedsVerificationError) ProtoMessage() {}
 
 func (x *NeedsVerificationError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[2]
+	mi := &file_nxpod_v1_error_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -180,7 +180,7 @@ func (x *NeedsVerificationError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NeedsVerificationError.ProtoReflect.Descriptor instead.
 func (*NeedsVerificationError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{2}
 }
 
 // details for FAILED_PRECONDITION status code
@@ -204,7 +204,7 @@ type FailedPreconditionDetails struct {
 func (x *FailedPreconditionDetails) Reset() {
 	*x = FailedPreconditionDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[3]
+		mi := &file_nxpod_v1_error_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -217,7 +217,7 @@ func (x *FailedPreconditionDetails) String() string {
 func (*FailedPreconditionDetails) ProtoMessage() {}
 
 func (x *FailedPreconditionDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[3]
+	mi := &file_nxpod_v1_error_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -230,7 +230,7 @@ func (x *FailedPreconditionDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FailedPreconditionDetails.ProtoReflect.Descriptor instead.
 func (*FailedPreconditionDetails) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{3}
 }
 
 func (m *FailedPreconditionDetails) GetReason() isFailedPreconditionDetails_Reason {
@@ -306,7 +306,7 @@ type FailedPreconditionDetails_TooManyRunningWorkspaces struct {
 }
 
 type FailedPreconditionDetails_InvalidNxpodYml struct {
-	InvalidNxpodYml *InvalidNxpodYMLError `protobuf:"bytes,4,opt,name=invalid_gitpod_yml,json=invalidNxpodYml,proto3,oneof"`
+	InvalidNxpodYml *InvalidNxpodYMLError `protobuf:"bytes,4,opt,name=invalid_nxpod_yml,json=invalidNxpodYml,proto3,oneof"`
 }
 
 type FailedPreconditionDetails_RepositoryNotFound struct {
@@ -345,7 +345,7 @@ type PaymentSpendingLimitReachedError struct {
 func (x *PaymentSpendingLimitReachedError) Reset() {
 	*x = PaymentSpendingLimitReachedError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[4]
+		mi := &file_nxpod_v1_error_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -358,7 +358,7 @@ func (x *PaymentSpendingLimitReachedError) String() string {
 func (*PaymentSpendingLimitReachedError) ProtoMessage() {}
 
 func (x *PaymentSpendingLimitReachedError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[4]
+	mi := &file_nxpod_v1_error_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +371,7 @@ func (x *PaymentSpendingLimitReachedError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PaymentSpendingLimitReachedError.ProtoReflect.Descriptor instead.
 func (*PaymentSpendingLimitReachedError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{4}
 }
 
 type InvalidCostCenterError struct {
@@ -385,7 +385,7 @@ type InvalidCostCenterError struct {
 func (x *InvalidCostCenterError) Reset() {
 	*x = InvalidCostCenterError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[5]
+		mi := &file_nxpod_v1_error_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -398,7 +398,7 @@ func (x *InvalidCostCenterError) String() string {
 func (*InvalidCostCenterError) ProtoMessage() {}
 
 func (x *InvalidCostCenterError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[5]
+	mi := &file_nxpod_v1_error_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -411,7 +411,7 @@ func (x *InvalidCostCenterError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvalidCostCenterError.ProtoReflect.Descriptor instead.
 func (*InvalidCostCenterError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *InvalidCostCenterError) GetAttributionId() string {
@@ -430,7 +430,7 @@ type TooManyRunningWorkspacesError struct {
 func (x *TooManyRunningWorkspacesError) Reset() {
 	*x = TooManyRunningWorkspacesError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[6]
+		mi := &file_nxpod_v1_error_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -443,7 +443,7 @@ func (x *TooManyRunningWorkspacesError) String() string {
 func (*TooManyRunningWorkspacesError) ProtoMessage() {}
 
 func (x *TooManyRunningWorkspacesError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[6]
+	mi := &file_nxpod_v1_error_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -456,7 +456,7 @@ func (x *TooManyRunningWorkspacesError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TooManyRunningWorkspacesError.ProtoReflect.Descriptor instead.
 func (*TooManyRunningWorkspacesError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{6}
 }
 
 type InvalidNxpodYMLError struct {
@@ -470,7 +470,7 @@ type InvalidNxpodYMLError struct {
 func (x *InvalidNxpodYMLError) Reset() {
 	*x = InvalidNxpodYMLError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[7]
+		mi := &file_nxpod_v1_error_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -483,7 +483,7 @@ func (x *InvalidNxpodYMLError) String() string {
 func (*InvalidNxpodYMLError) ProtoMessage() {}
 
 func (x *InvalidNxpodYMLError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[7]
+	mi := &file_nxpod_v1_error_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +496,7 @@ func (x *InvalidNxpodYMLError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvalidNxpodYMLError.ProtoReflect.Descriptor instead.
 func (*InvalidNxpodYMLError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *InvalidNxpodYMLError) GetViolations() []string {
@@ -523,7 +523,7 @@ type RepositoryNotFoundError struct {
 func (x *RepositoryNotFoundError) Reset() {
 	*x = RepositoryNotFoundError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[8]
+		mi := &file_nxpod_v1_error_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -536,7 +536,7 @@ func (x *RepositoryNotFoundError) String() string {
 func (*RepositoryNotFoundError) ProtoMessage() {}
 
 func (x *RepositoryNotFoundError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[8]
+	mi := &file_nxpod_v1_error_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -549,7 +549,7 @@ func (x *RepositoryNotFoundError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RepositoryNotFoundError.ProtoReflect.Descriptor instead.
 func (*RepositoryNotFoundError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *RepositoryNotFoundError) GetHost() string {
@@ -617,7 +617,7 @@ type RepositoryUnauthorizedError struct {
 func (x *RepositoryUnauthorizedError) Reset() {
 	*x = RepositoryUnauthorizedError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[9]
+		mi := &file_nxpod_v1_error_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -630,7 +630,7 @@ func (x *RepositoryUnauthorizedError) String() string {
 func (*RepositoryUnauthorizedError) ProtoMessage() {}
 
 func (x *RepositoryUnauthorizedError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[9]
+	mi := &file_nxpod_v1_error_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -643,7 +643,7 @@ func (x *RepositoryUnauthorizedError) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RepositoryUnauthorizedError.ProtoReflect.Descriptor instead.
 func (*RepositoryUnauthorizedError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *RepositoryUnauthorizedError) GetHost() string {
@@ -697,7 +697,7 @@ type ImageBuildLogsNotYetAvailableError struct {
 func (x *ImageBuildLogsNotYetAvailableError) Reset() {
 	*x = ImageBuildLogsNotYetAvailableError{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_error_proto_msgTypes[10]
+		mi := &file_nxpod_v1_error_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -710,7 +710,7 @@ func (x *ImageBuildLogsNotYetAvailableError) String() string {
 func (*ImageBuildLogsNotYetAvailableError) ProtoMessage() {}
 
 func (x *ImageBuildLogsNotYetAvailableError) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_error_proto_msgTypes[10]
+	mi := &file_nxpod_v1_error_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -723,12 +723,12 @@ func (x *ImageBuildLogsNotYetAvailableError) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ImageBuildLogsNotYetAvailableError.ProtoReflect.Descriptor instead.
 func (*ImageBuildLogsNotYetAvailableError) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_error_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_error_proto_rawDescGZIP(), []int{10}
 }
 
-var File_gitpod_v1_error_proto protoreflect.FileDescriptor
+var File_nxpod_v1_error_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_error_proto_rawDesc = []byte{
+var file_nxpod_v1_error_proto_rawDesc = []byte{
 	0x0a, 0x15, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x72, 0x72, 0x6f,
 	0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e,
 	0x76, 0x31, 0x1a, 0x20, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
@@ -848,41 +848,41 @@ var file_gitpod_v1_error_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_error_proto_rawDescOnce sync.Once
-	file_gitpod_v1_error_proto_rawDescData = file_gitpod_v1_error_proto_rawDesc
+	file_nxpod_v1_error_proto_rawDescOnce sync.Once
+	file_nxpod_v1_error_proto_rawDescData = file_nxpod_v1_error_proto_rawDesc
 )
 
-func file_gitpod_v1_error_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_error_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_error_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_error_proto_rawDescData)
+func file_nxpod_v1_error_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_error_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_error_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_error_proto_rawDescData)
 	})
-	return file_gitpod_v1_error_proto_rawDescData
+	return file_nxpod_v1_error_proto_rawDescData
 }
 
-var file_gitpod_v1_error_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_gitpod_v1_error_proto_goTypes = []interface{}{
-	(*PermissionDeniedDetails)(nil),            // 0: gitpod.v1.PermissionDeniedDetails
-	(*UserBlockedError)(nil),                   // 1: gitpod.v1.UserBlockedError
-	(*NeedsVerificationError)(nil),             // 2: gitpod.v1.NeedsVerificationError
-	(*FailedPreconditionDetails)(nil),          // 3: gitpod.v1.FailedPreconditionDetails
-	(*PaymentSpendingLimitReachedError)(nil),   // 4: gitpod.v1.PaymentSpendingLimitReachedError
-	(*InvalidCostCenterError)(nil),             // 5: gitpod.v1.InvalidCostCenterError
-	(*TooManyRunningWorkspacesError)(nil),      // 6: gitpod.v1.TooManyRunningWorkspacesError
-	(*InvalidNxpodYMLError)(nil),              // 7: gitpod.v1.InvalidNxpodYMLError
-	(*RepositoryNotFoundError)(nil),            // 8: gitpod.v1.RepositoryNotFoundError
-	(*RepositoryUnauthorizedError)(nil),        // 9: gitpod.v1.RepositoryUnauthorizedError
-	(*ImageBuildLogsNotYetAvailableError)(nil), // 10: gitpod.v1.ImageBuildLogsNotYetAvailableError
+var file_nxpod_v1_error_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_nxpod_v1_error_proto_goTypes = []interface{}{
+	(*PermissionDeniedDetails)(nil),            // 0: nxpod.v1.PermissionDeniedDetails
+	(*UserBlockedError)(nil),                   // 1: nxpod.v1.UserBlockedError
+	(*NeedsVerificationError)(nil),             // 2: nxpod.v1.NeedsVerificationError
+	(*FailedPreconditionDetails)(nil),          // 3: nxpod.v1.FailedPreconditionDetails
+	(*PaymentSpendingLimitReachedError)(nil),   // 4: nxpod.v1.PaymentSpendingLimitReachedError
+	(*InvalidCostCenterError)(nil),             // 5: nxpod.v1.InvalidCostCenterError
+	(*TooManyRunningWorkspacesError)(nil),      // 6: nxpod.v1.TooManyRunningWorkspacesError
+	(*InvalidNxpodYMLError)(nil),              // 7: nxpod.v1.InvalidNxpodYMLError
+	(*RepositoryNotFoundError)(nil),            // 8: nxpod.v1.RepositoryNotFoundError
+	(*RepositoryUnauthorizedError)(nil),        // 9: nxpod.v1.RepositoryUnauthorizedError
+	(*ImageBuildLogsNotYetAvailableError)(nil), // 10: nxpod.v1.ImageBuildLogsNotYetAvailableError
 }
-var file_gitpod_v1_error_proto_depIdxs = []int32{
-	1,  // 0: gitpod.v1.PermissionDeniedDetails.user_blocked:type_name -> gitpod.v1.UserBlockedError
-	2,  // 1: gitpod.v1.PermissionDeniedDetails.needs_verification:type_name -> gitpod.v1.NeedsVerificationError
-	4,  // 2: gitpod.v1.FailedPreconditionDetails.payment_spending_limit_reached:type_name -> gitpod.v1.PaymentSpendingLimitReachedError
-	5,  // 3: gitpod.v1.FailedPreconditionDetails.invalid_cost_center:type_name -> gitpod.v1.InvalidCostCenterError
-	6,  // 4: gitpod.v1.FailedPreconditionDetails.too_many_running_workspaces:type_name -> gitpod.v1.TooManyRunningWorkspacesError
-	7,  // 5: gitpod.v1.FailedPreconditionDetails.invalid_gitpod_yml:type_name -> gitpod.v1.InvalidNxpodYMLError
-	8,  // 6: gitpod.v1.FailedPreconditionDetails.repository_not_found:type_name -> gitpod.v1.RepositoryNotFoundError
-	9,  // 7: gitpod.v1.FailedPreconditionDetails.repository_unauthorized:type_name -> gitpod.v1.RepositoryUnauthorizedError
-	10, // 8: gitpod.v1.FailedPreconditionDetails.image_build_logs_not_yet_available:type_name -> gitpod.v1.ImageBuildLogsNotYetAvailableError
+var file_nxpod_v1_error_proto_depIdxs = []int32{
+	1,  // 0: nxpod.v1.PermissionDeniedDetails.user_blocked:type_name -> nxpod.v1.UserBlockedError
+	2,  // 1: nxpod.v1.PermissionDeniedDetails.needs_verification:type_name -> nxpod.v1.NeedsVerificationError
+	4,  // 2: nxpod.v1.FailedPreconditionDetails.payment_spending_limit_reached:type_name -> nxpod.v1.PaymentSpendingLimitReachedError
+	5,  // 3: nxpod.v1.FailedPreconditionDetails.invalid_cost_center:type_name -> nxpod.v1.InvalidCostCenterError
+	6,  // 4: nxpod.v1.FailedPreconditionDetails.too_many_running_workspaces:type_name -> nxpod.v1.TooManyRunningWorkspacesError
+	7,  // 5: nxpod.v1.FailedPreconditionDetails.invalid_nxpod_yml:type_name -> nxpod.v1.InvalidNxpodYMLError
+	8,  // 6: nxpod.v1.FailedPreconditionDetails.repository_not_found:type_name -> nxpod.v1.RepositoryNotFoundError
+	9,  // 7: nxpod.v1.FailedPreconditionDetails.repository_unauthorized:type_name -> nxpod.v1.RepositoryUnauthorizedError
+	10, // 8: nxpod.v1.FailedPreconditionDetails.image_build_logs_not_yet_available:type_name -> nxpod.v1.ImageBuildLogsNotYetAvailableError
 	9,  // [9:9] is the sub-list for method output_type
 	9,  // [9:9] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name
@@ -890,13 +890,13 @@ var file_gitpod_v1_error_proto_depIdxs = []int32{
 	0,  // [0:9] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_error_proto_init() }
-func file_gitpod_v1_error_proto_init() {
-	if File_gitpod_v1_error_proto != nil {
+func init() { file_nxpod_v1_error_proto_init() }
+func file_nxpod_v1_error_proto_init() {
+	if File_nxpod_v1_error_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_error_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PermissionDeniedDetails); i {
 			case 0:
 				return &v.state
@@ -908,7 +908,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserBlockedError); i {
 			case 0:
 				return &v.state
@@ -920,7 +920,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NeedsVerificationError); i {
 			case 0:
 				return &v.state
@@ -932,7 +932,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FailedPreconditionDetails); i {
 			case 0:
 				return &v.state
@@ -944,7 +944,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PaymentSpendingLimitReachedError); i {
 			case 0:
 				return &v.state
@@ -956,7 +956,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*InvalidCostCenterError); i {
 			case 0:
 				return &v.state
@@ -968,7 +968,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TooManyRunningWorkspacesError); i {
 			case 0:
 				return &v.state
@@ -980,7 +980,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*InvalidNxpodYMLError); i {
 			case 0:
 				return &v.state
@@ -992,7 +992,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RepositoryNotFoundError); i {
 			case 0:
 				return &v.state
@@ -1004,7 +1004,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RepositoryUnauthorizedError); i {
 			case 0:
 				return &v.state
@@ -1016,7 +1016,7 @@ func file_gitpod_v1_error_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_error_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_error_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ImageBuildLogsNotYetAvailableError); i {
 			case 0:
 				return &v.state
@@ -1029,11 +1029,11 @@ func file_gitpod_v1_error_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_error_proto_msgTypes[0].OneofWrappers = []interface{}{
+	file_nxpod_v1_error_proto_msgTypes[0].OneofWrappers = []interface{}{
 		(*PermissionDeniedDetails_UserBlocked)(nil),
 		(*PermissionDeniedDetails_NeedsVerification)(nil),
 	}
-	file_gitpod_v1_error_proto_msgTypes[3].OneofWrappers = []interface{}{
+	file_nxpod_v1_error_proto_msgTypes[3].OneofWrappers = []interface{}{
 		(*FailedPreconditionDetails_PaymentSpendingLimitReached)(nil),
 		(*FailedPreconditionDetails_InvalidCostCenter)(nil),
 		(*FailedPreconditionDetails_TooManyRunningWorkspaces)(nil),
@@ -1046,18 +1046,18 @@ func file_gitpod_v1_error_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_error_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_error_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_gitpod_v1_error_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_error_proto_depIdxs,
-		MessageInfos:      file_gitpod_v1_error_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_error_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_error_proto_depIdxs,
+		MessageInfos:      file_nxpod_v1_error_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_error_proto = out.File
-	file_gitpod_v1_error_proto_rawDesc = nil
-	file_gitpod_v1_error_proto_goTypes = nil
-	file_gitpod_v1_error_proto_depIdxs = nil
+	File_nxpod_v1_error_proto = out.File
+	file_nxpod_v1_error_proto_rawDesc = nil
+	file_nxpod_v1_error_proto_goTypes = nil
+	file_nxpod_v1_error_proto_depIdxs = nil
 }

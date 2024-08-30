@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.options.BoundConfigurable
@@ -21,7 +21,7 @@ class NxpodSettingsConfigurable : BoundConfigurable("Nxpod") {
                 textField()
                     .label("Nxpod Host:", LabelPosition.LEFT)
                     .align(Align.FILL)
-                    .bindText(state::gitpodHost)
+                    .bindText(state::nxpodHost)
                     .validationOnApply(::validateNxpodHost)
                     .validationOnInput(::validateNxpodHost)
             }
@@ -37,10 +37,10 @@ class NxpodSettingsConfigurable : BoundConfigurable("Nxpod") {
 
     private fun validateNxpodHost(
         builder: ValidationInfoBuilder,
-        gitpodHost: JBTextField
+        nxpodHost: JBTextField
     ): ValidationInfo? {
         return builder.run {
-            if (gitpodHost.text.isBlank()) {
+            if (nxpodHost.text.isBlank()) {
                 return@run error("may not be empty")
             }
             return@run null

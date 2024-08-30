@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	workspaceDownloadModule = "gitpod.workspace_download"
+	workspaceDownloadModule = "nxpod.workspace_download"
 )
 
 func init() {
@@ -25,7 +25,7 @@ func init() {
 	httpcaddyfile.RegisterHandlerDirective(workspaceDownloadModule, parseCaddyfile)
 }
 
-// Download implements an HTTP handler that extracts gitpod headers
+// Download implements an HTTP handler that extracts nxpod headers
 type Download struct {
 	Service string `json:"service,omitempty"`
 }
@@ -33,7 +33,7 @@ type Download struct {
 // CaddyModule returns the Caddy module information.
 func (Download) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "http.handlers.gitpod_workspace_download",
+		ID:  "http.handlers.nxpod_workspace_download",
 		New: func() caddy.Module { return new(Download) },
 	}
 }

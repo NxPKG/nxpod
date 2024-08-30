@@ -8,7 +8,7 @@ Here are a few of the things you can do with it:
 
 - Open a file in the IDE
 - Open a URL in the IDE's preview
-- Watch the progress of a running task defined on `.gitpod.yml` by attaching the terminal to its process.
+- Watch the progress of a running task defined on `.nxpod.yml` by attaching the terminal to its process.
 - Control user-defined environment variables
 - Stop the current workspace
 - Notify and wait for events to happen, to control the order of execution of terminal tasks
@@ -18,11 +18,11 @@ Here are a few of the things you can do with it:
 - Take a snapshot of the current workspace
 - Create a Nxpod configuration for the current project
 
-Learn more about it by running `gp —-help` or checking the [documentation](https://www.gitpod.io/docs/command-line-interface/).
+Learn more about it by running `gp —-help` or checking the [documentation](https://www.nxpod.khulnasoft.com/docs/command-line-interface/).
 
 ## Useful Links
 
-- [Usage Docs](https://www.gitpod.io/docs/command-line-interface)
+- [Usage Docs](https://www.nxpod.khulnasoft.com/docs/command-line-interface)
 - [GitHub Issues](https://github.com/nxpkg/nxpod/labels/component%3A%20gp%20cli)
 
 ## Contributing

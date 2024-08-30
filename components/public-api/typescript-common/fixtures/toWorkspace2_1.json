@@ -1,6 +1,6 @@
 {
   "workspace": {
-    "id": "gitpodio-workspaceimage-qjvlhi8es6o",
+    "id": "nxpodio-workspaceimage-qjvlhi8es6o",
     "creationTime": "2023-12-01T04:59:09.016Z",
     "organizationId": "ce36c2f8-5d43-4b1d-92f2-08cb6f0e0869",
     "ownerId": "b49148ed-6e1f-4eae-927f-1e62a3c9dab9",
@@ -28,7 +28,7 @@
     "cloneUrl": "https://github.com/nxpkg/workspace-images.git",
     "config": {
       "image": {
-        "file": ".gitpod.Dockerfile",
+        "file": ".nxpod.Dockerfile",
         "externalSource": {
           "repository": {
             "cloneUrl": "https://github.com/nxpkg/workspace-images.git",
@@ -77,7 +77,7 @@
       "ideCredentials": "ideCredentials"
     },
     "imageSource": {
-      "dockerFilePath": ".gitpod.Dockerfile",
+      "dockerFilePath": ".nxpod.Dockerfile",
       "dockerFileSource": {
         "repository": {
           "cloneUrl": "https://github.com/nxpkg/workspace-images.git",
@@ -101,11 +101,11 @@
   },
   "latestInstance": {
     "id": "e6f37fdb-dea1-4640-9e8b-8cdb04791a13",
-    "workspaceId": "gitpodio-workspaceimage-qjvlhi8es6o",
+    "workspaceId": "nxpodio-workspaceimage-qjvlhi8es6o",
     "region": "workspace",
     "creationTime": "2023-12-01T04:59:09.080Z",
     "startedTime": "2023-12-01T05:02:04.539Z",
-    "ideUrl": "https://gitpodio-workspaceimage-qjvlhi8es6o.ws.gitpod.io",
+    "ideUrl": "https://nxpodio-workspaceimage-qjvlhi8es6o.ws.nxpod.khulnasoft.com",
     "workspaceImage": "877922613839.dkr.ecr.eu-central-1.amazonaws.com/image-build/workspace-images:7ce05944fe76199b43aa67aa398266389d2ab348acb01ce6ccca6585be1c7aac",
     "status": {
       "phase": "running",
@@ -127,7 +127,7 @@
       "ownerToken": "ownerToken111",
       "exposedPorts": [
         {
-          "url": "https://5000-gitpodio-workspaceimage-qjvlhi8es6o.ws.gitpod.io",
+          "url": "https://5000-nxpodio-workspaceimage-qjvlhi8es6o.ws.nxpod.khulnasoft.com",
           "port": 5000,
           "protocol": "http",
           "visibility": "private"
@@ -143,7 +143,7 @@
     "configuration": {
       "ideImage": "869456089606.dkr.ecr.eu-central-1.amazonaws.com/application/ide/code:commit-3bb09152fc5248f5b99b33b4d8a7f101aa082441",
       "ideImageLayers": [
-        "869456089606.dkr.ecr.eu-central-1.amazonaws.com/application/ide/gitpod-code-web:commit-49bb715b599dce2356dd02a6ede7ae8cf10d8d12",
+        "869456089606.dkr.ecr.eu-central-1.amazonaws.com/application/ide/nxpod-code-web:commit-49bb715b599dce2356dd02a6ede7ae8cf10d8d12",
         "869456089606.dkr.ecr.eu-central-1.amazonaws.com/application/ide/code-codehelper:commit-a96456ae29513e367719ff1c720adb2c59a0bd49"
       ],
       "supervisorImage": "869456089606.dkr.ecr.eu-central-1.amazonaws.com/application/supervisor:commit-be35ce16a80342b0e57d85d486544e9608044d9a",

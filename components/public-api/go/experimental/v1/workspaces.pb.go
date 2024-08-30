@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/workspaces.proto
+// source: nxpod/experimental/v1/workspaces.proto
 
 package v1
 
@@ -62,11 +62,11 @@ func (x PortPolicy) String() string {
 }
 
 func (PortPolicy) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_workspaces_proto_enumTypes[0].Descriptor()
+	return file_nxpod_experimental_v1_workspaces_proto_enumTypes[0].Descriptor()
 }
 
 func (PortPolicy) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_workspaces_proto_enumTypes[0]
+	return &file_nxpod_experimental_v1_workspaces_proto_enumTypes[0]
 }
 
 func (x PortPolicy) Number() protoreflect.EnumNumber {
@@ -75,7 +75,7 @@ func (x PortPolicy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PortPolicy.Descriptor instead.
 func (PortPolicy) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{0}
 }
 
 // PortProtocol defines the backend protocol of port
@@ -114,11 +114,11 @@ func (x PortProtocol) String() string {
 }
 
 func (PortProtocol) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_workspaces_proto_enumTypes[1].Descriptor()
+	return file_nxpod_experimental_v1_workspaces_proto_enumTypes[1].Descriptor()
 }
 
 func (PortProtocol) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_workspaces_proto_enumTypes[1]
+	return &file_nxpod_experimental_v1_workspaces_proto_enumTypes[1]
 }
 
 func (x PortProtocol) Number() protoreflect.EnumNumber {
@@ -127,7 +127,7 @@ func (x PortProtocol) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PortProtocol.Descriptor instead.
 func (PortProtocol) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{1}
 }
 
 // Admission level describes who can access a workspace instance and its ports.
@@ -166,11 +166,11 @@ func (x AdmissionLevel) String() string {
 }
 
 func (AdmissionLevel) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_workspaces_proto_enumTypes[2].Descriptor()
+	return file_nxpod_experimental_v1_workspaces_proto_enumTypes[2].Descriptor()
 }
 
 func (AdmissionLevel) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_workspaces_proto_enumTypes[2]
+	return &file_nxpod_experimental_v1_workspaces_proto_enumTypes[2]
 }
 
 func (x AdmissionLevel) Number() protoreflect.EnumNumber {
@@ -179,7 +179,7 @@ func (x AdmissionLevel) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AdmissionLevel.Descriptor instead.
 func (AdmissionLevel) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{2}
 }
 
 // Phase is a simple, high-level summary of where the workspace instance is in its lifecycle.
@@ -259,11 +259,11 @@ func (x WorkspaceInstanceStatus_Phase) String() string {
 }
 
 func (WorkspaceInstanceStatus_Phase) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_workspaces_proto_enumTypes[3].Descriptor()
+	return file_nxpod_experimental_v1_workspaces_proto_enumTypes[3].Descriptor()
 }
 
 func (WorkspaceInstanceStatus_Phase) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_workspaces_proto_enumTypes[3]
+	return &file_nxpod_experimental_v1_workspaces_proto_enumTypes[3]
 }
 
 func (x WorkspaceInstanceStatus_Phase) Number() protoreflect.EnumNumber {
@@ -272,7 +272,7 @@ func (x WorkspaceInstanceStatus_Phase) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WorkspaceInstanceStatus_Phase.Descriptor instead.
 func (WorkspaceInstanceStatus_Phase) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{22, 0}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{22, 0}
 }
 
 type GetDefaultWorkspaceImageResponse_ImageSource int32
@@ -310,11 +310,11 @@ func (x GetDefaultWorkspaceImageResponse_ImageSource) String() string {
 }
 
 func (GetDefaultWorkspaceImageResponse_ImageSource) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_experimental_v1_workspaces_proto_enumTypes[4].Descriptor()
+	return file_nxpod_experimental_v1_workspaces_proto_enumTypes[4].Descriptor()
 }
 
 func (GetDefaultWorkspaceImageResponse_ImageSource) Type() protoreflect.EnumType {
-	return &file_gitpod_experimental_v1_workspaces_proto_enumTypes[4]
+	return &file_nxpod_experimental_v1_workspaces_proto_enumTypes[4]
 }
 
 func (x GetDefaultWorkspaceImageResponse_ImageSource) Number() protoreflect.EnumNumber {
@@ -323,7 +323,7 @@ func (x GetDefaultWorkspaceImageResponse_ImageSource) Number() protoreflect.Enum
 
 // Deprecated: Use GetDefaultWorkspaceImageResponse_ImageSource.Descriptor instead.
 func (GetDefaultWorkspaceImageResponse_ImageSource) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{32, 0}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{32, 0}
 }
 
 type ListWorkspacesRequest struct {
@@ -339,7 +339,7 @@ type ListWorkspacesRequest struct {
 func (x *ListWorkspacesRequest) Reset() {
 	*x = ListWorkspacesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -352,7 +352,7 @@ func (x *ListWorkspacesRequest) String() string {
 func (*ListWorkspacesRequest) ProtoMessage() {}
 
 func (x *ListWorkspacesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -365,7 +365,7 @@ func (x *ListWorkspacesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListWorkspacesRequest.ProtoReflect.Descriptor instead.
 func (*ListWorkspacesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ListWorkspacesRequest) GetPagination() *Pagination {
@@ -401,7 +401,7 @@ type ListWorkspacesResponse struct {
 func (x *ListWorkspacesResponse) Reset() {
 	*x = ListWorkspacesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -414,7 +414,7 @@ func (x *ListWorkspacesResponse) String() string {
 func (*ListWorkspacesResponse) ProtoMessage() {}
 
 func (x *ListWorkspacesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -427,7 +427,7 @@ func (x *ListWorkspacesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListWorkspacesResponse.ProtoReflect.Descriptor instead.
 func (*ListWorkspacesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ListWorkspacesResponse) GetNextPageToken() string {
@@ -455,7 +455,7 @@ type GetWorkspaceRequest struct {
 func (x *GetWorkspaceRequest) Reset() {
 	*x = GetWorkspaceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -468,7 +468,7 @@ func (x *GetWorkspaceRequest) String() string {
 func (*GetWorkspaceRequest) ProtoMessage() {}
 
 func (x *GetWorkspaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -481,7 +481,7 @@ func (x *GetWorkspaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWorkspaceRequest.ProtoReflect.Descriptor instead.
 func (*GetWorkspaceRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetWorkspaceRequest) GetWorkspaceId() string {
@@ -502,7 +502,7 @@ type GetWorkspaceResponse struct {
 func (x *GetWorkspaceResponse) Reset() {
 	*x = GetWorkspaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -515,7 +515,7 @@ func (x *GetWorkspaceResponse) String() string {
 func (*GetWorkspaceResponse) ProtoMessage() {}
 
 func (x *GetWorkspaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -528,7 +528,7 @@ func (x *GetWorkspaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWorkspaceResponse.ProtoReflect.Descriptor instead.
 func (*GetWorkspaceResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetWorkspaceResponse) GetResult() *Workspace {
@@ -549,7 +549,7 @@ type StreamWorkspaceStatusRequest struct {
 func (x *StreamWorkspaceStatusRequest) Reset() {
 	*x = StreamWorkspaceStatusRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -562,7 +562,7 @@ func (x *StreamWorkspaceStatusRequest) String() string {
 func (*StreamWorkspaceStatusRequest) ProtoMessage() {}
 
 func (x *StreamWorkspaceStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -575,7 +575,7 @@ func (x *StreamWorkspaceStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StreamWorkspaceStatusRequest.ProtoReflect.Descriptor instead.
 func (*StreamWorkspaceStatusRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *StreamWorkspaceStatusRequest) GetWorkspaceId() string {
@@ -596,7 +596,7 @@ type StreamWorkspaceStatusResponse struct {
 func (x *StreamWorkspaceStatusResponse) Reset() {
 	*x = StreamWorkspaceStatusResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -609,7 +609,7 @@ func (x *StreamWorkspaceStatusResponse) String() string {
 func (*StreamWorkspaceStatusResponse) ProtoMessage() {}
 
 func (x *StreamWorkspaceStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -622,7 +622,7 @@ func (x *StreamWorkspaceStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StreamWorkspaceStatusResponse.ProtoReflect.Descriptor instead.
 func (*StreamWorkspaceStatusResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *StreamWorkspaceStatusResponse) GetResult() *WorkspaceStatus {
@@ -643,7 +643,7 @@ type GetOwnerTokenRequest struct {
 func (x *GetOwnerTokenRequest) Reset() {
 	*x = GetOwnerTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[6]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -656,7 +656,7 @@ func (x *GetOwnerTokenRequest) String() string {
 func (*GetOwnerTokenRequest) ProtoMessage() {}
 
 func (x *GetOwnerTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[6]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -669,7 +669,7 @@ func (x *GetOwnerTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOwnerTokenRequest.ProtoReflect.Descriptor instead.
 func (*GetOwnerTokenRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetOwnerTokenRequest) GetWorkspaceId() string {
@@ -690,7 +690,7 @@ type GetOwnerTokenResponse struct {
 func (x *GetOwnerTokenResponse) Reset() {
 	*x = GetOwnerTokenResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[7]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -703,7 +703,7 @@ func (x *GetOwnerTokenResponse) String() string {
 func (*GetOwnerTokenResponse) ProtoMessage() {}
 
 func (x *GetOwnerTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[7]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -716,7 +716,7 @@ func (x *GetOwnerTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOwnerTokenResponse.ProtoReflect.Descriptor instead.
 func (*GetOwnerTokenResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetOwnerTokenResponse) GetToken() string {
@@ -748,7 +748,7 @@ type CreateAndStartWorkspaceRequest struct {
 func (x *CreateAndStartWorkspaceRequest) Reset() {
 	*x = CreateAndStartWorkspaceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[8]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -761,7 +761,7 @@ func (x *CreateAndStartWorkspaceRequest) String() string {
 func (*CreateAndStartWorkspaceRequest) ProtoMessage() {}
 
 func (x *CreateAndStartWorkspaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[8]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -774,7 +774,7 @@ func (x *CreateAndStartWorkspaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAndStartWorkspaceRequest.ProtoReflect.Descriptor instead.
 func (*CreateAndStartWorkspaceRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateAndStartWorkspaceRequest) GetIdempotencyToken() string {
@@ -874,7 +874,7 @@ type CreateAndStartWorkspaceResponse struct {
 func (x *CreateAndStartWorkspaceResponse) Reset() {
 	*x = CreateAndStartWorkspaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[9]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -887,7 +887,7 @@ func (x *CreateAndStartWorkspaceResponse) String() string {
 func (*CreateAndStartWorkspaceResponse) ProtoMessage() {}
 
 func (x *CreateAndStartWorkspaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[9]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -900,7 +900,7 @@ func (x *CreateAndStartWorkspaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAndStartWorkspaceResponse.ProtoReflect.Descriptor instead.
 func (*CreateAndStartWorkspaceResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateAndStartWorkspaceResponse) GetWorkspaceId() string {
@@ -921,7 +921,7 @@ type StartWorkspaceRequest struct {
 func (x *StartWorkspaceRequest) Reset() {
 	*x = StartWorkspaceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[10]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -934,7 +934,7 @@ func (x *StartWorkspaceRequest) String() string {
 func (*StartWorkspaceRequest) ProtoMessage() {}
 
 func (x *StartWorkspaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[10]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -947,7 +947,7 @@ func (x *StartWorkspaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartWorkspaceRequest.ProtoReflect.Descriptor instead.
 func (*StartWorkspaceRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *StartWorkspaceRequest) GetWorkspaceId() string {
@@ -968,7 +968,7 @@ type StartWorkspaceResponse struct {
 func (x *StartWorkspaceResponse) Reset() {
 	*x = StartWorkspaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[11]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -981,7 +981,7 @@ func (x *StartWorkspaceResponse) String() string {
 func (*StartWorkspaceResponse) ProtoMessage() {}
 
 func (x *StartWorkspaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[11]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -994,7 +994,7 @@ func (x *StartWorkspaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartWorkspaceResponse.ProtoReflect.Descriptor instead.
 func (*StartWorkspaceResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *StartWorkspaceResponse) GetResult() *Workspace {
@@ -1015,7 +1015,7 @@ type StopWorkspaceRequest struct {
 func (x *StopWorkspaceRequest) Reset() {
 	*x = StopWorkspaceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[12]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1028,7 +1028,7 @@ func (x *StopWorkspaceRequest) String() string {
 func (*StopWorkspaceRequest) ProtoMessage() {}
 
 func (x *StopWorkspaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[12]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1041,7 +1041,7 @@ func (x *StopWorkspaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopWorkspaceRequest.ProtoReflect.Descriptor instead.
 func (*StopWorkspaceRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *StopWorkspaceRequest) GetWorkspaceId() string {
@@ -1062,7 +1062,7 @@ type StopWorkspaceResponse struct {
 func (x *StopWorkspaceResponse) Reset() {
 	*x = StopWorkspaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[13]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1075,7 +1075,7 @@ func (x *StopWorkspaceResponse) String() string {
 func (*StopWorkspaceResponse) ProtoMessage() {}
 
 func (x *StopWorkspaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[13]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1088,7 +1088,7 @@ func (x *StopWorkspaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopWorkspaceResponse.ProtoReflect.Descriptor instead.
 func (*StopWorkspaceResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *StopWorkspaceResponse) GetResult() *Workspace {
@@ -1109,7 +1109,7 @@ type DeleteWorkspaceRequest struct {
 func (x *DeleteWorkspaceRequest) Reset() {
 	*x = DeleteWorkspaceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[14]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1122,7 +1122,7 @@ func (x *DeleteWorkspaceRequest) String() string {
 func (*DeleteWorkspaceRequest) ProtoMessage() {}
 
 func (x *DeleteWorkspaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[14]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1135,7 +1135,7 @@ func (x *DeleteWorkspaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteWorkspaceRequest.ProtoReflect.Descriptor instead.
 func (*DeleteWorkspaceRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *DeleteWorkspaceRequest) GetWorkspaceId() string {
@@ -1154,7 +1154,7 @@ type DeleteWorkspaceResponse struct {
 func (x *DeleteWorkspaceResponse) Reset() {
 	*x = DeleteWorkspaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[15]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1167,7 +1167,7 @@ func (x *DeleteWorkspaceResponse) String() string {
 func (*DeleteWorkspaceResponse) ProtoMessage() {}
 
 func (x *DeleteWorkspaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[15]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1180,7 +1180,7 @@ func (x *DeleteWorkspaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteWorkspaceResponse.ProtoReflect.Descriptor instead.
 func (*DeleteWorkspaceResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{15}
 }
 
 type ListWorkspaceClassesRequest struct {
@@ -1192,7 +1192,7 @@ type ListWorkspaceClassesRequest struct {
 func (x *ListWorkspaceClassesRequest) Reset() {
 	*x = ListWorkspaceClassesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[16]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1205,7 +1205,7 @@ func (x *ListWorkspaceClassesRequest) String() string {
 func (*ListWorkspaceClassesRequest) ProtoMessage() {}
 
 func (x *ListWorkspaceClassesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[16]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1218,7 +1218,7 @@ func (x *ListWorkspaceClassesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListWorkspaceClassesRequest.ProtoReflect.Descriptor instead.
 func (*ListWorkspaceClassesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{16}
 }
 
 type ListWorkspaceClassesResponse struct {
@@ -1232,7 +1232,7 @@ type ListWorkspaceClassesResponse struct {
 func (x *ListWorkspaceClassesResponse) Reset() {
 	*x = ListWorkspaceClassesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[17]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1245,7 +1245,7 @@ func (x *ListWorkspaceClassesResponse) String() string {
 func (*ListWorkspaceClassesResponse) ProtoMessage() {}
 
 func (x *ListWorkspaceClassesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[17]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1258,7 +1258,7 @@ func (x *ListWorkspaceClassesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListWorkspaceClassesResponse.ProtoReflect.Descriptor instead.
 func (*ListWorkspaceClassesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{17}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ListWorkspaceClassesResponse) GetResult() []*WorkspaceClass {
@@ -1291,7 +1291,7 @@ type Workspace struct {
 func (x *Workspace) Reset() {
 	*x = Workspace{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[18]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1304,7 +1304,7 @@ func (x *Workspace) String() string {
 func (*Workspace) ProtoMessage() {}
 
 func (x *Workspace) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[18]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1317,7 +1317,7 @@ func (x *Workspace) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Workspace.ProtoReflect.Descriptor instead.
 func (*Workspace) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{18}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *Workspace) GetWorkspaceId() string {
@@ -1375,7 +1375,7 @@ type WorkspaceStatus struct {
 func (x *WorkspaceStatus) Reset() {
 	*x = WorkspaceStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[19]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1388,7 +1388,7 @@ func (x *WorkspaceStatus) String() string {
 func (*WorkspaceStatus) ProtoMessage() {}
 
 func (x *WorkspaceStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[19]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1401,7 +1401,7 @@ func (x *WorkspaceStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceStatus.ProtoReflect.Descriptor instead.
 func (*WorkspaceStatus) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{19}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *WorkspaceStatus) GetInstance() *WorkspaceInstance {
@@ -1431,7 +1431,7 @@ type WorkspaceContext struct {
 func (x *WorkspaceContext) Reset() {
 	*x = WorkspaceContext{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[20]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1444,7 +1444,7 @@ func (x *WorkspaceContext) String() string {
 func (*WorkspaceContext) ProtoMessage() {}
 
 func (x *WorkspaceContext) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[20]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1457,7 +1457,7 @@ func (x *WorkspaceContext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceContext.ProtoReflect.Descriptor instead.
 func (*WorkspaceContext) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *WorkspaceContext) GetContextUrl() string {
@@ -1534,7 +1534,7 @@ type WorkspaceInstance struct {
 func (x *WorkspaceInstance) Reset() {
 	*x = WorkspaceInstance{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[21]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1547,7 +1547,7 @@ func (x *WorkspaceInstance) String() string {
 func (*WorkspaceInstance) ProtoMessage() {}
 
 func (x *WorkspaceInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[21]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1560,7 +1560,7 @@ func (x *WorkspaceInstance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceInstance.ProtoReflect.Descriptor instead.
 func (*WorkspaceInstance) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{21}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *WorkspaceInstance) GetInstanceId() string {
@@ -1604,7 +1604,7 @@ type WorkspaceInstanceStatus struct {
 	// If a.status_version < b.status_version then a was the status before b.
 	StatusVersion uint64 `protobuf:"varint,1,opt,name=status_version,json=statusVersion,proto3" json:"status_version,omitempty"`
 	// the phase of a workspace is a simple, high-level summary of where the workspace instance is in its lifecycle
-	Phase WorkspaceInstanceStatus_Phase `protobuf:"varint,2,opt,name=phase,proto3,enum=gitpod.experimental.v1.WorkspaceInstanceStatus_Phase" json:"phase,omitempty"`
+	Phase WorkspaceInstanceStatus_Phase `protobuf:"varint,2,opt,name=phase,proto3,enum=nxpod.experimental.v1.WorkspaceInstanceStatus_Phase" json:"phase,omitempty"`
 	// conditions detail the current state of the workspace instance
 	Conditions *WorkspaceInstanceStatus_Conditions `protobuf:"bytes,3,opt,name=conditions,proto3" json:"conditions,omitempty"`
 	// message is an optional human-readable message detailing the current phase
@@ -1612,7 +1612,7 @@ type WorkspaceInstanceStatus struct {
 	// URL contains the endpoint at which the workspace instance is available
 	Url string `protobuf:"bytes,5,opt,name=url,proto3" json:"url,omitempty"`
 	// Admission describes who can access a workspace instance and its ports.
-	Admission AdmissionLevel `protobuf:"varint,6,opt,name=admission,proto3,enum=gitpod.experimental.v1.AdmissionLevel" json:"admission,omitempty"`
+	Admission AdmissionLevel `protobuf:"varint,6,opt,name=admission,proto3,enum=nxpod.experimental.v1.AdmissionLevel" json:"admission,omitempty"`
 	// ports is the list of exposed ports in the workspace.
 	Ports []*Port `protobuf:"bytes,7,rep,name=ports,proto3" json:"ports,omitempty"`
 	// recent_folders is the opened folders inside the workspace. Used to determine the folder path to load the workspace in.
@@ -1626,7 +1626,7 @@ type WorkspaceInstanceStatus struct {
 func (x *WorkspaceInstanceStatus) Reset() {
 	*x = WorkspaceInstanceStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[22]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1639,7 +1639,7 @@ func (x *WorkspaceInstanceStatus) String() string {
 func (*WorkspaceInstanceStatus) ProtoMessage() {}
 
 func (x *WorkspaceInstanceStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[22]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1652,7 +1652,7 @@ func (x *WorkspaceInstanceStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceInstanceStatus.ProtoReflect.Descriptor instead.
 func (*WorkspaceInstanceStatus) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{22}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *WorkspaceInstanceStatus) GetStatusVersion() uint64 {
@@ -1726,17 +1726,17 @@ type Port struct {
 	// port number
 	Port uint64 `protobuf:"varint,1,opt,name=port,proto3" json:"port,omitempty"`
 	// policy of this port
-	Policy PortPolicy `protobuf:"varint,2,opt,name=policy,proto3,enum=gitpod.experimental.v1.PortPolicy" json:"policy,omitempty"`
+	Policy PortPolicy `protobuf:"varint,2,opt,name=policy,proto3,enum=nxpod.experimental.v1.PortPolicy" json:"policy,omitempty"`
 	// url that can be used to access the port
 	Url string `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
 	// backend protocol of this port
-	Protocol PortProtocol `protobuf:"varint,4,opt,name=protocol,proto3,enum=gitpod.experimental.v1.PortProtocol" json:"protocol,omitempty"`
+	Protocol PortProtocol `protobuf:"varint,4,opt,name=protocol,proto3,enum=nxpod.experimental.v1.PortProtocol" json:"protocol,omitempty"`
 }
 
 func (x *Port) Reset() {
 	*x = Port{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[23]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1749,7 +1749,7 @@ func (x *Port) String() string {
 func (*Port) ProtoMessage() {}
 
 func (x *Port) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[23]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1762,7 +1762,7 @@ func (x *Port) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Port.ProtoReflect.Descriptor instead.
 func (*Port) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{23}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *Port) GetPort() uint64 {
@@ -1807,7 +1807,7 @@ type StartWorkspaceSpec struct {
 func (x *StartWorkspaceSpec) Reset() {
 	*x = StartWorkspaceSpec{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[24]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1820,7 +1820,7 @@ func (x *StartWorkspaceSpec) String() string {
 func (*StartWorkspaceSpec) ProtoMessage() {}
 
 func (x *StartWorkspaceSpec) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[24]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1833,7 +1833,7 @@ func (x *StartWorkspaceSpec) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartWorkspaceSpec.ProtoReflect.Descriptor instead.
 func (*StartWorkspaceSpec) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{24}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *StartWorkspaceSpec) GetWorkspaceClass() string {
@@ -1869,7 +1869,7 @@ type IDESettings struct {
 func (x *IDESettings) Reset() {
 	*x = IDESettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[25]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1882,7 +1882,7 @@ func (x *IDESettings) String() string {
 func (*IDESettings) ProtoMessage() {}
 
 func (x *IDESettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[25]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1895,7 +1895,7 @@ func (x *IDESettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IDESettings.ProtoReflect.Descriptor instead.
 func (*IDESettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{25}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *IDESettings) GetDefaultIde() string {
@@ -1920,15 +1920,15 @@ type PortSpec struct {
 	// port number
 	Port uint64 `protobuf:"varint,1,opt,name=port,proto3" json:"port,omitempty"`
 	// policy of this port
-	Policy PortPolicy `protobuf:"varint,2,opt,name=policy,proto3,enum=gitpod.experimental.v1.PortPolicy" json:"policy,omitempty"`
+	Policy PortPolicy `protobuf:"varint,2,opt,name=policy,proto3,enum=nxpod.experimental.v1.PortPolicy" json:"policy,omitempty"`
 	// backend protocol of this port
-	Protocol PortProtocol `protobuf:"varint,3,opt,name=protocol,proto3,enum=gitpod.experimental.v1.PortProtocol" json:"protocol,omitempty"`
+	Protocol PortProtocol `protobuf:"varint,3,opt,name=protocol,proto3,enum=nxpod.experimental.v1.PortProtocol" json:"protocol,omitempty"`
 }
 
 func (x *PortSpec) Reset() {
 	*x = PortSpec{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[26]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1941,7 +1941,7 @@ func (x *PortSpec) String() string {
 func (*PortSpec) ProtoMessage() {}
 
 func (x *PortSpec) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[26]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1954,7 +1954,7 @@ func (x *PortSpec) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PortSpec.ProtoReflect.Descriptor instead.
 func (*PortSpec) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{26}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *PortSpec) GetPort() uint64 {
@@ -1990,7 +1990,7 @@ type UpdatePortRequest struct {
 func (x *UpdatePortRequest) Reset() {
 	*x = UpdatePortRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[27]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2003,7 +2003,7 @@ func (x *UpdatePortRequest) String() string {
 func (*UpdatePortRequest) ProtoMessage() {}
 
 func (x *UpdatePortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[27]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2016,7 +2016,7 @@ func (x *UpdatePortRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePortRequest.ProtoReflect.Descriptor instead.
 func (*UpdatePortRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{27}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *UpdatePortRequest) GetWorkspaceId() string {
@@ -2042,7 +2042,7 @@ type UpdatePortResponse struct {
 func (x *UpdatePortResponse) Reset() {
 	*x = UpdatePortResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[28]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2055,7 +2055,7 @@ func (x *UpdatePortResponse) String() string {
 func (*UpdatePortResponse) ProtoMessage() {}
 
 func (x *UpdatePortResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[28]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2068,7 +2068,7 @@ func (x *UpdatePortResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePortResponse.ProtoReflect.Descriptor instead.
 func (*UpdatePortResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{28}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{28}
 }
 
 // GitStatus describes the current working copy status, akin to a combination of "git status" and "git branch"
@@ -2098,7 +2098,7 @@ type GitStatus struct {
 func (x *GitStatus) Reset() {
 	*x = GitStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[29]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2111,7 +2111,7 @@ func (x *GitStatus) String() string {
 func (*GitStatus) ProtoMessage() {}
 
 func (x *GitStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[29]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2124,7 +2124,7 @@ func (x *GitStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GitStatus.ProtoReflect.Descriptor instead.
 func (*GitStatus) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{29}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GitStatus) GetBranch() string {
@@ -2201,7 +2201,7 @@ type WorkspaceClass struct {
 func (x *WorkspaceClass) Reset() {
 	*x = WorkspaceClass{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[30]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2214,7 +2214,7 @@ func (x *WorkspaceClass) String() string {
 func (*WorkspaceClass) ProtoMessage() {}
 
 func (x *WorkspaceClass) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[30]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2227,7 +2227,7 @@ func (x *WorkspaceClass) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceClass.ProtoReflect.Descriptor instead.
 func (*WorkspaceClass) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{30}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *WorkspaceClass) GetId() string {
@@ -2269,7 +2269,7 @@ type GetDefaultWorkspaceImageRequest struct {
 func (x *GetDefaultWorkspaceImageRequest) Reset() {
 	*x = GetDefaultWorkspaceImageRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[31]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2282,7 +2282,7 @@ func (x *GetDefaultWorkspaceImageRequest) String() string {
 func (*GetDefaultWorkspaceImageRequest) ProtoMessage() {}
 
 func (x *GetDefaultWorkspaceImageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[31]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2295,7 +2295,7 @@ func (x *GetDefaultWorkspaceImageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultWorkspaceImageRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultWorkspaceImageRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{31}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetDefaultWorkspaceImageRequest) GetWorkspaceId() string {
@@ -2313,13 +2313,13 @@ type GetDefaultWorkspaceImageResponse struct {
 	// image is the image ref
 	Image string `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
 	// source is the source of the image
-	Source GetDefaultWorkspaceImageResponse_ImageSource `protobuf:"varint,2,opt,name=source,proto3,enum=gitpod.experimental.v1.GetDefaultWorkspaceImageResponse_ImageSource" json:"source,omitempty"`
+	Source GetDefaultWorkspaceImageResponse_ImageSource `protobuf:"varint,2,opt,name=source,proto3,enum=nxpod.experimental.v1.GetDefaultWorkspaceImageResponse_ImageSource" json:"source,omitempty"`
 }
 
 func (x *GetDefaultWorkspaceImageResponse) Reset() {
 	*x = GetDefaultWorkspaceImageResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[32]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2332,7 +2332,7 @@ func (x *GetDefaultWorkspaceImageResponse) String() string {
 func (*GetDefaultWorkspaceImageResponse) ProtoMessage() {}
 
 func (x *GetDefaultWorkspaceImageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[32]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2345,7 +2345,7 @@ func (x *GetDefaultWorkspaceImageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultWorkspaceImageResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultWorkspaceImageResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{32}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *GetDefaultWorkspaceImageResponse) GetImage() string {
@@ -2377,7 +2377,7 @@ type WorkspaceContext_GitProvider struct {
 func (x *WorkspaceContext_GitProvider) Reset() {
 	*x = WorkspaceContext_GitProvider{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[33]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2390,7 +2390,7 @@ func (x *WorkspaceContext_GitProvider) String() string {
 func (*WorkspaceContext_GitProvider) ProtoMessage() {}
 
 func (x *WorkspaceContext_GitProvider) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[33]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2403,7 +2403,7 @@ func (x *WorkspaceContext_GitProvider) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceContext_GitProvider.ProtoReflect.Descriptor instead.
 func (*WorkspaceContext_GitProvider) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 0}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 0}
 }
 
 func (x *WorkspaceContext_GitProvider) GetType() string {
@@ -2433,7 +2433,7 @@ type WorkspaceContext_Repository struct {
 func (x *WorkspaceContext_Repository) Reset() {
 	*x = WorkspaceContext_Repository{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[34]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2446,7 +2446,7 @@ func (x *WorkspaceContext_Repository) String() string {
 func (*WorkspaceContext_Repository) ProtoMessage() {}
 
 func (x *WorkspaceContext_Repository) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[34]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2459,7 +2459,7 @@ func (x *WorkspaceContext_Repository) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceContext_Repository.ProtoReflect.Descriptor instead.
 func (*WorkspaceContext_Repository) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 1}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 1}
 }
 
 func (x *WorkspaceContext_Repository) GetName() string {
@@ -2491,7 +2491,7 @@ type WorkspaceContext_Git struct {
 func (x *WorkspaceContext_Git) Reset() {
 	*x = WorkspaceContext_Git{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[35]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2504,7 +2504,7 @@ func (x *WorkspaceContext_Git) String() string {
 func (*WorkspaceContext_Git) ProtoMessage() {}
 
 func (x *WorkspaceContext_Git) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[35]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2517,7 +2517,7 @@ func (x *WorkspaceContext_Git) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceContext_Git.ProtoReflect.Descriptor instead.
 func (*WorkspaceContext_Git) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 2}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 2}
 }
 
 func (x *WorkspaceContext_Git) GetNormalizedContextUrl() string {
@@ -2557,7 +2557,7 @@ type WorkspaceContext_Prebuild struct {
 func (x *WorkspaceContext_Prebuild) Reset() {
 	*x = WorkspaceContext_Prebuild{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[36]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2570,7 +2570,7 @@ func (x *WorkspaceContext_Prebuild) String() string {
 func (*WorkspaceContext_Prebuild) ProtoMessage() {}
 
 func (x *WorkspaceContext_Prebuild) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[36]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2583,7 +2583,7 @@ func (x *WorkspaceContext_Prebuild) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceContext_Prebuild.ProtoReflect.Descriptor instead.
 func (*WorkspaceContext_Prebuild) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 3}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 3}
 }
 
 func (x *WorkspaceContext_Prebuild) GetOriginalContext() *WorkspaceContext_Git {
@@ -2612,7 +2612,7 @@ type WorkspaceContext_Snapshot struct {
 func (x *WorkspaceContext_Snapshot) Reset() {
 	*x = WorkspaceContext_Snapshot{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[37]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[37]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2625,7 +2625,7 @@ func (x *WorkspaceContext_Snapshot) String() string {
 func (*WorkspaceContext_Snapshot) ProtoMessage() {}
 
 func (x *WorkspaceContext_Snapshot) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[37]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[37]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2638,7 +2638,7 @@ func (x *WorkspaceContext_Snapshot) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkspaceContext_Snapshot.ProtoReflect.Descriptor instead.
 func (*WorkspaceContext_Snapshot) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 4}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{20, 4}
 }
 
 func (x *WorkspaceContext_Snapshot) GetSnapshotId() string {
@@ -2669,7 +2669,7 @@ type WorkspaceInstanceStatus_Conditions struct {
 func (x *WorkspaceInstanceStatus_Conditions) Reset() {
 	*x = WorkspaceInstanceStatus_Conditions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[38]
+		mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[38]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2682,7 +2682,7 @@ func (x *WorkspaceInstanceStatus_Conditions) String() string {
 func (*WorkspaceInstanceStatus_Conditions) ProtoMessage() {}
 
 func (x *WorkspaceInstanceStatus_Conditions) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_workspaces_proto_msgTypes[38]
+	mi := &file_nxpod_experimental_v1_workspaces_proto_msgTypes[38]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2695,7 +2695,7 @@ func (x *WorkspaceInstanceStatus_Conditions) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use WorkspaceInstanceStatus_Conditions.ProtoReflect.Descriptor instead.
 func (*WorkspaceInstanceStatus_Conditions) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{22, 0}
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP(), []int{22, 0}
 }
 
 func (x *WorkspaceInstanceStatus_Conditions) GetFailed() string {
@@ -2726,9 +2726,9 @@ func (x *WorkspaceInstanceStatus_Conditions) GetStoppedByRequest() bool {
 	return false
 }
 
-var File_gitpod_experimental_v1_workspaces_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_workspaces_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_workspaces_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_workspaces_proto_rawDesc = []byte{
 	0x0a, 0x27, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x77, 0x6f, 0x72, 0x6b, 0x73, 0x70, 0x61,
 	0x63, 0x65, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f,
@@ -3215,124 +3215,124 @@ var file_gitpod_experimental_v1_workspaces_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_workspaces_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_workspaces_proto_rawDescData = file_gitpod_experimental_v1_workspaces_proto_rawDesc
+	file_nxpod_experimental_v1_workspaces_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_workspaces_proto_rawDescData = file_nxpod_experimental_v1_workspaces_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_workspaces_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_workspaces_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_workspaces_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_workspaces_proto_rawDescData)
+func file_nxpod_experimental_v1_workspaces_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_workspaces_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_workspaces_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_workspaces_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_workspaces_proto_rawDescData
+	return file_nxpod_experimental_v1_workspaces_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_workspaces_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_gitpod_experimental_v1_workspaces_proto_msgTypes = make([]protoimpl.MessageInfo, 39)
-var file_gitpod_experimental_v1_workspaces_proto_goTypes = []interface{}{
-	(PortPolicy)(0),                                   // 0: gitpod.experimental.v1.PortPolicy
-	(PortProtocol)(0),                                 // 1: gitpod.experimental.v1.PortProtocol
-	(AdmissionLevel)(0),                               // 2: gitpod.experimental.v1.AdmissionLevel
-	(WorkspaceInstanceStatus_Phase)(0),                // 3: gitpod.experimental.v1.WorkspaceInstanceStatus.Phase
-	(GetDefaultWorkspaceImageResponse_ImageSource)(0), // 4: gitpod.experimental.v1.GetDefaultWorkspaceImageResponse.ImageSource
-	(*ListWorkspacesRequest)(nil),                     // 5: gitpod.experimental.v1.ListWorkspacesRequest
-	(*ListWorkspacesResponse)(nil),                    // 6: gitpod.experimental.v1.ListWorkspacesResponse
-	(*GetWorkspaceRequest)(nil),                       // 7: gitpod.experimental.v1.GetWorkspaceRequest
-	(*GetWorkspaceResponse)(nil),                      // 8: gitpod.experimental.v1.GetWorkspaceResponse
-	(*StreamWorkspaceStatusRequest)(nil),              // 9: gitpod.experimental.v1.StreamWorkspaceStatusRequest
-	(*StreamWorkspaceStatusResponse)(nil),             // 10: gitpod.experimental.v1.StreamWorkspaceStatusResponse
-	(*GetOwnerTokenRequest)(nil),                      // 11: gitpod.experimental.v1.GetOwnerTokenRequest
-	(*GetOwnerTokenResponse)(nil),                     // 12: gitpod.experimental.v1.GetOwnerTokenResponse
-	(*CreateAndStartWorkspaceRequest)(nil),            // 13: gitpod.experimental.v1.CreateAndStartWorkspaceRequest
-	(*CreateAndStartWorkspaceResponse)(nil),           // 14: gitpod.experimental.v1.CreateAndStartWorkspaceResponse
-	(*StartWorkspaceRequest)(nil),                     // 15: gitpod.experimental.v1.StartWorkspaceRequest
-	(*StartWorkspaceResponse)(nil),                    // 16: gitpod.experimental.v1.StartWorkspaceResponse
-	(*StopWorkspaceRequest)(nil),                      // 17: gitpod.experimental.v1.StopWorkspaceRequest
-	(*StopWorkspaceResponse)(nil),                     // 18: gitpod.experimental.v1.StopWorkspaceResponse
-	(*DeleteWorkspaceRequest)(nil),                    // 19: gitpod.experimental.v1.DeleteWorkspaceRequest
-	(*DeleteWorkspaceResponse)(nil),                   // 20: gitpod.experimental.v1.DeleteWorkspaceResponse
-	(*ListWorkspaceClassesRequest)(nil),               // 21: gitpod.experimental.v1.ListWorkspaceClassesRequest
-	(*ListWorkspaceClassesResponse)(nil),              // 22: gitpod.experimental.v1.ListWorkspaceClassesResponse
-	(*Workspace)(nil),                                 // 23: gitpod.experimental.v1.Workspace
-	(*WorkspaceStatus)(nil),                           // 24: gitpod.experimental.v1.WorkspaceStatus
-	(*WorkspaceContext)(nil),                          // 25: gitpod.experimental.v1.WorkspaceContext
-	(*WorkspaceInstance)(nil),                         // 26: gitpod.experimental.v1.WorkspaceInstance
-	(*WorkspaceInstanceStatus)(nil),                   // 27: gitpod.experimental.v1.WorkspaceInstanceStatus
-	(*Port)(nil),                                      // 28: gitpod.experimental.v1.Port
-	(*StartWorkspaceSpec)(nil),                        // 29: gitpod.experimental.v1.StartWorkspaceSpec
-	(*IDESettings)(nil),                               // 30: gitpod.experimental.v1.IDESettings
-	(*PortSpec)(nil),                                  // 31: gitpod.experimental.v1.PortSpec
-	(*UpdatePortRequest)(nil),                         // 32: gitpod.experimental.v1.UpdatePortRequest
-	(*UpdatePortResponse)(nil),                        // 33: gitpod.experimental.v1.UpdatePortResponse
-	(*GitStatus)(nil),                                 // 34: gitpod.experimental.v1.GitStatus
-	(*WorkspaceClass)(nil),                            // 35: gitpod.experimental.v1.WorkspaceClass
-	(*GetDefaultWorkspaceImageRequest)(nil),           // 36: gitpod.experimental.v1.GetDefaultWorkspaceImageRequest
-	(*GetDefaultWorkspaceImageResponse)(nil),          // 37: gitpod.experimental.v1.GetDefaultWorkspaceImageResponse
-	(*WorkspaceContext_GitProvider)(nil),              // 38: gitpod.experimental.v1.WorkspaceContext.GitProvider
-	(*WorkspaceContext_Repository)(nil),               // 39: gitpod.experimental.v1.WorkspaceContext.Repository
-	(*WorkspaceContext_Git)(nil),                      // 40: gitpod.experimental.v1.WorkspaceContext.Git
-	(*WorkspaceContext_Prebuild)(nil),                 // 41: gitpod.experimental.v1.WorkspaceContext.Prebuild
-	(*WorkspaceContext_Snapshot)(nil),                 // 42: gitpod.experimental.v1.WorkspaceContext.Snapshot
-	(*WorkspaceInstanceStatus_Conditions)(nil),        // 43: gitpod.experimental.v1.WorkspaceInstanceStatus.Conditions
-	(*Pagination)(nil),                                // 44: gitpod.experimental.v1.Pagination
+var file_nxpod_experimental_v1_workspaces_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_nxpod_experimental_v1_workspaces_proto_msgTypes = make([]protoimpl.MessageInfo, 39)
+var file_nxpod_experimental_v1_workspaces_proto_goTypes = []interface{}{
+	(PortPolicy)(0),                                   // 0: nxpod.experimental.v1.PortPolicy
+	(PortProtocol)(0),                                 // 1: nxpod.experimental.v1.PortProtocol
+	(AdmissionLevel)(0),                               // 2: nxpod.experimental.v1.AdmissionLevel
+	(WorkspaceInstanceStatus_Phase)(0),                // 3: nxpod.experimental.v1.WorkspaceInstanceStatus.Phase
+	(GetDefaultWorkspaceImageResponse_ImageSource)(0), // 4: nxpod.experimental.v1.GetDefaultWorkspaceImageResponse.ImageSource
+	(*ListWorkspacesRequest)(nil),                     // 5: nxpod.experimental.v1.ListWorkspacesRequest
+	(*ListWorkspacesResponse)(nil),                    // 6: nxpod.experimental.v1.ListWorkspacesResponse
+	(*GetWorkspaceRequest)(nil),                       // 7: nxpod.experimental.v1.GetWorkspaceRequest
+	(*GetWorkspaceResponse)(nil),                      // 8: nxpod.experimental.v1.GetWorkspaceResponse
+	(*StreamWorkspaceStatusRequest)(nil),              // 9: nxpod.experimental.v1.StreamWorkspaceStatusRequest
+	(*StreamWorkspaceStatusResponse)(nil),             // 10: nxpod.experimental.v1.StreamWorkspaceStatusResponse
+	(*GetOwnerTokenRequest)(nil),                      // 11: nxpod.experimental.v1.GetOwnerTokenRequest
+	(*GetOwnerTokenResponse)(nil),                     // 12: nxpod.experimental.v1.GetOwnerTokenResponse
+	(*CreateAndStartWorkspaceRequest)(nil),            // 13: nxpod.experimental.v1.CreateAndStartWorkspaceRequest
+	(*CreateAndStartWorkspaceResponse)(nil),           // 14: nxpod.experimental.v1.CreateAndStartWorkspaceResponse
+	(*StartWorkspaceRequest)(nil),                     // 15: nxpod.experimental.v1.StartWorkspaceRequest
+	(*StartWorkspaceResponse)(nil),                    // 16: nxpod.experimental.v1.StartWorkspaceResponse
+	(*StopWorkspaceRequest)(nil),                      // 17: nxpod.experimental.v1.StopWorkspaceRequest
+	(*StopWorkspaceResponse)(nil),                     // 18: nxpod.experimental.v1.StopWorkspaceResponse
+	(*DeleteWorkspaceRequest)(nil),                    // 19: nxpod.experimental.v1.DeleteWorkspaceRequest
+	(*DeleteWorkspaceResponse)(nil),                   // 20: nxpod.experimental.v1.DeleteWorkspaceResponse
+	(*ListWorkspaceClassesRequest)(nil),               // 21: nxpod.experimental.v1.ListWorkspaceClassesRequest
+	(*ListWorkspaceClassesResponse)(nil),              // 22: nxpod.experimental.v1.ListWorkspaceClassesResponse
+	(*Workspace)(nil),                                 // 23: nxpod.experimental.v1.Workspace
+	(*WorkspaceStatus)(nil),                           // 24: nxpod.experimental.v1.WorkspaceStatus
+	(*WorkspaceContext)(nil),                          // 25: nxpod.experimental.v1.WorkspaceContext
+	(*WorkspaceInstance)(nil),                         // 26: nxpod.experimental.v1.WorkspaceInstance
+	(*WorkspaceInstanceStatus)(nil),                   // 27: nxpod.experimental.v1.WorkspaceInstanceStatus
+	(*Port)(nil),                                      // 28: nxpod.experimental.v1.Port
+	(*StartWorkspaceSpec)(nil),                        // 29: nxpod.experimental.v1.StartWorkspaceSpec
+	(*IDESettings)(nil),                               // 30: nxpod.experimental.v1.IDESettings
+	(*PortSpec)(nil),                                  // 31: nxpod.experimental.v1.PortSpec
+	(*UpdatePortRequest)(nil),                         // 32: nxpod.experimental.v1.UpdatePortRequest
+	(*UpdatePortResponse)(nil),                        // 33: nxpod.experimental.v1.UpdatePortResponse
+	(*GitStatus)(nil),                                 // 34: nxpod.experimental.v1.GitStatus
+	(*WorkspaceClass)(nil),                            // 35: nxpod.experimental.v1.WorkspaceClass
+	(*GetDefaultWorkspaceImageRequest)(nil),           // 36: nxpod.experimental.v1.GetDefaultWorkspaceImageRequest
+	(*GetDefaultWorkspaceImageResponse)(nil),          // 37: nxpod.experimental.v1.GetDefaultWorkspaceImageResponse
+	(*WorkspaceContext_GitProvider)(nil),              // 38: nxpod.experimental.v1.WorkspaceContext.GitProvider
+	(*WorkspaceContext_Repository)(nil),               // 39: nxpod.experimental.v1.WorkspaceContext.Repository
+	(*WorkspaceContext_Git)(nil),                      // 40: nxpod.experimental.v1.WorkspaceContext.Git
+	(*WorkspaceContext_Prebuild)(nil),                 // 41: nxpod.experimental.v1.WorkspaceContext.Prebuild
+	(*WorkspaceContext_Snapshot)(nil),                 // 42: nxpod.experimental.v1.WorkspaceContext.Snapshot
+	(*WorkspaceInstanceStatus_Conditions)(nil),        // 43: nxpod.experimental.v1.WorkspaceInstanceStatus.Conditions
+	(*Pagination)(nil),                                // 44: nxpod.experimental.v1.Pagination
 	(*fieldmaskpb.FieldMask)(nil),                     // 45: google.protobuf.FieldMask
 	(*timestamppb.Timestamp)(nil),                     // 46: google.protobuf.Timestamp
 }
-var file_gitpod_experimental_v1_workspaces_proto_depIdxs = []int32{
-	44, // 0: gitpod.experimental.v1.ListWorkspacesRequest.pagination:type_name -> gitpod.experimental.v1.Pagination
-	45, // 1: gitpod.experimental.v1.ListWorkspacesRequest.field_mask:type_name -> google.protobuf.FieldMask
-	23, // 2: gitpod.experimental.v1.ListWorkspacesResponse.result:type_name -> gitpod.experimental.v1.Workspace
-	23, // 3: gitpod.experimental.v1.GetWorkspaceResponse.result:type_name -> gitpod.experimental.v1.Workspace
-	24, // 4: gitpod.experimental.v1.StreamWorkspaceStatusResponse.result:type_name -> gitpod.experimental.v1.WorkspaceStatus
-	29, // 5: gitpod.experimental.v1.CreateAndStartWorkspaceRequest.start_spec:type_name -> gitpod.experimental.v1.StartWorkspaceSpec
-	23, // 6: gitpod.experimental.v1.StartWorkspaceResponse.result:type_name -> gitpod.experimental.v1.Workspace
-	23, // 7: gitpod.experimental.v1.StopWorkspaceResponse.result:type_name -> gitpod.experimental.v1.Workspace
-	35, // 8: gitpod.experimental.v1.ListWorkspaceClassesResponse.result:type_name -> gitpod.experimental.v1.WorkspaceClass
-	25, // 9: gitpod.experimental.v1.Workspace.context:type_name -> gitpod.experimental.v1.WorkspaceContext
-	24, // 10: gitpod.experimental.v1.Workspace.status:type_name -> gitpod.experimental.v1.WorkspaceStatus
-	26, // 11: gitpod.experimental.v1.WorkspaceStatus.instance:type_name -> gitpod.experimental.v1.WorkspaceInstance
-	40, // 12: gitpod.experimental.v1.WorkspaceContext.git:type_name -> gitpod.experimental.v1.WorkspaceContext.Git
-	41, // 13: gitpod.experimental.v1.WorkspaceContext.prebuild:type_name -> gitpod.experimental.v1.WorkspaceContext.Prebuild
-	42, // 14: gitpod.experimental.v1.WorkspaceContext.snapshot:type_name -> gitpod.experimental.v1.WorkspaceContext.Snapshot
-	46, // 15: gitpod.experimental.v1.WorkspaceInstance.created_at:type_name -> google.protobuf.Timestamp
-	27, // 16: gitpod.experimental.v1.WorkspaceInstance.status:type_name -> gitpod.experimental.v1.WorkspaceInstanceStatus
-	3,  // 17: gitpod.experimental.v1.WorkspaceInstanceStatus.phase:type_name -> gitpod.experimental.v1.WorkspaceInstanceStatus.Phase
-	43, // 18: gitpod.experimental.v1.WorkspaceInstanceStatus.conditions:type_name -> gitpod.experimental.v1.WorkspaceInstanceStatus.Conditions
-	2,  // 19: gitpod.experimental.v1.WorkspaceInstanceStatus.admission:type_name -> gitpod.experimental.v1.AdmissionLevel
-	28, // 20: gitpod.experimental.v1.WorkspaceInstanceStatus.ports:type_name -> gitpod.experimental.v1.Port
-	34, // 21: gitpod.experimental.v1.WorkspaceInstanceStatus.git_status:type_name -> gitpod.experimental.v1.GitStatus
-	0,  // 22: gitpod.experimental.v1.Port.policy:type_name -> gitpod.experimental.v1.PortPolicy
-	1,  // 23: gitpod.experimental.v1.Port.protocol:type_name -> gitpod.experimental.v1.PortProtocol
-	30, // 24: gitpod.experimental.v1.StartWorkspaceSpec.ide_settings:type_name -> gitpod.experimental.v1.IDESettings
-	0,  // 25: gitpod.experimental.v1.PortSpec.policy:type_name -> gitpod.experimental.v1.PortPolicy
-	1,  // 26: gitpod.experimental.v1.PortSpec.protocol:type_name -> gitpod.experimental.v1.PortProtocol
-	31, // 27: gitpod.experimental.v1.UpdatePortRequest.port:type_name -> gitpod.experimental.v1.PortSpec
-	4,  // 28: gitpod.experimental.v1.GetDefaultWorkspaceImageResponse.source:type_name -> gitpod.experimental.v1.GetDefaultWorkspaceImageResponse.ImageSource
-	39, // 29: gitpod.experimental.v1.WorkspaceContext.Git.repository:type_name -> gitpod.experimental.v1.WorkspaceContext.Repository
-	38, // 30: gitpod.experimental.v1.WorkspaceContext.Git.provider:type_name -> gitpod.experimental.v1.WorkspaceContext.GitProvider
-	40, // 31: gitpod.experimental.v1.WorkspaceContext.Prebuild.original_context:type_name -> gitpod.experimental.v1.WorkspaceContext.Git
-	46, // 32: gitpod.experimental.v1.WorkspaceInstanceStatus.Conditions.first_user_activity:type_name -> google.protobuf.Timestamp
-	5,  // 33: gitpod.experimental.v1.WorkspacesService.ListWorkspaces:input_type -> gitpod.experimental.v1.ListWorkspacesRequest
-	7,  // 34: gitpod.experimental.v1.WorkspacesService.GetWorkspace:input_type -> gitpod.experimental.v1.GetWorkspaceRequest
-	9,  // 35: gitpod.experimental.v1.WorkspacesService.StreamWorkspaceStatus:input_type -> gitpod.experimental.v1.StreamWorkspaceStatusRequest
-	11, // 36: gitpod.experimental.v1.WorkspacesService.GetOwnerToken:input_type -> gitpod.experimental.v1.GetOwnerTokenRequest
-	13, // 37: gitpod.experimental.v1.WorkspacesService.CreateAndStartWorkspace:input_type -> gitpod.experimental.v1.CreateAndStartWorkspaceRequest
-	15, // 38: gitpod.experimental.v1.WorkspacesService.StartWorkspace:input_type -> gitpod.experimental.v1.StartWorkspaceRequest
-	17, // 39: gitpod.experimental.v1.WorkspacesService.StopWorkspace:input_type -> gitpod.experimental.v1.StopWorkspaceRequest
-	19, // 40: gitpod.experimental.v1.WorkspacesService.DeleteWorkspace:input_type -> gitpod.experimental.v1.DeleteWorkspaceRequest
-	32, // 41: gitpod.experimental.v1.WorkspacesService.UpdatePort:input_type -> gitpod.experimental.v1.UpdatePortRequest
-	21, // 42: gitpod.experimental.v1.WorkspacesService.ListWorkspaceClasses:input_type -> gitpod.experimental.v1.ListWorkspaceClassesRequest
-	36, // 43: gitpod.experimental.v1.WorkspacesService.GetDefaultWorkspaceImage:input_type -> gitpod.experimental.v1.GetDefaultWorkspaceImageRequest
-	6,  // 44: gitpod.experimental.v1.WorkspacesService.ListWorkspaces:output_type -> gitpod.experimental.v1.ListWorkspacesResponse
-	8,  // 45: gitpod.experimental.v1.WorkspacesService.GetWorkspace:output_type -> gitpod.experimental.v1.GetWorkspaceResponse
-	10, // 46: gitpod.experimental.v1.WorkspacesService.StreamWorkspaceStatus:output_type -> gitpod.experimental.v1.StreamWorkspaceStatusResponse
-	12, // 47: gitpod.experimental.v1.WorkspacesService.GetOwnerToken:output_type -> gitpod.experimental.v1.GetOwnerTokenResponse
-	14, // 48: gitpod.experimental.v1.WorkspacesService.CreateAndStartWorkspace:output_type -> gitpod.experimental.v1.CreateAndStartWorkspaceResponse
-	16, // 49: gitpod.experimental.v1.WorkspacesService.StartWorkspace:output_type -> gitpod.experimental.v1.StartWorkspaceResponse
-	18, // 50: gitpod.experimental.v1.WorkspacesService.StopWorkspace:output_type -> gitpod.experimental.v1.StopWorkspaceResponse
-	20, // 51: gitpod.experimental.v1.WorkspacesService.DeleteWorkspace:output_type -> gitpod.experimental.v1.DeleteWorkspaceResponse
-	33, // 52: gitpod.experimental.v1.WorkspacesService.UpdatePort:output_type -> gitpod.experimental.v1.UpdatePortResponse
-	22, // 53: gitpod.experimental.v1.WorkspacesService.ListWorkspaceClasses:output_type -> gitpod.experimental.v1.ListWorkspaceClassesResponse
-	37, // 54: gitpod.experimental.v1.WorkspacesService.GetDefaultWorkspaceImage:output_type -> gitpod.experimental.v1.GetDefaultWorkspaceImageResponse
+var file_nxpod_experimental_v1_workspaces_proto_depIdxs = []int32{
+	44, // 0: nxpod.experimental.v1.ListWorkspacesRequest.pagination:type_name -> nxpod.experimental.v1.Pagination
+	45, // 1: nxpod.experimental.v1.ListWorkspacesRequest.field_mask:type_name -> google.protobuf.FieldMask
+	23, // 2: nxpod.experimental.v1.ListWorkspacesResponse.result:type_name -> nxpod.experimental.v1.Workspace
+	23, // 3: nxpod.experimental.v1.GetWorkspaceResponse.result:type_name -> nxpod.experimental.v1.Workspace
+	24, // 4: nxpod.experimental.v1.StreamWorkspaceStatusResponse.result:type_name -> nxpod.experimental.v1.WorkspaceStatus
+	29, // 5: nxpod.experimental.v1.CreateAndStartWorkspaceRequest.start_spec:type_name -> nxpod.experimental.v1.StartWorkspaceSpec
+	23, // 6: nxpod.experimental.v1.StartWorkspaceResponse.result:type_name -> nxpod.experimental.v1.Workspace
+	23, // 7: nxpod.experimental.v1.StopWorkspaceResponse.result:type_name -> nxpod.experimental.v1.Workspace
+	35, // 8: nxpod.experimental.v1.ListWorkspaceClassesResponse.result:type_name -> nxpod.experimental.v1.WorkspaceClass
+	25, // 9: nxpod.experimental.v1.Workspace.context:type_name -> nxpod.experimental.v1.WorkspaceContext
+	24, // 10: nxpod.experimental.v1.Workspace.status:type_name -> nxpod.experimental.v1.WorkspaceStatus
+	26, // 11: nxpod.experimental.v1.WorkspaceStatus.instance:type_name -> nxpod.experimental.v1.WorkspaceInstance
+	40, // 12: nxpod.experimental.v1.WorkspaceContext.git:type_name -> nxpod.experimental.v1.WorkspaceContext.Git
+	41, // 13: nxpod.experimental.v1.WorkspaceContext.prebuild:type_name -> nxpod.experimental.v1.WorkspaceContext.Prebuild
+	42, // 14: nxpod.experimental.v1.WorkspaceContext.snapshot:type_name -> nxpod.experimental.v1.WorkspaceContext.Snapshot
+	46, // 15: nxpod.experimental.v1.WorkspaceInstance.created_at:type_name -> google.protobuf.Timestamp
+	27, // 16: nxpod.experimental.v1.WorkspaceInstance.status:type_name -> nxpod.experimental.v1.WorkspaceInstanceStatus
+	3,  // 17: nxpod.experimental.v1.WorkspaceInstanceStatus.phase:type_name -> nxpod.experimental.v1.WorkspaceInstanceStatus.Phase
+	43, // 18: nxpod.experimental.v1.WorkspaceInstanceStatus.conditions:type_name -> nxpod.experimental.v1.WorkspaceInstanceStatus.Conditions
+	2,  // 19: nxpod.experimental.v1.WorkspaceInstanceStatus.admission:type_name -> nxpod.experimental.v1.AdmissionLevel
+	28, // 20: nxpod.experimental.v1.WorkspaceInstanceStatus.ports:type_name -> nxpod.experimental.v1.Port
+	34, // 21: nxpod.experimental.v1.WorkspaceInstanceStatus.git_status:type_name -> nxpod.experimental.v1.GitStatus
+	0,  // 22: nxpod.experimental.v1.Port.policy:type_name -> nxpod.experimental.v1.PortPolicy
+	1,  // 23: nxpod.experimental.v1.Port.protocol:type_name -> nxpod.experimental.v1.PortProtocol
+	30, // 24: nxpod.experimental.v1.StartWorkspaceSpec.ide_settings:type_name -> nxpod.experimental.v1.IDESettings
+	0,  // 25: nxpod.experimental.v1.PortSpec.policy:type_name -> nxpod.experimental.v1.PortPolicy
+	1,  // 26: nxpod.experimental.v1.PortSpec.protocol:type_name -> nxpod.experimental.v1.PortProtocol
+	31, // 27: nxpod.experimental.v1.UpdatePortRequest.port:type_name -> nxpod.experimental.v1.PortSpec
+	4,  // 28: nxpod.experimental.v1.GetDefaultWorkspaceImageResponse.source:type_name -> nxpod.experimental.v1.GetDefaultWorkspaceImageResponse.ImageSource
+	39, // 29: nxpod.experimental.v1.WorkspaceContext.Git.repository:type_name -> nxpod.experimental.v1.WorkspaceContext.Repository
+	38, // 30: nxpod.experimental.v1.WorkspaceContext.Git.provider:type_name -> nxpod.experimental.v1.WorkspaceContext.GitProvider
+	40, // 31: nxpod.experimental.v1.WorkspaceContext.Prebuild.original_context:type_name -> nxpod.experimental.v1.WorkspaceContext.Git
+	46, // 32: nxpod.experimental.v1.WorkspaceInstanceStatus.Conditions.first_user_activity:type_name -> google.protobuf.Timestamp
+	5,  // 33: nxpod.experimental.v1.WorkspacesService.ListWorkspaces:input_type -> nxpod.experimental.v1.ListWorkspacesRequest
+	7,  // 34: nxpod.experimental.v1.WorkspacesService.GetWorkspace:input_type -> nxpod.experimental.v1.GetWorkspaceRequest
+	9,  // 35: nxpod.experimental.v1.WorkspacesService.StreamWorkspaceStatus:input_type -> nxpod.experimental.v1.StreamWorkspaceStatusRequest
+	11, // 36: nxpod.experimental.v1.WorkspacesService.GetOwnerToken:input_type -> nxpod.experimental.v1.GetOwnerTokenRequest
+	13, // 37: nxpod.experimental.v1.WorkspacesService.CreateAndStartWorkspace:input_type -> nxpod.experimental.v1.CreateAndStartWorkspaceRequest
+	15, // 38: nxpod.experimental.v1.WorkspacesService.StartWorkspace:input_type -> nxpod.experimental.v1.StartWorkspaceRequest
+	17, // 39: nxpod.experimental.v1.WorkspacesService.StopWorkspace:input_type -> nxpod.experimental.v1.StopWorkspaceRequest
+	19, // 40: nxpod.experimental.v1.WorkspacesService.DeleteWorkspace:input_type -> nxpod.experimental.v1.DeleteWorkspaceRequest
+	32, // 41: nxpod.experimental.v1.WorkspacesService.UpdatePort:input_type -> nxpod.experimental.v1.UpdatePortRequest
+	21, // 42: nxpod.experimental.v1.WorkspacesService.ListWorkspaceClasses:input_type -> nxpod.experimental.v1.ListWorkspaceClassesRequest
+	36, // 43: nxpod.experimental.v1.WorkspacesService.GetDefaultWorkspaceImage:input_type -> nxpod.experimental.v1.GetDefaultWorkspaceImageRequest
+	6,  // 44: nxpod.experimental.v1.WorkspacesService.ListWorkspaces:output_type -> nxpod.experimental.v1.ListWorkspacesResponse
+	8,  // 45: nxpod.experimental.v1.WorkspacesService.GetWorkspace:output_type -> nxpod.experimental.v1.GetWorkspaceResponse
+	10, // 46: nxpod.experimental.v1.WorkspacesService.StreamWorkspaceStatus:output_type -> nxpod.experimental.v1.StreamWorkspaceStatusResponse
+	12, // 47: nxpod.experimental.v1.WorkspacesService.GetOwnerToken:output_type -> nxpod.experimental.v1.GetOwnerTokenResponse
+	14, // 48: nxpod.experimental.v1.WorkspacesService.CreateAndStartWorkspace:output_type -> nxpod.experimental.v1.CreateAndStartWorkspaceResponse
+	16, // 49: nxpod.experimental.v1.WorkspacesService.StartWorkspace:output_type -> nxpod.experimental.v1.StartWorkspaceResponse
+	18, // 50: nxpod.experimental.v1.WorkspacesService.StopWorkspace:output_type -> nxpod.experimental.v1.StopWorkspaceResponse
+	20, // 51: nxpod.experimental.v1.WorkspacesService.DeleteWorkspace:output_type -> nxpod.experimental.v1.DeleteWorkspaceResponse
+	33, // 52: nxpod.experimental.v1.WorkspacesService.UpdatePort:output_type -> nxpod.experimental.v1.UpdatePortResponse
+	22, // 53: nxpod.experimental.v1.WorkspacesService.ListWorkspaceClasses:output_type -> nxpod.experimental.v1.ListWorkspaceClassesResponse
+	37, // 54: nxpod.experimental.v1.WorkspacesService.GetDefaultWorkspaceImage:output_type -> nxpod.experimental.v1.GetDefaultWorkspaceImageResponse
 	44, // [44:55] is the sub-list for method output_type
 	33, // [33:44] is the sub-list for method input_type
 	33, // [33:33] is the sub-list for extension type_name
@@ -3340,14 +3340,14 @@ var file_gitpod_experimental_v1_workspaces_proto_depIdxs = []int32{
 	0,  // [0:33] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_workspaces_proto_init() }
-func file_gitpod_experimental_v1_workspaces_proto_init() {
-	if File_gitpod_experimental_v1_workspaces_proto != nil {
+func init() { file_nxpod_experimental_v1_workspaces_proto_init() }
+func file_nxpod_experimental_v1_workspaces_proto_init() {
+	if File_nxpod_experimental_v1_workspaces_proto != nil {
 		return
 	}
-	file_gitpod_experimental_v1_pagination_proto_init()
+	file_nxpod_experimental_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListWorkspacesRequest); i {
 			case 0:
 				return &v.state
@@ -3359,7 +3359,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListWorkspacesResponse); i {
 			case 0:
 				return &v.state
@@ -3371,7 +3371,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetWorkspaceRequest); i {
 			case 0:
 				return &v.state
@@ -3383,7 +3383,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetWorkspaceResponse); i {
 			case 0:
 				return &v.state
@@ -3395,7 +3395,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StreamWorkspaceStatusRequest); i {
 			case 0:
 				return &v.state
@@ -3407,7 +3407,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StreamWorkspaceStatusResponse); i {
 			case 0:
 				return &v.state
@@ -3419,7 +3419,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOwnerTokenRequest); i {
 			case 0:
 				return &v.state
@@ -3431,7 +3431,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOwnerTokenResponse); i {
 			case 0:
 				return &v.state
@@ -3443,7 +3443,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateAndStartWorkspaceRequest); i {
 			case 0:
 				return &v.state
@@ -3455,7 +3455,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateAndStartWorkspaceResponse); i {
 			case 0:
 				return &v.state
@@ -3467,7 +3467,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StartWorkspaceRequest); i {
 			case 0:
 				return &v.state
@@ -3479,7 +3479,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StartWorkspaceResponse); i {
 			case 0:
 				return &v.state
@@ -3491,7 +3491,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StopWorkspaceRequest); i {
 			case 0:
 				return &v.state
@@ -3503,7 +3503,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StopWorkspaceResponse); i {
 			case 0:
 				return &v.state
@@ -3515,7 +3515,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteWorkspaceRequest); i {
 			case 0:
 				return &v.state
@@ -3527,7 +3527,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteWorkspaceResponse); i {
 			case 0:
 				return &v.state
@@ -3539,7 +3539,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListWorkspaceClassesRequest); i {
 			case 0:
 				return &v.state
@@ -3551,7 +3551,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListWorkspaceClassesResponse); i {
 			case 0:
 				return &v.state
@@ -3563,7 +3563,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Workspace); i {
 			case 0:
 				return &v.state
@@ -3575,7 +3575,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceStatus); i {
 			case 0:
 				return &v.state
@@ -3587,7 +3587,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceContext); i {
 			case 0:
 				return &v.state
@@ -3599,7 +3599,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceInstance); i {
 			case 0:
 				return &v.state
@@ -3611,7 +3611,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceInstanceStatus); i {
 			case 0:
 				return &v.state
@@ -3623,7 +3623,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Port); i {
 			case 0:
 				return &v.state
@@ -3635,7 +3635,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StartWorkspaceSpec); i {
 			case 0:
 				return &v.state
@@ -3647,7 +3647,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*IDESettings); i {
 			case 0:
 				return &v.state
@@ -3659,7 +3659,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PortSpec); i {
 			case 0:
 				return &v.state
@@ -3671,7 +3671,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdatePortRequest); i {
 			case 0:
 				return &v.state
@@ -3683,7 +3683,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdatePortResponse); i {
 			case 0:
 				return &v.state
@@ -3695,7 +3695,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GitStatus); i {
 			case 0:
 				return &v.state
@@ -3707,7 +3707,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceClass); i {
 			case 0:
 				return &v.state
@@ -3719,7 +3719,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetDefaultWorkspaceImageRequest); i {
 			case 0:
 				return &v.state
@@ -3731,7 +3731,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetDefaultWorkspaceImageResponse); i {
 			case 0:
 				return &v.state
@@ -3743,7 +3743,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceContext_GitProvider); i {
 			case 0:
 				return &v.state
@@ -3755,7 +3755,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceContext_Repository); i {
 			case 0:
 				return &v.state
@@ -3767,7 +3767,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceContext_Git); i {
 			case 0:
 				return &v.state
@@ -3779,7 +3779,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceContext_Prebuild); i {
 			case 0:
 				return &v.state
@@ -3791,7 +3791,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceContext_Snapshot); i {
 			case 0:
 				return &v.state
@@ -3803,7 +3803,7 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_workspaces_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_workspaces_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WorkspaceInstanceStatus_Conditions); i {
 			case 0:
 				return &v.state
@@ -3816,34 +3816,34 @@ func file_gitpod_experimental_v1_workspaces_proto_init() {
 			}
 		}
 	}
-	file_gitpod_experimental_v1_workspaces_proto_msgTypes[8].OneofWrappers = []interface{}{
+	file_nxpod_experimental_v1_workspaces_proto_msgTypes[8].OneofWrappers = []interface{}{
 		(*CreateAndStartWorkspaceRequest_ContextUrl)(nil),
 		(*CreateAndStartWorkspaceRequest_PrebuildId)(nil),
 	}
-	file_gitpod_experimental_v1_workspaces_proto_msgTypes[20].OneofWrappers = []interface{}{
+	file_nxpod_experimental_v1_workspaces_proto_msgTypes[20].OneofWrappers = []interface{}{
 		(*WorkspaceContext_Git_)(nil),
 		(*WorkspaceContext_Prebuild_)(nil),
 		(*WorkspaceContext_Snapshot_)(nil),
 	}
-	file_gitpod_experimental_v1_workspaces_proto_msgTypes[31].OneofWrappers = []interface{}{}
-	file_gitpod_experimental_v1_workspaces_proto_msgTypes[38].OneofWrappers = []interface{}{}
+	file_nxpod_experimental_v1_workspaces_proto_msgTypes[31].OneofWrappers = []interface{}{}
+	file_nxpod_experimental_v1_workspaces_proto_msgTypes[38].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_workspaces_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_workspaces_proto_rawDesc,
 			NumEnums:      5,
 			NumMessages:   39,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_workspaces_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_workspaces_proto_depIdxs,
-		EnumInfos:         file_gitpod_experimental_v1_workspaces_proto_enumTypes,
-		MessageInfos:      file_gitpod_experimental_v1_workspaces_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_workspaces_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_workspaces_proto_depIdxs,
+		EnumInfos:         file_nxpod_experimental_v1_workspaces_proto_enumTypes,
+		MessageInfos:      file_nxpod_experimental_v1_workspaces_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_workspaces_proto = out.File
-	file_gitpod_experimental_v1_workspaces_proto_rawDesc = nil
-	file_gitpod_experimental_v1_workspaces_proto_goTypes = nil
-	file_gitpod_experimental_v1_workspaces_proto_depIdxs = nil
+	File_nxpod_experimental_v1_workspaces_proto = out.File
+	file_nxpod_experimental_v1_workspaces_proto_rawDesc = nil
+	file_nxpod_experimental_v1_workspaces_proto_goTypes = nil
+	file_nxpod_experimental_v1_workspaces_proto_depIdxs = nil
 }

@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/ssh.proto
+// source: nxpod/v1/ssh.proto
 
 package v1
 
@@ -47,7 +47,7 @@ func NewSSHServiceClient(cc grpc.ClientConnInterface) SSHServiceClient {
 
 func (c *sSHServiceClient) ListSSHPublicKeys(ctx context.Context, in *ListSSHPublicKeysRequest, opts ...grpc.CallOption) (*ListSSHPublicKeysResponse, error) {
 	out := new(ListSSHPublicKeysResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SSHService/ListSSHPublicKeys", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SSHService/ListSSHPublicKeys", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *sSHServiceClient) ListSSHPublicKeys(ctx context.Context, in *ListSSHPub
 
 func (c *sSHServiceClient) CreateSSHPublicKey(ctx context.Context, in *CreateSSHPublicKeyRequest, opts ...grpc.CallOption) (*CreateSSHPublicKeyResponse, error) {
 	out := new(CreateSSHPublicKeyResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SSHService/CreateSSHPublicKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SSHService/CreateSSHPublicKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (c *sSHServiceClient) CreateSSHPublicKey(ctx context.Context, in *CreateSSH
 
 func (c *sSHServiceClient) DeleteSSHPublicKey(ctx context.Context, in *DeleteSSHPublicKeyRequest, opts ...grpc.CallOption) (*DeleteSSHPublicKeyResponse, error) {
 	out := new(DeleteSSHPublicKeyResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SSHService/DeleteSSHPublicKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SSHService/DeleteSSHPublicKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +124,7 @@ func _SSHService_ListSSHPublicKeys_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SSHService/ListSSHPublicKeys",
+		FullMethod: "/nxpod.v1.SSHService/ListSSHPublicKeys",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SSHServiceServer).ListSSHPublicKeys(ctx, req.(*ListSSHPublicKeysRequest))
@@ -142,7 +142,7 @@ func _SSHService_CreateSSHPublicKey_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SSHService/CreateSSHPublicKey",
+		FullMethod: "/nxpod.v1.SSHService/CreateSSHPublicKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SSHServiceServer).CreateSSHPublicKey(ctx, req.(*CreateSSHPublicKeyRequest))
@@ -160,7 +160,7 @@ func _SSHService_DeleteSSHPublicKey_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SSHService/DeleteSSHPublicKey",
+		FullMethod: "/nxpod.v1.SSHService/DeleteSSHPublicKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SSHServiceServer).DeleteSSHPublicKey(ctx, req.(*DeleteSSHPublicKeyRequest))
@@ -172,7 +172,7 @@ func _SSHService_DeleteSSHPublicKey_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SSHService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.SSHService",
+	ServiceName: "nxpod.v1.SSHService",
 	HandlerType: (*SSHServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -189,5 +189,5 @@ var SSHService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/ssh.proto",
+	Metadata: "nxpod/v1/ssh.proto",
 }

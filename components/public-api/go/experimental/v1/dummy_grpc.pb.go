@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/dummy.proto
+// source: nxpod/experimental/v1/dummy.proto
 
 package v1
 
@@ -44,7 +44,7 @@ func NewHelloServiceClient(cc grpc.ClientConnInterface) HelloServiceClient {
 
 func (c *helloServiceClient) SayHello(ctx context.Context, in *SayHelloRequest, opts ...grpc.CallOption) (*SayHelloResponse, error) {
 	out := new(SayHelloResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.HelloService/SayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.HelloService/SayHello", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func (c *helloServiceClient) SayHello(ctx context.Context, in *SayHelloRequest, 
 }
 
 func (c *helloServiceClient) LotsOfReplies(ctx context.Context, in *LotsOfRepliesRequest, opts ...grpc.CallOption) (HelloService_LotsOfRepliesClient, error) {
-	stream, err := c.cc.NewStream(ctx, &HelloService_ServiceDesc.Streams[0], "/gitpod.experimental.v1.HelloService/LotsOfReplies", opts...)
+	stream, err := c.cc.NewStream(ctx, &HelloService_ServiceDesc.Streams[0], "/nxpod.experimental.v1.HelloService/LotsOfReplies", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func _HelloService_SayHello_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.HelloService/SayHello",
+		FullMethod: "/nxpod.experimental.v1.HelloService/SayHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HelloServiceServer).SayHello(ctx, req.(*SayHelloRequest))
@@ -162,7 +162,7 @@ func (x *helloServiceLotsOfRepliesServer) Send(m *LotsOfRepliesResponse) error {
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var HelloService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.HelloService",
+	ServiceName: "nxpod.experimental.v1.HelloService",
 	HandlerType: (*HelloServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -177,5 +177,5 @@ var HelloService_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "gitpod/experimental/v1/dummy.proto",
+	Metadata: "nxpod/experimental/v1/dummy.proto",
 }

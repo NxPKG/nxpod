@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/authprovider.proto
+// source: nxpod/v1/authprovider.proto
 
 package v1
 
@@ -64,11 +64,11 @@ func (x AuthProviderType) String() string {
 }
 
 func (AuthProviderType) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_authprovider_proto_enumTypes[0].Descriptor()
+	return file_nxpod_v1_authprovider_proto_enumTypes[0].Descriptor()
 }
 
 func (AuthProviderType) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_authprovider_proto_enumTypes[0]
+	return &file_nxpod_v1_authprovider_proto_enumTypes[0]
 }
 
 func (x AuthProviderType) Number() protoreflect.EnumNumber {
@@ -77,7 +77,7 @@ func (x AuthProviderType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AuthProviderType.Descriptor instead.
 func (AuthProviderType) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{0}
 }
 
 type CreateAuthProviderRequest struct {
@@ -90,7 +90,7 @@ type CreateAuthProviderRequest struct {
 	//	*CreateAuthProviderRequest_OwnerId
 	//	*CreateAuthProviderRequest_OrganizationId
 	Owner        isCreateAuthProviderRequest_Owner `protobuf_oneof:"owner"`
-	Type         AuthProviderType                  `protobuf:"varint,3,opt,name=type,proto3,enum=gitpod.v1.AuthProviderType" json:"type,omitempty"`
+	Type         AuthProviderType                  `protobuf:"varint,3,opt,name=type,proto3,enum=nxpod.v1.AuthProviderType" json:"type,omitempty"`
 	Host         string                            `protobuf:"bytes,4,opt,name=host,proto3" json:"host,omitempty"`
 	Oauth2Config *OAuth2Config                     `protobuf:"bytes,5,opt,name=oauth2_config,json=oauth2Config,proto3" json:"oauth2_config,omitempty"`
 }
@@ -98,7 +98,7 @@ type CreateAuthProviderRequest struct {
 func (x *CreateAuthProviderRequest) Reset() {
 	*x = CreateAuthProviderRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[0]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -111,7 +111,7 @@ func (x *CreateAuthProviderRequest) String() string {
 func (*CreateAuthProviderRequest) ProtoMessage() {}
 
 func (x *CreateAuthProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[0]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -124,7 +124,7 @@ func (x *CreateAuthProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAuthProviderRequest.ProtoReflect.Descriptor instead.
 func (*CreateAuthProviderRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{0}
 }
 
 func (m *CreateAuthProviderRequest) GetOwner() isCreateAuthProviderRequest_Owner {
@@ -196,7 +196,7 @@ type CreateAuthProviderResponse struct {
 func (x *CreateAuthProviderResponse) Reset() {
 	*x = CreateAuthProviderResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[1]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -209,7 +209,7 @@ func (x *CreateAuthProviderResponse) String() string {
 func (*CreateAuthProviderResponse) ProtoMessage() {}
 
 func (x *CreateAuthProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[1]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +222,7 @@ func (x *CreateAuthProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAuthProviderResponse.ProtoReflect.Descriptor instead.
 func (*CreateAuthProviderResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateAuthProviderResponse) GetAuthProvider() *AuthProvider {
@@ -243,7 +243,7 @@ type GetAuthProviderRequest struct {
 func (x *GetAuthProviderRequest) Reset() {
 	*x = GetAuthProviderRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[2]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -256,7 +256,7 @@ func (x *GetAuthProviderRequest) String() string {
 func (*GetAuthProviderRequest) ProtoMessage() {}
 
 func (x *GetAuthProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[2]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +269,7 @@ func (x *GetAuthProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthProviderRequest.ProtoReflect.Descriptor instead.
 func (*GetAuthProviderRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetAuthProviderRequest) GetAuthProviderId() string {
@@ -290,7 +290,7 @@ type GetAuthProviderResponse struct {
 func (x *GetAuthProviderResponse) Reset() {
 	*x = GetAuthProviderResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[3]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -303,7 +303,7 @@ func (x *GetAuthProviderResponse) String() string {
 func (*GetAuthProviderResponse) ProtoMessage() {}
 
 func (x *GetAuthProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[3]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -316,7 +316,7 @@ func (x *GetAuthProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthProviderResponse.ProtoReflect.Descriptor instead.
 func (*GetAuthProviderResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetAuthProviderResponse) GetAuthProvider() *AuthProvider {
@@ -342,7 +342,7 @@ type ListAuthProvidersRequest struct {
 func (x *ListAuthProvidersRequest) Reset() {
 	*x = ListAuthProvidersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[4]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -355,7 +355,7 @@ func (x *ListAuthProvidersRequest) String() string {
 func (*ListAuthProvidersRequest) ProtoMessage() {}
 
 func (x *ListAuthProvidersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[4]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -368,7 +368,7 @@ func (x *ListAuthProvidersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAuthProvidersRequest.ProtoReflect.Descriptor instead.
 func (*ListAuthProvidersRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListAuthProvidersRequest) GetPagination() *PaginationRequest {
@@ -427,7 +427,7 @@ type ListAuthProvidersResponse struct {
 func (x *ListAuthProvidersResponse) Reset() {
 	*x = ListAuthProvidersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[5]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -440,7 +440,7 @@ func (x *ListAuthProvidersResponse) String() string {
 func (*ListAuthProvidersResponse) ProtoMessage() {}
 
 func (x *ListAuthProvidersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[5]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -453,7 +453,7 @@ func (x *ListAuthProvidersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAuthProvidersResponse.ProtoReflect.Descriptor instead.
 func (*ListAuthProvidersResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListAuthProvidersResponse) GetAuthProviders() []*AuthProvider {
@@ -486,7 +486,7 @@ type ListAuthProviderDescriptionsRequest struct {
 func (x *ListAuthProviderDescriptionsRequest) Reset() {
 	*x = ListAuthProviderDescriptionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[6]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -499,7 +499,7 @@ func (x *ListAuthProviderDescriptionsRequest) String() string {
 func (*ListAuthProviderDescriptionsRequest) ProtoMessage() {}
 
 func (x *ListAuthProviderDescriptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[6]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -512,7 +512,7 @@ func (x *ListAuthProviderDescriptionsRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ListAuthProviderDescriptionsRequest.ProtoReflect.Descriptor instead.
 func (*ListAuthProviderDescriptionsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ListAuthProviderDescriptionsRequest) GetPagination() *PaginationRequest {
@@ -572,7 +572,7 @@ type ListAuthProviderDescriptionsResponse struct {
 func (x *ListAuthProviderDescriptionsResponse) Reset() {
 	*x = ListAuthProviderDescriptionsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[7]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -585,7 +585,7 @@ func (x *ListAuthProviderDescriptionsResponse) String() string {
 func (*ListAuthProviderDescriptionsResponse) ProtoMessage() {}
 
 func (x *ListAuthProviderDescriptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[7]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -598,7 +598,7 @@ func (x *ListAuthProviderDescriptionsResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use ListAuthProviderDescriptionsResponse.ProtoReflect.Descriptor instead.
 func (*ListAuthProviderDescriptionsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ListAuthProviderDescriptionsResponse) GetDescriptions() []*AuthProviderDescription {
@@ -628,7 +628,7 @@ type UpdateAuthProviderRequest struct {
 func (x *UpdateAuthProviderRequest) Reset() {
 	*x = UpdateAuthProviderRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[8]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -641,7 +641,7 @@ func (x *UpdateAuthProviderRequest) String() string {
 func (*UpdateAuthProviderRequest) ProtoMessage() {}
 
 func (x *UpdateAuthProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[8]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -654,7 +654,7 @@ func (x *UpdateAuthProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAuthProviderRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAuthProviderRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateAuthProviderRequest) GetAuthProviderId() string {
@@ -689,7 +689,7 @@ type UpdateAuthProviderResponse struct {
 func (x *UpdateAuthProviderResponse) Reset() {
 	*x = UpdateAuthProviderResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[9]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -702,7 +702,7 @@ func (x *UpdateAuthProviderResponse) String() string {
 func (*UpdateAuthProviderResponse) ProtoMessage() {}
 
 func (x *UpdateAuthProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[9]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -715,7 +715,7 @@ func (x *UpdateAuthProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAuthProviderResponse.ProtoReflect.Descriptor instead.
 func (*UpdateAuthProviderResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateAuthProviderResponse) GetAuthProvider() *AuthProvider {
@@ -736,7 +736,7 @@ type DeleteAuthProviderRequest struct {
 func (x *DeleteAuthProviderRequest) Reset() {
 	*x = DeleteAuthProviderRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[10]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -749,7 +749,7 @@ func (x *DeleteAuthProviderRequest) String() string {
 func (*DeleteAuthProviderRequest) ProtoMessage() {}
 
 func (x *DeleteAuthProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[10]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -762,7 +762,7 @@ func (x *DeleteAuthProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAuthProviderRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAuthProviderRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteAuthProviderRequest) GetAuthProviderId() string {
@@ -781,7 +781,7 @@ type DeleteAuthProviderResponse struct {
 func (x *DeleteAuthProviderResponse) Reset() {
 	*x = DeleteAuthProviderResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[11]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -794,7 +794,7 @@ func (x *DeleteAuthProviderResponse) String() string {
 func (*DeleteAuthProviderResponse) ProtoMessage() {}
 
 func (x *DeleteAuthProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[11]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -807,7 +807,7 @@ func (x *DeleteAuthProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAuthProviderResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAuthProviderResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{11}
 }
 
 type AuthProviderDescription struct {
@@ -816,7 +816,7 @@ type AuthProviderDescription struct {
 	unknownFields protoimpl.UnknownFields
 
 	Id          string           `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Type        AuthProviderType `protobuf:"varint,4,opt,name=type,proto3,enum=gitpod.v1.AuthProviderType" json:"type,omitempty"`
+	Type        AuthProviderType `protobuf:"varint,4,opt,name=type,proto3,enum=nxpod.v1.AuthProviderType" json:"type,omitempty"`
 	Host        string           `protobuf:"bytes,5,opt,name=host,proto3" json:"host,omitempty"`
 	Icon        string           `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	Description string           `protobuf:"bytes,7,opt,name=description,proto3" json:"description,omitempty"`
@@ -825,7 +825,7 @@ type AuthProviderDescription struct {
 func (x *AuthProviderDescription) Reset() {
 	*x = AuthProviderDescription{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[12]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -838,7 +838,7 @@ func (x *AuthProviderDescription) String() string {
 func (*AuthProviderDescription) ProtoMessage() {}
 
 func (x *AuthProviderDescription) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[12]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -851,7 +851,7 @@ func (x *AuthProviderDescription) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthProviderDescription.ProtoReflect.Descriptor instead.
 func (*AuthProviderDescription) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *AuthProviderDescription) GetId() string {
@@ -900,7 +900,7 @@ type AuthProvider struct {
 	//	*AuthProvider_OwnerId
 	//	*AuthProvider_OrganizationId
 	Owner        isAuthProvider_Owner `protobuf_oneof:"owner"`
-	Type         AuthProviderType     `protobuf:"varint,4,opt,name=type,proto3,enum=gitpod.v1.AuthProviderType" json:"type,omitempty"`
+	Type         AuthProviderType     `protobuf:"varint,4,opt,name=type,proto3,enum=nxpod.v1.AuthProviderType" json:"type,omitempty"`
 	Host         string               `protobuf:"bytes,5,opt,name=host,proto3" json:"host,omitempty"`
 	Icon         string               `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	Description  string               `protobuf:"bytes,7,opt,name=description,proto3" json:"description,omitempty"`
@@ -914,7 +914,7 @@ type AuthProvider struct {
 func (x *AuthProvider) Reset() {
 	*x = AuthProvider{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[13]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -927,7 +927,7 @@ func (x *AuthProvider) String() string {
 func (*AuthProvider) ProtoMessage() {}
 
 func (x *AuthProvider) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[13]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -940,7 +940,7 @@ func (x *AuthProvider) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthProvider.ProtoReflect.Descriptor instead.
 func (*AuthProvider) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *AuthProvider) GetId() string {
@@ -1062,7 +1062,7 @@ type OAuth2Config struct {
 func (x *OAuth2Config) Reset() {
 	*x = OAuth2Config{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_authprovider_proto_msgTypes[14]
+		mi := &file_nxpod_v1_authprovider_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1075,7 +1075,7 @@ func (x *OAuth2Config) String() string {
 func (*OAuth2Config) ProtoMessage() {}
 
 func (x *OAuth2Config) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_authprovider_proto_msgTypes[14]
+	mi := &file_nxpod_v1_authprovider_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1088,7 +1088,7 @@ func (x *OAuth2Config) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuth2Config.ProtoReflect.Descriptor instead.
 func (*OAuth2Config) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_authprovider_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_v1_authprovider_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *OAuth2Config) GetClientId() string {
@@ -1105,9 +1105,9 @@ func (x *OAuth2Config) GetClientSecret() string {
 	return ""
 }
 
-var File_gitpod_v1_authprovider_proto protoreflect.FileDescriptor
+var File_nxpod_v1_authprovider_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_authprovider_proto_rawDesc = []byte{
+var file_nxpod_v1_authprovider_proto_rawDesc = []byte{
 	0x0a, 0x1c, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x61, 0x75, 0x74, 0x68,
 	0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09,
 	0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f,
@@ -1312,66 +1312,66 @@ var file_gitpod_v1_authprovider_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_authprovider_proto_rawDescOnce sync.Once
-	file_gitpod_v1_authprovider_proto_rawDescData = file_gitpod_v1_authprovider_proto_rawDesc
+	file_nxpod_v1_authprovider_proto_rawDescOnce sync.Once
+	file_nxpod_v1_authprovider_proto_rawDescData = file_nxpod_v1_authprovider_proto_rawDesc
 )
 
-func file_gitpod_v1_authprovider_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_authprovider_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_authprovider_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_authprovider_proto_rawDescData)
+func file_nxpod_v1_authprovider_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_authprovider_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_authprovider_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_authprovider_proto_rawDescData)
 	})
-	return file_gitpod_v1_authprovider_proto_rawDescData
+	return file_nxpod_v1_authprovider_proto_rawDescData
 }
 
-var file_gitpod_v1_authprovider_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_gitpod_v1_authprovider_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
-var file_gitpod_v1_authprovider_proto_goTypes = []interface{}{
-	(AuthProviderType)(0),                        // 0: gitpod.v1.AuthProviderType
-	(*CreateAuthProviderRequest)(nil),            // 1: gitpod.v1.CreateAuthProviderRequest
-	(*CreateAuthProviderResponse)(nil),           // 2: gitpod.v1.CreateAuthProviderResponse
-	(*GetAuthProviderRequest)(nil),               // 3: gitpod.v1.GetAuthProviderRequest
-	(*GetAuthProviderResponse)(nil),              // 4: gitpod.v1.GetAuthProviderResponse
-	(*ListAuthProvidersRequest)(nil),             // 5: gitpod.v1.ListAuthProvidersRequest
-	(*ListAuthProvidersResponse)(nil),            // 6: gitpod.v1.ListAuthProvidersResponse
-	(*ListAuthProviderDescriptionsRequest)(nil),  // 7: gitpod.v1.ListAuthProviderDescriptionsRequest
-	(*ListAuthProviderDescriptionsResponse)(nil), // 8: gitpod.v1.ListAuthProviderDescriptionsResponse
-	(*UpdateAuthProviderRequest)(nil),            // 9: gitpod.v1.UpdateAuthProviderRequest
-	(*UpdateAuthProviderResponse)(nil),           // 10: gitpod.v1.UpdateAuthProviderResponse
-	(*DeleteAuthProviderRequest)(nil),            // 11: gitpod.v1.DeleteAuthProviderRequest
-	(*DeleteAuthProviderResponse)(nil),           // 12: gitpod.v1.DeleteAuthProviderResponse
-	(*AuthProviderDescription)(nil),              // 13: gitpod.v1.AuthProviderDescription
-	(*AuthProvider)(nil),                         // 14: gitpod.v1.AuthProvider
-	(*OAuth2Config)(nil),                         // 15: gitpod.v1.OAuth2Config
-	(*PaginationRequest)(nil),                    // 16: gitpod.v1.PaginationRequest
-	(*PaginationResponse)(nil),                   // 17: gitpod.v1.PaginationResponse
+var file_nxpod_v1_authprovider_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_nxpod_v1_authprovider_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_nxpod_v1_authprovider_proto_goTypes = []interface{}{
+	(AuthProviderType)(0),                        // 0: nxpod.v1.AuthProviderType
+	(*CreateAuthProviderRequest)(nil),            // 1: nxpod.v1.CreateAuthProviderRequest
+	(*CreateAuthProviderResponse)(nil),           // 2: nxpod.v1.CreateAuthProviderResponse
+	(*GetAuthProviderRequest)(nil),               // 3: nxpod.v1.GetAuthProviderRequest
+	(*GetAuthProviderResponse)(nil),              // 4: nxpod.v1.GetAuthProviderResponse
+	(*ListAuthProvidersRequest)(nil),             // 5: nxpod.v1.ListAuthProvidersRequest
+	(*ListAuthProvidersResponse)(nil),            // 6: nxpod.v1.ListAuthProvidersResponse
+	(*ListAuthProviderDescriptionsRequest)(nil),  // 7: nxpod.v1.ListAuthProviderDescriptionsRequest
+	(*ListAuthProviderDescriptionsResponse)(nil), // 8: nxpod.v1.ListAuthProviderDescriptionsResponse
+	(*UpdateAuthProviderRequest)(nil),            // 9: nxpod.v1.UpdateAuthProviderRequest
+	(*UpdateAuthProviderResponse)(nil),           // 10: nxpod.v1.UpdateAuthProviderResponse
+	(*DeleteAuthProviderRequest)(nil),            // 11: nxpod.v1.DeleteAuthProviderRequest
+	(*DeleteAuthProviderResponse)(nil),           // 12: nxpod.v1.DeleteAuthProviderResponse
+	(*AuthProviderDescription)(nil),              // 13: nxpod.v1.AuthProviderDescription
+	(*AuthProvider)(nil),                         // 14: nxpod.v1.AuthProvider
+	(*OAuth2Config)(nil),                         // 15: nxpod.v1.OAuth2Config
+	(*PaginationRequest)(nil),                    // 16: nxpod.v1.PaginationRequest
+	(*PaginationResponse)(nil),                   // 17: nxpod.v1.PaginationResponse
 }
-var file_gitpod_v1_authprovider_proto_depIdxs = []int32{
-	0,  // 0: gitpod.v1.CreateAuthProviderRequest.type:type_name -> gitpod.v1.AuthProviderType
-	15, // 1: gitpod.v1.CreateAuthProviderRequest.oauth2_config:type_name -> gitpod.v1.OAuth2Config
-	14, // 2: gitpod.v1.CreateAuthProviderResponse.auth_provider:type_name -> gitpod.v1.AuthProvider
-	14, // 3: gitpod.v1.GetAuthProviderResponse.auth_provider:type_name -> gitpod.v1.AuthProvider
-	16, // 4: gitpod.v1.ListAuthProvidersRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	14, // 5: gitpod.v1.ListAuthProvidersResponse.auth_providers:type_name -> gitpod.v1.AuthProvider
-	17, // 6: gitpod.v1.ListAuthProvidersResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	16, // 7: gitpod.v1.ListAuthProviderDescriptionsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	13, // 8: gitpod.v1.ListAuthProviderDescriptionsResponse.descriptions:type_name -> gitpod.v1.AuthProviderDescription
-	17, // 9: gitpod.v1.ListAuthProviderDescriptionsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	14, // 10: gitpod.v1.UpdateAuthProviderResponse.auth_provider:type_name -> gitpod.v1.AuthProvider
-	0,  // 11: gitpod.v1.AuthProviderDescription.type:type_name -> gitpod.v1.AuthProviderType
-	0,  // 12: gitpod.v1.AuthProvider.type:type_name -> gitpod.v1.AuthProviderType
-	15, // 13: gitpod.v1.AuthProvider.oauth2_config:type_name -> gitpod.v1.OAuth2Config
-	1,  // 14: gitpod.v1.AuthProviderService.CreateAuthProvider:input_type -> gitpod.v1.CreateAuthProviderRequest
-	3,  // 15: gitpod.v1.AuthProviderService.GetAuthProvider:input_type -> gitpod.v1.GetAuthProviderRequest
-	5,  // 16: gitpod.v1.AuthProviderService.ListAuthProviders:input_type -> gitpod.v1.ListAuthProvidersRequest
-	7,  // 17: gitpod.v1.AuthProviderService.ListAuthProviderDescriptions:input_type -> gitpod.v1.ListAuthProviderDescriptionsRequest
-	9,  // 18: gitpod.v1.AuthProviderService.UpdateAuthProvider:input_type -> gitpod.v1.UpdateAuthProviderRequest
-	11, // 19: gitpod.v1.AuthProviderService.DeleteAuthProvider:input_type -> gitpod.v1.DeleteAuthProviderRequest
-	2,  // 20: gitpod.v1.AuthProviderService.CreateAuthProvider:output_type -> gitpod.v1.CreateAuthProviderResponse
-	4,  // 21: gitpod.v1.AuthProviderService.GetAuthProvider:output_type -> gitpod.v1.GetAuthProviderResponse
-	6,  // 22: gitpod.v1.AuthProviderService.ListAuthProviders:output_type -> gitpod.v1.ListAuthProvidersResponse
-	8,  // 23: gitpod.v1.AuthProviderService.ListAuthProviderDescriptions:output_type -> gitpod.v1.ListAuthProviderDescriptionsResponse
-	10, // 24: gitpod.v1.AuthProviderService.UpdateAuthProvider:output_type -> gitpod.v1.UpdateAuthProviderResponse
-	12, // 25: gitpod.v1.AuthProviderService.DeleteAuthProvider:output_type -> gitpod.v1.DeleteAuthProviderResponse
+var file_nxpod_v1_authprovider_proto_depIdxs = []int32{
+	0,  // 0: nxpod.v1.CreateAuthProviderRequest.type:type_name -> nxpod.v1.AuthProviderType
+	15, // 1: nxpod.v1.CreateAuthProviderRequest.oauth2_config:type_name -> nxpod.v1.OAuth2Config
+	14, // 2: nxpod.v1.CreateAuthProviderResponse.auth_provider:type_name -> nxpod.v1.AuthProvider
+	14, // 3: nxpod.v1.GetAuthProviderResponse.auth_provider:type_name -> nxpod.v1.AuthProvider
+	16, // 4: nxpod.v1.ListAuthProvidersRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	14, // 5: nxpod.v1.ListAuthProvidersResponse.auth_providers:type_name -> nxpod.v1.AuthProvider
+	17, // 6: nxpod.v1.ListAuthProvidersResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	16, // 7: nxpod.v1.ListAuthProviderDescriptionsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	13, // 8: nxpod.v1.ListAuthProviderDescriptionsResponse.descriptions:type_name -> nxpod.v1.AuthProviderDescription
+	17, // 9: nxpod.v1.ListAuthProviderDescriptionsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	14, // 10: nxpod.v1.UpdateAuthProviderResponse.auth_provider:type_name -> nxpod.v1.AuthProvider
+	0,  // 11: nxpod.v1.AuthProviderDescription.type:type_name -> nxpod.v1.AuthProviderType
+	0,  // 12: nxpod.v1.AuthProvider.type:type_name -> nxpod.v1.AuthProviderType
+	15, // 13: nxpod.v1.AuthProvider.oauth2_config:type_name -> nxpod.v1.OAuth2Config
+	1,  // 14: nxpod.v1.AuthProviderService.CreateAuthProvider:input_type -> nxpod.v1.CreateAuthProviderRequest
+	3,  // 15: nxpod.v1.AuthProviderService.GetAuthProvider:input_type -> nxpod.v1.GetAuthProviderRequest
+	5,  // 16: nxpod.v1.AuthProviderService.ListAuthProviders:input_type -> nxpod.v1.ListAuthProvidersRequest
+	7,  // 17: nxpod.v1.AuthProviderService.ListAuthProviderDescriptions:input_type -> nxpod.v1.ListAuthProviderDescriptionsRequest
+	9,  // 18: nxpod.v1.AuthProviderService.UpdateAuthProvider:input_type -> nxpod.v1.UpdateAuthProviderRequest
+	11, // 19: nxpod.v1.AuthProviderService.DeleteAuthProvider:input_type -> nxpod.v1.DeleteAuthProviderRequest
+	2,  // 20: nxpod.v1.AuthProviderService.CreateAuthProvider:output_type -> nxpod.v1.CreateAuthProviderResponse
+	4,  // 21: nxpod.v1.AuthProviderService.GetAuthProvider:output_type -> nxpod.v1.GetAuthProviderResponse
+	6,  // 22: nxpod.v1.AuthProviderService.ListAuthProviders:output_type -> nxpod.v1.ListAuthProvidersResponse
+	8,  // 23: nxpod.v1.AuthProviderService.ListAuthProviderDescriptions:output_type -> nxpod.v1.ListAuthProviderDescriptionsResponse
+	10, // 24: nxpod.v1.AuthProviderService.UpdateAuthProvider:output_type -> nxpod.v1.UpdateAuthProviderResponse
+	12, // 25: nxpod.v1.AuthProviderService.DeleteAuthProvider:output_type -> nxpod.v1.DeleteAuthProviderResponse
 	20, // [20:26] is the sub-list for method output_type
 	14, // [14:20] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name
@@ -1379,14 +1379,14 @@ var file_gitpod_v1_authprovider_proto_depIdxs = []int32{
 	0,  // [0:14] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_authprovider_proto_init() }
-func file_gitpod_v1_authprovider_proto_init() {
-	if File_gitpod_v1_authprovider_proto != nil {
+func init() { file_nxpod_v1_authprovider_proto_init() }
+func file_nxpod_v1_authprovider_proto_init() {
+	if File_nxpod_v1_authprovider_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
+	file_nxpod_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_authprovider_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateAuthProviderRequest); i {
 			case 0:
 				return &v.state
@@ -1398,7 +1398,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateAuthProviderResponse); i {
 			case 0:
 				return &v.state
@@ -1410,7 +1410,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetAuthProviderRequest); i {
 			case 0:
 				return &v.state
@@ -1422,7 +1422,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetAuthProviderResponse); i {
 			case 0:
 				return &v.state
@@ -1434,7 +1434,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListAuthProvidersRequest); i {
 			case 0:
 				return &v.state
@@ -1446,7 +1446,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListAuthProvidersResponse); i {
 			case 0:
 				return &v.state
@@ -1458,7 +1458,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListAuthProviderDescriptionsRequest); i {
 			case 0:
 				return &v.state
@@ -1470,7 +1470,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListAuthProviderDescriptionsResponse); i {
 			case 0:
 				return &v.state
@@ -1482,7 +1482,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateAuthProviderRequest); i {
 			case 0:
 				return &v.state
@@ -1494,7 +1494,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateAuthProviderResponse); i {
 			case 0:
 				return &v.state
@@ -1506,7 +1506,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteAuthProviderRequest); i {
 			case 0:
 				return &v.state
@@ -1518,7 +1518,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteAuthProviderResponse); i {
 			case 0:
 				return &v.state
@@ -1530,7 +1530,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AuthProviderDescription); i {
 			case 0:
 				return &v.state
@@ -1542,7 +1542,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AuthProvider); i {
 			case 0:
 				return &v.state
@@ -1554,7 +1554,7 @@ func file_gitpod_v1_authprovider_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_authprovider_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_authprovider_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OAuth2Config); i {
 			case 0:
 				return &v.state
@@ -1567,20 +1567,20 @@ func file_gitpod_v1_authprovider_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_authprovider_proto_msgTypes[0].OneofWrappers = []interface{}{
+	file_nxpod_v1_authprovider_proto_msgTypes[0].OneofWrappers = []interface{}{
 		(*CreateAuthProviderRequest_OwnerId)(nil),
 		(*CreateAuthProviderRequest_OrganizationId)(nil),
 	}
-	file_gitpod_v1_authprovider_proto_msgTypes[4].OneofWrappers = []interface{}{
+	file_nxpod_v1_authprovider_proto_msgTypes[4].OneofWrappers = []interface{}{
 		(*ListAuthProvidersRequest_UserId)(nil),
 		(*ListAuthProvidersRequest_OrganizationId)(nil),
 	}
-	file_gitpod_v1_authprovider_proto_msgTypes[6].OneofWrappers = []interface{}{
+	file_nxpod_v1_authprovider_proto_msgTypes[6].OneofWrappers = []interface{}{
 		(*ListAuthProviderDescriptionsRequest_UserId)(nil),
 		(*ListAuthProviderDescriptionsRequest_OrganizationId)(nil),
 	}
-	file_gitpod_v1_authprovider_proto_msgTypes[8].OneofWrappers = []interface{}{}
-	file_gitpod_v1_authprovider_proto_msgTypes[13].OneofWrappers = []interface{}{
+	file_nxpod_v1_authprovider_proto_msgTypes[8].OneofWrappers = []interface{}{}
+	file_nxpod_v1_authprovider_proto_msgTypes[13].OneofWrappers = []interface{}{
 		(*AuthProvider_OwnerId)(nil),
 		(*AuthProvider_OrganizationId)(nil),
 	}
@@ -1588,19 +1588,19 @@ func file_gitpod_v1_authprovider_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_authprovider_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_authprovider_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_authprovider_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_authprovider_proto_depIdxs,
-		EnumInfos:         file_gitpod_v1_authprovider_proto_enumTypes,
-		MessageInfos:      file_gitpod_v1_authprovider_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_authprovider_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_authprovider_proto_depIdxs,
+		EnumInfos:         file_nxpod_v1_authprovider_proto_enumTypes,
+		MessageInfos:      file_nxpod_v1_authprovider_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_authprovider_proto = out.File
-	file_gitpod_v1_authprovider_proto_rawDesc = nil
-	file_gitpod_v1_authprovider_proto_goTypes = nil
-	file_gitpod_v1_authprovider_proto_depIdxs = nil
+	File_nxpod_v1_authprovider_proto = out.File
+	file_nxpod_v1_authprovider_proto_rawDesc = nil
+	file_nxpod_v1_authprovider_proto_goTypes = nil
+	file_nxpod_v1_authprovider_proto_depIdxs = nil
 }

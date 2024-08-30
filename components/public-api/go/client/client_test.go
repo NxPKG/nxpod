@@ -19,19 +19,19 @@ func TestNew(t *testing.T) {
 			client:      &http.Client{},
 			credentials: "my_awesome_credentials",
 		}
-		gitpod, err := New(
+		nxpod, err := New(
 			WithURL(expectedOptions.url),
 			WithCredentials(expectedOptions.credentials),
 			WithHTTPClient(expectedOptions.client),
 		)
 		require.NoError(t, err)
-		require.Equal(t, expectedOptions, gitpod.cfg)
+		require.Equal(t, expectedOptions, nxpod.cfg)
 
-		require.NotNil(t, gitpod.PersonalAccessTokens)
-		require.NotNil(t, gitpod.Workspaces)
-		require.NotNil(t, gitpod.Projects)
-		require.NotNil(t, gitpod.PersonalAccessTokens)
-		require.NotNil(t, gitpod.User)
+		require.NotNil(t, nxpod.PersonalAccessTokens)
+		require.NotNil(t, nxpod.Workspaces)
+		require.NotNil(t, nxpod.Projects)
+		require.NotNil(t, nxpod.PersonalAccessTokens)
+		require.NotNil(t, nxpod.User)
 	})
 
 	t.Run("fails when no credentials specified", func(t *testing.T) {
@@ -39,11 +39,11 @@ func TestNew(t *testing.T) {
 		require.Error(t, err)
 	})
 
-	t.Run("defaults to https://api.gitpod.io", func(t *testing.T) {
-		gitpod, err := New(WithCredentials("foo"))
+	t.Run("defaults to https://api.nxpod.khulnasoft.com", func(t *testing.T) {
+		nxpod, err := New(WithCredentials("foo"))
 		require.NoError(t, err)
 
-		require.Equal(t, "https://api.gitpod.io", gitpod.cfg.url)
+		require.Equal(t, "https://api.nxpod.khulnasoft.com", nxpod.cfg.url)
 	})
 
 }

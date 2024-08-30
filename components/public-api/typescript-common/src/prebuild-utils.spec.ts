@@ -5,7 +5,7 @@
  */
 
 import { expect } from "chai";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { getPrebuildErrorMessage, matchPrebuildError } from "./prebuild-utils";
 
 describe("PrebuildUtils", () => {

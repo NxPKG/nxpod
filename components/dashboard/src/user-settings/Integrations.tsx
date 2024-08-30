@@ -355,7 +355,7 @@ function GitProviders() {
                 Manage your permissions to the available Git provider integrations.{" "}
                 <a
                     className="gp-link"
-                    href="https://www.nxpod.io/docs/configure/authentication"
+                    href="https://www.nxpod.khulnasoft.com/docs/configure/authentication"
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -720,10 +720,10 @@ export function GitIntegrationModal(
         let docsUrl = ``;
         switch (type) {
             case AuthProviderType.GITHUB:
-                docsUrl = `https://www.nxpod.io/docs/github-integration/#oauth-application`;
+                docsUrl = `https://www.nxpod.khulnasoft.com/docs/github-integration/#oauth-application`;
                 break;
             case AuthProviderType.GITLAB:
-                docsUrl = `https://www.nxpod.io/docs/gitlab-integration/#oauth-application`;
+                docsUrl = `https://www.nxpod.khulnasoft.com/docs/gitlab-integration/#oauth-application`;
                 break;
             default:
                 return undefined;

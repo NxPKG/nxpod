@@ -5,8 +5,8 @@
  */
 
 import { injectable } from "inversify";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { getEnvVarParsed, getEnvVar } from "@gitpod/gitpod-protocol/lib/env";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { getEnvVarParsed, getEnvVar } from "@nxpod/nxpod-protocol/lib/env";
 import { ConnectionConfig } from "mysql";
 
 @injectable()
@@ -16,9 +16,9 @@ export class Config {
         const dbSetup: DatabaseConfig = {
             host: process.env.DB_HOST || "localhost",
             port: getEnvVarParsed("DB_PORT", Number.parseInt, "23306"),
-            username: process.env.DB_USERNAME || "gitpod",
+            username: process.env.DB_USERNAME || "nxpod",
             password: process.env.DB_PASSWORD || "test",
-            database: process.env.DB_NAME || "gitpod",
+            database: process.env.DB_NAME || "nxpod",
         };
 
         if (process.env.DB_CA_CERT) {

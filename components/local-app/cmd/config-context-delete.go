@@ -31,7 +31,7 @@ var configContextDeleteCmd = &cobra.Command{
 		}()
 
 		if cfg.ActiveContext == targetContext {
-			slog.Info("deleting active context - use `gitpod config use-context` to set a new active context")
+			slog.Info("deleting active context - use `nxpod config use-context` to set a new active context")
 			cfg.ActiveContext = ""
 			update = true
 		}

@@ -13,9 +13,9 @@
 # Example usage:
 # docker run --rm \
 #            --env GOOGLE_APPLICATION_CREDENTIALS_DATA='...' \
-#            --env GCP_DATABASE="gitpod-foobar:europe-west1:gitpod-foobar-baz" \
+#            --env GCP_DATABASE="nxpod-foobar:europe-west1:nxpod-foobar-baz" \
 #            --env DB_PASSWORD="..." \
-#            gcr.io/gitpod-core-dev/build/db-migrations:x1 /app/migrate_gcp.sh
+#            gcr.io/nxpod-core-dev/build/db-migrations:x1 /app/migrate_gcp.sh
 
 set -euo pipefail
 

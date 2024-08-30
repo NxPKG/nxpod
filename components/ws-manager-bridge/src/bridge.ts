@@ -12,8 +12,8 @@ import {
     PortVisibility,
     DisposableCollection,
     PortProtocol,
-} from "@gitpod/gitpod-protocol";
-import * as protocol from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
+import * as protocol from "@nxpod/nxpod-protocol";
 import {
     WorkspaceStatus,
     WorkspacePhase,
@@ -22,22 +22,22 @@ import {
     PortProtocol as WsManPortProtocol,
     DescribeClusterRequest,
     WorkspaceType,
-} from "@gitpod/ws-manager/lib";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { TracedWorkspaceDB, DBWithTracing } from "@gitpod/gitpod-db/lib/traced-db";
+} from "@nxpod/ws-manager/lib";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { TracedWorkspaceDB, DBWithTracing } from "@nxpod/nxpod-db/lib/traced-db";
 import { Metrics } from "./metrics";
 import { ClientProvider, WsmanSubscriber } from "./wsman-subscriber";
 import { Timestamp } from "google-protobuf/google/protobuf/timestamp_pb";
 import { Configuration } from "./config";
-import { WorkspaceClass, WorkspaceCluster, WorkspaceClusterDB } from "@gitpod/gitpod-protocol/lib/workspace-cluster";
+import { WorkspaceClass, WorkspaceCluster, WorkspaceClusterDB } from "@nxpod/nxpod-protocol/lib/workspace-cluster";
 import { performance } from "perf_hooks";
 import { WorkspaceInstanceController } from "./workspace-instance-controller";
 import { PrebuildUpdater } from "./prebuild-updater";
-import { RedisPublisher } from "@gitpod/gitpod-db/lib";
+import { RedisPublisher } from "@nxpod/nxpod-db/lib";
 
 export const WorkspaceManagerBridgeFactory = Symbol("WorkspaceManagerBridgeFactory");
 

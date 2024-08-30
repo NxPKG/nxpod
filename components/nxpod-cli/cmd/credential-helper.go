@@ -23,7 +23,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	"github.com/nxpkg/nxpod/common-go/util"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
 
@@ -40,7 +40,7 @@ var credentialHelper = &cobra.Command{
 		exitCode := 0
 		action := args[0]
 		log.SetOutput(io.Discard)
-		f, err := os.OpenFile(os.TempDir()+"/gitpod-git-credential-helper.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+		f, err := os.OpenFile(os.TempDir()+"/nxpod-git-credential-helper.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 		if err == nil {
 			defer f.Close()
 			log.SetOutput(f)

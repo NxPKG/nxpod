@@ -5,7 +5,7 @@
  */
 
 import { Timestamp } from "@bufbuild/protobuf";
-import { Identity, User, User_ProfileDetails } from "@gitpod/public-api/lib/gitpod/v1/user_pb";
+import { Identity, User, User_ProfileDetails } from "@nxpod/public-api/lib/nxpod/v1/user_pb";
 import * as chai from "chai";
 import { getPrimaryEmail } from "./user-utils";
 

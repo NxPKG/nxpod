@@ -2,19 +2,19 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.actions
+package io.nxpod.jetbrains.remote.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
-import io.gitpod.jetbrains.remote.NxpodManager
+import io.nxpod.jetbrains.remote.NxpodManager
 
 class StopWorkspaceAction : AnAction() {
     private val manager = service<NxpodManager>()
 
     override fun actionPerformed(event: AnActionEvent) {
         manager.pendingInfo.thenAccept { workspaceInfo ->
-            manager.trackEvent("jb_execute_command_gitpod_workspace", mapOf(
+            manager.trackEvent("jb_execute_command_nxpod_workspace", mapOf(
                 "action" to "stop"
             ))
 

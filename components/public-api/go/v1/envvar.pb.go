@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/envvar.proto
+// source: nxpod/v1/envvar.proto
 
 package v1
 
@@ -57,11 +57,11 @@ func (x EnvironmentVariableAdmission) String() string {
 }
 
 func (EnvironmentVariableAdmission) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_envvar_proto_enumTypes[0].Descriptor()
+	return file_nxpod_v1_envvar_proto_enumTypes[0].Descriptor()
 }
 
 func (EnvironmentVariableAdmission) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_envvar_proto_enumTypes[0]
+	return &file_nxpod_v1_envvar_proto_enumTypes[0]
 }
 
 func (x EnvironmentVariableAdmission) Number() protoreflect.EnumNumber {
@@ -70,7 +70,7 @@ func (x EnvironmentVariableAdmission) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EnvironmentVariableAdmission.Descriptor instead.
 func (EnvironmentVariableAdmission) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{0}
 }
 
 type UserEnvironmentVariable struct {
@@ -87,7 +87,7 @@ type UserEnvironmentVariable struct {
 func (x *UserEnvironmentVariable) Reset() {
 	*x = UserEnvironmentVariable{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[0]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -100,7 +100,7 @@ func (x *UserEnvironmentVariable) String() string {
 func (*UserEnvironmentVariable) ProtoMessage() {}
 
 func (x *UserEnvironmentVariable) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[0]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -113,7 +113,7 @@ func (x *UserEnvironmentVariable) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserEnvironmentVariable.ProtoReflect.Descriptor instead.
 func (*UserEnvironmentVariable) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *UserEnvironmentVariable) GetId() string {
@@ -155,7 +155,7 @@ type ListUserEnvironmentVariablesRequest struct {
 func (x *ListUserEnvironmentVariablesRequest) Reset() {
 	*x = ListUserEnvironmentVariablesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[1]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -168,7 +168,7 @@ func (x *ListUserEnvironmentVariablesRequest) String() string {
 func (*ListUserEnvironmentVariablesRequest) ProtoMessage() {}
 
 func (x *ListUserEnvironmentVariablesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[1]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +181,7 @@ func (x *ListUserEnvironmentVariablesRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ListUserEnvironmentVariablesRequest.ProtoReflect.Descriptor instead.
 func (*ListUserEnvironmentVariablesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ListUserEnvironmentVariablesRequest) GetPagination() *PaginationRequest {
@@ -203,7 +203,7 @@ type ListUserEnvironmentVariablesResponse struct {
 func (x *ListUserEnvironmentVariablesResponse) Reset() {
 	*x = ListUserEnvironmentVariablesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[2]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -216,7 +216,7 @@ func (x *ListUserEnvironmentVariablesResponse) String() string {
 func (*ListUserEnvironmentVariablesResponse) ProtoMessage() {}
 
 func (x *ListUserEnvironmentVariablesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[2]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -229,7 +229,7 @@ func (x *ListUserEnvironmentVariablesResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use ListUserEnvironmentVariablesResponse.ProtoReflect.Descriptor instead.
 func (*ListUserEnvironmentVariablesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ListUserEnvironmentVariablesResponse) GetEnvironmentVariables() []*UserEnvironmentVariable {
@@ -260,7 +260,7 @@ type UpdateUserEnvironmentVariableRequest struct {
 func (x *UpdateUserEnvironmentVariableRequest) Reset() {
 	*x = UpdateUserEnvironmentVariableRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[3]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -273,7 +273,7 @@ func (x *UpdateUserEnvironmentVariableRequest) String() string {
 func (*UpdateUserEnvironmentVariableRequest) ProtoMessage() {}
 
 func (x *UpdateUserEnvironmentVariableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[3]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -286,7 +286,7 @@ func (x *UpdateUserEnvironmentVariableRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UpdateUserEnvironmentVariableRequest.ProtoReflect.Descriptor instead.
 func (*UpdateUserEnvironmentVariableRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *UpdateUserEnvironmentVariableRequest) GetEnvironmentVariableId() string {
@@ -328,7 +328,7 @@ type UpdateUserEnvironmentVariableResponse struct {
 func (x *UpdateUserEnvironmentVariableResponse) Reset() {
 	*x = UpdateUserEnvironmentVariableResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[4]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -341,7 +341,7 @@ func (x *UpdateUserEnvironmentVariableResponse) String() string {
 func (*UpdateUserEnvironmentVariableResponse) ProtoMessage() {}
 
 func (x *UpdateUserEnvironmentVariableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[4]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -354,7 +354,7 @@ func (x *UpdateUserEnvironmentVariableResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UpdateUserEnvironmentVariableResponse.ProtoReflect.Descriptor instead.
 func (*UpdateUserEnvironmentVariableResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateUserEnvironmentVariableResponse) GetEnvironmentVariable() *UserEnvironmentVariable {
@@ -377,7 +377,7 @@ type CreateUserEnvironmentVariableRequest struct {
 func (x *CreateUserEnvironmentVariableRequest) Reset() {
 	*x = CreateUserEnvironmentVariableRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[5]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -390,7 +390,7 @@ func (x *CreateUserEnvironmentVariableRequest) String() string {
 func (*CreateUserEnvironmentVariableRequest) ProtoMessage() {}
 
 func (x *CreateUserEnvironmentVariableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[5]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -403,7 +403,7 @@ func (x *CreateUserEnvironmentVariableRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CreateUserEnvironmentVariableRequest.ProtoReflect.Descriptor instead.
 func (*CreateUserEnvironmentVariableRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CreateUserEnvironmentVariableRequest) GetName() string {
@@ -438,7 +438,7 @@ type CreateUserEnvironmentVariableResponse struct {
 func (x *CreateUserEnvironmentVariableResponse) Reset() {
 	*x = CreateUserEnvironmentVariableResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[6]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -451,7 +451,7 @@ func (x *CreateUserEnvironmentVariableResponse) String() string {
 func (*CreateUserEnvironmentVariableResponse) ProtoMessage() {}
 
 func (x *CreateUserEnvironmentVariableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[6]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -464,7 +464,7 @@ func (x *CreateUserEnvironmentVariableResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CreateUserEnvironmentVariableResponse.ProtoReflect.Descriptor instead.
 func (*CreateUserEnvironmentVariableResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateUserEnvironmentVariableResponse) GetEnvironmentVariable() *UserEnvironmentVariable {
@@ -485,7 +485,7 @@ type DeleteUserEnvironmentVariableRequest struct {
 func (x *DeleteUserEnvironmentVariableRequest) Reset() {
 	*x = DeleteUserEnvironmentVariableRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[7]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -498,7 +498,7 @@ func (x *DeleteUserEnvironmentVariableRequest) String() string {
 func (*DeleteUserEnvironmentVariableRequest) ProtoMessage() {}
 
 func (x *DeleteUserEnvironmentVariableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[7]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -511,7 +511,7 @@ func (x *DeleteUserEnvironmentVariableRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use DeleteUserEnvironmentVariableRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserEnvironmentVariableRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteUserEnvironmentVariableRequest) GetEnvironmentVariableId() string {
@@ -530,7 +530,7 @@ type DeleteUserEnvironmentVariableResponse struct {
 func (x *DeleteUserEnvironmentVariableResponse) Reset() {
 	*x = DeleteUserEnvironmentVariableResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[8]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -543,7 +543,7 @@ func (x *DeleteUserEnvironmentVariableResponse) String() string {
 func (*DeleteUserEnvironmentVariableResponse) ProtoMessage() {}
 
 func (x *DeleteUserEnvironmentVariableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[8]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -556,7 +556,7 @@ func (x *DeleteUserEnvironmentVariableResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use DeleteUserEnvironmentVariableResponse.ProtoReflect.Descriptor instead.
 func (*DeleteUserEnvironmentVariableResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{8}
 }
 
 type ConfigurationEnvironmentVariable struct {
@@ -567,13 +567,13 @@ type ConfigurationEnvironmentVariable struct {
 	Id              string                       `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name            string                       `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	ConfigurationId string                       `protobuf:"bytes,4,opt,name=configuration_id,json=configurationId,proto3" json:"configuration_id,omitempty"`
-	Admission       EnvironmentVariableAdmission `protobuf:"varint,5,opt,name=admission,proto3,enum=gitpod.v1.EnvironmentVariableAdmission" json:"admission,omitempty"`
+	Admission       EnvironmentVariableAdmission `protobuf:"varint,5,opt,name=admission,proto3,enum=nxpod.v1.EnvironmentVariableAdmission" json:"admission,omitempty"`
 }
 
 func (x *ConfigurationEnvironmentVariable) Reset() {
 	*x = ConfigurationEnvironmentVariable{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[9]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -586,7 +586,7 @@ func (x *ConfigurationEnvironmentVariable) String() string {
 func (*ConfigurationEnvironmentVariable) ProtoMessage() {}
 
 func (x *ConfigurationEnvironmentVariable) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[9]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -599,7 +599,7 @@ func (x *ConfigurationEnvironmentVariable) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfigurationEnvironmentVariable.ProtoReflect.Descriptor instead.
 func (*ConfigurationEnvironmentVariable) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ConfigurationEnvironmentVariable) GetId() string {
@@ -642,7 +642,7 @@ type ListConfigurationEnvironmentVariablesRequest struct {
 func (x *ListConfigurationEnvironmentVariablesRequest) Reset() {
 	*x = ListConfigurationEnvironmentVariablesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[10]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -655,7 +655,7 @@ func (x *ListConfigurationEnvironmentVariablesRequest) String() string {
 func (*ListConfigurationEnvironmentVariablesRequest) ProtoMessage() {}
 
 func (x *ListConfigurationEnvironmentVariablesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[10]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -668,7 +668,7 @@ func (x *ListConfigurationEnvironmentVariablesRequest) ProtoReflect() protorefle
 
 // Deprecated: Use ListConfigurationEnvironmentVariablesRequest.ProtoReflect.Descriptor instead.
 func (*ListConfigurationEnvironmentVariablesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListConfigurationEnvironmentVariablesRequest) GetConfigurationId() string {
@@ -697,7 +697,7 @@ type ListConfigurationEnvironmentVariablesResponse struct {
 func (x *ListConfigurationEnvironmentVariablesResponse) Reset() {
 	*x = ListConfigurationEnvironmentVariablesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[11]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -710,7 +710,7 @@ func (x *ListConfigurationEnvironmentVariablesResponse) String() string {
 func (*ListConfigurationEnvironmentVariablesResponse) ProtoMessage() {}
 
 func (x *ListConfigurationEnvironmentVariablesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[11]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -723,7 +723,7 @@ func (x *ListConfigurationEnvironmentVariablesResponse) ProtoReflect() protorefl
 
 // Deprecated: Use ListConfigurationEnvironmentVariablesResponse.ProtoReflect.Descriptor instead.
 func (*ListConfigurationEnvironmentVariablesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ListConfigurationEnvironmentVariablesResponse) GetEnvironmentVariables() []*ConfigurationEnvironmentVariable {
@@ -749,13 +749,13 @@ type UpdateConfigurationEnvironmentVariableRequest struct {
 	EnvironmentVariableId string                        `protobuf:"bytes,2,opt,name=environment_variable_id,json=environmentVariableId,proto3" json:"environment_variable_id,omitempty"`
 	Name                  *string                       `protobuf:"bytes,3,opt,name=name,proto3,oneof" json:"name,omitempty"`
 	Value                 *string                       `protobuf:"bytes,4,opt,name=value,proto3,oneof" json:"value,omitempty"`
-	Admission             *EnvironmentVariableAdmission `protobuf:"varint,5,opt,name=admission,proto3,enum=gitpod.v1.EnvironmentVariableAdmission,oneof" json:"admission,omitempty"`
+	Admission             *EnvironmentVariableAdmission `protobuf:"varint,5,opt,name=admission,proto3,enum=nxpod.v1.EnvironmentVariableAdmission,oneof" json:"admission,omitempty"`
 }
 
 func (x *UpdateConfigurationEnvironmentVariableRequest) Reset() {
 	*x = UpdateConfigurationEnvironmentVariableRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[12]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -768,7 +768,7 @@ func (x *UpdateConfigurationEnvironmentVariableRequest) String() string {
 func (*UpdateConfigurationEnvironmentVariableRequest) ProtoMessage() {}
 
 func (x *UpdateConfigurationEnvironmentVariableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[12]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -781,7 +781,7 @@ func (x *UpdateConfigurationEnvironmentVariableRequest) ProtoReflect() protorefl
 
 // Deprecated: Use UpdateConfigurationEnvironmentVariableRequest.ProtoReflect.Descriptor instead.
 func (*UpdateConfigurationEnvironmentVariableRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UpdateConfigurationEnvironmentVariableRequest) GetConfigurationId() string {
@@ -830,7 +830,7 @@ type UpdateConfigurationEnvironmentVariableResponse struct {
 func (x *UpdateConfigurationEnvironmentVariableResponse) Reset() {
 	*x = UpdateConfigurationEnvironmentVariableResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[13]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -843,7 +843,7 @@ func (x *UpdateConfigurationEnvironmentVariableResponse) String() string {
 func (*UpdateConfigurationEnvironmentVariableResponse) ProtoMessage() {}
 
 func (x *UpdateConfigurationEnvironmentVariableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[13]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -856,7 +856,7 @@ func (x *UpdateConfigurationEnvironmentVariableResponse) ProtoReflect() protoref
 
 // Deprecated: Use UpdateConfigurationEnvironmentVariableResponse.ProtoReflect.Descriptor instead.
 func (*UpdateConfigurationEnvironmentVariableResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UpdateConfigurationEnvironmentVariableResponse) GetEnvironmentVariable() *ConfigurationEnvironmentVariable {
@@ -874,13 +874,13 @@ type CreateConfigurationEnvironmentVariableRequest struct {
 	ConfigurationId string                       `protobuf:"bytes,1,opt,name=configuration_id,json=configurationId,proto3" json:"configuration_id,omitempty"`
 	Name            string                       `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Value           string                       `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
-	Admission       EnvironmentVariableAdmission `protobuf:"varint,4,opt,name=admission,proto3,enum=gitpod.v1.EnvironmentVariableAdmission" json:"admission,omitempty"`
+	Admission       EnvironmentVariableAdmission `protobuf:"varint,4,opt,name=admission,proto3,enum=nxpod.v1.EnvironmentVariableAdmission" json:"admission,omitempty"`
 }
 
 func (x *CreateConfigurationEnvironmentVariableRequest) Reset() {
 	*x = CreateConfigurationEnvironmentVariableRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[14]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -893,7 +893,7 @@ func (x *CreateConfigurationEnvironmentVariableRequest) String() string {
 func (*CreateConfigurationEnvironmentVariableRequest) ProtoMessage() {}
 
 func (x *CreateConfigurationEnvironmentVariableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[14]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -906,7 +906,7 @@ func (x *CreateConfigurationEnvironmentVariableRequest) ProtoReflect() protorefl
 
 // Deprecated: Use CreateConfigurationEnvironmentVariableRequest.ProtoReflect.Descriptor instead.
 func (*CreateConfigurationEnvironmentVariableRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CreateConfigurationEnvironmentVariableRequest) GetConfigurationId() string {
@@ -948,7 +948,7 @@ type CreateConfigurationEnvironmentVariableResponse struct {
 func (x *CreateConfigurationEnvironmentVariableResponse) Reset() {
 	*x = CreateConfigurationEnvironmentVariableResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[15]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -961,7 +961,7 @@ func (x *CreateConfigurationEnvironmentVariableResponse) String() string {
 func (*CreateConfigurationEnvironmentVariableResponse) ProtoMessage() {}
 
 func (x *CreateConfigurationEnvironmentVariableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[15]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -974,7 +974,7 @@ func (x *CreateConfigurationEnvironmentVariableResponse) ProtoReflect() protoref
 
 // Deprecated: Use CreateConfigurationEnvironmentVariableResponse.ProtoReflect.Descriptor instead.
 func (*CreateConfigurationEnvironmentVariableResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CreateConfigurationEnvironmentVariableResponse) GetEnvironmentVariable() *ConfigurationEnvironmentVariable {
@@ -995,7 +995,7 @@ type DeleteConfigurationEnvironmentVariableRequest struct {
 func (x *DeleteConfigurationEnvironmentVariableRequest) Reset() {
 	*x = DeleteConfigurationEnvironmentVariableRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[16]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1008,7 +1008,7 @@ func (x *DeleteConfigurationEnvironmentVariableRequest) String() string {
 func (*DeleteConfigurationEnvironmentVariableRequest) ProtoMessage() {}
 
 func (x *DeleteConfigurationEnvironmentVariableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[16]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,7 +1021,7 @@ func (x *DeleteConfigurationEnvironmentVariableRequest) ProtoReflect() protorefl
 
 // Deprecated: Use DeleteConfigurationEnvironmentVariableRequest.ProtoReflect.Descriptor instead.
 func (*DeleteConfigurationEnvironmentVariableRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *DeleteConfigurationEnvironmentVariableRequest) GetEnvironmentVariableId() string {
@@ -1040,7 +1040,7 @@ type DeleteConfigurationEnvironmentVariableResponse struct {
 func (x *DeleteConfigurationEnvironmentVariableResponse) Reset() {
 	*x = DeleteConfigurationEnvironmentVariableResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[17]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1053,7 +1053,7 @@ func (x *DeleteConfigurationEnvironmentVariableResponse) String() string {
 func (*DeleteConfigurationEnvironmentVariableResponse) ProtoMessage() {}
 
 func (x *DeleteConfigurationEnvironmentVariableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[17]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1066,7 +1066,7 @@ func (x *DeleteConfigurationEnvironmentVariableResponse) ProtoReflect() protoref
 
 // Deprecated: Use DeleteConfigurationEnvironmentVariableResponse.ProtoReflect.Descriptor instead.
 func (*DeleteConfigurationEnvironmentVariableResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{17}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{17}
 }
 
 type ResolveWorkspaceEnvironmentVariablesRequest struct {
@@ -1080,7 +1080,7 @@ type ResolveWorkspaceEnvironmentVariablesRequest struct {
 func (x *ResolveWorkspaceEnvironmentVariablesRequest) Reset() {
 	*x = ResolveWorkspaceEnvironmentVariablesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[18]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1093,7 +1093,7 @@ func (x *ResolveWorkspaceEnvironmentVariablesRequest) String() string {
 func (*ResolveWorkspaceEnvironmentVariablesRequest) ProtoMessage() {}
 
 func (x *ResolveWorkspaceEnvironmentVariablesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[18]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1106,7 +1106,7 @@ func (x *ResolveWorkspaceEnvironmentVariablesRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use ResolveWorkspaceEnvironmentVariablesRequest.ProtoReflect.Descriptor instead.
 func (*ResolveWorkspaceEnvironmentVariablesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{18}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ResolveWorkspaceEnvironmentVariablesRequest) GetWorkspaceId() string {
@@ -1127,7 +1127,7 @@ type ResolveWorkspaceEnvironmentVariablesResponse struct {
 func (x *ResolveWorkspaceEnvironmentVariablesResponse) Reset() {
 	*x = ResolveWorkspaceEnvironmentVariablesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[19]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1140,7 +1140,7 @@ func (x *ResolveWorkspaceEnvironmentVariablesResponse) String() string {
 func (*ResolveWorkspaceEnvironmentVariablesResponse) ProtoMessage() {}
 
 func (x *ResolveWorkspaceEnvironmentVariablesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[19]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1153,7 +1153,7 @@ func (x *ResolveWorkspaceEnvironmentVariablesResponse) ProtoReflect() protorefle
 
 // Deprecated: Use ResolveWorkspaceEnvironmentVariablesResponse.ProtoReflect.Descriptor instead.
 func (*ResolveWorkspaceEnvironmentVariablesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{19}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ResolveWorkspaceEnvironmentVariablesResponse) GetEnvironmentVariables() []*EnvironmentVariable {
@@ -1175,7 +1175,7 @@ type EnvironmentVariable struct {
 func (x *EnvironmentVariable) Reset() {
 	*x = EnvironmentVariable{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_envvar_proto_msgTypes[20]
+		mi := &file_nxpod_v1_envvar_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1188,7 +1188,7 @@ func (x *EnvironmentVariable) String() string {
 func (*EnvironmentVariable) ProtoMessage() {}
 
 func (x *EnvironmentVariable) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_envvar_proto_msgTypes[20]
+	mi := &file_nxpod_v1_envvar_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1201,7 +1201,7 @@ func (x *EnvironmentVariable) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EnvironmentVariable.ProtoReflect.Descriptor instead.
 func (*EnvironmentVariable) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_envvar_proto_rawDescGZIP(), []int{20}
+	return file_nxpod_v1_envvar_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *EnvironmentVariable) GetName() string {
@@ -1218,9 +1218,9 @@ func (x *EnvironmentVariable) GetValue() string {
 	return ""
 }
 
-var File_gitpod_v1_envvar_proto protoreflect.FileDescriptor
+var File_nxpod_v1_envvar_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_envvar_proto_rawDesc = []byte{
+var file_nxpod_v1_envvar_proto_rawDesc = []byte{
 	0x0a, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e, 0x76, 0x76,
 	0x61, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64,
 	0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x70,
@@ -1517,78 +1517,78 @@ var file_gitpod_v1_envvar_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_envvar_proto_rawDescOnce sync.Once
-	file_gitpod_v1_envvar_proto_rawDescData = file_gitpod_v1_envvar_proto_rawDesc
+	file_nxpod_v1_envvar_proto_rawDescOnce sync.Once
+	file_nxpod_v1_envvar_proto_rawDescData = file_nxpod_v1_envvar_proto_rawDesc
 )
 
-func file_gitpod_v1_envvar_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_envvar_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_envvar_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_envvar_proto_rawDescData)
+func file_nxpod_v1_envvar_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_envvar_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_envvar_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_envvar_proto_rawDescData)
 	})
-	return file_gitpod_v1_envvar_proto_rawDescData
+	return file_nxpod_v1_envvar_proto_rawDescData
 }
 
-var file_gitpod_v1_envvar_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_gitpod_v1_envvar_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
-var file_gitpod_v1_envvar_proto_goTypes = []interface{}{
-	(EnvironmentVariableAdmission)(0),                      // 0: gitpod.v1.EnvironmentVariableAdmission
-	(*UserEnvironmentVariable)(nil),                        // 1: gitpod.v1.UserEnvironmentVariable
-	(*ListUserEnvironmentVariablesRequest)(nil),            // 2: gitpod.v1.ListUserEnvironmentVariablesRequest
-	(*ListUserEnvironmentVariablesResponse)(nil),           // 3: gitpod.v1.ListUserEnvironmentVariablesResponse
-	(*UpdateUserEnvironmentVariableRequest)(nil),           // 4: gitpod.v1.UpdateUserEnvironmentVariableRequest
-	(*UpdateUserEnvironmentVariableResponse)(nil),          // 5: gitpod.v1.UpdateUserEnvironmentVariableResponse
-	(*CreateUserEnvironmentVariableRequest)(nil),           // 6: gitpod.v1.CreateUserEnvironmentVariableRequest
-	(*CreateUserEnvironmentVariableResponse)(nil),          // 7: gitpod.v1.CreateUserEnvironmentVariableResponse
-	(*DeleteUserEnvironmentVariableRequest)(nil),           // 8: gitpod.v1.DeleteUserEnvironmentVariableRequest
-	(*DeleteUserEnvironmentVariableResponse)(nil),          // 9: gitpod.v1.DeleteUserEnvironmentVariableResponse
-	(*ConfigurationEnvironmentVariable)(nil),               // 10: gitpod.v1.ConfigurationEnvironmentVariable
-	(*ListConfigurationEnvironmentVariablesRequest)(nil),   // 11: gitpod.v1.ListConfigurationEnvironmentVariablesRequest
-	(*ListConfigurationEnvironmentVariablesResponse)(nil),  // 12: gitpod.v1.ListConfigurationEnvironmentVariablesResponse
-	(*UpdateConfigurationEnvironmentVariableRequest)(nil),  // 13: gitpod.v1.UpdateConfigurationEnvironmentVariableRequest
-	(*UpdateConfigurationEnvironmentVariableResponse)(nil), // 14: gitpod.v1.UpdateConfigurationEnvironmentVariableResponse
-	(*CreateConfigurationEnvironmentVariableRequest)(nil),  // 15: gitpod.v1.CreateConfigurationEnvironmentVariableRequest
-	(*CreateConfigurationEnvironmentVariableResponse)(nil), // 16: gitpod.v1.CreateConfigurationEnvironmentVariableResponse
-	(*DeleteConfigurationEnvironmentVariableRequest)(nil),  // 17: gitpod.v1.DeleteConfigurationEnvironmentVariableRequest
-	(*DeleteConfigurationEnvironmentVariableResponse)(nil), // 18: gitpod.v1.DeleteConfigurationEnvironmentVariableResponse
-	(*ResolveWorkspaceEnvironmentVariablesRequest)(nil),    // 19: gitpod.v1.ResolveWorkspaceEnvironmentVariablesRequest
-	(*ResolveWorkspaceEnvironmentVariablesResponse)(nil),   // 20: gitpod.v1.ResolveWorkspaceEnvironmentVariablesResponse
-	(*EnvironmentVariable)(nil),                            // 21: gitpod.v1.EnvironmentVariable
-	(*PaginationRequest)(nil),                              // 22: gitpod.v1.PaginationRequest
-	(*PaginationResponse)(nil),                             // 23: gitpod.v1.PaginationResponse
+var file_nxpod_v1_envvar_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_nxpod_v1_envvar_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
+var file_nxpod_v1_envvar_proto_goTypes = []interface{}{
+	(EnvironmentVariableAdmission)(0),                      // 0: nxpod.v1.EnvironmentVariableAdmission
+	(*UserEnvironmentVariable)(nil),                        // 1: nxpod.v1.UserEnvironmentVariable
+	(*ListUserEnvironmentVariablesRequest)(nil),            // 2: nxpod.v1.ListUserEnvironmentVariablesRequest
+	(*ListUserEnvironmentVariablesResponse)(nil),           // 3: nxpod.v1.ListUserEnvironmentVariablesResponse
+	(*UpdateUserEnvironmentVariableRequest)(nil),           // 4: nxpod.v1.UpdateUserEnvironmentVariableRequest
+	(*UpdateUserEnvironmentVariableResponse)(nil),          // 5: nxpod.v1.UpdateUserEnvironmentVariableResponse
+	(*CreateUserEnvironmentVariableRequest)(nil),           // 6: nxpod.v1.CreateUserEnvironmentVariableRequest
+	(*CreateUserEnvironmentVariableResponse)(nil),          // 7: nxpod.v1.CreateUserEnvironmentVariableResponse
+	(*DeleteUserEnvironmentVariableRequest)(nil),           // 8: nxpod.v1.DeleteUserEnvironmentVariableRequest
+	(*DeleteUserEnvironmentVariableResponse)(nil),          // 9: nxpod.v1.DeleteUserEnvironmentVariableResponse
+	(*ConfigurationEnvironmentVariable)(nil),               // 10: nxpod.v1.ConfigurationEnvironmentVariable
+	(*ListConfigurationEnvironmentVariablesRequest)(nil),   // 11: nxpod.v1.ListConfigurationEnvironmentVariablesRequest
+	(*ListConfigurationEnvironmentVariablesResponse)(nil),  // 12: nxpod.v1.ListConfigurationEnvironmentVariablesResponse
+	(*UpdateConfigurationEnvironmentVariableRequest)(nil),  // 13: nxpod.v1.UpdateConfigurationEnvironmentVariableRequest
+	(*UpdateConfigurationEnvironmentVariableResponse)(nil), // 14: nxpod.v1.UpdateConfigurationEnvironmentVariableResponse
+	(*CreateConfigurationEnvironmentVariableRequest)(nil),  // 15: nxpod.v1.CreateConfigurationEnvironmentVariableRequest
+	(*CreateConfigurationEnvironmentVariableResponse)(nil), // 16: nxpod.v1.CreateConfigurationEnvironmentVariableResponse
+	(*DeleteConfigurationEnvironmentVariableRequest)(nil),  // 17: nxpod.v1.DeleteConfigurationEnvironmentVariableRequest
+	(*DeleteConfigurationEnvironmentVariableResponse)(nil), // 18: nxpod.v1.DeleteConfigurationEnvironmentVariableResponse
+	(*ResolveWorkspaceEnvironmentVariablesRequest)(nil),    // 19: nxpod.v1.ResolveWorkspaceEnvironmentVariablesRequest
+	(*ResolveWorkspaceEnvironmentVariablesResponse)(nil),   // 20: nxpod.v1.ResolveWorkspaceEnvironmentVariablesResponse
+	(*EnvironmentVariable)(nil),                            // 21: nxpod.v1.EnvironmentVariable
+	(*PaginationRequest)(nil),                              // 22: nxpod.v1.PaginationRequest
+	(*PaginationResponse)(nil),                             // 23: nxpod.v1.PaginationResponse
 }
-var file_gitpod_v1_envvar_proto_depIdxs = []int32{
-	22, // 0: gitpod.v1.ListUserEnvironmentVariablesRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	1,  // 1: gitpod.v1.ListUserEnvironmentVariablesResponse.environment_variables:type_name -> gitpod.v1.UserEnvironmentVariable
-	23, // 2: gitpod.v1.ListUserEnvironmentVariablesResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	1,  // 3: gitpod.v1.UpdateUserEnvironmentVariableResponse.environment_variable:type_name -> gitpod.v1.UserEnvironmentVariable
-	1,  // 4: gitpod.v1.CreateUserEnvironmentVariableResponse.environment_variable:type_name -> gitpod.v1.UserEnvironmentVariable
-	0,  // 5: gitpod.v1.ConfigurationEnvironmentVariable.admission:type_name -> gitpod.v1.EnvironmentVariableAdmission
-	22, // 6: gitpod.v1.ListConfigurationEnvironmentVariablesRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	10, // 7: gitpod.v1.ListConfigurationEnvironmentVariablesResponse.environment_variables:type_name -> gitpod.v1.ConfigurationEnvironmentVariable
-	23, // 8: gitpod.v1.ListConfigurationEnvironmentVariablesResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	0,  // 9: gitpod.v1.UpdateConfigurationEnvironmentVariableRequest.admission:type_name -> gitpod.v1.EnvironmentVariableAdmission
-	10, // 10: gitpod.v1.UpdateConfigurationEnvironmentVariableResponse.environment_variable:type_name -> gitpod.v1.ConfigurationEnvironmentVariable
-	0,  // 11: gitpod.v1.CreateConfigurationEnvironmentVariableRequest.admission:type_name -> gitpod.v1.EnvironmentVariableAdmission
-	10, // 12: gitpod.v1.CreateConfigurationEnvironmentVariableResponse.environment_variable:type_name -> gitpod.v1.ConfigurationEnvironmentVariable
-	21, // 13: gitpod.v1.ResolveWorkspaceEnvironmentVariablesResponse.environment_variables:type_name -> gitpod.v1.EnvironmentVariable
-	2,  // 14: gitpod.v1.EnvironmentVariableService.ListUserEnvironmentVariables:input_type -> gitpod.v1.ListUserEnvironmentVariablesRequest
-	4,  // 15: gitpod.v1.EnvironmentVariableService.UpdateUserEnvironmentVariable:input_type -> gitpod.v1.UpdateUserEnvironmentVariableRequest
-	6,  // 16: gitpod.v1.EnvironmentVariableService.CreateUserEnvironmentVariable:input_type -> gitpod.v1.CreateUserEnvironmentVariableRequest
-	8,  // 17: gitpod.v1.EnvironmentVariableService.DeleteUserEnvironmentVariable:input_type -> gitpod.v1.DeleteUserEnvironmentVariableRequest
-	11, // 18: gitpod.v1.EnvironmentVariableService.ListConfigurationEnvironmentVariables:input_type -> gitpod.v1.ListConfigurationEnvironmentVariablesRequest
-	13, // 19: gitpod.v1.EnvironmentVariableService.UpdateConfigurationEnvironmentVariable:input_type -> gitpod.v1.UpdateConfigurationEnvironmentVariableRequest
-	15, // 20: gitpod.v1.EnvironmentVariableService.CreateConfigurationEnvironmentVariable:input_type -> gitpod.v1.CreateConfigurationEnvironmentVariableRequest
-	17, // 21: gitpod.v1.EnvironmentVariableService.DeleteConfigurationEnvironmentVariable:input_type -> gitpod.v1.DeleteConfigurationEnvironmentVariableRequest
-	19, // 22: gitpod.v1.EnvironmentVariableService.ResolveWorkspaceEnvironmentVariables:input_type -> gitpod.v1.ResolveWorkspaceEnvironmentVariablesRequest
-	3,  // 23: gitpod.v1.EnvironmentVariableService.ListUserEnvironmentVariables:output_type -> gitpod.v1.ListUserEnvironmentVariablesResponse
-	5,  // 24: gitpod.v1.EnvironmentVariableService.UpdateUserEnvironmentVariable:output_type -> gitpod.v1.UpdateUserEnvironmentVariableResponse
-	7,  // 25: gitpod.v1.EnvironmentVariableService.CreateUserEnvironmentVariable:output_type -> gitpod.v1.CreateUserEnvironmentVariableResponse
-	9,  // 26: gitpod.v1.EnvironmentVariableService.DeleteUserEnvironmentVariable:output_type -> gitpod.v1.DeleteUserEnvironmentVariableResponse
-	12, // 27: gitpod.v1.EnvironmentVariableService.ListConfigurationEnvironmentVariables:output_type -> gitpod.v1.ListConfigurationEnvironmentVariablesResponse
-	14, // 28: gitpod.v1.EnvironmentVariableService.UpdateConfigurationEnvironmentVariable:output_type -> gitpod.v1.UpdateConfigurationEnvironmentVariableResponse
-	16, // 29: gitpod.v1.EnvironmentVariableService.CreateConfigurationEnvironmentVariable:output_type -> gitpod.v1.CreateConfigurationEnvironmentVariableResponse
-	18, // 30: gitpod.v1.EnvironmentVariableService.DeleteConfigurationEnvironmentVariable:output_type -> gitpod.v1.DeleteConfigurationEnvironmentVariableResponse
-	20, // 31: gitpod.v1.EnvironmentVariableService.ResolveWorkspaceEnvironmentVariables:output_type -> gitpod.v1.ResolveWorkspaceEnvironmentVariablesResponse
+var file_nxpod_v1_envvar_proto_depIdxs = []int32{
+	22, // 0: nxpod.v1.ListUserEnvironmentVariablesRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	1,  // 1: nxpod.v1.ListUserEnvironmentVariablesResponse.environment_variables:type_name -> nxpod.v1.UserEnvironmentVariable
+	23, // 2: nxpod.v1.ListUserEnvironmentVariablesResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	1,  // 3: nxpod.v1.UpdateUserEnvironmentVariableResponse.environment_variable:type_name -> nxpod.v1.UserEnvironmentVariable
+	1,  // 4: nxpod.v1.CreateUserEnvironmentVariableResponse.environment_variable:type_name -> nxpod.v1.UserEnvironmentVariable
+	0,  // 5: nxpod.v1.ConfigurationEnvironmentVariable.admission:type_name -> nxpod.v1.EnvironmentVariableAdmission
+	22, // 6: nxpod.v1.ListConfigurationEnvironmentVariablesRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	10, // 7: nxpod.v1.ListConfigurationEnvironmentVariablesResponse.environment_variables:type_name -> nxpod.v1.ConfigurationEnvironmentVariable
+	23, // 8: nxpod.v1.ListConfigurationEnvironmentVariablesResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	0,  // 9: nxpod.v1.UpdateConfigurationEnvironmentVariableRequest.admission:type_name -> nxpod.v1.EnvironmentVariableAdmission
+	10, // 10: nxpod.v1.UpdateConfigurationEnvironmentVariableResponse.environment_variable:type_name -> nxpod.v1.ConfigurationEnvironmentVariable
+	0,  // 11: nxpod.v1.CreateConfigurationEnvironmentVariableRequest.admission:type_name -> nxpod.v1.EnvironmentVariableAdmission
+	10, // 12: nxpod.v1.CreateConfigurationEnvironmentVariableResponse.environment_variable:type_name -> nxpod.v1.ConfigurationEnvironmentVariable
+	21, // 13: nxpod.v1.ResolveWorkspaceEnvironmentVariablesResponse.environment_variables:type_name -> nxpod.v1.EnvironmentVariable
+	2,  // 14: nxpod.v1.EnvironmentVariableService.ListUserEnvironmentVariables:input_type -> nxpod.v1.ListUserEnvironmentVariablesRequest
+	4,  // 15: nxpod.v1.EnvironmentVariableService.UpdateUserEnvironmentVariable:input_type -> nxpod.v1.UpdateUserEnvironmentVariableRequest
+	6,  // 16: nxpod.v1.EnvironmentVariableService.CreateUserEnvironmentVariable:input_type -> nxpod.v1.CreateUserEnvironmentVariableRequest
+	8,  // 17: nxpod.v1.EnvironmentVariableService.DeleteUserEnvironmentVariable:input_type -> nxpod.v1.DeleteUserEnvironmentVariableRequest
+	11, // 18: nxpod.v1.EnvironmentVariableService.ListConfigurationEnvironmentVariables:input_type -> nxpod.v1.ListConfigurationEnvironmentVariablesRequest
+	13, // 19: nxpod.v1.EnvironmentVariableService.UpdateConfigurationEnvironmentVariable:input_type -> nxpod.v1.UpdateConfigurationEnvironmentVariableRequest
+	15, // 20: nxpod.v1.EnvironmentVariableService.CreateConfigurationEnvironmentVariable:input_type -> nxpod.v1.CreateConfigurationEnvironmentVariableRequest
+	17, // 21: nxpod.v1.EnvironmentVariableService.DeleteConfigurationEnvironmentVariable:input_type -> nxpod.v1.DeleteConfigurationEnvironmentVariableRequest
+	19, // 22: nxpod.v1.EnvironmentVariableService.ResolveWorkspaceEnvironmentVariables:input_type -> nxpod.v1.ResolveWorkspaceEnvironmentVariablesRequest
+	3,  // 23: nxpod.v1.EnvironmentVariableService.ListUserEnvironmentVariables:output_type -> nxpod.v1.ListUserEnvironmentVariablesResponse
+	5,  // 24: nxpod.v1.EnvironmentVariableService.UpdateUserEnvironmentVariable:output_type -> nxpod.v1.UpdateUserEnvironmentVariableResponse
+	7,  // 25: nxpod.v1.EnvironmentVariableService.CreateUserEnvironmentVariable:output_type -> nxpod.v1.CreateUserEnvironmentVariableResponse
+	9,  // 26: nxpod.v1.EnvironmentVariableService.DeleteUserEnvironmentVariable:output_type -> nxpod.v1.DeleteUserEnvironmentVariableResponse
+	12, // 27: nxpod.v1.EnvironmentVariableService.ListConfigurationEnvironmentVariables:output_type -> nxpod.v1.ListConfigurationEnvironmentVariablesResponse
+	14, // 28: nxpod.v1.EnvironmentVariableService.UpdateConfigurationEnvironmentVariable:output_type -> nxpod.v1.UpdateConfigurationEnvironmentVariableResponse
+	16, // 29: nxpod.v1.EnvironmentVariableService.CreateConfigurationEnvironmentVariable:output_type -> nxpod.v1.CreateConfigurationEnvironmentVariableResponse
+	18, // 30: nxpod.v1.EnvironmentVariableService.DeleteConfigurationEnvironmentVariable:output_type -> nxpod.v1.DeleteConfigurationEnvironmentVariableResponse
+	20, // 31: nxpod.v1.EnvironmentVariableService.ResolveWorkspaceEnvironmentVariables:output_type -> nxpod.v1.ResolveWorkspaceEnvironmentVariablesResponse
 	23, // [23:32] is the sub-list for method output_type
 	14, // [14:23] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name
@@ -1596,14 +1596,14 @@ var file_gitpod_v1_envvar_proto_depIdxs = []int32{
 	0,  // [0:14] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_envvar_proto_init() }
-func file_gitpod_v1_envvar_proto_init() {
-	if File_gitpod_v1_envvar_proto != nil {
+func init() { file_nxpod_v1_envvar_proto_init() }
+func file_nxpod_v1_envvar_proto_init() {
+	if File_nxpod_v1_envvar_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
+	file_nxpod_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_envvar_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserEnvironmentVariable); i {
 			case 0:
 				return &v.state
@@ -1615,7 +1615,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListUserEnvironmentVariablesRequest); i {
 			case 0:
 				return &v.state
@@ -1627,7 +1627,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListUserEnvironmentVariablesResponse); i {
 			case 0:
 				return &v.state
@@ -1639,7 +1639,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserEnvironmentVariableRequest); i {
 			case 0:
 				return &v.state
@@ -1651,7 +1651,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateUserEnvironmentVariableResponse); i {
 			case 0:
 				return &v.state
@@ -1663,7 +1663,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateUserEnvironmentVariableRequest); i {
 			case 0:
 				return &v.state
@@ -1675,7 +1675,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateUserEnvironmentVariableResponse); i {
 			case 0:
 				return &v.state
@@ -1687,7 +1687,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteUserEnvironmentVariableRequest); i {
 			case 0:
 				return &v.state
@@ -1699,7 +1699,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteUserEnvironmentVariableResponse); i {
 			case 0:
 				return &v.state
@@ -1711,7 +1711,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ConfigurationEnvironmentVariable); i {
 			case 0:
 				return &v.state
@@ -1723,7 +1723,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListConfigurationEnvironmentVariablesRequest); i {
 			case 0:
 				return &v.state
@@ -1735,7 +1735,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListConfigurationEnvironmentVariablesResponse); i {
 			case 0:
 				return &v.state
@@ -1747,7 +1747,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateConfigurationEnvironmentVariableRequest); i {
 			case 0:
 				return &v.state
@@ -1759,7 +1759,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateConfigurationEnvironmentVariableResponse); i {
 			case 0:
 				return &v.state
@@ -1771,7 +1771,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateConfigurationEnvironmentVariableRequest); i {
 			case 0:
 				return &v.state
@@ -1783,7 +1783,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateConfigurationEnvironmentVariableResponse); i {
 			case 0:
 				return &v.state
@@ -1795,7 +1795,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteConfigurationEnvironmentVariableRequest); i {
 			case 0:
 				return &v.state
@@ -1807,7 +1807,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteConfigurationEnvironmentVariableResponse); i {
 			case 0:
 				return &v.state
@@ -1819,7 +1819,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResolveWorkspaceEnvironmentVariablesRequest); i {
 			case 0:
 				return &v.state
@@ -1831,7 +1831,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResolveWorkspaceEnvironmentVariablesResponse); i {
 			case 0:
 				return &v.state
@@ -1843,7 +1843,7 @@ func file_gitpod_v1_envvar_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_envvar_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_envvar_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EnvironmentVariable); i {
 			case 0:
 				return &v.state
@@ -1856,25 +1856,25 @@ func file_gitpod_v1_envvar_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_envvar_proto_msgTypes[3].OneofWrappers = []interface{}{}
-	file_gitpod_v1_envvar_proto_msgTypes[12].OneofWrappers = []interface{}{}
+	file_nxpod_v1_envvar_proto_msgTypes[3].OneofWrappers = []interface{}{}
+	file_nxpod_v1_envvar_proto_msgTypes[12].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_envvar_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_envvar_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   21,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_envvar_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_envvar_proto_depIdxs,
-		EnumInfos:         file_gitpod_v1_envvar_proto_enumTypes,
-		MessageInfos:      file_gitpod_v1_envvar_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_envvar_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_envvar_proto_depIdxs,
+		EnumInfos:         file_nxpod_v1_envvar_proto_enumTypes,
+		MessageInfos:      file_nxpod_v1_envvar_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_envvar_proto = out.File
-	file_gitpod_v1_envvar_proto_rawDesc = nil
-	file_gitpod_v1_envvar_proto_goTypes = nil
-	file_gitpod_v1_envvar_proto_depIdxs = nil
+	File_nxpod_v1_envvar_proto = out.File
+	file_nxpod_v1_envvar_proto_rawDesc = nil
+	file_nxpod_v1_envvar_proto_goTypes = nil
+	file_nxpod_v1_envvar_proto_depIdxs = nil
 }

@@ -38,7 +38,7 @@
 	import static
 	import notstatic
 
-	redir /.well-known/security.txt https://www.nxpod.io/.well-known/security.txt permanent
+	redir /.well-known/security.txt https://www.nxpod.khulnasoft.com/.well-known/security.txt permanent
 	redir /environment-variables /settings/ permanent
 
 	rewrite /schemas/nxpod-schema.json /static/schemas/nxpod-schema.json

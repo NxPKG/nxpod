@@ -7,7 +7,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 import { columnExists } from "./helper/helper";
 
-const TABLE_NAME = "d_b_gitpod_token";
+const TABLE_NAME = "d_b_nxpod_token";
 const COLUMN_NAME = "deleted";
 
 export class NxpodTokenDropDeleted1695821079717 implements MigrationInterface {

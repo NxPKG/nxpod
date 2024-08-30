@@ -61,7 +61,7 @@
                     "name": "PHASE_STOPPED",
                     "lastTransitionTime": "2024-05-13T07:14:45.466Z"
                 },
-                "workspaceUrl": "https://sveneffting-2048intermi-5vb9hvqev88.ws-dev.se-workspad026375d1b.preview.gitpod-dev.com",
+                "workspaceUrl": "https://sveneffting-2048intermi-5vb9hvqev88.ws-dev.se-workspad026375d1b.preview.nxpod-dev.com",
                 "conditions": {
                     "failed": "container workspace completed; containers of a workspace pod are not supposed to do that",
                     "failedReason": "FAILED_REASON_UNSPECIFIED",

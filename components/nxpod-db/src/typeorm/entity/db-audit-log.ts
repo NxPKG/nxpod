@@ -6,8 +6,8 @@
 
 import { Entity, Column, PrimaryColumn } from "typeorm";
 import { TypeORM } from "../typeorm";
-import { AuditLog } from "@gitpod/gitpod-protocol/lib/audit-log";
-import { BigIntToJson } from "@gitpod/gitpod-protocol/lib/util/stringify";
+import { AuditLog } from "@nxpod/nxpod-protocol/lib/audit-log";
+import { BigIntToJson } from "@nxpod/nxpod-protocol/lib/util/stringify";
 import { Transformer } from "../transformer";
 
 @Entity()

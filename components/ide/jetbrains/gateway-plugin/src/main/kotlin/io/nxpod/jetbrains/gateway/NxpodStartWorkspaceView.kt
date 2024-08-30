@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.CompositeDisposable
@@ -15,8 +15,8 @@ import com.intellij.ui.layout.enteredTextSatisfies
 import com.intellij.util.EventDispatcher
 import com.jetbrains.rd.util.concurrentMapOf
 import com.jetbrains.rd.util.lifetime.Lifetime
-import io.gitpod.gitpodprotocol.api.entities.IDEOption
-import io.gitpod.jetbrains.auth.NxpodAuthService
+import io.nxpod.nxpodprotocol.api.entities.IDEOption
+import io.nxpod.jetbrains.auth.NxpodAuthService
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -68,7 +68,7 @@ class NxpodStartWorkspaceView(
                 .resizableColumn()
                 .align(AlignX.FILL)
                 .applyToComponent {
-                    this.text = "https://github.com/gitpod-samples/spring-petclinic"
+                    this.text = "https://github.com/nxpod-samples/spring-petclinic"
                 }
                 .whenTextChangedFromUi {
                     hasContextUrlChangedFromUi = true
@@ -78,15 +78,15 @@ class NxpodStartWorkspaceView(
                     contextUrl.applyToComponent {
                         backendsModel.selectedItem.let {
                             text = when(it) {
-                                "IntelliJ IDEA" -> "https://github.com/gitpod-samples/spring-petclinic"
-                                "WebStorm" -> "https://github.com/gitpod-samples/template-typescript-react"
-                                "PyCharm" -> "https://github.com/gitpod-samples/template-python-django"
-                                "GoLand" -> "https://github.com/gitpod-samples/template-golang-cli"
-                                "Rider" -> "https://github.com/gitpod-samples/template-dotnet-core-cli-csharp"
-                                "CLion" -> "https://github.com/gitpod-samples/template-cpp"
-                                "RubyMine" -> "https://github.com/gitpod-samples/template-ruby-on-rails-postgres"
-                                "PhpStorm" -> "https://github.com/gitpod-samples/template-php-laravel-mysql"
-                                "RustRover" -> "https://github.com/gitpod-samples/template-rust-cli"
+                                "IntelliJ IDEA" -> "https://github.com/nxpod-samples/spring-petclinic"
+                                "WebStorm" -> "https://github.com/nxpod-samples/template-typescript-react"
+                                "PyCharm" -> "https://github.com/nxpod-samples/template-python-django"
+                                "GoLand" -> "https://github.com/nxpod-samples/template-golang-cli"
+                                "Rider" -> "https://github.com/nxpod-samples/template-dotnet-core-cli-csharp"
+                                "CLion" -> "https://github.com/nxpod-samples/template-cpp"
+                                "RubyMine" -> "https://github.com/nxpod-samples/template-ruby-on-rails-postgres"
+                                "PhpStorm" -> "https://github.com/nxpod-samples/template-php-laravel-mysql"
+                                "RustRover" -> "https://github.com/nxpod-samples/template-rust-cli"
                                 else -> "https://github.com/nxpkg/empty"
                             }
                         }
@@ -97,7 +97,7 @@ class NxpodStartWorkspaceView(
                 if (contextUrl.component.text.isNotBlank()) {
                     backendsModel.selectedItem?.let {
                         backendToId[it]?.let { backend ->
-                            BrowserUtil.browse("https://${settings.gitpodHost}#referrer:jetbrains-gateway:$backend/${contextUrl.component.text}")
+                            BrowserUtil.browse("https://${settings.nxpodHost}#referrer:jetbrains-gateway:$backend/${contextUrl.component.text}")
                         }
                     }
                 }
@@ -118,12 +118,12 @@ class NxpodStartWorkspaceView(
             for (event in channel) {
                 ensureActive()
 
-                val gitpodHost = settings.gitpodHost
-                if (!NxpodAuthService.hasAccessToken(gitpodHost)) {
+                val nxpodHost = settings.nxpodHost
+                if (!NxpodAuthService.hasAccessToken(nxpodHost)) {
                     backendsModel.removeAllElements()
                     backendToId.clear()
                 } else {
-                    val client = service<NxpodConnectionService>().obtainClient(gitpodHost)
+                    val client = service<NxpodConnectionService>().obtainClient(nxpodHost)
                     val ideOptions = client.server.ideOptions.await()
                     ensureActive()
 

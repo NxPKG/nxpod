@@ -5,12 +5,12 @@
  */
 
 import { PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import {
     InvalidNxpodYMLError as InvalidNxpodYMLErrorData,
     RepositoryNotFoundError as RepositoryNotFoundErrorData,
     RepositoryUnauthorizedError as RepositoryUnauthorizedErrorData,
-} from "@gitpod/public-api/lib/gitpod/v1/error_pb";
+} from "@nxpod/public-api/lib/nxpod/v1/error_pb";
 
 export class RepositoryNotFoundError extends ApplicationError {
     constructor(readonly info: PlainMessage<RepositoryNotFoundErrorData>) {
@@ -27,6 +27,6 @@ export class UnauthorizedRepositoryAccessError extends ApplicationError {
 export class InvalidNxpodYMLError extends ApplicationError {
     constructor(readonly info: PlainMessage<InvalidNxpodYMLErrorData>) {
         // on gRPC we remap to PRECONDITION_FAILED, all error code for backwards compatibility with the dashboard
-        super(ErrorCodes.INVALID_NXPOD_YML, "Invalid gitpod.yml: " + info.violations.join(","), info);
+        super(ErrorCodes.INVALID_NXPOD_YML, "Invalid nxpod.yml: " + info.violations.join(","), info);
     }
 }

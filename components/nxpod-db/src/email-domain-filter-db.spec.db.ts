@@ -32,40 +32,40 @@ export class EmailDomainFilterDBSpec {
 
     @test public async filterSimple() {
         await this.db.storeFilterEntry({
-            domain: "gitpod.io",
+            domain: "nxpod.khulnasoft.com",
             negative: true,
         });
 
-        const actual = await this.db.isBlocked("gitpod.io");
+        const actual = await this.db.isBlocked("nxpod.khulnasoft.com");
         expect(actual, "isBlocked").to.equal(true);
     }
 
     @test public async filterSimple_negative() {
         await this.db.storeFilterEntry({
-            domain: "gitpod.io",
+            domain: "nxpod.khulnasoft.com",
             negative: true,
         });
 
         const actual = await this.db.isBlocked("example.org");
         expect(actual, "isBlocked").to.equal(false);
 
-        const actual2 = await this.db.isBlocked("sub.gitpod.io");
+        const actual2 = await this.db.isBlocked("sub.nxpod.khulnasoft.com");
         expect(actual2, "isBlocked").to.equal(false);
     }
 
     @test public async filterSuffixMatch() {
         await this.db.storeFilterEntry({
-            domain: "%.gitpod.io",
+            domain: "%.nxpod.khulnasoft.com",
             negative: true,
         });
 
-        const actual = await this.db.isBlocked("gitpod.io");
+        const actual = await this.db.isBlocked("nxpod.khulnasoft.com");
         expect(actual, "isBlocked").to.equal(false);
 
-        const actual2 = await this.db.isBlocked("sub.gitpod.io");
+        const actual2 = await this.db.isBlocked("sub.nxpod.khulnasoft.com");
         expect(actual2, "isBlocked").to.equal(true);
 
-        const actual3 = await this.db.isBlocked("sub.gitpod.io.xyz");
+        const actual3 = await this.db.isBlocked("sub.nxpod.khulnasoft.com.xyz");
         expect(actual3, "isBlocked").to.equal(false);
     }
 
@@ -78,7 +78,7 @@ export class EmailDomainFilterDBSpec {
         const actual = await this.db.isBlocked("example.org");
         expect(actual, "isBlocked").to.equal(false);
 
-        const actual2 = await this.db.isBlocked("sub.gitpod.io");
+        const actual2 = await this.db.isBlocked("sub.nxpod.khulnasoft.com");
         expect(actual2, "isBlocked").to.equal(false);
     }
 }

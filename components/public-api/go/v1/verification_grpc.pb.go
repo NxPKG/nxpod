@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/verification.proto
+// source: nxpod/v1/verification.proto
 
 package v1
 
@@ -44,7 +44,7 @@ func NewVerificationServiceClient(cc grpc.ClientConnInterface) VerificationServi
 
 func (c *verificationServiceClient) SendPhoneNumberVerificationToken(ctx context.Context, in *SendPhoneNumberVerificationTokenRequest, opts ...grpc.CallOption) (*SendPhoneNumberVerificationTokenResponse, error) {
 	out := new(SendPhoneNumberVerificationTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.VerificationService/SendPhoneNumberVerificationToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.VerificationService/SendPhoneNumberVerificationToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func (c *verificationServiceClient) SendPhoneNumberVerificationToken(ctx context
 
 func (c *verificationServiceClient) VerifyPhoneNumberVerificationToken(ctx context.Context, in *VerifyPhoneNumberVerificationTokenRequest, opts ...grpc.CallOption) (*VerifyPhoneNumberVerificationTokenResponse, error) {
 	out := new(VerifyPhoneNumberVerificationTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.VerificationService/VerifyPhoneNumberVerificationToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.VerificationService/VerifyPhoneNumberVerificationToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +106,7 @@ func _VerificationService_SendPhoneNumberVerificationToken_Handler(srv interface
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.VerificationService/SendPhoneNumberVerificationToken",
+		FullMethod: "/nxpod.v1.VerificationService/SendPhoneNumberVerificationToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(VerificationServiceServer).SendPhoneNumberVerificationToken(ctx, req.(*SendPhoneNumberVerificationTokenRequest))
@@ -124,7 +124,7 @@ func _VerificationService_VerifyPhoneNumberVerificationToken_Handler(srv interfa
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.VerificationService/VerifyPhoneNumberVerificationToken",
+		FullMethod: "/nxpod.v1.VerificationService/VerifyPhoneNumberVerificationToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(VerificationServiceServer).VerifyPhoneNumberVerificationToken(ctx, req.(*VerifyPhoneNumberVerificationTokenRequest))
@@ -136,7 +136,7 @@ func _VerificationService_VerifyPhoneNumberVerificationToken_Handler(srv interfa
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var VerificationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.VerificationService",
+	ServiceName: "nxpod.v1.VerificationService",
 	HandlerType: (*VerificationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -149,5 +149,5 @@ var VerificationService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/verification.proto",
+	Metadata: "nxpod/v1/verification.proto",
 }

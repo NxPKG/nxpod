@@ -54,7 +54,7 @@ export const poll = async <T>(
 
 export function isNxpodIo() {
     return (
-        window.location.hostname === "nxpod.io" ||
+        window.location.hostname === "nxpod.khulnasoft.com" ||
         window.location.hostname === "nxpod-staging.com" ||
         window.location.hostname.endsWith("nxpod-dev.com") ||
         window.location.hostname.endsWith("nxpkg-dev.com")

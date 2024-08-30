@@ -4,11 +4,11 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { HeadlessWorkspaceEventType, PrebuiltWorkspace } from "@gitpod/gitpod-protocol";
-import { Client as ExperimentsClient } from "@gitpod/gitpod-protocol/lib/experiments/types";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { TrustedValue } from "@gitpod/gitpod-protocol/lib/util/scrubbing";
-import { WorkspacePhase, WorkspaceStatus } from "@gitpod/ws-manager/lib";
+import { HeadlessWorkspaceEventType, PrebuiltWorkspace } from "@nxpod/nxpod-protocol";
+import { Client as ExperimentsClient } from "@nxpod/nxpod-protocol/lib/experiments/types";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { TrustedValue } from "@nxpod/nxpod-protocol/lib/util/scrubbing";
+import { WorkspacePhase, WorkspaceStatus } from "@nxpod/ws-manager/lib";
 import { inject, injectable } from "inversify";
 
 export interface PrebuildUpdate {

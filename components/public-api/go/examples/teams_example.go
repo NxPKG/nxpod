@@ -15,18 +15,18 @@ import (
 )
 
 func ExampleListTeams() {
-	token := "gitpod_pat_example.personal-access-token"
+	token := "nxpod_pat_example.personal-access-token"
 
-	gitpod, err := client.New(client.WithCredentials(token))
+	nxpod, err := client.New(client.WithCredentials(token))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to construct gitpod client %v", err)
+		fmt.Fprintf(os.Stderr, "Failed to construct nxpod client %v", err)
 		return
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	response, err := gitpod.Teams.ListTeams(ctx, connect.NewRequest(&v1.ListTeamsRequest{}))
+	response, err := nxpod.Teams.ListTeams(ctx, connect.NewRequest(&v1.ListTeamsRequest{}))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to list teams %v", err)
 		return
@@ -36,15 +36,15 @@ func ExampleListTeams() {
 }
 
 func ExampleGetTeam() {
-	token := "gitpod_pat_example.personal-access-token"
+	token := "nxpod_pat_example.personal-access-token"
 
-	gitpod, err := client.New(client.WithCredentials(token))
+	nxpod, err := client.New(client.WithCredentials(token))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to construct gitpod client %v", err)
+		fmt.Fprintf(os.Stderr, "Failed to construct nxpod client %v", err)
 		return
 	}
 
-	response, err := gitpod.Teams.GetTeam(context.Background(), connect.NewRequest(&v1.GetTeamRequest{
+	response, err := nxpod.Teams.GetTeam(context.Background(), connect.NewRequest(&v1.GetTeamRequest{
 		TeamId: "<TEAM_ID>",
 	}))
 	if err != nil {

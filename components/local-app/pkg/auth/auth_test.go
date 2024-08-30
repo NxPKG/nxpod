@@ -15,7 +15,7 @@ import (
 	"net/http"
 	"testing"
 
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 )
@@ -25,7 +25,7 @@ func TestValidateToken(t *testing.T) {
 	hash := sha256.Sum256([]byte(tkn))
 	tokenHash := hex.EncodeToString(hash[:])
 
-	unauthorizedErr := &gitpod.ErrBadHandshake{
+	unauthorizedErr := &nxpod.ErrBadHandshake{
 		Resp: &http.Response{
 			StatusCode: 401,
 		},
@@ -64,8 +64,8 @@ func TestValidateToken(t *testing.T) {
 			ctrl := gomock.NewController(t)
 			defer ctrl.Finish()
 
-			gitpodAPI := gitpod.NewMockAPIInterface(ctrl)
-			gitpodAPI.EXPECT().GetNxpodTokenScopes(context.Background(), tokenHash).Times(1).Return(test.Scopes, test.ScopesErr)
+			nxpodAPI := nxpod.NewMockAPIInterface(ctrl)
+			nxpodAPI.EXPECT().GetNxpodTokenScopes(context.Background(), tokenHash).Times(1).Return(test.Scopes, test.ScopesErr)
 
 			var expectation string
 			if test.Expectation != nil {
@@ -73,7 +73,7 @@ func TestValidateToken(t *testing.T) {
 			}
 
 			var actual string
-			err := ValidateToken(gitpodAPI, tkn)
+			err := ValidateToken(nxpodAPI, tkn)
 			if err != nil {
 				actual = err.Error()
 			}

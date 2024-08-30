@@ -2,11 +2,11 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote.stable
+package io.nxpod.jetbrains.remote.stable
 
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.framework.util.launch
-import io.gitpod.jetbrains.remote.AbstractNxpodPortForwardingService
+import io.nxpod.jetbrains.remote.AbstractNxpodPortForwardingService
 import kotlinx.coroutines.CoroutineScope
 
 @Suppress("UnstableApiUsage")

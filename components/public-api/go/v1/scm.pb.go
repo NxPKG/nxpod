@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/scm.proto
+// source: nxpod/v1/scm.proto
 
 package v1
 
@@ -36,7 +36,7 @@ type SearchSCMTokensRequest struct {
 func (x *SearchSCMTokensRequest) Reset() {
 	*x = SearchSCMTokensRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[0]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -49,7 +49,7 @@ func (x *SearchSCMTokensRequest) String() string {
 func (*SearchSCMTokensRequest) ProtoMessage() {}
 
 func (x *SearchSCMTokensRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[0]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,7 +62,7 @@ func (x *SearchSCMTokensRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchSCMTokensRequest.ProtoReflect.Descriptor instead.
 func (*SearchSCMTokensRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *SearchSCMTokensRequest) GetHost() string {
@@ -83,7 +83,7 @@ type SearchSCMTokensResponse struct {
 func (x *SearchSCMTokensResponse) Reset() {
 	*x = SearchSCMTokensResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[1]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -96,7 +96,7 @@ func (x *SearchSCMTokensResponse) String() string {
 func (*SearchSCMTokensResponse) ProtoMessage() {}
 
 func (x *SearchSCMTokensResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[1]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +109,7 @@ func (x *SearchSCMTokensResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchSCMTokensResponse.ProtoReflect.Descriptor instead.
 func (*SearchSCMTokensResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SearchSCMTokensResponse) GetTokens() []*SCMToken {
@@ -132,7 +132,7 @@ type GuessTokenScopesRequest struct {
 func (x *GuessTokenScopesRequest) Reset() {
 	*x = GuessTokenScopesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[2]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -145,7 +145,7 @@ func (x *GuessTokenScopesRequest) String() string {
 func (*GuessTokenScopesRequest) ProtoMessage() {}
 
 func (x *GuessTokenScopesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[2]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -158,7 +158,7 @@ func (x *GuessTokenScopesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuessTokenScopesRequest.ProtoReflect.Descriptor instead.
 func (*GuessTokenScopesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GuessTokenScopesRequest) GetHost() string {
@@ -194,7 +194,7 @@ type GuessTokenScopesResponse struct {
 func (x *GuessTokenScopesResponse) Reset() {
 	*x = GuessTokenScopesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[3]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -207,7 +207,7 @@ func (x *GuessTokenScopesResponse) String() string {
 func (*GuessTokenScopesResponse) ProtoMessage() {}
 
 func (x *GuessTokenScopesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[3]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -220,7 +220,7 @@ func (x *GuessTokenScopesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuessTokenScopesResponse.ProtoReflect.Descriptor instead.
 func (*GuessTokenScopesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GuessTokenScopesResponse) GetScopes() []string {
@@ -249,7 +249,7 @@ type SearchRepositoriesRequest struct {
 func (x *SearchRepositoriesRequest) Reset() {
 	*x = SearchRepositoriesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[4]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -262,7 +262,7 @@ func (x *SearchRepositoriesRequest) String() string {
 func (*SearchRepositoriesRequest) ProtoMessage() {}
 
 func (x *SearchRepositoriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[4]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +275,7 @@ func (x *SearchRepositoriesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchRepositoriesRequest.ProtoReflect.Descriptor instead.
 func (*SearchRepositoriesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SearchRepositoriesRequest) GetSearchString() string {
@@ -303,7 +303,7 @@ type SearchRepositoriesResponse struct {
 func (x *SearchRepositoriesResponse) Reset() {
 	*x = SearchRepositoriesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[5]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -316,7 +316,7 @@ func (x *SearchRepositoriesResponse) String() string {
 func (*SearchRepositoriesResponse) ProtoMessage() {}
 
 func (x *SearchRepositoriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[5]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -329,7 +329,7 @@ func (x *SearchRepositoriesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchRepositoriesResponse.ProtoReflect.Descriptor instead.
 func (*SearchRepositoriesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *SearchRepositoriesResponse) GetRepositories() []*SuggestedRepository {
@@ -352,7 +352,7 @@ type ListSuggestedRepositoriesRequest struct {
 func (x *ListSuggestedRepositoriesRequest) Reset() {
 	*x = ListSuggestedRepositoriesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[6]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -365,7 +365,7 @@ func (x *ListSuggestedRepositoriesRequest) String() string {
 func (*ListSuggestedRepositoriesRequest) ProtoMessage() {}
 
 func (x *ListSuggestedRepositoriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[6]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -378,7 +378,7 @@ func (x *ListSuggestedRepositoriesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSuggestedRepositoriesRequest.ProtoReflect.Descriptor instead.
 func (*ListSuggestedRepositoriesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ListSuggestedRepositoriesRequest) GetPagination() *PaginationRequest {
@@ -414,7 +414,7 @@ type ListSuggestedRepositoriesResponse struct {
 func (x *ListSuggestedRepositoriesResponse) Reset() {
 	*x = ListSuggestedRepositoriesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[7]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -427,7 +427,7 @@ func (x *ListSuggestedRepositoriesResponse) String() string {
 func (*ListSuggestedRepositoriesResponse) ProtoMessage() {}
 
 func (x *ListSuggestedRepositoriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[7]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -440,7 +440,7 @@ func (x *ListSuggestedRepositoriesResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ListSuggestedRepositoriesResponse.ProtoReflect.Descriptor instead.
 func (*ListSuggestedRepositoriesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ListSuggestedRepositoriesResponse) GetPagination() *PaginationResponse {
@@ -474,7 +474,7 @@ type SCMToken struct {
 func (x *SCMToken) Reset() {
 	*x = SCMToken{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[8]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -487,7 +487,7 @@ func (x *SCMToken) String() string {
 func (*SCMToken) ProtoMessage() {}
 
 func (x *SCMToken) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[8]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -500,7 +500,7 @@ func (x *SCMToken) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SCMToken.ProtoReflect.Descriptor instead.
 func (*SCMToken) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SCMToken) GetUsername() string {
@@ -566,7 +566,7 @@ type SuggestedRepository struct {
 func (x *SuggestedRepository) Reset() {
 	*x = SuggestedRepository{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[9]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -579,7 +579,7 @@ func (x *SuggestedRepository) String() string {
 func (*SuggestedRepository) ProtoMessage() {}
 
 func (x *SuggestedRepository) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[9]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -592,7 +592,7 @@ func (x *SuggestedRepository) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SuggestedRepository.ProtoReflect.Descriptor instead.
 func (*SuggestedRepository) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *SuggestedRepository) GetUrl() string {
@@ -635,7 +635,7 @@ type Author struct {
 func (x *Author) Reset() {
 	*x = Author{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[10]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -648,7 +648,7 @@ func (x *Author) String() string {
 func (*Author) ProtoMessage() {}
 
 func (x *Author) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[10]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +661,7 @@ func (x *Author) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Author.ProtoReflect.Descriptor instead.
 func (*Author) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Author) GetName() string {
@@ -692,7 +692,7 @@ type Commit struct {
 func (x *Commit) Reset() {
 	*x = Commit{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_scm_proto_msgTypes[11]
+		mi := &file_nxpod_v1_scm_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -705,7 +705,7 @@ func (x *Commit) String() string {
 func (*Commit) ProtoMessage() {}
 
 func (x *Commit) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_scm_proto_msgTypes[11]
+	mi := &file_nxpod_v1_scm_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -718,7 +718,7 @@ func (x *Commit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Commit.ProtoReflect.Descriptor instead.
 func (*Commit) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_scm_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_scm_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Commit) GetMessage() string {
@@ -749,9 +749,9 @@ func (x *Commit) GetSha() string {
 	return ""
 }
 
-var File_gitpod_v1_scm_proto protoreflect.FileDescriptor
+var File_nxpod_v1_scm_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_scm_proto_rawDesc = []byte{
+var file_nxpod_v1_scm_proto_rawDesc = []byte{
 	0x0a, 0x13, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x63, 0x6d, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x76, 0x31,
 	0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x61, 0x67, 0x69,
@@ -888,53 +888,53 @@ var file_gitpod_v1_scm_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_scm_proto_rawDescOnce sync.Once
-	file_gitpod_v1_scm_proto_rawDescData = file_gitpod_v1_scm_proto_rawDesc
+	file_nxpod_v1_scm_proto_rawDescOnce sync.Once
+	file_nxpod_v1_scm_proto_rawDescData = file_nxpod_v1_scm_proto_rawDesc
 )
 
-func file_gitpod_v1_scm_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_scm_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_scm_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_scm_proto_rawDescData)
+func file_nxpod_v1_scm_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_scm_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_scm_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_scm_proto_rawDescData)
 	})
-	return file_gitpod_v1_scm_proto_rawDescData
+	return file_nxpod_v1_scm_proto_rawDescData
 }
 
-var file_gitpod_v1_scm_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
-var file_gitpod_v1_scm_proto_goTypes = []interface{}{
-	(*SearchSCMTokensRequest)(nil),            // 0: gitpod.v1.SearchSCMTokensRequest
-	(*SearchSCMTokensResponse)(nil),           // 1: gitpod.v1.SearchSCMTokensResponse
-	(*GuessTokenScopesRequest)(nil),           // 2: gitpod.v1.GuessTokenScopesRequest
-	(*GuessTokenScopesResponse)(nil),          // 3: gitpod.v1.GuessTokenScopesResponse
-	(*SearchRepositoriesRequest)(nil),         // 4: gitpod.v1.SearchRepositoriesRequest
-	(*SearchRepositoriesResponse)(nil),        // 5: gitpod.v1.SearchRepositoriesResponse
-	(*ListSuggestedRepositoriesRequest)(nil),  // 6: gitpod.v1.ListSuggestedRepositoriesRequest
-	(*ListSuggestedRepositoriesResponse)(nil), // 7: gitpod.v1.ListSuggestedRepositoriesResponse
-	(*SCMToken)(nil),                          // 8: gitpod.v1.SCMToken
-	(*SuggestedRepository)(nil),               // 9: gitpod.v1.SuggestedRepository
-	(*Author)(nil),                            // 10: gitpod.v1.Author
-	(*Commit)(nil),                            // 11: gitpod.v1.Commit
-	(*PaginationRequest)(nil),                 // 12: gitpod.v1.PaginationRequest
-	(*PaginationResponse)(nil),                // 13: gitpod.v1.PaginationResponse
+var file_nxpod_v1_scm_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_nxpod_v1_scm_proto_goTypes = []interface{}{
+	(*SearchSCMTokensRequest)(nil),            // 0: nxpod.v1.SearchSCMTokensRequest
+	(*SearchSCMTokensResponse)(nil),           // 1: nxpod.v1.SearchSCMTokensResponse
+	(*GuessTokenScopesRequest)(nil),           // 2: nxpod.v1.GuessTokenScopesRequest
+	(*GuessTokenScopesResponse)(nil),          // 3: nxpod.v1.GuessTokenScopesResponse
+	(*SearchRepositoriesRequest)(nil),         // 4: nxpod.v1.SearchRepositoriesRequest
+	(*SearchRepositoriesResponse)(nil),        // 5: nxpod.v1.SearchRepositoriesResponse
+	(*ListSuggestedRepositoriesRequest)(nil),  // 6: nxpod.v1.ListSuggestedRepositoriesRequest
+	(*ListSuggestedRepositoriesResponse)(nil), // 7: nxpod.v1.ListSuggestedRepositoriesResponse
+	(*SCMToken)(nil),                          // 8: nxpod.v1.SCMToken
+	(*SuggestedRepository)(nil),               // 9: nxpod.v1.SuggestedRepository
+	(*Author)(nil),                            // 10: nxpod.v1.Author
+	(*Commit)(nil),                            // 11: nxpod.v1.Commit
+	(*PaginationRequest)(nil),                 // 12: nxpod.v1.PaginationRequest
+	(*PaginationResponse)(nil),                // 13: nxpod.v1.PaginationResponse
 	(*timestamppb.Timestamp)(nil),             // 14: google.protobuf.Timestamp
 }
-var file_gitpod_v1_scm_proto_depIdxs = []int32{
-	8,  // 0: gitpod.v1.SearchSCMTokensResponse.tokens:type_name -> gitpod.v1.SCMToken
-	9,  // 1: gitpod.v1.SearchRepositoriesResponse.repositories:type_name -> gitpod.v1.SuggestedRepository
-	12, // 2: gitpod.v1.ListSuggestedRepositoriesRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	13, // 3: gitpod.v1.ListSuggestedRepositoriesResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	9,  // 4: gitpod.v1.ListSuggestedRepositoriesResponse.repositories:type_name -> gitpod.v1.SuggestedRepository
-	14, // 5: gitpod.v1.SCMToken.update_date:type_name -> google.protobuf.Timestamp
-	14, // 6: gitpod.v1.SCMToken.expiry_date:type_name -> google.protobuf.Timestamp
-	10, // 7: gitpod.v1.Commit.author:type_name -> gitpod.v1.Author
-	14, // 8: gitpod.v1.Commit.author_date:type_name -> google.protobuf.Timestamp
-	0,  // 9: gitpod.v1.SCMService.SearchSCMTokens:input_type -> gitpod.v1.SearchSCMTokensRequest
-	2,  // 10: gitpod.v1.SCMService.GuessTokenScopes:input_type -> gitpod.v1.GuessTokenScopesRequest
-	4,  // 11: gitpod.v1.SCMService.SearchRepositories:input_type -> gitpod.v1.SearchRepositoriesRequest
-	6,  // 12: gitpod.v1.SCMService.ListSuggestedRepositories:input_type -> gitpod.v1.ListSuggestedRepositoriesRequest
-	1,  // 13: gitpod.v1.SCMService.SearchSCMTokens:output_type -> gitpod.v1.SearchSCMTokensResponse
-	3,  // 14: gitpod.v1.SCMService.GuessTokenScopes:output_type -> gitpod.v1.GuessTokenScopesResponse
-	5,  // 15: gitpod.v1.SCMService.SearchRepositories:output_type -> gitpod.v1.SearchRepositoriesResponse
-	7,  // 16: gitpod.v1.SCMService.ListSuggestedRepositories:output_type -> gitpod.v1.ListSuggestedRepositoriesResponse
+var file_nxpod_v1_scm_proto_depIdxs = []int32{
+	8,  // 0: nxpod.v1.SearchSCMTokensResponse.tokens:type_name -> nxpod.v1.SCMToken
+	9,  // 1: nxpod.v1.SearchRepositoriesResponse.repositories:type_name -> nxpod.v1.SuggestedRepository
+	12, // 2: nxpod.v1.ListSuggestedRepositoriesRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	13, // 3: nxpod.v1.ListSuggestedRepositoriesResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	9,  // 4: nxpod.v1.ListSuggestedRepositoriesResponse.repositories:type_name -> nxpod.v1.SuggestedRepository
+	14, // 5: nxpod.v1.SCMToken.update_date:type_name -> google.protobuf.Timestamp
+	14, // 6: nxpod.v1.SCMToken.expiry_date:type_name -> google.protobuf.Timestamp
+	10, // 7: nxpod.v1.Commit.author:type_name -> nxpod.v1.Author
+	14, // 8: nxpod.v1.Commit.author_date:type_name -> google.protobuf.Timestamp
+	0,  // 9: nxpod.v1.SCMService.SearchSCMTokens:input_type -> nxpod.v1.SearchSCMTokensRequest
+	2,  // 10: nxpod.v1.SCMService.GuessTokenScopes:input_type -> nxpod.v1.GuessTokenScopesRequest
+	4,  // 11: nxpod.v1.SCMService.SearchRepositories:input_type -> nxpod.v1.SearchRepositoriesRequest
+	6,  // 12: nxpod.v1.SCMService.ListSuggestedRepositories:input_type -> nxpod.v1.ListSuggestedRepositoriesRequest
+	1,  // 13: nxpod.v1.SCMService.SearchSCMTokens:output_type -> nxpod.v1.SearchSCMTokensResponse
+	3,  // 14: nxpod.v1.SCMService.GuessTokenScopes:output_type -> nxpod.v1.GuessTokenScopesResponse
+	5,  // 15: nxpod.v1.SCMService.SearchRepositories:output_type -> nxpod.v1.SearchRepositoriesResponse
+	7,  // 16: nxpod.v1.SCMService.ListSuggestedRepositories:output_type -> nxpod.v1.ListSuggestedRepositoriesResponse
 	13, // [13:17] is the sub-list for method output_type
 	9,  // [9:13] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name
@@ -942,14 +942,14 @@ var file_gitpod_v1_scm_proto_depIdxs = []int32{
 	0,  // [0:9] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_scm_proto_init() }
-func file_gitpod_v1_scm_proto_init() {
-	if File_gitpod_v1_scm_proto != nil {
+func init() { file_nxpod_v1_scm_proto_init() }
+func file_nxpod_v1_scm_proto_init() {
+	if File_nxpod_v1_scm_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
+	file_nxpod_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_scm_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SearchSCMTokensRequest); i {
 			case 0:
 				return &v.state
@@ -961,7 +961,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SearchSCMTokensResponse); i {
 			case 0:
 				return &v.state
@@ -973,7 +973,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GuessTokenScopesRequest); i {
 			case 0:
 				return &v.state
@@ -985,7 +985,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GuessTokenScopesResponse); i {
 			case 0:
 				return &v.state
@@ -997,7 +997,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SearchRepositoriesRequest); i {
 			case 0:
 				return &v.state
@@ -1009,7 +1009,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SearchRepositoriesResponse); i {
 			case 0:
 				return &v.state
@@ -1021,7 +1021,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListSuggestedRepositoriesRequest); i {
 			case 0:
 				return &v.state
@@ -1033,7 +1033,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListSuggestedRepositoriesResponse); i {
 			case 0:
 				return &v.state
@@ -1045,7 +1045,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SCMToken); i {
 			case 0:
 				return &v.state
@@ -1057,7 +1057,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SuggestedRepository); i {
 			case 0:
 				return &v.state
@@ -1069,7 +1069,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Author); i {
 			case 0:
 				return &v.state
@@ -1081,7 +1081,7 @@ func file_gitpod_v1_scm_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_scm_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_scm_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Commit); i {
 			case 0:
 				return &v.state
@@ -1098,18 +1098,18 @@ func file_gitpod_v1_scm_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_scm_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_scm_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_scm_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_scm_proto_depIdxs,
-		MessageInfos:      file_gitpod_v1_scm_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_scm_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_scm_proto_depIdxs,
+		MessageInfos:      file_nxpod_v1_scm_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_scm_proto = out.File
-	file_gitpod_v1_scm_proto_rawDesc = nil
-	file_gitpod_v1_scm_proto_goTypes = nil
-	file_gitpod_v1_scm_proto_depIdxs = nil
+	File_nxpod_v1_scm_proto = out.File
+	file_nxpod_v1_scm_proto_rawDesc = nil
+	file_nxpod_v1_scm_proto_goTypes = nil
+	file_nxpod_v1_scm_proto_depIdxs = nil
 }

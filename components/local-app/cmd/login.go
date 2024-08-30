@@ -194,7 +194,7 @@ var loginCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(loginCmd)
 
-	host := "https://gitpod.io"
+	host := "https://nxpod.khulnasoft.com"
 	if v := os.Getenv("NXPOD_HOST"); v != "" {
 		host = v
 	}

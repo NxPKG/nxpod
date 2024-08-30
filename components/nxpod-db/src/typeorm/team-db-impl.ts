@@ -10,8 +10,8 @@ import {
     TeamMemberInfo,
     TeamMemberRole,
     TeamMembershipInvite,
-} from "@gitpod/gitpod-protocol";
-import { ErrorCodes, ApplicationError } from "@gitpod/gitpod-protocol/lib/messaging/error";
+} from "@nxpod/nxpod-protocol";
+import { ErrorCodes, ApplicationError } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { randomBytes } from "crypto";
 import { inject, injectable, optional } from "inversify";
 import slugify from "slugify";

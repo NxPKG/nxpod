@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/workspaces.proto
+// source: nxpod/experimental/v1/workspaces.proto
 
 package v1
 
@@ -65,7 +65,7 @@ func NewWorkspacesServiceClient(cc grpc.ClientConnInterface) WorkspacesServiceCl
 
 func (c *workspacesServiceClient) ListWorkspaces(ctx context.Context, in *ListWorkspacesRequest, opts ...grpc.CallOption) (*ListWorkspacesResponse, error) {
 	out := new(ListWorkspacesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/ListWorkspaces", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/ListWorkspaces", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func (c *workspacesServiceClient) ListWorkspaces(ctx context.Context, in *ListWo
 
 func (c *workspacesServiceClient) GetWorkspace(ctx context.Context, in *GetWorkspaceRequest, opts ...grpc.CallOption) (*GetWorkspaceResponse, error) {
 	out := new(GetWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/GetWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/GetWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +82,7 @@ func (c *workspacesServiceClient) GetWorkspace(ctx context.Context, in *GetWorks
 }
 
 func (c *workspacesServiceClient) StreamWorkspaceStatus(ctx context.Context, in *StreamWorkspaceStatusRequest, opts ...grpc.CallOption) (WorkspacesService_StreamWorkspaceStatusClient, error) {
-	stream, err := c.cc.NewStream(ctx, &WorkspacesService_ServiceDesc.Streams[0], "/gitpod.experimental.v1.WorkspacesService/StreamWorkspaceStatus", opts...)
+	stream, err := c.cc.NewStream(ctx, &WorkspacesService_ServiceDesc.Streams[0], "/nxpod.experimental.v1.WorkspacesService/StreamWorkspaceStatus", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -115,7 +115,7 @@ func (x *workspacesServiceStreamWorkspaceStatusClient) Recv() (*StreamWorkspaceS
 
 func (c *workspacesServiceClient) GetOwnerToken(ctx context.Context, in *GetOwnerTokenRequest, opts ...grpc.CallOption) (*GetOwnerTokenResponse, error) {
 	out := new(GetOwnerTokenResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/GetOwnerToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/GetOwnerToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +124,7 @@ func (c *workspacesServiceClient) GetOwnerToken(ctx context.Context, in *GetOwne
 
 func (c *workspacesServiceClient) CreateAndStartWorkspace(ctx context.Context, in *CreateAndStartWorkspaceRequest, opts ...grpc.CallOption) (*CreateAndStartWorkspaceResponse, error) {
 	out := new(CreateAndStartWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/CreateAndStartWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/CreateAndStartWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -133,7 +133,7 @@ func (c *workspacesServiceClient) CreateAndStartWorkspace(ctx context.Context, i
 
 func (c *workspacesServiceClient) StartWorkspace(ctx context.Context, in *StartWorkspaceRequest, opts ...grpc.CallOption) (*StartWorkspaceResponse, error) {
 	out := new(StartWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/StartWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/StartWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +142,7 @@ func (c *workspacesServiceClient) StartWorkspace(ctx context.Context, in *StartW
 
 func (c *workspacesServiceClient) StopWorkspace(ctx context.Context, in *StopWorkspaceRequest, opts ...grpc.CallOption) (*StopWorkspaceResponse, error) {
 	out := new(StopWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/StopWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/StopWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -151,7 +151,7 @@ func (c *workspacesServiceClient) StopWorkspace(ctx context.Context, in *StopWor
 
 func (c *workspacesServiceClient) DeleteWorkspace(ctx context.Context, in *DeleteWorkspaceRequest, opts ...grpc.CallOption) (*DeleteWorkspaceResponse, error) {
 	out := new(DeleteWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/DeleteWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/DeleteWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -160,7 +160,7 @@ func (c *workspacesServiceClient) DeleteWorkspace(ctx context.Context, in *Delet
 
 func (c *workspacesServiceClient) UpdatePort(ctx context.Context, in *UpdatePortRequest, opts ...grpc.CallOption) (*UpdatePortResponse, error) {
 	out := new(UpdatePortResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/UpdatePort", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/UpdatePort", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -169,7 +169,7 @@ func (c *workspacesServiceClient) UpdatePort(ctx context.Context, in *UpdatePort
 
 func (c *workspacesServiceClient) ListWorkspaceClasses(ctx context.Context, in *ListWorkspaceClassesRequest, opts ...grpc.CallOption) (*ListWorkspaceClassesResponse, error) {
 	out := new(ListWorkspaceClassesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/ListWorkspaceClasses", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/ListWorkspaceClasses", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -178,7 +178,7 @@ func (c *workspacesServiceClient) ListWorkspaceClasses(ctx context.Context, in *
 
 func (c *workspacesServiceClient) GetDefaultWorkspaceImage(ctx context.Context, in *GetDefaultWorkspaceImageRequest, opts ...grpc.CallOption) (*GetDefaultWorkspaceImageResponse, error) {
 	out := new(GetDefaultWorkspaceImageResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.WorkspacesService/GetDefaultWorkspaceImage", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.WorkspacesService/GetDefaultWorkspaceImage", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -279,7 +279,7 @@ func _WorkspacesService_ListWorkspaces_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/ListWorkspaces",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/ListWorkspaces",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).ListWorkspaces(ctx, req.(*ListWorkspacesRequest))
@@ -297,7 +297,7 @@ func _WorkspacesService_GetWorkspace_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/GetWorkspace",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/GetWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).GetWorkspace(ctx, req.(*GetWorkspaceRequest))
@@ -336,7 +336,7 @@ func _WorkspacesService_GetOwnerToken_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/GetOwnerToken",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/GetOwnerToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).GetOwnerToken(ctx, req.(*GetOwnerTokenRequest))
@@ -354,7 +354,7 @@ func _WorkspacesService_CreateAndStartWorkspace_Handler(srv interface{}, ctx con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/CreateAndStartWorkspace",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/CreateAndStartWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).CreateAndStartWorkspace(ctx, req.(*CreateAndStartWorkspaceRequest))
@@ -372,7 +372,7 @@ func _WorkspacesService_StartWorkspace_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/StartWorkspace",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/StartWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).StartWorkspace(ctx, req.(*StartWorkspaceRequest))
@@ -390,7 +390,7 @@ func _WorkspacesService_StopWorkspace_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/StopWorkspace",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/StopWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).StopWorkspace(ctx, req.(*StopWorkspaceRequest))
@@ -408,7 +408,7 @@ func _WorkspacesService_DeleteWorkspace_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/DeleteWorkspace",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/DeleteWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).DeleteWorkspace(ctx, req.(*DeleteWorkspaceRequest))
@@ -426,7 +426,7 @@ func _WorkspacesService_UpdatePort_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/UpdatePort",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/UpdatePort",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).UpdatePort(ctx, req.(*UpdatePortRequest))
@@ -444,7 +444,7 @@ func _WorkspacesService_ListWorkspaceClasses_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/ListWorkspaceClasses",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/ListWorkspaceClasses",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).ListWorkspaceClasses(ctx, req.(*ListWorkspaceClassesRequest))
@@ -462,7 +462,7 @@ func _WorkspacesService_GetDefaultWorkspaceImage_Handler(srv interface{}, ctx co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.WorkspacesService/GetDefaultWorkspaceImage",
+		FullMethod: "/nxpod.experimental.v1.WorkspacesService/GetDefaultWorkspaceImage",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkspacesServiceServer).GetDefaultWorkspaceImage(ctx, req.(*GetDefaultWorkspaceImageRequest))
@@ -474,7 +474,7 @@ func _WorkspacesService_GetDefaultWorkspaceImage_Handler(srv interface{}, ctx co
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var WorkspacesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.WorkspacesService",
+	ServiceName: "nxpod.experimental.v1.WorkspacesService",
 	HandlerType: (*WorkspacesServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -525,5 +525,5 @@ var WorkspacesService_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "gitpod/experimental/v1/workspaces.proto",
+	Metadata: "nxpod/experimental/v1/workspaces.proto",
 }

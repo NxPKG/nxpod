@@ -11,7 +11,7 @@ import * as chai from "chai";
 import { resetDB } from "../test/reset-db";
 import { WorkspaceDB } from "../workspace-db";
 import { randomUUID } from "crypto";
-import { PrebuiltWorkspaceState } from "@gitpod/gitpod-protocol";
+import { PrebuiltWorkspaceState } from "@nxpod/nxpod-protocol";
 import { ProjectDB } from "../project-db";
 const expect = chai.expect;
 
@@ -68,7 +68,7 @@ export class WorkspaceSpec {
 
         await this.projectDB.storeProject({
             id: this.configuration.id,
-            name: "gitpod",
+            name: "nxpod",
             cloneUrl: this.configuration.cloneUrl,
             teamId: this.org,
             appInstallationId: randomUUID(),
@@ -124,7 +124,7 @@ export class WorkspaceSpec {
                     id: randomUUID(),
                     buildWorkspaceId: ws.id,
                     projectId: configuration.id,
-                    projectName: "gitpod",
+                    projectName: "nxpod",
                     cloneUrl: configuration.cloneUrl,
                     branch: configuration.branch,
                     startedAt: now,

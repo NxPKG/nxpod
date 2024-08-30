@@ -14,13 +14,13 @@ import (
 )
 
 func ExampleClient() {
-	token := "gitpod_pat_example.personal-access-token"
-	gitpod, err := client.New(client.WithCredentials(token))
+	token := "nxpod_pat_example.personal-access-token"
+	nxpod, err := client.New(client.WithCredentials(token))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to construct gitpod client %v", err)
+		fmt.Fprintf(os.Stderr, "Failed to construct nxpod client %v", err)
 		return
 	}
 
-	// use the gitpod client to access resources
-	gitpod.Teams.ListTeams(context.Background(), connect.NewRequest(&v1.ListTeamsRequest{}))
+	// use the nxpod client to access resources
+	nxpod.Teams.ListTeams(context.Background(), connect.NewRequest(&v1.ListTeamsRequest{}))
 }

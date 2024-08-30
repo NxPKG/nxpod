@@ -15,15 +15,15 @@ import (
 )
 
 func ExampleListAllWorkspaces() {
-	token := "gitpod_pat_example.personal-access-token"
+	token := "nxpod_pat_example.personal-access-token"
 
-	gitpod, err := client.New(client.WithCredentials(token))
+	nxpod, err := client.New(client.WithCredentials(token))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to construct gitpod client %v", err)
+		fmt.Fprintf(os.Stderr, "Failed to construct nxpod client %v", err)
 		return
 	}
 
-	response, err := gitpod.Workspaces.ListWorkspaces(context.Background(), connect.NewRequest(&v1.ListWorkspacesRequest{}))
+	response, err := nxpod.Workspaces.ListWorkspaces(context.Background(), connect.NewRequest(&v1.ListWorkspacesRequest{}))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to list workspaces %v", err)
 		return
@@ -33,15 +33,15 @@ func ExampleListAllWorkspaces() {
 }
 
 func ExampleGetWorkspace() {
-	token := "gitpod_pat_example.personal-access-token"
+	token := "nxpod_pat_example.personal-access-token"
 
-	gitpod, err := client.New(client.WithCredentials(token))
+	nxpod, err := client.New(client.WithCredentials(token))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to construct gitpod client %v", err)
+		fmt.Fprintf(os.Stderr, "Failed to construct nxpod client %v", err)
 		return
 	}
 
-	response, err := gitpod.Workspaces.GetWorkspace(context.Background(), connect.NewRequest(&v1.GetWorkspaceRequest{
+	response, err := nxpod.Workspaces.GetWorkspace(context.Background(), connect.NewRequest(&v1.GetWorkspaceRequest{
 		WorkspaceId: "<WORKSPACE_ID>",
 	}))
 	if err != nil {

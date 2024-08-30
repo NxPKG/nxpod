@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { suite, test, timeout } from "@testdeck/mocha";
 import * as chai from "chai";
 import { TeamDB } from "../team-db";
@@ -67,9 +67,9 @@ export class TeamDBSpec {
                 expect.fail("Unexpected error: " + error);
             }
         }
-        const team = await this.teamDB.createTeam(user.id, "      I ♥ gitpod        ");
-        expect(team.name).to.be.eq("I ♥ gitpod");
-        expect(team.slug).to.be.eq("i-love-gitpod");
+        const team = await this.teamDB.createTeam(user.id, "      I ♥ nxpod        ");
+        expect(team.name).to.be.eq("I ♥ nxpod");
+        expect(team.slug).to.be.eq("i-love-nxpod");
     }
 
     @test()

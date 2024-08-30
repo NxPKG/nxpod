@@ -11,5 +11,5 @@ packages:
       buildArgs:
         CODE_EXTENSION_COMMIT: ${codeWebExtensionCommit}
       image:
-        - ${imageRepoBase}/ide/gitpod-code-web:${version}
-        - ${imageRepoBase}/ide/gitpod-code-web:commit-${__git_commit}
+        - ${imageRepoBase}/ide/nxpod-code-web:${version}
+        - ${imageRepoBase}/ide/nxpod-code-web:commit-${__git_commit}

@@ -269,7 +269,7 @@ export namespace UserEnvVar {
     const MIN_PATTERN_SEGMENTS = 2;
 
     /**
-     * - NXPOD_IMAGE_AUTH is documented https://www.nxpod.io/docs/configure/workspaces/workspace-image#use-a-private-docker-image
+     * - NXPOD_IMAGE_AUTH is documented https://www.nxpod.khulnasoft.com/docs/configure/workspaces/workspace-image#use-a-private-docker-image
      */
     export const WhiteListFromReserved = ["NXPOD_IMAGE_AUTH"];
 

@@ -16,7 +16,7 @@ import {
     UserEnvVar,
     UserEnvVarValue,
     UserSSHPublicKey,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { OAuthTokenRepository, OAuthUserRepository } from "@jmondi/oauth2-server";
 import { Repository } from "typeorm";
 import { DBUser } from "./typeorm/entity/db-user";

@@ -2,11 +2,11 @@
 
 ## Overview
 
-This package serves as a bridge for code conversion between two distinct Nxpod packages: @gitpod/gitpod-protocol and @gitpod/public-api. Its primary responsibility is to ensure seamless translation of application data structures from the gitpod-protocol format to the public-api gRPC format, and vice versa.
+This package serves as a bridge for code conversion between two distinct Nxpod packages: @nxpod/nxpod-protocol and @nxpod/public-api. Its primary responsibility is to ensure seamless translation of application data structures from the nxpod-protocol format to the public-api gRPC format, and vice versa.
 
 ## Allowed Usage
 
-Use this package exclusively for tasks that require data structure from @gitpod/gitpod-protocol and @gitpod/public-api. It's important not to introduce dependencies on this package from gitpod-protocol or public-api to ensure changes in one package don't trigger rebuilds of unrelated components such as ws-manager-bridge and supervisor-frontend.
+Use this package exclusively for tasks that require data structure from @nxpod/nxpod-protocol and @nxpod/public-api. It's important not to introduce dependencies on this package from nxpod-protocol or public-api to ensure changes in one package don't trigger rebuilds of unrelated components such as ws-manager-bridge and supervisor-frontend.
 
 ## Golden tests
 

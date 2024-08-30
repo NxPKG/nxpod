@@ -34,7 +34,7 @@ func ConnectionParamsFromEnv() ConnectionParams {
 		User:     os.Getenv("DB_USERNAME"),
 		Password: os.Getenv("DB_PASSWORD"),
 		Host:     net.JoinHostPort(os.Getenv("DB_HOST"), os.Getenv("DB_PORT")),
-		Database: "gitpod",
+		Database: "nxpod",
 		CaCert:   os.Getenv("DB_CA_CERT"),
 	}
 }

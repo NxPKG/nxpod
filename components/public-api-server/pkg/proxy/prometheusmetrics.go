@@ -17,21 +17,21 @@ func reportConnectionDuration(d time.Duration) {
 
 var (
 	proxyConnectionCreateDurationSeconds = prometheus.NewHistogram(prometheus.HistogramOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "public_api",
 		Name:      "proxy_connection_create_duration_seconds",
 		Help:      "Histogram of connection time in seconds",
 	})
 
 	connectionPoolSize = prometheus.NewGauge(prometheus.GaugeOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "public_api",
 		Name:      "proxy_connection_pool_size",
 		Help:      "Gauge of connections in connection pool",
 	})
 
 	connectionPoolCacheOutcome = prometheus.NewCounterVec(prometheus.CounterOpts{
-		Namespace: "gitpod",
+		Namespace: "nxpod",
 		Subsystem: "public_api",
 		Name:      "proxy_connection_pool_cache_outcomes_total",
 		Help:      "Counter of cachce accesses",

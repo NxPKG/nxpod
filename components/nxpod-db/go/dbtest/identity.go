@@ -7,7 +7,7 @@ package dbtest
 import (
 	"testing"
 
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/require"
 	"gorm.io/gorm"
@@ -21,7 +21,7 @@ func NewIdentity(t *testing.T, idnt db.Identity) db.Identity {
 		AuthID:         uuid.NewString(),
 		AuthName:       "unittest",
 		UserID:         uuid.New(),
-		PrimaryEmail:   "test-identity@gitpod.io",
+		PrimaryEmail:   "test-identity@nxpod.khulnasoft.com",
 	}
 
 	if idnt.AuthProviderID != "" {

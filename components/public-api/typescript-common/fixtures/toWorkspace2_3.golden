@@ -1,6 +1,6 @@
 {
     "result": {
-        "id": "gitpodio-empty-bs8378oes6b",
+        "id": "nxpodio-empty-bs8378oes6b",
         "metadata": {
             "ownerId": "b49148ed-6e1f-4eae-927f-1e62a3c9dab9",
             "organizationId": "ce36c2f8-5d43-4b1d-92f2-08cb6f0e0869",
@@ -59,7 +59,7 @@
                 "name": "PHASE_STOPPED",
                 "lastTransitionTime": "2023-11-29T18:56:12.986Z"
             },
-            "workspaceUrl": "https://gitpodio-empty-bs8378oes6b.ws.gitpod.io",
+            "workspaceUrl": "https://nxpodio-empty-bs8378oes6b.ws.nxpod.khulnasoft.com",
             "conditions": {
                 "failed": "",
                 "failedReason": "FAILED_REASON_UNSPECIFIED",

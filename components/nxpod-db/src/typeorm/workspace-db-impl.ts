@@ -22,9 +22,9 @@ import {
     WorkspaceInstanceUser,
     WorkspaceSession,
     WorkspaceType,
-} from "@gitpod/gitpod-protocol";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
-import { daysBefore } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+} from "@nxpod/nxpod-protocol";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
+import { daysBefore } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 import * as crypto from "crypto";
 import { inject, injectable, optional } from "inversify";
 import { Brackets, DeepPartial, EntityManager, Repository } from "typeorm";
@@ -57,9 +57,9 @@ import {
 } from "./metrics";
 import { TransactionalDBImpl } from "./transactional-db-impl";
 import { TypeORM } from "./typeorm";
-import { ApplicationError, ErrorCodes } from "@gitpod/gitpod-protocol/lib/messaging/error";
+import { ApplicationError, ErrorCodes } from "@nxpod/nxpod-protocol/lib/messaging/error";
 import { DBProject } from "./entity/db-project";
-import { PrebuiltWorkspaceWithWorkspace } from "@gitpod/gitpod-protocol/src/protocol";
+import { PrebuiltWorkspaceWithWorkspace } from "@nxpod/nxpod-protocol/src/protocol";
 
 type RawTo<T> = (instance: WorkspaceInstance, ws: Workspace) => T;
 interface OrderBy {

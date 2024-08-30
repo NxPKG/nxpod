@@ -18,8 +18,8 @@ import (
 
 	"github.com/coreos/go-oidc/v3/oidc"
 	goidc "github.com/coreos/go-oidc/v3/oidc"
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
-	"github.com/nxpkg/nxpod/components/gitpod-db/go/dbtest"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
 	"github.com/go-chi/chi/v5"
@@ -376,13 +376,13 @@ func Test_verifyCelExpression(t *testing.T) {
 			Claims: jwt.MapClaims{
 				"Audience": []string{"audience"},
 				"groups_direct": []string{
-					"gitpod-team",
-					"gitpod-team2/sub_group",
+					"nxpod-team",
+					"nxpod-team2/sub_group",
 				},
-				"email":          "test@gitpod.io",
+				"email":          "test@nxpod.khulnasoft.com",
 				"email_verified": false,
 			},
-			CEL: "claims.email_verified && claims.email_verified.email.endsWith('@gitpod.io')",
+			CEL: "claims.email_verified && claims.email_verified.email.endsWith('@nxpod.khulnasoft.com')",
 		},
 		{
 			Label:          "GitLab: groups restriction",
@@ -391,13 +391,13 @@ func Test_verifyCelExpression(t *testing.T) {
 			Claims: jwt.MapClaims{
 				"Audience": []string{"audience"},
 				"groups_direct": []string{
-					"gitpod-team",
-					"gitpod-team2/sub_group",
+					"nxpod-team",
+					"nxpod-team2/sub_group",
 				},
-				"email":          "test@gitpod.io",
+				"email":          "test@nxpod.khulnasoft.com",
 				"email_verified": false,
 			},
-			CEL: "(claims.email_verified && claims.email_verified.email.endsWith('@gitpod.io')) || 'gitpod-team' in claims.groups_direct",
+			CEL: "(claims.email_verified && claims.email_verified.email.endsWith('@nxpod.khulnasoft.com')) || 'nxpod-team' in claims.groups_direct",
 		},
 		{
 			Label:             "GitLab: groups restriction (not allowed)",
@@ -408,12 +408,12 @@ func Test_verifyCelExpression(t *testing.T) {
 			Claims: jwt.MapClaims{
 				"Audience": []string{"audience"},
 				"groups_direct": []string{
-					"gitpod-team2/sub_group",
+					"nxpod-team2/sub_group",
 				},
-				"email":          "test@gitpod.io",
+				"email":          "test@nxpod.khulnasoft.com",
 				"email_verified": false,
 			},
-			CEL: "(claims.email_verified && claims.email_verified.email.endsWith('@gitpod.io')) || 'gitpod-team2' in claims.groups_direct",
+			CEL: "(claims.email_verified && claims.email_verified.email.endsWith('@nxpod.khulnasoft.com')) || 'nxpod-team2' in claims.groups_direct",
 		},
 		{
 			Label:             "invalidate cel",
@@ -423,10 +423,10 @@ func Test_verifyCelExpression(t *testing.T) {
 			Claims: jwt.MapClaims{
 				"Audience": []string{"audience"},
 				"groups_direct": []string{
-					"gitpod-team",
-					"gitpod-team2/sub_group",
+					"nxpod-team",
+					"nxpod-team2/sub_group",
 				},
-				"email":          "test@gitpod.io",
+				"email":          "test@nxpod.khulnasoft.com",
 				"email_verified": false,
 			},
 			CEL: "foo",

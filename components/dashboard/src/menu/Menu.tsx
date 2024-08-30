@@ -200,13 +200,13 @@ const UserMenu: FC<UserMenuProps> = ({ user, className, withAdminLink, withFeedb
             },
             {
                 title: "Docs",
-                href: "https://www.nxpod.io/docs/",
+                href: "https://www.nxpod.khulnasoft.com/docs/",
                 target: "_blank",
                 rel: "noreferrer",
             },
             {
                 title: "Help",
-                href: "https://www.nxpod.io/support/",
+                href: "https://www.nxpod.khulnasoft.com/support/",
                 target: "_blank",
                 rel: "noreferrer",
                 separator: true,

@@ -14,7 +14,7 @@ export function registerDBMetrics(registry: prometheusClient.Registry) {
 }
 
 const workspacesPurgedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_workspaces_purged_total",
+    name: "nxpod_server_workspaces_purged_total",
     help: "Counter of workspaces hard deleted by periodic gc.",
 });
 
@@ -23,7 +23,7 @@ export function reportWorkspacePurged(count: number) {
 }
 
 const prebuildWorkspacesPurgedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_prebuild_workspaces_purged_total",
+    name: "nxpod_server_prebuild_workspaces_purged_total",
     help: "Counter of prebuild workspaces hard deleted by periodic gc.",
 });
 
@@ -32,7 +32,7 @@ export function reportPrebuiltWorkspacePurged(count: number) {
 }
 
 const prebuildInfoPurgedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_prebuild_info_purged_total",
+    name: "nxpod_server_prebuild_info_purged_total",
     help: "Counter of prebuild info records hard deleted by periodic gc.",
 });
 
@@ -41,7 +41,7 @@ export function reportPrebuildInfoPurged(count: number) {
 }
 
 const workspaceInstancePurgedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_workspace_instances_purged_total",
+    name: "nxpod_server_workspace_instances_purged_total",
     help: "Counter of workspace instances records hard deleted by periodic gc.",
 });
 
@@ -50,7 +50,7 @@ export function reportWorkspaceInstancePurged(count: number) {
 }
 
 const prebuiltWorkspaceUpdatablePurgedTotal = new prometheusClient.Counter({
-    name: "gitpod_server_prebuilt_workspace_updatable_purged_total",
+    name: "nxpod_server_prebuilt_workspace_updatable_purged_total",
     help: "Counter of prebuilt workspace updatable records hard deleted by periodic gc.",
 });
 

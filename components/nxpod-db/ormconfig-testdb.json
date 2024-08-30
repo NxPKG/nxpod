@@ -1,8 +1,8 @@
 {
     "type": "mysql",
-    "database": "gitpod",
-    "host": "gitpod.io-local",
-    "username": "gitpod",
+    "database": "nxpod",
+    "host": "nxpod.khulnasoft.com-local",
+    "username": "nxpod",
     "password": "test",
     "synchronize": false,
     "logging": true,

@@ -7,7 +7,7 @@
 <idea-plugin require-restart="false" xmlns:xi="http://www.w3.org/2001/XInclude">
     <xi:include href="/META-INF/extensions.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
-    <id>io.gitpod.jetbrains.gateway</id>
+    <id>io.nxpod.jetbrains.gateway</id>
     <name>Nxpod Gateway</name>
     <vendor>Nxpod</vendor>
 
@@ -21,16 +21,16 @@
     <depends optional="true">com.jetbrains.gateway</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <httpRequestHandler implementation="io.gitpod.jetbrains.auth.NxpodAuthCallbackHandler"/>
-        <applicationService serviceImplementation="io.gitpod.jetbrains.gateway.NxpodSettingsState"/>
-        <applicationConfigurable parentId="tools" instance="io.gitpod.jetbrains.gateway.NxpodSettingsConfigurable"
-                                 id="io.gitpod.jetbrains.gateway.NxpodSettingsConfigurable"
+        <httpRequestHandler implementation="io.nxpod.jetbrains.auth.NxpodAuthCallbackHandler"/>
+        <applicationService serviceImplementation="io.nxpod.jetbrains.gateway.NxpodSettingsState"/>
+        <applicationConfigurable parentId="tools" instance="io.nxpod.jetbrains.gateway.NxpodSettingsConfigurable"
+                                 id="io.nxpod.jetbrains.gateway.NxpodSettingsConfigurable"
                                  displayName="Nxpod"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.jetbrains">
-        <gatewayConnector implementation="io.gitpod.jetbrains.gateway.NxpodConnector"/>
-        <gatewayConnectionProvider implementation="io.gitpod.jetbrains.gateway.NxpodConnectionProvider"/>
+        <gatewayConnector implementation="io.nxpod.jetbrains.gateway.NxpodConnector"/>
+        <gatewayConnectionProvider implementation="io.nxpod.jetbrains.gateway.NxpodConnectionProvider"/>
     </extensions>
 
     <applicationListeners>

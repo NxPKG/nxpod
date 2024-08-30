@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/prebuild.proto
+// source: nxpod/v1/prebuild.proto
 
 package v1
 
@@ -61,11 +61,11 @@ func (x ListOrganizationPrebuildsRequest_Filter_State) String() string {
 }
 
 func (ListOrganizationPrebuildsRequest_Filter_State) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_prebuild_proto_enumTypes[0].Descriptor()
+	return file_nxpod_v1_prebuild_proto_enumTypes[0].Descriptor()
 }
 
 func (ListOrganizationPrebuildsRequest_Filter_State) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_prebuild_proto_enumTypes[0]
+	return &file_nxpod_v1_prebuild_proto_enumTypes[0]
 }
 
 func (x ListOrganizationPrebuildsRequest_Filter_State) Number() protoreflect.EnumNumber {
@@ -74,7 +74,7 @@ func (x ListOrganizationPrebuildsRequest_Filter_State) Number() protoreflect.Enu
 
 // Deprecated: Use ListOrganizationPrebuildsRequest_Filter_State.Descriptor instead.
 func (ListOrganizationPrebuildsRequest_Filter_State) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{10, 0, 0}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{10, 0, 0}
 }
 
 type PrebuildPhase_Phase int32
@@ -122,11 +122,11 @@ func (x PrebuildPhase_Phase) String() string {
 }
 
 func (PrebuildPhase_Phase) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_prebuild_proto_enumTypes[1].Descriptor()
+	return file_nxpod_v1_prebuild_proto_enumTypes[1].Descriptor()
 }
 
 func (PrebuildPhase_Phase) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_prebuild_proto_enumTypes[1]
+	return &file_nxpod_v1_prebuild_proto_enumTypes[1]
 }
 
 func (x PrebuildPhase_Phase) Number() protoreflect.EnumNumber {
@@ -135,7 +135,7 @@ func (x PrebuildPhase_Phase) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PrebuildPhase_Phase.Descriptor instead.
 func (PrebuildPhase_Phase) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{15, 0}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{15, 0}
 }
 
 type GetPrebuildRequest struct {
@@ -149,7 +149,7 @@ type GetPrebuildRequest struct {
 func (x *GetPrebuildRequest) Reset() {
 	*x = GetPrebuildRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[0]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -162,7 +162,7 @@ func (x *GetPrebuildRequest) String() string {
 func (*GetPrebuildRequest) ProtoMessage() {}
 
 func (x *GetPrebuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[0]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -175,7 +175,7 @@ func (x *GetPrebuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPrebuildRequest.ProtoReflect.Descriptor instead.
 func (*GetPrebuildRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetPrebuildRequest) GetPrebuildId() string {
@@ -196,7 +196,7 @@ type GetPrebuildResponse struct {
 func (x *GetPrebuildResponse) Reset() {
 	*x = GetPrebuildResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[1]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -209,7 +209,7 @@ func (x *GetPrebuildResponse) String() string {
 func (*GetPrebuildResponse) ProtoMessage() {}
 
 func (x *GetPrebuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[1]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +222,7 @@ func (x *GetPrebuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPrebuildResponse.ProtoReflect.Descriptor instead.
 func (*GetPrebuildResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetPrebuildResponse) GetPrebuild() *Prebuild {
@@ -250,7 +250,7 @@ type ListPrebuildsRequest struct {
 func (x *ListPrebuildsRequest) Reset() {
 	*x = ListPrebuildsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[2]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -263,7 +263,7 @@ func (x *ListPrebuildsRequest) String() string {
 func (*ListPrebuildsRequest) ProtoMessage() {}
 
 func (x *ListPrebuildsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[2]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -276,7 +276,7 @@ func (x *ListPrebuildsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPrebuildsRequest.ProtoReflect.Descriptor instead.
 func (*ListPrebuildsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ListPrebuildsRequest) GetPagination() *PaginationRequest {
@@ -320,7 +320,7 @@ type ListPrebuildsResponse struct {
 func (x *ListPrebuildsResponse) Reset() {
 	*x = ListPrebuildsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[3]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -333,7 +333,7 @@ func (x *ListPrebuildsResponse) String() string {
 func (*ListPrebuildsResponse) ProtoMessage() {}
 
 func (x *ListPrebuildsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[3]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -346,7 +346,7 @@ func (x *ListPrebuildsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPrebuildsResponse.ProtoReflect.Descriptor instead.
 func (*ListPrebuildsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ListPrebuildsResponse) GetPagination() *PaginationResponse {
@@ -375,7 +375,7 @@ type StartPrebuildRequest struct {
 func (x *StartPrebuildRequest) Reset() {
 	*x = StartPrebuildRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[4]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -388,7 +388,7 @@ func (x *StartPrebuildRequest) String() string {
 func (*StartPrebuildRequest) ProtoMessage() {}
 
 func (x *StartPrebuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[4]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -401,7 +401,7 @@ func (x *StartPrebuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartPrebuildRequest.ProtoReflect.Descriptor instead.
 func (*StartPrebuildRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *StartPrebuildRequest) GetConfigurationId() string {
@@ -429,7 +429,7 @@ type StartPrebuildResponse struct {
 func (x *StartPrebuildResponse) Reset() {
 	*x = StartPrebuildResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[5]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -442,7 +442,7 @@ func (x *StartPrebuildResponse) String() string {
 func (*StartPrebuildResponse) ProtoMessage() {}
 
 func (x *StartPrebuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[5]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -455,7 +455,7 @@ func (x *StartPrebuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartPrebuildResponse.ProtoReflect.Descriptor instead.
 func (*StartPrebuildResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *StartPrebuildResponse) GetPrebuildId() string {
@@ -476,7 +476,7 @@ type CancelPrebuildRequest struct {
 func (x *CancelPrebuildRequest) Reset() {
 	*x = CancelPrebuildRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[6]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -489,7 +489,7 @@ func (x *CancelPrebuildRequest) String() string {
 func (*CancelPrebuildRequest) ProtoMessage() {}
 
 func (x *CancelPrebuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[6]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -502,7 +502,7 @@ func (x *CancelPrebuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelPrebuildRequest.ProtoReflect.Descriptor instead.
 func (*CancelPrebuildRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CancelPrebuildRequest) GetPrebuildId() string {
@@ -521,7 +521,7 @@ type CancelPrebuildResponse struct {
 func (x *CancelPrebuildResponse) Reset() {
 	*x = CancelPrebuildResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[7]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -534,7 +534,7 @@ func (x *CancelPrebuildResponse) String() string {
 func (*CancelPrebuildResponse) ProtoMessage() {}
 
 func (x *CancelPrebuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[7]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -547,7 +547,7 @@ func (x *CancelPrebuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelPrebuildResponse.ProtoReflect.Descriptor instead.
 func (*CancelPrebuildResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{7}
 }
 
 type WatchPrebuildRequest struct {
@@ -565,7 +565,7 @@ type WatchPrebuildRequest struct {
 func (x *WatchPrebuildRequest) Reset() {
 	*x = WatchPrebuildRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[8]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -578,7 +578,7 @@ func (x *WatchPrebuildRequest) String() string {
 func (*WatchPrebuildRequest) ProtoMessage() {}
 
 func (x *WatchPrebuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[8]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -591,7 +591,7 @@ func (x *WatchPrebuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WatchPrebuildRequest.ProtoReflect.Descriptor instead.
 func (*WatchPrebuildRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{8}
 }
 
 func (m *WatchPrebuildRequest) GetScope() isWatchPrebuildRequest_Scope {
@@ -642,7 +642,7 @@ type WatchPrebuildResponse struct {
 func (x *WatchPrebuildResponse) Reset() {
 	*x = WatchPrebuildResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[9]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -655,7 +655,7 @@ func (x *WatchPrebuildResponse) String() string {
 func (*WatchPrebuildResponse) ProtoMessage() {}
 
 func (x *WatchPrebuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[9]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -668,7 +668,7 @@ func (x *WatchPrebuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WatchPrebuildResponse.ProtoReflect.Descriptor instead.
 func (*WatchPrebuildResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *WatchPrebuildResponse) GetPrebuild() *Prebuild {
@@ -692,7 +692,7 @@ type ListOrganizationPrebuildsRequest struct {
 func (x *ListOrganizationPrebuildsRequest) Reset() {
 	*x = ListOrganizationPrebuildsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[10]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -705,7 +705,7 @@ func (x *ListOrganizationPrebuildsRequest) String() string {
 func (*ListOrganizationPrebuildsRequest) ProtoMessage() {}
 
 func (x *ListOrganizationPrebuildsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[10]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -718,7 +718,7 @@ func (x *ListOrganizationPrebuildsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListOrganizationPrebuildsRequest.ProtoReflect.Descriptor instead.
 func (*ListOrganizationPrebuildsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListOrganizationPrebuildsRequest) GetPagination() *PaginationRequest {
@@ -761,7 +761,7 @@ type ListOrganizationPrebuildsResponse struct {
 func (x *ListOrganizationPrebuildsResponse) Reset() {
 	*x = ListOrganizationPrebuildsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[11]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -774,7 +774,7 @@ func (x *ListOrganizationPrebuildsResponse) String() string {
 func (*ListOrganizationPrebuildsResponse) ProtoMessage() {}
 
 func (x *ListOrganizationPrebuildsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[11]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -787,7 +787,7 @@ func (x *ListOrganizationPrebuildsResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ListOrganizationPrebuildsResponse.ProtoReflect.Descriptor instead.
 func (*ListOrganizationPrebuildsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ListOrganizationPrebuildsResponse) GetPagination() *PaginationResponse {
@@ -826,7 +826,7 @@ type Prebuild struct {
 func (x *Prebuild) Reset() {
 	*x = Prebuild{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[12]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -839,7 +839,7 @@ func (x *Prebuild) String() string {
 func (*Prebuild) ProtoMessage() {}
 
 func (x *Prebuild) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[12]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -852,7 +852,7 @@ func (x *Prebuild) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Prebuild.ProtoReflect.Descriptor instead.
 func (*Prebuild) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *Prebuild) GetId() string {
@@ -937,7 +937,7 @@ type PrebuildStatus struct {
 func (x *PrebuildStatus) Reset() {
 	*x = PrebuildStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[13]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -950,7 +950,7 @@ func (x *PrebuildStatus) String() string {
 func (*PrebuildStatus) ProtoMessage() {}
 
 func (x *PrebuildStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[13]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -963,7 +963,7 @@ func (x *PrebuildStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrebuildStatus.ProtoReflect.Descriptor instead.
 func (*PrebuildStatus) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *PrebuildStatus) GetPhase() *PrebuildPhase {
@@ -1029,7 +1029,7 @@ type TaskLog struct {
 func (x *TaskLog) Reset() {
 	*x = TaskLog{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[14]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1042,7 +1042,7 @@ func (x *TaskLog) String() string {
 func (*TaskLog) ProtoMessage() {}
 
 func (x *TaskLog) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[14]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1055,7 +1055,7 @@ func (x *TaskLog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaskLog.ProtoReflect.Descriptor instead.
 func (*TaskLog) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *TaskLog) GetTaskId() string {
@@ -1091,13 +1091,13 @@ type PrebuildPhase struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name PrebuildPhase_Phase `protobuf:"varint,1,opt,name=name,proto3,enum=gitpod.v1.PrebuildPhase_Phase" json:"name,omitempty"`
+	Name PrebuildPhase_Phase `protobuf:"varint,1,opt,name=name,proto3,enum=nxpod.v1.PrebuildPhase_Phase" json:"name,omitempty"`
 }
 
 func (x *PrebuildPhase) Reset() {
 	*x = PrebuildPhase{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[15]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1110,7 +1110,7 @@ func (x *PrebuildPhase) String() string {
 func (*PrebuildPhase) ProtoMessage() {}
 
 func (x *PrebuildPhase) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[15]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1123,7 +1123,7 @@ func (x *PrebuildPhase) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrebuildPhase.ProtoReflect.Descriptor instead.
 func (*PrebuildPhase) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *PrebuildPhase) GetName() PrebuildPhase_Phase {
@@ -1138,7 +1138,7 @@ type ListOrganizationPrebuildsRequest_Filter struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	State         ListOrganizationPrebuildsRequest_Filter_State          `protobuf:"varint,1,opt,name=state,proto3,enum=gitpod.v1.ListOrganizationPrebuildsRequest_Filter_State" json:"state,omitempty"`
+	State         ListOrganizationPrebuildsRequest_Filter_State          `protobuf:"varint,1,opt,name=state,proto3,enum=nxpod.v1.ListOrganizationPrebuildsRequest_Filter_State" json:"state,omitempty"`
 	Configuration *ListOrganizationPrebuildsRequest_Filter_Configuration `protobuf:"bytes,2,opt,name=configuration,proto3" json:"configuration,omitempty"`
 	// Filter the search down by searching for configuration names matching the
 	// query
@@ -1148,7 +1148,7 @@ type ListOrganizationPrebuildsRequest_Filter struct {
 func (x *ListOrganizationPrebuildsRequest_Filter) Reset() {
 	*x = ListOrganizationPrebuildsRequest_Filter{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[16]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1161,7 +1161,7 @@ func (x *ListOrganizationPrebuildsRequest_Filter) String() string {
 func (*ListOrganizationPrebuildsRequest_Filter) ProtoMessage() {}
 
 func (x *ListOrganizationPrebuildsRequest_Filter) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[16]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1174,7 +1174,7 @@ func (x *ListOrganizationPrebuildsRequest_Filter) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use ListOrganizationPrebuildsRequest_Filter.ProtoReflect.Descriptor instead.
 func (*ListOrganizationPrebuildsRequest_Filter) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{10, 0}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{10, 0}
 }
 
 func (x *ListOrganizationPrebuildsRequest_Filter) GetState() ListOrganizationPrebuildsRequest_Filter_State {
@@ -1210,7 +1210,7 @@ type ListOrganizationPrebuildsRequest_Filter_Configuration struct {
 func (x *ListOrganizationPrebuildsRequest_Filter_Configuration) Reset() {
 	*x = ListOrganizationPrebuildsRequest_Filter_Configuration{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_prebuild_proto_msgTypes[17]
+		mi := &file_nxpod_v1_prebuild_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1223,7 +1223,7 @@ func (x *ListOrganizationPrebuildsRequest_Filter_Configuration) String() string 
 func (*ListOrganizationPrebuildsRequest_Filter_Configuration) ProtoMessage() {}
 
 func (x *ListOrganizationPrebuildsRequest_Filter_Configuration) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_prebuild_proto_msgTypes[17]
+	mi := &file_nxpod_v1_prebuild_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1236,7 +1236,7 @@ func (x *ListOrganizationPrebuildsRequest_Filter_Configuration) ProtoReflect() p
 
 // Deprecated: Use ListOrganizationPrebuildsRequest_Filter_Configuration.ProtoReflect.Descriptor instead.
 func (*ListOrganizationPrebuildsRequest_Filter_Configuration) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_prebuild_proto_rawDescGZIP(), []int{10, 0, 0}
+	return file_nxpod_v1_prebuild_proto_rawDescGZIP(), []int{10, 0, 0}
 }
 
 func (x *ListOrganizationPrebuildsRequest_Filter_Configuration) GetId() string {
@@ -1253,9 +1253,9 @@ func (x *ListOrganizationPrebuildsRequest_Filter_Configuration) GetBranch() stri
 	return ""
 }
 
-var File_gitpod_v1_prebuild_proto protoreflect.FileDescriptor
+var File_nxpod_v1_prebuild_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_prebuild_proto_rawDesc = []byte{
+var file_nxpod_v1_prebuild_proto_rawDesc = []byte{
 	0x0a, 0x18, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x65, 0x62,
 	0x75, 0x69, 0x6c, 0x64, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74, 0x70,
 	0x6f, 0x64, 0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31,
@@ -1478,78 +1478,78 @@ var file_gitpod_v1_prebuild_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_prebuild_proto_rawDescOnce sync.Once
-	file_gitpod_v1_prebuild_proto_rawDescData = file_gitpod_v1_prebuild_proto_rawDesc
+	file_nxpod_v1_prebuild_proto_rawDescOnce sync.Once
+	file_nxpod_v1_prebuild_proto_rawDescData = file_nxpod_v1_prebuild_proto_rawDesc
 )
 
-func file_gitpod_v1_prebuild_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_prebuild_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_prebuild_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_prebuild_proto_rawDescData)
+func file_nxpod_v1_prebuild_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_prebuild_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_prebuild_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_prebuild_proto_rawDescData)
 	})
-	return file_gitpod_v1_prebuild_proto_rawDescData
+	return file_nxpod_v1_prebuild_proto_rawDescData
 }
 
-var file_gitpod_v1_prebuild_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_gitpod_v1_prebuild_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
-var file_gitpod_v1_prebuild_proto_goTypes = []interface{}{
-	(ListOrganizationPrebuildsRequest_Filter_State)(0),            // 0: gitpod.v1.ListOrganizationPrebuildsRequest.Filter.State
-	(PrebuildPhase_Phase)(0),                                      // 1: gitpod.v1.PrebuildPhase.Phase
-	(*GetPrebuildRequest)(nil),                                    // 2: gitpod.v1.GetPrebuildRequest
-	(*GetPrebuildResponse)(nil),                                   // 3: gitpod.v1.GetPrebuildResponse
-	(*ListPrebuildsRequest)(nil),                                  // 4: gitpod.v1.ListPrebuildsRequest
-	(*ListPrebuildsResponse)(nil),                                 // 5: gitpod.v1.ListPrebuildsResponse
-	(*StartPrebuildRequest)(nil),                                  // 6: gitpod.v1.StartPrebuildRequest
-	(*StartPrebuildResponse)(nil),                                 // 7: gitpod.v1.StartPrebuildResponse
-	(*CancelPrebuildRequest)(nil),                                 // 8: gitpod.v1.CancelPrebuildRequest
-	(*CancelPrebuildResponse)(nil),                                // 9: gitpod.v1.CancelPrebuildResponse
-	(*WatchPrebuildRequest)(nil),                                  // 10: gitpod.v1.WatchPrebuildRequest
-	(*WatchPrebuildResponse)(nil),                                 // 11: gitpod.v1.WatchPrebuildResponse
-	(*ListOrganizationPrebuildsRequest)(nil),                      // 12: gitpod.v1.ListOrganizationPrebuildsRequest
-	(*ListOrganizationPrebuildsResponse)(nil),                     // 13: gitpod.v1.ListOrganizationPrebuildsResponse
-	(*Prebuild)(nil),                                              // 14: gitpod.v1.Prebuild
-	(*PrebuildStatus)(nil),                                        // 15: gitpod.v1.PrebuildStatus
-	(*TaskLog)(nil),                                               // 16: gitpod.v1.TaskLog
-	(*PrebuildPhase)(nil),                                         // 17: gitpod.v1.PrebuildPhase
-	(*ListOrganizationPrebuildsRequest_Filter)(nil),               // 18: gitpod.v1.ListOrganizationPrebuildsRequest.Filter
-	(*ListOrganizationPrebuildsRequest_Filter_Configuration)(nil), // 19: gitpod.v1.ListOrganizationPrebuildsRequest.Filter.Configuration
-	(*PaginationRequest)(nil),                                     // 20: gitpod.v1.PaginationRequest
-	(*PaginationResponse)(nil),                                    // 21: gitpod.v1.PaginationResponse
-	(*Sort)(nil),                                                  // 22: gitpod.v1.Sort
-	(*Commit)(nil),                                                // 23: gitpod.v1.Commit
+var file_nxpod_v1_prebuild_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_nxpod_v1_prebuild_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_nxpod_v1_prebuild_proto_goTypes = []interface{}{
+	(ListOrganizationPrebuildsRequest_Filter_State)(0),            // 0: nxpod.v1.ListOrganizationPrebuildsRequest.Filter.State
+	(PrebuildPhase_Phase)(0),                                      // 1: nxpod.v1.PrebuildPhase.Phase
+	(*GetPrebuildRequest)(nil),                                    // 2: nxpod.v1.GetPrebuildRequest
+	(*GetPrebuildResponse)(nil),                                   // 3: nxpod.v1.GetPrebuildResponse
+	(*ListPrebuildsRequest)(nil),                                  // 4: nxpod.v1.ListPrebuildsRequest
+	(*ListPrebuildsResponse)(nil),                                 // 5: nxpod.v1.ListPrebuildsResponse
+	(*StartPrebuildRequest)(nil),                                  // 6: nxpod.v1.StartPrebuildRequest
+	(*StartPrebuildResponse)(nil),                                 // 7: nxpod.v1.StartPrebuildResponse
+	(*CancelPrebuildRequest)(nil),                                 // 8: nxpod.v1.CancelPrebuildRequest
+	(*CancelPrebuildResponse)(nil),                                // 9: nxpod.v1.CancelPrebuildResponse
+	(*WatchPrebuildRequest)(nil),                                  // 10: nxpod.v1.WatchPrebuildRequest
+	(*WatchPrebuildResponse)(nil),                                 // 11: nxpod.v1.WatchPrebuildResponse
+	(*ListOrganizationPrebuildsRequest)(nil),                      // 12: nxpod.v1.ListOrganizationPrebuildsRequest
+	(*ListOrganizationPrebuildsResponse)(nil),                     // 13: nxpod.v1.ListOrganizationPrebuildsResponse
+	(*Prebuild)(nil),                                              // 14: nxpod.v1.Prebuild
+	(*PrebuildStatus)(nil),                                        // 15: nxpod.v1.PrebuildStatus
+	(*TaskLog)(nil),                                               // 16: nxpod.v1.TaskLog
+	(*PrebuildPhase)(nil),                                         // 17: nxpod.v1.PrebuildPhase
+	(*ListOrganizationPrebuildsRequest_Filter)(nil),               // 18: nxpod.v1.ListOrganizationPrebuildsRequest.Filter
+	(*ListOrganizationPrebuildsRequest_Filter_Configuration)(nil), // 19: nxpod.v1.ListOrganizationPrebuildsRequest.Filter.Configuration
+	(*PaginationRequest)(nil),                                     // 20: nxpod.v1.PaginationRequest
+	(*PaginationResponse)(nil),                                    // 21: nxpod.v1.PaginationResponse
+	(*Sort)(nil),                                                  // 22: nxpod.v1.Sort
+	(*Commit)(nil),                                                // 23: nxpod.v1.Commit
 	(*timestamppb.Timestamp)(nil),                                 // 24: google.protobuf.Timestamp
 }
-var file_gitpod_v1_prebuild_proto_depIdxs = []int32{
-	14, // 0: gitpod.v1.GetPrebuildResponse.prebuild:type_name -> gitpod.v1.Prebuild
-	20, // 1: gitpod.v1.ListPrebuildsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	21, // 2: gitpod.v1.ListPrebuildsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	14, // 3: gitpod.v1.ListPrebuildsResponse.prebuilds:type_name -> gitpod.v1.Prebuild
-	14, // 4: gitpod.v1.WatchPrebuildResponse.prebuild:type_name -> gitpod.v1.Prebuild
-	20, // 5: gitpod.v1.ListOrganizationPrebuildsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	18, // 6: gitpod.v1.ListOrganizationPrebuildsRequest.filter:type_name -> gitpod.v1.ListOrganizationPrebuildsRequest.Filter
-	22, // 7: gitpod.v1.ListOrganizationPrebuildsRequest.sort:type_name -> gitpod.v1.Sort
-	21, // 8: gitpod.v1.ListOrganizationPrebuildsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	14, // 9: gitpod.v1.ListOrganizationPrebuildsResponse.prebuilds:type_name -> gitpod.v1.Prebuild
-	23, // 10: gitpod.v1.Prebuild.commit:type_name -> gitpod.v1.Commit
-	15, // 11: gitpod.v1.Prebuild.status:type_name -> gitpod.v1.PrebuildStatus
-	17, // 12: gitpod.v1.PrebuildStatus.phase:type_name -> gitpod.v1.PrebuildPhase
-	24, // 13: gitpod.v1.PrebuildStatus.start_time:type_name -> google.protobuf.Timestamp
-	16, // 14: gitpod.v1.PrebuildStatus.task_logs:type_name -> gitpod.v1.TaskLog
-	24, // 15: gitpod.v1.PrebuildStatus.stop_time:type_name -> google.protobuf.Timestamp
-	1,  // 16: gitpod.v1.PrebuildPhase.name:type_name -> gitpod.v1.PrebuildPhase.Phase
-	0,  // 17: gitpod.v1.ListOrganizationPrebuildsRequest.Filter.state:type_name -> gitpod.v1.ListOrganizationPrebuildsRequest.Filter.State
-	19, // 18: gitpod.v1.ListOrganizationPrebuildsRequest.Filter.configuration:type_name -> gitpod.v1.ListOrganizationPrebuildsRequest.Filter.Configuration
-	6,  // 19: gitpod.v1.PrebuildService.StartPrebuild:input_type -> gitpod.v1.StartPrebuildRequest
-	8,  // 20: gitpod.v1.PrebuildService.CancelPrebuild:input_type -> gitpod.v1.CancelPrebuildRequest
-	2,  // 21: gitpod.v1.PrebuildService.GetPrebuild:input_type -> gitpod.v1.GetPrebuildRequest
-	4,  // 22: gitpod.v1.PrebuildService.ListPrebuilds:input_type -> gitpod.v1.ListPrebuildsRequest
-	10, // 23: gitpod.v1.PrebuildService.WatchPrebuild:input_type -> gitpod.v1.WatchPrebuildRequest
-	12, // 24: gitpod.v1.PrebuildService.ListOrganizationPrebuilds:input_type -> gitpod.v1.ListOrganizationPrebuildsRequest
-	7,  // 25: gitpod.v1.PrebuildService.StartPrebuild:output_type -> gitpod.v1.StartPrebuildResponse
-	9,  // 26: gitpod.v1.PrebuildService.CancelPrebuild:output_type -> gitpod.v1.CancelPrebuildResponse
-	3,  // 27: gitpod.v1.PrebuildService.GetPrebuild:output_type -> gitpod.v1.GetPrebuildResponse
-	5,  // 28: gitpod.v1.PrebuildService.ListPrebuilds:output_type -> gitpod.v1.ListPrebuildsResponse
-	11, // 29: gitpod.v1.PrebuildService.WatchPrebuild:output_type -> gitpod.v1.WatchPrebuildResponse
-	13, // 30: gitpod.v1.PrebuildService.ListOrganizationPrebuilds:output_type -> gitpod.v1.ListOrganizationPrebuildsResponse
+var file_nxpod_v1_prebuild_proto_depIdxs = []int32{
+	14, // 0: nxpod.v1.GetPrebuildResponse.prebuild:type_name -> nxpod.v1.Prebuild
+	20, // 1: nxpod.v1.ListPrebuildsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	21, // 2: nxpod.v1.ListPrebuildsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	14, // 3: nxpod.v1.ListPrebuildsResponse.prebuilds:type_name -> nxpod.v1.Prebuild
+	14, // 4: nxpod.v1.WatchPrebuildResponse.prebuild:type_name -> nxpod.v1.Prebuild
+	20, // 5: nxpod.v1.ListOrganizationPrebuildsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	18, // 6: nxpod.v1.ListOrganizationPrebuildsRequest.filter:type_name -> nxpod.v1.ListOrganizationPrebuildsRequest.Filter
+	22, // 7: nxpod.v1.ListOrganizationPrebuildsRequest.sort:type_name -> nxpod.v1.Sort
+	21, // 8: nxpod.v1.ListOrganizationPrebuildsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	14, // 9: nxpod.v1.ListOrganizationPrebuildsResponse.prebuilds:type_name -> nxpod.v1.Prebuild
+	23, // 10: nxpod.v1.Prebuild.commit:type_name -> nxpod.v1.Commit
+	15, // 11: nxpod.v1.Prebuild.status:type_name -> nxpod.v1.PrebuildStatus
+	17, // 12: nxpod.v1.PrebuildStatus.phase:type_name -> nxpod.v1.PrebuildPhase
+	24, // 13: nxpod.v1.PrebuildStatus.start_time:type_name -> google.protobuf.Timestamp
+	16, // 14: nxpod.v1.PrebuildStatus.task_logs:type_name -> nxpod.v1.TaskLog
+	24, // 15: nxpod.v1.PrebuildStatus.stop_time:type_name -> google.protobuf.Timestamp
+	1,  // 16: nxpod.v1.PrebuildPhase.name:type_name -> nxpod.v1.PrebuildPhase.Phase
+	0,  // 17: nxpod.v1.ListOrganizationPrebuildsRequest.Filter.state:type_name -> nxpod.v1.ListOrganizationPrebuildsRequest.Filter.State
+	19, // 18: nxpod.v1.ListOrganizationPrebuildsRequest.Filter.configuration:type_name -> nxpod.v1.ListOrganizationPrebuildsRequest.Filter.Configuration
+	6,  // 19: nxpod.v1.PrebuildService.StartPrebuild:input_type -> nxpod.v1.StartPrebuildRequest
+	8,  // 20: nxpod.v1.PrebuildService.CancelPrebuild:input_type -> nxpod.v1.CancelPrebuildRequest
+	2,  // 21: nxpod.v1.PrebuildService.GetPrebuild:input_type -> nxpod.v1.GetPrebuildRequest
+	4,  // 22: nxpod.v1.PrebuildService.ListPrebuilds:input_type -> nxpod.v1.ListPrebuildsRequest
+	10, // 23: nxpod.v1.PrebuildService.WatchPrebuild:input_type -> nxpod.v1.WatchPrebuildRequest
+	12, // 24: nxpod.v1.PrebuildService.ListOrganizationPrebuilds:input_type -> nxpod.v1.ListOrganizationPrebuildsRequest
+	7,  // 25: nxpod.v1.PrebuildService.StartPrebuild:output_type -> nxpod.v1.StartPrebuildResponse
+	9,  // 26: nxpod.v1.PrebuildService.CancelPrebuild:output_type -> nxpod.v1.CancelPrebuildResponse
+	3,  // 27: nxpod.v1.PrebuildService.GetPrebuild:output_type -> nxpod.v1.GetPrebuildResponse
+	5,  // 28: nxpod.v1.PrebuildService.ListPrebuilds:output_type -> nxpod.v1.ListPrebuildsResponse
+	11, // 29: nxpod.v1.PrebuildService.WatchPrebuild:output_type -> nxpod.v1.WatchPrebuildResponse
+	13, // 30: nxpod.v1.PrebuildService.ListOrganizationPrebuilds:output_type -> nxpod.v1.ListOrganizationPrebuildsResponse
 	25, // [25:31] is the sub-list for method output_type
 	19, // [19:25] is the sub-list for method input_type
 	19, // [19:19] is the sub-list for extension type_name
@@ -1557,16 +1557,16 @@ var file_gitpod_v1_prebuild_proto_depIdxs = []int32{
 	0,  // [0:19] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_prebuild_proto_init() }
-func file_gitpod_v1_prebuild_proto_init() {
-	if File_gitpod_v1_prebuild_proto != nil {
+func init() { file_nxpod_v1_prebuild_proto_init() }
+func file_nxpod_v1_prebuild_proto_init() {
+	if File_nxpod_v1_prebuild_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
-	file_gitpod_v1_scm_proto_init()
-	file_gitpod_v1_sorting_proto_init()
+	file_nxpod_v1_pagination_proto_init()
+	file_nxpod_v1_scm_proto_init()
+	file_nxpod_v1_sorting_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_prebuild_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPrebuildRequest); i {
 			case 0:
 				return &v.state
@@ -1578,7 +1578,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetPrebuildResponse); i {
 			case 0:
 				return &v.state
@@ -1590,7 +1590,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListPrebuildsRequest); i {
 			case 0:
 				return &v.state
@@ -1602,7 +1602,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListPrebuildsResponse); i {
 			case 0:
 				return &v.state
@@ -1614,7 +1614,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StartPrebuildRequest); i {
 			case 0:
 				return &v.state
@@ -1626,7 +1626,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StartPrebuildResponse); i {
 			case 0:
 				return &v.state
@@ -1638,7 +1638,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CancelPrebuildRequest); i {
 			case 0:
 				return &v.state
@@ -1650,7 +1650,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CancelPrebuildResponse); i {
 			case 0:
 				return &v.state
@@ -1662,7 +1662,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WatchPrebuildRequest); i {
 			case 0:
 				return &v.state
@@ -1674,7 +1674,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WatchPrebuildResponse); i {
 			case 0:
 				return &v.state
@@ -1686,7 +1686,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationPrebuildsRequest); i {
 			case 0:
 				return &v.state
@@ -1698,7 +1698,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationPrebuildsResponse); i {
 			case 0:
 				return &v.state
@@ -1710,7 +1710,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Prebuild); i {
 			case 0:
 				return &v.state
@@ -1722,7 +1722,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PrebuildStatus); i {
 			case 0:
 				return &v.state
@@ -1734,7 +1734,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TaskLog); i {
 			case 0:
 				return &v.state
@@ -1746,7 +1746,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PrebuildPhase); i {
 			case 0:
 				return &v.state
@@ -1758,7 +1758,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationPrebuildsRequest_Filter); i {
 			case 0:
 				return &v.state
@@ -1770,7 +1770,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_prebuild_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_prebuild_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationPrebuildsRequest_Filter_Configuration); i {
 			case 0:
 				return &v.state
@@ -1783,7 +1783,7 @@ func file_gitpod_v1_prebuild_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_prebuild_proto_msgTypes[8].OneofWrappers = []interface{}{
+	file_nxpod_v1_prebuild_proto_msgTypes[8].OneofWrappers = []interface{}{
 		(*WatchPrebuildRequest_PrebuildId)(nil),
 		(*WatchPrebuildRequest_ConfigurationId)(nil),
 	}
@@ -1791,19 +1791,19 @@ func file_gitpod_v1_prebuild_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_prebuild_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_prebuild_proto_rawDesc,
 			NumEnums:      2,
 			NumMessages:   18,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_prebuild_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_prebuild_proto_depIdxs,
-		EnumInfos:         file_gitpod_v1_prebuild_proto_enumTypes,
-		MessageInfos:      file_gitpod_v1_prebuild_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_prebuild_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_prebuild_proto_depIdxs,
+		EnumInfos:         file_nxpod_v1_prebuild_proto_enumTypes,
+		MessageInfos:      file_nxpod_v1_prebuild_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_prebuild_proto = out.File
-	file_gitpod_v1_prebuild_proto_rawDesc = nil
-	file_gitpod_v1_prebuild_proto_goTypes = nil
-	file_gitpod_v1_prebuild_proto_depIdxs = nil
+	File_nxpod_v1_prebuild_proto = out.File
+	file_nxpod_v1_prebuild_proto_rawDesc = nil
+	file_nxpod_v1_prebuild_proto_goTypes = nil
+	file_nxpod_v1_prebuild_proto_depIdxs = nil
 }

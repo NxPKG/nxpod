@@ -10,13 +10,13 @@ import (
 	"os"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 
 	"github.com/spf13/cobra"
 )
 
 // todo(ft): distribute this common metadata from the root command to all subcommands to reduce latency
-var gitpodHost = os.Getenv("NXPOD_HOST")
+var nxpodHost = os.Getenv("NXPOD_HOST")
 
 // sshCmd represents the ssh command
 var sshCmd = &cobra.Command{
@@ -25,11 +25,11 @@ var sshCmd = &cobra.Command{
 	Long: fmt.Sprintf(`Displays a command with which you can connect to the current workspace.
 The returned command requires SSH keys to be configured with Nxpod.
 See %s/user/keys for a guide on setting them up.
-`, gitpodHost), RunE: func(cmd *cobra.Command, args []string) error {
+`, nxpodHost), RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := context.WithTimeout(cmd.Context(), 10*time.Second)
 		defer cancel()
 
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return fmt.Errorf("cannot get workspace info: %w", err)
 		}

@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/installation.proto
+// source: nxpod/v1/installation.proto
 
 package v1
 
@@ -53,7 +53,7 @@ func NewInstallationServiceClient(cc grpc.ClientConnInterface) InstallationServi
 
 func (c *installationServiceClient) GetInstallationWorkspaceDefaultImage(ctx context.Context, in *GetInstallationWorkspaceDefaultImageRequest, opts ...grpc.CallOption) (*GetInstallationWorkspaceDefaultImageResponse, error) {
 	out := new(GetInstallationWorkspaceDefaultImageResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/GetInstallationWorkspaceDefaultImage", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/GetInstallationWorkspaceDefaultImage", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (c *installationServiceClient) GetInstallationWorkspaceDefaultImage(ctx con
 
 func (c *installationServiceClient) ListBlockedRepositories(ctx context.Context, in *ListBlockedRepositoriesRequest, opts ...grpc.CallOption) (*ListBlockedRepositoriesResponse, error) {
 	out := new(ListBlockedRepositoriesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/ListBlockedRepositories", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/ListBlockedRepositories", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func (c *installationServiceClient) ListBlockedRepositories(ctx context.Context,
 
 func (c *installationServiceClient) CreateBlockedRepository(ctx context.Context, in *CreateBlockedRepositoryRequest, opts ...grpc.CallOption) (*CreateBlockedRepositoryResponse, error) {
 	out := new(CreateBlockedRepositoryResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/CreateBlockedRepository", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/CreateBlockedRepository", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *installationServiceClient) CreateBlockedRepository(ctx context.Context,
 
 func (c *installationServiceClient) DeleteBlockedRepository(ctx context.Context, in *DeleteBlockedRepositoryRequest, opts ...grpc.CallOption) (*DeleteBlockedRepositoryResponse, error) {
 	out := new(DeleteBlockedRepositoryResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/DeleteBlockedRepository", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/DeleteBlockedRepository", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *installationServiceClient) DeleteBlockedRepository(ctx context.Context,
 
 func (c *installationServiceClient) ListBlockedEmailDomains(ctx context.Context, in *ListBlockedEmailDomainsRequest, opts ...grpc.CallOption) (*ListBlockedEmailDomainsResponse, error) {
 	out := new(ListBlockedEmailDomainsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/ListBlockedEmailDomains", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/ListBlockedEmailDomains", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (c *installationServiceClient) ListBlockedEmailDomains(ctx context.Context,
 
 func (c *installationServiceClient) CreateBlockedEmailDomain(ctx context.Context, in *CreateBlockedEmailDomainRequest, opts ...grpc.CallOption) (*CreateBlockedEmailDomainResponse, error) {
 	out := new(CreateBlockedEmailDomainResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/CreateBlockedEmailDomain", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/CreateBlockedEmailDomain", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +107,7 @@ func (c *installationServiceClient) CreateBlockedEmailDomain(ctx context.Context
 
 func (c *installationServiceClient) GetOnboardingState(ctx context.Context, in *GetOnboardingStateRequest, opts ...grpc.CallOption) (*GetOnboardingStateResponse, error) {
 	out := new(GetOnboardingStateResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.InstallationService/GetOnboardingState", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.InstallationService/GetOnboardingState", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -184,7 +184,7 @@ func _InstallationService_GetInstallationWorkspaceDefaultImage_Handler(srv inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/GetInstallationWorkspaceDefaultImage",
+		FullMethod: "/nxpod.v1.InstallationService/GetInstallationWorkspaceDefaultImage",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).GetInstallationWorkspaceDefaultImage(ctx, req.(*GetInstallationWorkspaceDefaultImageRequest))
@@ -202,7 +202,7 @@ func _InstallationService_ListBlockedRepositories_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/ListBlockedRepositories",
+		FullMethod: "/nxpod.v1.InstallationService/ListBlockedRepositories",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).ListBlockedRepositories(ctx, req.(*ListBlockedRepositoriesRequest))
@@ -220,7 +220,7 @@ func _InstallationService_CreateBlockedRepository_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/CreateBlockedRepository",
+		FullMethod: "/nxpod.v1.InstallationService/CreateBlockedRepository",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).CreateBlockedRepository(ctx, req.(*CreateBlockedRepositoryRequest))
@@ -238,7 +238,7 @@ func _InstallationService_DeleteBlockedRepository_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/DeleteBlockedRepository",
+		FullMethod: "/nxpod.v1.InstallationService/DeleteBlockedRepository",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).DeleteBlockedRepository(ctx, req.(*DeleteBlockedRepositoryRequest))
@@ -256,7 +256,7 @@ func _InstallationService_ListBlockedEmailDomains_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/ListBlockedEmailDomains",
+		FullMethod: "/nxpod.v1.InstallationService/ListBlockedEmailDomains",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).ListBlockedEmailDomains(ctx, req.(*ListBlockedEmailDomainsRequest))
@@ -274,7 +274,7 @@ func _InstallationService_CreateBlockedEmailDomain_Handler(srv interface{}, ctx 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/CreateBlockedEmailDomain",
+		FullMethod: "/nxpod.v1.InstallationService/CreateBlockedEmailDomain",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).CreateBlockedEmailDomain(ctx, req.(*CreateBlockedEmailDomainRequest))
@@ -292,7 +292,7 @@ func _InstallationService_GetOnboardingState_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.InstallationService/GetOnboardingState",
+		FullMethod: "/nxpod.v1.InstallationService/GetOnboardingState",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InstallationServiceServer).GetOnboardingState(ctx, req.(*GetOnboardingStateRequest))
@@ -304,7 +304,7 @@ func _InstallationService_GetOnboardingState_Handler(srv interface{}, ctx contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InstallationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.InstallationService",
+	ServiceName: "nxpod.v1.InstallationService",
 	HandlerType: (*InstallationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -337,5 +337,5 @@ var InstallationService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/installation.proto",
+	Metadata: "nxpod/v1/installation.proto",
 }

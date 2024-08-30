@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.PersistentStateComponent
@@ -14,25 +14,25 @@ import java.net.URL
 import java.util.*
 
 @State(
-    name = "io.gitpod.jetbrains.gateway.NxpodSettingsState",
-    storages = [Storage("gitpod.xml")]
+    name = "io.nxpod.jetbrains.gateway.NxpodSettingsState",
+    storages = [Storage("nxpod.xml")]
 )
 class NxpodSettingsState : PersistentStateComponent<NxpodSettingsState> {
 
-    var gitpodHost: String = "gitpod.io"
+    var nxpodHost: String = "nxpod.khulnasoft.com"
         set(value) {
             if (value.isNullOrBlank()) {
                 return
             }
-            val gitpodHost = try {
+            val nxpodHost = try {
                 URL(value.trim()).host
             } catch (t: Throwable) {
                 value.trim()
             }
-            if (gitpodHost == field) {
+            if (nxpodHost == field) {
                 return
             }
-            field = gitpodHost
+            field = nxpodHost
             dispatcher.multicaster.didChange()
         }
 

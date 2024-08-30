@@ -25,13 +25,13 @@ var workspaceDeleteCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(cmd.Context(), 30*time.Second)
 		defer cancel()
 
-		gitpod, err := getNxpodClient(ctx)
+		nxpod, err := getNxpodClient(ctx)
 		if err != nil {
 			return err
 		}
 
 		slog.Debug("Attempting to delete workspace...")
-		_, err = gitpod.Workspaces.DeleteWorkspace(ctx, connect.NewRequest(&v1.DeleteWorkspaceRequest{WorkspaceId: workspaceID}))
+		_, err = nxpod.Workspaces.DeleteWorkspace(ctx, connect.NewRequest(&v1.DeleteWorkspaceRequest{WorkspaceId: workspaceID}))
 
 		return err
 	},

@@ -12,13 +12,13 @@
 
 	# configure plugin order
 	# https://caddyserver.com/docs/caddyfile/directives#directive-order
-	order gitpod.cors_origin before header
-	order gitpod.workspace_download before redir
-	order gitpod.headless_log_download before rewrite
-	order gitpod.configcat before rewrite
-	order gitpod.analytics before rewrite
-	order gitpod.sec_websocket_key before header
-	order gitpod.frontend_dev after forward_auth
+	order nxpod.cors_origin before header
+	order nxpod.workspace_download before redir
+	order nxpod.headless_log_download before rewrite
+	order nxpod.configcat before rewrite
+	order nxpod.analytics before rewrite
+	order nxpod.sec_websocket_key before header
+	order nxpod.frontend_dev after forward_auth
 
 	servers {
 		protocols h1 h2 h2c
@@ -115,7 +115,7 @@
 		-x-goog-metageneration
 		-x-goog-hash
 		-x-goog-stored-content-length
-		-x-gitpod-region
+		-x-nxpod-region
 		-x-goog-stored-content-encoding
 		-x-goog-storage-class
 		-x-goog-generation
@@ -152,14 +152,14 @@
 # Internal analytics endpoint
 :9546 {
 	handle /analytics* {
-		gitpod.analytics
+		nxpod.analytics
 	}
 }
 
 # Internal configcat endpoint
 :9547 {
 	handle /configcat* {
-		gitpod.configcat
+		nxpod.configcat
 	}
 }
 
@@ -170,7 +170,7 @@ api.{$NXPOD_DOMAIN} {
 		output stdout
 	}
 
-	gitpod.cors_origin {
+	nxpod.cors_origin {
 		allowed_origins https://{$NXPOD_DOMAIN}
 	}
 
@@ -183,7 +183,7 @@ api.{$NXPOD_DOMAIN} {
 		}
 	}
 
-	handle /gitpod.v1.* {
+	handle /nxpod.v1.* {
 		import server_public_api
 	}
 
@@ -223,14 +223,14 @@ https://{$NXPOD_DOMAIN} {
 		respond 200
 	}
 
-	@proxy_server_public_api path /public-api/gitpod.experimental.v1.HelloService*
+	@proxy_server_public_api path /public-api/nxpod.experimental.v1.HelloService*
 	handle @proxy_server_public_api {
 		uri strip_prefix /public-api
 
 		import server_public_api
 	}
 
-	@proxy_server_public_api_2 path /public-api/gitpod.v1.*
+	@proxy_server_public_api_2 path /public-api/nxpod.v1.*
 	handle @proxy_server_public_api_2 {
 		uri strip_prefix /public-api
 
@@ -253,12 +253,12 @@ https://{$NXPOD_DOMAIN} {
 			content-type "application/tar+gzip"
 		}
 
-		gitpod.workspace_download {
+		nxpod.workspace_download {
 			service http://server.{$KUBE_NAMESPACE}.{$KUBE_DOMAIN}:3000
 		}
 
 		# redirect works here because we "navigate" to this URL, which makes the browser handle this as primary request, and not fuff around with CORS at all
-		redir {http.gitpod.workspace_download_url} 303
+		redir {http.nxpod.workspace_download_url} 303
 	}
 
 	@headless_log_download path /headless-log-download*
@@ -269,25 +269,25 @@ https://{$NXPOD_DOMAIN} {
 		}
 
 		# Perform lookup to server and actual reverse_proxy in one go because caddy's `reverse_proxy` is not powerful enough
-		gitpod.headless_log_download {
+		nxpod.headless_log_download {
 			service http://server.{$KUBE_NAMESPACE}.{$KUBE_DOMAIN}:3000
 		}
 	}
 
 	@configcat path /configcat*
 	handle @configcat {
-		gitpod.cors_origin {
+		nxpod.cors_origin {
 			any_domain true
 		}
-		gitpod.configcat
+		nxpod.configcat
 	}
 
 	@analytics path /analytics*
 	handle @analytics {
-		gitpod.cors_origin {
+		nxpod.cors_origin {
 			any_domain true
 		}
-		gitpod.analytics
+		nxpod.analytics
 	}
 
 	@browser_analytics path /_analytics*
@@ -300,14 +300,14 @@ https://{$NXPOD_DOMAIN} {
 	}
 
 	@backend_wss {
-		path /api/gitpod /api/v1
+		path /api/nxpod /api/v1
 	}
 	handle @backend_wss {
-		gitpod.cors_origin {
+		nxpod.cors_origin {
 			base_domain {$NXPOD_DOMAIN}
 		}
 
-		gitpod.sec_websocket_key
+		nxpod.sec_websocket_key
 
 		uri strip_prefix /api
 
@@ -318,7 +318,7 @@ https://{$NXPOD_DOMAIN} {
 
 	@backend path /api/* /headless-logs/* /prebuild-logs/*
 	handle @backend {
-		gitpod.cors_origin {
+		nxpod.cors_origin {
 			base_domain {$NXPOD_DOMAIN}
 		}
 
@@ -335,7 +335,7 @@ https://{$NXPOD_DOMAIN} {
 	@iam path /iam/*
 	handle @iam {
 
-		gitpod.cors_origin {
+		nxpod.cors_origin {
 			any_domain true
 		}
 
@@ -348,7 +348,7 @@ https://{$NXPOD_DOMAIN} {
 
 	@codesync path /code-sync*
 	handle @codesync {
-		gitpod.cors_origin {
+		nxpod.cors_origin {
 			any_domain true
 		}
 
@@ -396,7 +396,7 @@ https://{$NXPOD_DOMAIN} {
 				header_up -Upgrade
 			}
 			# Then handle it with our plugin!
-			gitpod.frontend_dev {
+			nxpod.frontend_dev {
 				upstream http://dashboard.{$KUBE_NAMESPACE}.{$KUBE_DOMAIN}:3001
 			}
 		}

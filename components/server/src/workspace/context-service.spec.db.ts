@@ -58,7 +58,7 @@ const nxpodEmptyContext = {
     title: "nxpkg/empty - main",
 };
 
-const SNAPSHOT_BUCKET = "https://nxpod.io/none-bucket";
+const SNAPSHOT_BUCKET = "https://nxpod.khulnasoft.com/none-bucket";
 
 describe("ContextService", async () => {
     let container: Container;

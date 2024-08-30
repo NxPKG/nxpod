@@ -13,7 +13,7 @@ import {
     WorkspaceInstanceConfiguration,
     ImageBuildInfo,
     WorkspaceInstanceRepoStatus,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 import { TypeORM } from "../typeorm";
 import { Transformer } from "../transformer";
 

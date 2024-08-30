@@ -8,13 +8,13 @@ ARG CODE_EXTENSION_COMMIT
 RUN apt update -y \
     && apt install jq --no-install-recommends -y
 
-RUN mkdir /gitpod-code-web \
-    && cd /gitpod-code-web \
+RUN mkdir /nxpod-code-web \
+    && cd /nxpod-code-web \
     && git init \
     && git remote add origin https://github.com/nxpkg/nxpod-code \
     && git fetch origin $CODE_EXTENSION_COMMIT --depth=1 \
     && git reset --hard FETCH_HEAD
-WORKDIR /gitpod-code-web
+WORKDIR /nxpod-code-web
 RUN yarn --frozen-lockfile --network-timeout 180000
 
 # update package.json
@@ -22,12 +22,12 @@ RUN setSegmentKey="setpath([\"segmentKey\"]; \"untrusted-dummy-key\")" && \
     jqCommands="${setSegmentKey}" && \
     cat package.json | jq "${jqCommands}" > package.json.tmp && \
     mv package.json.tmp package.json
-RUN yarn build:gitpod-web && yarn --cwd gitpod-web/ inject-commit-hash
+RUN yarn build:nxpod-web && yarn --cwd nxpod-web/ inject-commit-hash
 
 
 FROM scratch
 
-COPY --from=builder --chown=33333:33333 /gitpod-code-web/gitpod-web/out /ide/extensions/gitpod-web/out/
-COPY --from=builder --chown=33333:33333 /gitpod-code-web/gitpod-web/public /ide/extensions/gitpod-web/public/
-COPY --from=builder --chown=33333:33333 /gitpod-code-web/gitpod-web/resources /ide/extensions/gitpod-web/resources/
-COPY --from=builder --chown=33333:33333 /gitpod-code-web/gitpod-web/package.json /gitpod-code-web/gitpod-web/package.nls.json /gitpod-code-web/gitpod-web/README.md /gitpod-code-web/gitpod-web/LICENSE.txt /ide/extensions/gitpod-web/
+COPY --from=builder --chown=33333:33333 /nxpod-code-web/nxpod-web/out /ide/extensions/nxpod-web/out/
+COPY --from=builder --chown=33333:33333 /nxpod-code-web/nxpod-web/public /ide/extensions/nxpod-web/public/
+COPY --from=builder --chown=33333:33333 /nxpod-code-web/nxpod-web/resources /ide/extensions/nxpod-web/resources/
+COPY --from=builder --chown=33333:33333 /nxpod-code-web/nxpod-web/package.json /nxpod-code-web/nxpod-web/package.nls.json /nxpod-code-web/nxpod-web/README.md /nxpod-code-web/nxpod-web/LICENSE.txt /ide/extensions/nxpod-web/

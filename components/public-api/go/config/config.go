@@ -12,7 +12,7 @@ type Configuration struct {
 	// PublicURL is the URL under which the API server is publicly reachable
 	PublicURL string `json:"publicURL"`
 
-	NxpodServiceURL string `json:"gitpodServiceUrl"`
+	NxpodServiceURL string `json:"nxpodServiceUrl"`
 
 	BillingServiceAddress string `json:"billingServiceAddress,omitempty"`
 

@@ -20,13 +20,13 @@ export namespace DevData {
                     authId: "33891423",
                     authName: "somefox",
                     authProviderId: "Public-GitHub",
-                    primaryEmail: "somefox@nxpod.io",
+                    primaryEmail: "somefox@nxpod.khulnasoft.com",
                 },
                 {
                     authId: "3171928",
                     authName: "somefox",
                     authProviderId: "Public-GitLab",
-                    primaryEmail: "somefox@nxpod.io",
+                    primaryEmail: "somefox@nxpod.khulnasoft.com",
                 },
             ],
             additionalData: {

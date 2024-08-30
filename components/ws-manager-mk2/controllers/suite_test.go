@@ -128,7 +128,7 @@ var _ = BeforeSuite(func() {
 
 func newTestConfig() config.Configuration {
 	return config.Configuration{
-		NxpodHostURL:     "nxpod.io",
+		NxpodHostURL:     "nxpod.khulnasoft.com",
 		HeartbeatInterval: util.Duration(30 * time.Second),
 		Namespace:         "default",
 		SecretsNamespace:  secretsNamespace,

@@ -8,9 +8,9 @@ import (
 	"context"
 	"testing"
 
-	db "github.com/nxpkg/nxpod/components/gitpod-db/go"
+	db "github.com/nxpkg/nxpod/components/nxpod-db/go"
 
-	"github.com/nxpkg/nxpod/components/gitpod-db/go/dbtest"
+	"github.com/nxpkg/nxpod/components/nxpod-db/go/dbtest"
 	"github.com/stretchr/testify/require"
 )
 
@@ -40,7 +40,7 @@ func TestListWorkspacesByID(t *testing.T) {
 		},
 		{
 			Name:     "not found id returns emtpy results",
-			QueryIDs: []string{"gitpodio-gitpod-xxxxxxxxxxx"},
+			QueryIDs: []string{"nxpodio-nxpod-xxxxxxxxxxx"},
 			Expected: 0,
 		},
 		{
@@ -50,7 +50,7 @@ func TestListWorkspacesByID(t *testing.T) {
 		},
 		{
 			Name:     "one matching and one non existent returns one found result",
-			QueryIDs: []string{workspaces[0].ID, "gitpodio-gitpod-xxxxxxxxxxx"},
+			QueryIDs: []string{workspaces[0].ID, "nxpodio-nxpod-xxxxxxxxxxx"},
 			Expected: 1,
 		},
 		{

@@ -38,7 +38,7 @@
                 "name": "PHASE_RUNNING",
                 "lastTransitionTime": "2023-10-16T20:38:51.092Z"
             },
-            "workspaceUrl": "https://akosyakov-parceldemo-4crqn25qlwi.ws-dev.ak-public-26583c8c5c.preview.gitpod-dev.com",
+            "workspaceUrl": "https://akosyakov-parceldemo-4crqn25qlwi.ws-dev.ak-public-26583c8c5c.preview.nxpod-dev.com",
             "conditions": {},
             "gitStatus": {
                 "cloneUrl": "https://github.com/akosyakov/parcel-demo.git",

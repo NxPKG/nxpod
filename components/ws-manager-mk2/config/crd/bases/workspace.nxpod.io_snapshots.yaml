@@ -9,9 +9,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.10.0
   creationTimestamp: null
-  name: snapshots.workspace.nxpod.io
+  name: snapshots.workspace.nxpod.khulnasoft.com
 spec:
-  group: workspace.nxpod.io
+  group: workspace.nxpod.khulnasoft.com
   names:
     kind: Snapshot
     listKind: SnapshotList

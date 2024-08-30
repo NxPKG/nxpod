@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/oidc.proto
+// source: nxpod/experimental/v1/oidc.proto
 
 package v1
 
@@ -66,7 +66,7 @@ type OIDCClientConfig struct {
 func (x *OIDCClientConfig) Reset() {
 	*x = OIDCClientConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -79,7 +79,7 @@ func (x *OIDCClientConfig) String() string {
 func (*OIDCClientConfig) ProtoMessage() {}
 
 func (x *OIDCClientConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -92,7 +92,7 @@ func (x *OIDCClientConfig) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OIDCClientConfig.ProtoReflect.Descriptor instead.
 func (*OIDCClientConfig) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *OIDCClientConfig) GetId() string {
@@ -191,7 +191,7 @@ type OIDCConfig struct {
 func (x *OIDCConfig) Reset() {
 	*x = OIDCConfig{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -204,7 +204,7 @@ func (x *OIDCConfig) String() string {
 func (*OIDCConfig) ProtoMessage() {}
 
 func (x *OIDCConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -217,7 +217,7 @@ func (x *OIDCConfig) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OIDCConfig.ProtoReflect.Descriptor instead.
 func (*OIDCConfig) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *OIDCConfig) GetIssuer() string {
@@ -274,7 +274,7 @@ type ConsentScreenHints struct {
 func (x *ConsentScreenHints) Reset() {
 	*x = ConsentScreenHints{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -287,7 +287,7 @@ func (x *ConsentScreenHints) String() string {
 func (*ConsentScreenHints) ProtoMessage() {}
 
 func (x *ConsentScreenHints) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -300,7 +300,7 @@ func (x *ConsentScreenHints) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConsentScreenHints.ProtoReflect.Descriptor instead.
 func (*ConsentScreenHints) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ConsentScreenHints) GetPrompt() string {
@@ -341,7 +341,7 @@ type ClaimMappingOverride struct {
 func (x *ClaimMappingOverride) Reset() {
 	*x = ClaimMappingOverride{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -354,7 +354,7 @@ func (x *ClaimMappingOverride) String() string {
 func (*ClaimMappingOverride) ProtoMessage() {}
 
 func (x *ClaimMappingOverride) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -367,7 +367,7 @@ func (x *ClaimMappingOverride) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClaimMappingOverride.ProtoReflect.Descriptor instead.
 func (*ClaimMappingOverride) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ClaimMappingOverride) GetClaimEmailKey() string {
@@ -425,7 +425,7 @@ type OAuth2Config struct {
 func (x *OAuth2Config) Reset() {
 	*x = OAuth2Config{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -438,7 +438,7 @@ func (x *OAuth2Config) String() string {
 func (*OAuth2Config) ProtoMessage() {}
 
 func (x *OAuth2Config) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -451,7 +451,7 @@ func (x *OAuth2Config) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuth2Config.ProtoReflect.Descriptor instead.
 func (*OAuth2Config) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *OAuth2Config) GetClientId() string {
@@ -532,7 +532,7 @@ type UserInfoKeys struct {
 func (x *UserInfoKeys) Reset() {
 	*x = UserInfoKeys{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -545,7 +545,7 @@ func (x *UserInfoKeys) String() string {
 func (*UserInfoKeys) ProtoMessage() {}
 
 func (x *UserInfoKeys) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -558,7 +558,7 @@ func (x *UserInfoKeys) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserInfoKeys.ProtoReflect.Descriptor instead.
 func (*UserInfoKeys) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UserInfoKeys) GetUserinfoIdKey() string {
@@ -585,7 +585,7 @@ type OIDCClientConfigStatus struct {
 func (x *OIDCClientConfigStatus) Reset() {
 	*x = OIDCClientConfigStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[6]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -598,7 +598,7 @@ func (x *OIDCClientConfigStatus) String() string {
 func (*OIDCClientConfigStatus) ProtoMessage() {}
 
 func (x *OIDCClientConfigStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[6]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -611,7 +611,7 @@ func (x *OIDCClientConfigStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OIDCClientConfigStatus.ProtoReflect.Descriptor instead.
 func (*OIDCClientConfigStatus) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{6}
 }
 
 type CreateClientConfigRequest struct {
@@ -627,7 +627,7 @@ type CreateClientConfigRequest struct {
 func (x *CreateClientConfigRequest) Reset() {
 	*x = CreateClientConfigRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[7]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -640,7 +640,7 @@ func (x *CreateClientConfigRequest) String() string {
 func (*CreateClientConfigRequest) ProtoMessage() {}
 
 func (x *CreateClientConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[7]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -653,7 +653,7 @@ func (x *CreateClientConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateClientConfigRequest.ProtoReflect.Descriptor instead.
 func (*CreateClientConfigRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateClientConfigRequest) GetConfig() *OIDCClientConfig {
@@ -681,7 +681,7 @@ type CreateClientConfigResponse struct {
 func (x *CreateClientConfigResponse) Reset() {
 	*x = CreateClientConfigResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[8]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -694,7 +694,7 @@ func (x *CreateClientConfigResponse) String() string {
 func (*CreateClientConfigResponse) ProtoMessage() {}
 
 func (x *CreateClientConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[8]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -707,7 +707,7 @@ func (x *CreateClientConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateClientConfigResponse.ProtoReflect.Descriptor instead.
 func (*CreateClientConfigResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateClientConfigResponse) GetConfig() *OIDCClientConfig {
@@ -729,7 +729,7 @@ type GetClientConfigRequest struct {
 func (x *GetClientConfigRequest) Reset() {
 	*x = GetClientConfigRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[9]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -742,7 +742,7 @@ func (x *GetClientConfigRequest) String() string {
 func (*GetClientConfigRequest) ProtoMessage() {}
 
 func (x *GetClientConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[9]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -755,7 +755,7 @@ func (x *GetClientConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetClientConfigRequest.ProtoReflect.Descriptor instead.
 func (*GetClientConfigRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetClientConfigRequest) GetId() string {
@@ -783,7 +783,7 @@ type GetClientConfigResponse struct {
 func (x *GetClientConfigResponse) Reset() {
 	*x = GetClientConfigResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[10]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -796,7 +796,7 @@ func (x *GetClientConfigResponse) String() string {
 func (*GetClientConfigResponse) ProtoMessage() {}
 
 func (x *GetClientConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[10]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -809,7 +809,7 @@ func (x *GetClientConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetClientConfigResponse.ProtoReflect.Descriptor instead.
 func (*GetClientConfigResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetClientConfigResponse) GetConfig() *OIDCClientConfig {
@@ -832,7 +832,7 @@ type ListClientConfigsRequest struct {
 func (x *ListClientConfigsRequest) Reset() {
 	*x = ListClientConfigsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[11]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -845,7 +845,7 @@ func (x *ListClientConfigsRequest) String() string {
 func (*ListClientConfigsRequest) ProtoMessage() {}
 
 func (x *ListClientConfigsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[11]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -858,7 +858,7 @@ func (x *ListClientConfigsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListClientConfigsRequest.ProtoReflect.Descriptor instead.
 func (*ListClientConfigsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ListClientConfigsRequest) GetOrganizationId() string {
@@ -887,7 +887,7 @@ type ListClientConfigsResponse struct {
 func (x *ListClientConfigsResponse) Reset() {
 	*x = ListClientConfigsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[12]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -900,7 +900,7 @@ func (x *ListClientConfigsResponse) String() string {
 func (*ListClientConfigsResponse) ProtoMessage() {}
 
 func (x *ListClientConfigsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[12]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -913,7 +913,7 @@ func (x *ListClientConfigsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListClientConfigsResponse.ProtoReflect.Descriptor instead.
 func (*ListClientConfigsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ListClientConfigsResponse) GetClientConfigs() []*OIDCClientConfig {
@@ -941,7 +941,7 @@ type UpdateClientConfigRequest struct {
 func (x *UpdateClientConfigRequest) Reset() {
 	*x = UpdateClientConfigRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[13]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -954,7 +954,7 @@ func (x *UpdateClientConfigRequest) String() string {
 func (*UpdateClientConfigRequest) ProtoMessage() {}
 
 func (x *UpdateClientConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[13]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -967,7 +967,7 @@ func (x *UpdateClientConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateClientConfigRequest.ProtoReflect.Descriptor instead.
 func (*UpdateClientConfigRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UpdateClientConfigRequest) GetConfig() *OIDCClientConfig {
@@ -986,7 +986,7 @@ type UpdateClientConfigResponse struct {
 func (x *UpdateClientConfigResponse) Reset() {
 	*x = UpdateClientConfigResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[14]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -999,7 +999,7 @@ func (x *UpdateClientConfigResponse) String() string {
 func (*UpdateClientConfigResponse) ProtoMessage() {}
 
 func (x *UpdateClientConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[14]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1012,7 +1012,7 @@ func (x *UpdateClientConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateClientConfigResponse.ProtoReflect.Descriptor instead.
 func (*UpdateClientConfigResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{14}
 }
 
 type DeleteClientConfigRequest struct {
@@ -1027,7 +1027,7 @@ type DeleteClientConfigRequest struct {
 func (x *DeleteClientConfigRequest) Reset() {
 	*x = DeleteClientConfigRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[15]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1040,7 +1040,7 @@ func (x *DeleteClientConfigRequest) String() string {
 func (*DeleteClientConfigRequest) ProtoMessage() {}
 
 func (x *DeleteClientConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[15]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1053,7 +1053,7 @@ func (x *DeleteClientConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteClientConfigRequest.ProtoReflect.Descriptor instead.
 func (*DeleteClientConfigRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *DeleteClientConfigRequest) GetId() string {
@@ -1079,7 +1079,7 @@ type DeleteClientConfigResponse struct {
 func (x *DeleteClientConfigResponse) Reset() {
 	*x = DeleteClientConfigResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[16]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1092,7 +1092,7 @@ func (x *DeleteClientConfigResponse) String() string {
 func (*DeleteClientConfigResponse) ProtoMessage() {}
 
 func (x *DeleteClientConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[16]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1105,7 +1105,7 @@ func (x *DeleteClientConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteClientConfigResponse.ProtoReflect.Descriptor instead.
 func (*DeleteClientConfigResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{16}
 }
 
 type SetClientConfigActivationRequest struct {
@@ -1121,7 +1121,7 @@ type SetClientConfigActivationRequest struct {
 func (x *SetClientConfigActivationRequest) Reset() {
 	*x = SetClientConfigActivationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[17]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1134,7 +1134,7 @@ func (x *SetClientConfigActivationRequest) String() string {
 func (*SetClientConfigActivationRequest) ProtoMessage() {}
 
 func (x *SetClientConfigActivationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[17]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1147,7 +1147,7 @@ func (x *SetClientConfigActivationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetClientConfigActivationRequest.ProtoReflect.Descriptor instead.
 func (*SetClientConfigActivationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{17}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *SetClientConfigActivationRequest) GetId() string {
@@ -1180,7 +1180,7 @@ type SetClientConfigActivationResponse struct {
 func (x *SetClientConfigActivationResponse) Reset() {
 	*x = SetClientConfigActivationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[18]
+		mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1193,7 +1193,7 @@ func (x *SetClientConfigActivationResponse) String() string {
 func (*SetClientConfigActivationResponse) ProtoMessage() {}
 
 func (x *SetClientConfigActivationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_oidc_proto_msgTypes[18]
+	mi := &file_nxpod_experimental_v1_oidc_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1206,12 +1206,12 @@ func (x *SetClientConfigActivationResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetClientConfigActivationResponse.ProtoReflect.Descriptor instead.
 func (*SetClientConfigActivationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{18}
+	return file_nxpod_experimental_v1_oidc_proto_rawDescGZIP(), []int{18}
 }
 
-var File_gitpod_experimental_v1_oidc_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_oidc_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_oidc_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_oidc_proto_rawDesc = []byte{
 	0x0a, 0x21, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x69, 0x64, 0x63, 0x2e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x65, 0x78, 0x70, 0x65,
@@ -1445,67 +1445,67 @@ var file_gitpod_experimental_v1_oidc_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_oidc_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_oidc_proto_rawDescData = file_gitpod_experimental_v1_oidc_proto_rawDesc
+	file_nxpod_experimental_v1_oidc_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_oidc_proto_rawDescData = file_nxpod_experimental_v1_oidc_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_oidc_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_oidc_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_oidc_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_oidc_proto_rawDescData)
+func file_nxpod_experimental_v1_oidc_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_oidc_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_oidc_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_oidc_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_oidc_proto_rawDescData
+	return file_nxpod_experimental_v1_oidc_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_oidc_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
-var file_gitpod_experimental_v1_oidc_proto_goTypes = []interface{}{
-	(*OIDCClientConfig)(nil),                  // 0: gitpod.experimental.v1.OIDCClientConfig
-	(*OIDCConfig)(nil),                        // 1: gitpod.experimental.v1.OIDCConfig
-	(*ConsentScreenHints)(nil),                // 2: gitpod.experimental.v1.ConsentScreenHints
-	(*ClaimMappingOverride)(nil),              // 3: gitpod.experimental.v1.ClaimMappingOverride
-	(*OAuth2Config)(nil),                      // 4: gitpod.experimental.v1.OAuth2Config
-	(*UserInfoKeys)(nil),                      // 5: gitpod.experimental.v1.UserInfoKeys
-	(*OIDCClientConfigStatus)(nil),            // 6: gitpod.experimental.v1.OIDCClientConfigStatus
-	(*CreateClientConfigRequest)(nil),         // 7: gitpod.experimental.v1.CreateClientConfigRequest
-	(*CreateClientConfigResponse)(nil),        // 8: gitpod.experimental.v1.CreateClientConfigResponse
-	(*GetClientConfigRequest)(nil),            // 9: gitpod.experimental.v1.GetClientConfigRequest
-	(*GetClientConfigResponse)(nil),           // 10: gitpod.experimental.v1.GetClientConfigResponse
-	(*ListClientConfigsRequest)(nil),          // 11: gitpod.experimental.v1.ListClientConfigsRequest
-	(*ListClientConfigsResponse)(nil),         // 12: gitpod.experimental.v1.ListClientConfigsResponse
-	(*UpdateClientConfigRequest)(nil),         // 13: gitpod.experimental.v1.UpdateClientConfigRequest
-	(*UpdateClientConfigResponse)(nil),        // 14: gitpod.experimental.v1.UpdateClientConfigResponse
-	(*DeleteClientConfigRequest)(nil),         // 15: gitpod.experimental.v1.DeleteClientConfigRequest
-	(*DeleteClientConfigResponse)(nil),        // 16: gitpod.experimental.v1.DeleteClientConfigResponse
-	(*SetClientConfigActivationRequest)(nil),  // 17: gitpod.experimental.v1.SetClientConfigActivationRequest
-	(*SetClientConfigActivationResponse)(nil), // 18: gitpod.experimental.v1.SetClientConfigActivationResponse
+var file_nxpod_experimental_v1_oidc_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
+var file_nxpod_experimental_v1_oidc_proto_goTypes = []interface{}{
+	(*OIDCClientConfig)(nil),                  // 0: nxpod.experimental.v1.OIDCClientConfig
+	(*OIDCConfig)(nil),                        // 1: nxpod.experimental.v1.OIDCConfig
+	(*ConsentScreenHints)(nil),                // 2: nxpod.experimental.v1.ConsentScreenHints
+	(*ClaimMappingOverride)(nil),              // 3: nxpod.experimental.v1.ClaimMappingOverride
+	(*OAuth2Config)(nil),                      // 4: nxpod.experimental.v1.OAuth2Config
+	(*UserInfoKeys)(nil),                      // 5: nxpod.experimental.v1.UserInfoKeys
+	(*OIDCClientConfigStatus)(nil),            // 6: nxpod.experimental.v1.OIDCClientConfigStatus
+	(*CreateClientConfigRequest)(nil),         // 7: nxpod.experimental.v1.CreateClientConfigRequest
+	(*CreateClientConfigResponse)(nil),        // 8: nxpod.experimental.v1.CreateClientConfigResponse
+	(*GetClientConfigRequest)(nil),            // 9: nxpod.experimental.v1.GetClientConfigRequest
+	(*GetClientConfigResponse)(nil),           // 10: nxpod.experimental.v1.GetClientConfigResponse
+	(*ListClientConfigsRequest)(nil),          // 11: nxpod.experimental.v1.ListClientConfigsRequest
+	(*ListClientConfigsResponse)(nil),         // 12: nxpod.experimental.v1.ListClientConfigsResponse
+	(*UpdateClientConfigRequest)(nil),         // 13: nxpod.experimental.v1.UpdateClientConfigRequest
+	(*UpdateClientConfigResponse)(nil),        // 14: nxpod.experimental.v1.UpdateClientConfigResponse
+	(*DeleteClientConfigRequest)(nil),         // 15: nxpod.experimental.v1.DeleteClientConfigRequest
+	(*DeleteClientConfigResponse)(nil),        // 16: nxpod.experimental.v1.DeleteClientConfigResponse
+	(*SetClientConfigActivationRequest)(nil),  // 17: nxpod.experimental.v1.SetClientConfigActivationRequest
+	(*SetClientConfigActivationResponse)(nil), // 18: nxpod.experimental.v1.SetClientConfigActivationResponse
 	(*timestamppb.Timestamp)(nil),             // 19: google.protobuf.Timestamp
-	(*Pagination)(nil),                        // 20: gitpod.experimental.v1.Pagination
+	(*Pagination)(nil),                        // 20: nxpod.experimental.v1.Pagination
 }
-var file_gitpod_experimental_v1_oidc_proto_depIdxs = []int32{
-	1,  // 0: gitpod.experimental.v1.OIDCClientConfig.oidc_config:type_name -> gitpod.experimental.v1.OIDCConfig
-	4,  // 1: gitpod.experimental.v1.OIDCClientConfig.oauth2_config:type_name -> gitpod.experimental.v1.OAuth2Config
-	19, // 2: gitpod.experimental.v1.OIDCClientConfig.creation_time:type_name -> google.protobuf.Timestamp
-	6,  // 3: gitpod.experimental.v1.OIDCClientConfig.status:type_name -> gitpod.experimental.v1.OIDCClientConfigStatus
-	2,  // 4: gitpod.experimental.v1.OIDCConfig.hints:type_name -> gitpod.experimental.v1.ConsentScreenHints
-	3,  // 5: gitpod.experimental.v1.OIDCConfig.override_claim_mapping:type_name -> gitpod.experimental.v1.ClaimMappingOverride
-	5,  // 6: gitpod.experimental.v1.OAuth2Config.userinfo_keys:type_name -> gitpod.experimental.v1.UserInfoKeys
-	0,  // 7: gitpod.experimental.v1.CreateClientConfigRequest.config:type_name -> gitpod.experimental.v1.OIDCClientConfig
-	0,  // 8: gitpod.experimental.v1.CreateClientConfigResponse.config:type_name -> gitpod.experimental.v1.OIDCClientConfig
-	0,  // 9: gitpod.experimental.v1.GetClientConfigResponse.config:type_name -> gitpod.experimental.v1.OIDCClientConfig
-	20, // 10: gitpod.experimental.v1.ListClientConfigsRequest.pagination:type_name -> gitpod.experimental.v1.Pagination
-	0,  // 11: gitpod.experimental.v1.ListClientConfigsResponse.client_configs:type_name -> gitpod.experimental.v1.OIDCClientConfig
-	0,  // 12: gitpod.experimental.v1.UpdateClientConfigRequest.config:type_name -> gitpod.experimental.v1.OIDCClientConfig
-	7,  // 13: gitpod.experimental.v1.OIDCService.CreateClientConfig:input_type -> gitpod.experimental.v1.CreateClientConfigRequest
-	9,  // 14: gitpod.experimental.v1.OIDCService.GetClientConfig:input_type -> gitpod.experimental.v1.GetClientConfigRequest
-	11, // 15: gitpod.experimental.v1.OIDCService.ListClientConfigs:input_type -> gitpod.experimental.v1.ListClientConfigsRequest
-	13, // 16: gitpod.experimental.v1.OIDCService.UpdateClientConfig:input_type -> gitpod.experimental.v1.UpdateClientConfigRequest
-	15, // 17: gitpod.experimental.v1.OIDCService.DeleteClientConfig:input_type -> gitpod.experimental.v1.DeleteClientConfigRequest
-	17, // 18: gitpod.experimental.v1.OIDCService.SetClientConfigActivation:input_type -> gitpod.experimental.v1.SetClientConfigActivationRequest
-	8,  // 19: gitpod.experimental.v1.OIDCService.CreateClientConfig:output_type -> gitpod.experimental.v1.CreateClientConfigResponse
-	10, // 20: gitpod.experimental.v1.OIDCService.GetClientConfig:output_type -> gitpod.experimental.v1.GetClientConfigResponse
-	12, // 21: gitpod.experimental.v1.OIDCService.ListClientConfigs:output_type -> gitpod.experimental.v1.ListClientConfigsResponse
-	14, // 22: gitpod.experimental.v1.OIDCService.UpdateClientConfig:output_type -> gitpod.experimental.v1.UpdateClientConfigResponse
-	16, // 23: gitpod.experimental.v1.OIDCService.DeleteClientConfig:output_type -> gitpod.experimental.v1.DeleteClientConfigResponse
-	18, // 24: gitpod.experimental.v1.OIDCService.SetClientConfigActivation:output_type -> gitpod.experimental.v1.SetClientConfigActivationResponse
+var file_nxpod_experimental_v1_oidc_proto_depIdxs = []int32{
+	1,  // 0: nxpod.experimental.v1.OIDCClientConfig.oidc_config:type_name -> nxpod.experimental.v1.OIDCConfig
+	4,  // 1: nxpod.experimental.v1.OIDCClientConfig.oauth2_config:type_name -> nxpod.experimental.v1.OAuth2Config
+	19, // 2: nxpod.experimental.v1.OIDCClientConfig.creation_time:type_name -> google.protobuf.Timestamp
+	6,  // 3: nxpod.experimental.v1.OIDCClientConfig.status:type_name -> nxpod.experimental.v1.OIDCClientConfigStatus
+	2,  // 4: nxpod.experimental.v1.OIDCConfig.hints:type_name -> nxpod.experimental.v1.ConsentScreenHints
+	3,  // 5: nxpod.experimental.v1.OIDCConfig.override_claim_mapping:type_name -> nxpod.experimental.v1.ClaimMappingOverride
+	5,  // 6: nxpod.experimental.v1.OAuth2Config.userinfo_keys:type_name -> nxpod.experimental.v1.UserInfoKeys
+	0,  // 7: nxpod.experimental.v1.CreateClientConfigRequest.config:type_name -> nxpod.experimental.v1.OIDCClientConfig
+	0,  // 8: nxpod.experimental.v1.CreateClientConfigResponse.config:type_name -> nxpod.experimental.v1.OIDCClientConfig
+	0,  // 9: nxpod.experimental.v1.GetClientConfigResponse.config:type_name -> nxpod.experimental.v1.OIDCClientConfig
+	20, // 10: nxpod.experimental.v1.ListClientConfigsRequest.pagination:type_name -> nxpod.experimental.v1.Pagination
+	0,  // 11: nxpod.experimental.v1.ListClientConfigsResponse.client_configs:type_name -> nxpod.experimental.v1.OIDCClientConfig
+	0,  // 12: nxpod.experimental.v1.UpdateClientConfigRequest.config:type_name -> nxpod.experimental.v1.OIDCClientConfig
+	7,  // 13: nxpod.experimental.v1.OIDCService.CreateClientConfig:input_type -> nxpod.experimental.v1.CreateClientConfigRequest
+	9,  // 14: nxpod.experimental.v1.OIDCService.GetClientConfig:input_type -> nxpod.experimental.v1.GetClientConfigRequest
+	11, // 15: nxpod.experimental.v1.OIDCService.ListClientConfigs:input_type -> nxpod.experimental.v1.ListClientConfigsRequest
+	13, // 16: nxpod.experimental.v1.OIDCService.UpdateClientConfig:input_type -> nxpod.experimental.v1.UpdateClientConfigRequest
+	15, // 17: nxpod.experimental.v1.OIDCService.DeleteClientConfig:input_type -> nxpod.experimental.v1.DeleteClientConfigRequest
+	17, // 18: nxpod.experimental.v1.OIDCService.SetClientConfigActivation:input_type -> nxpod.experimental.v1.SetClientConfigActivationRequest
+	8,  // 19: nxpod.experimental.v1.OIDCService.CreateClientConfig:output_type -> nxpod.experimental.v1.CreateClientConfigResponse
+	10, // 20: nxpod.experimental.v1.OIDCService.GetClientConfig:output_type -> nxpod.experimental.v1.GetClientConfigResponse
+	12, // 21: nxpod.experimental.v1.OIDCService.ListClientConfigs:output_type -> nxpod.experimental.v1.ListClientConfigsResponse
+	14, // 22: nxpod.experimental.v1.OIDCService.UpdateClientConfig:output_type -> nxpod.experimental.v1.UpdateClientConfigResponse
+	16, // 23: nxpod.experimental.v1.OIDCService.DeleteClientConfig:output_type -> nxpod.experimental.v1.DeleteClientConfigResponse
+	18, // 24: nxpod.experimental.v1.OIDCService.SetClientConfigActivation:output_type -> nxpod.experimental.v1.SetClientConfigActivationResponse
 	19, // [19:25] is the sub-list for method output_type
 	13, // [13:19] is the sub-list for method input_type
 	13, // [13:13] is the sub-list for extension type_name
@@ -1513,14 +1513,14 @@ var file_gitpod_experimental_v1_oidc_proto_depIdxs = []int32{
 	0,  // [0:13] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_oidc_proto_init() }
-func file_gitpod_experimental_v1_oidc_proto_init() {
-	if File_gitpod_experimental_v1_oidc_proto != nil {
+func init() { file_nxpod_experimental_v1_oidc_proto_init() }
+func file_nxpod_experimental_v1_oidc_proto_init() {
+	if File_nxpod_experimental_v1_oidc_proto != nil {
 		return
 	}
-	file_gitpod_experimental_v1_pagination_proto_init()
+	file_nxpod_experimental_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OIDCClientConfig); i {
 			case 0:
 				return &v.state
@@ -1532,7 +1532,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OIDCConfig); i {
 			case 0:
 				return &v.state
@@ -1544,7 +1544,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ConsentScreenHints); i {
 			case 0:
 				return &v.state
@@ -1556,7 +1556,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ClaimMappingOverride); i {
 			case 0:
 				return &v.state
@@ -1568,7 +1568,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OAuth2Config); i {
 			case 0:
 				return &v.state
@@ -1580,7 +1580,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserInfoKeys); i {
 			case 0:
 				return &v.state
@@ -1592,7 +1592,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OIDCClientConfigStatus); i {
 			case 0:
 				return &v.state
@@ -1604,7 +1604,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateClientConfigRequest); i {
 			case 0:
 				return &v.state
@@ -1616,7 +1616,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateClientConfigResponse); i {
 			case 0:
 				return &v.state
@@ -1628,7 +1628,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetClientConfigRequest); i {
 			case 0:
 				return &v.state
@@ -1640,7 +1640,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetClientConfigResponse); i {
 			case 0:
 				return &v.state
@@ -1652,7 +1652,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListClientConfigsRequest); i {
 			case 0:
 				return &v.state
@@ -1664,7 +1664,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListClientConfigsResponse); i {
 			case 0:
 				return &v.state
@@ -1676,7 +1676,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateClientConfigRequest); i {
 			case 0:
 				return &v.state
@@ -1688,7 +1688,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateClientConfigResponse); i {
 			case 0:
 				return &v.state
@@ -1700,7 +1700,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteClientConfigRequest); i {
 			case 0:
 				return &v.state
@@ -1712,7 +1712,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteClientConfigResponse); i {
 			case 0:
 				return &v.state
@@ -1724,7 +1724,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetClientConfigActivationRequest); i {
 			case 0:
 				return &v.state
@@ -1736,7 +1736,7 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_oidc_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_oidc_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetClientConfigActivationResponse); i {
 			case 0:
 				return &v.state
@@ -1753,18 +1753,18 @@ func file_gitpod_experimental_v1_oidc_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_oidc_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_oidc_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   19,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_oidc_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_oidc_proto_depIdxs,
-		MessageInfos:      file_gitpod_experimental_v1_oidc_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_oidc_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_oidc_proto_depIdxs,
+		MessageInfos:      file_nxpod_experimental_v1_oidc_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_oidc_proto = out.File
-	file_gitpod_experimental_v1_oidc_proto_rawDesc = nil
-	file_gitpod_experimental_v1_oidc_proto_goTypes = nil
-	file_gitpod_experimental_v1_oidc_proto_depIdxs = nil
+	File_nxpod_experimental_v1_oidc_proto = out.File
+	file_nxpod_experimental_v1_oidc_proto_rawDesc = nil
+	file_nxpod_experimental_v1_oidc_proto_goTypes = nil
+	file_nxpod_experimental_v1_oidc_proto_depIdxs = nil
 }

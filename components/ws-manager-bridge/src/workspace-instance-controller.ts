@@ -4,22 +4,22 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { TraceContext } from "@gitpod/gitpod-protocol/lib/util/tracing";
-import { GetWorkspacesRequest } from "@gitpod/ws-manager/lib";
-import { Disposable, DisposableCollection, RunningWorkspaceInfo, WorkspaceInstance } from "@gitpod/gitpod-protocol";
+import { TraceContext } from "@nxpod/nxpod-protocol/lib/util/tracing";
+import { GetWorkspacesRequest } from "@nxpod/ws-manager/lib";
+import { Disposable, DisposableCollection, RunningWorkspaceInfo, WorkspaceInstance } from "@nxpod/nxpod-protocol";
 import { inject, injectable } from "inversify";
 import { Configuration } from "./config";
-import { log, LogContext } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log, LogContext } from "@nxpod/nxpod-protocol/lib/util/logging";
 import { Metrics } from "./metrics";
-import { WorkspaceDB } from "@gitpod/gitpod-db/lib/workspace-db";
-import { DBWithTracing, TracedUserDB, TracedWorkspaceDB } from "@gitpod/gitpod-db/lib/traced-db";
-import { UserDB } from "@gitpod/gitpod-db/lib/user-db";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
+import { WorkspaceDB } from "@nxpod/nxpod-db/lib/workspace-db";
+import { DBWithTracing, TracedUserDB, TracedWorkspaceDB } from "@nxpod/nxpod-db/lib/traced-db";
+import { UserDB } from "@nxpod/nxpod-db/lib/user-db";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
 import { ClientProvider } from "./wsman-subscriber";
-import { repeat } from "@gitpod/gitpod-protocol/lib/util/repeat";
+import { repeat } from "@nxpod/nxpod-protocol/lib/util/repeat";
 import { PrebuildUpdater } from "./prebuild-updater";
-import { RedisPublisher } from "@gitpod/gitpod-db/lib";
-import { durationLongerThanSeconds } from "@gitpod/gitpod-protocol/lib/util/timeutil";
+import { RedisPublisher } from "@nxpod/nxpod-db/lib";
+import { durationLongerThanSeconds } from "@nxpod/nxpod-protocol/lib/util/timeutil";
 
 export const WorkspaceInstanceController = Symbol("WorkspaceInstanceController");
 

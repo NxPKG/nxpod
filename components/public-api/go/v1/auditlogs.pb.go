@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/auditlogs.proto
+// source: nxpod/v1/auditlogs.proto
 
 package v1
 
@@ -51,7 +51,7 @@ type ListAuditLogsRequest struct {
 func (x *ListAuditLogsRequest) Reset() {
 	*x = ListAuditLogsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_auditlogs_proto_msgTypes[0]
+		mi := &file_nxpod_v1_auditlogs_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -64,7 +64,7 @@ func (x *ListAuditLogsRequest) String() string {
 func (*ListAuditLogsRequest) ProtoMessage() {}
 
 func (x *ListAuditLogsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_auditlogs_proto_msgTypes[0]
+	mi := &file_nxpod_v1_auditlogs_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -77,7 +77,7 @@ func (x *ListAuditLogsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAuditLogsRequest.ProtoReflect.Descriptor instead.
 func (*ListAuditLogsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_auditlogs_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_auditlogs_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ListAuditLogsRequest) GetPagination() *PaginationRequest {
@@ -136,7 +136,7 @@ type ListAuditLogsResponse struct {
 func (x *ListAuditLogsResponse) Reset() {
 	*x = ListAuditLogsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_auditlogs_proto_msgTypes[1]
+		mi := &file_nxpod_v1_auditlogs_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -149,7 +149,7 @@ func (x *ListAuditLogsResponse) String() string {
 func (*ListAuditLogsResponse) ProtoMessage() {}
 
 func (x *ListAuditLogsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_auditlogs_proto_msgTypes[1]
+	mi := &file_nxpod_v1_auditlogs_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +162,7 @@ func (x *ListAuditLogsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAuditLogsResponse.ProtoReflect.Descriptor instead.
 func (*ListAuditLogsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_auditlogs_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_auditlogs_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ListAuditLogsResponse) GetPagination() *PaginationResponse {
@@ -203,7 +203,7 @@ type AuditLog struct {
 func (x *AuditLog) Reset() {
 	*x = AuditLog{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_auditlogs_proto_msgTypes[2]
+		mi := &file_nxpod_v1_auditlogs_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -216,7 +216,7 @@ func (x *AuditLog) String() string {
 func (*AuditLog) ProtoMessage() {}
 
 func (x *AuditLog) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_auditlogs_proto_msgTypes[2]
+	mi := &file_nxpod_v1_auditlogs_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -229,7 +229,7 @@ func (x *AuditLog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuditLog.ProtoReflect.Descriptor instead.
 func (*AuditLog) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_auditlogs_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_auditlogs_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AuditLog) GetId() string {
@@ -274,9 +274,9 @@ func (x *AuditLog) GetArgs() string {
 	return ""
 }
 
-var File_gitpod_v1_auditlogs_proto protoreflect.FileDescriptor
+var File_nxpod_v1_auditlogs_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_auditlogs_proto_rawDesc = []byte{
+var file_nxpod_v1_auditlogs_proto_rawDesc = []byte{
 	0x0a, 0x19, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x61, 0x75, 0x64, 0x69,
 	0x74, 0x6c, 0x6f, 0x67, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x67, 0x69, 0x74,
 	0x70, 0x6f, 0x64, 0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76,
@@ -337,35 +337,35 @@ var file_gitpod_v1_auditlogs_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_auditlogs_proto_rawDescOnce sync.Once
-	file_gitpod_v1_auditlogs_proto_rawDescData = file_gitpod_v1_auditlogs_proto_rawDesc
+	file_nxpod_v1_auditlogs_proto_rawDescOnce sync.Once
+	file_nxpod_v1_auditlogs_proto_rawDescData = file_nxpod_v1_auditlogs_proto_rawDesc
 )
 
-func file_gitpod_v1_auditlogs_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_auditlogs_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_auditlogs_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_auditlogs_proto_rawDescData)
+func file_nxpod_v1_auditlogs_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_auditlogs_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_auditlogs_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_auditlogs_proto_rawDescData)
 	})
-	return file_gitpod_v1_auditlogs_proto_rawDescData
+	return file_nxpod_v1_auditlogs_proto_rawDescData
 }
 
-var file_gitpod_v1_auditlogs_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_gitpod_v1_auditlogs_proto_goTypes = []interface{}{
-	(*ListAuditLogsRequest)(nil),  // 0: gitpod.v1.ListAuditLogsRequest
-	(*ListAuditLogsResponse)(nil), // 1: gitpod.v1.ListAuditLogsResponse
-	(*AuditLog)(nil),              // 2: gitpod.v1.AuditLog
-	(*PaginationRequest)(nil),     // 3: gitpod.v1.PaginationRequest
+var file_nxpod_v1_auditlogs_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_nxpod_v1_auditlogs_proto_goTypes = []interface{}{
+	(*ListAuditLogsRequest)(nil),  // 0: nxpod.v1.ListAuditLogsRequest
+	(*ListAuditLogsResponse)(nil), // 1: nxpod.v1.ListAuditLogsResponse
+	(*AuditLog)(nil),              // 2: nxpod.v1.AuditLog
+	(*PaginationRequest)(nil),     // 3: nxpod.v1.PaginationRequest
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
-	(*PaginationResponse)(nil),    // 5: gitpod.v1.PaginationResponse
+	(*PaginationResponse)(nil),    // 5: nxpod.v1.PaginationResponse
 }
-var file_gitpod_v1_auditlogs_proto_depIdxs = []int32{
-	3, // 0: gitpod.v1.ListAuditLogsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	4, // 1: gitpod.v1.ListAuditLogsRequest.from:type_name -> google.protobuf.Timestamp
-	4, // 2: gitpod.v1.ListAuditLogsRequest.to:type_name -> google.protobuf.Timestamp
-	5, // 3: gitpod.v1.ListAuditLogsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	2, // 4: gitpod.v1.ListAuditLogsResponse.audit_logs:type_name -> gitpod.v1.AuditLog
-	4, // 5: gitpod.v1.AuditLog.timestamp:type_name -> google.protobuf.Timestamp
-	0, // 6: gitpod.v1.AuditLogService.ListAuditLogs:input_type -> gitpod.v1.ListAuditLogsRequest
-	1, // 7: gitpod.v1.AuditLogService.ListAuditLogs:output_type -> gitpod.v1.ListAuditLogsResponse
+var file_nxpod_v1_auditlogs_proto_depIdxs = []int32{
+	3, // 0: nxpod.v1.ListAuditLogsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	4, // 1: nxpod.v1.ListAuditLogsRequest.from:type_name -> google.protobuf.Timestamp
+	4, // 2: nxpod.v1.ListAuditLogsRequest.to:type_name -> google.protobuf.Timestamp
+	5, // 3: nxpod.v1.ListAuditLogsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	2, // 4: nxpod.v1.ListAuditLogsResponse.audit_logs:type_name -> nxpod.v1.AuditLog
+	4, // 5: nxpod.v1.AuditLog.timestamp:type_name -> google.protobuf.Timestamp
+	0, // 6: nxpod.v1.AuditLogService.ListAuditLogs:input_type -> nxpod.v1.ListAuditLogsRequest
+	1, // 7: nxpod.v1.AuditLogService.ListAuditLogs:output_type -> nxpod.v1.ListAuditLogsResponse
 	7, // [7:8] is the sub-list for method output_type
 	6, // [6:7] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -373,14 +373,14 @@ var file_gitpod_v1_auditlogs_proto_depIdxs = []int32{
 	0, // [0:6] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_auditlogs_proto_init() }
-func file_gitpod_v1_auditlogs_proto_init() {
-	if File_gitpod_v1_auditlogs_proto != nil {
+func init() { file_nxpod_v1_auditlogs_proto_init() }
+func file_nxpod_v1_auditlogs_proto_init() {
+	if File_nxpod_v1_auditlogs_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
+	file_nxpod_v1_pagination_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_auditlogs_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_auditlogs_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListAuditLogsRequest); i {
 			case 0:
 				return &v.state
@@ -392,7 +392,7 @@ func file_gitpod_v1_auditlogs_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_auditlogs_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_auditlogs_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListAuditLogsResponse); i {
 			case 0:
 				return &v.state
@@ -404,7 +404,7 @@ func file_gitpod_v1_auditlogs_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_auditlogs_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_auditlogs_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AuditLog); i {
 			case 0:
 				return &v.state
@@ -421,18 +421,18 @@ func file_gitpod_v1_auditlogs_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_auditlogs_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_auditlogs_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_auditlogs_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_auditlogs_proto_depIdxs,
-		MessageInfos:      file_gitpod_v1_auditlogs_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_auditlogs_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_auditlogs_proto_depIdxs,
+		MessageInfos:      file_nxpod_v1_auditlogs_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_auditlogs_proto = out.File
-	file_gitpod_v1_auditlogs_proto_rawDesc = nil
-	file_gitpod_v1_auditlogs_proto_goTypes = nil
-	file_gitpod_v1_auditlogs_proto_depIdxs = nil
+	File_nxpod_v1_auditlogs_proto = out.File
+	file_nxpod_v1_auditlogs_proto_rawDesc = nil
+	file_nxpod_v1_auditlogs_proto_goTypes = nil
+	file_nxpod_v1_auditlogs_proto_depIdxs = nil
 }

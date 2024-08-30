@@ -7,8 +7,8 @@
 import { suite, test } from "@testdeck/mocha";
 import * as chai from "chai";
 import { PrebuildStateMapper } from "./prebuild-state-mapper";
-import { WorkspaceConditionBool, WorkspacePhase, WorkspaceStatus } from "@gitpod/ws-manager/lib";
-import { PrebuiltWorkspace } from "@gitpod/gitpod-protocol";
+import { WorkspaceConditionBool, WorkspacePhase, WorkspaceStatus } from "@nxpod/ws-manager/lib";
+import { PrebuiltWorkspace } from "@nxpod/nxpod-protocol";
 
 const expect = chai.expect;
 

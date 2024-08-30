@@ -76,7 +76,7 @@ export const PrebuildTaskTab = memo(({ taskId, prebuild }: Props) => {
                 Logs of this prebuild task are inaccessible. Use <code>gp validate --prebuild --headless</code> in a
                 workspace to see logs and debug prebuild issues.{" "}
                 <a
-                    href="https://www.nxpod.io/docs/configure/workspaces#validate-your-nxpod-configuration"
+                    href="https://www.nxpod.khulnasoft.com/docs/configure/workspaces#validate-your-nxpod-configuration"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="gp-link"

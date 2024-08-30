@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote
+package io.nxpod.jetbrains.remote
 
 import com.intellij.codeWithMe.ClientId
 import com.intellij.ide.BrowserUtil
@@ -20,12 +20,12 @@ import com.intellij.openapi.project.Project
 import com.intellij.remoteDev.util.onTerminationOrNow
 import com.intellij.util.application
 import com.jetbrains.rd.util.lifetime.Lifetime
-import io.gitpod.gitpodprotocol.api.entities.WorkspaceInstancePort
-import io.gitpod.supervisor.api.Info
-import io.gitpod.supervisor.api.Status
-import io.gitpod.supervisor.api.Status.PortVisibility
-import io.gitpod.supervisor.api.Status.PortsStatus
-import io.gitpod.supervisor.api.StatusServiceGrpc
+import io.nxpod.nxpodprotocol.api.entities.WorkspaceInstancePort
+import io.nxpod.supervisor.api.Info
+import io.nxpod.supervisor.api.Status
+import io.nxpod.supervisor.api.Status.PortVisibility
+import io.nxpod.supervisor.api.Status.PortsStatus
+import io.nxpod.supervisor.api.StatusServiceGrpc
 import io.grpc.stub.ClientCallStreamObserver
 import io.grpc.stub.ClientResponseObserver
 import kotlinx.coroutines.*
@@ -102,13 +102,13 @@ class NxpodClientProjectSessionTracker(private val project: Project) : Disposabl
     private suspend fun makePortPublic(workspaceId: String, port: PortsStatus) {
         val p = WorkspaceInstancePort()
         p.port = port.localPort
-        p.visibility = io.gitpod.gitpodprotocol.api.entities.PortVisibility.PUBLIC.toString()
+        p.visibility = io.nxpod.nxpodprotocol.api.entities.PortVisibility.PUBLIC.toString()
         p.url = port.exposed.url
 
         try {
             manager.client.server.openPort(workspaceId, p).await()
         } catch (e: Exception) {
-            thisLogger().error("gitpod: failed to open port ${port.localPort}: ", e)
+            thisLogger().error("nxpod: failed to open port ${port.localPort}: ", e)
         }
     }
 
@@ -187,7 +187,7 @@ class NxpodClientProjectSessionTracker(private val project: Project) : Disposabl
                 if (t is CancellationException) {
                     throw t
                 }
-                thisLogger().error("gitpod: failed to stream ports status: ", t)
+                thisLogger().error("nxpod: failed to stream ports status: ", t)
             }
             delay(1000L)
         }

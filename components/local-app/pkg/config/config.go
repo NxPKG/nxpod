@@ -15,7 +15,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-const DEFAULT_LOCATION = "~/.gitpod/config.yaml"
+const DEFAULT_LOCATION = "~/.nxpod/config.yaml"
 
 type Config struct {
 	Filename string `yaml:"-"`

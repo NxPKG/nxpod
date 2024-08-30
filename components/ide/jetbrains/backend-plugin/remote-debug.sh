@@ -27,7 +27,7 @@ clusterHost=$(kubectl exec -it "$podName" -- printenv NXPOD_WORKSPACE_CLUSTER_HO
 echo "Cluster Host: $clusterHost"
 
 # prepare ssh
-ownerToken=$(kubectl get pod "$podName" -o=json | jq ".metadata.annotations.\"gitpod\/ownerToken\"" -r)
+ownerToken=$(kubectl get pod "$podName" -o=json | jq ".metadata.annotations.\"nxpod\/ownerToken\"" -r)
 sshConfig="/tmp/$workspaceId-ssh-config"
 echo "Host $workspaceId" > "$sshConfig"
 echo "    Hostname \"$workspaceId.ssh.$clusterHost\"" >> "$sshConfig"

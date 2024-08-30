@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/experimental/v1/teams.proto
+// source: nxpod/experimental/v1/teams.proto
 
 package v1
 
@@ -58,7 +58,7 @@ func NewTeamsServiceClient(cc grpc.ClientConnInterface) TeamsServiceClient {
 
 func (c *teamsServiceClient) CreateTeam(ctx context.Context, in *CreateTeamRequest, opts ...grpc.CallOption) (*CreateTeamResponse, error) {
 	out := new(CreateTeamResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/CreateTeam", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/CreateTeam", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func (c *teamsServiceClient) CreateTeam(ctx context.Context, in *CreateTeamReque
 
 func (c *teamsServiceClient) GetTeam(ctx context.Context, in *GetTeamRequest, opts ...grpc.CallOption) (*GetTeamResponse, error) {
 	out := new(GetTeamResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/GetTeam", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/GetTeam", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func (c *teamsServiceClient) GetTeam(ctx context.Context, in *GetTeamRequest, op
 
 func (c *teamsServiceClient) ListTeams(ctx context.Context, in *ListTeamsRequest, opts ...grpc.CallOption) (*ListTeamsResponse, error) {
 	out := new(ListTeamsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/ListTeams", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/ListTeams", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +85,7 @@ func (c *teamsServiceClient) ListTeams(ctx context.Context, in *ListTeamsRequest
 
 func (c *teamsServiceClient) DeleteTeam(ctx context.Context, in *DeleteTeamRequest, opts ...grpc.CallOption) (*DeleteTeamResponse, error) {
 	out := new(DeleteTeamResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/DeleteTeam", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/DeleteTeam", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func (c *teamsServiceClient) DeleteTeam(ctx context.Context, in *DeleteTeamReque
 
 func (c *teamsServiceClient) GetTeamInvitation(ctx context.Context, in *GetTeamInvitationRequest, opts ...grpc.CallOption) (*GetTeamInvitationResponse, error) {
 	out := new(GetTeamInvitationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/GetTeamInvitation", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/GetTeamInvitation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +103,7 @@ func (c *teamsServiceClient) GetTeamInvitation(ctx context.Context, in *GetTeamI
 
 func (c *teamsServiceClient) JoinTeam(ctx context.Context, in *JoinTeamRequest, opts ...grpc.CallOption) (*JoinTeamResponse, error) {
 	out := new(JoinTeamResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/JoinTeam", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/JoinTeam", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +112,7 @@ func (c *teamsServiceClient) JoinTeam(ctx context.Context, in *JoinTeamRequest, 
 
 func (c *teamsServiceClient) ResetTeamInvitation(ctx context.Context, in *ResetTeamInvitationRequest, opts ...grpc.CallOption) (*ResetTeamInvitationResponse, error) {
 	out := new(ResetTeamInvitationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/ResetTeamInvitation", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/ResetTeamInvitation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (c *teamsServiceClient) ResetTeamInvitation(ctx context.Context, in *ResetT
 
 func (c *teamsServiceClient) ListTeamMembers(ctx context.Context, in *ListTeamMembersRequest, opts ...grpc.CallOption) (*ListTeamMembersResponse, error) {
 	out := new(ListTeamMembersResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/ListTeamMembers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/ListTeamMembers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -130,7 +130,7 @@ func (c *teamsServiceClient) ListTeamMembers(ctx context.Context, in *ListTeamMe
 
 func (c *teamsServiceClient) UpdateTeamMember(ctx context.Context, in *UpdateTeamMemberRequest, opts ...grpc.CallOption) (*UpdateTeamMemberResponse, error) {
 	out := new(UpdateTeamMemberResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/UpdateTeamMember", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/UpdateTeamMember", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -139,7 +139,7 @@ func (c *teamsServiceClient) UpdateTeamMember(ctx context.Context, in *UpdateTea
 
 func (c *teamsServiceClient) DeleteTeamMember(ctx context.Context, in *DeleteTeamMemberRequest, opts ...grpc.CallOption) (*DeleteTeamMemberResponse, error) {
 	out := new(DeleteTeamMemberResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.experimental.v1.TeamsService/DeleteTeamMember", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.experimental.v1.TeamsService/DeleteTeamMember", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -230,7 +230,7 @@ func _TeamsService_CreateTeam_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/CreateTeam",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/CreateTeam",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).CreateTeam(ctx, req.(*CreateTeamRequest))
@@ -248,7 +248,7 @@ func _TeamsService_GetTeam_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/GetTeam",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/GetTeam",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).GetTeam(ctx, req.(*GetTeamRequest))
@@ -266,7 +266,7 @@ func _TeamsService_ListTeams_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/ListTeams",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/ListTeams",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).ListTeams(ctx, req.(*ListTeamsRequest))
@@ -284,7 +284,7 @@ func _TeamsService_DeleteTeam_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/DeleteTeam",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/DeleteTeam",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).DeleteTeam(ctx, req.(*DeleteTeamRequest))
@@ -302,7 +302,7 @@ func _TeamsService_GetTeamInvitation_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/GetTeamInvitation",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/GetTeamInvitation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).GetTeamInvitation(ctx, req.(*GetTeamInvitationRequest))
@@ -320,7 +320,7 @@ func _TeamsService_JoinTeam_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/JoinTeam",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/JoinTeam",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).JoinTeam(ctx, req.(*JoinTeamRequest))
@@ -338,7 +338,7 @@ func _TeamsService_ResetTeamInvitation_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/ResetTeamInvitation",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/ResetTeamInvitation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).ResetTeamInvitation(ctx, req.(*ResetTeamInvitationRequest))
@@ -356,7 +356,7 @@ func _TeamsService_ListTeamMembers_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/ListTeamMembers",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/ListTeamMembers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).ListTeamMembers(ctx, req.(*ListTeamMembersRequest))
@@ -374,7 +374,7 @@ func _TeamsService_UpdateTeamMember_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/UpdateTeamMember",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/UpdateTeamMember",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).UpdateTeamMember(ctx, req.(*UpdateTeamMemberRequest))
@@ -392,7 +392,7 @@ func _TeamsService_DeleteTeamMember_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.experimental.v1.TeamsService/DeleteTeamMember",
+		FullMethod: "/nxpod.experimental.v1.TeamsService/DeleteTeamMember",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsServiceServer).DeleteTeamMember(ctx, req.(*DeleteTeamMemberRequest))
@@ -404,7 +404,7 @@ func _TeamsService_DeleteTeamMember_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TeamsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.experimental.v1.TeamsService",
+	ServiceName: "nxpod.experimental.v1.TeamsService",
 	HandlerType: (*TeamsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -449,5 +449,5 @@ var TeamsService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/experimental/v1/teams.proto",
+	Metadata: "nxpod/experimental/v1/teams.proto",
 }

@@ -14,7 +14,7 @@ import (
 	"github.com/nxpkg/nxpod/components/public-api/go/config"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/jws/jwstest"
@@ -30,14 +30,14 @@ func TestEditorService_ListEditorOptions(t *testing.T) {
 			"code": {
 				OrderKey:           "02",
 				Title:              "VS Code",
-				Logo:               "https://gitpod.io/icons/vscode.svg",
+				Logo:               "https://nxpod.khulnasoft.com/icons/vscode.svg",
 				ImageVersion:       "1.68.0",
 				LatestImageVersion: "1.69.0",
 			},
 			"theia": {
 				OrderKey:     "01",
 				Title:        "Theia",
-				Logo:         "https://gitpod.io/icons/theia.svg",
+				Logo:         "https://nxpod.khulnasoft.com/icons/theia.svg",
 				ImageVersion: "1.68.0",
 			},
 		}, DefaultIde: "", DefaultDesktopIde: "", Clients: map[string]protocol.IDEClient{}}, nil)
@@ -49,7 +49,7 @@ func TestEditorService_ListEditorOptions(t *testing.T) {
 				{
 					Title: "Theia",
 					Id:    "theia",
-					Logo:  "https://gitpod.io/icons/theia.svg",
+					Logo:  "https://nxpod.khulnasoft.com/icons/theia.svg",
 					Stable: &v1.EditorOption_Kind{
 						Version: "1.68.0",
 					},
@@ -58,7 +58,7 @@ func TestEditorService_ListEditorOptions(t *testing.T) {
 				{
 					Title: "VS Code",
 					Id:    "code",
-					Logo:  "https://gitpod.io/icons/vscode.svg",
+					Logo:  "https://nxpod.khulnasoft.com/icons/vscode.svg",
 					Stable: &v1.EditorOption_Kind{
 						Version: "1.68.0",
 					},

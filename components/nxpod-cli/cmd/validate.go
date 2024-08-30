@@ -18,8 +18,8 @@ import (
 	"time"
 
 	"github.com/nxpkg/nxpod/common-go/log"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/supervisor"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/supervisor"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"golang.org/x/xerrors"
@@ -64,36 +64,36 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 		checkoutLocation = wsInfo.CheckoutLocation
 	}
 
-	gitpodConfig, err := utils.ParseNxpodConfig(checkoutLocation)
+	nxpodConfig, err := utils.ParseNxpodConfig(checkoutLocation)
 	if err != nil {
-		fmt.Println("The .gitpod.yml file cannot be parsed: please check the file and try again")
+		fmt.Println("The .nxpod.yml file cannot be parsed: please check the file and try again")
 		fmt.Println("")
 		fmt.Println("For help check out the reference page:")
-		fmt.Println("https://www.gitpod.io/docs/references/gitpod-yml#gitpodyml")
+		fmt.Println("https://www.nxpod.khulnasoft.com/docs/references/nxpod-yml#nxpodyml")
 		return GpError{Err: err, OutCome: utils.Outcome_UserErr, ErrorCode: utils.RebuildErrorCode_MalformedNxpodYaml, Silence: true}
 	}
 
-	if gitpodConfig == nil {
-		fmt.Println("To test the image build, you need to configure your project with a .gitpod.yml file")
+	if nxpodConfig == nil {
+		fmt.Println("To test the image build, you need to configure your project with a .nxpod.yml file")
 		fmt.Println("")
 		fmt.Println("For a quick start, try running:\n$ gp init -i")
 		fmt.Println("")
 		fmt.Println("Alternatively, check out the following docs for getting started configuring your project")
-		fmt.Println("https://www.gitpod.io/docs/configure#configure-gitpod")
+		fmt.Println("https://www.nxpod.khulnasoft.com/docs/configure#configure-nxpod")
 		return GpError{Err: err, OutCome: utils.Outcome_UserErr, ErrorCode: utils.RebuildErrorCode_MissingNxpodYaml, Silence: true}
 	}
 
 	var image string
 	var dockerfilePath string
 	var dockerContext string
-	switch img := gitpodConfig.Image.(type) {
+	switch img := nxpodConfig.Image.(type) {
 	case nil:
 		image, err = getDefaultWorkspaceImage(ctx, wsInfo)
 		if err != nil {
 			return err
 		}
 		if image == "" {
-			image = "gitpod/workspace-full:latest"
+			image = "nxpod/workspace-full:latest"
 		}
 		fmt.Println("Using default workspace image:", image)
 	case string:
@@ -106,7 +106,7 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 		}
 
 		if _, err := os.Stat(dockerfilePath); os.IsNotExist(err) {
-			fmt.Println("Your .gitpod.yml points to a Dockerfile that doesn't exist: " + dockerfilePath)
+			fmt.Println("Your .nxpod.yml points to a Dockerfile that doesn't exist: " + dockerfilePath)
 			return GpError{Err: err, OutCome: utils.Outcome_UserErr, Silence: true}
 		}
 		if _, err := os.Stat(dockerContext); os.IsNotExist(err) {
@@ -121,13 +121,13 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 			fmt.Println("Your Nxpod's Dockerfile is empty")
 			fmt.Println("")
 			fmt.Println("To learn how to customize your workspace, check out the following docs:")
-			fmt.Println("https://www.gitpod.io/docs/configure/workspaces/workspace-image#use-a-custom-dockerfile")
+			fmt.Println("https://www.nxpod.khulnasoft.com/docs/configure/workspaces/workspace-image#use-a-custom-dockerfile")
 			fmt.Println("")
 			fmt.Println("Once you configure your Dockerfile, re-run this command to validate your changes")
 			return GpError{Err: err, OutCome: utils.Outcome_UserErr, Silence: true}
 		}
 	default:
-		fmt.Println("Check your .gitpod.yml and make sure the image property is configured correctly")
+		fmt.Println("Check your .nxpod.yml and make sure the image property is configured correctly")
 		return GpError{Err: err, OutCome: utils.Outcome_UserErr, ErrorCode: utils.RebuildErrorCode_MalformedNxpodYaml, Silence: true}
 	}
 
@@ -146,7 +146,7 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 		err = exec.CommandContext(ctx, dockerPath, "--version").Run()
 	}
 	if err != nil {
-		dockerPath = "/.supervisor/gitpod-docker-cli"
+		dockerPath = "/.supervisor/nxpod-docker-cli"
 	}
 
 	var dockerCmd *exec.Cmd
@@ -198,7 +198,7 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 	workspaceUrl.Host = "debug-" + workspaceUrl.Host
 
 	// TODO validate that checkout and workspace locations don't leave /workspace folder
-	workspaceLocation := gitpodConfig.WorkspaceLocation
+	workspaceLocation := nxpodConfig.WorkspaceLocation
 	if workspaceLocation != "" {
 		if !filepath.IsAbs(workspaceLocation) {
 			workspaceLocation = filepath.Join("/workspace", workspaceLocation)
@@ -208,7 +208,7 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 	}
 
 	// TODO what about auto derived by server, i.e. JB for prebuilds? we should move them into the workspace then
-	tasks, err := json.Marshal(gitpodConfig.Tasks)
+	tasks, err := json.Marshal(nxpodConfig.Tasks)
 	if err != nil {
 		return err
 	}
@@ -277,11 +277,11 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 		{Source: "/ide"},
 		{Source: "/ide-desktop", Optional: true},
 		{Source: "/ide-desktop-plugins", Optional: true},
-		{Source: "/workspace/.gitpod-debug/.docker-root", Target: "/workspace/.docker-root", Permission: 0710},
-		{Source: "/workspace/.gitpod-debug/.gitpod", Target: "/workspace/.gitpod", Permission: 0751},
-		{Source: "/workspace/.gitpod-debug/.vscode-remote", Target: "/workspace/.vscode-remote", Permission: 0751},
-		{Source: "/workspace/.gitpod-debug/.cache", Target: "/workspace/.cache", Permission: 0751},
-		{Source: "/workspace/.gitpod-debug/.config", Target: "/workspace/.config", Permission: 0751},
+		{Source: "/workspace/.nxpod-debug/.docker-root", Target: "/workspace/.docker-root", Permission: 0710},
+		{Source: "/workspace/.nxpod-debug/.nxpod", Target: "/workspace/.nxpod", Permission: 0751},
+		{Source: "/workspace/.nxpod-debug/.vscode-remote", Target: "/workspace/.vscode-remote", Permission: 0751},
+		{Source: "/workspace/.nxpod-debug/.cache", Target: "/workspace/.cache", Permission: 0751},
+		{Source: "/workspace/.nxpod-debug/.config", Target: "/workspace/.config", Permission: 0751},
 		{Source: "/usr/bin/docker-up", IsFile: true},
 		{Source: "/usr/bin/runc-facade", IsFile: true},
 		{Source: "/usr/local/bin/docker-compose", IsFile: true},
@@ -330,7 +330,7 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 		if mnt.Target == "" {
 			mnt.Target = mnt.Source
 		} else if !mnt.IsFile {
-			// if target is not same with source and it not a file, ensure target is created by gitpod user
+			// if target is not same with source and it not a file, ensure target is created by nxpod user
 			_, err = os.Stat(mnt.Target)
 			if err != nil {
 				if (os.IsPermission(err) || os.IsNotExist(err)) && mnt.Optional {
@@ -393,7 +393,7 @@ func runRebuild(ctx context.Context, supervisorClient *supervisor.SupervisorClie
 Open in Browser at:
 %s
 
-Connect using SSH keys (https://gitpod.io/keys):
+Connect using SSH keys (https://nxpod.khulnasoft.com/keys):
 %s
 
 %s`, sep, workspaceUrl, ssh, sep)
@@ -671,11 +671,11 @@ func init() {
 		cmd.PersistentFlags().StringVarP(&validateOpts.LogLevel, "log", "", "error", "Log level to use. Allowed values are 'error', 'warn', 'info', 'debug', 'trace'.")
 
 		// internal
-		cmd.PersistentFlags().StringArrayVarP(&validateOpts.NxpodEnvs, "gitpod-env", "", nil, "")
+		cmd.PersistentFlags().StringArrayVarP(&validateOpts.NxpodEnvs, "nxpod-env", "", nil, "")
 		cmd.PersistentFlags().StringVarP(&validateOpts.WorkspaceFolder, "workspace-folder", "w", workspaceFolder, "Path to the workspace folder.")
 		cmd.PersistentFlags().StringVarP(&validateOpts.From, "from", "", "", "Starts from 'prebuild' or 'snapshot'.")
 		cmd.PersistentFlags().BoolVarP(&validateOpts.Headless, "headless", "", false, "Starts in headless mode.")
-		_ = cmd.PersistentFlags().MarkHidden("gitpod-env")
+		_ = cmd.PersistentFlags().MarkHidden("nxpod-env")
 		_ = cmd.PersistentFlags().MarkHidden("workspace-folder")
 		_ = cmd.PersistentFlags().MarkHidden("from")
 		_ = cmd.PersistentFlags().MarkHidden("headless")

@@ -12,7 +12,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 	ide_metrics "github.com/nxpkg/nxpod/ide-metrics-api"
 	"github.com/nxpkg/nxpod/supervisor/api"
 	"github.com/go-errors/errors"
@@ -22,7 +22,7 @@ import (
 func LogError(errToReport error, errorMessage string, wsInfo *api.WorkspaceInfoResponse) {
 	log.WithError(errToReport).Error(errorMessage)
 
-	file, err := os.OpenFile(os.TempDir()+"/gitpod-cli-errors.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	file, err := os.OpenFile(os.TempDir()+"/nxpod-cli-errors.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err == nil {
 		log.SetOutput(file)
 	} else {
@@ -44,8 +44,8 @@ func LogError(errToReport error, errorMessage string, wsInfo *api.WorkspaceInfoR
 
 	reportErrorRequest := &ide_metrics.ReportErrorRequest{
 		ErrorStack:  errors.New(errToReport).ErrorStack(),
-		Component:   "gitpod-cli",
-		Version:     gitpod.Version,
+		Component:   "nxpod-cli",
+		Version:     nxpod.Version,
 		UserId:      "", // todo: retrieve this from server
 		WorkspaceId: wsInfo.WorkspaceId,
 		InstanceId:  wsInfo.InstanceId,

@@ -48,13 +48,13 @@ var workspaceUpCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		gitpod, err := getNxpodClient(cmd.Context())
+		nxpod, err := getNxpodClient(cmd.Context())
 		if err != nil {
 			return err
 		}
 
 		if workspaceCreateOpts.WorkspaceClass != "" {
-			resp, err := gitpod.Workspaces.ListWorkspaceClasses(cmd.Context(), connect.NewRequest(&v1.ListWorkspaceClassesRequest{}))
+			resp, err := nxpod.Workspaces.ListWorkspaceClasses(cmd.Context(), connect.NewRequest(&v1.ListWorkspaceClassesRequest{}))
 			if err != nil {
 				return prettyprint.MarkExceptional(prettyprint.AddResolution(fmt.Errorf("cannot list workspace classes: %w", err),
 					"don't pass an explicit workspace class, i.e. omit the --class flag",
@@ -78,7 +78,7 @@ var workspaceUpCmd = &cobra.Command{
 		}
 
 		if workspaceCreateOpts.Editor != "" {
-			resp, err := gitpod.Editors.ListEditorOptions(cmd.Context(), connect.NewRequest(&v1.ListEditorOptionsRequest{}))
+			resp, err := nxpod.Editors.ListEditorOptions(cmd.Context(), connect.NewRequest(&v1.ListEditorOptionsRequest{}))
 			if err != nil {
 				return prettyprint.MarkExceptional(prettyprint.AddResolution(fmt.Errorf("cannot list editor options: %w", err),
 					"don't pass an explicit editor, i.e. omit the --editor flag",
@@ -134,7 +134,7 @@ var workspaceUpCmd = &cobra.Command{
 				return prettyprint.AddResolution(fmt.Errorf("no Git repository found"),
 					fmt.Sprintf("make sure %s is a valid Git repository", workingDir),
 					"run `git clone` to clone an existing repository",
-					"open a remote repository using `{gitpod} workspace create <repo-url>`",
+					"open a remote repository using `{nxpod} workspace create <repo-url>`",
 				)
 			}
 			currentDir = parentDir
@@ -145,14 +145,14 @@ var workspaceUpCmd = &cobra.Command{
 		if err != nil {
 			return prettyprint.MarkExceptional(fmt.Errorf("cannot open Git working copy at %s: %w", currentDir, err))
 		}
-		_ = repo.DeleteRemote("gitpod")
+		_ = repo.DeleteRemote("nxpod")
 		head, err := repo.Head()
 		if err != nil {
 			return prettyprint.MarkExceptional(fmt.Errorf("cannot get HEAD: %w", err))
 		}
 		branch := head.Name().Short()
 
-		newWorkspace, err := gitpod.Workspaces.CreateAndStartWorkspace(ctx, connect.NewRequest(
+		newWorkspace, err := nxpod.Workspaces.CreateAndStartWorkspace(ctx, connect.NewRequest(
 			&v1.CreateAndStartWorkspaceRequest{
 				Source:         &v1.CreateAndStartWorkspaceRequest_ContextUrl{ContextUrl: "NXPODCLI_CONTENT_INIT=push/https://github.com/nxpkg/empty"},
 				OrganizationId: orgId,
@@ -174,13 +174,13 @@ var workspaceUpCmd = &cobra.Command{
 				"try to create the workspace again",
 			))
 		}
-		ws, err := helper.ObserveWorkspaceUntilStarted(ctx, gitpod, workspaceID)
+		ws, err := helper.ObserveWorkspaceUntilStarted(ctx, nxpod, workspaceID)
 		if err != nil {
 			return err
 		}
 		slog.Debug("workspace started", "workspaceID", workspaceID)
 
-		token, err := gitpod.Workspaces.GetOwnerToken(ctx, connect.NewRequest(&v1.GetOwnerTokenRequest{WorkspaceId: workspaceID}))
+		token, err := nxpod.Workspaces.GetOwnerToken(ctx, connect.NewRequest(&v1.GetOwnerTokenRequest{WorkspaceId: workspaceID}))
 		if err != nil {
 			return err
 		}
@@ -215,7 +215,7 @@ var workspaceUpCmd = &cobra.Command{
 		slog.Debug("pushing to workspace")
 		sshRemote := fmt.Sprintf("%s#%s@%s:/workspace/remote", workspaceID, ownerToken, helper.WorkspaceSSHHost(&v1.Workspace{WorkspaceId: workspaceID, Status: ws}))
 		_, err = repo.CreateRemote(&gitcfg.RemoteConfig{
-			Name: "gitpod",
+			Name: "nxpod",
 			URLs: []string{sshRemote},
 		})
 		if err != nil {
@@ -224,7 +224,7 @@ var workspaceUpCmd = &cobra.Command{
 
 		// Pushing using Go git is tricky because of the SSH host verification. Shelling out to git is easier.
 		slog.Info("pushing to local working copy to remote workspace")
-		pushcmd := exec.Command("git", "push", "--progress", "gitpod")
+		pushcmd := exec.Command("git", "push", "--progress", "nxpod")
 		pushcmd.Stdout = os.Stdout
 		pushcmd.Stderr = os.Stderr
 		pushcmd.Dir = currentDir
@@ -248,19 +248,19 @@ var workspaceUpCmd = &cobra.Command{
 			return err
 		}
 
-		doneBanner := fmt.Sprintf("\n\n%s\n\nDon't forget to pull your changes to your local working copy before stopping the workspace.\nUse `cd %s && git pull gitpod %s`\n\n", color.New(color.FgGreen, color.Bold).Sprintf("Workspace ready!"), currentDir, branch)
+		doneBanner := fmt.Sprintf("\n\n%s\n\nDon't forget to pull your changes to your local working copy before stopping the workspace.\nUse `cd %s && git pull nxpod %s`\n\n", color.New(color.FgGreen, color.Bold).Sprintf("Workspace ready!"), currentDir, branch)
 		slog.Info(doneBanner)
 
 		switch {
 		case workspaceCreateOpts.StartOpts.OpenSSH:
-			err = helper.SSHConnectToWorkspace(ctx, gitpod, workspaceID, false)
+			err = helper.SSHConnectToWorkspace(ctx, nxpod, workspaceID, false)
 			if err != nil && err.Error() == "exit status 255" {
 				err = nil
 			} else if err != nil {
 				return err
 			}
 		case workspaceCreateOpts.StartOpts.OpenEditor:
-			return helper.OpenWorkspaceInPreferredEditor(ctx, gitpod, workspaceID)
+			return helper.OpenWorkspaceInPreferredEditor(ctx, nxpod, workspaceID)
 		default:
 			slog.Info("Access your workspace at", "url", ws.Instance.Status.Url)
 		}

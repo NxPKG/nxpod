@@ -378,46 +378,46 @@ public final class EditorServiceOuterClass {
     }
 
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsRequest getDefaultInstanceForType() {
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   public interface ListEditorOptionsResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gitpod.experimental.v1.ListEditorOptionsResponse)
+      // @@protoc_insertion_point(interface_extends:nxpod.experimental.v1.ListEditorOptionsResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
-    java.util.List<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption>
+    java.util.List<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption>
         getResultList();
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getResult(int index);
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getResult(int index);
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
     int getResultCount();
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
-    java.util.List<? extends io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
+    java.util.List<? extends io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
         getResultOrBuilderList();
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder getResultOrBuilder(
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder getResultOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code gitpod.experimental.v1.ListEditorOptionsResponse}
+   * Protobuf type {@code nxpod.experimental.v1.ListEditorOptionsResponse}
    */
   public static final class ListEditorOptionsResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gitpod.experimental.v1.ListEditorOptionsResponse)
+      // @@protoc_insertion_point(message_implements:nxpod.experimental.v1.ListEditorOptionsResponse)
       ListEditorOptionsResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     static {
@@ -439,54 +439,54 @@ public final class EditorServiceOuterClass {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_descriptor;
+      return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable
+      return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.class, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.Builder.class);
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.class, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.Builder.class);
     }
 
     public static final int RESULT_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private java.util.List<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> result_;
+    private java.util.List<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> result_;
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
     @java.lang.Override
-    public java.util.List<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> getResultList() {
+    public java.util.List<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> getResultList() {
       return result_;
     }
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
+    public java.util.List<? extends io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
         getResultOrBuilderList() {
       return result_;
     }
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
     @java.lang.Override
     public int getResultCount() {
       return result_.size();
     }
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getResult(int index) {
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getResult(int index) {
       return result_.get(index);
     }
     /**
-     * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+     * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
      */
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder getResultOrBuilder(
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder getResultOrBuilder(
         int index) {
       return result_.get(index);
     }
@@ -531,10 +531,10 @@ public final class EditorServiceOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse)) {
+      if (!(obj instanceof io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse)) {
         return super.equals(obj);
       }
-      io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse other = (io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse) obj;
+      io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse other = (io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse) obj;
 
       if (!getResultList()
           .equals(other.getResultList())) return false;
@@ -558,44 +558,44 @@ public final class EditorServiceOuterClass {
       return hash;
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(byte[] data)
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(java.io.InputStream input)
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -603,26 +603,26 @@ public final class EditorServiceOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseDelimitedFrom(java.io.InputStream input)
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseDelimitedFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -635,7 +635,7 @@ public final class EditorServiceOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse prototype) {
+    public static Builder newBuilder(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -651,26 +651,26 @@ public final class EditorServiceOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code gitpod.experimental.v1.ListEditorOptionsResponse}
+     * Protobuf type {@code nxpod.experimental.v1.ListEditorOptionsResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gitpod.experimental.v1.ListEditorOptionsResponse)
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:nxpod.experimental.v1.ListEditorOptionsResponse)
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_descriptor;
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.class, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.Builder.class);
+                io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.class, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.Builder.class);
       }
 
-      // Construct using io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.newBuilder()
+      // Construct using io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.newBuilder()
       private Builder() {
 
       }
@@ -697,17 +697,17 @@ public final class EditorServiceOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_descriptor;
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_descriptor;
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse getDefaultInstanceForType() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.getDefaultInstance();
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse getDefaultInstanceForType() {
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse build() {
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result = buildPartial();
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse build() {
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -715,15 +715,15 @@ public final class EditorServiceOuterClass {
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse buildPartial() {
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result = new io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse(this);
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse buildPartial() {
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result = new io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse(this);
         buildPartialRepeatedFields(result);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartialRepeatedFields(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result) {
+      private void buildPartialRepeatedFields(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result) {
         if (resultBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             result_ = java.util.Collections.unmodifiableList(result_);
@@ -735,22 +735,22 @@ public final class EditorServiceOuterClass {
         }
       }
 
-      private void buildPartial0(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result) {
+      private void buildPartial0(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse result) {
         int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse) {
-          return mergeFrom((io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse)other);
+        if (other instanceof io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse) {
+          return mergeFrom((io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse other) {
-        if (other == io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse other) {
+        if (other == io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse.getDefaultInstance()) return this;
         if (resultBuilder_ == null) {
           if (!other.result_.isEmpty()) {
             if (result_.isEmpty()) {
@@ -804,9 +804,9 @@ public final class EditorServiceOuterClass {
                 done = true;
                 break;
               case 10: {
-                io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption m =
+                io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption m =
                     input.readMessage(
-                        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.parser(),
+                        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.parser(),
                         extensionRegistry);
                 if (resultBuilder_ == null) {
                   ensureResultIsMutable();
@@ -833,22 +833,22 @@ public final class EditorServiceOuterClass {
       }
       private int bitField0_;
 
-      private java.util.List<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> result_ =
+      private java.util.List<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> result_ =
         java.util.Collections.emptyList();
       private void ensureResultIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          result_ = new java.util.ArrayList<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption>(result_);
+          result_ = new java.util.ArrayList<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption>(result_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder> resultBuilder_;
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder> resultBuilder_;
 
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public java.util.List<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> getResultList() {
+      public java.util.List<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> getResultList() {
         if (resultBuilder_ == null) {
           return java.util.Collections.unmodifiableList(result_);
         } else {
@@ -856,7 +856,7 @@ public final class EditorServiceOuterClass {
         }
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public int getResultCount() {
         if (resultBuilder_ == null) {
@@ -866,9 +866,9 @@ public final class EditorServiceOuterClass {
         }
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getResult(int index) {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getResult(int index) {
         if (resultBuilder_ == null) {
           return result_.get(index);
         } else {
@@ -876,10 +876,10 @@ public final class EditorServiceOuterClass {
         }
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder setResult(
-          int index, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption value) {
+          int index, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption value) {
         if (resultBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -893,10 +893,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder setResult(
-          int index, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder builderForValue) {
+          int index, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder builderForValue) {
         if (resultBuilder_ == null) {
           ensureResultIsMutable();
           result_.set(index, builderForValue.build());
@@ -907,9 +907,9 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public Builder addResult(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption value) {
+      public Builder addResult(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption value) {
         if (resultBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -923,10 +923,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder addResult(
-          int index, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption value) {
+          int index, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption value) {
         if (resultBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -940,10 +940,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder addResult(
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder builderForValue) {
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder builderForValue) {
         if (resultBuilder_ == null) {
           ensureResultIsMutable();
           result_.add(builderForValue.build());
@@ -954,10 +954,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder addResult(
-          int index, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder builderForValue) {
+          int index, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder builderForValue) {
         if (resultBuilder_ == null) {
           ensureResultIsMutable();
           result_.add(index, builderForValue.build());
@@ -968,10 +968,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder addAllResult(
-          java.lang.Iterable<? extends io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> values) {
+          java.lang.Iterable<? extends io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption> values) {
         if (resultBuilder_ == null) {
           ensureResultIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -983,7 +983,7 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder clearResult() {
         if (resultBuilder_ == null) {
@@ -996,7 +996,7 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
       public Builder removeResult(int index) {
         if (resultBuilder_ == null) {
@@ -1009,16 +1009,16 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder getResultBuilder(
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder getResultBuilder(
           int index) {
         return getResultFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder getResultOrBuilder(
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder getResultOrBuilder(
           int index) {
         if (resultBuilder_ == null) {
           return result_.get(index);  } else {
@@ -1026,9 +1026,9 @@ public final class EditorServiceOuterClass {
         }
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public java.util.List<? extends io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
+      public java.util.List<? extends io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
            getResultOrBuilderList() {
         if (resultBuilder_ != null) {
           return resultBuilder_.getMessageOrBuilderList();
@@ -1037,33 +1037,33 @@ public final class EditorServiceOuterClass {
         }
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder addResultBuilder() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder addResultBuilder() {
         return getResultFieldBuilder().addBuilder(
-            io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance());
+            io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance());
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder addResultBuilder(
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder addResultBuilder(
           int index) {
         return getResultFieldBuilder().addBuilder(
-            index, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance());
+            index, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance());
       }
       /**
-       * <code>repeated .gitpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
+       * <code>repeated .nxpod.experimental.v1.EditorOption result = 1 [json_name = "result"];</code>
        */
-      public java.util.List<io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder>
+      public java.util.List<io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder>
            getResultBuilderList() {
         return getResultFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>
           getResultFieldBuilder() {
         if (resultBuilder_ == null) {
           resultBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>(
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder>(
                   result_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -1073,16 +1073,16 @@ public final class EditorServiceOuterClass {
         return resultBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:gitpod.experimental.v1.ListEditorOptionsResponse)
+      // @@protoc_insertion_point(builder_scope:nxpod.experimental.v1.ListEditorOptionsResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:gitpod.experimental.v1.ListEditorOptionsResponse)
-    private static final io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:nxpod.experimental.v1.ListEditorOptionsResponse)
+    private static final io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse();
+      DEFAULT_INSTANCE = new io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse();
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse getDefaultInstance() {
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1118,14 +1118,14 @@ public final class EditorServiceOuterClass {
     }
 
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse getDefaultInstanceForType() {
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.ListEditorOptionsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   public interface EditorOptionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gitpod.experimental.v1.EditorOption)
+      // @@protoc_insertion_point(interface_extends:nxpod.experimental.v1.EditorOption)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1169,15 +1169,15 @@ public final class EditorServiceOuterClass {
         getTitleBytes();
 
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
      * @return The type.
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type getType();
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type getType();
 
     /**
      * <pre>
@@ -1222,41 +1222,41 @@ public final class EditorServiceOuterClass {
         getLabelBytes();
 
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
      * @return Whether the stable field is set.
      */
     boolean hasStable();
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
      * @return The stable.
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getStable();
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getStable();
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getStableOrBuilder();
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getStableOrBuilder();
 
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
      * @return Whether the latest field is set.
      */
     boolean hasLatest();
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
      * @return The latest.
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getLatest();
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getLatest();
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
      */
-    io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getLatestOrBuilder();
+    io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getLatestOrBuilder();
   }
   /**
-   * Protobuf type {@code gitpod.experimental.v1.EditorOption}
+   * Protobuf type {@code nxpod.experimental.v1.EditorOption}
    */
   public static final class EditorOption extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gitpod.experimental.v1.EditorOption)
+      // @@protoc_insertion_point(message_implements:nxpod.experimental.v1.EditorOption)
       EditorOptionOrBuilder {
   private static final long serialVersionUID = 0L;
     static {
@@ -1282,15 +1282,15 @@ public final class EditorServiceOuterClass {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_descriptor;
+      return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_fieldAccessorTable
+      return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.class, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder.class);
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.class, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder.class);
     }
 
     /**
@@ -1298,7 +1298,7 @@ public final class EditorServiceOuterClass {
      * The type of the editor, currently browser or desktop.
      * </pre>
      *
-     * Protobuf enum {@code gitpod.experimental.v1.EditorOption.Type}
+     * Protobuf enum {@code nxpod.experimental.v1.EditorOption.Type}
      */
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -1397,7 +1397,7 @@ public final class EditorServiceOuterClass {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDescriptor().getEnumTypes().get(0);
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final Type[] VALUES = values();
@@ -1420,11 +1420,11 @@ public final class EditorServiceOuterClass {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:gitpod.experimental.v1.EditorOption.Type)
+      // @@protoc_insertion_point(enum_scope:nxpod.experimental.v1.EditorOption.Type)
     }
 
     public interface KindOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:gitpod.experimental.v1.EditorOption.Kind)
+        // @@protoc_insertion_point(interface_extends:nxpod.experimental.v1.EditorOption.Kind)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -1448,11 +1448,11 @@ public final class EditorServiceOuterClass {
           getVersionBytes();
     }
     /**
-     * Protobuf type {@code gitpod.experimental.v1.EditorOption.Kind}
+     * Protobuf type {@code nxpod.experimental.v1.EditorOption.Kind}
      */
     public static final class Kind extends
         com.google.protobuf.GeneratedMessage implements
-        // @@protoc_insertion_point(message_implements:gitpod.experimental.v1.EditorOption.Kind)
+        // @@protoc_insertion_point(message_implements:nxpod.experimental.v1.EditorOption.Kind)
         KindOrBuilder {
     private static final long serialVersionUID = 0L;
       static {
@@ -1474,15 +1474,15 @@ public final class EditorServiceOuterClass {
 
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_Kind_descriptor;
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_Kind_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_Kind_fieldAccessorTable
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_Kind_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.class, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder.class);
+                io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.class, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder.class);
       }
 
       public static final int VERSION_FIELD_NUMBER = 1;
@@ -1571,10 +1571,10 @@ public final class EditorServiceOuterClass {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind)) {
+        if (!(obj instanceof io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind)) {
           return super.equals(obj);
         }
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind other = (io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind) obj;
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind other = (io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind) obj;
 
         if (!getVersion()
             .equals(other.getVersion())) return false;
@@ -1596,44 +1596,44 @@ public final class EditorServiceOuterClass {
         return hash;
       }
 
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(byte[] data)
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(java.io.InputStream input)
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessage
             .parseWithIOException(PARSER, input);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1641,26 +1641,26 @@ public final class EditorServiceOuterClass {
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseDelimitedFrom(java.io.InputStream input)
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessage
             .parseDelimitedWithIOException(PARSER, input);
       }
 
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseDelimitedFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessage
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessage
             .parseWithIOException(PARSER, input);
       }
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1673,7 +1673,7 @@ public final class EditorServiceOuterClass {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind prototype) {
+      public static Builder newBuilder(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -1689,26 +1689,26 @@ public final class EditorServiceOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code gitpod.experimental.v1.EditorOption.Kind}
+       * Protobuf type {@code nxpod.experimental.v1.EditorOption.Kind}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:gitpod.experimental.v1.EditorOption.Kind)
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder {
+          // @@protoc_insertion_point(builder_implements:nxpod.experimental.v1.EditorOption.Kind)
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_Kind_descriptor;
+          return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_Kind_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_Kind_fieldAccessorTable
+          return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_Kind_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.class, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder.class);
+                  io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.class, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder.class);
         }
 
-        // Construct using io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.newBuilder()
+        // Construct using io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.newBuilder()
         private Builder() {
 
         }
@@ -1729,17 +1729,17 @@ public final class EditorServiceOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_Kind_descriptor;
+          return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_Kind_descriptor;
         }
 
         @java.lang.Override
-        public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getDefaultInstanceForType() {
-          return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance();
+        public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getDefaultInstanceForType() {
+          return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance();
         }
 
         @java.lang.Override
-        public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind build() {
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind result = buildPartial();
+        public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind build() {
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -1747,14 +1747,14 @@ public final class EditorServiceOuterClass {
         }
 
         @java.lang.Override
-        public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind buildPartial() {
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind result = new io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind(this);
+        public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind buildPartial() {
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind result = new io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind(this);
           if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
         }
 
-        private void buildPartial0(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind result) {
+        private void buildPartial0(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind result) {
           int from_bitField0_ = bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.version_ = version_;
@@ -1763,16 +1763,16 @@ public final class EditorServiceOuterClass {
 
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind) {
-            return mergeFrom((io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind)other);
+          if (other instanceof io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind) {
+            return mergeFrom((io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind other) {
-          if (other == io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance()) return this;
+        public Builder mergeFrom(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind other) {
+          if (other == io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance()) return this;
           if (!other.getVersion().isEmpty()) {
             version_ = other.version_;
             bitField0_ |= 0x00000001;
@@ -1918,16 +1918,16 @@ public final class EditorServiceOuterClass {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:gitpod.experimental.v1.EditorOption.Kind)
+        // @@protoc_insertion_point(builder_scope:nxpod.experimental.v1.EditorOption.Kind)
       }
 
-      // @@protoc_insertion_point(class_scope:gitpod.experimental.v1.EditorOption.Kind)
-      private static final io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:nxpod.experimental.v1.EditorOption.Kind)
+      private static final io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind();
+        DEFAULT_INSTANCE = new io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind();
       }
 
-      public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getDefaultInstance() {
+      public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -1963,7 +1963,7 @@ public final class EditorServiceOuterClass {
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getDefaultInstanceForType() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -2067,19 +2067,19 @@ public final class EditorServiceOuterClass {
     public static final int TYPE_FIELD_NUMBER = 3;
     private int type_ = 0;
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
      * @return The type.
      */
-    @java.lang.Override public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type getType() {
-      io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type result = io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.forNumber(type_);
-      return result == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.UNRECOGNIZED : result;
+    @java.lang.Override public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type getType() {
+      io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type result = io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.forNumber(type_);
+      return result == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.UNRECOGNIZED : result;
     }
 
     public static final int LOGO_FIELD_NUMBER = 4;
@@ -2179,9 +2179,9 @@ public final class EditorServiceOuterClass {
     }
 
     public static final int STABLE_FIELD_NUMBER = 6;
-    private io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind stable_;
+    private io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind stable_;
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
      * @return Whether the stable field is set.
      */
     @java.lang.Override
@@ -2189,25 +2189,25 @@ public final class EditorServiceOuterClass {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
      * @return The stable.
      */
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getStable() {
-      return stable_ == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getStable() {
+      return stable_ == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
     }
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
      */
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getStableOrBuilder() {
-      return stable_ == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getStableOrBuilder() {
+      return stable_ == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
     }
 
     public static final int LATEST_FIELD_NUMBER = 7;
-    private io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind latest_;
+    private io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind latest_;
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
      * @return Whether the latest field is set.
      */
     @java.lang.Override
@@ -2215,19 +2215,19 @@ public final class EditorServiceOuterClass {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
      * @return The latest.
      */
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getLatest() {
-      return latest_ == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getLatest() {
+      return latest_ == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
     }
     /**
-     * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+     * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
      */
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getLatestOrBuilder() {
-      return latest_ == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getLatestOrBuilder() {
+      return latest_ == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2250,7 +2250,7 @@ public final class EditorServiceOuterClass {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, title_);
       }
-      if (type_ != io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.TYPE_UNSPECIFIED.getNumber()) {
+      if (type_ != io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, type_);
       }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(logo_)) {
@@ -2280,7 +2280,7 @@ public final class EditorServiceOuterClass {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, title_);
       }
-      if (type_ != io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.TYPE_UNSPECIFIED.getNumber()) {
+      if (type_ != io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.TYPE_UNSPECIFIED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, type_);
       }
@@ -2308,10 +2308,10 @@ public final class EditorServiceOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption)) {
+      if (!(obj instanceof io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption)) {
         return super.equals(obj);
       }
-      io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption other = (io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption) obj;
+      io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption other = (io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption) obj;
 
       if (!getId()
           .equals(other.getId())) return false;
@@ -2366,44 +2366,44 @@ public final class EditorServiceOuterClass {
       return hash;
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(byte[] data)
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(java.io.InputStream input)
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2411,26 +2411,26 @@ public final class EditorServiceOuterClass {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseDelimitedFrom(java.io.InputStream input)
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseDelimitedFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2443,7 +2443,7 @@ public final class EditorServiceOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption prototype) {
+    public static Builder newBuilder(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2459,26 +2459,26 @@ public final class EditorServiceOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code gitpod.experimental.v1.EditorOption}
+     * Protobuf type {@code nxpod.experimental.v1.EditorOption}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gitpod.experimental.v1.EditorOption)
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder {
+        // @@protoc_insertion_point(builder_implements:nxpod.experimental.v1.EditorOption)
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOptionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_descriptor;
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_fieldAccessorTable
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.class, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder.class);
+                io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.class, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Builder.class);
       }
 
-      // Construct using io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.newBuilder()
+      // Construct using io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2520,17 +2520,17 @@ public final class EditorServiceOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_gitpod_experimental_v1_EditorOption_descriptor;
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.internal_static_nxpod_experimental_v1_EditorOption_descriptor;
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getDefaultInstanceForType() {
-        return io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance();
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getDefaultInstanceForType() {
+        return io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption build() {
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption result = buildPartial();
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption build() {
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2538,14 +2538,14 @@ public final class EditorServiceOuterClass {
       }
 
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption buildPartial() {
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption result = new io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption(this);
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption buildPartial() {
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption result = new io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption result) {
+      private void buildPartial0(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.id_ = id_;
@@ -2580,16 +2580,16 @@ public final class EditorServiceOuterClass {
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption) {
-          return mergeFrom((io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption)other);
+        if (other instanceof io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption) {
+          return mergeFrom((io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption other) {
-        if (other == io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption other) {
+        if (other == io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           bitField0_ |= 0x00000001;
@@ -2887,14 +2887,14 @@ public final class EditorServiceOuterClass {
 
       private int type_ = 0;
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -2905,20 +2905,20 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
        * @return The type.
        */
       @java.lang.Override
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type getType() {
-        io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type result = io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.forNumber(type_);
-        return result == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.UNRECOGNIZED : result;
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type getType() {
+        io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type result = io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.forNumber(type_);
+        return result == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type value) {
+      public Builder setType(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Type value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2928,7 +2928,7 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Type type = 3 [json_name = "type"];</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -3127,31 +3127,31 @@ public final class EditorServiceOuterClass {
         return this;
       }
 
-      private io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind stable_;
+      private io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind stable_;
       private com.google.protobuf.SingleFieldBuilder<
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder> stableBuilder_;
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder> stableBuilder_;
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        * @return Whether the stable field is set.
        */
       public boolean hasStable() {
         return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        * @return The stable.
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getStable() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getStable() {
         if (stableBuilder_ == null) {
-          return stable_ == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
+          return stable_ == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
         } else {
           return stableBuilder_.getMessage();
         }
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
-      public Builder setStable(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
+      public Builder setStable(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
         if (stableBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3165,10 +3165,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
       public Builder setStable(
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder builderForValue) {
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder builderForValue) {
         if (stableBuilder_ == null) {
           stable_ = builderForValue.build();
         } else {
@@ -3179,13 +3179,13 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
-      public Builder mergeStable(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
+      public Builder mergeStable(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
         if (stableBuilder_ == null) {
           if (((bitField0_ & 0x00000020) != 0) &&
             stable_ != null &&
-            stable_ != io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance()) {
+            stable_ != io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance()) {
             getStableBuilder().mergeFrom(value);
           } else {
             stable_ = value;
@@ -3200,7 +3200,7 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
       public Builder clearStable() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -3213,33 +3213,33 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder getStableBuilder() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder getStableBuilder() {
         bitField0_ |= 0x00000020;
         onChanged();
         return getStableFieldBuilder().getBuilder();
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getStableOrBuilder() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getStableOrBuilder() {
         if (stableBuilder_ != null) {
           return stableBuilder_.getMessageOrBuilder();
         } else {
           return stable_ == null ?
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : stable_;
         }
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind stable = 6 [json_name = "stable"];</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>
           getStableFieldBuilder() {
         if (stableBuilder_ == null) {
           stableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>(
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>(
                   getStable(),
                   getParentForChildren(),
                   isClean());
@@ -3248,31 +3248,31 @@ public final class EditorServiceOuterClass {
         return stableBuilder_;
       }
 
-      private io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind latest_;
+      private io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind latest_;
       private com.google.protobuf.SingleFieldBuilder<
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder> latestBuilder_;
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder> latestBuilder_;
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        * @return Whether the latest field is set.
        */
       public boolean hasLatest() {
         return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        * @return The latest.
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getLatest() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind getLatest() {
         if (latestBuilder_ == null) {
-          return latest_ == null ? io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
+          return latest_ == null ? io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
         } else {
           return latestBuilder_.getMessage();
         }
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
-      public Builder setLatest(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
+      public Builder setLatest(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
         if (latestBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3286,10 +3286,10 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
       public Builder setLatest(
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder builderForValue) {
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder builderForValue) {
         if (latestBuilder_ == null) {
           latest_ = builderForValue.build();
         } else {
@@ -3300,13 +3300,13 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
-      public Builder mergeLatest(io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
+      public Builder mergeLatest(io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind value) {
         if (latestBuilder_ == null) {
           if (((bitField0_ & 0x00000040) != 0) &&
             latest_ != null &&
-            latest_ != io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance()) {
+            latest_ != io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance()) {
             getLatestBuilder().mergeFrom(value);
           } else {
             latest_ = value;
@@ -3321,7 +3321,7 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
       public Builder clearLatest() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -3334,33 +3334,33 @@ public final class EditorServiceOuterClass {
         return this;
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder getLatestBuilder() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder getLatestBuilder() {
         bitField0_ |= 0x00000040;
         onChanged();
         return getLatestFieldBuilder().getBuilder();
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
-      public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getLatestOrBuilder() {
+      public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder getLatestOrBuilder() {
         if (latestBuilder_ != null) {
           return latestBuilder_.getMessageOrBuilder();
         } else {
           return latest_ == null ?
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.getDefaultInstance() : latest_;
         }
       }
       /**
-       * <code>.gitpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
+       * <code>.nxpod.experimental.v1.EditorOption.Kind latest = 7 [json_name = "latest"];</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>
+          io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>
           getLatestFieldBuilder() {
         if (latestBuilder_ == null) {
           latestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>(
+              io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.Kind.Builder, io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption.KindOrBuilder>(
                   getLatest(),
                   getParentForChildren(),
                   isClean());
@@ -3369,16 +3369,16 @@ public final class EditorServiceOuterClass {
         return latestBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:gitpod.experimental.v1.EditorOption)
+      // @@protoc_insertion_point(builder_scope:nxpod.experimental.v1.EditorOption)
     }
 
-    // @@protoc_insertion_point(class_scope:gitpod.experimental.v1.EditorOption)
-    private static final io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:nxpod.experimental.v1.EditorOption)
+    private static final io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption();
+      DEFAULT_INSTANCE = new io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption();
     }
 
-    public static io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getDefaultInstance() {
+    public static io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3414,32 +3414,32 @@ public final class EditorServiceOuterClass {
     }
 
     @java.lang.Override
-    public io.gitpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getDefaultInstanceForType() {
+    public io.nxpod.publicapi.experimental.v1.EditorServiceOuterClass.EditorOption getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_gitpod_experimental_v1_ListEditorOptionsRequest_descriptor;
+    internal_static_nxpod_experimental_v1_ListEditorOptionsRequest_descriptor;
   private static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gitpod_experimental_v1_ListEditorOptionsRequest_fieldAccessorTable;
+      internal_static_nxpod_experimental_v1_ListEditorOptionsRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_descriptor;
+    internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_descriptor;
   private static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable;
+      internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_gitpod_experimental_v1_EditorOption_descriptor;
+    internal_static_nxpod_experimental_v1_EditorOption_descriptor;
   private static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gitpod_experimental_v1_EditorOption_fieldAccessorTable;
+      internal_static_nxpod_experimental_v1_EditorOption_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_gitpod_experimental_v1_EditorOption_Kind_descriptor;
+    internal_static_nxpod_experimental_v1_EditorOption_Kind_descriptor;
   private static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gitpod_experimental_v1_EditorOption_Kind_fieldAccessorTable;
+      internal_static_nxpod_experimental_v1_EditorOption_Kind_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3449,25 +3449,25 @@ public final class EditorServiceOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n+gitpod/experimental/v1/editor_service." +
-      "proto\022\026gitpod.experimental.v1\"\032\n\030ListEdi" +
+      "\n+nxpod/experimental/v1/editor_service." +
+      "proto\022\026nxpod.experimental.v1\"\032\n\030ListEdi" +
       "torOptionsRequest\"Y\n\031ListEditorOptionsRe" +
-      "sponse\022<\n\006result\030\001 \003(\0132$.gitpod.experime" +
+      "sponse\022<\n\006result\030\001 \003(\0132$.nxpod.experime" +
       "ntal.v1.EditorOptionR\006result\"\207\003\n\014EditorO" +
       "ption\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005title\030\002 \001(\tR\005ti" +
-      "tle\022=\n\004type\030\003 \001(\0162).gitpod.experimental." +
+      "tle\022=\n\004type\030\003 \001(\0162).nxpod.experimental." +
       "v1.EditorOption.TypeR\004type\022\022\n\004logo\030\004 \001(\t" +
       "R\004logo\022\024\n\005label\030\005 \001(\tR\005label\022A\n\006stable\030\006" +
-      " \001(\0132).gitpod.experimental.v1.EditorOpti" +
-      "on.KindR\006stable\022A\n\006latest\030\007 \001(\0132).gitpod" +
+      " \001(\0132).nxpod.experimental.v1.EditorOpti" +
+      "on.KindR\006stable\022A\n\006latest\030\007 \001(\0132).nxpod" +
       ".experimental.v1.EditorOption.KindR\006late" +
       "st\032 \n\004Kind\022\030\n\007version\030\001 \001(\tR\007version\"@\n\004" +
       "Type\022\024\n\020TYPE_UNSPECIFIED\020\000\022\020\n\014TYPE_BROWS" +
       "ER\020\001\022\020\n\014TYPE_DESKTOP\020\0022\213\001\n\rEditorService" +
-      "\022z\n\021ListEditorOptions\0220.gitpod.experimen" +
-      "tal.v1.ListEditorOptionsRequest\0321.gitpod" +
+      "\022z\n\021ListEditorOptions\0220.nxpod.experimen" +
+      "tal.v1.ListEditorOptionsRequest\0321.nxpod" +
       ".experimental.v1.ListEditorOptionsRespon" +
-      "se\"\000Bk\n#io.gitpod.publicapi.experimental" +
+      "se\"\000Bk\n#io.nxpod.publicapi.experimental" +
       ".v1ZDgithub.com/nxpkg/nxpod/compone" +
       "nts/public-api/go/experimental/v1b\006proto" +
       "3"
@@ -3476,29 +3476,29 @@ public final class EditorServiceOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_gitpod_experimental_v1_ListEditorOptionsRequest_descriptor =
+    internal_static_nxpod_experimental_v1_ListEditorOptionsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_gitpod_experimental_v1_ListEditorOptionsRequest_fieldAccessorTable = new
+    internal_static_nxpod_experimental_v1_ListEditorOptionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gitpod_experimental_v1_ListEditorOptionsRequest_descriptor,
+        internal_static_nxpod_experimental_v1_ListEditorOptionsRequest_descriptor,
         new java.lang.String[] { });
-    internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_descriptor =
+    internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable = new
+    internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gitpod_experimental_v1_ListEditorOptionsResponse_descriptor,
+        internal_static_nxpod_experimental_v1_ListEditorOptionsResponse_descriptor,
         new java.lang.String[] { "Result", });
-    internal_static_gitpod_experimental_v1_EditorOption_descriptor =
+    internal_static_nxpod_experimental_v1_EditorOption_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_gitpod_experimental_v1_EditorOption_fieldAccessorTable = new
+    internal_static_nxpod_experimental_v1_EditorOption_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gitpod_experimental_v1_EditorOption_descriptor,
+        internal_static_nxpod_experimental_v1_EditorOption_descriptor,
         new java.lang.String[] { "Id", "Title", "Type", "Logo", "Label", "Stable", "Latest", });
-    internal_static_gitpod_experimental_v1_EditorOption_Kind_descriptor =
-      internal_static_gitpod_experimental_v1_EditorOption_descriptor.getNestedTypes().get(0);
-    internal_static_gitpod_experimental_v1_EditorOption_Kind_fieldAccessorTable = new
+    internal_static_nxpod_experimental_v1_EditorOption_Kind_descriptor =
+      internal_static_nxpod_experimental_v1_EditorOption_descriptor.getNestedTypes().get(0);
+    internal_static_nxpod_experimental_v1_EditorOption_Kind_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gitpod_experimental_v1_EditorOption_Kind_descriptor,
+        internal_static_nxpod_experimental_v1_EditorOption_Kind_descriptor,
         new java.lang.String[] { "Version", });
     descriptor.resolveAllFeaturesImmutable();
   }

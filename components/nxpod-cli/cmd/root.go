@@ -19,8 +19,8 @@ import (
 
 	"github.com/go-errors/errors"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -106,7 +106,7 @@ func Execute() {
 
 	err := rootCmd.Execute()
 
-	file, ferr := os.OpenFile(os.TempDir()+"/gitpod-cli-errors.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	file, ferr := os.OpenFile(os.TempDir()+"/nxpod-cli-errors.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if ferr == nil {
 		log.SetOutput(file)
 		defer file.Close()
@@ -192,8 +192,8 @@ func errorReport(err error) {
 	}
 	reportErrorRequest := &ide_metrics.ReportErrorRequest{
 		ErrorStack: errors.New(err).ErrorStack(),
-		Component:  "gitpod-cli",
-		Version:    gitpod.Version,
+		Component:  "nxpod-cli",
+		Version:    nxpod.Version,
 	}
 
 	payload, err := json.Marshal(reportErrorRequest)

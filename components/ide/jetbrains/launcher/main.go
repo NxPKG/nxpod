@@ -37,7 +37,7 @@ import (
 
 	"github.com/nxpkg/nxpod/common-go/log"
 	"github.com/nxpkg/nxpod/common-go/util"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/jetbrains/launcher/pkg/constant"
 	supervisor "github.com/nxpkg/nxpod/supervisor/api"
 )
@@ -351,7 +351,7 @@ func isBackendPluginReady(ctx context.Context, backendPort string, shouldWaitBac
 	}
 	log.WithField("backendPort", backendPort).Debug("wait backend plugin to be ready")
 	// Use op=metrics so that we don't need to rebuild old backend-plugin
-	url, err := url.Parse("http://localhost:" + backendPort + "/api/gitpod/cli?op=metrics")
+	url, err := url.Parse("http://localhost:" + backendPort + "/api/nxpod/cli?op=metrics")
 	if err != nil {
 		return err
 	}
@@ -402,7 +402,7 @@ type JoinLinkResponse struct {
 }
 
 func resolveToolboxLink(wsInfo *supervisor.WorkspaceInfoResponse) (string, error) {
-	gitpodUrl, err := url.Parse(wsInfo.NxpodHost)
+	nxpodUrl, err := url.Parse(wsInfo.NxpodHost)
 	if err != nil {
 		return "", err
 	}
@@ -410,14 +410,14 @@ func resolveToolboxLink(wsInfo *supervisor.WorkspaceInfoResponse) (string, error
 	link := url.URL{
 		Scheme:   "jetbrains",
 		Host:     "gateway",
-		Path:     "io.gitpod.toolbox.gateway/open-in-toolbox",
-		RawQuery: fmt.Sprintf("host=%s&workspaceId=%s&debugWorkspace=%t", gitpodUrl.Hostname(), wsInfo.WorkspaceId, debugWorkspace),
+		Path:     "io.nxpod.toolbox.gateway/open-in-toolbox",
+		RawQuery: fmt.Sprintf("host=%s&workspaceId=%s&debugWorkspace=%t", nxpodUrl.Hostname(), wsInfo.WorkspaceId, debugWorkspace),
 	}
 	return link.String(), nil
 }
 
 func resolveGatewayLink(backendPort string, wsInfo *supervisor.WorkspaceInfoResponse) (string, error) {
-	gitpodUrl, err := url.Parse(wsInfo.NxpodHost)
+	nxpodUrl, err := url.Parse(wsInfo.NxpodHost)
 	if err != nil {
 		return "", err
 	}
@@ -425,14 +425,14 @@ func resolveGatewayLink(backendPort string, wsInfo *supervisor.WorkspaceInfoResp
 	link := url.URL{
 		Scheme:   "jetbrains-gateway",
 		Host:     "connect",
-		Fragment: fmt.Sprintf("gitpodHost=%s&workspaceId=%s&backendPort=%s&debugWorkspace=%t", gitpodUrl.Hostname(), wsInfo.WorkspaceId, backendPort, debugWorkspace),
+		Fragment: fmt.Sprintf("nxpodHost=%s&workspaceId=%s&backendPort=%s&debugWorkspace=%t", nxpodUrl.Hostname(), wsInfo.WorkspaceId, backendPort, debugWorkspace),
 	}
 	return link.String(), nil
 }
 
 func resolveJsonLink(backendPort string) (string, error) {
 	var (
-		hostStatusUrl = "http://localhost:" + backendPort + "/codeWithMe/unattendedHostStatus?token=gitpod"
+		hostStatusUrl = "http://localhost:" + backendPort + "/codeWithMe/unattendedHostStatus?token=nxpod"
 		client        = http.Client{Timeout: 1 * time.Second}
 	)
 	resp, err := client.Get(hostStatusUrl)
@@ -460,7 +460,7 @@ func resolveJsonLink(backendPort string) (string, error) {
 
 func resolveJsonLink2(launchCtx *LaunchContext, backendPort string) (*JoinLinkResponse, error) {
 	var (
-		hostStatusUrl = "http://localhost:" + backendPort + "/codeWithMe/unattendedHostStatus?token=gitpod"
+		hostStatusUrl = "http://localhost:" + backendPort + "/codeWithMe/unattendedHostStatus?token=nxpod"
 		client        = http.Client{Timeout: 1 * time.Second}
 	)
 	resp, err := client.Get(hostStatusUrl)
@@ -492,7 +492,7 @@ func resolveJsonLink2(launchCtx *LaunchContext, backendPort string) (*JoinLinkRe
 
 func terminateIDE(backendPort string) error {
 	var (
-		hostStatusUrl = "http://localhost:" + backendPort + "/codeWithMe/unattendedHostStatus?token=gitpod&exit=true"
+		hostStatusUrl = "http://localhost:" + backendPort + "/codeWithMe/unattendedHostStatus?token=nxpod&exit=true"
 		client        = http.Client{Timeout: 10 * time.Second}
 	)
 	resp, err := client.Get(hostStatusUrl)
@@ -538,9 +538,9 @@ func resolveWorkspaceInfo(ctx context.Context) (*supervisor.WorkspaceInfoRespons
 
 func launch(launchCtx *LaunchContext) {
 	projectDir := launchCtx.wsInfo.GetCheckoutLocation()
-	gitpodConfig, err := parseNxpodConfig(projectDir)
+	nxpodConfig, err := parseNxpodConfig(projectDir)
 	if err != nil {
-		log.WithError(err).Error("failed to parse .gitpod.yml")
+		log.WithError(err).Error("failed to parse .nxpod.yml")
 	}
 
 	// configure vmoptions
@@ -550,7 +550,7 @@ func launch(launchCtx *LaunchContext) {
 	}
 	// [idea64|goland64|pycharm64|phpstorm64].vmoptions
 	launchCtx.vmOptionsFile = fmt.Sprintf(launchCtx.backendDir+"/bin/%s64.vmoptions", idePrefix)
-	err = configureVMOptions(gitpodConfig, launchCtx.alias, launchCtx.vmOptionsFile)
+	err = configureVMOptions(nxpodConfig, launchCtx.alias, launchCtx.vmOptionsFile)
 	if err != nil {
 		log.WithError(err).Error("failed to configure vmoptions")
 	}
@@ -588,7 +588,7 @@ func launch(launchCtx *LaunchContext) {
 	}
 
 	// install project plugins
-	err = installPlugins(gitpodConfig, launchCtx)
+	err = installPlugins(nxpodConfig, launchCtx)
 	installPluginsCost := time.Now().Local().Sub(launchCtx.startTime).Milliseconds()
 	if err != nil {
 		log.WithError(err).WithField("cost", installPluginsCost).Error("installing repo plugins: done")
@@ -596,10 +596,10 @@ func launch(launchCtx *LaunchContext) {
 		log.WithField("cost", installPluginsCost).Info("installing repo plugins: done")
 	}
 
-	// install gitpod plugin
+	// install nxpod plugin
 	err = linkRemotePlugin(launchCtx)
 	if err != nil {
-		log.WithError(err).Error("failed to install gitpod-remote plugin")
+		log.WithError(err).Error("failed to install nxpod-remote plugin")
 	}
 
 	// run backend
@@ -624,7 +624,7 @@ func run(launchCtx *LaunchContext) {
 		cmd.Env = append(cmd.Env, "JETBRAINS_NXPOD_WORKSPACE_HOST="+workspaceUrl.Hostname())
 	}
 	// Enable host status endpoint
-	cmd.Env = append(cmd.Env, "CWM_HOST_STATUS_OVER_HTTP_TOKEN=gitpod")
+	cmd.Env = append(cmd.Env, "CWM_HOST_STATUS_OVER_HTTP_TOKEN=nxpod")
 
 	if err := cmd.Start(); err != nil {
 		log.WithError(err).Error("failed to start")
@@ -783,7 +783,7 @@ func updatePlatformProperties(content string, configDir string, systemDir string
 	return updated, content
 }
 
-func configureVMOptions(config *gitpod.NxpodConfig, alias string, vmOptionsPath string) error {
+func configureVMOptions(config *nxpod.NxpodConfig, alias string, vmOptionsPath string) error {
 	options, err := readVMOptions(vmOptionsPath)
 	if err != nil {
 		return err
@@ -825,7 +825,7 @@ func deduplicateVMOption(oldLines []string, newLines []string, predicate func(l,
 }
 
 func updateVMOptions(
-	config *gitpod.NxpodConfig,
+	config *nxpod.NxpodConfig,
 	alias string,
 	// original vmoptions (inherited from $JETBRAINS_IDE_HOME/bin/idea64.vmoptions)
 	ideaVMOptionsLines []string) []string {
@@ -841,23 +841,23 @@ func updateVMOptions(
 		return isEqual || isXmx || isXms || isXss || isXXOptions
 	}
 	// Nxpod's default customization
-	var gitpodVMOptions []string
-	gitpodVMOptions = append(gitpodVMOptions, "-Dgtw.disable.exit.dialog=true")
+	var nxpodVMOptions []string
+	nxpodVMOptions = append(nxpodVMOptions, "-Dgtw.disable.exit.dialog=true")
 	// temporary disable auto-attach of the async-profiler to prevent JVM crash
-	// see https://youtrack.jetbrains.com/issue/IDEA-326201/SIGSEGV-on-startup-2023.2-IDE-backend-on-gitpod.io?s=SIGSEGV-on-startup-2023.2-IDE-backend-on-gitpod.io
-	gitpodVMOptions = append(gitpodVMOptions, "-Dfreeze.reporter.profiling=false")
+	// see https://youtrack.jetbrains.com/issue/IDEA-326201/SIGSEGV-on-startup-2023.2-IDE-backend-on-nxpod.khulnasoft.com?s=SIGSEGV-on-startup-2023.2-IDE-backend-on-nxpod.khulnasoft.com
+	nxpodVMOptions = append(nxpodVMOptions, "-Dfreeze.reporter.profiling=false")
 	if alias == "intellij" {
-		gitpodVMOptions = append(gitpodVMOptions, "-Djdk.configure.existing=true")
+		nxpodVMOptions = append(nxpodVMOptions, "-Djdk.configure.existing=true")
 	}
 	// container relevant options
-	gitpodVMOptions = append(gitpodVMOptions, "-XX:+UseContainerSupport")
+	nxpodVMOptions = append(nxpodVMOptions, "-XX:+UseContainerSupport")
 	cpuCount := os.Getenv("NXPOD_CPU_COUNT")
 	parsedCPUCount, err := strconv.Atoi(cpuCount)
 	// if CPU count is set and is parseable as a positive number
 	if err == nil && parsedCPUCount > 0 && parsedCPUCount <= 16 {
-		gitpodVMOptions = append(gitpodVMOptions, "-XX:ActiveProcessorCount="+cpuCount)
+		nxpodVMOptions = append(nxpodVMOptions, "-XX:ActiveProcessorCount="+cpuCount)
 	}
-	vmoptions := deduplicateVMOption(ideaVMOptionsLines, gitpodVMOptions, filterFunc)
+	vmoptions := deduplicateVMOption(ideaVMOptionsLines, nxpodVMOptions, filterFunc)
 
 	// user-defined vmoptions (EnvVar)
 	userVMOptionsVar := os.Getenv(strings.ToUpper(alias) + "_VMOPTIONS")
@@ -866,7 +866,7 @@ func updateVMOptions(
 		vmoptions = deduplicateVMOption(vmoptions, userVMOptions, filterFunc)
 	}
 
-	// project-defined vmoptions (.gitpod.yml)
+	// project-defined vmoptions (.nxpod.yml)
 	if config != nil {
 		productConfig := getProductConfig(config, alias)
 		if productConfig != nil {
@@ -1024,10 +1024,10 @@ func collectSyncSources(launchCtx *LaunchContext, target SyncTarget) ([]string, 
 	}
 	var srcDirs []string
 	for _, srcDir := range []string{
-		fmt.Sprintf("%s/.gitpod/jetbrains/%s", userHomeDir, target),
-		fmt.Sprintf("%s/.gitpod/jetbrains/%s/%s", userHomeDir, launchCtx.alias, target),
-		fmt.Sprintf("%s/.gitpod/jetbrains/%s", launchCtx.projectDir, target),
-		fmt.Sprintf("%s/.gitpod/jetbrains/%s/%s", launchCtx.projectDir, launchCtx.alias, target),
+		fmt.Sprintf("%s/.nxpod/jetbrains/%s", userHomeDir, target),
+		fmt.Sprintf("%s/.nxpod/jetbrains/%s/%s", userHomeDir, launchCtx.alias, target),
+		fmt.Sprintf("%s/.nxpod/jetbrains/%s", launchCtx.projectDir, target),
+		fmt.Sprintf("%s/.nxpod/jetbrains/%s/%s", launchCtx.projectDir, launchCtx.alias, target),
 	} {
 		srcStat, err := os.Stat(srcDir)
 		if os.IsNotExist(err) {
@@ -1102,7 +1102,7 @@ func unzipArchive(src, dest string) error {
 	return nil
 }
 
-func installPlugins(config *gitpod.NxpodConfig, launchCtx *LaunchContext) error {
+func installPlugins(config *nxpod.NxpodConfig, launchCtx *LaunchContext) error {
 	plugins, err := getPlugins(config, launchCtx.alias)
 	if err != nil {
 		return err
@@ -1130,26 +1130,26 @@ func installPlugins(config *gitpod.NxpodConfig, launchCtx *LaunchContext) error 
 	return nil
 }
 
-func parseNxpodConfig(repoRoot string) (*gitpod.NxpodConfig, error) {
+func parseNxpodConfig(repoRoot string) (*nxpod.NxpodConfig, error) {
 	if repoRoot == "" {
 		return nil, errors.New("repoRoot is empty")
 	}
-	data, err := os.ReadFile(filepath.Join(repoRoot, ".gitpod.yml"))
+	data, err := os.ReadFile(filepath.Join(repoRoot, ".nxpod.yml"))
 	if err != nil {
-		// .gitpod.yml not exist is ok
+		// .nxpod.yml not exist is ok
 		if errors.Is(err, os.ErrNotExist) {
 			return nil, nil
 		}
-		return nil, errors.New("read .gitpod.yml file failed: " + err.Error())
+		return nil, errors.New("read .nxpod.yml file failed: " + err.Error())
 	}
-	var config *gitpod.NxpodConfig
+	var config *nxpod.NxpodConfig
 	if err = yaml.Unmarshal(data, &config); err != nil {
-		return nil, errors.New("unmarshal .gitpod.yml file failed" + err.Error())
+		return nil, errors.New("unmarshal .nxpod.yml file failed" + err.Error())
 	}
 	return config, nil
 }
 
-func getPlugins(config *gitpod.NxpodConfig, alias string) ([]string, error) {
+func getPlugins(config *nxpod.NxpodConfig, alias string) ([]string, error) {
 	var plugins []string
 	if config == nil || config.Jetbrains == nil {
 		return nil, nil
@@ -1164,7 +1164,7 @@ func getPlugins(config *gitpod.NxpodConfig, alias string) ([]string, error) {
 	return plugins, nil
 }
 
-func getProductConfig(config *gitpod.NxpodConfig, alias string) *gitpod.JetbrainsProduct {
+func getProductConfig(config *nxpod.NxpodConfig, alias string) *nxpod.JetbrainsProduct {
 	defer func() {
 		if err := recover(); err != nil {
 			log.WithField("error", err).WithField("alias", alias).Error("failed to extract JB product config")
@@ -1173,7 +1173,7 @@ func getProductConfig(config *gitpod.NxpodConfig, alias string) *gitpod.Jetbrain
 	v := reflect.ValueOf(*config.Jetbrains).FieldByNameFunc(func(s string) bool {
 		return strings.ToLower(s) == alias
 	}).Interface()
-	productConfig, ok := v.(*gitpod.JetbrainsProduct)
+	productConfig, ok := v.(*nxpod.JetbrainsProduct)
 	if !ok {
 		return nil
 	}
@@ -1185,19 +1185,19 @@ func linkRemotePlugin(launchCtx *LaunchContext) error {
 	if launchCtx.info.Version == "2022.3.3" {
 		remotePluginsFolder = launchCtx.backendDir + "/plugins"
 	}
-	remotePluginDir := remotePluginsFolder + "/gitpod-remote"
+	remotePluginDir := remotePluginsFolder + "/nxpod-remote"
 	if err := os.MkdirAll(remotePluginsFolder, 0755); err != nil {
 		return err
 	}
 
 	// added for backwards compatibility, can be removed in the future
-	sourceDir := "/ide-desktop-plugins/gitpod-remote-" + os.Getenv("JETBRAINS_BACKEND_QUALIFIER")
+	sourceDir := "/ide-desktop-plugins/nxpod-remote-" + os.Getenv("JETBRAINS_BACKEND_QUALIFIER")
 	_, err := os.Stat(sourceDir)
 	if err == nil {
 		return safeLink(sourceDir, remotePluginDir)
 	}
 
-	return safeLink("/ide-desktop-plugins/gitpod-remote", remotePluginDir)
+	return safeLink("/ide-desktop-plugins/nxpod-remote", remotePluginDir)
 }
 
 // safeLink creates a symlink from source to target, removing the old target if it exists

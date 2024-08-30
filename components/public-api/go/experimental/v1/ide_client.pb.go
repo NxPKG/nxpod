@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/experimental/v1/ide_client.proto
+// source: nxpod/experimental/v1/ide_client.proto
 
 package v1
 
@@ -35,7 +35,7 @@ type SendHeartbeatRequest struct {
 func (x *SendHeartbeatRequest) Reset() {
 	*x = SendHeartbeatRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[0]
+		mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -48,7 +48,7 @@ func (x *SendHeartbeatRequest) String() string {
 func (*SendHeartbeatRequest) ProtoMessage() {}
 
 func (x *SendHeartbeatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[0]
+	mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -61,7 +61,7 @@ func (x *SendHeartbeatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendHeartbeatRequest.ProtoReflect.Descriptor instead.
 func (*SendHeartbeatRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *SendHeartbeatRequest) GetWorkspaceId() string {
@@ -80,7 +80,7 @@ type SendHeartbeatResponse struct {
 func (x *SendHeartbeatResponse) Reset() {
 	*x = SendHeartbeatResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[1]
+		mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -93,7 +93,7 @@ func (x *SendHeartbeatResponse) String() string {
 func (*SendHeartbeatResponse) ProtoMessage() {}
 
 func (x *SendHeartbeatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[1]
+	mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -106,7 +106,7 @@ func (x *SendHeartbeatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendHeartbeatResponse.ProtoReflect.Descriptor instead.
 func (*SendHeartbeatResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{1}
 }
 
 type SendDidCloseRequest struct {
@@ -120,7 +120,7 @@ type SendDidCloseRequest struct {
 func (x *SendDidCloseRequest) Reset() {
 	*x = SendDidCloseRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[2]
+		mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -133,7 +133,7 @@ func (x *SendDidCloseRequest) String() string {
 func (*SendDidCloseRequest) ProtoMessage() {}
 
 func (x *SendDidCloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[2]
+	mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -146,7 +146,7 @@ func (x *SendDidCloseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDidCloseRequest.ProtoReflect.Descriptor instead.
 func (*SendDidCloseRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *SendDidCloseRequest) GetWorkspaceId() string {
@@ -165,7 +165,7 @@ type SendDidCloseResponse struct {
 func (x *SendDidCloseResponse) Reset() {
 	*x = SendDidCloseResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[3]
+		mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -178,7 +178,7 @@ func (x *SendDidCloseResponse) String() string {
 func (*SendDidCloseResponse) ProtoMessage() {}
 
 func (x *SendDidCloseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[3]
+	mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -191,7 +191,7 @@ func (x *SendDidCloseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDidCloseResponse.ProtoReflect.Descriptor instead.
 func (*SendDidCloseResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{3}
 }
 
 type UpdateGitStatusRequest struct {
@@ -206,7 +206,7 @@ type UpdateGitStatusRequest struct {
 func (x *UpdateGitStatusRequest) Reset() {
 	*x = UpdateGitStatusRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[4]
+		mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -219,7 +219,7 @@ func (x *UpdateGitStatusRequest) String() string {
 func (*UpdateGitStatusRequest) ProtoMessage() {}
 
 func (x *UpdateGitStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[4]
+	mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -232,7 +232,7 @@ func (x *UpdateGitStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateGitStatusRequest.ProtoReflect.Descriptor instead.
 func (*UpdateGitStatusRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateGitStatusRequest) GetWorkspaceId() string {
@@ -258,7 +258,7 @@ type UpdateGitStatusResponse struct {
 func (x *UpdateGitStatusResponse) Reset() {
 	*x = UpdateGitStatusResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[5]
+		mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -271,7 +271,7 @@ func (x *UpdateGitStatusResponse) String() string {
 func (*UpdateGitStatusResponse) ProtoMessage() {}
 
 func (x *UpdateGitStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_experimental_v1_ide_client_proto_msgTypes[5]
+	mi := &file_nxpod_experimental_v1_ide_client_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,12 +284,12 @@ func (x *UpdateGitStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateGitStatusResponse.ProtoReflect.Descriptor instead.
 func (*UpdateGitStatusResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP(), []int{5}
 }
 
-var File_gitpod_experimental_v1_ide_client_proto protoreflect.FileDescriptor
+var File_nxpod_experimental_v1_ide_client_proto protoreflect.FileDescriptor
 
-var file_gitpod_experimental_v1_ide_client_proto_rawDesc = []byte{
+var file_nxpod_experimental_v1_ide_client_proto_rawDesc = []byte{
 	0x0a, 0x27, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x65, 0x78, 0x70, 0x65, 0x72, 0x69, 0x6d,
 	0x65, 0x6e, 0x74, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x2f, 0x69, 0x64, 0x65, 0x5f, 0x63, 0x6c, 0x69,
 	0x65, 0x6e, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x16, 0x67, 0x69, 0x74, 0x70, 0x6f,
@@ -349,35 +349,35 @@ var file_gitpod_experimental_v1_ide_client_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_experimental_v1_ide_client_proto_rawDescOnce sync.Once
-	file_gitpod_experimental_v1_ide_client_proto_rawDescData = file_gitpod_experimental_v1_ide_client_proto_rawDesc
+	file_nxpod_experimental_v1_ide_client_proto_rawDescOnce sync.Once
+	file_nxpod_experimental_v1_ide_client_proto_rawDescData = file_nxpod_experimental_v1_ide_client_proto_rawDesc
 )
 
-func file_gitpod_experimental_v1_ide_client_proto_rawDescGZIP() []byte {
-	file_gitpod_experimental_v1_ide_client_proto_rawDescOnce.Do(func() {
-		file_gitpod_experimental_v1_ide_client_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_experimental_v1_ide_client_proto_rawDescData)
+func file_nxpod_experimental_v1_ide_client_proto_rawDescGZIP() []byte {
+	file_nxpod_experimental_v1_ide_client_proto_rawDescOnce.Do(func() {
+		file_nxpod_experimental_v1_ide_client_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_experimental_v1_ide_client_proto_rawDescData)
 	})
-	return file_gitpod_experimental_v1_ide_client_proto_rawDescData
+	return file_nxpod_experimental_v1_ide_client_proto_rawDescData
 }
 
-var file_gitpod_experimental_v1_ide_client_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_gitpod_experimental_v1_ide_client_proto_goTypes = []interface{}{
-	(*SendHeartbeatRequest)(nil),    // 0: gitpod.experimental.v1.SendHeartbeatRequest
-	(*SendHeartbeatResponse)(nil),   // 1: gitpod.experimental.v1.SendHeartbeatResponse
-	(*SendDidCloseRequest)(nil),     // 2: gitpod.experimental.v1.SendDidCloseRequest
-	(*SendDidCloseResponse)(nil),    // 3: gitpod.experimental.v1.SendDidCloseResponse
-	(*UpdateGitStatusRequest)(nil),  // 4: gitpod.experimental.v1.UpdateGitStatusRequest
-	(*UpdateGitStatusResponse)(nil), // 5: gitpod.experimental.v1.UpdateGitStatusResponse
-	(*GitStatus)(nil),               // 6: gitpod.experimental.v1.GitStatus
+var file_nxpod_experimental_v1_ide_client_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_nxpod_experimental_v1_ide_client_proto_goTypes = []interface{}{
+	(*SendHeartbeatRequest)(nil),    // 0: nxpod.experimental.v1.SendHeartbeatRequest
+	(*SendHeartbeatResponse)(nil),   // 1: nxpod.experimental.v1.SendHeartbeatResponse
+	(*SendDidCloseRequest)(nil),     // 2: nxpod.experimental.v1.SendDidCloseRequest
+	(*SendDidCloseResponse)(nil),    // 3: nxpod.experimental.v1.SendDidCloseResponse
+	(*UpdateGitStatusRequest)(nil),  // 4: nxpod.experimental.v1.UpdateGitStatusRequest
+	(*UpdateGitStatusResponse)(nil), // 5: nxpod.experimental.v1.UpdateGitStatusResponse
+	(*GitStatus)(nil),               // 6: nxpod.experimental.v1.GitStatus
 }
-var file_gitpod_experimental_v1_ide_client_proto_depIdxs = []int32{
-	6, // 0: gitpod.experimental.v1.UpdateGitStatusRequest.status:type_name -> gitpod.experimental.v1.GitStatus
-	0, // 1: gitpod.experimental.v1.IDEClientService.SendHeartbeat:input_type -> gitpod.experimental.v1.SendHeartbeatRequest
-	2, // 2: gitpod.experimental.v1.IDEClientService.SendDidClose:input_type -> gitpod.experimental.v1.SendDidCloseRequest
-	4, // 3: gitpod.experimental.v1.IDEClientService.UpdateGitStatus:input_type -> gitpod.experimental.v1.UpdateGitStatusRequest
-	1, // 4: gitpod.experimental.v1.IDEClientService.SendHeartbeat:output_type -> gitpod.experimental.v1.SendHeartbeatResponse
-	3, // 5: gitpod.experimental.v1.IDEClientService.SendDidClose:output_type -> gitpod.experimental.v1.SendDidCloseResponse
-	5, // 6: gitpod.experimental.v1.IDEClientService.UpdateGitStatus:output_type -> gitpod.experimental.v1.UpdateGitStatusResponse
+var file_nxpod_experimental_v1_ide_client_proto_depIdxs = []int32{
+	6, // 0: nxpod.experimental.v1.UpdateGitStatusRequest.status:type_name -> nxpod.experimental.v1.GitStatus
+	0, // 1: nxpod.experimental.v1.IDEClientService.SendHeartbeat:input_type -> nxpod.experimental.v1.SendHeartbeatRequest
+	2, // 2: nxpod.experimental.v1.IDEClientService.SendDidClose:input_type -> nxpod.experimental.v1.SendDidCloseRequest
+	4, // 3: nxpod.experimental.v1.IDEClientService.UpdateGitStatus:input_type -> nxpod.experimental.v1.UpdateGitStatusRequest
+	1, // 4: nxpod.experimental.v1.IDEClientService.SendHeartbeat:output_type -> nxpod.experimental.v1.SendHeartbeatResponse
+	3, // 5: nxpod.experimental.v1.IDEClientService.SendDidClose:output_type -> nxpod.experimental.v1.SendDidCloseResponse
+	5, // 6: nxpod.experimental.v1.IDEClientService.UpdateGitStatus:output_type -> nxpod.experimental.v1.UpdateGitStatusResponse
 	4, // [4:7] is the sub-list for method output_type
 	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -385,14 +385,14 @@ var file_gitpod_experimental_v1_ide_client_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_experimental_v1_ide_client_proto_init() }
-func file_gitpod_experimental_v1_ide_client_proto_init() {
-	if File_gitpod_experimental_v1_ide_client_proto != nil {
+func init() { file_nxpod_experimental_v1_ide_client_proto_init() }
+func file_nxpod_experimental_v1_ide_client_proto_init() {
+	if File_nxpod_experimental_v1_ide_client_proto != nil {
 		return
 	}
-	file_gitpod_experimental_v1_workspaces_proto_init()
+	file_nxpod_experimental_v1_workspaces_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_experimental_v1_ide_client_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_ide_client_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SendHeartbeatRequest); i {
 			case 0:
 				return &v.state
@@ -404,7 +404,7 @@ func file_gitpod_experimental_v1_ide_client_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_ide_client_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_ide_client_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SendHeartbeatResponse); i {
 			case 0:
 				return &v.state
@@ -416,7 +416,7 @@ func file_gitpod_experimental_v1_ide_client_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_ide_client_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_ide_client_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SendDidCloseRequest); i {
 			case 0:
 				return &v.state
@@ -428,7 +428,7 @@ func file_gitpod_experimental_v1_ide_client_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_ide_client_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_ide_client_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SendDidCloseResponse); i {
 			case 0:
 				return &v.state
@@ -440,7 +440,7 @@ func file_gitpod_experimental_v1_ide_client_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_ide_client_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_ide_client_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateGitStatusRequest); i {
 			case 0:
 				return &v.state
@@ -452,7 +452,7 @@ func file_gitpod_experimental_v1_ide_client_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_experimental_v1_ide_client_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_experimental_v1_ide_client_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateGitStatusResponse); i {
 			case 0:
 				return &v.state
@@ -469,18 +469,18 @@ func file_gitpod_experimental_v1_ide_client_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_experimental_v1_ide_client_proto_rawDesc,
+			RawDescriptor: file_nxpod_experimental_v1_ide_client_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_experimental_v1_ide_client_proto_goTypes,
-		DependencyIndexes: file_gitpod_experimental_v1_ide_client_proto_depIdxs,
-		MessageInfos:      file_gitpod_experimental_v1_ide_client_proto_msgTypes,
+		GoTypes:           file_nxpod_experimental_v1_ide_client_proto_goTypes,
+		DependencyIndexes: file_nxpod_experimental_v1_ide_client_proto_depIdxs,
+		MessageInfos:      file_nxpod_experimental_v1_ide_client_proto_msgTypes,
 	}.Build()
-	File_gitpod_experimental_v1_ide_client_proto = out.File
-	file_gitpod_experimental_v1_ide_client_proto_rawDesc = nil
-	file_gitpod_experimental_v1_ide_client_proto_goTypes = nil
-	file_gitpod_experimental_v1_ide_client_proto_depIdxs = nil
+	File_nxpod_experimental_v1_ide_client_proto = out.File
+	file_nxpod_experimental_v1_ide_client_proto_rawDesc = nil
+	file_nxpod_experimental_v1_ide_client_proto_goTypes = nil
+	file_nxpod_experimental_v1_ide_client_proto_depIdxs = nil
 }

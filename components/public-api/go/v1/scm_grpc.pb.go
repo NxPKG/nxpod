@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/scm.proto
+// source: nxpod/v1/scm.proto
 
 package v1
 
@@ -50,7 +50,7 @@ func NewSCMServiceClient(cc grpc.ClientConnInterface) SCMServiceClient {
 
 func (c *sCMServiceClient) SearchSCMTokens(ctx context.Context, in *SearchSCMTokensRequest, opts ...grpc.CallOption) (*SearchSCMTokensResponse, error) {
 	out := new(SearchSCMTokensResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SCMService/SearchSCMTokens", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SCMService/SearchSCMTokens", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *sCMServiceClient) SearchSCMTokens(ctx context.Context, in *SearchSCMTok
 
 func (c *sCMServiceClient) GuessTokenScopes(ctx context.Context, in *GuessTokenScopesRequest, opts ...grpc.CallOption) (*GuessTokenScopesResponse, error) {
 	out := new(GuessTokenScopesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SCMService/GuessTokenScopes", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SCMService/GuessTokenScopes", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func (c *sCMServiceClient) GuessTokenScopes(ctx context.Context, in *GuessTokenS
 
 func (c *sCMServiceClient) SearchRepositories(ctx context.Context, in *SearchRepositoriesRequest, opts ...grpc.CallOption) (*SearchRepositoriesResponse, error) {
 	out := new(SearchRepositoriesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SCMService/SearchRepositories", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SCMService/SearchRepositories", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (c *sCMServiceClient) SearchRepositories(ctx context.Context, in *SearchRep
 
 func (c *sCMServiceClient) ListSuggestedRepositories(ctx context.Context, in *ListSuggestedRepositoriesRequest, opts ...grpc.CallOption) (*ListSuggestedRepositoriesResponse, error) {
 	out := new(ListSuggestedRepositoriesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.SCMService/ListSuggestedRepositories", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.SCMService/ListSuggestedRepositories", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +142,7 @@ func _SCMService_SearchSCMTokens_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SCMService/SearchSCMTokens",
+		FullMethod: "/nxpod.v1.SCMService/SearchSCMTokens",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SCMServiceServer).SearchSCMTokens(ctx, req.(*SearchSCMTokensRequest))
@@ -160,7 +160,7 @@ func _SCMService_GuessTokenScopes_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SCMService/GuessTokenScopes",
+		FullMethod: "/nxpod.v1.SCMService/GuessTokenScopes",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SCMServiceServer).GuessTokenScopes(ctx, req.(*GuessTokenScopesRequest))
@@ -178,7 +178,7 @@ func _SCMService_SearchRepositories_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SCMService/SearchRepositories",
+		FullMethod: "/nxpod.v1.SCMService/SearchRepositories",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SCMServiceServer).SearchRepositories(ctx, req.(*SearchRepositoriesRequest))
@@ -196,7 +196,7 @@ func _SCMService_ListSuggestedRepositories_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.SCMService/ListSuggestedRepositories",
+		FullMethod: "/nxpod.v1.SCMService/ListSuggestedRepositories",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SCMServiceServer).ListSuggestedRepositories(ctx, req.(*ListSuggestedRepositoriesRequest))
@@ -208,7 +208,7 @@ func _SCMService_ListSuggestedRepositories_Handler(srv interface{}, ctx context.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SCMService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.SCMService",
+	ServiceName: "nxpod.v1.SCMService",
 	HandlerType: (*SCMServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -229,5 +229,5 @@ var SCMService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/scm.proto",
+	Metadata: "nxpod/v1/scm.proto",
 }

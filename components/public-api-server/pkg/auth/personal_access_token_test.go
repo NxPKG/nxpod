@@ -62,27 +62,27 @@ func TestParsePersonalAccessToken_Errors(t *testing.T) {
 		},
 		{
 			Name:  "invalid prefix",
-			Token: "gitpod_yolo_fooo",
+			Token: "nxpod_yolo_fooo",
 		},
 		{
 			Name:  "invalid token with correct prefix",
-			Token: "gitpod_pat_foo",
+			Token: "nxpod_pat_foo",
 		},
 		{
 			Name:  "invalid token with correct prefix and empty value and signature",
-			Token: "gitpod_pat_.",
+			Token: "nxpod_pat_.",
 		},
 		{
 			Name:  "invalid token with correct prefix but missing signature",
-			Token: "gitpod_pat_.value",
+			Token: "nxpod_pat_.value",
 		},
 		{
 			Name:  "invalid token with correct prefix but missing value",
-			Token: "gitpod_pat_signature.",
+			Token: "nxpod_pat_signature.",
 		},
 		{
 			Name:  "invalid signature",
-			Token: "gitpod_pat_signature.value",
+			Token: "nxpod_pat_signature.value",
 		},
 	}
 

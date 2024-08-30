@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { AuthProviderEntry } from "@gitpod/gitpod-protocol";
+import { AuthProviderEntry } from "@nxpod/nxpod-protocol";
 import { MigrationInterface, QueryRunner } from "typeorm";
 import { columnExists, indexExists } from "./helper/helper";
 

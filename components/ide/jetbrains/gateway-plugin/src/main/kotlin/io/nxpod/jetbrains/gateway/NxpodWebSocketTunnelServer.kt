@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.gateway
+package io.nxpod.jetbrains.gateway
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.remoteDev.util.onTerminationOrNow
@@ -40,7 +40,7 @@ class NxpodWebSocketTunnelServer(
 
     fun start(lifetime: Lifetime) {
         val job = GlobalScope.launch(Dispatchers.IO) {
-            thisLogger().info("gitpod: tunnel[$url]: listening on port $port")
+            thisLogger().info("nxpod: tunnel[$url]: listening on port $port")
             try {
                 while (isActive) {
                     try {
@@ -50,16 +50,16 @@ class NxpodWebSocketTunnelServer(
                         }
                     } catch (t: Throwable) {
                         if (isActive) {
-                            thisLogger().error("gitpod: tunnel[$url]: failed to accept", t)
+                            thisLogger().error("nxpod: tunnel[$url]: failed to accept", t)
                         }
                     }
                 }
             } catch (t: Throwable) {
                 if (isActive) {
-                    thisLogger().error("gitpod: tunnel[$url]: failed to listen", t)
+                    thisLogger().error("nxpod: tunnel[$url]: failed to listen", t)
                 }
             } finally {
-                thisLogger().info("gitpod: tunnel[$url]: stopped")
+                thisLogger().info("nxpod: tunnel[$url]: stopped")
             }
         }
         lifetime.onTerminationOrNow {
@@ -79,7 +79,7 @@ class NxpodWebSocketTunnelServer(
             // Forward data from WebSocket to TCP client
             socketClient.onMessageCallback = { data ->
                 outputStream.write(data)
-                thisLogger().trace("gitpod: tunnel[$url]: received ${data.size} bytes")
+                thisLogger().trace("nxpod: tunnel[$url]: received ${data.size} bytes")
             }
 
             connectToWebSocket(socketClient)
@@ -91,13 +91,13 @@ class NxpodWebSocketTunnelServer(
             while (inputStream.read(buffer).also { read = it } != -1) {
                 // Forward data from TCP to WebSocket
                 socketClient.sendData(buffer.copyOfRange(0, read))
-                thisLogger().trace("gitpod: tunnel[$url]: sent $read bytes")
+                thisLogger().trace("nxpod: tunnel[$url]: sent $read bytes")
             }
         } catch (t: Throwable) {
             if (t is SocketException && t.message?.contains("Socket closed") == true) {
                 return
             }
-            thisLogger().error("gitpod: tunnel[$url]: failed to pipe", t)
+            thisLogger().error("nxpod: tunnel[$url]: failed to pipe", t)
         } finally {
             clients.remove(socketClient)
             socketClient.close()
@@ -114,7 +114,7 @@ class NxpodWebSocketTunnelServer(
             }
             val proxyAddress = proxy.address()
             if (proxyAddress !is InetSocketAddress) {
-                thisLogger().warn("gitpod: tunnel[$url]: unexpected proxy: $proxy")
+                thisLogger().warn("nxpod: tunnel[$url]: unexpected proxy: $proxy")
                 continue
             }
             val hostName = proxyAddress.hostString
@@ -138,7 +138,7 @@ class NxpodWebSocketTunnelServer(
         val config = ClientEndpointConfig.Builder.create()
             .configurator(object : Configurator() {
                 override fun beforeRequest(headers: MutableMap<String, List<String>>) {
-                    headers["x-gitpod-owner-token"] = Collections.singletonList(ownerToken)
+                    headers["x-nxpod-owner-token"] = Collections.singletonList(ownerToken)
                 }
             })
             .build()
@@ -168,12 +168,12 @@ class NxpodWebSocketTunnelClient(
     }
 
     override fun onClose(session: Session, closeReason: CloseReason) {
-        thisLogger().info("gitpod: tunnel[$url]: closed ($closeReason)")
+        thisLogger().info("nxpod: tunnel[$url]: closed ($closeReason)")
         this.doClose()
     }
 
     override fun onError(session: Session?, thr: Throwable?) {
-        thisLogger().error("gitpod: tunnel[$url]: failed", thr)
+        thisLogger().error("nxpod: tunnel[$url]: failed", thr)
         this.doClose()
     }
 
@@ -181,12 +181,12 @@ class NxpodWebSocketTunnelClient(
         try {
             tcpSocket.close()
         } catch (t: Throwable) {
-            thisLogger().error("gitpod: tunnel[$url]: failed to close socket", t)
+            thisLogger().error("nxpod: tunnel[$url]: failed to close socket", t)
         }
         try {
             container?.stop()
         } catch (t: Throwable) {
-            thisLogger().error("gitpod: tunnel[$url]: failed to stop container", t)
+            thisLogger().error("nxpod: tunnel[$url]: failed to stop container", t)
         }
     }
 
@@ -198,12 +198,12 @@ class NxpodWebSocketTunnelClient(
         try {
             webSocketSession?.close()
         } catch (t: Throwable) {
-            thisLogger().error("gitpod: tunnel[$url]: failed to close", t)
+            thisLogger().error("nxpod: tunnel[$url]: failed to close", t)
         }
         try {
             container?.stop()
         } catch (t: Throwable) {
-            thisLogger().error("gitpod: tunnel[$url]: failed to stop container", t)
+            thisLogger().error("nxpod: tunnel[$url]: failed to stop container", t)
         }
     }
 

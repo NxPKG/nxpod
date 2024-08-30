@@ -1,5 +1,5 @@
 {
-  "name": "@gitpod/public-api",
+  "name": "@nxpod/public-api",
   "version": "0.1.5",
   "license": "AGPL-3.0",
   "main": "./lib/index.js",
@@ -19,10 +19,10 @@
       "import": "./lib/esm/*.js",
       "require": "./lib/*.js"
     },
-    "./lib/gitpod/experimental/v1": {
-      "types": "./lib/gitpod/experimental/v1/index.d.ts",
-      "import": "./lib/esm/gitpod/experimental/v1/index.js",
-      "require": "./lib/gitpod/experimental/v1/index.js"
+    "./lib/nxpod/experimental/v1": {
+      "types": "./lib/nxpod/experimental/v1/index.d.ts",
+      "import": "./lib/esm/nxpod/experimental/v1/index.js",
+      "require": "./lib/nxpod/experimental/v1/index.js"
     }
   },
   "scripts": {

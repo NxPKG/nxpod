@@ -23,7 +23,7 @@ import {
     WorkspaceSession,
     PrebuiltWorkspaceWithWorkspace,
     PrebuildWithStatus,
-} from "@gitpod/gitpod-protocol";
+} from "@nxpod/nxpod-protocol";
 
 export type MaybeWorkspace = Workspace | undefined;
 export type MaybeWorkspaceInstance = WorkspaceInstance | undefined;

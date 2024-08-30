@@ -11,22 +11,22 @@ const banners = [
     {
         type: "Blog Post",
         title: "Nxpod Enterprise:<br/> Self-hosted, not self-managed",
-        link: "https://www.nxpod.io/blog/self-hosted-not-self-managed",
+        link: "https://www.nxpod.khulnasoft.com/blog/self-hosted-not-self-managed",
     },
     {
         type: "Customer Story",
         title: "Thousands of hours spent on VM-based development environments reduced to zero using Nxpod",
-        link: "https://www.nxpod.io/customers/kingland",
+        link: "https://www.nxpod.khulnasoft.com/customers/kingland",
     },
     {
         type: "Gartner Report",
         title: `"By 2026, 60% of cloud workloads will be built and deployed using CDE's"`,
-        link: "https://www.nxpod.io/blog/gartner-2023-cde-hypecycle",
+        link: "https://www.nxpod.khulnasoft.com/blog/gartner-2023-cde-hypecycle",
     },
     {
         type: "Webinar Series",
         title: "The Platform Engineering maturity model",
-        link: "https://www.nxpod.io/events#platform-maturity-model-series",
+        link: "https://www.nxpod.khulnasoft.com/events#platform-maturity-model-series",
     },
 ];
 

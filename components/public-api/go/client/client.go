@@ -10,19 +10,19 @@ import (
 	"net/http"
 
 	"github.com/bufbuild/connect-go"
-	gitpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
+	nxpod_experimental_v1connect "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
 )
 
 type Nxpod struct {
 	cfg *options
 
-	Workspaces           gitpod_experimental_v1connect.WorkspacesServiceClient
-	Editors              gitpod_experimental_v1connect.EditorServiceClient
-	Teams                gitpod_experimental_v1connect.TeamsServiceClient
-	Projects             gitpod_experimental_v1connect.ProjectsServiceClient
-	PersonalAccessTokens gitpod_experimental_v1connect.TokensServiceClient
-	IdentityProvider     gitpod_experimental_v1connect.IdentityProviderServiceClient
-	User                 gitpod_experimental_v1connect.UserServiceClient
+	Workspaces           nxpod_experimental_v1connect.WorkspacesServiceClient
+	Editors              nxpod_experimental_v1connect.EditorServiceClient
+	Teams                nxpod_experimental_v1connect.TeamsServiceClient
+	Projects             nxpod_experimental_v1connect.ProjectsServiceClient
+	PersonalAccessTokens nxpod_experimental_v1connect.TokensServiceClient
+	IdentityProvider     nxpod_experimental_v1connect.IdentityProviderServiceClient
+	User                 nxpod_experimental_v1connect.UserServiceClient
 }
 
 func New(options ...Option) (*Nxpod, error) {
@@ -46,13 +46,13 @@ func New(options ...Option) (*Nxpod, error) {
 
 	return &Nxpod{
 		cfg:                  opts,
-		Teams:                gitpod_experimental_v1connect.NewTeamsServiceClient(client, url, serviceOpts...),
-		Projects:             gitpod_experimental_v1connect.NewProjectsServiceClient(client, url, serviceOpts...),
-		PersonalAccessTokens: gitpod_experimental_v1connect.NewTokensServiceClient(client, url, serviceOpts...),
-		Workspaces:           gitpod_experimental_v1connect.NewWorkspacesServiceClient(client, url, serviceOpts...),
-		Editors:              gitpod_experimental_v1connect.NewEditorServiceClient(client, url, serviceOpts...),
-		IdentityProvider:     gitpod_experimental_v1connect.NewIdentityProviderServiceClient(client, url, serviceOpts...),
-		User:                 gitpod_experimental_v1connect.NewUserServiceClient(client, url, serviceOpts...),
+		Teams:                nxpod_experimental_v1connect.NewTeamsServiceClient(client, url, serviceOpts...),
+		Projects:             nxpod_experimental_v1connect.NewProjectsServiceClient(client, url, serviceOpts...),
+		PersonalAccessTokens: nxpod_experimental_v1connect.NewTokensServiceClient(client, url, serviceOpts...),
+		Workspaces:           nxpod_experimental_v1connect.NewWorkspacesServiceClient(client, url, serviceOpts...),
+		Editors:              nxpod_experimental_v1connect.NewEditorServiceClient(client, url, serviceOpts...),
+		IdentityProvider:     nxpod_experimental_v1connect.NewIdentityProviderServiceClient(client, url, serviceOpts...),
+		User:                 nxpod_experimental_v1connect.NewUserServiceClient(client, url, serviceOpts...),
 	}, nil
 }
 
@@ -87,7 +87,7 @@ type options struct {
 
 func defaultOptions() *options {
 	return &options{
-		url:    "https://api.gitpod.io",
+		url:    "https://api.nxpod.khulnasoft.com",
 		client: http.DefaultClient,
 	}
 }

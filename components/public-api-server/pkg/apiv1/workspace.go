@@ -15,7 +15,7 @@ import (
 	"github.com/nxpkg/nxpod/common-go/log"
 	v1 "github.com/nxpkg/nxpod/components/public-api/go/experimental/v1"
 	"github.com/nxpkg/nxpod/components/public-api/go/experimental/v1/v1connect"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/proxy"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

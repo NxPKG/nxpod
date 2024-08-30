@@ -4,7 +4,7 @@ A curated list of notable changes to the Nxpod CLI.
 
 ## v1.0.5
 
--  When getting the information about an org with `gitpod organization get`, use the currently active one from the context by default
+-  When getting the information about an org with `nxpod organization get`, use the currently active one from the context by default
 
 ## v1.0.4
 

@@ -79,7 +79,7 @@ func (u *Usage) GetMetadataAsWorkspaceInstanceData() (WorkspaceInstanceUsageData
 }
 
 // WorkspaceInstanceUsageData represents the shape of metadata for usage entries of kind "workspaceinstance"
-// the equivalent TypeScript definition is maintained in `components/gitpod-protocol/src/usage.ts“
+// the equivalent TypeScript definition is maintained in `components/nxpod-protocol/src/usage.ts“
 type WorkspaceInstanceUsageData struct {
 	WorkspaceId    string        `json:"workspaceId"`
 	WorkspaceType  WorkspaceType `json:"workspaceType"`

@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { PaginationRequest } from "@gitpod/public-api/lib/gitpod/v1/pagination_pb";
+import { PaginationRequest } from "@nxpod/public-api/lib/nxpod/v1/pagination_pb";
 
 export interface ParsedPagination {
     offset: number;

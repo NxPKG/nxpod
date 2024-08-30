@@ -41,7 +41,7 @@ func PrintError(out io.Writer, command string, err error) {
 	if len(resolutions) > 0 {
 		fmt.Fprint(out, stylePossibleResolutions.Sprint("Possible resolutions:\n"))
 		for _, r := range resolutions {
-			r = strings.ReplaceAll(r, "{gitpod}", command)
+			r = strings.ReplaceAll(r, "{nxpod}", command)
 			fmt.Fprintf(out, "  - %s\n", r)
 		}
 		fmt.Fprintln(out)

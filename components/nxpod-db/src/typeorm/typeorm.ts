@@ -4,7 +4,7 @@
  * See License.AGPL.txt in the project root for license information.
  */
 
-import { Deferred } from "@gitpod/gitpod-protocol/lib/util/deferred";
+import { Deferred } from "@nxpod/nxpod-protocol/lib/util/deferred";
 import { injectable, inject, optional } from "inversify";
 
 import { Connection, ConnectionOptions, PrimaryColumnOptions, getConnectionManager, createConnection } from "typeorm";

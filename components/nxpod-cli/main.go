@@ -5,7 +5,7 @@
 package main
 
 import (
-	"github.com/nxpkg/nxpod/gitpod-cli/cmd"
+	"github.com/nxpkg/nxpod/nxpod-cli/cmd"
 )
 
 func main() {

@@ -20,7 +20,7 @@ webhooks:
   name: mworkspace.kb.io
   rules:
   - apiGroups:
-    - workspace.nxpod.io
+    - workspace.nxpod.khulnasoft.com
     apiVersions:
     - v1
     operations:
@@ -47,7 +47,7 @@ webhooks:
   name: vworkspace.kb.io
   rules:
   - apiGroups:
-    - workspace.nxpod.io
+    - workspace.nxpod.khulnasoft.com
     apiVersions:
     - v1
     operations:

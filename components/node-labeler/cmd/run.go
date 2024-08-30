@@ -42,8 +42,8 @@ import (
 )
 
 const (
-	registryFacadeLabel = "gitpod.io/registry-facade_ready_ns_%v"
-	wsdaemonLabel       = "gitpod.io/ws-daemon_ready_ns_%v"
+	registryFacadeLabel = "nxpod.khulnasoft.com/registry-facade_ready_ns_%v"
+	wsdaemonLabel       = "nxpod.khulnasoft.com/ws-daemon_ready_ns_%v"
 
 	registryFacade = "registry-facade"
 	wsDaemon       = "ws-daemon"
@@ -75,7 +75,7 @@ var runCmd = &cobra.Command{
 				Port: 9443,
 			}),
 			LeaderElection:   true,
-			LeaderElectionID: "node-labeler.gitpod.io",
+			LeaderElectionID: "node-labeler.nxpod.khulnasoft.com",
 		})
 		if err != nil {
 			log.WithError(err).Fatal("unable to start node-labeber")

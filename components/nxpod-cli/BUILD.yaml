@@ -10,10 +10,10 @@ packages:
       - GOOS=linux
     deps:
       - components/supervisor-api/go:lib
-      - components/gitpod-protocol/go:lib
+      - components/nxpod-protocol/go:lib
       - components/common-go:lib
       - components/ide-metrics-api/go:lib
       - components/public-api/go:lib
     config:
       packaging: app
-      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod.Version=commit-${__git_commit}'"]
+      buildCommand: ["go", "build", "-trimpath", "-ldflags", "-buildid= -w -s -X 'github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod.Version=commit-${__git_commit}'"]

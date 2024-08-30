@@ -18,7 +18,7 @@ import { inject, injectable } from "inversify";
 import { EntityManager, Repository } from "typeorm";
 import { DBOAuthAuthCodeEntry } from "./entity/db-oauth-auth-code";
 import { TypeORM } from "./typeorm";
-import { log } from "@gitpod/gitpod-protocol/lib/util/logging";
+import { log } from "@nxpod/nxpod-protocol/lib/util/logging";
 
 const expiryInFuture = new DateInterval("5m");
 

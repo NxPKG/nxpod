@@ -5,7 +5,7 @@
  */
 
 import { Entity, Column, PrimaryColumn } from "typeorm";
-import { PrebuildInfo } from "@gitpod/gitpod-protocol";
+import { PrebuildInfo } from "@nxpod/nxpod-protocol";
 
 import { TypeORM } from "../../typeorm/typeorm";
 

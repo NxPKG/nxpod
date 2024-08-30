@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/nxpkg/nxpod/common-go/log"
-	gitpod "github.com/nxpkg/nxpod/gitpod-protocol"
+	nxpod "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/auth"
 	"github.com/nxpkg/nxpod/public-api-server/pkg/origin"
 	"github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus/ctxlogrus"
@@ -23,7 +23,7 @@ import (
 type ServerConnectionPool interface {
 	// Get retrieves or creates a new connection for the specified token
 	// Connections must not be shared across tokens
-	Get(ctx context.Context, token auth.Token) (gitpod.APIInterface, error)
+	Get(ctx context.Context, token auth.Token) (nxpod.APIInterface, error)
 }
 
 // NoConnectionPool is a simple version of the ServerConnectionPool which always creates a new connection.
@@ -31,7 +31,7 @@ type NoConnectionPool struct {
 	ServerAPI *url.URL
 }
 
-func (p *NoConnectionPool) Get(ctx context.Context, token auth.Token) (gitpod.APIInterface, error) {
+func (p *NoConnectionPool) Get(ctx context.Context, token auth.Token) (nxpod.APIInterface, error) {
 	logger := ctxlogrus.Extract(ctx)
 
 	start := time.Now()
@@ -39,7 +39,7 @@ func (p *NoConnectionPool) Get(ctx context.Context, token auth.Token) (gitpod.AP
 		reportConnectionDuration(time.Since(start))
 	}()
 
-	opts := gitpod.ConnectToServerOpts{
+	opts := nxpod.ConnectToServerOpts{
 		Context: ctx,
 		Log:     logger,
 		Origin:  origin.FromContext(ctx),
@@ -54,7 +54,7 @@ func (p *NoConnectionPool) Get(ctx context.Context, token auth.Token) (gitpod.AP
 		return nil, errors.New("unknown token type")
 	}
 
-	conn, err := gitpod.ConnectToServer(p.ServerAPI.String(), opts)
+	conn, err := nxpod.ConnectToServer(p.ServerAPI.String(), opts)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create new connection to server: %w", err)
 	}
@@ -67,9 +67,9 @@ func NewConnectionPool(address *url.URL, poolSize int) (*ConnectionPool, error) 
 		connectionPoolSize.Dec()
 
 		// We attempt to gracefully close the connection
-		conn, ok := value.(gitpod.APIInterface)
+		conn, ok := value.(nxpod.APIInterface)
 		if !ok {
-			log.Errorf("Failed to cast cache value to gitpod API Interface")
+			log.Errorf("Failed to cast cache value to nxpod API Interface")
 			return
 		}
 
@@ -84,8 +84,8 @@ func NewConnectionPool(address *url.URL, poolSize int) (*ConnectionPool, error) 
 
 	return &ConnectionPool{
 		cache: cache,
-		connConstructor: func(ctx context.Context, token auth.Token) (gitpod.APIInterface, error) {
-			opts := gitpod.ConnectToServerOpts{
+		connConstructor: func(ctx context.Context, token auth.Token) (nxpod.APIInterface, error) {
+			opts := nxpod.ConnectToServerOpts{
 				// We're using Background context as we want the connection to persist beyond the lifecycle of a single request
 				Context: context.Background(),
 				Log:     log.Log,
@@ -110,7 +110,7 @@ func NewConnectionPool(address *url.URL, poolSize int) (*ConnectionPool, error) 
 				return nil, fmt.Errorf("failed to construct endpoint: %w", err)
 			}
 
-			conn, err := gitpod.ConnectToServer(endpoint, opts)
+			conn, err := nxpod.ConnectToServer(endpoint, opts)
 			if err != nil {
 				return nil, fmt.Errorf("failed to create new connection to server: %w", err)
 			}
@@ -127,20 +127,20 @@ type conenctionPoolCacheKey struct {
 }
 
 type ConnectionPool struct {
-	connConstructor func(context.Context, auth.Token) (gitpod.APIInterface, error)
+	connConstructor func(context.Context, auth.Token) (nxpod.APIInterface, error)
 
 	// cache stores token to connection mapping
 	cache *lru.Cache
 }
 
-func (p *ConnectionPool) Get(ctx context.Context, token auth.Token) (gitpod.APIInterface, error) {
+func (p *ConnectionPool) Get(ctx context.Context, token auth.Token) (nxpod.APIInterface, error) {
 	origin := origin.FromContext(ctx)
 
 	cacheKey := p.cacheKey(token, origin)
 	cached, found := p.cache.Get(cacheKey)
 	reportCacheOutcome(found)
 	if found {
-		conn, ok := cached.(*gitpod.APIoverJSONRPC)
+		conn, ok := cached.(*nxpod.APIoverJSONRPC)
 		if ok {
 			return conn, nil
 		}
@@ -169,7 +169,7 @@ func getEndpointBasedOnToken(t auth.Token, u *url.URL) (string, error) {
 	case auth.AccessTokenType:
 		return fmt.Sprintf("%s/v1", u.String()), nil
 	case auth.CookieTokenType:
-		return fmt.Sprintf("%s/gitpod", u.String()), nil
+		return fmt.Sprintf("%s/nxpod", u.String()), nil
 	default:
 		return "", errors.New("unknown token type")
 	}

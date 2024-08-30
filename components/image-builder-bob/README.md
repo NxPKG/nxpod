@@ -7,7 +7,7 @@ Bob is a CLI responsible for building and pushing workspace images during worksp
 For each image build, a headless workspace gets created in the workspace cluster by `image-builder-mk3` in this headless workspace runs:
 - `bob proxy`, which gets started by workspacekit in ring1, and receives credentials for pushing images to a docker registry. It proxies and authenticates the image pushes from `bob build`.
 - `bob build` as a workspace task, which builds the
-  - **base layer**, if a custom Dockerfile is specified in `.gitpod.yaml`. If this base image has already been built for the workspace, this step is skipped, and the reference of the previously built image is used instead to build the workspace image next.
+  - **base layer**, if a custom Dockerfile is specified in `.nxpod.yaml`. If this base image has already been built for the workspace, this step is skipped, and the reference of the previously built image is used instead to build the workspace image next.
   - **workspace image**, which using crane to copy the image from the base layer, where the base layer is either a previously built custom Dockerfile or a public image.
   These images get pushed over `localhost` to `bob proxy`, as `bob build` does not receive the credentials to push to private registries.
 
@@ -45,7 +45,7 @@ docker push localhost:5000/source:latest
 Build and run
 ```console
 # build and install bob (do this after every change)
-cd /workspace/gitpod/components/image-builder-bob
+cd /workspace/nxpod/components/image-builder-bob
 go install
 
 # run bob
@@ -58,7 +58,7 @@ BOB_BASE_REF=localhost:5000/source:latest BOB_TARGET_REF=localhost:5000/target:8
 ## Run tests
 
 ```console
-cd /workspace/gitpod/components/image-builder-bob
+cd /workspace/nxpod/components/image-builder-bob
 go test -v ./...
 ```
 

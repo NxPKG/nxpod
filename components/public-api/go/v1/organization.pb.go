@@ -6,7 +6,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        (unknown)
-// source: gitpod/v1/organization.proto
+// source: nxpod/v1/organization.proto
 
 package v1
 
@@ -62,11 +62,11 @@ func (x OrganizationRole) String() string {
 }
 
 func (OrganizationRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_organization_proto_enumTypes[0].Descriptor()
+	return file_nxpod_v1_organization_proto_enumTypes[0].Descriptor()
 }
 
 func (OrganizationRole) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_organization_proto_enumTypes[0]
+	return &file_nxpod_v1_organization_proto_enumTypes[0]
 }
 
 func (x OrganizationRole) Number() protoreflect.EnumNumber {
@@ -75,7 +75,7 @@ func (x OrganizationRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use OrganizationRole.Descriptor instead.
 func (OrganizationRole) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{0}
 }
 
 type ListOrganizationsRequest_Scope int32
@@ -111,11 +111,11 @@ func (x ListOrganizationsRequest_Scope) String() string {
 }
 
 func (ListOrganizationsRequest_Scope) Descriptor() protoreflect.EnumDescriptor {
-	return file_gitpod_v1_organization_proto_enumTypes[1].Descriptor()
+	return file_nxpod_v1_organization_proto_enumTypes[1].Descriptor()
 }
 
 func (ListOrganizationsRequest_Scope) Type() protoreflect.EnumType {
-	return &file_gitpod_v1_organization_proto_enumTypes[1]
+	return &file_nxpod_v1_organization_proto_enumTypes[1]
 }
 
 func (x ListOrganizationsRequest_Scope) Number() protoreflect.EnumNumber {
@@ -124,7 +124,7 @@ func (x ListOrganizationsRequest_Scope) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ListOrganizationsRequest_Scope.Descriptor instead.
 func (ListOrganizationsRequest_Scope) EnumDescriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{16, 0}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{16, 0}
 }
 
 type Organization struct {
@@ -141,7 +141,7 @@ type Organization struct {
 func (x *Organization) Reset() {
 	*x = Organization{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[0]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -154,7 +154,7 @@ func (x *Organization) String() string {
 func (*Organization) ProtoMessage() {}
 
 func (x *Organization) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[0]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -167,7 +167,7 @@ func (x *Organization) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Organization.ProtoReflect.Descriptor instead.
 func (*Organization) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{0}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Organization) GetId() string {
@@ -204,7 +204,7 @@ type OrganizationMember struct {
 	unknownFields protoimpl.UnknownFields
 
 	UserId              string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Role                OrganizationRole       `protobuf:"varint,2,opt,name=role,proto3,enum=gitpod.v1.OrganizationRole" json:"role,omitempty"`
+	Role                OrganizationRole       `protobuf:"varint,2,opt,name=role,proto3,enum=nxpod.v1.OrganizationRole" json:"role,omitempty"`
 	MemberSince         *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=member_since,json=memberSince,proto3" json:"member_since,omitempty"`
 	AvatarUrl           string                 `protobuf:"bytes,4,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	FullName            string                 `protobuf:"bytes,5,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
@@ -215,7 +215,7 @@ type OrganizationMember struct {
 func (x *OrganizationMember) Reset() {
 	*x = OrganizationMember{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[1]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -228,7 +228,7 @@ func (x *OrganizationMember) String() string {
 func (*OrganizationMember) ProtoMessage() {}
 
 func (x *OrganizationMember) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[1]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -241,7 +241,7 @@ func (x *OrganizationMember) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrganizationMember.ProtoReflect.Descriptor instead.
 func (*OrganizationMember) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{1}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *OrganizationMember) GetUserId() string {
@@ -310,7 +310,7 @@ type OrganizationSettings struct {
 func (x *OrganizationSettings) Reset() {
 	*x = OrganizationSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[2]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -323,7 +323,7 @@ func (x *OrganizationSettings) String() string {
 func (*OrganizationSettings) ProtoMessage() {}
 
 func (x *OrganizationSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[2]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -336,7 +336,7 @@ func (x *OrganizationSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrganizationSettings.ProtoReflect.Descriptor instead.
 func (*OrganizationSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{2}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *OrganizationSettings) GetWorkspaceSharingDisabled() bool {
@@ -401,7 +401,7 @@ type ListOrganizationWorkspaceClassesRequest struct {
 func (x *ListOrganizationWorkspaceClassesRequest) Reset() {
 	*x = ListOrganizationWorkspaceClassesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[3]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -414,7 +414,7 @@ func (x *ListOrganizationWorkspaceClassesRequest) String() string {
 func (*ListOrganizationWorkspaceClassesRequest) ProtoMessage() {}
 
 func (x *ListOrganizationWorkspaceClassesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[3]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -427,7 +427,7 @@ func (x *ListOrganizationWorkspaceClassesRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use ListOrganizationWorkspaceClassesRequest.ProtoReflect.Descriptor instead.
 func (*ListOrganizationWorkspaceClassesRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{3}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ListOrganizationWorkspaceClassesRequest) GetPagination() *PaginationRequest {
@@ -456,7 +456,7 @@ type ListOrganizationWorkspaceClassesResponse struct {
 func (x *ListOrganizationWorkspaceClassesResponse) Reset() {
 	*x = ListOrganizationWorkspaceClassesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[4]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -469,7 +469,7 @@ func (x *ListOrganizationWorkspaceClassesResponse) String() string {
 func (*ListOrganizationWorkspaceClassesResponse) ProtoMessage() {}
 
 func (x *ListOrganizationWorkspaceClassesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[4]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,7 +482,7 @@ func (x *ListOrganizationWorkspaceClassesResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use ListOrganizationWorkspaceClassesResponse.ProtoReflect.Descriptor instead.
 func (*ListOrganizationWorkspaceClassesResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{4}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListOrganizationWorkspaceClassesResponse) GetPagination() *PaginationResponse {
@@ -513,7 +513,7 @@ type UpdateOrganizationRequest struct {
 func (x *UpdateOrganizationRequest) Reset() {
 	*x = UpdateOrganizationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[5]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -526,7 +526,7 @@ func (x *UpdateOrganizationRequest) String() string {
 func (*UpdateOrganizationRequest) ProtoMessage() {}
 
 func (x *UpdateOrganizationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[5]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -539,7 +539,7 @@ func (x *UpdateOrganizationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOrganizationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOrganizationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{5}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateOrganizationRequest) GetOrganizationId() string {
@@ -568,7 +568,7 @@ type UpdateOrganizationResponse struct {
 func (x *UpdateOrganizationResponse) Reset() {
 	*x = UpdateOrganizationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[6]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -581,7 +581,7 @@ func (x *UpdateOrganizationResponse) String() string {
 func (*UpdateOrganizationResponse) ProtoMessage() {}
 
 func (x *UpdateOrganizationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[6]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -594,7 +594,7 @@ func (x *UpdateOrganizationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOrganizationResponse.ProtoReflect.Descriptor instead.
 func (*UpdateOrganizationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{6}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdateOrganizationResponse) GetOrganization() *Organization {
@@ -618,7 +618,7 @@ type TimeoutSettings struct {
 func (x *TimeoutSettings) Reset() {
 	*x = TimeoutSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[7]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -631,7 +631,7 @@ func (x *TimeoutSettings) String() string {
 func (*TimeoutSettings) ProtoMessage() {}
 
 func (x *TimeoutSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[7]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -644,7 +644,7 @@ func (x *TimeoutSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TimeoutSettings.ProtoReflect.Descriptor instead.
 func (*TimeoutSettings) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{7}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *TimeoutSettings) GetInactivity() *durationpb.Duration {
@@ -696,7 +696,7 @@ type UpdateOrganizationSettingsRequest struct {
 func (x *UpdateOrganizationSettingsRequest) Reset() {
 	*x = UpdateOrganizationSettingsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[8]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -709,7 +709,7 @@ func (x *UpdateOrganizationSettingsRequest) String() string {
 func (*UpdateOrganizationSettingsRequest) ProtoMessage() {}
 
 func (x *UpdateOrganizationSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[8]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -722,7 +722,7 @@ func (x *UpdateOrganizationSettingsRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UpdateOrganizationSettingsRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOrganizationSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{8}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateOrganizationSettingsRequest) GetOrganizationId() string {
@@ -807,7 +807,7 @@ type UpdateOrganizationSettingsResponse struct {
 func (x *UpdateOrganizationSettingsResponse) Reset() {
 	*x = UpdateOrganizationSettingsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[9]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -820,7 +820,7 @@ func (x *UpdateOrganizationSettingsResponse) String() string {
 func (*UpdateOrganizationSettingsResponse) ProtoMessage() {}
 
 func (x *UpdateOrganizationSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[9]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -833,7 +833,7 @@ func (x *UpdateOrganizationSettingsResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use UpdateOrganizationSettingsResponse.ProtoReflect.Descriptor instead.
 func (*UpdateOrganizationSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{9}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateOrganizationSettingsResponse) GetSettings() *OrganizationSettings {
@@ -855,7 +855,7 @@ type GetOrganizationSettingsRequest struct {
 func (x *GetOrganizationSettingsRequest) Reset() {
 	*x = GetOrganizationSettingsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[10]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -868,7 +868,7 @@ func (x *GetOrganizationSettingsRequest) String() string {
 func (*GetOrganizationSettingsRequest) ProtoMessage() {}
 
 func (x *GetOrganizationSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[10]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -881,7 +881,7 @@ func (x *GetOrganizationSettingsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrganizationSettingsRequest.ProtoReflect.Descriptor instead.
 func (*GetOrganizationSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{10}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetOrganizationSettingsRequest) GetOrganizationId() string {
@@ -903,7 +903,7 @@ type GetOrganizationSettingsResponse struct {
 func (x *GetOrganizationSettingsResponse) Reset() {
 	*x = GetOrganizationSettingsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[11]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -916,7 +916,7 @@ func (x *GetOrganizationSettingsResponse) String() string {
 func (*GetOrganizationSettingsResponse) ProtoMessage() {}
 
 func (x *GetOrganizationSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[11]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -929,7 +929,7 @@ func (x *GetOrganizationSettingsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrganizationSettingsResponse.ProtoReflect.Descriptor instead.
 func (*GetOrganizationSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{11}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetOrganizationSettingsResponse) GetSettings() *OrganizationSettings {
@@ -951,7 +951,7 @@ type CreateOrganizationRequest struct {
 func (x *CreateOrganizationRequest) Reset() {
 	*x = CreateOrganizationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[12]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -964,7 +964,7 @@ func (x *CreateOrganizationRequest) String() string {
 func (*CreateOrganizationRequest) ProtoMessage() {}
 
 func (x *CreateOrganizationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[12]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -977,7 +977,7 @@ func (x *CreateOrganizationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateOrganizationRequest.ProtoReflect.Descriptor instead.
 func (*CreateOrganizationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{12}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CreateOrganizationRequest) GetName() string {
@@ -999,7 +999,7 @@ type CreateOrganizationResponse struct {
 func (x *CreateOrganizationResponse) Reset() {
 	*x = CreateOrganizationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[13]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1012,7 +1012,7 @@ func (x *CreateOrganizationResponse) String() string {
 func (*CreateOrganizationResponse) ProtoMessage() {}
 
 func (x *CreateOrganizationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[13]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1025,7 +1025,7 @@ func (x *CreateOrganizationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateOrganizationResponse.ProtoReflect.Descriptor instead.
 func (*CreateOrganizationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{13}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreateOrganizationResponse) GetOrganization() *Organization {
@@ -1047,7 +1047,7 @@ type GetOrganizationRequest struct {
 func (x *GetOrganizationRequest) Reset() {
 	*x = GetOrganizationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[14]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1060,7 +1060,7 @@ func (x *GetOrganizationRequest) String() string {
 func (*GetOrganizationRequest) ProtoMessage() {}
 
 func (x *GetOrganizationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[14]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1073,7 +1073,7 @@ func (x *GetOrganizationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrganizationRequest.ProtoReflect.Descriptor instead.
 func (*GetOrganizationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{14}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetOrganizationRequest) GetOrganizationId() string {
@@ -1095,7 +1095,7 @@ type GetOrganizationResponse struct {
 func (x *GetOrganizationResponse) Reset() {
 	*x = GetOrganizationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[15]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1108,7 +1108,7 @@ func (x *GetOrganizationResponse) String() string {
 func (*GetOrganizationResponse) ProtoMessage() {}
 
 func (x *GetOrganizationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[15]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1121,7 +1121,7 @@ func (x *GetOrganizationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrganizationResponse.ProtoReflect.Descriptor instead.
 func (*GetOrganizationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{15}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetOrganizationResponse) GetOrganization() *Organization {
@@ -1139,13 +1139,13 @@ type ListOrganizationsRequest struct {
 	// pagination contains the pagination options for listing organizations
 	Pagination *PaginationRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
 	// scope is the scope of the organizations to list
-	Scope ListOrganizationsRequest_Scope `protobuf:"varint,2,opt,name=scope,proto3,enum=gitpod.v1.ListOrganizationsRequest_Scope" json:"scope,omitempty"`
+	Scope ListOrganizationsRequest_Scope `protobuf:"varint,2,opt,name=scope,proto3,enum=nxpod.v1.ListOrganizationsRequest_Scope" json:"scope,omitempty"`
 }
 
 func (x *ListOrganizationsRequest) Reset() {
 	*x = ListOrganizationsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[16]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1158,7 +1158,7 @@ func (x *ListOrganizationsRequest) String() string {
 func (*ListOrganizationsRequest) ProtoMessage() {}
 
 func (x *ListOrganizationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[16]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1171,7 +1171,7 @@ func (x *ListOrganizationsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListOrganizationsRequest.ProtoReflect.Descriptor instead.
 func (*ListOrganizationsRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{16}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ListOrganizationsRequest) GetPagination() *PaginationRequest {
@@ -1202,7 +1202,7 @@ type ListOrganizationsResponse struct {
 func (x *ListOrganizationsResponse) Reset() {
 	*x = ListOrganizationsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[17]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1215,7 +1215,7 @@ func (x *ListOrganizationsResponse) String() string {
 func (*ListOrganizationsResponse) ProtoMessage() {}
 
 func (x *ListOrganizationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[17]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1228,7 +1228,7 @@ func (x *ListOrganizationsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListOrganizationsResponse.ProtoReflect.Descriptor instead.
 func (*ListOrganizationsResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{17}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ListOrganizationsResponse) GetOrganizations() []*Organization {
@@ -1257,7 +1257,7 @@ type DeleteOrganizationRequest struct {
 func (x *DeleteOrganizationRequest) Reset() {
 	*x = DeleteOrganizationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[18]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1270,7 +1270,7 @@ func (x *DeleteOrganizationRequest) String() string {
 func (*DeleteOrganizationRequest) ProtoMessage() {}
 
 func (x *DeleteOrganizationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[18]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1283,7 +1283,7 @@ func (x *DeleteOrganizationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteOrganizationRequest.ProtoReflect.Descriptor instead.
 func (*DeleteOrganizationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{18}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DeleteOrganizationRequest) GetOrganizationId() string {
@@ -1302,7 +1302,7 @@ type DeleteOrganizationResponse struct {
 func (x *DeleteOrganizationResponse) Reset() {
 	*x = DeleteOrganizationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[19]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1315,7 +1315,7 @@ func (x *DeleteOrganizationResponse) String() string {
 func (*DeleteOrganizationResponse) ProtoMessage() {}
 
 func (x *DeleteOrganizationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[19]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1328,7 +1328,7 @@ func (x *DeleteOrganizationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteOrganizationResponse.ProtoReflect.Descriptor instead.
 func (*DeleteOrganizationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{19}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{19}
 }
 
 type GetOrganizationInvitationRequest struct {
@@ -1343,7 +1343,7 @@ type GetOrganizationInvitationRequest struct {
 func (x *GetOrganizationInvitationRequest) Reset() {
 	*x = GetOrganizationInvitationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[20]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1356,7 +1356,7 @@ func (x *GetOrganizationInvitationRequest) String() string {
 func (*GetOrganizationInvitationRequest) ProtoMessage() {}
 
 func (x *GetOrganizationInvitationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[20]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1369,7 +1369,7 @@ func (x *GetOrganizationInvitationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOrganizationInvitationRequest.ProtoReflect.Descriptor instead.
 func (*GetOrganizationInvitationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{20}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetOrganizationInvitationRequest) GetOrganizationId() string {
@@ -1391,7 +1391,7 @@ type GetOrganizationInvitationResponse struct {
 func (x *GetOrganizationInvitationResponse) Reset() {
 	*x = GetOrganizationInvitationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[21]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1404,7 +1404,7 @@ func (x *GetOrganizationInvitationResponse) String() string {
 func (*GetOrganizationInvitationResponse) ProtoMessage() {}
 
 func (x *GetOrganizationInvitationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[21]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1417,7 +1417,7 @@ func (x *GetOrganizationInvitationResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetOrganizationInvitationResponse.ProtoReflect.Descriptor instead.
 func (*GetOrganizationInvitationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{21}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetOrganizationInvitationResponse) GetInvitationId() string {
@@ -1439,7 +1439,7 @@ type JoinOrganizationRequest struct {
 func (x *JoinOrganizationRequest) Reset() {
 	*x = JoinOrganizationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[22]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1452,7 +1452,7 @@ func (x *JoinOrganizationRequest) String() string {
 func (*JoinOrganizationRequest) ProtoMessage() {}
 
 func (x *JoinOrganizationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[22]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1465,7 +1465,7 @@ func (x *JoinOrganizationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinOrganizationRequest.ProtoReflect.Descriptor instead.
 func (*JoinOrganizationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{22}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *JoinOrganizationRequest) GetInvitationId() string {
@@ -1487,7 +1487,7 @@ type JoinOrganizationResponse struct {
 func (x *JoinOrganizationResponse) Reset() {
 	*x = JoinOrganizationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[23]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1500,7 +1500,7 @@ func (x *JoinOrganizationResponse) String() string {
 func (*JoinOrganizationResponse) ProtoMessage() {}
 
 func (x *JoinOrganizationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[23]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1513,7 +1513,7 @@ func (x *JoinOrganizationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinOrganizationResponse.ProtoReflect.Descriptor instead.
 func (*JoinOrganizationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{23}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *JoinOrganizationResponse) GetOrganizationId() string {
@@ -1535,7 +1535,7 @@ type ResetOrganizationInvitationRequest struct {
 func (x *ResetOrganizationInvitationRequest) Reset() {
 	*x = ResetOrganizationInvitationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[24]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1548,7 +1548,7 @@ func (x *ResetOrganizationInvitationRequest) String() string {
 func (*ResetOrganizationInvitationRequest) ProtoMessage() {}
 
 func (x *ResetOrganizationInvitationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[24]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1561,7 +1561,7 @@ func (x *ResetOrganizationInvitationRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ResetOrganizationInvitationRequest.ProtoReflect.Descriptor instead.
 func (*ResetOrganizationInvitationRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{24}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *ResetOrganizationInvitationRequest) GetOrganizationId() string {
@@ -1583,7 +1583,7 @@ type ResetOrganizationInvitationResponse struct {
 func (x *ResetOrganizationInvitationResponse) Reset() {
 	*x = ResetOrganizationInvitationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[25]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1596,7 +1596,7 @@ func (x *ResetOrganizationInvitationResponse) String() string {
 func (*ResetOrganizationInvitationResponse) ProtoMessage() {}
 
 func (x *ResetOrganizationInvitationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[25]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1609,7 +1609,7 @@ func (x *ResetOrganizationInvitationResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ResetOrganizationInvitationResponse.ProtoReflect.Descriptor instead.
 func (*ResetOrganizationInvitationResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{25}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *ResetOrganizationInvitationResponse) GetInvitationId() string {
@@ -1633,7 +1633,7 @@ type ListOrganizationMembersRequest struct {
 func (x *ListOrganizationMembersRequest) Reset() {
 	*x = ListOrganizationMembersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[26]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1646,7 +1646,7 @@ func (x *ListOrganizationMembersRequest) String() string {
 func (*ListOrganizationMembersRequest) ProtoMessage() {}
 
 func (x *ListOrganizationMembersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[26]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1659,7 +1659,7 @@ func (x *ListOrganizationMembersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListOrganizationMembersRequest.ProtoReflect.Descriptor instead.
 func (*ListOrganizationMembersRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{26}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *ListOrganizationMembersRequest) GetOrganizationId() string {
@@ -1689,7 +1689,7 @@ type ListOrganizationMembersResponse struct {
 func (x *ListOrganizationMembersResponse) Reset() {
 	*x = ListOrganizationMembersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[27]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1702,7 +1702,7 @@ func (x *ListOrganizationMembersResponse) String() string {
 func (*ListOrganizationMembersResponse) ProtoMessage() {}
 
 func (x *ListOrganizationMembersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[27]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1715,7 +1715,7 @@ func (x *ListOrganizationMembersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListOrganizationMembersResponse.ProtoReflect.Descriptor instead.
 func (*ListOrganizationMembersResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{27}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *ListOrganizationMembersResponse) GetMembers() []*OrganizationMember {
@@ -1743,13 +1743,13 @@ type UpdateOrganizationMemberRequest struct {
 	// user_id is the user for which the membership shall be updated.
 	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	// role is the new role for the user in the organization
-	Role *OrganizationRole `protobuf:"varint,3,opt,name=role,proto3,enum=gitpod.v1.OrganizationRole,oneof" json:"role,omitempty"`
+	Role *OrganizationRole `protobuf:"varint,3,opt,name=role,proto3,enum=nxpod.v1.OrganizationRole,oneof" json:"role,omitempty"`
 }
 
 func (x *UpdateOrganizationMemberRequest) Reset() {
 	*x = UpdateOrganizationMemberRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[28]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1762,7 +1762,7 @@ func (x *UpdateOrganizationMemberRequest) String() string {
 func (*UpdateOrganizationMemberRequest) ProtoMessage() {}
 
 func (x *UpdateOrganizationMemberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[28]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1775,7 +1775,7 @@ func (x *UpdateOrganizationMemberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOrganizationMemberRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOrganizationMemberRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{28}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *UpdateOrganizationMemberRequest) GetOrganizationId() string {
@@ -1811,7 +1811,7 @@ type UpdateOrganizationMemberResponse struct {
 func (x *UpdateOrganizationMemberResponse) Reset() {
 	*x = UpdateOrganizationMemberResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[29]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1824,7 +1824,7 @@ func (x *UpdateOrganizationMemberResponse) String() string {
 func (*UpdateOrganizationMemberResponse) ProtoMessage() {}
 
 func (x *UpdateOrganizationMemberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[29]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1837,7 +1837,7 @@ func (x *UpdateOrganizationMemberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOrganizationMemberResponse.ProtoReflect.Descriptor instead.
 func (*UpdateOrganizationMemberResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{29}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *UpdateOrganizationMemberResponse) GetMember() *OrganizationMember {
@@ -1862,7 +1862,7 @@ type DeleteOrganizationMemberRequest struct {
 func (x *DeleteOrganizationMemberRequest) Reset() {
 	*x = DeleteOrganizationMemberRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[30]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1875,7 +1875,7 @@ func (x *DeleteOrganizationMemberRequest) String() string {
 func (*DeleteOrganizationMemberRequest) ProtoMessage() {}
 
 func (x *DeleteOrganizationMemberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[30]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1888,7 +1888,7 @@ func (x *DeleteOrganizationMemberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteOrganizationMemberRequest.ProtoReflect.Descriptor instead.
 func (*DeleteOrganizationMemberRequest) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{30}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *DeleteOrganizationMemberRequest) GetOrganizationId() string {
@@ -1914,7 +1914,7 @@ type DeleteOrganizationMemberResponse struct {
 func (x *DeleteOrganizationMemberResponse) Reset() {
 	*x = DeleteOrganizationMemberResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gitpod_v1_organization_proto_msgTypes[31]
+		mi := &file_nxpod_v1_organization_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1927,7 +1927,7 @@ func (x *DeleteOrganizationMemberResponse) String() string {
 func (*DeleteOrganizationMemberResponse) ProtoMessage() {}
 
 func (x *DeleteOrganizationMemberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gitpod_v1_organization_proto_msgTypes[31]
+	mi := &file_nxpod_v1_organization_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1940,12 +1940,12 @@ func (x *DeleteOrganizationMemberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteOrganizationMemberResponse.ProtoReflect.Descriptor instead.
 func (*DeleteOrganizationMemberResponse) Descriptor() ([]byte, []int) {
-	return file_gitpod_v1_organization_proto_rawDescGZIP(), []int{31}
+	return file_nxpod_v1_organization_proto_rawDescGZIP(), []int{31}
 }
 
-var File_gitpod_v1_organization_proto protoreflect.FileDescriptor
+var File_nxpod_v1_organization_proto protoreflect.FileDescriptor
 
-var file_gitpod_v1_organization_proto_rawDesc = []byte{
+var file_nxpod_v1_organization_proto_rawDesc = []byte{
 	0x0a, 0x1c, 0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x67, 0x61,
 	0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09,
 	0x67, 0x69, 0x74, 0x70, 0x6f, 0x64, 0x2e, 0x76, 0x31, 0x1a, 0x1a, 0x67, 0x69, 0x74, 0x70, 0x6f,
@@ -2374,116 +2374,116 @@ var file_gitpod_v1_organization_proto_rawDesc = []byte{
 }
 
 var (
-	file_gitpod_v1_organization_proto_rawDescOnce sync.Once
-	file_gitpod_v1_organization_proto_rawDescData = file_gitpod_v1_organization_proto_rawDesc
+	file_nxpod_v1_organization_proto_rawDescOnce sync.Once
+	file_nxpod_v1_organization_proto_rawDescData = file_nxpod_v1_organization_proto_rawDesc
 )
 
-func file_gitpod_v1_organization_proto_rawDescGZIP() []byte {
-	file_gitpod_v1_organization_proto_rawDescOnce.Do(func() {
-		file_gitpod_v1_organization_proto_rawDescData = protoimpl.X.CompressGZIP(file_gitpod_v1_organization_proto_rawDescData)
+func file_nxpod_v1_organization_proto_rawDescGZIP() []byte {
+	file_nxpod_v1_organization_proto_rawDescOnce.Do(func() {
+		file_nxpod_v1_organization_proto_rawDescData = protoimpl.X.CompressGZIP(file_nxpod_v1_organization_proto_rawDescData)
 	})
-	return file_gitpod_v1_organization_proto_rawDescData
+	return file_nxpod_v1_organization_proto_rawDescData
 }
 
-var file_gitpod_v1_organization_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_gitpod_v1_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
-var file_gitpod_v1_organization_proto_goTypes = []interface{}{
-	(OrganizationRole)(0),                            // 0: gitpod.v1.OrganizationRole
-	(ListOrganizationsRequest_Scope)(0),              // 1: gitpod.v1.ListOrganizationsRequest.Scope
-	(*Organization)(nil),                             // 2: gitpod.v1.Organization
-	(*OrganizationMember)(nil),                       // 3: gitpod.v1.OrganizationMember
-	(*OrganizationSettings)(nil),                     // 4: gitpod.v1.OrganizationSettings
-	(*ListOrganizationWorkspaceClassesRequest)(nil),  // 5: gitpod.v1.ListOrganizationWorkspaceClassesRequest
-	(*ListOrganizationWorkspaceClassesResponse)(nil), // 6: gitpod.v1.ListOrganizationWorkspaceClassesResponse
-	(*UpdateOrganizationRequest)(nil),                // 7: gitpod.v1.UpdateOrganizationRequest
-	(*UpdateOrganizationResponse)(nil),               // 8: gitpod.v1.UpdateOrganizationResponse
-	(*TimeoutSettings)(nil),                          // 9: gitpod.v1.TimeoutSettings
-	(*UpdateOrganizationSettingsRequest)(nil),        // 10: gitpod.v1.UpdateOrganizationSettingsRequest
-	(*UpdateOrganizationSettingsResponse)(nil),       // 11: gitpod.v1.UpdateOrganizationSettingsResponse
-	(*GetOrganizationSettingsRequest)(nil),           // 12: gitpod.v1.GetOrganizationSettingsRequest
-	(*GetOrganizationSettingsResponse)(nil),          // 13: gitpod.v1.GetOrganizationSettingsResponse
-	(*CreateOrganizationRequest)(nil),                // 14: gitpod.v1.CreateOrganizationRequest
-	(*CreateOrganizationResponse)(nil),               // 15: gitpod.v1.CreateOrganizationResponse
-	(*GetOrganizationRequest)(nil),                   // 16: gitpod.v1.GetOrganizationRequest
-	(*GetOrganizationResponse)(nil),                  // 17: gitpod.v1.GetOrganizationResponse
-	(*ListOrganizationsRequest)(nil),                 // 18: gitpod.v1.ListOrganizationsRequest
-	(*ListOrganizationsResponse)(nil),                // 19: gitpod.v1.ListOrganizationsResponse
-	(*DeleteOrganizationRequest)(nil),                // 20: gitpod.v1.DeleteOrganizationRequest
-	(*DeleteOrganizationResponse)(nil),               // 21: gitpod.v1.DeleteOrganizationResponse
-	(*GetOrganizationInvitationRequest)(nil),         // 22: gitpod.v1.GetOrganizationInvitationRequest
-	(*GetOrganizationInvitationResponse)(nil),        // 23: gitpod.v1.GetOrganizationInvitationResponse
-	(*JoinOrganizationRequest)(nil),                  // 24: gitpod.v1.JoinOrganizationRequest
-	(*JoinOrganizationResponse)(nil),                 // 25: gitpod.v1.JoinOrganizationResponse
-	(*ResetOrganizationInvitationRequest)(nil),       // 26: gitpod.v1.ResetOrganizationInvitationRequest
-	(*ResetOrganizationInvitationResponse)(nil),      // 27: gitpod.v1.ResetOrganizationInvitationResponse
-	(*ListOrganizationMembersRequest)(nil),           // 28: gitpod.v1.ListOrganizationMembersRequest
-	(*ListOrganizationMembersResponse)(nil),          // 29: gitpod.v1.ListOrganizationMembersResponse
-	(*UpdateOrganizationMemberRequest)(nil),          // 30: gitpod.v1.UpdateOrganizationMemberRequest
-	(*UpdateOrganizationMemberResponse)(nil),         // 31: gitpod.v1.UpdateOrganizationMemberResponse
-	(*DeleteOrganizationMemberRequest)(nil),          // 32: gitpod.v1.DeleteOrganizationMemberRequest
-	(*DeleteOrganizationMemberResponse)(nil),         // 33: gitpod.v1.DeleteOrganizationMemberResponse
-	nil,                                              // 34: gitpod.v1.OrganizationSettings.PinnedEditorVersionsEntry
-	nil,                                              // 35: gitpod.v1.UpdateOrganizationSettingsRequest.PinnedEditorVersionsEntry
+var file_nxpod_v1_organization_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_nxpod_v1_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
+var file_nxpod_v1_organization_proto_goTypes = []interface{}{
+	(OrganizationRole)(0),                            // 0: nxpod.v1.OrganizationRole
+	(ListOrganizationsRequest_Scope)(0),              // 1: nxpod.v1.ListOrganizationsRequest.Scope
+	(*Organization)(nil),                             // 2: nxpod.v1.Organization
+	(*OrganizationMember)(nil),                       // 3: nxpod.v1.OrganizationMember
+	(*OrganizationSettings)(nil),                     // 4: nxpod.v1.OrganizationSettings
+	(*ListOrganizationWorkspaceClassesRequest)(nil),  // 5: nxpod.v1.ListOrganizationWorkspaceClassesRequest
+	(*ListOrganizationWorkspaceClassesResponse)(nil), // 6: nxpod.v1.ListOrganizationWorkspaceClassesResponse
+	(*UpdateOrganizationRequest)(nil),                // 7: nxpod.v1.UpdateOrganizationRequest
+	(*UpdateOrganizationResponse)(nil),               // 8: nxpod.v1.UpdateOrganizationResponse
+	(*TimeoutSettings)(nil),                          // 9: nxpod.v1.TimeoutSettings
+	(*UpdateOrganizationSettingsRequest)(nil),        // 10: nxpod.v1.UpdateOrganizationSettingsRequest
+	(*UpdateOrganizationSettingsResponse)(nil),       // 11: nxpod.v1.UpdateOrganizationSettingsResponse
+	(*GetOrganizationSettingsRequest)(nil),           // 12: nxpod.v1.GetOrganizationSettingsRequest
+	(*GetOrganizationSettingsResponse)(nil),          // 13: nxpod.v1.GetOrganizationSettingsResponse
+	(*CreateOrganizationRequest)(nil),                // 14: nxpod.v1.CreateOrganizationRequest
+	(*CreateOrganizationResponse)(nil),               // 15: nxpod.v1.CreateOrganizationResponse
+	(*GetOrganizationRequest)(nil),                   // 16: nxpod.v1.GetOrganizationRequest
+	(*GetOrganizationResponse)(nil),                  // 17: nxpod.v1.GetOrganizationResponse
+	(*ListOrganizationsRequest)(nil),                 // 18: nxpod.v1.ListOrganizationsRequest
+	(*ListOrganizationsResponse)(nil),                // 19: nxpod.v1.ListOrganizationsResponse
+	(*DeleteOrganizationRequest)(nil),                // 20: nxpod.v1.DeleteOrganizationRequest
+	(*DeleteOrganizationResponse)(nil),               // 21: nxpod.v1.DeleteOrganizationResponse
+	(*GetOrganizationInvitationRequest)(nil),         // 22: nxpod.v1.GetOrganizationInvitationRequest
+	(*GetOrganizationInvitationResponse)(nil),        // 23: nxpod.v1.GetOrganizationInvitationResponse
+	(*JoinOrganizationRequest)(nil),                  // 24: nxpod.v1.JoinOrganizationRequest
+	(*JoinOrganizationResponse)(nil),                 // 25: nxpod.v1.JoinOrganizationResponse
+	(*ResetOrganizationInvitationRequest)(nil),       // 26: nxpod.v1.ResetOrganizationInvitationRequest
+	(*ResetOrganizationInvitationResponse)(nil),      // 27: nxpod.v1.ResetOrganizationInvitationResponse
+	(*ListOrganizationMembersRequest)(nil),           // 28: nxpod.v1.ListOrganizationMembersRequest
+	(*ListOrganizationMembersResponse)(nil),          // 29: nxpod.v1.ListOrganizationMembersResponse
+	(*UpdateOrganizationMemberRequest)(nil),          // 30: nxpod.v1.UpdateOrganizationMemberRequest
+	(*UpdateOrganizationMemberResponse)(nil),         // 31: nxpod.v1.UpdateOrganizationMemberResponse
+	(*DeleteOrganizationMemberRequest)(nil),          // 32: nxpod.v1.DeleteOrganizationMemberRequest
+	(*DeleteOrganizationMemberResponse)(nil),         // 33: nxpod.v1.DeleteOrganizationMemberResponse
+	nil,                                              // 34: nxpod.v1.OrganizationSettings.PinnedEditorVersionsEntry
+	nil,                                              // 35: nxpod.v1.UpdateOrganizationSettingsRequest.PinnedEditorVersionsEntry
 	(*timestamppb.Timestamp)(nil),                    // 36: google.protobuf.Timestamp
-	(*PaginationRequest)(nil),                        // 37: gitpod.v1.PaginationRequest
-	(*PaginationResponse)(nil),                       // 38: gitpod.v1.PaginationResponse
-	(*WorkspaceClass)(nil),                           // 39: gitpod.v1.WorkspaceClass
+	(*PaginationRequest)(nil),                        // 37: nxpod.v1.PaginationRequest
+	(*PaginationResponse)(nil),                       // 38: nxpod.v1.PaginationResponse
+	(*WorkspaceClass)(nil),                           // 39: nxpod.v1.WorkspaceClass
 	(*durationpb.Duration)(nil),                      // 40: google.protobuf.Duration
 }
-var file_gitpod_v1_organization_proto_depIdxs = []int32{
-	36, // 0: gitpod.v1.Organization.creation_time:type_name -> google.protobuf.Timestamp
-	0,  // 1: gitpod.v1.OrganizationMember.role:type_name -> gitpod.v1.OrganizationRole
-	36, // 2: gitpod.v1.OrganizationMember.member_since:type_name -> google.protobuf.Timestamp
-	34, // 3: gitpod.v1.OrganizationSettings.pinned_editor_versions:type_name -> gitpod.v1.OrganizationSettings.PinnedEditorVersionsEntry
-	9,  // 4: gitpod.v1.OrganizationSettings.timeout_settings:type_name -> gitpod.v1.TimeoutSettings
-	37, // 5: gitpod.v1.ListOrganizationWorkspaceClassesRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	38, // 6: gitpod.v1.ListOrganizationWorkspaceClassesResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	39, // 7: gitpod.v1.ListOrganizationWorkspaceClassesResponse.workspace_classes:type_name -> gitpod.v1.WorkspaceClass
-	2,  // 8: gitpod.v1.UpdateOrganizationResponse.organization:type_name -> gitpod.v1.Organization
-	40, // 9: gitpod.v1.TimeoutSettings.inactivity:type_name -> google.protobuf.Duration
-	35, // 10: gitpod.v1.UpdateOrganizationSettingsRequest.pinned_editor_versions:type_name -> gitpod.v1.UpdateOrganizationSettingsRequest.PinnedEditorVersionsEntry
-	9,  // 11: gitpod.v1.UpdateOrganizationSettingsRequest.timeout_settings:type_name -> gitpod.v1.TimeoutSettings
-	4,  // 12: gitpod.v1.UpdateOrganizationSettingsResponse.settings:type_name -> gitpod.v1.OrganizationSettings
-	4,  // 13: gitpod.v1.GetOrganizationSettingsResponse.settings:type_name -> gitpod.v1.OrganizationSettings
-	2,  // 14: gitpod.v1.CreateOrganizationResponse.organization:type_name -> gitpod.v1.Organization
-	2,  // 15: gitpod.v1.GetOrganizationResponse.organization:type_name -> gitpod.v1.Organization
-	37, // 16: gitpod.v1.ListOrganizationsRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	1,  // 17: gitpod.v1.ListOrganizationsRequest.scope:type_name -> gitpod.v1.ListOrganizationsRequest.Scope
-	2,  // 18: gitpod.v1.ListOrganizationsResponse.organizations:type_name -> gitpod.v1.Organization
-	38, // 19: gitpod.v1.ListOrganizationsResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	37, // 20: gitpod.v1.ListOrganizationMembersRequest.pagination:type_name -> gitpod.v1.PaginationRequest
-	3,  // 21: gitpod.v1.ListOrganizationMembersResponse.members:type_name -> gitpod.v1.OrganizationMember
-	38, // 22: gitpod.v1.ListOrganizationMembersResponse.pagination:type_name -> gitpod.v1.PaginationResponse
-	0,  // 23: gitpod.v1.UpdateOrganizationMemberRequest.role:type_name -> gitpod.v1.OrganizationRole
-	3,  // 24: gitpod.v1.UpdateOrganizationMemberResponse.member:type_name -> gitpod.v1.OrganizationMember
-	14, // 25: gitpod.v1.OrganizationService.CreateOrganization:input_type -> gitpod.v1.CreateOrganizationRequest
-	16, // 26: gitpod.v1.OrganizationService.GetOrganization:input_type -> gitpod.v1.GetOrganizationRequest
-	7,  // 27: gitpod.v1.OrganizationService.UpdateOrganization:input_type -> gitpod.v1.UpdateOrganizationRequest
-	18, // 28: gitpod.v1.OrganizationService.ListOrganizations:input_type -> gitpod.v1.ListOrganizationsRequest
-	20, // 29: gitpod.v1.OrganizationService.DeleteOrganization:input_type -> gitpod.v1.DeleteOrganizationRequest
-	22, // 30: gitpod.v1.OrganizationService.GetOrganizationInvitation:input_type -> gitpod.v1.GetOrganizationInvitationRequest
-	24, // 31: gitpod.v1.OrganizationService.JoinOrganization:input_type -> gitpod.v1.JoinOrganizationRequest
-	26, // 32: gitpod.v1.OrganizationService.ResetOrganizationInvitation:input_type -> gitpod.v1.ResetOrganizationInvitationRequest
-	28, // 33: gitpod.v1.OrganizationService.ListOrganizationMembers:input_type -> gitpod.v1.ListOrganizationMembersRequest
-	30, // 34: gitpod.v1.OrganizationService.UpdateOrganizationMember:input_type -> gitpod.v1.UpdateOrganizationMemberRequest
-	32, // 35: gitpod.v1.OrganizationService.DeleteOrganizationMember:input_type -> gitpod.v1.DeleteOrganizationMemberRequest
-	12, // 36: gitpod.v1.OrganizationService.GetOrganizationSettings:input_type -> gitpod.v1.GetOrganizationSettingsRequest
-	10, // 37: gitpod.v1.OrganizationService.UpdateOrganizationSettings:input_type -> gitpod.v1.UpdateOrganizationSettingsRequest
-	5,  // 38: gitpod.v1.OrganizationService.ListOrganizationWorkspaceClasses:input_type -> gitpod.v1.ListOrganizationWorkspaceClassesRequest
-	15, // 39: gitpod.v1.OrganizationService.CreateOrganization:output_type -> gitpod.v1.CreateOrganizationResponse
-	17, // 40: gitpod.v1.OrganizationService.GetOrganization:output_type -> gitpod.v1.GetOrganizationResponse
-	8,  // 41: gitpod.v1.OrganizationService.UpdateOrganization:output_type -> gitpod.v1.UpdateOrganizationResponse
-	19, // 42: gitpod.v1.OrganizationService.ListOrganizations:output_type -> gitpod.v1.ListOrganizationsResponse
-	21, // 43: gitpod.v1.OrganizationService.DeleteOrganization:output_type -> gitpod.v1.DeleteOrganizationResponse
-	23, // 44: gitpod.v1.OrganizationService.GetOrganizationInvitation:output_type -> gitpod.v1.GetOrganizationInvitationResponse
-	25, // 45: gitpod.v1.OrganizationService.JoinOrganization:output_type -> gitpod.v1.JoinOrganizationResponse
-	27, // 46: gitpod.v1.OrganizationService.ResetOrganizationInvitation:output_type -> gitpod.v1.ResetOrganizationInvitationResponse
-	29, // 47: gitpod.v1.OrganizationService.ListOrganizationMembers:output_type -> gitpod.v1.ListOrganizationMembersResponse
-	31, // 48: gitpod.v1.OrganizationService.UpdateOrganizationMember:output_type -> gitpod.v1.UpdateOrganizationMemberResponse
-	33, // 49: gitpod.v1.OrganizationService.DeleteOrganizationMember:output_type -> gitpod.v1.DeleteOrganizationMemberResponse
-	13, // 50: gitpod.v1.OrganizationService.GetOrganizationSettings:output_type -> gitpod.v1.GetOrganizationSettingsResponse
-	11, // 51: gitpod.v1.OrganizationService.UpdateOrganizationSettings:output_type -> gitpod.v1.UpdateOrganizationSettingsResponse
-	6,  // 52: gitpod.v1.OrganizationService.ListOrganizationWorkspaceClasses:output_type -> gitpod.v1.ListOrganizationWorkspaceClassesResponse
+var file_nxpod_v1_organization_proto_depIdxs = []int32{
+	36, // 0: nxpod.v1.Organization.creation_time:type_name -> google.protobuf.Timestamp
+	0,  // 1: nxpod.v1.OrganizationMember.role:type_name -> nxpod.v1.OrganizationRole
+	36, // 2: nxpod.v1.OrganizationMember.member_since:type_name -> google.protobuf.Timestamp
+	34, // 3: nxpod.v1.OrganizationSettings.pinned_editor_versions:type_name -> nxpod.v1.OrganizationSettings.PinnedEditorVersionsEntry
+	9,  // 4: nxpod.v1.OrganizationSettings.timeout_settings:type_name -> nxpod.v1.TimeoutSettings
+	37, // 5: nxpod.v1.ListOrganizationWorkspaceClassesRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	38, // 6: nxpod.v1.ListOrganizationWorkspaceClassesResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	39, // 7: nxpod.v1.ListOrganizationWorkspaceClassesResponse.workspace_classes:type_name -> nxpod.v1.WorkspaceClass
+	2,  // 8: nxpod.v1.UpdateOrganizationResponse.organization:type_name -> nxpod.v1.Organization
+	40, // 9: nxpod.v1.TimeoutSettings.inactivity:type_name -> google.protobuf.Duration
+	35, // 10: nxpod.v1.UpdateOrganizationSettingsRequest.pinned_editor_versions:type_name -> nxpod.v1.UpdateOrganizationSettingsRequest.PinnedEditorVersionsEntry
+	9,  // 11: nxpod.v1.UpdateOrganizationSettingsRequest.timeout_settings:type_name -> nxpod.v1.TimeoutSettings
+	4,  // 12: nxpod.v1.UpdateOrganizationSettingsResponse.settings:type_name -> nxpod.v1.OrganizationSettings
+	4,  // 13: nxpod.v1.GetOrganizationSettingsResponse.settings:type_name -> nxpod.v1.OrganizationSettings
+	2,  // 14: nxpod.v1.CreateOrganizationResponse.organization:type_name -> nxpod.v1.Organization
+	2,  // 15: nxpod.v1.GetOrganizationResponse.organization:type_name -> nxpod.v1.Organization
+	37, // 16: nxpod.v1.ListOrganizationsRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	1,  // 17: nxpod.v1.ListOrganizationsRequest.scope:type_name -> nxpod.v1.ListOrganizationsRequest.Scope
+	2,  // 18: nxpod.v1.ListOrganizationsResponse.organizations:type_name -> nxpod.v1.Organization
+	38, // 19: nxpod.v1.ListOrganizationsResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	37, // 20: nxpod.v1.ListOrganizationMembersRequest.pagination:type_name -> nxpod.v1.PaginationRequest
+	3,  // 21: nxpod.v1.ListOrganizationMembersResponse.members:type_name -> nxpod.v1.OrganizationMember
+	38, // 22: nxpod.v1.ListOrganizationMembersResponse.pagination:type_name -> nxpod.v1.PaginationResponse
+	0,  // 23: nxpod.v1.UpdateOrganizationMemberRequest.role:type_name -> nxpod.v1.OrganizationRole
+	3,  // 24: nxpod.v1.UpdateOrganizationMemberResponse.member:type_name -> nxpod.v1.OrganizationMember
+	14, // 25: nxpod.v1.OrganizationService.CreateOrganization:input_type -> nxpod.v1.CreateOrganizationRequest
+	16, // 26: nxpod.v1.OrganizationService.GetOrganization:input_type -> nxpod.v1.GetOrganizationRequest
+	7,  // 27: nxpod.v1.OrganizationService.UpdateOrganization:input_type -> nxpod.v1.UpdateOrganizationRequest
+	18, // 28: nxpod.v1.OrganizationService.ListOrganizations:input_type -> nxpod.v1.ListOrganizationsRequest
+	20, // 29: nxpod.v1.OrganizationService.DeleteOrganization:input_type -> nxpod.v1.DeleteOrganizationRequest
+	22, // 30: nxpod.v1.OrganizationService.GetOrganizationInvitation:input_type -> nxpod.v1.GetOrganizationInvitationRequest
+	24, // 31: nxpod.v1.OrganizationService.JoinOrganization:input_type -> nxpod.v1.JoinOrganizationRequest
+	26, // 32: nxpod.v1.OrganizationService.ResetOrganizationInvitation:input_type -> nxpod.v1.ResetOrganizationInvitationRequest
+	28, // 33: nxpod.v1.OrganizationService.ListOrganizationMembers:input_type -> nxpod.v1.ListOrganizationMembersRequest
+	30, // 34: nxpod.v1.OrganizationService.UpdateOrganizationMember:input_type -> nxpod.v1.UpdateOrganizationMemberRequest
+	32, // 35: nxpod.v1.OrganizationService.DeleteOrganizationMember:input_type -> nxpod.v1.DeleteOrganizationMemberRequest
+	12, // 36: nxpod.v1.OrganizationService.GetOrganizationSettings:input_type -> nxpod.v1.GetOrganizationSettingsRequest
+	10, // 37: nxpod.v1.OrganizationService.UpdateOrganizationSettings:input_type -> nxpod.v1.UpdateOrganizationSettingsRequest
+	5,  // 38: nxpod.v1.OrganizationService.ListOrganizationWorkspaceClasses:input_type -> nxpod.v1.ListOrganizationWorkspaceClassesRequest
+	15, // 39: nxpod.v1.OrganizationService.CreateOrganization:output_type -> nxpod.v1.CreateOrganizationResponse
+	17, // 40: nxpod.v1.OrganizationService.GetOrganization:output_type -> nxpod.v1.GetOrganizationResponse
+	8,  // 41: nxpod.v1.OrganizationService.UpdateOrganization:output_type -> nxpod.v1.UpdateOrganizationResponse
+	19, // 42: nxpod.v1.OrganizationService.ListOrganizations:output_type -> nxpod.v1.ListOrganizationsResponse
+	21, // 43: nxpod.v1.OrganizationService.DeleteOrganization:output_type -> nxpod.v1.DeleteOrganizationResponse
+	23, // 44: nxpod.v1.OrganizationService.GetOrganizationInvitation:output_type -> nxpod.v1.GetOrganizationInvitationResponse
+	25, // 45: nxpod.v1.OrganizationService.JoinOrganization:output_type -> nxpod.v1.JoinOrganizationResponse
+	27, // 46: nxpod.v1.OrganizationService.ResetOrganizationInvitation:output_type -> nxpod.v1.ResetOrganizationInvitationResponse
+	29, // 47: nxpod.v1.OrganizationService.ListOrganizationMembers:output_type -> nxpod.v1.ListOrganizationMembersResponse
+	31, // 48: nxpod.v1.OrganizationService.UpdateOrganizationMember:output_type -> nxpod.v1.UpdateOrganizationMemberResponse
+	33, // 49: nxpod.v1.OrganizationService.DeleteOrganizationMember:output_type -> nxpod.v1.DeleteOrganizationMemberResponse
+	13, // 50: nxpod.v1.OrganizationService.GetOrganizationSettings:output_type -> nxpod.v1.GetOrganizationSettingsResponse
+	11, // 51: nxpod.v1.OrganizationService.UpdateOrganizationSettings:output_type -> nxpod.v1.UpdateOrganizationSettingsResponse
+	6,  // 52: nxpod.v1.OrganizationService.ListOrganizationWorkspaceClasses:output_type -> nxpod.v1.ListOrganizationWorkspaceClassesResponse
 	39, // [39:53] is the sub-list for method output_type
 	25, // [25:39] is the sub-list for method input_type
 	25, // [25:25] is the sub-list for extension type_name
@@ -2491,15 +2491,15 @@ var file_gitpod_v1_organization_proto_depIdxs = []int32{
 	0,  // [0:25] is the sub-list for field type_name
 }
 
-func init() { file_gitpod_v1_organization_proto_init() }
-func file_gitpod_v1_organization_proto_init() {
-	if File_gitpod_v1_organization_proto != nil {
+func init() { file_nxpod_v1_organization_proto_init() }
+func file_nxpod_v1_organization_proto_init() {
+	if File_nxpod_v1_organization_proto != nil {
 		return
 	}
-	file_gitpod_v1_pagination_proto_init()
-	file_gitpod_v1_workspace_proto_init()
+	file_nxpod_v1_pagination_proto_init()
+	file_nxpod_v1_workspace_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_gitpod_v1_organization_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Organization); i {
 			case 0:
 				return &v.state
@@ -2511,7 +2511,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OrganizationMember); i {
 			case 0:
 				return &v.state
@@ -2523,7 +2523,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OrganizationSettings); i {
 			case 0:
 				return &v.state
@@ -2535,7 +2535,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationWorkspaceClassesRequest); i {
 			case 0:
 				return &v.state
@@ -2547,7 +2547,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationWorkspaceClassesResponse); i {
 			case 0:
 				return &v.state
@@ -2559,7 +2559,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateOrganizationRequest); i {
 			case 0:
 				return &v.state
@@ -2571,7 +2571,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateOrganizationResponse); i {
 			case 0:
 				return &v.state
@@ -2583,7 +2583,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TimeoutSettings); i {
 			case 0:
 				return &v.state
@@ -2595,7 +2595,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateOrganizationSettingsRequest); i {
 			case 0:
 				return &v.state
@@ -2607,7 +2607,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateOrganizationSettingsResponse); i {
 			case 0:
 				return &v.state
@@ -2619,7 +2619,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOrganizationSettingsRequest); i {
 			case 0:
 				return &v.state
@@ -2631,7 +2631,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOrganizationSettingsResponse); i {
 			case 0:
 				return &v.state
@@ -2643,7 +2643,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateOrganizationRequest); i {
 			case 0:
 				return &v.state
@@ -2655,7 +2655,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateOrganizationResponse); i {
 			case 0:
 				return &v.state
@@ -2667,7 +2667,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOrganizationRequest); i {
 			case 0:
 				return &v.state
@@ -2679,7 +2679,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOrganizationResponse); i {
 			case 0:
 				return &v.state
@@ -2691,7 +2691,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationsRequest); i {
 			case 0:
 				return &v.state
@@ -2703,7 +2703,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationsResponse); i {
 			case 0:
 				return &v.state
@@ -2715,7 +2715,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteOrganizationRequest); i {
 			case 0:
 				return &v.state
@@ -2727,7 +2727,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteOrganizationResponse); i {
 			case 0:
 				return &v.state
@@ -2739,7 +2739,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOrganizationInvitationRequest); i {
 			case 0:
 				return &v.state
@@ -2751,7 +2751,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetOrganizationInvitationResponse); i {
 			case 0:
 				return &v.state
@@ -2763,7 +2763,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*JoinOrganizationRequest); i {
 			case 0:
 				return &v.state
@@ -2775,7 +2775,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*JoinOrganizationResponse); i {
 			case 0:
 				return &v.state
@@ -2787,7 +2787,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResetOrganizationInvitationRequest); i {
 			case 0:
 				return &v.state
@@ -2799,7 +2799,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResetOrganizationInvitationResponse); i {
 			case 0:
 				return &v.state
@@ -2811,7 +2811,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationMembersRequest); i {
 			case 0:
 				return &v.state
@@ -2823,7 +2823,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListOrganizationMembersResponse); i {
 			case 0:
 				return &v.state
@@ -2835,7 +2835,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateOrganizationMemberRequest); i {
 			case 0:
 				return &v.state
@@ -2847,7 +2847,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateOrganizationMemberResponse); i {
 			case 0:
 				return &v.state
@@ -2859,7 +2859,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteOrganizationMemberRequest); i {
 			case 0:
 				return &v.state
@@ -2871,7 +2871,7 @@ func file_gitpod_v1_organization_proto_init() {
 				return nil
 			}
 		}
-		file_gitpod_v1_organization_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+		file_nxpod_v1_organization_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteOrganizationMemberResponse); i {
 			case 0:
 				return &v.state
@@ -2884,27 +2884,27 @@ func file_gitpod_v1_organization_proto_init() {
 			}
 		}
 	}
-	file_gitpod_v1_organization_proto_msgTypes[5].OneofWrappers = []interface{}{}
-	file_gitpod_v1_organization_proto_msgTypes[7].OneofWrappers = []interface{}{}
-	file_gitpod_v1_organization_proto_msgTypes[8].OneofWrappers = []interface{}{}
-	file_gitpod_v1_organization_proto_msgTypes[28].OneofWrappers = []interface{}{}
+	file_nxpod_v1_organization_proto_msgTypes[5].OneofWrappers = []interface{}{}
+	file_nxpod_v1_organization_proto_msgTypes[7].OneofWrappers = []interface{}{}
+	file_nxpod_v1_organization_proto_msgTypes[8].OneofWrappers = []interface{}{}
+	file_nxpod_v1_organization_proto_msgTypes[28].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gitpod_v1_organization_proto_rawDesc,
+			RawDescriptor: file_nxpod_v1_organization_proto_rawDesc,
 			NumEnums:      2,
 			NumMessages:   34,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gitpod_v1_organization_proto_goTypes,
-		DependencyIndexes: file_gitpod_v1_organization_proto_depIdxs,
-		EnumInfos:         file_gitpod_v1_organization_proto_enumTypes,
-		MessageInfos:      file_gitpod_v1_organization_proto_msgTypes,
+		GoTypes:           file_nxpod_v1_organization_proto_goTypes,
+		DependencyIndexes: file_nxpod_v1_organization_proto_depIdxs,
+		EnumInfos:         file_nxpod_v1_organization_proto_enumTypes,
+		MessageInfos:      file_nxpod_v1_organization_proto_msgTypes,
 	}.Build()
-	File_gitpod_v1_organization_proto = out.File
-	file_gitpod_v1_organization_proto_rawDesc = nil
-	file_gitpod_v1_organization_proto_goTypes = nil
-	file_gitpod_v1_organization_proto_depIdxs = nil
+	File_nxpod_v1_organization_proto = out.File
+	file_nxpod_v1_organization_proto_rawDesc = nil
+	file_nxpod_v1_organization_proto_goTypes = nil
+	file_nxpod_v1_organization_proto_depIdxs = nil
 }

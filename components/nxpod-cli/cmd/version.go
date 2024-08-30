@@ -8,7 +8,7 @@ import (
 	_ "embed"
 	"fmt"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 
 	"github.com/spf13/cobra"
 )
@@ -20,7 +20,7 @@ var versionCmd = &cobra.Command{
 	Short:  "Prints the version of the CLI",
 	Args:   cobra.MaximumNArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		fmt.Println(gitpod.Version)
+		fmt.Println(nxpod.Version)
 		return nil
 	},
 }

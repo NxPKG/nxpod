@@ -12,7 +12,7 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
 	"github.com/spf13/cobra"
 )
 
@@ -48,7 +48,7 @@ var idpLoginAwsCmd = &cobra.Command{
 			return err
 		}
 
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return err
 		}

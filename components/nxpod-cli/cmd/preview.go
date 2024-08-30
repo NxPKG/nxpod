@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/supervisor"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/supervisor"
 	"github.com/google/shlex"
 	"github.com/spf13/cobra"
 	"golang.org/x/xerrors"

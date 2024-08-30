@@ -2,13 +2,13 @@
 // Licensed under the GNU Affero General Public License (AGPL).
 // See License.AGPL.txt in the project root for license information.
 
-package io.gitpod.jetbrains.remote
+package io.nxpod.jetbrains.remote
 
 import com.jetbrains.rdserver.unattendedHost.customization.GatewayClientCustomizationProvider
 import com.jetbrains.rdserver.unattendedHost.customization.controlCenter.DefaultGatewayControlCenterProvider
 import com.jetbrains.rdserver.unattendedHost.customization.controlCenter.GatewayControlCenterProvider
 import com.jetbrains.rdserver.unattendedHost.customization.controlCenter.GatewayHostnameDisplayKind
-import io.gitpod.jetbrains.remote.icons.NxpodIcons
+import io.nxpod.jetbrains.remote.icons.NxpodIcons
 import javax.swing.Icon
 
 class NxpodGatewayClientCustomizationProvider : GatewayClientCustomizationProvider {

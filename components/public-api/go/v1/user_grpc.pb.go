@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/user.proto
+// source: nxpod/v1/user.proto
 
 package v1
 
@@ -62,7 +62,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 
 func (c *userServiceClient) GetAuthenticatedUser(ctx context.Context, in *GetAuthenticatedUserRequest, opts ...grpc.CallOption) (*GetAuthenticatedUserResponse, error) {
 	out := new(GetAuthenticatedUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/GetAuthenticatedUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/GetAuthenticatedUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func (c *userServiceClient) GetAuthenticatedUser(ctx context.Context, in *GetAut
 
 func (c *userServiceClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
 	out := new(UpdateUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/UpdateUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *userServiceClient) UpdateUser(ctx context.Context, in *UpdateUserReques
 
 func (c *userServiceClient) SetWorkspaceAutoStartOptions(ctx context.Context, in *SetWorkspaceAutoStartOptionsRequest, opts ...grpc.CallOption) (*SetWorkspaceAutoStartOptionsResponse, error) {
 	out := new(SetWorkspaceAutoStartOptionsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/SetWorkspaceAutoStartOptions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/SetWorkspaceAutoStartOptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *userServiceClient) SetWorkspaceAutoStartOptions(ctx context.Context, in
 
 func (c *userServiceClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error) {
 	out := new(DeleteUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/DeleteUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/DeleteUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (c *userServiceClient) DeleteUser(ctx context.Context, in *DeleteUserReques
 
 func (c *userServiceClient) VerifyUser(ctx context.Context, in *VerifyUserRequest, opts ...grpc.CallOption) (*VerifyUserResponse, error) {
 	out := new(VerifyUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/VerifyUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/VerifyUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +107,7 @@ func (c *userServiceClient) VerifyUser(ctx context.Context, in *VerifyUserReques
 
 func (c *userServiceClient) BlockUser(ctx context.Context, in *BlockUserRequest, opts ...grpc.CallOption) (*BlockUserResponse, error) {
 	out := new(BlockUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/BlockUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/BlockUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func (c *userServiceClient) BlockUser(ctx context.Context, in *BlockUserRequest,
 
 func (c *userServiceClient) ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error) {
 	out := new(ListUsersResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/ListUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/ListUsers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +125,7 @@ func (c *userServiceClient) ListUsers(ctx context.Context, in *ListUsersRequest,
 
 func (c *userServiceClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
 	out := new(GetUserResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/GetUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/GetUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -134,7 +134,7 @@ func (c *userServiceClient) GetUser(ctx context.Context, in *GetUserRequest, opt
 
 func (c *userServiceClient) SetRolesOrPermissions(ctx context.Context, in *SetRolesOrPermissionsRequest, opts ...grpc.CallOption) (*SetRolesOrPermissionsResponse, error) {
 	out := new(SetRolesOrPermissionsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.UserService/SetRolesOrPermissions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.UserService/SetRolesOrPermissions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func _UserService_GetAuthenticatedUser_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/GetAuthenticatedUser",
+		FullMethod: "/nxpod.v1.UserService/GetAuthenticatedUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetAuthenticatedUser(ctx, req.(*GetAuthenticatedUserRequest))
@@ -244,7 +244,7 @@ func _UserService_UpdateUser_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/UpdateUser",
+		FullMethod: "/nxpod.v1.UserService/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UpdateUser(ctx, req.(*UpdateUserRequest))
@@ -262,7 +262,7 @@ func _UserService_SetWorkspaceAutoStartOptions_Handler(srv interface{}, ctx cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/SetWorkspaceAutoStartOptions",
+		FullMethod: "/nxpod.v1.UserService/SetWorkspaceAutoStartOptions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).SetWorkspaceAutoStartOptions(ctx, req.(*SetWorkspaceAutoStartOptionsRequest))
@@ -280,7 +280,7 @@ func _UserService_DeleteUser_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/DeleteUser",
+		FullMethod: "/nxpod.v1.UserService/DeleteUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).DeleteUser(ctx, req.(*DeleteUserRequest))
@@ -298,7 +298,7 @@ func _UserService_VerifyUser_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/VerifyUser",
+		FullMethod: "/nxpod.v1.UserService/VerifyUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).VerifyUser(ctx, req.(*VerifyUserRequest))
@@ -316,7 +316,7 @@ func _UserService_BlockUser_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/BlockUser",
+		FullMethod: "/nxpod.v1.UserService/BlockUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).BlockUser(ctx, req.(*BlockUserRequest))
@@ -334,7 +334,7 @@ func _UserService_ListUsers_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/ListUsers",
+		FullMethod: "/nxpod.v1.UserService/ListUsers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).ListUsers(ctx, req.(*ListUsersRequest))
@@ -352,7 +352,7 @@ func _UserService_GetUser_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/GetUser",
+		FullMethod: "/nxpod.v1.UserService/GetUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetUser(ctx, req.(*GetUserRequest))
@@ -370,7 +370,7 @@ func _UserService_SetRolesOrPermissions_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.UserService/SetRolesOrPermissions",
+		FullMethod: "/nxpod.v1.UserService/SetRolesOrPermissions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).SetRolesOrPermissions(ctx, req.(*SetRolesOrPermissionsRequest))
@@ -382,7 +382,7 @@ func _UserService_SetRolesOrPermissions_Handler(srv interface{}, ctx context.Con
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.UserService",
+	ServiceName: "nxpod.v1.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -423,5 +423,5 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/user.proto",
+	Metadata: "nxpod/v1/user.proto",
 }

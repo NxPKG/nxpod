@@ -61,7 +61,7 @@
                     "name": "PHASE_STOPPED",
                     "lastTransitionTime": "2023-10-16T20:28:44.923Z"
                 },
-                "workspaceUrl": "https://akosyakov-parceldemo-4crqn25qlwi.ws-dev.ak-public-26583c8c5c.preview.gitpod-dev.com",
+                "workspaceUrl": "https://akosyakov-parceldemo-4crqn25qlwi.ws-dev.ak-public-26583c8c5c.preview.nxpod-dev.com",
                 "conditions": {
                     "failed": "",
                     "failedReason": "FAILED_REASON_UNSPECIFIED",

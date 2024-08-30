@@ -27,15 +27,15 @@ var workspaceSSHCmd = &cobra.Command{
 	Short: "Connects to a workspace via SSH",
 	Args:  cobra.MinimumNArgs(1),
 	Example: `  # connect to workspace with current terminal session
-  $ gitpod workspace ssh <workspace-id>
+  $ nxpod workspace ssh <workspace-id>
 
   # Execute a command through SSH
-  $ gitpod workspace ssh <workspace-id> -- ls -la
-  $ gitpod ws ssh <workspace-id> -- -t watch date
+  $ nxpod workspace ssh <workspace-id> -- ls -la
+  $ nxpod ws ssh <workspace-id> -- -t watch date
 
   # Get all SSH features with --dry-run
-  $ $(gitpod workspace ssh <workspace-id> --dry-run) -- ls -la
-  $ $(gitpod workspace ssh <workspace-id> --dry-run) -t watch date`,
+  $ $(nxpod workspace ssh <workspace-id> --dry-run) -- ls -la
+  $ $(nxpod workspace ssh <workspace-id> --dry-run) -t watch date`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cmd.SilenceUsage = true
 
@@ -44,12 +44,12 @@ var workspaceSSHCmd = &cobra.Command{
 
 		workspaceID := args[0]
 
-		gitpod, err := getNxpodClient(cmd.Context())
+		nxpod, err := getNxpodClient(cmd.Context())
 		if err != nil {
 			return err
 		}
 
-		ws, err := gitpod.Workspaces.GetWorkspace(ctx, connect.NewRequest(&v1.GetWorkspaceRequest{WorkspaceId: workspaceID}))
+		ws, err := nxpod.Workspaces.GetWorkspace(ctx, connect.NewRequest(&v1.GetWorkspaceRequest{WorkspaceId: workspaceID}))
 		if err != nil {
 			return err
 		}
@@ -59,11 +59,11 @@ var workspaceSSHCmd = &cobra.Command{
 				return fmt.Errorf("workspace is not running")
 			}
 			slog.Info("workspace is not running, starting it...")
-			_, err := gitpod.Workspaces.StartWorkspace(ctx, connect.NewRequest(&v1.StartWorkspaceRequest{WorkspaceId: workspaceID}))
+			_, err := nxpod.Workspaces.StartWorkspace(ctx, connect.NewRequest(&v1.StartWorkspaceRequest{WorkspaceId: workspaceID}))
 			if err != nil {
 				return err
 			}
-			_, err = helper.ObserveWorkspaceUntilStarted(ctx, gitpod, workspaceID)
+			_, err = helper.ObserveWorkspaceUntilStarted(ctx, nxpod, workspaceID)
 			if err != nil {
 				return err
 			}
@@ -76,7 +76,7 @@ var workspaceSSHCmd = &cobra.Command{
 			sshArgs = args[dashDashIndex:]
 		}
 
-		return helper.SSHConnectToWorkspace(cmd.Context(), gitpod, workspaceID, workspaceSSHOpts.DryRun, sshArgs...)
+		return helper.SSHConnectToWorkspace(cmd.Context(), nxpod, workspaceID, workspaceSSHOpts.DryRun, sshArgs...)
 	},
 }
 

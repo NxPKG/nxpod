@@ -7,7 +7,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	"github.com/spf13/cobra"
 )
 

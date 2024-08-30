@@ -9,7 +9,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	serverapi "github.com/nxpkg/nxpod/gitpod-protocol"
+	serverapi "github.com/nxpkg/nxpod/nxpod-protocol"
 )
 
 func TestParseArgs(t *testing.T) {

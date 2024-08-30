@@ -12,30 +12,30 @@ import * as fs from "fs";
 import { WorkspaceManagerBridgeFactory, WorkspaceManagerBridge } from "./bridge";
 import { Metrics } from "./metrics";
 import { BridgeController, WorkspaceManagerClientProviderConfigSource } from "./bridge-controller";
-import { filePathTelepresenceAware } from "@gitpod/gitpod-protocol/lib/env";
+import { filePathTelepresenceAware } from "@nxpod/nxpod-protocol/lib/env";
 import {
     WorkspaceManagerClientProvider,
     IWorkspaceManagerClientCallMetrics,
-} from "@gitpod/ws-manager/lib/client-provider";
+} from "@nxpod/ws-manager/lib/client-provider";
 import {
     WorkspaceManagerClientProviderCompositeSource,
     WorkspaceManagerClientProviderDBSource,
     WorkspaceManagerClientProviderSource,
-} from "@gitpod/ws-manager/lib/client-provider-source";
+} from "@nxpod/ws-manager/lib/client-provider-source";
 import { ClusterService, ClusterServiceServer } from "./cluster-service-server";
-import { IAnalyticsWriter } from "@gitpod/gitpod-protocol/lib/analytics";
-import { newAnalyticsWriterFromEnv } from "@gitpod/gitpod-protocol/lib/util/analytics";
-import { IClientCallMetrics } from "@gitpod/gitpod-protocol/lib/util/grpc";
-import { PrometheusClientCallMetrics } from "@gitpod/gitpod-protocol/lib/messaging/client-call-metrics";
+import { IAnalyticsWriter } from "@nxpod/nxpod-protocol/lib/analytics";
+import { newAnalyticsWriterFromEnv } from "@nxpod/nxpod-protocol/lib/util/analytics";
+import { IClientCallMetrics } from "@nxpod/nxpod-protocol/lib/util/grpc";
+import { PrometheusClientCallMetrics } from "@nxpod/nxpod-protocol/lib/messaging/client-call-metrics";
 import { PrebuildStateMapper } from "./prebuild-state-mapper";
-import { DebugApp } from "@gitpod/gitpod-protocol/lib/util/debug-app";
-import { Client as ExperimentsClient } from "@gitpod/gitpod-protocol/lib/experiments/types";
-import { getExperimentsClientForBackend } from "@gitpod/gitpod-protocol/lib/experiments/configcat-server";
+import { DebugApp } from "@nxpod/nxpod-protocol/lib/util/debug-app";
+import { Client as ExperimentsClient } from "@nxpod/nxpod-protocol/lib/experiments/types";
+import { getExperimentsClientForBackend } from "@nxpod/nxpod-protocol/lib/experiments/configcat-server";
 import { WorkspaceInstanceController, WorkspaceInstanceControllerImpl } from "./workspace-instance-controller";
 import { AppClusterWorkspaceInstancesController } from "./app-cluster-instance-controller";
 import { PrebuildUpdater } from "./prebuild-updater";
 import { Redis } from "ioredis";
-import { RedisPublisher, newRedisClient } from "@gitpod/gitpod-db/lib";
+import { RedisPublisher, newRedisClient } from "@nxpod/nxpod-db/lib";
 
 export const containerModule = new ContainerModule((bind) => {
     bind(BridgeController).toSelf().inSingletonScope();

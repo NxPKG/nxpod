@@ -34,11 +34,11 @@ declare namespace Definitions {
          */
         userHome?: string;
         /**
-         * GitpodAPI provides information to reach the Gitpod server API.
+         * NxpodAPI provides information to reach the Nxpod server API.
          */
-        nxpodApi?: WorkspaceInfoResponseGitpodAPI;
+        nxpodApi?: WorkspaceInfoResponseNxpodAPI;
         /**
-         * nxpod_host provides Gitpod host URL.
+         * nxpod_host provides Nxpod host URL.
          */
         nxpodHost?: string;
         /**
@@ -50,9 +50,9 @@ declare namespace Definitions {
          */
         repository?: WorkspaceInfoResponseRepository;
     }
-    export interface WorkspaceInfoResponseGitpodAPI {
+    export interface WorkspaceInfoResponseNxpodAPI {
         /**
-         * endpoint is the websocket URL on which the token-accessible Gitpod API is served on
+         * endpoint is the websocket URL on which the token-accessible Nxpod API is served on
          */
         endpoint?: string;
         /**

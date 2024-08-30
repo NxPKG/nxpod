@@ -16,10 +16,10 @@ import (
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpod"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/gitpodlib"
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
-	protocol "github.com/nxpkg/nxpod/gitpod-protocol"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpod"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/nxpodlib"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
+	protocol "github.com/nxpkg/nxpod/nxpod-protocol"
 	"github.com/nxpkg/nxpod/supervisor/api"
 )
 
@@ -27,7 +27,7 @@ var (
 	interactive = false
 )
 
-// initCmd initializes the workspace's .gitpod.yml file
+// initCmd initializes the workspace's .nxpod.yml file
 var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Create a Nxpod configuration for this project.",
@@ -36,7 +36,7 @@ Create a Nxpod configuration for this project.
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx := cmd.Context()
-		cfg := gitpodlib.NxpodFile{}
+		cfg := nxpodlib.NxpodFile{}
 		if interactive {
 			if err := askForDockerImage(ctx, &cfg); err != nil {
 				return err
@@ -57,61 +57,61 @@ Create a Nxpod configuration for this project.
 			return err
 		}
 		if !interactive {
-			wsInfo, err := gitpod.GetWSInfo(ctx)
+			wsInfo, err := nxpod.GetWSInfo(ctx)
 			if err != nil {
 				return fmt.Errorf("failed to get workspace info: %w", err)
 			}
 			defaultImage, err := getDefaultWorkspaceImage(ctx, wsInfo)
 			if err != nil {
 				fmt.Printf("failed to get organization default workspace image: %v\n", err)
-				fmt.Println("fallback to gitpod default")
+				fmt.Println("fallback to nxpod default")
 				defaultImage = ""
 			}
 			yml := ""
 			if defaultImage != "" {
-				yml = yml + fmt.Sprintf("# Image of workspace. Learn more: https://www.gitpod.io/docs/configure/workspaces/workspace-image\nimage: %s\n\n", defaultImage)
+				yml = yml + fmt.Sprintf("# Image of workspace. Learn more: https://www.nxpod.khulnasoft.com/docs/configure/workspaces/workspace-image\nimage: %s\n\n", defaultImage)
 			}
-			yml = yml + `# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+			yml = yml + `# List the start up tasks. Learn more: https://www.nxpod.khulnasoft.com/docs/configure/workspaces/tasks
 tasks:
   - name: Script Task
-    init: echo 'init script' # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+    init: echo 'init script' # runs during prebuild => https://www.nxpod.khulnasoft.com/docs/configure/projects/prebuilds
     command: echo 'start script'
 
-# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
+# List the ports to expose. Learn more: https://www.nxpod.khulnasoft.com/docs/configure/workspaces/ports
 ports:
   - name: Frontend
     description: Port 3000 for the frontend
     port: 3000
     onOpen: open-preview
 
-# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+# Learn more from ready-to-use templates: https://www.nxpod.khulnasoft.com/docs/introduction/getting-started/quickstart
 `
 			d = []byte(yml)
 		} else {
 			fmt.Printf("\n\n---\n%s", d)
 		}
 
-		if _, err = os.Stat(".gitpod.yml"); err == nil {
+		if _, err = os.Stat(".nxpod.yml"); err == nil {
 			prompt := promptui.Prompt{
 				IsConfirm: true,
-				Label:     ".gitpod.yml file already exists, overwrite?",
+				Label:     ".nxpod.yml file already exists, overwrite?",
 			}
 			if _, err = prompt.Run(); err != nil {
-				fmt.Printf("Not overwriting .gitpod.yml file. Aborting.\n")
+				fmt.Printf("Not overwriting .nxpod.yml file. Aborting.\n")
 				return GpError{Silence: true, Err: err, OutCome: utils.Outcome_Success}
 			}
 		}
 
-		if err = os.WriteFile(".gitpod.yml", d, 0644); err != nil {
+		if err = os.WriteFile(".nxpod.yml", d, 0644); err != nil {
 			return err
 		}
 
-		// open .gitpod.yml and Dockerfile
-		if v, ok := cfg.Image.(gitpodlib.NxpodImage); ok {
+		// open .nxpod.yml and Dockerfile
+		if v, ok := cfg.Image.(nxpodlib.NxpodImage); ok {
 			if _, err = os.Stat(v.File); os.IsNotExist(err) {
-				if err = os.WriteFile(v.File, []byte(`FROM gitpod/workspace-full
+				if err = os.WriteFile(v.File, []byte(`FROM nxpod/workspace-full
 
-USER gitpod
+USER nxpod
 
 # Install custom tools, runtime, etc. using apt-get
 # For example, the command below would install "bastet" - a command line tetris clone:
@@ -120,7 +120,7 @@ USER gitpod
 #     sudo apt-get install -yq bastet && \
 #     sudo rm -rf /var/lib/apt/lists/*
 #
-# More information: https://www.gitpod.io/docs/config-docker/
+# More information: https://www.nxpod.khulnasoft.com/docs/config-docker/
 `), 0644); err != nil {
 					return err
 				}
@@ -128,12 +128,12 @@ USER gitpod
 
 			openCmd.RunE(cmd, []string{v.File})
 		}
-		return openCmd.RunE(cmd, []string{".gitpod.yml"})
+		return openCmd.RunE(cmd, []string{".nxpod.yml"})
 	},
 }
 
 func getDefaultWorkspaceImage(ctx context.Context, wsInfo *api.WorkspaceInfoResponse) (string, error) {
-	client, err := gitpod.ConnectToServer(ctx, wsInfo, []string{
+	client, err := nxpod.ConnectToServer(ctx, wsInfo, []string{
 		"function:getDefaultWorkspaceImage",
 	})
 	if err != nil {
@@ -173,7 +173,7 @@ func ask(lbl string, def string, validator promptui.ValidateFunc) (string, error
 	return prompt.Run()
 }
 
-func askForDockerImage(ctx context.Context, cfg *gitpodlib.NxpodFile) error {
+func askForDockerImage(ctx context.Context, cfg *nxpodlib.NxpodFile) error {
 	prompt := promptui.Select{
 		Label: "Workspace Docker image",
 		Items: []string{"default", "custom image", "docker file"},
@@ -187,7 +187,7 @@ func askForDockerImage(ctx context.Context, cfg *gitpodlib.NxpodFile) error {
 	}
 
 	if chce == 0 {
-		wsInfo, err := gitpod.GetWSInfo(ctx)
+		wsInfo, err := nxpod.GetWSInfo(ctx)
 		if err != nil {
 			return fmt.Errorf("failed to get workspace info: %w", err)
 		}
@@ -208,7 +208,7 @@ func askForDockerImage(ctx context.Context, cfg *gitpodlib.NxpodFile) error {
 	}
 
 	// configure docker file
-	dockerFile, err := ask("Dockerfile path", ".gitpod.Dockerfile", isRequired)
+	dockerFile, err := ask("Dockerfile path", ".nxpod.Dockerfile", isRequired)
 	if err != nil {
 		return err
 	}
@@ -216,7 +216,7 @@ func askForDockerImage(ctx context.Context, cfg *gitpodlib.NxpodFile) error {
 	if err != nil {
 		return err
 	}
-	cfg.SetImage(gitpodlib.NxpodImage{
+	cfg.SetImage(nxpodlib.NxpodImage{
 		File:    dockerFile,
 		Context: ctxtPath,
 	})
@@ -239,7 +239,7 @@ func parsePorts(input string) ([]int32, error) {
 	return rst, nil
 }
 
-func askForPorts(cfg *gitpodlib.NxpodFile) error {
+func askForPorts(cfg *nxpodlib.NxpodFile) error {
 	input, err := ask("Expose Ports (comma separated)", "", func(input string) error {
 		if _, err := parsePorts(input); err != nil {
 			return err
@@ -261,7 +261,7 @@ func askForPorts(cfg *gitpodlib.NxpodFile) error {
 	return nil
 }
 
-func askForTask(cfg *gitpodlib.NxpodFile) error {
+func askForTask(cfg *nxpodlib.NxpodFile) error {
 	input, err := ask("Startup task (enter to skip)", "", nil)
 	if err != nil {
 		return err

@@ -15,9 +15,9 @@ const REGEX_WORKSPACE_ID_LEGACY_FROM_HOSTNAME = new RegExp(`(${REGEX_WORKSPACE_I
 
 /**
  * Hostname may be of the form:
- *  - moccasin-ferret-155799b3.ws-eu01.nxpod.io
- *  - 1234-moccasin-ferret-155799b3.ws-eu01.nxpod.io
- *  - webview-1234-moccasin-ferret-155799b3.ws-eu01.nxpod.io (or any other string replacing webview)
+ *  - moccasin-ferret-155799b3.ws-eu01.nxpod.khulnasoft.com
+ *  - 1234-moccasin-ferret-155799b3.ws-eu01.nxpod.khulnasoft.com
+ *  - webview-1234-moccasin-ferret-155799b3.ws-eu01.nxpod.khulnasoft.com (or any other string replacing webview)
  * @param hostname The hostname the request is headed to
  */
 export const parseWorkspaceIdFromHostname = function (hostname: string) {

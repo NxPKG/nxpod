@@ -10,7 +10,7 @@ import (
 	"os"
 	"syscall"
 
-	"github.com/nxpkg/nxpod/gitpod-cli/pkg/utils"
+	"github.com/nxpkg/nxpod/nxpod-cli/pkg/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -20,9 +20,9 @@ import (
 
 const delimiter = "@"
 
-// gitpodRunCmd represents the gitpodRun command
-var gitpodRunCmd = &cobra.Command{
-	Use:    "__gitpod_run [<pathToExecutable>]",
+// nxpodRunCmd represents the nxpodRun command
+var nxpodRunCmd = &cobra.Command{
+	Use:    "__nxpod_run [<pathToExecutable>]",
 	Short:  "Used by Nxpod to ensure smooth operation",
 	Hidden: true,
 	Args:   cobra.MaximumNArgs(1),
@@ -90,5 +90,5 @@ func (p *delimitingReader) Read(buf []byte) (int, error) {
 }
 
 func init() {
-	rootCmd.AddCommand(gitpodRunCmd)
+	rootCmd.AddCommand(nxpodRunCmd)
 }

@@ -6,7 +6,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: gitpod/v1/organization.proto
+// source: nxpod/v1/organization.proto
 
 package v1
 
@@ -68,7 +68,7 @@ func NewOrganizationServiceClient(cc grpc.ClientConnInterface) OrganizationServi
 
 func (c *organizationServiceClient) CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*CreateOrganizationResponse, error) {
 	out := new(CreateOrganizationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/CreateOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/CreateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (c *organizationServiceClient) CreateOrganization(ctx context.Context, in *
 
 func (c *organizationServiceClient) GetOrganization(ctx context.Context, in *GetOrganizationRequest, opts ...grpc.CallOption) (*GetOrganizationResponse, error) {
 	out := new(GetOrganizationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/GetOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/GetOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func (c *organizationServiceClient) GetOrganization(ctx context.Context, in *Get
 
 func (c *organizationServiceClient) UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*UpdateOrganizationResponse, error) {
 	out := new(UpdateOrganizationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/UpdateOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/UpdateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (c *organizationServiceClient) UpdateOrganization(ctx context.Context, in *
 
 func (c *organizationServiceClient) ListOrganizations(ctx context.Context, in *ListOrganizationsRequest, opts ...grpc.CallOption) (*ListOrganizationsResponse, error) {
 	out := new(ListOrganizationsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/ListOrganizations", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/ListOrganizations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +104,7 @@ func (c *organizationServiceClient) ListOrganizations(ctx context.Context, in *L
 
 func (c *organizationServiceClient) DeleteOrganization(ctx context.Context, in *DeleteOrganizationRequest, opts ...grpc.CallOption) (*DeleteOrganizationResponse, error) {
 	out := new(DeleteOrganizationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/DeleteOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/DeleteOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +113,7 @@ func (c *organizationServiceClient) DeleteOrganization(ctx context.Context, in *
 
 func (c *organizationServiceClient) GetOrganizationInvitation(ctx context.Context, in *GetOrganizationInvitationRequest, opts ...grpc.CallOption) (*GetOrganizationInvitationResponse, error) {
 	out := new(GetOrganizationInvitationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/GetOrganizationInvitation", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/GetOrganizationInvitation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +122,7 @@ func (c *organizationServiceClient) GetOrganizationInvitation(ctx context.Contex
 
 func (c *organizationServiceClient) JoinOrganization(ctx context.Context, in *JoinOrganizationRequest, opts ...grpc.CallOption) (*JoinOrganizationResponse, error) {
 	out := new(JoinOrganizationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/JoinOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/JoinOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -131,7 +131,7 @@ func (c *organizationServiceClient) JoinOrganization(ctx context.Context, in *Jo
 
 func (c *organizationServiceClient) ResetOrganizationInvitation(ctx context.Context, in *ResetOrganizationInvitationRequest, opts ...grpc.CallOption) (*ResetOrganizationInvitationResponse, error) {
 	out := new(ResetOrganizationInvitationResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/ResetOrganizationInvitation", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/ResetOrganizationInvitation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -140,7 +140,7 @@ func (c *organizationServiceClient) ResetOrganizationInvitation(ctx context.Cont
 
 func (c *organizationServiceClient) ListOrganizationMembers(ctx context.Context, in *ListOrganizationMembersRequest, opts ...grpc.CallOption) (*ListOrganizationMembersResponse, error) {
 	out := new(ListOrganizationMembersResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/ListOrganizationMembers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/ListOrganizationMembers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -149,7 +149,7 @@ func (c *organizationServiceClient) ListOrganizationMembers(ctx context.Context,
 
 func (c *organizationServiceClient) UpdateOrganizationMember(ctx context.Context, in *UpdateOrganizationMemberRequest, opts ...grpc.CallOption) (*UpdateOrganizationMemberResponse, error) {
 	out := new(UpdateOrganizationMemberResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/UpdateOrganizationMember", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/UpdateOrganizationMember", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +158,7 @@ func (c *organizationServiceClient) UpdateOrganizationMember(ctx context.Context
 
 func (c *organizationServiceClient) DeleteOrganizationMember(ctx context.Context, in *DeleteOrganizationMemberRequest, opts ...grpc.CallOption) (*DeleteOrganizationMemberResponse, error) {
 	out := new(DeleteOrganizationMemberResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/DeleteOrganizationMember", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/DeleteOrganizationMember", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -167,7 +167,7 @@ func (c *organizationServiceClient) DeleteOrganizationMember(ctx context.Context
 
 func (c *organizationServiceClient) GetOrganizationSettings(ctx context.Context, in *GetOrganizationSettingsRequest, opts ...grpc.CallOption) (*GetOrganizationSettingsResponse, error) {
 	out := new(GetOrganizationSettingsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/GetOrganizationSettings", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/GetOrganizationSettings", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -176,7 +176,7 @@ func (c *organizationServiceClient) GetOrganizationSettings(ctx context.Context,
 
 func (c *organizationServiceClient) UpdateOrganizationSettings(ctx context.Context, in *UpdateOrganizationSettingsRequest, opts ...grpc.CallOption) (*UpdateOrganizationSettingsResponse, error) {
 	out := new(UpdateOrganizationSettingsResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/UpdateOrganizationSettings", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/UpdateOrganizationSettings", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -185,7 +185,7 @@ func (c *organizationServiceClient) UpdateOrganizationSettings(ctx context.Conte
 
 func (c *organizationServiceClient) ListOrganizationWorkspaceClasses(ctx context.Context, in *ListOrganizationWorkspaceClassesRequest, opts ...grpc.CallOption) (*ListOrganizationWorkspaceClassesResponse, error) {
 	out := new(ListOrganizationWorkspaceClassesResponse)
-	err := c.cc.Invoke(ctx, "/gitpod.v1.OrganizationService/ListOrganizationWorkspaceClasses", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nxpod.v1.OrganizationService/ListOrganizationWorkspaceClasses", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -298,7 +298,7 @@ func _OrganizationService_CreateOrganization_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/CreateOrganization",
+		FullMethod: "/nxpod.v1.OrganizationService/CreateOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).CreateOrganization(ctx, req.(*CreateOrganizationRequest))
@@ -316,7 +316,7 @@ func _OrganizationService_GetOrganization_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/GetOrganization",
+		FullMethod: "/nxpod.v1.OrganizationService/GetOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).GetOrganization(ctx, req.(*GetOrganizationRequest))
@@ -334,7 +334,7 @@ func _OrganizationService_UpdateOrganization_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/UpdateOrganization",
+		FullMethod: "/nxpod.v1.OrganizationService/UpdateOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).UpdateOrganization(ctx, req.(*UpdateOrganizationRequest))
@@ -352,7 +352,7 @@ func _OrganizationService_ListOrganizations_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/ListOrganizations",
+		FullMethod: "/nxpod.v1.OrganizationService/ListOrganizations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).ListOrganizations(ctx, req.(*ListOrganizationsRequest))
@@ -370,7 +370,7 @@ func _OrganizationService_DeleteOrganization_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/DeleteOrganization",
+		FullMethod: "/nxpod.v1.OrganizationService/DeleteOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).DeleteOrganization(ctx, req.(*DeleteOrganizationRequest))
@@ -388,7 +388,7 @@ func _OrganizationService_GetOrganizationInvitation_Handler(srv interface{}, ctx
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/GetOrganizationInvitation",
+		FullMethod: "/nxpod.v1.OrganizationService/GetOrganizationInvitation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).GetOrganizationInvitation(ctx, req.(*GetOrganizationInvitationRequest))
@@ -406,7 +406,7 @@ func _OrganizationService_JoinOrganization_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/JoinOrganization",
+		FullMethod: "/nxpod.v1.OrganizationService/JoinOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).JoinOrganization(ctx, req.(*JoinOrganizationRequest))
@@ -424,7 +424,7 @@ func _OrganizationService_ResetOrganizationInvitation_Handler(srv interface{}, c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/ResetOrganizationInvitation",
+		FullMethod: "/nxpod.v1.OrganizationService/ResetOrganizationInvitation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).ResetOrganizationInvitation(ctx, req.(*ResetOrganizationInvitationRequest))
@@ -442,7 +442,7 @@ func _OrganizationService_ListOrganizationMembers_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/ListOrganizationMembers",
+		FullMethod: "/nxpod.v1.OrganizationService/ListOrganizationMembers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).ListOrganizationMembers(ctx, req.(*ListOrganizationMembersRequest))
@@ -460,7 +460,7 @@ func _OrganizationService_UpdateOrganizationMember_Handler(srv interface{}, ctx 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/UpdateOrganizationMember",
+		FullMethod: "/nxpod.v1.OrganizationService/UpdateOrganizationMember",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).UpdateOrganizationMember(ctx, req.(*UpdateOrganizationMemberRequest))
@@ -478,7 +478,7 @@ func _OrganizationService_DeleteOrganizationMember_Handler(srv interface{}, ctx 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/DeleteOrganizationMember",
+		FullMethod: "/nxpod.v1.OrganizationService/DeleteOrganizationMember",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).DeleteOrganizationMember(ctx, req.(*DeleteOrganizationMemberRequest))
@@ -496,7 +496,7 @@ func _OrganizationService_GetOrganizationSettings_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/GetOrganizationSettings",
+		FullMethod: "/nxpod.v1.OrganizationService/GetOrganizationSettings",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).GetOrganizationSettings(ctx, req.(*GetOrganizationSettingsRequest))
@@ -514,7 +514,7 @@ func _OrganizationService_UpdateOrganizationSettings_Handler(srv interface{}, ct
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/UpdateOrganizationSettings",
+		FullMethod: "/nxpod.v1.OrganizationService/UpdateOrganizationSettings",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).UpdateOrganizationSettings(ctx, req.(*UpdateOrganizationSettingsRequest))
@@ -532,7 +532,7 @@ func _OrganizationService_ListOrganizationWorkspaceClasses_Handler(srv interface
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gitpod.v1.OrganizationService/ListOrganizationWorkspaceClasses",
+		FullMethod: "/nxpod.v1.OrganizationService/ListOrganizationWorkspaceClasses",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizationServiceServer).ListOrganizationWorkspaceClasses(ctx, req.(*ListOrganizationWorkspaceClassesRequest))
@@ -544,7 +544,7 @@ func _OrganizationService_ListOrganizationWorkspaceClasses_Handler(srv interface
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var OrganizationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gitpod.v1.OrganizationService",
+	ServiceName: "nxpod.v1.OrganizationService",
 	HandlerType: (*OrganizationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -605,5 +605,5 @@ var OrganizationService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gitpod/v1/organization.proto",
+	Metadata: "nxpod/v1/organization.proto",
 }

@@ -33,12 +33,12 @@ var workspaceOpenCmd = &cobra.Command{
 
 		workspaceID := args[0]
 
-		gitpod, err := getNxpodClient(cmd.Context())
+		nxpod, err := getNxpodClient(cmd.Context())
 		if err != nil {
 			return err
 		}
 
-		ws, err := gitpod.Workspaces.GetWorkspace(ctx, connect.NewRequest(&v1.GetWorkspaceRequest{WorkspaceId: workspaceID}))
+		ws, err := nxpod.Workspaces.GetWorkspace(ctx, connect.NewRequest(&v1.GetWorkspaceRequest{WorkspaceId: workspaceID}))
 		if err != nil {
 			return err
 		}
@@ -48,18 +48,18 @@ var workspaceOpenCmd = &cobra.Command{
 				return fmt.Errorf("workspace is not running")
 			}
 			slog.Info("workspace is not running, starting it...")
-			_, err := gitpod.Workspaces.StartWorkspace(ctx, connect.NewRequest(&v1.StartWorkspaceRequest{WorkspaceId: workspaceID}))
+			_, err := nxpod.Workspaces.StartWorkspace(ctx, connect.NewRequest(&v1.StartWorkspaceRequest{WorkspaceId: workspaceID}))
 			if err != nil {
 				return err
 			}
-			_, err = helper.ObserveWorkspaceUntilStarted(ctx, gitpod, workspaceID)
+			_, err = helper.ObserveWorkspaceUntilStarted(ctx, nxpod, workspaceID)
 			if err != nil {
 				return err
 			}
 		}
 
 		slog.Debug("attempting to open workspace...")
-		return helper.OpenWorkspaceInPreferredEditor(cmd.Context(), gitpod, workspaceID)
+		return helper.OpenWorkspaceInPreferredEditor(cmd.Context(), nxpod, workspaceID)
 	},
 }
 
